@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/react-swc' // (or '@vitejs/plugin-react' depending on your setup)
+import react from '@vitejs/plugin-react' // 👈 Swapped this to the standard plugin
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/Multi-Quiz-App/', // 👈 ADD THIS LINE
+  base: '/Multi-Quiz-App/', 
 })
