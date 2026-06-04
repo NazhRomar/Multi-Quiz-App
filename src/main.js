@@ -22,7 +22,11 @@ let userAnswers = {};
 let activeMode = 'quiz';
 
 // Load from LocalStorage
-let appSettings = loadState('quizApp_appSettings', { disableAnimations: false });
+let appSettings = loadState('quizApp_appSettings', { 
+  disableAnimations: false,
+  navLocation: 'down', // 'down', 'up', 'both'
+  theme: 'default'     // <-- NEW THEME SETTING
+});
 let quizOptions = loadState('quizApp_quizOptions', { 
   noSkip: false, 
   hideFeedback: false, 
@@ -31,11 +35,56 @@ let quizOptions = loadState('quizApp_quizOptions', {
   shuffleQuestions: false, 
   shuffleChoices: false 
 });
-let reviewOptions = loadState('quizApp_reviewOptions', { showAllChoices: false, hideExplanation: false });
+let reviewOptions = loadState('quizApp_reviewOptions', { 
+  showAllChoices: false, 
+  hideExplanation: false,
+  listView: false 
+});
 
 // Apply initial app settings
 if (appSettings.disableAnimations) {
   document.body.classList.add('no-animations');
+}
+
+if (appSettings.theme && appSettings.theme !== 'default') {
+  document.body.classList.add(`theme-${appSettings.theme}`);
+}
+
+// --- Navigation Helper ---
+function renderNavRow(isFirst, isLast, nextBlocked, isQuizMode) {
+  let html = '';
+  
+  if (activeMode === 'review' && reviewOptions.listView) {
+    html = `<button class="btn-next" style="margin-left:auto;" onclick="renderMenu()">Done ✓</button>`;
+  } else {
+    const prevBtn = `<button class="btn-prev" onclick="prevQ()" ${isFirst ? 'disabled' : ''}>← Previous</button>`;
+    
+    let nextAction, nextLabel;
+    if (isLast) {
+      nextAction = isQuizMode ? 'submitQuiz()' : 'renderMenu()';
+      nextLabel = isQuizMode ? 'Finish Quiz ✓' : 'Done ✓';
+    } else {
+      nextAction = 'nextQ()';
+      nextLabel = 'Next →';
+    }
+    
+    const disabledAttr = (isQuizMode && nextBlocked) ? 'disabled title="Answer this question first"' : '';
+    const nextBtn = `<button class="btn-next" onclick="${nextAction}" ${disabledAttr}>${nextLabel}</button>`;
+    
+    html = `${prevBtn}${nextBtn}`;
+  }
+
+  const navTop = document.getElementById('quiz-nav-top');
+  const navBottom = document.getElementById('quiz-nav-bottom');
+
+  if (navTop) {
+    navTop.innerHTML = html;
+    navTop.style.display = ['up', 'both'].includes(appSettings.navLocation) ? 'flex' : 'none';
+  }
+  if (navBottom) {
+    navBottom.innerHTML = html;
+    navBottom.style.display = ['down', 'both'].includes(appSettings.navLocation) ? 'flex' : 'none';
+  }
 }
 
 // --- 2. Load Data ---
@@ -70,21 +119,36 @@ function renderMenu() {
     <header class="quiz-header">
       <h1>Multi Quiz App</h1>
       <div class="header-right">
+        
+        <!-- DIRECT SELECT DROPDOWN FOR STYLE -->
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 0.85rem; font-weight: 700; color: var(--text-muted);">Style</span>
+          <select class="btn-options" onchange="setAppSetting('theme', this.value)" style="outline: none; font-family: 'Space Mono', monospace; appearance: none; -webkit-appearance: none; padding-right: 2.2rem; background: transparent url('data:image/svg+xml;utf8,<svg fill=%22%231e3148%22 height=%2224%22 viewBox=%220 0 24 24%22 width=%2224%22 xmlns=%22http://www.w3.org/2000/svg%22><path d=%22M7 10l5 5 5-5z%22/></svg>') no-repeat right 0.6rem center; background-size: 1.2rem;">
+            <option value="default" ${appSettings.theme === 'default' ? 'selected' : ''}>Misty Blue (Default)</option>
+            <option value="canvas" ${appSettings.theme === 'canvas' ? 'selected' : ''}>Canvas</option>
+            <option value="dark-purple" ${appSettings.theme === 'dark-purple' ? 'selected' : ''}>Dark Purple</option>
+          </select>
+        </div>
+
+        <!-- ORIGINAL HAMBURGER BUTTON -->
         <div class="hamburger-wrap">
           <button class="btn-hamburger" onclick="toggleDropdown('menu-dropdown')" aria-label="Settings">
             <span></span><span></span><span></span>
           </button>
           <div id="menu-dropdown" class="dropdown-menu" style="display:none;">
-            <div class="dropdown-header">App Settings</div>
-            <label class="dropdown-item">
-              <span class="dropdown-item-text">
-                <strong>Disable animations</strong>
-                <small>Turn off all transitions and fades</small>
-              </span>
-              <input type="checkbox" id="opt-disable-anim" onchange="setAppSetting('disableAnimations', this.checked)" ${appSettings.disableAnimations ? 'checked' : ''}>
-            </label>
+            <div class="dropdown-header" onclick="toggleCategory(this)">App Settings</div>
+            <div class="dropdown-category-content">
+              <label class="dropdown-item">
+                <span class="dropdown-item-text">
+                  <strong>Disable animations</strong>
+                  <small>Turn off all transitions and fades</small>
+                </span>
+                <input type="checkbox" id="opt-disable-anim" onchange="setAppSetting('disableAnimations', this.checked)" ${appSettings.disableAnimations ? 'checked' : ''}>
+              </label>
+            </div>
           </div>
         </div>
+
       </div>
     </header>
   `;
@@ -94,16 +158,31 @@ function renderMenu() {
   for (const term in courseMenu) {
     const termSection = document.createElement('section');
     termSection.innerHTML = `<h2>${term}</h2>`;
+    
     for (const course in courseMenu[term]) {
       const courseTitle = document.createElement('h3');
       courseTitle.innerText = course;
       termSection.appendChild(courseTitle);
+      
       const quizList = document.createElement('div');
       quizList.className = 'quiz-list';
+      
       courseMenu[term][course].forEach(quiz => {
         const quizBtn = document.createElement('button');
         quizBtn.className = 'btn-quiz';
-        quizBtn.innerText = quiz.title;
+        
+        // Calculate total items
+        const totalItems = quiz.data.questions ? quiz.data.questions.length : 0;
+        
+        // Inject rich HTML into the button
+        quizBtn.innerHTML = `
+          <div class="quiz-btn-content">
+            <span class="quiz-btn-title">${quiz.title}</span>
+            <span class="quiz-btn-meta">${totalItems} items</span>
+          </div>
+        `;
+        
+        // Launch straight into Quiz Mode
         quizBtn.onclick = () => startQuizMode(term, course, quiz.data);
         quizList.appendChild(quizBtn);
       });
@@ -162,10 +241,8 @@ function startQuizMode(term, course, quizData) {
   currentIndex = 0;
   userAnswers = {};
 
-  // Deep clone data to allow shuffling without modifying source
   activeQuiz = JSON.parse(JSON.stringify(quizData));
 
-  // Handle Shuffling
   if (quizOptions.shuffleQuestions) {
     shuffleArray(activeQuiz.questions);
   }
@@ -211,71 +288,97 @@ function renderQuizShell() {
             <button class="dropdown-mode-switch" onclick="switchToReview()">Switch to Review Mode →</button>
             <div class="dropdown-divider"></div>
             
-            <div class="dropdown-header">Quiz Options</div>
-            <label class="dropdown-item">
-              <span class="dropdown-item-text">
-                <strong>Shuffle questions</strong>
-                <small>Randomizes question order (Applies on Restart)</small>
-              </span>
-              <input type="checkbox" onchange="setQuizOption('shuffleQuestions', this.checked)" ${quizOptions.shuffleQuestions ? 'checked' : ''}>
-            </label>
-            <label class="dropdown-item">
-              <span class="dropdown-item-text">
-                <strong>Shuffle choices</strong>
-                <small>Randomizes choice order (Applies on Restart)</small>
-              </span>
-              <input type="checkbox" onchange="setQuizOption('shuffleChoices', this.checked)" ${quizOptions.shuffleChoices ? 'checked' : ''}>
-            </label>
-            <label class="dropdown-item">
-              <span class="dropdown-item-text">
-                <strong>Hide feedback</strong>
-                <small>Don't show correct/incorrect banner</small>
-              </span>
-              <input type="checkbox" onchange="setQuizOption('hideFeedback', this.checked)" ${quizOptions.hideFeedback ? 'checked' : ''}>
-            </label>
-            <label class="dropdown-item">
-              <span class="dropdown-item-text">
-                <strong>Hide explanation</strong>
-                <small>Don't show the explanation text</small>
-              </span>
-              <input type="checkbox" onchange="setQuizOption('hideExplanation', this.checked)" ${quizOptions.hideExplanation ? 'checked' : ''}>
-            </label>
-            <label class="dropdown-item">
-              <span class="dropdown-item-text">
-                <strong>Skip feedback</strong>
-                <small>Hide banner if explanation exists</small>
-              </span>
-              <input type="checkbox" onchange="setQuizOption('hideFeedbackIfExplanation', this.checked)" ${quizOptions.hideFeedbackIfExplanation ? 'checked' : ''}>
-            </label>
-            <label class="dropdown-item">
-              <span class="dropdown-item-text">
-                <strong>Disable navigation</strong>
-                <small>Must answer before moving forward</small>
-              </span>
-              <input type="checkbox" onchange="setQuizOption('noSkip', this.checked)" ${quizOptions.noSkip ? 'checked' : ''}>
-            </label>
+            <div class="dropdown-header" onclick="toggleCategory(this)">Quiz Options</div>
+            <div class="dropdown-category-content">
+              <label class="dropdown-item">
+                <span class="dropdown-item-text">
+                  <strong>Shuffle questions</strong>
+                  <small>Randomizes order (Applies on Restart)</small>
+                </span>
+                <input type="checkbox" onchange="setQuizOption('shuffleQuestions', this.checked)" ${quizOptions.shuffleQuestions ? 'checked' : ''}>
+              </label>
+              <label class="dropdown-item">
+                <span class="dropdown-item-text">
+                  <strong>Shuffle choices</strong>
+                  <small>Randomizes choices (Applies on Restart)</small>
+                </span>
+                <input type="checkbox" onchange="setQuizOption('shuffleChoices', this.checked)" ${quizOptions.shuffleChoices ? 'checked' : ''}>
+              </label>
+              <label class="dropdown-item">
+                <span class="dropdown-item-text">
+                  <strong>Hide feedback</strong>
+                  <small>Don't show correct/incorrect banner</small>
+                </span>
+                <input type="checkbox" onchange="setQuizOption('hideFeedback', this.checked)" ${quizOptions.hideFeedback ? 'checked' : ''}>
+              </label>
+              <label class="dropdown-item">
+                <span class="dropdown-item-text">
+                  <strong>Hide explanation</strong>
+                  <small>Don't show the explanation text</small>
+                </span>
+                <input type="checkbox" onchange="setQuizOption('hideExplanation', this.checked)" ${quizOptions.hideExplanation ? 'checked' : ''}>
+              </label>
+              <label class="dropdown-item">
+                <span class="dropdown-item-text">
+                  <strong>Skip feedback</strong>
+                  <small>Hide banner if explanation exists</small>
+                </span>
+                <input type="checkbox" onchange="setQuizOption('hideFeedbackIfExplanation', this.checked)" ${quizOptions.hideFeedbackIfExplanation ? 'checked' : ''}>
+              </label>
+              <label class="dropdown-item">
+                <span class="dropdown-item-text">
+                  <strong>Disable navigation</strong>
+                  <small>Must answer before moving forward</small>
+                </span>
+                <input type="checkbox" onchange="setQuizOption('noSkip', this.checked)" ${quizOptions.noSkip ? 'checked' : ''}>
+              </label>
+            </div>
             
             <div class="dropdown-divider"></div>
-            <div class="dropdown-header">App Settings</div>
-            <label class="dropdown-item">
-              <span class="dropdown-item-text">
-                <strong>Disable animations</strong>
-                <small>Turn off all transitions and fades</small>
-              </span>
-              <input type="checkbox" onchange="setAppSetting('disableAnimations', this.checked)" ${appSettings.disableAnimations ? 'checked' : ''}>
-            </label>
+            <div class="dropdown-header" onclick="toggleCategory(this)">App Settings</div>
+            <div class="dropdown-category-content">
+              <label class="dropdown-item" style="flex-direction: column; align-items: flex-start; gap: 0.5rem;">
+                <span class="dropdown-item-text">
+                  <strong>UI Theme</strong>
+                  <small>Switch app appearance</small>
+                </span>
+                <select onchange="setAppSetting('theme', this.value)" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 6px;">
+                  <option value="default" ${appSettings.theme === 'default' ? 'selected' : ''}>Misty Blue (Default)</option>
+                  <option value="canvas" ${appSettings.theme === 'canvas' ? 'selected' : ''}>Canvas</option>
+                  <option value="dark-purple" ${appSettings.theme === 'dark-purple' ? 'selected' : ''}>Dark Purple</option>
+                </select>
+              </label>
+              <label class="dropdown-item" style="flex-direction: column; align-items: flex-start; gap: 0.5rem;">
+                <span class="dropdown-item-text">
+                  <strong>Navigation Position</strong>
+                  <small>Where to place Prev/Next</small>
+                </span>
+                <select onchange="setAppSetting('navLocation', this.value)" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 6px;">
+                  <option value="down" ${appSettings.navLocation === 'down' ? 'selected' : ''}>Bottom</option>
+                  <option value="up" ${appSettings.navLocation === 'up' ? 'selected' : ''}>Top</option>
+                  <option value="both" ${appSettings.navLocation === 'both' ? 'selected' : ''}>Both</option>
+                </select>
+              </label>
+              <label class="dropdown-item">
+                <span class="dropdown-item-text">
+                  <strong>Disable animations</strong>
+                  <small>Turn off all transitions and fades</small>
+                </span>
+                <input type="checkbox" onchange="setAppSetting('disableAnimations', this.checked)" ${appSettings.disableAnimations ? 'checked' : ''}>
+              </label>
+            </div>
           </div>
         </div>
       </div>
     </header>
+    <nav id="quiz-nav-top" class="nav-row"></nav>
     <main id="quiz-container"></main>
-    <footer id="quiz-nav" class="nav-row"></footer>
+    <footer id="quiz-nav-bottom" class="nav-row"></footer>
   `;
 }
 
 function renderQuestion() {
   const container = document.getElementById('quiz-container');
-  const nav = document.getElementById('quiz-nav');
 
   const lbl = document.getElementById('progress-label');
   const fill = document.getElementById('progress-bar-fill');
@@ -449,13 +552,7 @@ function renderQuestion() {
   const isLast = currentIndex === activeQuiz.questions.length - 1;
   const nextBlocked = quizOptions.noSkip && !savedState.submitted;
 
-  nav.innerHTML = `
-    <button class="btn-prev" onclick="prevQ()" ${isFirst ? 'disabled' : ''}>← Previous</button>
-    ${isLast
-      ? `<button class="btn-next" onclick="submitQuiz()" ${nextBlocked ? 'disabled title="Answer this question first"' : ''}>Finish Quiz ✓</button>`
-      : `<button class="btn-next" onclick="nextQ()" ${nextBlocked ? 'disabled title="Answer this question first"' : ''}>Next →</button>`
-    }
-  `;
+  renderNavRow(isFirst, isLast, nextBlocked, true);
 }
 
 // =====================================================
@@ -497,60 +594,85 @@ function renderReviewShell() {
             <button class="dropdown-mode-switch" onclick="switchToQuiz()">Switch to Quiz Mode →</button>
             <div class="dropdown-divider"></div>
             
-            <div class="dropdown-header">Review Options</div>
-            <label class="dropdown-item">
-              <span class="dropdown-item-text">
-                <strong>Show all choices</strong>
-                <small>Display all options, not just the answer</small>
-              </span>
-              <input type="checkbox" id="opt-allchoices" onchange="setReviewOption('showAllChoices', this.checked)" ${reviewOptions.showAllChoices ? 'checked' : ''}>
-            </label>
-            <label class="dropdown-item">
-              <span class="dropdown-item-text">
-                <strong>Hide explanation</strong>
-                <small>Don't show the explanation text</small>
-              </span>
-              <input type="checkbox" onchange="setReviewOption('hideExplanation', this.checked)" ${reviewOptions.hideExplanation ? 'checked' : ''}>
-            </label>
+            <div class="dropdown-header" onclick="toggleCategory(this)">Review Options</div>
+            <div class="dropdown-category-content">
+              <label class="dropdown-item">
+                <span class="dropdown-item-text">
+                  <strong>List View</strong>
+                  <small>Show all questions on one page</small>
+                </span>
+                <input type="checkbox" onchange="setReviewOption('listView', this.checked)" ${reviewOptions.listView ? 'checked' : ''}>
+              </label>
+              <label class="dropdown-item">
+                <span class="dropdown-item-text">
+                  <strong>Show all choices</strong>
+                  <small>Display all options, not just the answer</small>
+                </span>
+                <input type="checkbox" id="opt-allchoices" onchange="setReviewOption('showAllChoices', this.checked)" ${reviewOptions.showAllChoices ? 'checked' : ''}>
+              </label>
+              <label class="dropdown-item">
+                <span class="dropdown-item-text">
+                  <strong>Hide explanation</strong>
+                  <small>Don't show the explanation text</small>
+                </span>
+                <input type="checkbox" onchange="setReviewOption('hideExplanation', this.checked)" ${reviewOptions.hideExplanation ? 'checked' : ''}>
+              </label>
+            </div>
             
             <div class="dropdown-divider"></div>
-            <div class="dropdown-header">App Settings</div>
-            <label class="dropdown-item">
-              <span class="dropdown-item-text">
-                <strong>Disable animations</strong>
-                <small>Turn off all transitions and fades</small>
-              </span>
-              <input type="checkbox" onchange="setAppSetting('disableAnimations', this.checked)" ${appSettings.disableAnimations ? 'checked' : ''}>
-            </label>
+            <div class="dropdown-header" onclick="toggleCategory(this)">App Settings</div>
+            <div class="dropdown-category-content">
+              <label class="dropdown-item" style="flex-direction: column; align-items: flex-start; gap: 0.5rem;">
+                <span class="dropdown-item-text">
+                  <strong>UI Theme</strong>
+                  <small>Switch app appearance</small>
+                </span>
+                <select onchange="setAppSetting('theme', this.value)" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 6px;">
+                  <option value="default" ${appSettings.theme === 'default' ? 'selected' : ''}>Misty Blue (Default)</option>
+                  <option value="canvas" ${appSettings.theme === 'canvas' ? 'selected' : ''}>Canvas</option>
+                  <option value="dark-purple" ${appSettings.theme === 'dark-purple' ? 'selected' : ''}>Dark Purple</option>
+                </select>
+              </label>
+              <label class="dropdown-item" style="flex-direction: column; align-items: flex-start; gap: 0.5rem;">
+                <span class="dropdown-item-text">
+                  <strong>Navigation Position</strong>
+                  <small>Where to place Prev/Next</small>
+                </span>
+                <select onchange="setAppSetting('navLocation', this.value)" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 6px;">
+                  <option value="down" ${appSettings.navLocation === 'down' ? 'selected' : ''}>Bottom</option>
+                  <option value="up" ${appSettings.navLocation === 'up' ? 'selected' : ''}>Top</option>
+                  <option value="both" ${appSettings.navLocation === 'both' ? 'selected' : ''}>Both</option>
+                </select>
+              </label>
+              <label class="dropdown-item">
+                <span class="dropdown-item-text">
+                  <strong>Disable animations</strong>
+                  <small>Turn off all transitions and fades</small>
+                </span>
+                <input type="checkbox" onchange="setAppSetting('disableAnimations', this.checked)" ${appSettings.disableAnimations ? 'checked' : ''}>
+              </label>
+            </div>
           </div>
         </div>
       </div>
     </header>
+    <nav id="quiz-nav-top" class="nav-row"></nav>
     <main id="quiz-container"></main>
-    <footer id="quiz-nav" class="nav-row"></footer>
+    <footer id="quiz-nav-bottom" class="nav-row"></footer>
   `;
 }
 
-function renderReviewQuestion() {
-  const container = document.getElementById('quiz-container');
-  const nav = document.getElementById('quiz-nav');
-
-  const lbl = document.getElementById('progress-label');
-  const fill = document.getElementById('progress-bar-fill');
-  if (lbl) lbl.innerText = `${currentIndex + 1}/${activeQuiz.questions.length}`;
-  if (fill) fill.style.width = `${((currentIndex + 1) / activeQuiz.questions.length) * 100}%`;
-
-  const question = activeQuiz.questions[currentIndex];
+function generateReviewCardHTML(question, index) {
   const typeMap = {
     'mc': 'Multiple Choice', 'tf': 'True / False',
     'fitb': 'Fill in the Blank', 'matching': 'Dropdown Matching', 'drag-drop': 'Drag & Drop'
   };
 
   let html = `
-    <div class="question-card question-card--review">
+    <div class="question-card question-card--review ${reviewOptions.listView ? 'question-card--list' : ''}">
       <div class="q-meta">
         <div class="q-meta-left">
-          <span class="q-num-badge">${currentIndex + 1}</span>
+          <span class="q-num-badge">${index + 1}</span>
           <span class="q-type-badge ${question.type}">${typeMap[question.type] || 'Question'}</span>
         </div>
         <span class="q-points">${question.points || 1} pts</span>
@@ -599,7 +721,7 @@ function renderReviewQuestion() {
     html += `</div>`;
   }
 
-  html += `</div></div></div>`;
+  html += `</div>`;
   
   if (question.explanation && !reviewOptions.hideExplanation) {
     html += `
@@ -609,18 +731,38 @@ function renderReviewQuestion() {
       </div>
     `;
   }
-  container.innerHTML = html;
+  
+  html += `</div>`;
+  return html;
+}
 
-  const isFirst = currentIndex === 0;
-  const isLast = currentIndex === activeQuiz.questions.length - 1;
+function renderReviewQuestion() {
+  const container = document.getElementById('quiz-container');
+  const lbl = document.getElementById('progress-label');
+  const fill = document.getElementById('progress-bar-fill');
 
-  nav.innerHTML = `
-    <button class="btn-prev" onclick="prevQ()" ${isFirst ? 'disabled' : ''}>← Previous</button>
-    ${isLast
-      ? `<button class="btn-next" onclick="renderMenu()">Done ✓</button>`
-      : `<button class="btn-next" onclick="nextQ()">Next →</button>`
-    }
-  `;
+  if (reviewOptions.listView) {
+    // Show total items instead of "All Questions"
+    if (lbl) lbl.innerText = `${activeQuiz.questions.length} Items`;
+    if (fill) fill.style.width = `100%`;
+
+    let allHtml = '';
+    activeQuiz.questions.forEach((q, idx) => {
+      allHtml += generateReviewCardHTML(q, idx);
+    });
+    container.innerHTML = allHtml;
+    
+    renderNavRow(true, true, false, false);
+  } else {
+    if (lbl) lbl.innerText = `${currentIndex + 1}/${activeQuiz.questions.length}`;
+    if (fill) fill.style.width = `${((currentIndex + 1) / activeQuiz.questions.length) * 100}%`;
+
+    container.innerHTML = generateReviewCardHTML(activeQuiz.questions[currentIndex], currentIndex);
+
+    const isFirst = currentIndex === 0;
+    const isLast = currentIndex === activeQuiz.questions.length - 1;
+    renderNavRow(isFirst, isLast, false, false);
+  }
 }
 
 // =====================================================
@@ -699,7 +841,7 @@ window.saveAndSubmitMC = (qId, idx) => {
 };
 
 function navigateWithAnimation(fn) {
-  if (appSettings.disableAnimations) { fn(); return; }
+  if (appSettings.disableAnimations || (activeMode === 'review' && reviewOptions.listView)) { fn(); return; }
   const card = document.querySelector('.question-card');
   if (card) {
     card.classList.add('question-card--exiting');
@@ -713,6 +855,7 @@ window.nextQ = () => {
   navigateWithAnimation(() => {
     currentIndex++;
     activeMode === 'review' ? renderReviewQuestion() : renderQuestion();
+    window.scrollTo(0, 0); 
   });
 };
 
@@ -720,6 +863,7 @@ window.prevQ = () => {
   navigateWithAnimation(() => {
     currentIndex--;
     activeMode === 'review' ? renderReviewQuestion() : renderQuestion();
+    window.scrollTo(0, 0); 
   });
 };
 
@@ -744,6 +888,11 @@ window.toggleDropdown = (id) => {
     menu.style.display = 'block';
     requestAnimationFrame(() => menu.classList.add('dropdown-menu--open'));
   }
+};
+
+// New function for toggling categories
+window.toggleCategory = (element) => {
+  element.classList.toggle('collapsed');
 };
 
 document.addEventListener('click', (e) => {
@@ -772,8 +921,19 @@ window.renderMenu = () => exitToMenu();
 window.setAppSetting = (key, value) => {
   appSettings[key] = value;
   localStorage.setItem('quizApp_appSettings', JSON.stringify(appSettings));
+  
   if (key === 'disableAnimations') {
     document.body.classList.toggle('no-animations', value);
+  } else if (key === 'navLocation') {
+    if (activeMode === 'quiz' && activeQuiz) renderQuestion();
+    else if (activeMode === 'review' && activeQuiz) renderReviewQuestion();
+  } else if (key === 'theme') {
+    // Strip all existing theme classes first
+    document.body.classList.remove('theme-canvas', 'theme-dark-purple');
+    // Apply the new theme if it's not the default Misty Blue
+    if (value !== 'default') {
+      document.body.classList.add(`theme-${value}`);
+    }
   }
 };
 
@@ -788,7 +948,7 @@ window.setReviewOption = (key, value) => {
   localStorage.setItem('quizApp_reviewOptions', JSON.stringify(reviewOptions));
   renderReviewQuestion();
   const cb = document.getElementById('opt-allchoices');
-  if (cb) cb.checked = reviewOptions[key];
+  if (cb) cb.checked = reviewOptions.showAllChoices;
 };
 
 window.switchToReview = () => {

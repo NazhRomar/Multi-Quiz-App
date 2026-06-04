@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
 /* --- Root Variables (Misty Blue) --- */
 :root {
   --bg: #f0f5fb;
@@ -56,7 +58,6 @@ body.no-animations *::after {
   animation: none !important;
   transition: none !important;
 }
-
 
 #app-root {
   width: 100%;
@@ -212,7 +213,6 @@ main.question-card {
   color: #e05555;
 }
 
-/* --- Added Restart Button Styling --- */
 .btn-restart {
   background: transparent;
   border: 1px solid var(--border);
@@ -231,7 +231,6 @@ main.question-card {
 
 .btn-restart:hover {
   background: #f0f7e6;
-  /* Soft green */
   border-color: #6da037;
   color: #6da037;
 }
@@ -362,63 +361,25 @@ main.question-card {
   background: var(--radio-bg);
 }
 
-/* Ensure all header-right items share the same height */
 .header-right>* {
   height: 36px;
   display: inline-flex;
   align-items: center;
 }
 
-.header-right .score-badge {
-  height: 36px;
-}
-
-.header-right .progress-wrap {
-  height: 36px;
-}
-
-.header-right .hamburger-wrap {
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-}
-
-
-@keyframes dropIn {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes dropOut {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  to {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-}
-
+/* --- Clean Dropdown Menu --- */
 .dropdown-menu {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
   width: 260px;
-  background: white;
+  background-color: #ffffff;
   border: 1px solid var(--border);
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(30, 49, 72, 0.12);
   z-index: 200;
-  overflow: hidden;
+  overflow-y: auto;
+  max-height: 75vh;
   display: none;
   opacity: 0;
   transform: translateY(-6px);
@@ -435,51 +396,6 @@ main.question-card {
   transform: translateY(-6px);
 }
 
-/* App-level exit fade */
-@keyframes appExit {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  to {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-}
-
-.app-exiting {
-  animation: appExit 0.18s ease-in forwards;
-  pointer-events: none;
-}
-
-/* Question number badge */
-.q-meta-left {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.q-num-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 28px;
-  height: 24px;
-  padding: 0 0.4rem;
-  border-radius: 6px;
-  background: rgba(91, 155, 213, 0.15);
-  /* Matches points background */
-  color: #2a6aaa;
-  /* Matches points text color */
-  font-family: 'Space Mono', monospace;
-  font-size: 0.72rem;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-
-
 .dropdown-header {
   padding: 0.6rem 1rem;
   font-family: 'Space Mono', monospace;
@@ -490,6 +406,28 @@ main.question-card {
   color: var(--text-muted);
   border-bottom: 1px solid var(--border);
   background: var(--radio-bg);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.dropdown-header::after {
+  content: '▼';
+  font-size: 0.6rem;
+  transition: transform 0.2s ease;
+}
+
+.dropdown-header.collapsed::after {
+  transform: rotate(-90deg);
+}
+
+/* Instant fold/unfold using display:none (No animations = no flicker) */
+.dropdown-header.collapsed+.dropdown-category-content {
+  display: none;
 }
 
 .dropdown-item {
@@ -499,7 +437,8 @@ main.question-card {
   gap: 1rem;
   padding: 0.75rem 1rem;
   cursor: pointer;
-  transition: background 0.15s;
+  background-color: #ffffff;
+  transition: background-color 0.15s ease;
 }
 
 .dropdown-item:hover {
@@ -510,6 +449,7 @@ main.question-card {
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
+  flex: 1;
 }
 
 .dropdown-item-text strong {
@@ -529,6 +469,15 @@ main.question-card {
   accent-color: var(--accent);
   cursor: pointer;
   flex-shrink: 0;
+}
+
+.dropdown-item select {
+  background: transparent url('data:image/svg+xml;utf8,<svg fill="%231e3148" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 0.6rem center;
+  background-size: 1.2rem;
+  padding-right: 2.2rem !important;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 /* --- Mode Pills --- */
@@ -565,10 +514,7 @@ main.question-card {
   --review-bg-light: rgba(130, 100, 200, 0.08);
 }
 
-/* Review mode: only the pill changes color, not the header background */
-.quiz-header--review {
-  /* intentionally no background or border-color override */
-}
+.quiz-header--review {}
 
 .btn-next--review {
   background: var(--review-accent) !important;
@@ -720,7 +666,7 @@ main.question-card {
   color: var(--accent);
 }
 
-/* --- Options Panel (old flat panel, kept for safety, now unused) --- */
+/* --- Options Panel (unused) --- */
 .options-panel {
   display: none;
 }
@@ -767,19 +713,65 @@ button {
   border: none;
 }
 
+/* --- Home Page Quiz Cards --- */
 .btn-quiz {
-  background: var(--radio-bg);
-  border: 1px solid var(--accent);
-  color: var(--accent-hover);
-  padding: 0.75rem 1rem;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  padding: 1.25rem;
   text-align: left;
-  font-size: 0.9rem;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(30, 49, 72, 0.04);
+  gap: 1rem;
 }
 
 .btn-quiz:hover {
-  background: var(--accent);
-  color: white;
-  transform: translateY(-2px);
+  background: var(--radio-bg);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(91, 155, 213, 0.15);
+}
+
+.quiz-btn-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.quiz-btn-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.quiz-btn-meta {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(91, 155, 213, 0.1);
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.quiz-btn-icon {
+  font-weight: bold;
+  color: var(--border);
+  transition: color 0.2s ease, transform 0.2s ease;
+  font-size: 1.2rem;
+}
+
+.btn-quiz:hover .quiz-btn-icon {
+  color: var(--accent);
+  transform: translateX(4px);
 }
 
 .btn-prev,
@@ -836,7 +828,7 @@ button:disabled {
   background: #fafcfe;
   border: 1px solid #dce8f5;
   border-radius: 16px;
-  padding: 2.5rem;
+  padding: 1.75rem;
   box-shadow: var(--shadow);
   animation: fadeIn 0.15s ease-out forwards;
 }
@@ -863,6 +855,10 @@ button:disabled {
 
 .question-card--exiting {
   animation: fadeOut 0.1s ease-in forwards;
+}
+
+.question-card--list {
+  margin-bottom: 2rem;
 }
 
 .q-meta {
@@ -919,10 +915,10 @@ button:disabled {
 }
 
 .q-text {
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  line-height: 1.6;
-  margin-bottom: 2rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
   color: #3a5a78;
 }
 
@@ -966,7 +962,6 @@ button:disabled {
   font-weight: bold;
 }
 
-/* --- Immediate Feedback Styles --- */
 .option-label.locked {
   cursor: not-allowed;
   opacity: 0.85;
@@ -991,7 +986,6 @@ button:disabled {
   display: none;
 }
 
-/* Feedback Icons: Solid Circles */
 .option-label.reveal-correct::before,
 .option-label.reveal-wrong::before {
   display: flex;
@@ -1076,6 +1070,8 @@ button:disabled {
   padding: 1rem;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  /* This perfectly centers the items vertically! */
   gap: 0.8rem;
   min-height: 80px;
 }
@@ -1148,16 +1144,20 @@ button:disabled {
 
 .match-select {
   flex: 0 0 40%;
-  background: var(--radio-bg);
+  background: var(--radio-bg) url('data:image/svg+xml;utf8,<svg fill="%231e3148" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 0.8rem center;
+  background-size: 1.2rem;
   border: 2px solid var(--border);
   border-radius: 8px;
-  padding: 0.6rem;
+  padding: 0.6rem 2.5rem 0.6rem 0.8rem;
   font-family: 'Space Mono', monospace;
   font-size: 0.9rem;
   color: var(--text);
   outline: none;
   cursor: pointer;
   transition: border-color 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .match-select:focus:not(:disabled),
@@ -1175,10 +1175,8 @@ button:disabled {
   margin-bottom: 1.75rem;
   border: 1px solid var(--border);
   border-left: 6px solid var(--accent);
-  /* Thick accent bar on the left */
   background: var(--radio-bg);
   border-radius: 12px;
-  /* Fully rounded corners all around */
   overflow: hidden;
 }
 
@@ -1210,10 +1208,8 @@ button:disabled {
   margin-top: 1rem;
   border: 1px solid var(--border);
   border-left: 6px solid var(--text-muted);
-  /* Matching neutral bar on the left */
   background: var(--surface);
   border-radius: 12px;
-  /* Fully rounded corners all around */
   overflow: hidden;
 }
 
@@ -1237,7 +1233,6 @@ button:disabled {
   color: var(--text);
   line-height: 1.7;
 }
-
 
 .feedback-banner {
   margin-top: 1.5rem;
@@ -1263,14 +1258,395 @@ button:disabled {
 .nav-row {
   width: 100%;
   max-width: 850px;
-  margin: 1.5rem auto 3rem;
+  margin: 1.5rem auto;
   padding: 0 1.5rem;
   display: flex;
   justify-content: space-between;
+}
+
+#quiz-nav-top.nav-row {
+  margin-bottom: 0;
+}
+
+#quiz-nav-bottom.nav-row {
+  margin-bottom: 3rem;
 }
 
 .result-score {
   font-size: 2.5rem;
   color: var(--accent);
   margin-bottom: 1rem;
+}
+
+/* App-level exit fade */
+@keyframes appExit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.app-exiting {
+  animation: appExit 0.18s ease-in forwards;
+  pointer-events: none;
+}
+
+/* =========================================================
+   --- TRUE CANVAS LMS THEME OVERRIDES ---
+   Activated via body.theme-canvas
+========================================================= */
+
+body.theme-canvas {
+  /* Enforce Canvas typography */
+  font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  background-color: #ffffff;
+  color: #2D3B45;
+
+  /* Override variables with true Canvas colors */
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --border: #C7CDD1;
+  /* Standard Canvas gray border */
+  --accent: #008EE2;
+  /* Instructure Blue */
+  --accent-hover: #0073B7;
+  --text: #2D3B45;
+  /* Canvas dark slate text */
+  --text-muted: #556572;
+  --radio-bg: #ffffff;
+  --correct: #008A00;
+  /* Canvas success green */
+}
+
+/* Force all fonts, strip shadows, and apply Canvas's rigid 3px rounding */
+body.theme-canvas * {
+  font-family: inherit !important;
+  border-radius: 3px !important;
+  box-shadow: none !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+/* Standardize all main containers to Canvas flat boxes */
+body.theme-canvas .question-card,
+body.theme-canvas .menu-container section,
+body.theme-canvas .mode-select-card,
+
+/* --- THE AUTHENTIC CANVAS QUESTION HEADER --- */
+/* Canvas puts a gray header bar at the top of every question box */
+body.theme-canvas .q-meta {
+  background-color: #F5F5F5;
+  margin: -1.5rem -1.5rem 1.5rem -1.5rem !important;
+  /* Break out of container padding */
+  padding: 12px 20px !important;
+  border-bottom: 1px solid #C7CDD1;
+  border-radius: 3px 3px 0 0 !important;
+}
+
+/* Strip the pill backgrounds from types, points, AND question numbers */
+body.theme-canvas .q-points,
+body.theme-canvas .q-type-badge,
+body.theme-canvas .q-num-badge {
+  background: transparent !important;
+  border: none !important;
+  color: #2D3B45 !important;
+  font-weight: bold !important;
+  padding: 0 !important;
+}
+
+body.theme-canvas .question-card,
+body.theme-canvas .menu-container section,
+body.theme-canvas .mode-select-card {
+  border: 1px solid #C7CDD1 !important;
+  background: #ffffff !important;
+  padding: 1.5rem !important;
+}
+
+/* --- CANVAS CONTEXT & EXPLANATION BLOCKS --- */
+/* Remove outer padding to fix the nested box effect */
+body.theme-canvas .q-context,
+body.theme-canvas .q-explanation {
+  border: 1px solid #C7CDD1 !important;
+  background: #ffffff !important;
+  padding: 0 !important;
+  margin-top: 1.5rem !important;
+  border-left: 1px solid #C7CDD1 !important;
+  /* Remove the thick colored side borders */
+}
+
+/* Fix font sizes for the inner text */
+body.theme-canvas .q-context-body,
+body.theme-canvas .q-explanation-text {
+  padding: 1rem 1.25rem !important;
+  font-size: 1rem !important;
+  color: #2D3B45 !important;
+  line-height: 1.5 !important;
+}
+
+/* Make the explanation header a proper, full-width Canvas title bar */
+body.theme-canvas .q-explanation-label {
+  background-color: #F5F5F5 !important;
+  border-bottom: 1px solid #C7CDD1 !important;
+  padding: 0.75rem 1.25rem !important;
+  font-size: 1rem !important;
+  font-weight: bold !important;
+  color: #2D3B45 !important;
+  text-transform: none !important;
+  /* Strip the uppercase formatting */
+  letter-spacing: normal !important;
+}
+
+/* Make the number badge look like a Canvas section title */
+body.theme-canvas .q-num-badge {
+  font-size: 0.9rem !important;
+  /* Reduced from 1.1rem */
+}
+
+/* Inject the word "Question" before the number */
+body.theme-canvas .q-num-badge::before {
+  content: 'Question ';
+}
+
+/* Mute the question type label and add a separator so it reads cleanly */
+body.theme-canvas .q-type-badge {
+  font-size: 0.9rem !important;
+  color: #556572 !important;
+  font-weight: normal !important;
+}
+
+body.theme-canvas .q-type-badge::before {
+  content: '| ';
+  color: #C7CDD1;
+  margin: 0 0.5rem;
+}
+
+/* --- FIX QUESTION TEXT BLEED-THROUGH --- */
+body.theme-canvas .q-text {
+  color: #2D3B45 !important;
+  /* Standard Canvas dark slate */
+  font-weight: 400 !important;
+  /* Canvas uses standard weight, not bold */
+  font-size: 1.05rem !important;
+}
+
+/* --- BUTTONS --- */
+/* Canvas Primary Button (Next/Submit) */
+body.theme-canvas .btn-next {
+  background-color: #008EE2 !important;
+  color: #ffffff !important;
+  border: 1px solid #008EE2 !important;
+  font-weight: normal;
+}
+
+body.theme-canvas .btn-next:hover:not(:disabled) {
+  background-color: #0073B7 !important;
+  border-color: #0073B7 !important;
+}
+
+/* Canvas Secondary Button (Prev/Exit/Restart/Options) */
+body.theme-canvas .btn-prev,
+body.theme-canvas .btn-exit,
+body.theme-canvas .btn-restart,
+body.theme-canvas .btn-back,
+body.theme-canvas .btn-options {
+  background-color: #F5F5F5 !important;
+  color: #2D3B45 !important;
+  border: 1px solid #C7CDD1 !important;
+  font-weight: normal;
+}
+
+body.theme-canvas .btn-prev:hover:not(:disabled),
+body.theme-canvas .btn-exit:hover,
+body.theme-canvas .btn-restart:hover {
+  background-color: #E2E2E2 !important;
+}
+
+/* --- TRUE CANVAS RADIO INPUTS --- */
+body.theme-canvas .option-label {
+  border: none !important;
+  border-bottom: 1px solid #E7E7E7 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding: 0.8rem 0 !important;
+}
+
+body.theme-canvas .option-label:last-child {
+  border-bottom: none !important;
+}
+
+body.theme-canvas .option-label:hover {
+  background: #F9F9F9 !important;
+}
+
+body.theme-canvas .option-label input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #008EE2;
+  margin-right: 0.5rem;
+}
+
+body.theme-canvas .option-label:not(.locked):has(input[type="radio"]:checked) {
+  color: #2D3B45 !important;
+  font-weight: normal !important;
+}
+
+/* Fix Text Inputs for Fill-in-the-blank */
+body.theme-canvas .fitb-input,
+body.theme-canvas .match-select {
+  border: 1px solid #C7CDD1 !important;
+  border-radius: 3px !important;
+  background: #ffffff !important;
+}
+
+body.theme-canvas .fitb-input:focus,
+body.theme-canvas .match-select:focus {
+  border-color: #008EE2 !important;
+  box-shadow: 0 0 0 1px #008EE2 !important;
+}
+
+/* --- STATIC CANVAS HEADER --- */
+body.theme-canvas .quiz-header {
+  /* Inherits 'position: sticky' from the base theme, just updates the look */
+  border-bottom: 1px solid #C7CDD1 !important;
+  background: #ffffff !important;
+  padding: 12px 20px !important;
+  z-index: 999;
+}
+
+/* Ensure the main content has normal spacing now that the header isn't overlapping */
+body.theme-canvas #quiz-container,
+body.theme-canvas .menu-container {
+  margin-top: 2rem !important;
+}
+
+/* =========================================================
+   --- DARK MODE (POWDER PURPLE) ---
+   Activated via body.theme-dark-purple
+========================================================= */
+
+body.theme-dark-purple {
+  /* Core Colors */
+  --bg: #15131c;
+  /* Deep midnight purple */
+  --surface: #1d1a27;
+  /* Slightly lighter card background */
+  --border: #342e43;
+  /* Muted purple-gray border */
+  --accent: #a898ea;
+  /* Powder purple accent */
+  --accent-hover: #8e7cda;
+  --text: #e2ddf0;
+  /* Soft white text */
+  --text-muted: #897d9e;
+  /* Dimmer purple text */
+  --radio-bg: #242032;
+  /* Interactive elements background */
+  --radio-hover: #2d283e;
+  --correct: #5ecaa5;
+  /* Adjusted green for dark mode visibility */
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+  background-color: var(--bg);
+}
+
+/* Ensure menus and cards pick up the dark surface color */
+body.theme-dark-purple .dropdown-menu,
+body.theme-dark-purple .dropdown-category-content,
+body.theme-dark-purple .question-card {
+  background-color: var(--surface);
+}
+
+/* Tint the sticky headers so they blend */
+body.theme-dark-purple .quiz-header,
+body.theme-dark-purple .dropdown-header {
+  background: rgba(29, 26, 39, 0.97);
+}
+
+/* Fix text inputs, drag-items, and selects for dark mode */
+body.theme-dark-purple .drag-item,
+body.theme-dark-purple .fitb-input {
+  background-color: var(--radio-bg);
+  color: var(--text);
+}
+
+/* Swap the custom SVG dropdown arrows to a light color so they are visible */
+body.theme-dark-purple .dropdown-item select,
+body.theme-dark-purple .match-select {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23e2ddf0" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+}
+
+/* =========================================================
+   --- DARK PURPLE FIXES ---
+========================================================= */
+
+/* 1. Main menu quiz buttons were stuck on white */
+body.theme-dark-purple .btn-quiz {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+}
+
+body.theme-dark-purple .btn-quiz:hover {
+  background: var(--radio-bg) !important;
+  border-color: var(--accent) !important;
+}
+
+body.theme-dark-purple .quiz-btn-meta {
+  background: rgba(168, 152, 234, 0.15) !important;
+  color: var(--accent) !important;
+}
+
+/* 2. Hamburger menu & dropdown items were stuck on white */
+body.theme-dark-purple .dropdown-menu,
+body.theme-dark-purple .dropdown-category-content,
+body.theme-dark-purple .dropdown-item {
+  background-color: var(--surface) !important;
+  color: var(--text) !important;
+}
+
+body.theme-dark-purple .dropdown-item:hover {
+  background-color: var(--radio-bg) !important;
+}
+
+/* 3. Question text bleed-through (was still Misty Blue) */
+body.theme-dark-purple .q-text {
+  color: var(--text) !important;
+  font-weight: normal !important;
+}
+
+/* 4. Score color too bright (Swapped to a softer glowing green) */
+body.theme-dark-purple .score-badge {
+  background: rgba(94, 202, 165, 0.15) !important;
+  color: var(--correct) !important;
+  border: 1px solid rgba(94, 202, 165, 0.3) !important;
+}
+
+/* 5. Next button too bright (Deepened the purple for better contrast) */
+body.theme-dark-purple .btn-next {
+  background: #413564 !important;
+  color: #ffffff !important;
+  border-color: #5d4d8c !important;
+}
+
+body.theme-dark-purple .btn-next:hover:not(:disabled) {
+  background: #7360ab !important;
+  border-color: #7360ab !important;
+  box-shadow: 0 8px 25px rgba(168, 152, 234, 0.2) !important;
+}
+
+/* 6. Hover states for Restart and Exit matching the dark theme */
+body.theme-dark-purple .btn-exit:hover {
+  background: rgba(224, 85, 85, 0.15) !important;
+  border-color: #e05555 !important;
+  color: #e05555 !important;
+}
+
+body.theme-dark-purple .btn-restart:hover {
+  background: rgba(140, 191, 74, 0.15) !important;
+  border-color: #8cbf4a !important;
+  color: #8cbf4a !important;
 }

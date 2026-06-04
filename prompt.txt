@@ -87,8 +87,3 @@ Your output must structurally align with the schema established in "test-quiz.js
     }
   ]
 }
-
----
-
-### INPUT DATA TO CONVERT:
-[PASTE YOUR RAW HTML, TEXT, PDF CONTENT, OR WORD DOC CONTENT HERE]

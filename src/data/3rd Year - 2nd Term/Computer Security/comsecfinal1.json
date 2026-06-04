@@ -1,0 +1,1286 @@
+{
+    "courseCode": "UNKNOWN",
+    "quizTitle": "Finals Reviewer",
+    "totalPoints": 105,
+    "questions": [
+        {
+            "id": 1,
+            "type": "mc",
+            "text": "Wilbur Soot encrypts the plaintext 'DREAM' using a Vigenere cipher with the key 'CAT'. What is the resulting ciphertext? (A=0, B=1, C=2, etc.)",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "FRXCM",
+                "ESXBN",
+                "GSYDN",
+                "EQZDL"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 2,
+            "type": "mc",
+            "text": "Tubbo receives the ciphertext 'FRXCM'. He knows the Vigenere key is 'CAT'. What is the decrypted plaintext?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "DREAM",
+                "CREAD",
+                "BREAM",
+                "CREAM"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 3,
+            "type": "mc",
+            "text": "GeorgeNotFound applies an Exclusive OR (XOR) cipher on the binary message 0110 using the key 0101. What is the output?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "0011",
+                "1100",
+                "1010",
+                "0101"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 4,
+            "type": "mc",
+            "text": "Sapnap applies an Exclusive OR (XOR) cipher on the binary message 1010 using the key 1100. What is the output?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "0110",
+                "1001",
+                "1110",
+                "0011"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 5,
+            "type": "mc",
+            "text": "What represents the most balanced placement for the information security function?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "Under customer service",
+                "Under marketing",
+                "Where it can enforce policy and deliver service across the organization",
+                "In the legal department"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 6,
+            "type": "mc",
+            "text": "What represents a key advantage of placing the information security function within the IT department?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "Reduction of physical security needs",
+                "Total independence from other departments",
+                "Easier communication with external vendors",
+                "Strong technical support and integration"
+            ],
+            "correctAnswer": 3,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 7,
+            "type": "mc",
+            "text": "What constitutes a milestone in project planning?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "A budget reallocation",
+                "A significant checkpoint or goal",
+                "A project delay",
+                "A final deliverable"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 8,
+            "type": "mc",
+            "text": "What represents one benefit of job rotation in security roles?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "Reduces employee headcount",
+                "Helps uncover fraudulent activities and ensures backup knowledge",
+                "Eliminates the need for performance reviews",
+                "Promotes vacation use"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 9,
+            "type": "mc",
+            "text": "Why is the planning and risk assessment domain critical to the maintenance model?",
+            "context": "Reference: Chapter 12: Information Security Maintenance",
+            "options": [
+                "It deals with data backups",
+                "It ensures budget increases for IT",
+                "It handles employee performance reviews",
+                "It provides ongoing oversight of the security program and reduces risks"
+            ],
+            "correctAnswer": 3,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 10,
+            "type": "mc",
+            "text": "Which role exemplifies a common type of nonemployee relationship?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "Consultant",
+                "Shareholder",
+                "Faculty member",
+                "Intern"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 11,
+            "type": "mc",
+            "text": "What does the management maintenance model aim to do?",
+            "context": "Reference: Chapter 12: Information Security Maintenance",
+            "options": [
+                "Eliminate hardware failures",
+                "Replace the need for IT staff",
+                "Provide structure for managing security functions",
+                "Limit user access to social media"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 12,
+            "type": "mc",
+            "text": "Which option is NOT a basic system conversion strategy?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "Pilot implementation",
+                "Phased implementation",
+                "Instant coding",
+                "Direct changeover"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 13,
+            "type": "mc",
+            "text": "What describes the relationship between technology governance and change control?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "Technology governance follows change control",
+                "Both deal only with financial matters",
+                "Change control is a component of technology governance",
+                "They are unrelated policies"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 14,
+            "type": "mc",
+            "text": "Which action does NOT represent a standard personnel practice in information security?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "Background checks",
+                "New hire orientation",
+                "Performance evaluation",
+                "Frequent password resets"
+            ],
+            "correctAnswer": 3,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 15,
+            "type": "mc",
+            "text": "Who holds the responsibility for deciding where to place the information security function in an organization?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "Senior Management",
+                "IT Technician",
+                "Human Resources Director",
+                "System Administrator"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 16,
+            "type": "mc",
+            "text": "What are the three major steps in executing the project plan?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "Launching, executing, closing",
+                "Planning the project, supervising tasks and action steps, wrapping up",
+                "Planning, investing, analyzing",
+                "Initiating, allocating resources, closing"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 17,
+            "type": "mc",
+            "text": "Which critical attribute must an information security professional possess?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "Avoidance of user interaction",
+                "Good communication and writing skills",
+                "Expertise in accounting systems only",
+                "Strong graphic design skills"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 18,
+            "type": "mc",
+            "text": "What happens when organizations integrate standard personnel practices with information security concepts?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "They require outsourcing",
+                "They enhance organizational security and consistency",
+                "They become unnecessary",
+                "They interfere with IT operations"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 19,
+            "type": "mc",
+            "text": "Who serves as the best judge of effort estimates for project tasks?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "System administrator",
+                "CEO",
+                "The individual assigned to the task",
+                "Project manager"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 20,
+            "type": "mc",
+            "text": "The vulnerability assessment and remediation domain is responsible for which specific activity?",
+            "context": "Reference: Chapter 12: Information Security Maintenance",
+            "options": [
+                "Documenting software licenses",
+                "Assigning user roles",
+                "Installing antivirus software",
+                "Identifying and addressing system weaknesses"
+            ],
+            "correctAnswer": 3,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 21,
+            "type": "mc",
+            "text": "What is configuration management primarily concerned with?",
+            "context": "Reference: Chapter 12: Information Security Maintenance",
+            "options": [
+                "Creating logos and branding",
+                "Setting up financial records",
+                "Documenting and controlling technical system settings",
+                "Customer service training"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 22,
+            "type": "mc",
+            "text": "Which term describes the practice of identifying, preserving, and analyzing computer data for investigation?",
+            "context": "Reference: Chapter 12: Information Security Maintenance",
+            "options": [
+                "Digital forensics",
+                "Risk analysis",
+                "Configuration management",
+                "Data warehousing"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 23,
+            "type": "mc",
+            "text": "Which option does NOT belong to the five vulnerability assessment processes described in the chapter?",
+            "context": "Reference: Chapter 12: Information Security Maintenance",
+            "options": [
+                "Modem vulnerability assessment",
+                "Wireless vulnerability assessment",
+                "Internet vulnerability assessment",
+                "Application installation review"
+            ],
+            "correctAnswer": 3,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 24,
+            "type": "mc",
+            "text": "Why shouldn't a job candidate tour secure areas during the interview process?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "It is not relevant to their position",
+                "It could lead to physical harm",
+                "It is too time-consuming for interviewers",
+                "It increases the risk of sensitive information exposure"
+            ],
+            "correctAnswer": 3,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 25,
+            "type": "mc",
+            "text": "Which element is NOT one of the categories of constraints in project implementation?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "Geometry",
+                "Time",
+                "Budget",
+                "Scope"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 26,
+            "type": "mc",
+            "text": "What defines penetration testing?",
+            "context": "Reference: Chapter 12: Information Security Maintenance",
+            "options": [
+                "Encrypting network traffic",
+                "Simulating attacks to test vulnerabilities",
+                "Installing firewalls",
+                "Creating user accounts"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 27,
+            "type": "mc",
+            "text": "What is a project plan?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "A roadmap outlining tasks, timelines, and resources to achieve a project goal",
+                "A marketing strategy",
+                "A financial budget document",
+                "A list of employees"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 28,
+            "type": "mc",
+            "text": "Why must organizations develop procedures for information security maintenance?",
+            "context": "Reference: Chapter 12: Information Security Maintenance",
+            "options": [
+                "To reduce electricity usage",
+                "To speed up software installation",
+                "Because change is inevitable in operations and technology",
+                "To avoid hiring technical staff"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 29,
+            "type": "mc",
+            "text": "Why is a statement of vision and objectives important before developing a project plan?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "It ensures project timelines are shortened",
+                "It increases software speed",
+                "It provides purpose and direction for the project",
+                "It replaces the need for a budget"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 30,
+            "type": "mc",
+            "text": "What describes a negative feedback loop in project management?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "A mechanism to identify deviations and correct project performance",
+                "A method of team motivation",
+                "A loop used to delete old data",
+                "A process that adds tasks to the project"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 31,
+            "type": "mc",
+            "text": "What defines 'projectitis'?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "A security breach symptom",
+                "An over-focus on planning and documentation",
+                "A method for estimating costs",
+                "A virus in project management software"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 32,
+            "type": "mc",
+            "text": "What provides the main reason for requiring certifications in security roles?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "To increase costs",
+                "To validate knowledge and ensure standard skills",
+                "To restrict job access",
+                "To improve fashion sense"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 33,
+            "type": "mc",
+            "text": "Internal monitoring primarily aims to achieve what goal?",
+            "context": "Reference: Chapter 12: Information Security Maintenance",
+            "options": [
+                "Protect physical facilities",
+                "Maintain awareness of internal systems and defenses",
+                "Track changes in vendor prices",
+                "Manage public relations"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 34,
+            "type": "mc",
+            "text": "In SP 800-100, which area covers the selection and implementation of security products?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "Incident response",
+                "Security services and products acquisition",
+                "Certification and accreditation",
+                "Risk management"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 35,
+            "type": "mc",
+            "text": "What are the primary objectives of the Internal monitoring domain?",
+            "context": "Reference: Chapter 12: Information Security Maintenance",
+            "options": [
+                "Maintain awareness of system status and communicate relevant changes",
+                "Monitor email traffic only",
+                "Manage employee benefits",
+                "Track customer satisfaction"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 36,
+            "type": "mc",
+            "text": "What qualification is commonly required for a Security Technician?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "Graphic design certification",
+                "Only work experience",
+                "MBA degree",
+                "Technical training and knowledge of security systems"
+            ],
+            "correctAnswer": 3,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 37,
+            "type": "mc",
+            "text": "In what context is digital forensics most commonly used in a business setting?",
+            "context": "Reference: Chapter 12: Information Security Maintenance",
+            "options": [
+                "To investigate security incidents and support legal action",
+                "To evaluate employee bonuses",
+                "To design marketing strategies",
+                "To increase file storage"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 38,
+            "type": "mc",
+            "text": "What is a special security consideration for contractors or consultants?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "They should train full-time staff",
+                "They never need background checks",
+                "Their access must be limited and monitored",
+                "They are given full system access by default"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 39,
+            "type": "mc",
+            "text": "Which certification is offered by (ISC)²?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "CISA",
+                "CISSP",
+                "GIAC",
+                "CISM"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 40,
+            "type": "mc",
+            "text": "The external monitoring domain focuses on:",
+            "context": "Reference: Chapter 12: Information Security Maintenance",
+            "options": [
+                "Tracking employee performance",
+                "Detecting emerging threats and vulnerabilities",
+                "Improving internal policies",
+                "Scheduling employee reviews"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 41,
+            "type": "mc",
+            "text": "In project management, what is a predecessor?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "A deliverable output",
+                "A future task",
+                "A task that must be completed before another",
+                "A completed project"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 42,
+            "type": "mc",
+            "text": "What do certification and accreditation involve in information systems security?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "Validating and formally approving systems for use",
+                "Branding and advertising systems",
+                "Outsourcing security to a third party",
+                "Sending emails and scanning networks"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 43,
+            "type": "mc",
+            "text": "Why is it good practice to delay assigning specific dates early in project planning?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "To reduce documentation work",
+                "To allow flexibility as project scope becomes clearer",
+                "Because deadlines aren't important",
+                "To avoid accountability"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 44,
+            "type": "mc",
+            "text": "Why should organizations avoid giving job candidates tours of secure areas?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "Candidates are usually not interested",
+                "It's time-consuming",
+                "It may be boring",
+                "It increases the risk of information leakage"
+            ],
+            "correctAnswer": 3,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 45,
+            "type": "mc",
+            "text": "Why should individuals not be named as resources early in planning?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "It allows flexibility in assignment based on availability",
+                "It complicates budgeting",
+                "It reduces team collaboration",
+                "It increases security risk"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 46,
+            "type": "mc",
+            "text": "What distinguishes vulnerability assessment from penetration testing?",
+            "context": "Reference: Chapter 12: Information Security Maintenance",
+            "options": [
+                "VA is offensive, PT is defensive",
+                "VA is for backups, PT is for software",
+                "VA uses encryption, PT does not",
+                "VA identifies weaknesses; PT exploits them to verify effectiveness"
+            ],
+            "correctAnswer": 3,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 47,
+            "type": "mc",
+            "text": "Who decides whether an organization can adapt to change or must restart the SecSDLC?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "Help desk staff",
+                "External consultant",
+                "CISO",
+                "CIO"
+            ],
+            "correctAnswer": 3,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 48,
+            "type": "mc",
+            "text": "What is a Work Breakdown Structure (WBS)?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "A risk management matrix",
+                "A design blueprint",
+                "A hierarchical breakdown of project tasks",
+                "A document showing employee schedules"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 49,
+            "type": "mc",
+            "text": "What does CERT stand for?",
+            "context": "Reference: Chapter 12: Information Security Maintenance",
+            "options": [
+                "Certified Encryption Response Team",
+                "Computer Emergency Response Team",
+                "Cybersecurity Evaluation and Risk Team",
+                "Corporate Enterprise Risk Taskforce"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 50,
+            "type": "mc",
+            "text": "Why is separation of duties considered a critical security control?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "It reduces the risk of fraud and abuse by requiring multiple people for sensitive tasks",
+                "It prevents the need for audits",
+                "It ensures all tasks are done faster",
+                "It allows everyone to access all data"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 51,
+            "type": "mc",
+            "text": "The CISO is primarily responsible for:",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "Designing marketing materials",
+                "Setting company-wide security policy and strategy",
+                "Operating the firewall",
+                "Supervising janitorial staff"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 52,
+            "type": "mc",
+            "text": "What is the primary role of job descriptions during the hiring process?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "To set salary ranges only",
+                "To replace background checks",
+                "To clarify expectations and ensure consistency",
+                "To promote the company"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 53,
+            "type": "mc",
+            "text": "If a task is not being completed as planned, which two issues are likely involved?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "Poor marketing and insufficient emails",
+                "Overstaffing and long breaks",
+                "Wrong software version and lack of graphics",
+                "Effort underestimation and resource unavailability"
+            ],
+            "correctAnswer": 3,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 54,
+            "type": "mc",
+            "text": "What is the objective of the planning and risk assessment domain?",
+            "context": "Reference: Chapter 12: Information Security Maintenance",
+            "options": [
+                "Increase user training",
+                "Reduce the IT budget",
+                "Evaluate third-party contracts",
+                "Maintain oversight of the entire security program"
+            ],
+            "correctAnswer": 3,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 55,
+            "type": "mc",
+            "text": "Which of the following is NOT a domain of the recommended maintenance model?",
+            "context": "Reference: Chapter 12: Information Security Maintenance",
+            "options": [
+                "Readiness and review",
+                "Planning and risk assessment",
+                "Internal auditing",
+                "External monitoring"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 56,
+            "type": "mc",
+            "text": "What are the three major steps in executing the project plan (alternative)?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "Initiating, allocating resources, closing",
+                "Initiating, monitoring progress, closing",
+                "Launching, executing, closing",
+                "Planning, investing, analyzing"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 57,
+            "type": "mc",
+            "text": "The purpose of the readiness and review domain is to:",
+            "context": "Reference: Chapter 12: Information Security Maintenance",
+            "options": [
+                "Maintain and improve the security program over time",
+                "Train all new employees",
+                "Evaluate customer satisfaction",
+                "Upgrade hardware annually"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 58,
+            "type": "mc",
+            "text": "Which of the following is a common attribute of WBS tasks?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "Non-measurable",
+                "Unlimited in scope",
+                "Not time-bound",
+                "Assigned to a specific resource"
+            ],
+            "correctAnswer": 3,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 59,
+            "type": "mc",
+            "text": "What is a deliverable?",
+            "context": "Reference: Chapter 10: Implementing Information Security",
+            "options": [
+                "A message sent via email",
+                "A measurable output of a task or project",
+                "A resource allocation tool",
+                "An unplanned result"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 60,
+            "type": "mc",
+            "text": "Dream needs to send a secure message to GeorgeNotFound using asymmetric encryption. Whose public key does Dream use to encrypt the message?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "Dream's public key",
+                "Dream's private key",
+                "GeorgeNotFound's public key",
+                "GeorgeNotFound's private key"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 61,
+            "type": "mc",
+            "text": "Which science combines cryptography and cryptanalysis?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "Steganography",
+                "Cryptology",
+                "Forensics",
+                "Topology"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 62,
+            "type": "mc",
+            "text": "Which cipher method replaces one value with another value?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "Substitution cipher",
+                "Transposition cipher",
+                "Hash function",
+                "Polyalphabetic cipher"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 63,
+            "type": "mc",
+            "text": "The Vigenere cipher uses 26 distinct cipher alphabets. What specific type of cipher does this represent?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "Monoalphabetic substitution",
+                "Polyalphabetic substitution",
+                "Transposition cipher",
+                "Book cipher"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 64,
+            "type": "mc",
+            "text": "MumboJumbo uses a function of Boolean algebra that compares two bits. If the two bits are identical, the result is binary 0. What function does he use?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "AND",
+                "OR",
+                "NAND",
+                "Exclusive OR"
+            ],
+            "correctAnswer": 3,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 65,
+            "type": "mc",
+            "text": "What mathematical algorithm generates a message summary to confirm message identity and integrity?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "Bit stream algorithm",
+                "Hash function",
+                "RSA algorithm",
+                "Block cipher"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 66,
+            "type": "mc",
+            "text": "Which encryption method uses the exact same secret key to encipher and decipher a message?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "Symmetric encryption",
+                "Asymmetric encryption",
+                "Hash encryption",
+                "Public-key encryption"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 67,
+            "type": "mc",
+            "text": "TommyInnit implements an encryption standard adopted by NIST in 1976 that uses a 56-bit key. Which standard does he implement?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "Advanced Encryption Standard",
+                "Triple DES",
+                "Data Encryption Standard",
+                "RSA"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 68,
+            "type": "mc",
+            "text": "Which algorithm replaced both DES and 3DES as the new federal standard?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "RSA",
+                "Advanced Encryption Standard",
+                "IDEA Cipher",
+                "PGP"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 69,
+            "type": "mc",
+            "text": "Which encryption system utilizes two different but related keys for operations?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "Symmetric encryption",
+                "Asymmetric encryption",
+                "Block cipher encryption",
+                "Secret key encryption"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 70,
+            "type": "mc",
+            "text": "In public-key encryption, if Dream encrypts a message with his private key to create a digital signature, what specific key can decrypt it?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "Dream's public key",
+                "Dream's private key",
+                "The recipient's public key",
+                "The recipient's private key"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 71,
+            "type": "mc",
+            "text": "What primary parameter measures the strength of many encryption applications and cryptosystems?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "Algorithm complexity",
+                "Software version",
+                "Key size",
+                "Network speed"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 72,
+            "type": "mc",
+            "text": "What integrated system of software, protocols, and legal agreements enables users to communicate securely using digital certificates?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "Secure Socket Layer",
+                "Intrusion Detection System",
+                "Public Key Infrastructure",
+                "Virtual Private Network"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 73,
+            "type": "mc",
+            "text": "What encrypted message element mathematically proves message authenticity and prevents the sender from refuting the message?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "Digital Certificate",
+                "Digital Signature",
+                "Hash value",
+                "Ciphertext block"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 74,
+            "type": "mc",
+            "text": "What electronic document contains a key value and identifying information about the entity that controls the key?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "Digital Certificate",
+                "Digital Signature",
+                "Decryption Token",
+                "Public Key Record"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 75,
+            "type": "mc",
+            "text": "Grian hides a secret message inside a digital picture of a Minecraft house. What process does he use?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "Cryptanalysis",
+                "Hash formatting",
+                "Steganography",
+                "Transposition"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 76,
+            "type": "mc",
+            "text": "Which attack intercepts the transmission of a public key and inserts a known key structure in its place?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "Timing Attack",
+                "Man-in-the-Middle Attack",
+                "Dictionary Attack",
+                "Correlation Attack"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 77,
+            "type": "mc",
+            "text": "What happens during a replay attack?",
+            "context": "Reference: Chapter 8: Cryptography",
+            "options": [
+                "The attacker decodes the ciphertext using statistical analysis",
+                "The attacker monitors the victim's typing speed",
+                "The attacker resubmits a recording of deciphered authentication to gain entry",
+                "The attacker intercepts the transmission and alters the public key"
+            ],
+            "correctAnswer": 2,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 78,
+            "type": "mc",
+            "text": "Which internal control strategy stipulates that the completion of a significant task requires at least two people?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "Separation of duties",
+                "Two-man control",
+                "Job rotation",
+                "Collusion"
+            ],
+            "correctAnswer": 0,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 79,
+            "type": "mc",
+            "text": "Technoblade and Wilbur Soot review and approve each other's work before categorizing a task as finished. What control strategy are they using?",
+            "context": "Reference: Chapter 11: Security and Personnel",
+            "options": [
+                "Separation of duties",
+                "Two-man control",
+                "Job rotation",
+                "Phased implementation"
+            ],
+            "correctAnswer": 1,
+            "points": 1,
+            "explanation": ""
+        },
+        {
+            "id": 80,
+            "type": "matching",
+            "text": "Match the Cryptography term to its correct definition.",
+            "context": "Reference: Chapter 8: Cryptography",
+            "allChoices": [
+                "A) Hash function",
+                "B) Cryptanalysis",
+                "C) Transposition cipher",
+                "D) Symmetric encryption",
+                "E) Public Key Infrastructure",
+                "F) Hybrid cryptosystem",
+                "G) Steganography"
+            ],
+            "pairs": [
+                {
+                    "term": "An algorithm that creates a message digest to confirm identity.",
+                    "match": "A) Hash function"
+                },
+                {
+                    "term": "The process of obtaining the original message from an encrypted message without knowing algorithms.",
+                    "match": "B) Cryptanalysis"
+                },
+                {
+                    "term": "A cipher method that rearranges values within a block to create ciphertext.",
+                    "match": "C) Transposition cipher"
+                },
+                {
+                    "term": "An encryption method that uses the exact same secret key to encipher and decipher.",
+                    "match": "D) Symmetric encryption"
+                },
+                {
+                    "term": "An integrated system of software and protocols enabling secure communication via digital certificates.",
+                    "match": "E) Public Key Infrastructure"
+                },
+                {
+                    "term": "A system that combines symmetric and asymmetric algorithms.",
+                    "match": "F) Hybrid cryptosystem"
+                },
+                {
+                    "term": "The process of hiding information within files like digital pictures.",
+                    "match": "G) Steganography"
+                }
+            ],
+            "points": 14,
+            "explanation": ""
+        },
+        {
+            "id": 81,
+            "type": "matching",
+            "text": "Match the General Information Security term to its correct definition.",
+            "context": "Reference: Multiple Chapters",
+            "allChoices": [
+                "A) Collusion",
+                "B) Honeypot",
+                "C) Mantrap",
+                "D) Certification",
+                "E) Chief Information Security Officer",
+                "F) IPSec",
+                "G) Work breakdown structure"
+            ],
+            "pairs": [
+                {
+                    "term": "Unscrupulous workers conspiring to commit an unauthorized task.",
+                    "match": "A) Collusion"
+                },
+                {
+                    "term": "A decoy system designed to lure potential attackers.",
+                    "match": "B) Honeypot"
+                },
+                {
+                    "term": "An enclosure that has an entry point and a different exit point.",
+                    "match": "C) Mantrap"
+                },
+                {
+                    "term": "An evaluation of technical and nontechnical security controls.",
+                    "match": "D) Certification"
+                },
+                {
+                    "term": "The highest-ranking information security position.",
+                    "match": "E) Chief Information Security Officer"
+                },
+                {
+                    "term": "An open-source protocol that secures communications across any IP-based network.",
+                    "match": "F) IPSec"
+                },
+                {
+                    "term": "A model that breaks down project tasks into action steps.",
+                    "match": "G) Work breakdown structure"
+                }
+            ],
+            "points": 14,
+            "explanation": ""
+        }
+    ]
+}
