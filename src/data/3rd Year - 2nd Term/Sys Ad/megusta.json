@@ -1,0 +1,150 @@
+{
+  "courseCode": "IT2628",
+  "quizTitle": "Finals Exam - LDAP, Samba, LAMP Stack",
+  "totalPoints": 50,
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "Which package is commonly used to implement an LDAP server on Linux?",
+      "options": [
+        "ldap-shell",
+        "ldap-client",
+        "slapd-utils",
+        "openldap-servers"
+      ],
+      "correctAnswer": 3,
+      "points": 1
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "What does the suffix dc=example, dc=com represent in LDAP?",
+      "options": [
+        "A password hash",
+        "A directory base name",
+        "A user credential",
+        "A DNS record"
+      ],
+      "correctAnswer": 1,
+      "points": 1
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "A Windows user is trying to map a Samba share but gets an \"Access Denied\" message. You confirm the user's Samba account exists. What is a likely cause?",
+      "options": [
+        "The Samba server's hostname is not in /etc/hosts",
+        "The user's UID does not match their SID",
+        "File permissions on the Linux side do not grant access",
+        "Windows version is incompatible with Samba"
+      ],
+      "correctAnswer": 2,
+      "points": 1
+    },
+    {
+      "id": 4,
+      "type": "tf",
+      "text": "DHCP stands for Dynamic Host Configuration Protocol.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1
+    },
+    {
+      "id": 5,
+      "type": "tf",
+      "text": "Entries added to the /etc/hosts file become automatically available in DNS.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1
+    },
+    {
+      "id": 6,
+      "type": "fitb",
+      "text": "An ___ subscription allows you to collect event logs from multiple servers and store them locally.",
+      "correctAnswer": "event",
+      "points": 1
+    },
+    {
+      "id": 7,
+      "type": "fitb",
+      "text": "The ___ is a Linux shortcut to denote a user's home directory.",
+      "correctAnswer": "~",
+      "points": 1
+    },
+    {
+      "id": 8,
+      "type": "matching",
+      "text": "Match each shell name to its corresponding command identifier (as shown by echo $SHELL).",
+      "pairs": [
+        {
+          "term": "Z Shell",
+          "match": "zsh"
+        },
+        {
+          "term": "Bourne Shell",
+          "match": "sh"
+        },
+        {
+          "term": "Bourne-Again Shell",
+          "match": "bash"
+        },
+        {
+          "term": "C Shell",
+          "match": "csh"
+        },
+        {
+          "term": "Korn Shell",
+          "match": "ksh"
+        }
+      ],
+      "points": 5
+    },
+    {
+      "id": 9,
+      "type": "matching",
+      "text": "Determine which description fits the Common Linux Directories.",
+      "pairs": [
+        {
+          "term": "Binaries and other executable programs.",
+          "match": "/bin"
+        },
+        {
+          "term": "System configuration files.",
+          "match": "/etc"
+        },
+        {
+          "term": "User related programs.",
+          "match": "/usr"
+        },
+        {
+          "term": "Third Party software.",
+          "match": "/opt"
+        },
+        {
+          "term": "Home Directories.",
+          "match": "/home"
+        },
+        {
+          "term": "Temporary space, typically cleared on reboot.",
+          "match": "/tmp"
+        },
+        {
+          "term": "\"Root,\" the top of the file system hierarchy.",
+          "match": "/"
+        },
+        {
+          "term": "Variable data, most notably log files.",
+          "match": "/var"
+        }
+      ],
+      "points": 8
+    }
+  ]
+}
