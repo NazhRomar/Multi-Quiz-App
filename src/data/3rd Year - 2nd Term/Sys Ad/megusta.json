@@ -6,13 +6,8 @@
     {
       "id": 1,
       "type": "matching",
-      "text": "Upon issuing the command $ ps -fu joehenderson, match each value from the output to its correct column label.
-
-
-
-
-
-<div class="matching-output-display"><span class="highlight">joehend+  <span class="highlight">1182  <span class="highlight">1181  <span class="highlight">0  <span class="highlight">22: 48  <span class="highlight">pts/10  <span class="highlight">0: 00: 00  <span class="highlight">-bash","context": "",
+      "text": "Upon issuing the command $ ps -fu joehenderson, match each value from the output to its correct column label.\n\n\n\n\n\n<div class=\"matching-output-display\"><span class=\"highlight\">joehend+ &nbsp;<span class=\"highlight\">1182 &nbsp;<span class=\"highlight\">1181 &nbsp;<span class=\"highlight\">0 &nbsp;<span class=\"highlight\">22: 48 &nbsp;<span class=\"highlight\">pts/10 &nbsp;<span class=\"highlight\">0: 00: 00 &nbsp;<span class=\"highlight\">-bash",
+      "context": "",
       "allChoices": [
         "USER — username of the process owner",
         "TTY — terminal the process is running on",
@@ -222,8 +217,7 @@
           "match": "/tmp"
         },
         {
-          "term": ""Root,
-          " the top of the file system hierarchy.",
+          "term": "\"Root,\" the top of the file system hierarchy.",
           "match": "/"
         },
         {
@@ -267,7 +261,7 @@
     {
       "id": 8,
       "type": "mc",
-      "text": "A Windows user is trying to map a Samba share but gets an "Access Denied" message. You confirm the user's Samba account exists. What is a likely cause?",
+      "text": "A Windows user is trying to map a Samba share but gets an \"Access Denied\" message. You confirm the user's Samba account exists. What is a likely cause?",
       "context": "",
       "options": [
         "The Samba server's hostname is not in /etc/hosts",
@@ -297,7 +291,7 @@
     {
       "id": 10,
       "type": "mc",
-      "text": "You are troubleshooting why new LDAP entries are not being added. The ldapadd command returns "Insufficient access". What is the most probable reason?",
+      "text": "You are troubleshooting why new LDAP entries are not being added. The ldapadd command returns \"Insufficient access\". What is the most probable reason?",
       "context": "",
       "options": [
         "The LDAP schema is invalid",
@@ -415,7 +409,7 @@
     {
       "id": 18,
       "type": "mc",
-      "text": "After installing LAMP, your website shows MySQL errors like "Access denied for user 'webuser'@'localhost'". What is the likely issue?",
+      "text": "After installing LAMP, your website shows MySQL errors like \"Access denied for user 'webuser'@'localhost'\". What is the likely issue?",
       "context": "",
       "options": [
         "The database user has not been granted privileges",
@@ -430,7 +424,7 @@
     {
       "id": 19,
       "type": "mc",
-      "text": "A user attempts to run a shell script but receives a "Permission denied" error. What is the most likely solution?",
+      "text": "A user attempts to run a shell script but receives a \"Permission denied\" error. What is the most likely solution?",
       "context": "",
       "options": [
         "Run chmod 644 script.sh",
@@ -741,7 +735,7 @@
     {
       "id": 40,
       "type": "mc",
-      "text": "You installed all components of the LAMP stack, but Apache is showing a "Forbidden" error when accessing your site. What's the most likely fix?",
+      "text": "You installed all components of the LAMP stack, but Apache is showing a \"Forbidden\" error when accessing your site. What's the most likely fix?",
       "context": "",
       "options": [
         "Add index.php to Apache modules",
@@ -924,10 +918,10 @@
       "text": "You need to append a line to a file using the command line. Which command should you use?",
       "context": "",
       "options": [
-        "echo "text" >> file.txt",
+        "echo \"text\" >> file.txt",
         "cat file.txt",
-        "echo "text"",
-        "echo "text" > file.txt"
+        "echo \"text\"",
+        "echo \"text\" > file.txt"
       ],
       "correctAnswer": 0,
       "points": 1,
