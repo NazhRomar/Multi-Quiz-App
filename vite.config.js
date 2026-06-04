@@ -1,6 +1,8 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
+import react from '@vitejs/react-swc' // (or '@vitejs/plugin-react' depending on your setup)
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  // This tells Vite your app will be hosted at https://<username>.github.io/multi-quiz-app/
-  base: '/multi-quiz-app/',
-});
+  plugins: [react()],
+  base: '/Multi-Quiz-App/', // 👈 ADD THIS LINE
+})
