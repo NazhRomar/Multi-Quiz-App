@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/', // Change this from './' to '/' (or remove the line entirely)
+  base: '/', // Change this back to '/' (or delete the base line entirely)
+  // your other config settings...
 })
