@@ -1,87 +1,161 @@
 {
   "courseCode": "IT2628",
-  "quizTitle": "Finals Exam - LDAP, Samba, LAMP Stack",
-  "totalPoints": 50,
+  "quizTitle": "Finals Exam — Retro Chic",
+  "totalPoints": 117,
   "questions": [
     {
       "id": 1,
-      "type": "mc",
-      "text": "Which package is commonly used to implement an LDAP server on Linux?",
-      "options": [
-        "ldap-shell",
-        "ldap-client",
-        "slapd-utils",
-        "openldap-servers"
+      "type": "matching",
+      "text": "Upon issuing the command $ ps -fu joehenderson, match each value from the output to its correct column label.
+
+
+
+
+
+<div class="matching-output-display"><span class="highlight">joehend+  <span class="highlight">1182  <span class="highlight">1181  <span class="highlight">0  <span class="highlight">22: 48  <span class="highlight">pts/10  <span class="highlight">0: 00: 00  <span class="highlight">-bash","context": "",
+      "allChoices": [
+        "USER — username of the process owner",
+        "TTY — terminal the process is running on",
+        "PID — process ID",
+        "CMD — command/program being run",
+        "PPID — parent process ID",
+        "TIME — total CPU time used",
+        "STIME — start time of the process",
+        "C — CPU utilization percentage"
       ],
-      "correctAnswer": 3,
-      "points": 1
+      "pairs": [
+        {
+          "term": "joehend+",
+          "match": "USER — username of the process owner"
+        },
+        {
+          "term": "pts/10",
+          "match": "TTY — terminal the process is running on"
+        },
+        {
+          "term": "1182",
+          "match": "PID — process ID"
+        },
+        {
+          "term": "-bash",
+          "match": "CMD — command/program being run"
+        },
+        {
+          "term": "1181",
+          "match": "PPID — parent process ID"
+        },
+        {
+          "term": "0:00:00",
+          "match": "TIME — total CPU time used"
+        },
+        {
+          "term": "22:48",
+          "match": "STIME — start time of the process"
+        },
+        {
+          "term": "0",
+          "match": "C — CPU utilization percentage"
+        }
+      ],
+      "points": 8,
+      "explanation": ""
     },
     {
       "id": 2,
-      "type": "mc",
-      "text": "What does the suffix dc=example, dc=com represent in LDAP?",
-      "options": [
-        "A password hash",
-        "A directory base name",
-        "A user credential",
-        "A DNS record"
+      "type": "matching",
+      "text": "Determine which description fits the Comprehensive Directory Listing. Match each description to the correct Linux directory.",
+      "context": "",
+      "allChoices": [
+        "/srv",
+        "/mnt",
+        "/proc",
+        "/sys",
+        "/media",
+        "/dev",
+        "/lib",
+        "/export"
       ],
-      "correctAnswer": 1,
-      "points": 1
+      "pairs": [
+        {
+          "term": "Contains data which is served by the system.",
+          "match": "/srv"
+        },
+        {
+          "term": "Used to mount external file systems.",
+          "match": "/mnt"
+        },
+        {
+          "term": "Provides info about running processes.",
+          "match": "/proc"
+        },
+        {
+          "term": "Used to display and sometimes configure the devices known to the Linux kernel.",
+          "match": "/sys"
+        },
+        {
+          "term": "Used to mount removable media.",
+          "match": "/media"
+        },
+        {
+          "term": "Device files, typically controlled by the OS and system administrators.",
+          "match": "/dev"
+        },
+        {
+          "term": "System Libraries.",
+          "match": "/lib"
+        },
+        {
+          "term": "Shared file systems.",
+          "match": "/export"
+        }
+      ],
+      "points": 8,
+      "explanation": ""
     },
     {
       "id": 3,
-      "type": "mc",
-      "text": "A Windows user is trying to map a Samba share but gets an \"Access Denied\" message. You confirm the user's Samba account exists. What is a likely cause?",
-      "options": [
-        "The Samba server's hostname is not in /etc/hosts",
-        "The user's UID does not match their SID",
-        "File permissions on the Linux side do not grant access",
-        "Windows version is incompatible with Samba"
+      "type": "matching",
+      "text": "For the DNS hostnames, determine which example describes each term.",
+      "context": "",
+      "allChoices": [
+        ".com, .net, .org, etc",
+        "webprod01.ny.us.mycompany.com",
+        "webprod01.com",
+        "webprod01.mycompany.com"
       ],
-      "correctAnswer": 2,
-      "points": 1
+      "pairs": [
+        {
+          "term": "Top Level Domain (TLD)",
+          "match": ".com, .net, .org, etc"
+        },
+        {
+          "term": "Sub-Domain",
+          "match": "webprod01.ny.us.mycompany.com"
+        },
+        {
+          "term": "Domain",
+          "match": "webprod01.com"
+        },
+        {
+          "term": "FQDN — Fully Qualified Domain Name",
+          "match": "webprod01.mycompany.com"
+        }
+      ],
+      "points": 4,
+      "explanation": ""
     },
     {
       "id": 4,
-      "type": "tf",
-      "text": "DHCP stands for Dynamic Host Configuration Protocol.",
-      "options": [
-        "True",
-        "False"
-      ],
-      "correctAnswer": 0,
-      "points": 1
-    },
-    {
-      "id": 5,
-      "type": "tf",
-      "text": "Entries added to the /etc/hosts file become automatically available in DNS.",
-      "options": [
-        "True",
-        "False"
-      ],
-      "correctAnswer": 1,
-      "points": 1
-    },
-    {
-      "id": 6,
-      "type": "fitb",
-      "text": "An ___ subscription allows you to collect event logs from multiple servers and store them locally.",
-      "correctAnswer": "event",
-      "points": 1
-    },
-    {
-      "id": 7,
-      "type": "fitb",
-      "text": "The ___ is a Linux shortcut to denote a user's home directory.",
-      "correctAnswer": "~",
-      "points": 1
-    },
-    {
-      "id": 8,
       "type": "matching",
       "text": "Match each shell name to its corresponding command identifier (as shown by echo $SHELL).",
+      "context": "",
+      "allChoices": [
+        "zsh",
+        "sh",
+        "bash",
+        "csh",
+        "ksh"
+      ],
       "pairs": [
         {
           "term": "Z Shell",
@@ -104,12 +178,24 @@
           "match": "ksh"
         }
       ],
-      "points": 5
+      "points": 5,
+      "explanation": ""
     },
     {
-      "id": 9,
+      "id": 5,
       "type": "matching",
       "text": "Determine which description fits the Common Linux Directories.",
+      "context": "",
+      "allChoices": [
+        "/bin",
+        "/etc",
+        "/usr",
+        "/opt",
+        "/home",
+        "/tmp",
+        "/",
+        "/var"
+      ],
       "pairs": [
         {
           "term": "Binaries and other executable programs.",
@@ -136,7 +222,8 @@
           "match": "/tmp"
         },
         {
-          "term": "\"Root,\" the top of the file system hierarchy.",
+          "term": ""Root,
+          " the top of the file system hierarchy.",
           "match": "/"
         },
         {
@@ -144,7 +231,1188 @@
           "match": "/var"
         }
       ],
-      "points": 8
+      "points": 8,
+      "explanation": ""
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "Which package is commonly used to implement an LDAP server on Linux?",
+      "context": "",
+      "options": [
+        "ldap-shell",
+        "ldap-client",
+        "slapd-utils",
+        "openldap-servers"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "What does the suffix dc=example, dc=com represent in LDAP?",
+      "context": "",
+      "options": [
+        "A password hash",
+        "A directory base name",
+        "A user credential",
+        "A DNS record"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "A Windows user is trying to map a Samba share but gets an "Access Denied" message. You confirm the user's Samba account exists. What is a likely cause?",
+      "context": "",
+      "options": [
+        "The Samba server's hostname is not in /etc/hosts",
+        "The user's UID does not match their SID",
+        "File permissions on the Linux side do not grant access",
+        "Windows version is incompatible with Samba"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "Which section of the smb.conf file defines global Samba settings?",
+      "context": "",
+      "options": [
+        "[global]",
+        "[default]",
+        "[server]",
+        "[settings]"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "You are troubleshooting why new LDAP entries are not being added. The ldapadd command returns "Insufficient access". What is the most probable reason?",
+      "context": "",
+      "options": [
+        "The LDAP schema is invalid",
+        "You're not authenticated as rootdn or with proper permissions",
+        "The LDAP server is not running",
+        "The LDIF file is corrupted"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "You need to allow remote access to your MySQL server for a web application hosted on another server. What's a secure and correct step?",
+      "context": "",
+      "options": [
+        "Set bind-address = 0.0.0.0 in my.cnf and create a user with remote access",
+        "Enable remote root login",
+        "Disable the MySQL root password",
+        "Move the MySQL data directory to /var/www/html"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "A user complains that even though they're part of the developers group, they can't write to the devshare Samba share. What is the most likely cause?",
+      "context": "",
+      "options": [
+        "Samba is not running",
+        "SELinux is preventing access",
+        "The share is mounted read-only on Windows",
+        "The directory has incorrect Linux file permissions"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 13,
+      "type": "tf",
+      "text": "DHCP stands for Dynamic Host Configuration Protocol.",
+      "context": "",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "Which of the following port numbers is used by default for unencrypted LDAP communication?",
+      "context": "",
+      "options": [
+        "636",
+        "389",
+        "25",
+        "443"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "Which command is used to install PHP on Red Hat-based distributions?",
+      "context": "",
+      "options": [
+        "yum install php",
+        "dnf enable php",
+        "rpm install php",
+        "apt install php"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "text": "You've installed Apache and created a basic PHP file in /var/www/html/info.php containing <?php phpinfo(); ?>, but when accessed in a browser, the page downloads instead of displaying. What is the most likely cause?",
+      "context": "",
+      "options": [
+        "MySQL is not connected",
+        "Apache is not installed",
+        "PHP module is not enabled in Apache",
+        "File permissions are incorrect"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 17,
+      "type": "mc",
+      "text": "Which port does Samba typically use for SMB traffic?",
+      "context": "",
+      "options": [
+        "21",
+        "80 and 443",
+        "139 and 445",
+        "22"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 18,
+      "type": "mc",
+      "text": "After installing LAMP, your website shows MySQL errors like "Access denied for user 'webuser'@'localhost'". What is the likely issue?",
+      "context": "",
+      "options": [
+        "The database user has not been granted privileges",
+        "The firewall is blocking port 443",
+        "Apache is not restarted",
+        "PHP is misconfigured"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 19,
+      "type": "mc",
+      "text": "A user attempts to run a shell script but receives a "Permission denied" error. What is the most likely solution?",
+      "context": "",
+      "options": [
+        "Run chmod 644 script.sh",
+        "Reboot the system",
+        "Run chmod +x script.sh to make it executable",
+        "Use ./script.sh without any permissions"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 20,
+      "type": "mc",
+      "text": "You have added a new share, but the testparm command shows a warning. What is the purpose of testparm?",
+      "context": "",
+      "options": [
+        "Check SELinux compatibility",
+        "Validate the Samba configuration file",
+        "Restart the Samba service",
+        "Test user authentication"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 21,
+      "type": "mc",
+      "text": "To make a Samba share visible in the network neighborhood on Windows, which setting must be enabled?",
+      "context": "",
+      "options": [
+        "available = yes",
+        "guest only = yes",
+        "browseable = yes",
+        "hidden = no"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 22,
+      "type": "mc",
+      "text": "Which MySQL/MariaDB command lets you log into the database server from the terminal?",
+      "context": "",
+      "options": [
+        "mysql -u root -p",
+        "maria login root",
+        "sqladmin login root",
+        "dbconnect -p root"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 23,
+      "type": "mc",
+      "text": "You are tasked with backing up the entire LDAP directory, including configuration and data. Which command should you use?",
+      "context": "",
+      "options": [
+        "slapcat",
+        "ldapmodify -B",
+        "ldapsearch -x",
+        "ldifbackup"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 24,
+      "type": "mc",
+      "text": "Which command is used to create a Samba user?",
+      "context": "",
+      "options": [
+        "smbadd -u username",
+        "smbuseradd username",
+        "smbpasswd -a username",
+        "addsmbuser"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 25,
+      "type": "mc",
+      "text": "You want to find how many lines a log file has. Which shell command will help you?",
+      "context": "",
+      "options": [
+        "ls -l logfile",
+        "cat logfile",
+        "wc -l logfile",
+        "wc -w logfile"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 26,
+      "type": "mc",
+      "text": "What file format is used for adding data to an LDAP directory?",
+      "context": "",
+      "options": [
+        "LDIF",
+        "JSON",
+        "XML",
+        "YAML"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 27,
+      "type": "mc",
+      "text": "What is the default port number for LDAP over SSL (LDAPS)?",
+      "context": "",
+      "options": [
+        "443",
+        "636",
+        "3268",
+        "389"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 28,
+      "type": "mc",
+      "text": "What is the purpose of the ldapmodify command?",
+      "context": "",
+      "options": [
+        "Change LDAP schema files",
+        "Modify local Linux user accounts",
+        "Modify entries in the LDAP directory",
+        "Restart the LDAP service"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 29,
+      "type": "tf",
+      "text": "Entries added to the /etc/hosts file become automatically available in DNS.",
+      "context": "",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 30,
+      "type": "mc",
+      "text": "Which command shows the current Samba connections and file locks?",
+      "context": "",
+      "options": [
+        "net status",
+        "smbscan",
+        "smbinfo",
+        "smbstatus"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 31,
+      "type": "mc",
+      "text": "Which package installs MariaDB server on Debian/Ubuntu?",
+      "context": "",
+      "options": [
+        "apt install mysql-server",
+        "apt install mariadb",
+        "apt install db-server",
+        "apt install mariadb-server"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 32,
+      "type": "mc",
+      "text": "Which command installs Apache on a Debian-based Linux distribution?",
+      "context": "",
+      "options": [
+        "yum install apache2",
+        "dnf install httpd",
+        "apt install apache2",
+        "pacman -S apache"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 33,
+      "type": "mc",
+      "text": "What is the function of the rootdn directive in OpenLDAP configuration?",
+      "context": "",
+      "options": [
+        "Specifies the system admin's email",
+        "Declares the LDAP superuser",
+        "Sets the primary group ID",
+        "Defines the root filesystem path"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 34,
+      "type": "mc",
+      "text": "What is the primary function of the ldapsearch command?",
+      "context": "",
+      "options": [
+        "Searches the LDAP directory",
+        "Starts the LDAP daemon",
+        "Modifies existing entries",
+        "Adds new entries"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 35,
+      "type": "tf",
+      "text": "Encrypted passwords are stored in /etc/shadow.",
+      "context": "",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 36,
+      "type": "mc",
+      "text": "You need to ensure that only users from the subnet 192.168.10.0/24 can access your Samba share. What parameter should be used?",
+      "context": "",
+      "options": [
+        "allowed networks = 192.168.10.0/24",
+        "subnet restrict = yes",
+        "ip range = 192.168.10.0/24",
+        "hosts allow = 192.168.10."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 37,
+      "type": "mc",
+      "text": "Which configuration file controls the order in which lookups are performed?",
+      "context": "",
+      "options": [
+        "/etc/nsswitch.conf",
+        "/etc/resolv.conf",
+        "/var/nsswitch.conf",
+        "/var/resolv.conf"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 38,
+      "type": "mc",
+      "text": "A new user cannot log into a system configured for LDAP-based authentication. The LDAP server is running and reachable. What should be your next diagnostic step?",
+      "context": "",
+      "options": [
+        "Disable SELinux",
+        "Recreate the user in LDAP",
+        "Test the bind credentials using ldapwhoami",
+        "Restart the SSH service"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 39,
+      "type": "mc",
+      "text": "Your Apache server is running, but a blank page is displayed when accessing your PHP application. What should you do first?",
+      "context": "",
+      "options": [
+        "Check the Apache error logs",
+        "Delete the PHP file and recreate it",
+        "Restart Apache",
+        "Clear your browser cache"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 40,
+      "type": "mc",
+      "text": "You installed all components of the LAMP stack, but Apache is showing a "Forbidden" error when accessing your site. What's the most likely fix?",
+      "context": "",
+      "options": [
+        "Add index.php to Apache modules",
+        "Restart MySQL",
+        "Disable SELinux",
+        "Set correct permissions on the web root directory"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 41,
+      "type": "mc",
+      "text": "A junior admin wants to add a new user devuser with a home directory. What's the correct command?",
+      "context": "",
+      "options": [
+        "adduser devuser -m",
+        "groupadd devuser",
+        "useradd devuser -h",
+        "useradd -m devuser"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 42,
+      "type": "mc",
+      "text": "In an LDAP directory, what does the dc attribute represent?",
+      "context": "",
+      "options": [
+        "Device Category",
+        "Directory Count",
+        "Domain Component",
+        "Distinguished Credential"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 43,
+      "type": "mc",
+      "text": "After modifying the OpenLDAP configuration using ldapmodify, changes are not taking effect. What is the most appropriate next action?",
+      "context": "",
+      "options": [
+        "Reload the systemd daemon",
+        "Restart the slapd service",
+        "Restart the nscd service",
+        "Recompile the LDIF file"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 44,
+      "type": "mc",
+      "text": "What is the default port number for Apache HTTP traffic?",
+      "context": "",
+      "options": [
+        "443",
+        "21",
+        "80",
+        "8080"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 45,
+      "type": "mc",
+      "text": "After adding a new user to Linux and creating their Samba password with smbpasswd -a, the user still cannot authenticate from a Windows system. What is the most likely cause?",
+      "context": "",
+      "options": [
+        "The user's Linux home directory is missing",
+        "The firewall is blocking ports 139 and 445",
+        "The user is not part of the wheel group",
+        "The Samba service was not restarted"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 46,
+      "type": "mc",
+      "text": "What command can be used to display the hostname of a Linux system?",
+      "context": "",
+      "options": [
+        "hostname -f",
+        "hostname",
+        "All of the options",
+        "uname -n"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 47,
+      "type": "mc",
+      "text": "How can you lock the account of user testuser without deleting it?",
+      "context": "",
+      "options": [
+        "usermod -d testuser",
+        "userdel testuser",
+        "passwd -l testuser",
+        "passwd testuser"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 48,
+      "type": "mc",
+      "text": "After configuring LDAP replication for high availability, the secondary server is not receiving updates. What is the most likely reason?",
+      "context": "",
+      "options": [
+        "The syncprov module is not enabled on the primary server",
+        "The slapd service is running as root",
+        "TLS is not configured on the primary",
+        "LDIF schema version mismatch"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 49,
+      "type": "mc",
+      "text": "Which directive defines the root of the LDAP directory tree in the slapd configuration?",
+      "context": "",
+      "options": [
+        "suffix",
+        "basedn",
+        "rootdn",
+        "directory"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 50,
+      "type": "mc",
+      "text": "You want to see all groups a user jane belongs to. Which command will show this?",
+      "context": "",
+      "options": [
+        "id -u jane",
+        "groups jane",
+        "whoami jane",
+        "getent passwd jane"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 51,
+      "type": "mc",
+      "text": "You installed LAMP and want your site to respond to www.mycompany.local. What should you configure?",
+      "context": "",
+      "options": [
+        "Modify MySQL privileges",
+        "Update /etc/php.ini",
+        "Create a new database",
+        "Add a virtual host entry in Apache and update /etc/hosts"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 52,
+      "type": "mc",
+      "text": "You need to append a line to a file using the command line. Which command should you use?",
+      "context": "",
+      "options": [
+        "echo "text" >> file.txt",
+        "cat file.txt",
+        "echo "text"",
+        "echo "text" > file.txt"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 53,
+      "type": "mc",
+      "text": "Your DevOps team prefers a rolling release model and the latest packages for testing environments. Which Linux distribution aligns best with their needs?",
+      "context": "",
+      "options": [
+        "Debian Stable",
+        "Arch Linux",
+        "CentOS",
+        "Ubuntu LTS"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 54,
+      "type": "mc",
+      "text": "What does LDAP stand for?",
+      "context": "",
+      "options": [
+        "Local Directory Access Protocol",
+        "Linux Directory Authorization Protocol",
+        "Lightweight Directory Access Protocol",
+        "Lightweight Data Access Protocol"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 55,
+      "type": "mc",
+      "text": "Your organization has three Active Directory forests without trust relationships and a single VPN server. You want authentication routed to existing RADIUS servers in each forest based on the connecting user's account properties. Which must you deploy?",
+      "context": "",
+      "options": [
+        "RADIUS server",
+        "RADIUS accounting",
+        "RADIUS client",
+        "RADIUS proxy"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 56,
+      "type": "mc",
+      "text": "Your organization purchased a dedicated hardware VPN device deployed on your network perimeter. You want your existing RADIUS server (Windows Server 2022 with NPS) to accept and respond to authorization traffic from this device. What should you configure on the NPS server?",
+      "context": "",
+      "options": [
+        "RADIUS server",
+        "RADIUS accounting",
+        "RADIUS proxy",
+        "RADIUS client"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 57,
+      "type": "mc",
+      "text": "You want to deploy a server that responds to authentication and authorization requests from a dedicated hardware VPN server on your perimeter network. Which of the following must you deploy on the internal network?",
+      "context": "",
+      "options": [
+        "RADIUS client",
+        "RADIUS accounting",
+        "RADIUS proxy",
+        "RADIUS server"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 58,
+      "type": "mc",
+      "text": "Which of the following IP addresses does NOT fall within a private address range?",
+      "context": "",
+      "options": [
+        "11.12.13.14",
+        "172.16.255.255",
+        "10.11.12.13",
+        "192.168.1.100"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 59,
+      "type": "mc",
+      "text": "Which commands can be used for network troubleshooting?",
+      "context": "",
+      "options": [
+        "ping",
+        "traceroute",
+        "netstat",
+        "tracedump"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 60,
+      "type": "mc",
+      "text": "What does an LDAP DN (Distinguished Name) uniquely identify?",
+      "context": "",
+      "options": [
+        "A shell user",
+        "A Linux process",
+        "A Samba share",
+        "An LDAP object"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 61,
+      "type": "mc",
+      "text": "Your file server is running slowly and you suspect a Windows service is consuming too many resources. Which tool should you use?",
+      "context": "",
+      "options": [
+        "Group Policy Editor",
+        "Windows Defender Security Center",
+        "File Explorer",
+        "Task Manager → Performance Tab"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 62,
+      "type": "tf",
+      "text": "257.19.21.228 is a valid IP address.",
+      "context": "",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 63,
+      "type": "mc",
+      "text": "You are deploying a lightweight web server on older hardware with limited resources. Which Linux distribution would be most appropriate?",
+      "context": "",
+      "options": [
+        "Fedora Server",
+        "Debian",
+        "Ubuntu Server",
+        "Alpine Linux"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 64,
+      "type": "mc",
+      "text": "Your Linux DHCP server isn't assigning IP addresses to clients. What should you check first?",
+      "context": "",
+      "options": [
+        "DNS resolution",
+        "Firewall rules on the client",
+        "DHCP server logs in /var/log/",
+        "Nginx configuration"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 65,
+      "type": "mc",
+      "text": "Given an IP address of 199.83.131.0 and a subnet mask of 255.255.255.0, what is the broadcast address?",
+      "context": "",
+      "options": [
+        "199.83.130.255",
+        "199.83.131.255",
+        "199.83.131.0",
+        "199.83.131.1"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 66,
+      "type": "mc",
+      "text": "Your organization runs a Windows Server 2022 DHCP service, but users report they are not receiving IP addresses. Which tool should you use to verify the DHCP service is running?",
+      "context": "",
+      "options": [
+        "Task Manager",
+        "File Explorer",
+        "Group Policy Management",
+        "Services.msc"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 67,
+      "type": "mc",
+      "text": "You need to ensure that if the Print Spooler service crashes, it automatically restarts. What should you configure?",
+      "context": "",
+      "options": [
+        "PowerShell execution policy",
+        "Task Manager Startup Applications",
+        "Service Recovery settings in Services.msc",
+        "Group Policy Editor"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 68,
+      "type": "mc",
+      "text": "Which PowerShell command would you use to check the status of a Windows service?",
+      "context": "",
+      "options": [
+        "Monitor-Service",
+        "Get-Service",
+        "View-Service",
+        "Check-Service"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 69,
+      "type": "mc",
+      "text": "You want to collect processor, memory, and network utilization data over several hours for later review. Which tool should you use?",
+      "context": "",
+      "options": [
+        "Data collector set",
+        "Message Analyzer",
+        "Resource Monitor",
+        "Task Manager"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 70,
+      "type": "mc",
+      "text": "Before restarting the Active Directory Domain Services (AD DS) service, you need to check its dependent services. Which tool should you use?",
+      "context": "",
+      "options": [
+        "Windows Update Center",
+        "File Explorer",
+        "Services.msc → Dependencies Tab",
+        "Task Manager → Performance Tab"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 71,
+      "type": "mc",
+      "text": "Which tool can you use to capture and analyze network traffic on a Windows server?",
+      "context": "",
+      "options": [
+        "Resource Monitor",
+        "Task Manager",
+        "Message Analyzer",
+        "Data collector set"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 72,
+      "type": "mc",
+      "text": "You need to change the primary group of user alex to developers. Which command should you use?",
+      "context": "",
+      "options": [
+        "usermod -g developers alex",
+        "groupadd alex developers",
+        "groupmod -g developers alex",
+        "usermod -G developers alex"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 73,
+      "type": "mc",
+      "text": "You are configuring a static IP on a Debian-based server. Which file would you most likely edit?",
+      "context": "",
+      "options": [
+        "/etc/hostname",
+        "/etc/dhcpcd.conf",
+        "/etc/sysconfig/network-scripts/ifcfg-eth0",
+        "/etc/network/interfaces"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 74,
+      "type": "mc",
+      "text": "What does the cn=my.example,dc=com string represent in LDAP?",
+      "context": "",
+      "options": [
+        "A password hash",
+        "A directory base name",
+        "A user credential",
+        "A DNS record"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 75,
+      "type": "mc",
+      "text": "Data ___ sets enable you to gather performance-related and other system statistics for analysis. What is the missing word?",
+      "context": "",
+      "options": [
+        "Collector",
+        "Monitor",
+        "Logger",
+        "Tracker"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 76,
+      "type": "tf",
+      "text": "Task Manager enables you to monitor the server's processes, performances, and services currently running.",
+      "context": "",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 77,
+      "type": "tf",
+      "text": "Servers provide network services and handle users to access services.",
+      "context": "",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 78,
+      "type": "tf",
+      "text": "Counters provide performance information on how well an operating system, application, service, or driver works.",
+      "context": "",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 79,
+      "type": "fitb",
+      "text": "An ___ subscription allows you to collect event logs from multiple servers and store them locally.",
+      "context": "",
+      "correctAnswer": "event",
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 80,
+      "type": "fitb",
+      "text": "The ___ is a Linux shortcut to denote a user's home directory.",
+      "context": "",
+      "correctAnswer": "~",
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 81,
+      "type": "fitb",
+      "text": "An ___ Viewer provides categorized lists of essential Windows log events and log groupings for installed applications and Windows components.",
+      "context": "",
+      "correctAnswer": "event",
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 82,
+      "type": "fitb",
+      "text": "A ___ Monitor provides an in-depth look at the real-time performance of the server.",
+      "context": "",
+      "correctAnswer": "resource",
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 83,
+      "type": "fitb",
+      "text": "The ___ is the central component of an operating system that manages operations of the computer and hardware.",
+      "context": "",
+      "correctAnswer": "kernel",
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 84,
+      "type": "fitb",
+      "text": "A Linux ___ is an operating system made from a software collection that includes the Linux kernel and often a package management system.",
+      "context": "",
+      "correctAnswer": "distribution",
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 85,
+      "type": "fitb",
+      "text": "Root is the ___ of the Linux file system.",
+      "context": "",
+      "correctAnswer": "superuser",
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 86,
+      "type": "fitb",
+      "text": "___ views allow you to query and sort just the events that you want to analyze.",
+      "context": "",
+      "correctAnswer": "custom",
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 87,
+      "type": "fitb",
+      "text": "A ___ is the default interface to Linux.",
+      "context": "",
+      "correctAnswer": "shell",
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 88,
+      "type": "fitb",
+      "text": "A ___ Monitor enables you to view current performance statistics or historical data gathered through data collector sets.",
+      "context": "",
+      "correctAnswer": "performance",
+      "points": 1,
+      "explanation": ""
+    },
+    {
+      "id": 89,
+      "type": "fitb",
+      "text": "Data ___ sets enable you to gather performance-related and other system statistics for analysis.",
+      "context": "",
+      "correctAnswer": "collector",
+      "points": 1,
+      "explanation": ""
     }
   ]
 }
