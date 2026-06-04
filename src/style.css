@@ -1650,3 +1650,206 @@ body.theme-dark-purple .btn-restart:hover {
   border-color: #8cbf4a !important;
   color: #8cbf4a !important;
 }
+
+/* =========================================================
+   --- DARK PURPLE FIXES ---
+========================================================= */
+
+/* 1. Main menu quiz buttons were stuck on white */
+body.theme-dark-purple .btn-quiz {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+}
+body.theme-dark-purple .btn-quiz:hover {
+  background: var(--radio-bg) !important;
+  border-color: var(--accent) !important;
+}
+body.theme-dark-purple .quiz-btn-meta {
+  background: rgba(168, 152, 234, 0.15) !important; 
+  color: var(--accent) !important;
+}
+
+/* 2. Hamburger menu & dropdown items were stuck on white */
+body.theme-dark-purple .dropdown-menu,
+body.theme-dark-purple .dropdown-category-content,
+body.theme-dark-purple .dropdown-item {
+  background-color: var(--surface) !important;
+  color: var(--text) !important;
+}
+body.theme-dark-purple .dropdown-item:hover {
+  background-color: var(--radio-bg) !important;
+}
+
+/* 3. Question text bleed-through (was still Misty Blue) */
+body.theme-dark-purple .q-text {
+  color: var(--text) !important;
+  font-weight: normal !important;
+}
+
+/* 4. Score color too bright (Swapped to a softer glowing green) */
+body.theme-dark-purple .score-badge {
+  background: rgba(94, 202, 165, 0.15) !important; 
+  color: var(--correct) !important;
+  border: 1px solid rgba(94, 202, 165, 0.3) !important;
+}
+
+/* 5. Next button too bright (Deepened the purple for better contrast) */
+body.theme-dark-purple .btn-next {
+  background: #5d4d8c !important; 
+  color: #ffffff !important;
+  border-color: #5d4d8c !important;
+}
+body.theme-dark-purple .btn-next:hover:not(:disabled) {
+  background: #7360ab !important;
+  border-color: #7360ab !important;
+  box-shadow: 0 8px 25px rgba(168, 152, 234, 0.2) !important;
+}
+
+/* 6. Hover states for Restart and Exit matching the dark theme */
+body.theme-dark-purple .btn-exit:hover {
+  background: rgba(224, 85, 85, 0.15) !important;
+  border-color: #e05555 !important;
+  color: #e05555 !important;
+}
+body.theme-dark-purple .btn-restart:hover {
+  background: rgba(140, 191, 74, 0.15) !important;
+  border-color: #8cbf4a !important;
+  color: #8cbf4a !important;
+}
+
+/* --- HAMBURGER MENU TEXT FIX --- */
+body.theme-dark-purple .dropdown-item-text strong {
+  color: var(--text) !important;
+}
+
+body.theme-dark-purple .dropdown-item-text small {
+  color: var(--text-muted) !important;
+}
+
+body.theme-dark-purple .dropdown-header {
+  background-color: var(--radio-bg) !important;
+  color: var(--text-muted) !important;
+}
+
+/* --- DISABLED BUTTON VISIBILITY FIX --- */
+body.theme-dark-purple button:disabled {
+  opacity: 0.5;
+  /* Slightly higher opacity for better contrast */
+}
+
+body.theme-dark-purple .btn-prev:disabled {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+body.theme-dark-purple .btn-next:disabled {
+  background: rgba(168, 152, 234, 0.1) !important;
+  border-color: rgba(168, 152, 234, 0.2) !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* --- 7. Mode & Quiz Type Badges Visibility Fix --- */
+
+/* Fix the Quiz and Review mode pills */
+body.theme-dark-purple .mode-pill--quiz {
+  background: rgba(91, 155, 213, 0.25) !important;
+  color: #9cd1ff !important;
+  border-color: rgba(91, 155, 213, 0.5) !important;
+}
+
+body.theme-dark-purple .mode-pill--review {
+  background: rgba(168, 152, 234, 0.25) !important;
+  color: #d1c8fa !important;
+  border-color: rgba(168, 152, 234, 0.5) !important;
+}
+
+/* Fix the individual question type badges inside the quiz */
+body.theme-dark-purple .q-type-badge.mc {
+  background: rgba(91, 155, 213, 0.2) !important;
+  color: #9cd1ff !important;
+  /* Soft light blue */
+  border-color: rgba(91, 155, 213, 0.4) !important;
+}
+
+body.theme-dark-purple .q-type-badge.tf {
+  background: rgba(94, 202, 165, 0.2) !important;
+  color: #8be6c6 !important;
+  /* Soft mint green */
+  border-color: rgba(94, 202, 165, 0.4) !important;
+}
+
+body.theme-dark-purple .q-type-badge.fitb {
+  background: rgba(168, 152, 234, 0.2) !important;
+  color: #d1c8fa !important;
+  /* Light powder purple */
+  border-color: rgba(168, 152, 234, 0.4) !important;
+}
+
+body.theme-dark-purple .q-type-badge.matching,
+body.theme-dark-purple .q-type-badge.drag-drop {
+  background: rgba(224, 138, 172, 0.2) !important;
+  color: #f7bbd0 !important;
+  /* Light pastel pink/red */
+  border-color: rgba(224, 138, 172, 0.4) !important;
+}
+
+/* --- Fix Question Card Border --- */
+body.theme-dark-purple .question-card {
+  border-color: var(--border) !important;
+}
+
+/* --- Fix Dropdown Select Text & Background --- */
+body.theme-dark-purple .dropdown-item select {
+  color: var(--text) !important;
+  background-color: var(--radio-bg) !important;
+}
+
+/* Also ensure the match-select dropdowns in the matching questions get the text color fix */
+body.theme-dark-purple .match-select {
+  color: var(--text) !important;
+}
+
+/* --- Fix Native Select Options Background --- */
+body.theme-dark-purple option {
+  background-color: var(--surface) !important;
+  color: var(--text) !important;
+}
+
+/* --- Fix Select Dropdown Arrow Color --- */
+body.theme-dark-purple select {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23d1c8fa" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') !important;
+}
+
+/* =========================================================
+   --- CANVAS MODE LAYOUT FIXES ---
+========================================================= */
+
+/* 1. Override the negative margins caused by the dangling comma */
+body.theme-canvas .question-card {
+  margin: 0 !important;
+}
+
+body.theme-canvas main.question-card {
+  margin: 2rem auto !important;
+  /* Keeps the final Results screen centered */
+}
+
+body.theme-canvas .menu-container section {
+  margin: 0 0 1.5rem 0 !important;
+}
+
+body.theme-canvas .mode-select-card {
+  margin: 3rem auto 0 !important;
+}
+
+/* 2. Fix Top Navigation button spacing */
+body.theme-canvas #quiz-nav-top[style*="display: flex"] {
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+}
+
+/* 3. Prevent massive double-gaps when Top Navigation is active */
+body.theme-canvas #quiz-nav-top[style*="display: flex"]+#quiz-container {
+  margin-top: 0 !important;
+}
