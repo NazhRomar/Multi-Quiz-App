@@ -1,8 +1,6 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react' // 👈 Swapped this to the standard plugin
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  base: '/Multi-Quiz-App/', 
+  base: '/Multi-Quiz-App/', // This ensures your assets load correctly on GitHub Pages
 })
