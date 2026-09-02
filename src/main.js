@@ -191,6 +191,19 @@ function renderMenu() {
     container.appendChild(termSection);
   }
   appRoot.appendChild(container);
+
+  const footer = document.createElement('footer');
+  footer.className = 'home-footer';
+  footer.innerHTML = `Last updated: ${formatBuildDate(__BUILD_DATE__)}`;
+  appRoot.appendChild(footer);
+}
+
+function formatBuildDate(isoString) {
+  const date = new Date(isoString);
+  return date.toLocaleString(undefined, {
+    year: 'numeric', month: 'short', day: 'numeric',
+    hour: 'numeric', minute: '2-digit'
+  });
 }
 
 // --- 3b. Mode Selection (Quiz vs Review) ---
