@@ -70,7 +70,7 @@ function renderNavRow(isFirst, isLast, nextBlocked, isQuizMode) {
 
     let nextAction, nextLabel;
     if (isLast) {
-      nextAction = isQuizMode ? 'submitQuiz()' : 'renderMenu()';
+      nextAction = isQuizMode ? 'confirmSubmitQuiz()' : 'renderMenu()';
       nextLabel = isQuizMode ? 'Finish Quiz ✓' : 'Done ✓';
     } else {
       nextAction = 'nextQ()';
@@ -584,11 +584,12 @@ function renderQuestion() {
           <label class="option-label ${statusClass} ${isLocked ? 'locked' : ''}">
             <input type="radio" name="q${question.id}" value="${idx}" ${isChecked}
                    ${isLocked ? 'disabled' : ''}
-                   onchange="saveAndSubmitMC(${question.id}, ${idx})">
+                   onchange="saveAnswer(${question.id}, ${idx}); document.getElementById('submit-btn-${question.id}').disabled = false;">
             <span>${opt}</span>
           </label>
         `;
       });
+      if (!isLocked) html += `<button id="submit-btn-${question.id}" class="btn-check" style="margin-top:1rem;" onclick="checkAnswer(${question.id})" ${savedState.value === null ? 'disabled' : ''}>Submit</button>`;
       break;
 
     case 'msq': {
@@ -609,7 +610,7 @@ function renderQuestion() {
           </label>
         `;
       });
-      if (!isLocked) html += `<button class="btn-check" style="margin-top:1rem;" onclick="checkAnswer(${question.id})">Check Answer ✓</button>`;
+      if (!isLocked) html += `<button class="btn-check" style="margin-top:1rem;" onclick="checkAnswer(${question.id})">Submit</button>`;
       break;
     }
 
@@ -623,7 +624,7 @@ function renderQuestion() {
                  ${isLocked ? 'disabled' : ''}
                  oninput="saveAnswer(${question.id}, this.value)"
                  placeholder="Type your answer...">
-          ${!isLocked ? `<button class="btn-check" onclick="checkAnswer(${question.id})">Check ✓</button>` : ''}
+          ${!isLocked ? `<button class="btn-check" onclick="checkAnswer(${question.id})">Submit</button>` : ''}
         </div>
       `;
       break;
@@ -649,7 +650,7 @@ function renderQuestion() {
         `;
       });
       html += `</div>`;
-      if (!isLocked) html += `<button class="btn-check" style="margin-top:1rem;" onclick="checkAnswer(${question.id})">Check Answers ✓</button>`;
+      if (!isLocked) html += `<button class="btn-check" style="margin-top:1rem;" onclick="checkAnswer(${question.id})">Submit</button>`;
       break;
     }
 
@@ -680,7 +681,7 @@ function renderQuestion() {
         `;
       });
       html += `</div></div>`;
-      if (!isLocked) html += `<button class="btn-check" style="margin-top:1rem;" onclick="checkAnswer(${question.id})">Check Answers ✓</button>`;
+      if (!isLocked) html += `<button class="btn-check" style="margin-top:1rem;" onclick="checkAnswer(${question.id})">Submit</button>`;
       break;
     }
   }
@@ -1071,12 +1072,6 @@ window.checkAnswer = (qId) => {
   }
 };
 
-window.saveAndSubmitMC = (qId, idx) => {
-  userAnswers[qId] = { value: idx, submitted: true };
-  updateScore();
-  renderQuestion();
-};
-
 window.toggleMSQAnswer = (qId, idx, checked) => {
   if (!userAnswers[qId]) userAnswers[qId] = { value: [], submitted: false };
   if (!userAnswers[qId].value) userAnswers[qId].value = [];
@@ -1220,31 +1215,76 @@ window.switchToQuiz = () => {
 // =====================================================
 // --- 8. Quiz Grader ---
 // =====================================================
+window.closeModal = () => {
+  document.querySelector('.modal-overlay')?.remove();
+};
+
+window.confirmSubmitQuiz = () => {
+  const unanswered = activeQuiz.questions.filter(
+    q => !q.flagged && !userAnswers[q.id]?.submitted
+  ).length;
+  const message = unanswered > 0
+    ? `You have ${unanswered} unanswered question${unanswered === 1 ? '' : 's'}. Are you sure you want to submit?`
+    : `Are you sure you want to submit your quiz?`;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.onclick = (e) => { if (e.target === overlay) closeModal(); };
+  overlay.innerHTML = `
+    <div class="modal-card">
+      <h3>Submit Quiz?</h3>
+      <p>${message}</p>
+      <div class="modal-actions">
+        <button class="btn-prev" onclick="closeModal()">Cancel</button>
+        <button class="btn-next" onclick="closeModal(); submitQuiz();">Submit</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+};
+
 window.submitQuiz = () => {
   hideSideNav();
   let score = 0;
   let totalPossible = 0;
+  let correctCount = 0;
+  let wrongCount = 0;
+  let unansweredCount = 0;
+  let flaggedCount = 0;
 
   activeQuiz.questions.forEach(q => {
-    if (q.flagged) return;
+    if (q.flagged) { flaggedCount++; return; }
     const pts = q.points || 1;
     totalPossible += pts;
     const userAnswer = userAnswers[q.id]?.value ?? null;
+    const wasAnswered = userAnswer !== null && userAnswer !== undefined &&
+      !(Array.isArray(userAnswer) && userAnswer.length === 0) &&
+      !(typeof userAnswer === 'object' && !Array.isArray(userAnswer) && Object.keys(userAnswer).length === 0);
+
+    let earned = 0;
     if (q.type === 'mc' || q.type === 'tf') {
-      if (userAnswer === q.correctAnswer) score += pts;
+      if (userAnswer === q.correctAnswer) earned = pts;
     } else if (q.type === 'fitb') {
-      if (userAnswer && userAnswer.trim().toLowerCase() === q.correctAnswer.toLowerCase()) score += pts;
+      if (userAnswer && userAnswer.trim().toLowerCase() === q.correctAnswer.toLowerCase()) earned = pts;
     } else if (q.type === 'msq') {
       const sel = (userAnswer || []).slice().sort();
       const correct = q.correctAnswer.slice().sort();
-      if (sel.length === correct.length && sel.every((v, i) => v === correct[i])) score += pts;
+      if (sel.length === correct.length && sel.every((v, i) => v === correct[i])) earned = pts;
     } else if (q.type === 'matching' || q.type === 'drag-drop') {
       const ppp = pts / q.pairs.length;
-      q.pairs.forEach(pair => { if (userAnswer && userAnswer[pair.term] === pair.match) score += ppp; });
+      q.pairs.forEach(pair => { if (userAnswer && userAnswer[pair.term] === pair.match) earned += ppp; });
     }
+
+    score += earned;
+    if (!wasAnswered) unansweredCount++;
+    else if (earned >= pts - 0.001) correctCount++;
+    else wrongCount++;
   });
 
   const percentage = Math.round((score / totalPossible) * 100);
+  const circumference = 2 * Math.PI * 54;
+  const dashOffset = circumference * (1 - percentage / 100);
+  const ringColor = percentage >= 80 ? 'var(--correct)' : percentage >= 50 ? 'var(--accent)' : '#d94f4f';
 
   appRoot.innerHTML = `
     <header class="quiz-header quiz-header--quiz">
@@ -1257,11 +1297,25 @@ window.submitQuiz = () => {
         <button class="btn-exit" onclick="renderMenu()">← Home</button>
       </div>
     </header>
-    <main class="question-card" style="text-align: center; margin-top: 2rem;">
-      <h2 class="result-score">${percentage}%</h2>
-      <h3>You scored ${score} out of ${totalPossible} points</h3>
-      <br><br>
-      <button class="btn-next" onclick="renderMenu()">Return to Main Menu</button>
+    <main class="question-card result-card">
+      <div class="result-ring-wrap">
+        <svg class="result-ring" viewBox="0 0 120 120">
+          <circle class="result-ring-track" cx="60" cy="60" r="54"></circle>
+          <circle class="result-ring-fill" cx="60" cy="60" r="54" style="stroke:${ringColor}; stroke-dasharray:${circumference}; stroke-dashoffset:${dashOffset};"></circle>
+        </svg>
+        <div class="result-ring-label">${percentage}%</div>
+      </div>
+      <h3>You scored ${Math.round(score * 100) / 100} out of ${totalPossible} points</h3>
+      <div class="result-breakdown">
+        <div class="result-stat result-stat--correct"><strong>${correctCount}</strong><span>Correct</span></div>
+        <div class="result-stat result-stat--wrong"><strong>${wrongCount}</strong><span>Incorrect</span></div>
+        <div class="result-stat result-stat--unanswered"><strong>${unansweredCount}</strong><span>Unanswered</span></div>
+        ${flaggedCount > 0 ? `<div class="result-stat result-stat--flagged"><strong>${flaggedCount}</strong><span>Not Scored</span></div>` : ''}
+      </div>
+      <div class="result-actions">
+        <button class="btn-next" onclick="switchToReview()">Review Answers</button>
+        <button class="btn-prev" onclick="renderMenu()">Return to Main Menu</button>
+      </div>
     </main>
   `;
 };
