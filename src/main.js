@@ -209,25 +209,28 @@ function renderMenu() {
     <header class="quiz-header">
       <h1>Multi Quiz App</h1>
       <div class="header-right">
-        
-        <!-- DIRECT SELECT DROPDOWN FOR STYLE -->
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
-          <span style="font-family: 'Space Mono', monospace; font-size: 0.85rem; font-weight: 700; color: var(--text-muted);">Style</span>
-          <select class="btn-options" onchange="setAppSetting('theme', this.value)" style="outline: none; font-family: 'Space Mono', monospace; appearance: none; -webkit-appearance: none; padding-right: 2.2rem; background: transparent url('data:image/svg+xml;utf8,<svg fill=%22%231e3148%22 height=%2224%22 viewBox=%220 0 24 24%22 width=%2224%22 xmlns=%22http://www.w3.org/2000/svg%22><path d=%22M7 10l5 5 5-5z%22/></svg>') no-repeat right 0.6rem center; background-size: 1.2rem;">
-            <option value="default" ${appSettings.theme === 'default' ? 'selected' : ''}>${THEME_MODE_ICONS.default} Misty Blue</option>
-            <option value="canvas" ${appSettings.theme === 'canvas' ? 'selected' : ''}>${THEME_MODE_ICONS.canvas} Canvas</option>
-            <option value="dark-purple" ${appSettings.theme === 'dark-purple' ? 'selected' : ''}>${THEME_MODE_ICONS['dark-purple']} Dark Purple</option>
-          </select>
-        </div>
 
-        <!-- ORIGINAL HAMBURGER BUTTON -->
         <div class="hamburger-wrap">
           <button class="btn-hamburger" onclick="toggleDropdown('menu-dropdown')" aria-label="Settings">
             <span></span><span></span><span></span>
           </button>
           <div id="menu-dropdown" class="dropdown-menu" style="display:none;">
+            <div class="dropdown-close-row">
+              <button class="modal-close" onclick="toggleDropdown('menu-dropdown')" aria-label="Close">✕</button>
+            </div>
             <div class="dropdown-header" onclick="toggleCategory(this)">App Settings</div>
             <div class="dropdown-category-content">
+              <label class="dropdown-item" style="flex-direction: column; align-items: flex-start; gap: 0.5rem;">
+                <span class="dropdown-item-text">
+                  <strong>UI Theme</strong>
+                  <small>Switch app appearance</small>
+                </span>
+                <select onchange="setAppSetting('theme', this.value)" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 6px;">
+                  <option value="default" ${appSettings.theme === 'default' ? 'selected' : ''}>${THEME_MODE_ICONS.default} Misty Blue</option>
+                  <option value="canvas" ${appSettings.theme === 'canvas' ? 'selected' : ''}>${THEME_MODE_ICONS.canvas} Canvas</option>
+                  <option value="dark-purple" ${appSettings.theme === 'dark-purple' ? 'selected' : ''}>${THEME_MODE_ICONS['dark-purple']} Dark Purple</option>
+                </select>
+              </label>
               <label class="dropdown-item">
                 <span class="dropdown-item-text">
                   <strong>Disable animations</strong>
@@ -502,6 +505,9 @@ function renderQuizShell() {
             <span></span><span></span><span></span>
           </button>
           <div id="quiz-dropdown" class="dropdown-menu" style="display:none;">
+            <div class="dropdown-close-row">
+              <button class="modal-close" onclick="toggleDropdown('quiz-dropdown')" aria-label="Close">✕</button>
+            </div>
             <button class="dropdown-mode-switch" onclick="switchToReview()">Switch to Review Mode →</button>
             <div class="dropdown-divider"></div>
             
@@ -601,6 +607,10 @@ function renderQuizShell() {
     <nav id="quiz-nav-top" class="nav-row"></nav>
     <main id="quiz-container"></main>
     <footer id="quiz-nav-bottom" class="nav-row"></footer>
+    <div class="mobile-quiz-actions">
+      <button class="btn-restart" onclick="restartQuiz()">Restart</button>
+      <button class="btn-exit" onclick="renderMenu()">Exit</button>
+    </div>
   `;
 }
 
@@ -853,6 +863,9 @@ function renderReviewShell() {
             <span></span><span></span><span></span>
           </button>
           <div id="review-dropdown" class="dropdown-menu" style="display:none;">
+            <div class="dropdown-close-row">
+              <button class="modal-close" onclick="toggleDropdown('review-dropdown')" aria-label="Close">✕</button>
+            </div>
             <button class="dropdown-mode-switch" onclick="switchToQuiz()">Switch to Quiz Mode →</button>
             <div class="dropdown-divider"></div>
             
@@ -931,6 +944,10 @@ function renderReviewShell() {
     <nav id="quiz-nav-top" class="nav-row"></nav>
     <main id="quiz-container"></main>
     <footer id="quiz-nav-bottom" class="nav-row"></footer>
+    <div class="mobile-quiz-actions">
+      <button class="btn-restart" onclick="restartQuiz()">Restart</button>
+      <button class="btn-exit" onclick="renderMenu()">Exit</button>
+    </div>
   `;
 }
 
@@ -1194,7 +1211,8 @@ window.toggleDropdown = (id) => {
 
   if (!isOpen) {
     menu.style.display = 'block';
-    requestAnimationFrame(() => menu.classList.add('dropdown-menu--open'));
+    void menu.offsetHeight; // force a reflow so the opacity/transform transition runs
+    menu.classList.add('dropdown-menu--open');
   }
 };
 
