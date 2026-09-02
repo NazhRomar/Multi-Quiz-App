@@ -419,7 +419,7 @@ function renderQuestion() {
           <span class="q-num-badge">${currentIndex + 1}</span>
           <span class="q-type-badge ${question.type}">${typeMap[question.type] || 'Question'}</span>
         </div>
-        <span class="q-points">${question.points || 1} pts</span>
+        <span class="q-points ${question.flagged ? 'q-points--flagged' : ''}">${question.flagged ? 'Not Scored' : (question.points || 1) + ' pts'}</span>
       </div>
       ${question.context ? `<div class="q-context"><div class="q-context-body">${question.context}</div></div>` : ''}
       <div class="q-text">${question.text}</div>
@@ -564,12 +564,19 @@ function renderQuestion() {
 
     let showExplanation = question.explanation && !quizOptions.hideExplanation;
     let showFeedback = !quizOptions.hideFeedback;
-    
+
     if (quizOptions.hideFeedbackIfExplanation && showExplanation) {
       showFeedback = false;
     }
 
-    if (showFeedback) {
+    if (question.flagged) {
+      html += `
+        <div class="feedback-banner warning">
+          <strong>⚠ Flagged Question — Not Scored</strong><br>
+          The source material flags this question as broken (no listed choice matches the correct output). It isn't counted toward your score.
+        </div>
+      `;
+    } else if (showFeedback) {
       html += `
         <div class="feedback-banner ${isPerfect ? 'correct' : 'wrong'}">
           <strong>${isPerfect ? '✓ Correct!' : '✗ Incorrect.'}</strong>
@@ -720,14 +727,26 @@ function generateReviewCardHTML(question, index) {
           <span class="q-num-badge">${index + 1}</span>
           <span class="q-type-badge ${question.type}">${typeMap[question.type] || 'Question'}</span>
         </div>
-        <span class="q-points">${question.points || 1} pts</span>
+        <span class="q-points ${question.flagged ? 'q-points--flagged' : ''}">${question.flagged ? 'Not Scored' : (question.points || 1) + ' pts'}</span>
       </div>
       ${question.context ? `<div class="q-context"><div class="q-context-body">${question.context}</div></div>` : ''}
       <div class="q-text">${question.text}</div>
       <div class="options-list">
   `;
 
-  if (question.type === 'mc' || question.type === 'tf') {
+  if (question.flagged) {
+    if (question.options) {
+      question.options.forEach(opt => {
+        html += `<div class="option-label locked"><span>${opt}</span></div>`;
+      });
+    }
+    html += `
+      <div class="feedback-banner warning" style="margin-top:1rem;">
+        <strong>⚠ Flagged Question — Not Scored</strong><br>
+        The source material flags this question as broken (no listed choice matches the correct output).
+      </div>
+    `;
+  } else if (question.type === 'mc' || question.type === 'tf') {
     if (reviewOptions.showAllChoices) {
       question.options.forEach((opt, idx) => {
         const isCorrect = idx === question.correctAnswer;
@@ -1042,6 +1061,7 @@ window.submitQuiz = () => {
   let totalPossible = 0;
 
   activeQuiz.questions.forEach(q => {
+    if (q.flagged) return;
     const pts = q.points || 1;
     totalPossible += pts;
     const userAnswer = userAnswers[q.id]?.value ?? null;
@@ -1084,6 +1104,7 @@ window.submitQuiz = () => {
 window.updateScore = () => {
   let score = 0;
   activeQuiz.questions.forEach(q => {
+    if (q.flagged) return;
     const data = userAnswers[q.id];
     if (data?.submitted) {
       if ((q.type === 'mc' || q.type === 'tf') && data.value === q.correctAnswer) score += (q.points || 1);

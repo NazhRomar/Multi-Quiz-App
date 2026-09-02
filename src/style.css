@@ -1281,6 +1281,17 @@ button:disabled {
   color: #b03030;
 }
 
+.feedback-banner.warning {
+  background: rgba(230, 168, 46, 0.12);
+  border: 1px solid #e6a82e;
+  color: #8a6416;
+}
+
+.q-points--flagged {
+  background: rgba(230, 168, 46, 0.15) !important;
+  color: #8a6416 !important;
+}
+
 /* --- Navigation & Results --- */
 .nav-row {
   width: 100%;

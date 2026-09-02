@@ -1,8 +1,24 @@
 {
   "courseCode": "SIA",
   "quizTitle": "Python Essentials 1 - Final Exam",
-  "totalPoints": 34,
+  "totalPoints": 35,
   "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "flagged": true,
+      "text": "Consider the following Python code snippet. What will the contents of my_numbers be after execution?",
+      "context": "<pre>my_numbers = [10, 20, 30, 40, 50]\n\nfor i in range(4):\n    my_numbers.insert(i, my_numbers[-1])\n\nprint(my_numbers)</pre>",
+      "options": [
+        "[10, 50, 20, 30, 40, 50, 50, 50]",
+        "[50, 10, 50, 20, 50, 30, 50, 40]",
+        "[10, 20, 30, 50, 50, 50, 50, 40]",
+        "[10, 20, 30, 40, 50, 50, 50, 50]"
+      ],
+      "correctAnswer": null,
+      "points": 1,
+      "explanation": "FLAGGED AS LIKELY A BROKEN QUESTION. Verified by actually running the code: real output is [50, 50, 50, 50, 10, 20, 30, 40, 50] (9 elements). All four answer choices have only 8 elements, so none of them matches the true output. Worth reporting to the instructor."
+    },
     {
       "id": 2,
       "type": "mc",
