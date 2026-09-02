@@ -96,13 +96,19 @@ function renderNavRow(isFirst, isLast, nextBlocked, isQuizMode) {
     navBottom.style.display = positions.includes('bottom') ? 'flex' : 'none';
   }
 
+  hideSideNav();
+
   if (!isListView && positions.includes('center')) {
     navSideLeft.innerHTML = prevBtn;
     navSideRight.innerHTML = nextBtn;
     navSideLeft.style.display = 'flex';
     navSideRight.style.display = 'flex';
-  } else {
-    hideSideNav();
+  } else if (!isListView && positions.includes('sides')) {
+    navNearLeft.innerHTML = prevBtn;
+    navNearRight.innerHTML = nextBtn;
+    navNearLeft.style.display = 'flex';
+    navNearRight.style.display = 'flex';
+    positionNearNav();
   }
 }
 
@@ -135,16 +141,49 @@ navSideRight.id = 'quiz-nav-side-right';
 navSideRight.className = 'nav-side nav-side-right';
 document.body.appendChild(navSideRight);
 
+// Same idea, but hugging the question card's own edges instead of the viewport's
+const navNearLeft = document.createElement('div');
+navNearLeft.id = 'quiz-nav-near-left';
+navNearLeft.className = 'nav-side nav-near';
+document.body.appendChild(navNearLeft);
+
+const navNearRight = document.createElement('div');
+navNearRight.id = 'quiz-nav-near-right';
+navNearRight.className = 'nav-side nav-near';
+document.body.appendChild(navNearRight);
+
+function positionNearNav() {
+  const card = document.querySelector('.question-card');
+  if (!card || navNearLeft.style.display !== 'flex') return;
+  const rect = card.getBoundingClientRect();
+  const gap = 16;
+  navNearLeft.style.left = Math.max(8, rect.left - navNearLeft.offsetWidth - gap) + 'px';
+  navNearRight.style.left = (rect.right + gap) + 'px';
+}
+
+window.addEventListener('resize', positionNearNav);
+
 function hideSideNav() {
   navSideLeft.style.display = 'none';
   navSideRight.style.display = 'none';
   navSideLeft.innerHTML = '';
   navSideRight.innerHTML = '';
+  navNearLeft.style.display = 'none';
+  navNearRight.style.display = 'none';
+  navNearLeft.innerHTML = '';
+  navNearRight.innerHTML = '';
 }
+
+const THEME_MODE_ICONS = {
+  default: '☀️',
+  canvas: '☀️',
+  'dark-purple': '🌙'
+};
 
 const NAV_POSITION_MAP = {
   up: ['top'],
   down: ['bottom'],
+  sides: ['sides'],
   center: ['center'],
   both: ['top', 'bottom'],
   all: ['top', 'bottom', 'center']
@@ -170,6 +209,7 @@ function renderMenu() {
         <!-- DIRECT SELECT DROPDOWN FOR STYLE -->
         <div style="display: flex; align-items: center; gap: 0.5rem;">
           <span style="font-family: 'Space Mono', monospace; font-size: 0.85rem; font-weight: 700; color: var(--text-muted);">Style</span>
+          <span id="theme-mode-icon" style="font-size: 1rem; line-height: 1;">${THEME_MODE_ICONS[appSettings.theme] || THEME_MODE_ICONS.default}</span>
           <select class="btn-options" onchange="setAppSetting('theme', this.value)" style="outline: none; font-family: 'Space Mono', monospace; appearance: none; -webkit-appearance: none; padding-right: 2.2rem; background: transparent url('data:image/svg+xml;utf8,<svg fill=%22%231e3148%22 height=%2224%22 viewBox=%220 0 24 24%22 width=%2224%22 xmlns=%22http://www.w3.org/2000/svg%22><path d=%22M7 10l5 5 5-5z%22/></svg>') no-repeat right 0.6rem center; background-size: 1.2rem;">
             <option value="default" ${appSettings.theme === 'default' ? 'selected' : ''}>Misty Blue (Default)</option>
             <option value="canvas" ${appSettings.theme === 'canvas' ? 'selected' : ''}>Canvas</option>
@@ -440,6 +480,7 @@ function renderQuizShell() {
                 <select onchange="setAppSetting('navLocation', this.value)" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 6px;">
                   <option value="up" ${appSettings.navLocation === 'up' ? 'selected' : ''}>Top</option>
                   <option value="down" ${appSettings.navLocation === 'down' ? 'selected' : ''}>Bottom</option>
+                  <option value="sides" ${appSettings.navLocation === 'sides' ? 'selected' : ''}>Sides</option>
                   <option value="center" ${appSettings.navLocation === 'center' ? 'selected' : ''}>Centered</option>
                   <option value="both" ${appSettings.navLocation === 'both' ? 'selected' : ''}>Top and Bottom</option>
                   <option value="all" ${appSettings.navLocation === 'all' ? 'selected' : ''}>All</option>
@@ -768,6 +809,7 @@ function renderReviewShell() {
                 <select onchange="setAppSetting('navLocation', this.value)" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 6px;">
                   <option value="up" ${appSettings.navLocation === 'up' ? 'selected' : ''}>Top</option>
                   <option value="down" ${appSettings.navLocation === 'down' ? 'selected' : ''}>Bottom</option>
+                  <option value="sides" ${appSettings.navLocation === 'sides' ? 'selected' : ''}>Sides</option>
                   <option value="center" ${appSettings.navLocation === 'center' ? 'selected' : ''}>Centered</option>
                   <option value="both" ${appSettings.navLocation === 'both' ? 'selected' : ''}>Top and Bottom</option>
                   <option value="all" ${appSettings.navLocation === 'all' ? 'selected' : ''}>All</option>
@@ -1114,6 +1156,8 @@ window.setAppSetting = (key, value) => {
     if (value !== 'default') {
       document.body.classList.add(`theme-${value}`);
     }
+    const icon = document.getElementById('theme-mode-icon');
+    if (icon) icon.textContent = THEME_MODE_ICONS[value] || THEME_MODE_ICONS.default;
   }
 };
 
