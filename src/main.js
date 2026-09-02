@@ -59,12 +59,15 @@ if (appSettings.theme && appSettings.theme !== 'default') {
 // --- Navigation Helper ---
 function renderNavRow(isFirst, isLast, nextBlocked, isQuizMode) {
   let html = '';
-  
-  if (activeMode === 'review' && reviewOptions.listView) {
+  let prevBtn = '';
+  let nextBtn = '';
+  const isListView = activeMode === 'review' && reviewOptions.listView;
+
+  if (isListView) {
     html = `<button class="btn-next" style="margin-left:auto;" onclick="renderMenu()">Done ✓</button>`;
   } else {
-    const prevBtn = `<button class="btn-prev" onclick="prevQ()" ${isFirst ? 'disabled' : ''}>← Previous</button>`;
-    
+    prevBtn = `<button class="btn-prev" onclick="prevQ()" ${isFirst ? 'disabled' : ''}>← Previous</button>`;
+
     let nextAction, nextLabel;
     if (isLast) {
       nextAction = isQuizMode ? 'submitQuiz()' : 'renderMenu()';
@@ -73,23 +76,33 @@ function renderNavRow(isFirst, isLast, nextBlocked, isQuizMode) {
       nextAction = 'nextQ()';
       nextLabel = 'Next →';
     }
-    
+
     const disabledAttr = (isQuizMode && nextBlocked) ? 'disabled title="Answer this question first"' : '';
-    const nextBtn = `<button class="btn-next" onclick="${nextAction}" ${disabledAttr}>${nextLabel}</button>`;
-    
+    nextBtn = `<button class="btn-next" onclick="${nextAction}" ${disabledAttr}>${nextLabel}</button>`;
+
     html = `${prevBtn}${nextBtn}`;
   }
 
   const navTop = document.getElementById('quiz-nav-top');
   const navBottom = document.getElementById('quiz-nav-bottom');
+  const positions = NAV_POSITION_MAP[appSettings.navLocation] || ['bottom'];
 
   if (navTop) {
     navTop.innerHTML = html;
-    navTop.style.display = ['up', 'both'].includes(appSettings.navLocation) ? 'flex' : 'none';
+    navTop.style.display = positions.includes('top') ? 'flex' : 'none';
   }
   if (navBottom) {
     navBottom.innerHTML = html;
-    navBottom.style.display = ['down', 'both'].includes(appSettings.navLocation) ? 'flex' : 'none';
+    navBottom.style.display = positions.includes('bottom') ? 'flex' : 'none';
+  }
+
+  if (!isListView && positions.includes('center')) {
+    navSideLeft.innerHTML = prevBtn;
+    navSideRight.innerHTML = nextBtn;
+    navSideLeft.style.display = 'flex';
+    navSideRight.style.display = 'flex';
+  } else {
+    hideSideNav();
   }
 }
 
@@ -110,6 +123,33 @@ for (const path in quizModules) {
 
 const appRoot = document.getElementById('app-root');
 
+// Fixed, viewport-centered Prev/Next buttons (appended to body, not
+// app-root, so they stay put regardless of app-root's exit-fade transform)
+const navSideLeft = document.createElement('div');
+navSideLeft.id = 'quiz-nav-side-left';
+navSideLeft.className = 'nav-side nav-side-left';
+document.body.appendChild(navSideLeft);
+
+const navSideRight = document.createElement('div');
+navSideRight.id = 'quiz-nav-side-right';
+navSideRight.className = 'nav-side nav-side-right';
+document.body.appendChild(navSideRight);
+
+function hideSideNav() {
+  navSideLeft.style.display = 'none';
+  navSideRight.style.display = 'none';
+  navSideLeft.innerHTML = '';
+  navSideRight.innerHTML = '';
+}
+
+const NAV_POSITION_MAP = {
+  up: ['top'],
+  down: ['bottom'],
+  center: ['center'],
+  both: ['top', 'bottom'],
+  all: ['top', 'bottom', 'center']
+};
+
 // --- Array Shuffle Helper ---
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -121,6 +161,7 @@ function shuffleArray(array) {
 
 // --- 3. Home Screen Menu ---
 function renderMenu() {
+  hideSideNav();
   appRoot.innerHTML = `
     <header class="quiz-header">
       <h1>Multi Quiz App</h1>
@@ -232,6 +273,7 @@ function formatBuildDate(isoString) {
 
 // --- 3b. Mode Selection (Quiz vs Review) ---
 function openModeSelect(term, course, quizData) {
+  hideSideNav();
   appRoot.innerHTML = `
     <header class="quiz-header">
       <h1>Multi Quiz App</h1>
@@ -396,9 +438,11 @@ function renderQuizShell() {
                   <small>Where to place Prev/Next</small>
                 </span>
                 <select onchange="setAppSetting('navLocation', this.value)" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 6px;">
-                  <option value="down" ${appSettings.navLocation === 'down' ? 'selected' : ''}>Bottom</option>
                   <option value="up" ${appSettings.navLocation === 'up' ? 'selected' : ''}>Top</option>
-                  <option value="both" ${appSettings.navLocation === 'both' ? 'selected' : ''}>Both</option>
+                  <option value="down" ${appSettings.navLocation === 'down' ? 'selected' : ''}>Bottom</option>
+                  <option value="center" ${appSettings.navLocation === 'center' ? 'selected' : ''}>Centered</option>
+                  <option value="both" ${appSettings.navLocation === 'both' ? 'selected' : ''}>Top and Bottom</option>
+                  <option value="all" ${appSettings.navLocation === 'all' ? 'selected' : ''}>All</option>
                 </select>
               </label>
               <label class="dropdown-item">
@@ -722,9 +766,11 @@ function renderReviewShell() {
                   <small>Where to place Prev/Next</small>
                 </span>
                 <select onchange="setAppSetting('navLocation', this.value)" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 6px;">
-                  <option value="down" ${appSettings.navLocation === 'down' ? 'selected' : ''}>Bottom</option>
                   <option value="up" ${appSettings.navLocation === 'up' ? 'selected' : ''}>Top</option>
-                  <option value="both" ${appSettings.navLocation === 'both' ? 'selected' : ''}>Both</option>
+                  <option value="down" ${appSettings.navLocation === 'down' ? 'selected' : ''}>Bottom</option>
+                  <option value="center" ${appSettings.navLocation === 'center' ? 'selected' : ''}>Centered</option>
+                  <option value="both" ${appSettings.navLocation === 'both' ? 'selected' : ''}>Top and Bottom</option>
+                  <option value="all" ${appSettings.navLocation === 'all' ? 'selected' : ''}>All</option>
                 </select>
               </label>
               <label class="dropdown-item">
@@ -1103,6 +1149,7 @@ window.switchToQuiz = () => {
 // --- 8. Quiz Grader ---
 // =====================================================
 window.submitQuiz = () => {
+  hideSideNav();
   let score = 0;
   let totalPossible = 0;
 

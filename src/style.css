@@ -1342,6 +1342,29 @@ button:disabled {
   margin-bottom: 3rem;
 }
 
+/* --- Centered Side Navigation (fixed, doesn't scroll) --- */
+.nav-side {
+  display: none;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+}
+
+.nav-side-left {
+  left: 1.5rem;
+}
+
+.nav-side-right {
+  right: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .nav-side {
+    display: none !important;
+  }
+}
+
 .result-score {
   font-size: 2.5rem;
   color: var(--accent);
