@@ -1174,6 +1174,7 @@ window.setAppSetting = (key, value) => {
     document.body.classList.toggle('no-animations', value);
   } else if (key === 'compactMode') {
     document.body.classList.toggle('compact-mode', value);
+    positionNearNav();
   } else if (key === 'navLocation') {
     if (activeMode === 'quiz' && activeQuiz) renderQuestion();
     else if (activeMode === 'review' && activeQuiz) renderReviewQuestion();
@@ -1184,6 +1185,7 @@ window.setAppSetting = (key, value) => {
     if (value !== 'default') {
       document.body.classList.add(`theme-${value}`);
     }
+    positionNearNav();
   }
 };
 
