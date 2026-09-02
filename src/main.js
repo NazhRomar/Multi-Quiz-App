@@ -266,9 +266,16 @@ function renderMenu() {
     const termSection = document.createElement('section');
     termSection.className = 'term-section' + (isCollapsed ? ' collapsed' : '');
 
+    const termQuizCount = Object.values(courseMenu[term])
+      .reduce((sum, quizzes) => sum + quizzes.length, 0);
+
     const termHeader = document.createElement('h2');
     termHeader.className = 'term-header';
-    termHeader.innerHTML = `<span class="term-toggle-icon">▾</span> ${term}`;
+    termHeader.innerHTML = `
+      <span class="term-toggle-icon">▾</span>
+      <span class="term-title-text">${term}</span>
+      <span class="term-count">${termQuizCount} ${termQuizCount === 1 ? 'quiz' : 'quizzes'}</span>
+    `;
     termHeader.onclick = () => toggleTerm(term);
     termSection.appendChild(termHeader);
 
@@ -276,9 +283,17 @@ function renderMenu() {
     termContent.className = 'term-content';
 
     for (const course in courseMenu[term]) {
-      const courseTitle = document.createElement('h3');
-      courseTitle.innerText = course;
-      termContent.appendChild(courseTitle);
+      const courseCard = document.createElement('div');
+      courseCard.className = 'course-card';
+
+      const courseHeader = document.createElement('div');
+      courseHeader.className = 'course-card-header';
+      const courseQuizCount = courseMenu[term][course].length;
+      courseHeader.innerHTML = `
+        <h3>${course}</h3>
+        <span class="course-count">${courseQuizCount} ${courseQuizCount === 1 ? 'quiz' : 'quizzes'}</span>
+      `;
+      courseCard.appendChild(courseHeader);
 
       const quizList = document.createElement('div');
       quizList.className = 'quiz-list';
@@ -302,7 +317,8 @@ function renderMenu() {
         quizBtn.onclick = () => startQuizMode(term, course, quiz.data);
         quizList.appendChild(quizBtn);
       });
-      termContent.appendChild(quizList);
+      courseCard.appendChild(quizList);
+      termContent.appendChild(courseCard);
     }
     termSection.appendChild(termContent);
     container.appendChild(termSection);

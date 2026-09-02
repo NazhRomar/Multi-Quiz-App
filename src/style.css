@@ -789,28 +789,53 @@ main.question-card {
   font-family: 'Space Mono', monospace;
   font-size: 1.1rem;
   color: var(--text-muted);
-  border-bottom: 1px dashed var(--border);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
 }
 
 .term-header {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   cursor: pointer;
   user-select: none;
+  margin: -0.5rem -0.5rem 1rem;
+  padding: 0.5rem 0.5rem 1rem;
+  border-bottom: 1px dashed var(--border);
+  border-radius: 8px;
+  transition: background-color 0.15s ease;
+}
+
+.term-header:hover {
+  background: var(--radio-bg);
+}
+
+.term-section.collapsed .term-header {
+  border-bottom-color: transparent;
+  margin-bottom: -0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.term-title-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.term-count {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--radio-bg);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 .term-toggle-icon {
   display: inline-block;
   transition: transform 0.2s ease;
-}
-
-.term-section.collapsed .term-header {
-  border-bottom-color: transparent;
-  margin-bottom: 0;
-  padding-bottom: 0;
 }
 
 .term-section.collapsed .term-toggle-icon {
@@ -821,17 +846,66 @@ main.question-card {
   display: none;
 }
 
+.course-card {
+  margin-bottom: 1.75rem;
+}
+
+.course-card:last-child {
+  margin-bottom: 0;
+}
+
+.course-card-header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--border);
+}
+
 .menu-container h3 {
   font-size: 1rem;
-  margin-bottom: 0.5rem;
   color: var(--text);
+}
+
+.course-count {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .quiz-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
-  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .menu-container {
+    padding: 0 1rem;
+  }
+
+  .menu-container section {
+    padding: 1.1rem;
+    border-radius: 12px;
+  }
+
+  .quiz-list {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .btn-quiz {
+    padding: 1rem;
+  }
+
+  .term-count {
+    font-size: 0.68rem;
+  }
 }
 
 /* --- Global Buttons --- */
