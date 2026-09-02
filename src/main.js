@@ -35,11 +35,12 @@ let quizOptions = loadState('quizApp_quizOptions', {
   shuffleQuestions: false, 
   shuffleChoices: false 
 });
-let reviewOptions = loadState('quizApp_reviewOptions', { 
-  showAllChoices: false, 
+let reviewOptions = loadState('quizApp_reviewOptions', {
+  showAllChoices: false,
   hideExplanation: false,
-  listView: false 
+  listView: false
 });
+let collapsedTerms = loadState('quizApp_collapsedTerms', {});
 
 // Apply initial app settings
 if (appSettings.disableAnimations) {
@@ -156,24 +157,34 @@ function renderMenu() {
   container.className = 'menu-container';
 
   for (const term in courseMenu) {
+    const isCollapsed = !!collapsedTerms[term];
     const termSection = document.createElement('section');
-    termSection.innerHTML = `<h2>${term}</h2>`;
-    
+    termSection.className = 'term-section' + (isCollapsed ? ' collapsed' : '');
+
+    const termHeader = document.createElement('h2');
+    termHeader.className = 'term-header';
+    termHeader.innerHTML = `<span class="term-toggle-icon">▾</span> ${term}`;
+    termHeader.onclick = () => toggleTerm(term);
+    termSection.appendChild(termHeader);
+
+    const termContent = document.createElement('div');
+    termContent.className = 'term-content';
+
     for (const course in courseMenu[term]) {
       const courseTitle = document.createElement('h3');
       courseTitle.innerText = course;
-      termSection.appendChild(courseTitle);
-      
+      termContent.appendChild(courseTitle);
+
       const quizList = document.createElement('div');
       quizList.className = 'quiz-list';
-      
+
       courseMenu[term][course].forEach(quiz => {
         const quizBtn = document.createElement('button');
         quizBtn.className = 'btn-quiz';
-        
+
         // Calculate total items
         const totalItems = quiz.data.questions ? quiz.data.questions.length : 0;
-        
+
         // Inject rich HTML into the button
         quizBtn.innerHTML = `
           <div class="quiz-btn-content">
@@ -181,13 +192,14 @@ function renderMenu() {
             <span class="quiz-btn-meta">${totalItems} items</span>
           </div>
         `;
-        
+
         // Launch straight into Quiz Mode
         quizBtn.onclick = () => startQuizMode(term, course, quiz.data);
         quizList.appendChild(quizBtn);
       });
-      termSection.appendChild(quizList);
+      termContent.appendChild(quizList);
     }
+    termSection.appendChild(termContent);
     container.appendChild(termSection);
   }
   appRoot.appendChild(container);
@@ -1043,6 +1055,12 @@ window.setReviewOption = (key, value) => {
   renderReviewQuestion();
   const cb = document.getElementById('opt-allchoices');
   if (cb) cb.checked = reviewOptions.showAllChoices;
+};
+
+window.toggleTerm = (term) => {
+  collapsedTerms[term] = !collapsedTerms[term];
+  localStorage.setItem('quizApp_collapsedTerms', JSON.stringify(collapsedTerms));
+  renderMenu();
 };
 
 window.switchToReview = () => {

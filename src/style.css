@@ -701,6 +701,33 @@ main.question-card {
   margin-bottom: 1rem;
 }
 
+.term-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.term-toggle-icon {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.term-section.collapsed .term-header {
+  border-bottom-color: transparent;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.term-section.collapsed .term-toggle-icon {
+  transform: rotate(-90deg);
+}
+
+.term-section.collapsed .term-content {
+  display: none;
+}
+
 .menu-container h3 {
   font-size: 1rem;
   margin-bottom: 0.5rem;
