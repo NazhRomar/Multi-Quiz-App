@@ -459,21 +459,21 @@ function renderQuizShell() {
               <label class="dropdown-item">
                 <span class="dropdown-item-text">
                   <strong>Hide feedback</strong>
-                  <small>Don't show correct/incorrect banner</small>
+                  <small>Never show the "Correct!" / "Incorrect" banner after answering</small>
                 </span>
                 ${renderSwitch("setQuizOption('hideFeedback', this.checked)", quizOptions.hideFeedback)}
               </label>
               <label class="dropdown-item">
                 <span class="dropdown-item-text">
                   <strong>Hide explanation</strong>
-                  <small>Don't show the explanation text</small>
+                  <small>Never show the explanation text after answering</small>
                 </span>
                 ${renderSwitch("setQuizOption('hideExplanation', this.checked)", quizOptions.hideExplanation)}
               </label>
               <label class="dropdown-item">
                 <span class="dropdown-item-text">
-                  <strong>Skip feedback</strong>
-                  <small>Hide banner if explanation exists</small>
+                  <strong>Skip feedback if explained</strong>
+                  <small>Only hide the correct/incorrect banner on questions that already show an explanation</small>
                 </span>
                 ${renderSwitch("setQuizOption('hideFeedbackIfExplanation', this.checked)", quizOptions.hideFeedbackIfExplanation)}
               </label>
