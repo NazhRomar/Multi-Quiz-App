@@ -209,11 +209,10 @@ function renderMenu() {
         <!-- DIRECT SELECT DROPDOWN FOR STYLE -->
         <div style="display: flex; align-items: center; gap: 0.5rem;">
           <span style="font-family: 'Space Mono', monospace; font-size: 0.85rem; font-weight: 700; color: var(--text-muted);">Style</span>
-          <span id="theme-mode-icon" style="font-size: 1rem; line-height: 1;">${THEME_MODE_ICONS[appSettings.theme] || THEME_MODE_ICONS.default}</span>
           <select class="btn-options" onchange="setAppSetting('theme', this.value)" style="outline: none; font-family: 'Space Mono', monospace; appearance: none; -webkit-appearance: none; padding-right: 2.2rem; background: transparent url('data:image/svg+xml;utf8,<svg fill=%22%231e3148%22 height=%2224%22 viewBox=%220 0 24 24%22 width=%2224%22 xmlns=%22http://www.w3.org/2000/svg%22><path d=%22M7 10l5 5 5-5z%22/></svg>') no-repeat right 0.6rem center; background-size: 1.2rem;">
-            <option value="default" ${appSettings.theme === 'default' ? 'selected' : ''}>Misty Blue (Default)</option>
-            <option value="canvas" ${appSettings.theme === 'canvas' ? 'selected' : ''}>Canvas</option>
-            <option value="dark-purple" ${appSettings.theme === 'dark-purple' ? 'selected' : ''}>Dark Purple</option>
+            <option value="default" ${appSettings.theme === 'default' ? 'selected' : ''}>${THEME_MODE_ICONS.default} Misty Blue</option>
+            <option value="canvas" ${appSettings.theme === 'canvas' ? 'selected' : ''}>${THEME_MODE_ICONS.canvas} Canvas</option>
+            <option value="dark-purple" ${appSettings.theme === 'dark-purple' ? 'selected' : ''}>${THEME_MODE_ICONS['dark-purple']} Dark Purple</option>
           </select>
         </div>
 
@@ -1165,8 +1164,6 @@ window.setAppSetting = (key, value) => {
     if (value !== 'default') {
       document.body.classList.add(`theme-${value}`);
     }
-    const icon = document.getElementById('theme-mode-icon');
-    if (icon) icon.textContent = THEME_MODE_ICONS[value] || THEME_MODE_ICONS.default;
   }
 };
 
