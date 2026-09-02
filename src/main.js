@@ -174,6 +174,10 @@ function hideSideNav() {
   navNearRight.innerHTML = '';
 }
 
+function renderSwitch(onchange, checked, id) {
+  return `<span class="switch"><input type="checkbox" ${id ? `id="${id}"` : ''} onchange="${onchange}" ${checked ? 'checked' : ''}><span class="switch-track"><span class="switch-thumb"></span></span></span>`;
+}
+
 const THEME_MODE_ICONS = {
   default: '☀️',
   canvas: '☀️',
@@ -224,19 +228,33 @@ function renderMenu() {
           <div id="menu-dropdown" class="dropdown-menu" style="display:none;">
             <div class="dropdown-header" onclick="toggleCategory(this)">App Settings</div>
             <div class="dropdown-category-content">
+              <label class="dropdown-item" style="flex-direction: column; align-items: flex-start; gap: 0.5rem;">
+                <span class="dropdown-item-text">
+                  <strong>Navigation Position</strong>
+                  <small>Where to place Prev/Next</small>
+                </span>
+                <select onchange="setAppSetting('navLocation', this.value)" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 6px;">
+                  <option value="up" ${appSettings.navLocation === 'up' ? 'selected' : ''}>Top</option>
+                  <option value="down" ${appSettings.navLocation === 'down' ? 'selected' : ''}>Bottom</option>
+                  <option value="sides" ${appSettings.navLocation === 'sides' ? 'selected' : ''}>Sides</option>
+                  <option value="center" ${appSettings.navLocation === 'center' ? 'selected' : ''}>Centered</option>
+                  <option value="both" ${appSettings.navLocation === 'both' ? 'selected' : ''}>Top and Bottom</option>
+                  <option value="all" ${appSettings.navLocation === 'all' ? 'selected' : ''}>All</option>
+                </select>
+              </label>
               <label class="dropdown-item">
                 <span class="dropdown-item-text">
                   <strong>Disable animations</strong>
                   <small>Turn off all transitions and fades</small>
                 </span>
-                <input type="checkbox" id="opt-disable-anim" onchange="setAppSetting('disableAnimations', this.checked)" ${appSettings.disableAnimations ? 'checked' : ''}>
+                ${renderSwitch("setAppSetting('disableAnimations', this.checked)", appSettings.disableAnimations, 'opt-disable-anim')}
               </label>
               <label class="dropdown-item">
                 <span class="dropdown-item-text">
                   <strong>Compact mode</strong>
                   <small>Tighter spacing, less scrolling</small>
                 </span>
-                <input type="checkbox" onchange="setAppSetting('compactMode', this.checked)" ${appSettings.compactMode ? 'checked' : ''}>
+                ${renderSwitch("setAppSetting('compactMode', this.checked)", appSettings.compactMode)}
               </label>
             </div>
           </div>
@@ -427,42 +445,42 @@ function renderQuizShell() {
                   <strong>Shuffle questions</strong>
                   <small>Randomizes order (Applies on Restart)</small>
                 </span>
-                <input type="checkbox" onchange="setQuizOption('shuffleQuestions', this.checked)" ${quizOptions.shuffleQuestions ? 'checked' : ''}>
+                ${renderSwitch("setQuizOption('shuffleQuestions', this.checked)", quizOptions.shuffleQuestions)}
               </label>
               <label class="dropdown-item">
                 <span class="dropdown-item-text">
                   <strong>Shuffle choices</strong>
                   <small>Randomizes choices (Applies on Restart)</small>
                 </span>
-                <input type="checkbox" onchange="setQuizOption('shuffleChoices', this.checked)" ${quizOptions.shuffleChoices ? 'checked' : ''}>
+                ${renderSwitch("setQuizOption('shuffleChoices', this.checked)", quizOptions.shuffleChoices)}
               </label>
               <label class="dropdown-item">
                 <span class="dropdown-item-text">
                   <strong>Hide feedback</strong>
                   <small>Don't show correct/incorrect banner</small>
                 </span>
-                <input type="checkbox" onchange="setQuizOption('hideFeedback', this.checked)" ${quizOptions.hideFeedback ? 'checked' : ''}>
+                ${renderSwitch("setQuizOption('hideFeedback', this.checked)", quizOptions.hideFeedback)}
               </label>
               <label class="dropdown-item">
                 <span class="dropdown-item-text">
                   <strong>Hide explanation</strong>
                   <small>Don't show the explanation text</small>
                 </span>
-                <input type="checkbox" onchange="setQuizOption('hideExplanation', this.checked)" ${quizOptions.hideExplanation ? 'checked' : ''}>
+                ${renderSwitch("setQuizOption('hideExplanation', this.checked)", quizOptions.hideExplanation)}
               </label>
               <label class="dropdown-item">
                 <span class="dropdown-item-text">
                   <strong>Skip feedback</strong>
                   <small>Hide banner if explanation exists</small>
                 </span>
-                <input type="checkbox" onchange="setQuizOption('hideFeedbackIfExplanation', this.checked)" ${quizOptions.hideFeedbackIfExplanation ? 'checked' : ''}>
+                ${renderSwitch("setQuizOption('hideFeedbackIfExplanation', this.checked)", quizOptions.hideFeedbackIfExplanation)}
               </label>
               <label class="dropdown-item">
                 <span class="dropdown-item-text">
                   <strong>Disable navigation</strong>
                   <small>Must answer before moving forward</small>
                 </span>
-                <input type="checkbox" onchange="setQuizOption('noSkip', this.checked)" ${quizOptions.noSkip ? 'checked' : ''}>
+                ${renderSwitch("setQuizOption('noSkip', this.checked)", quizOptions.noSkip)}
               </label>
             </div>
             
@@ -475,9 +493,9 @@ function renderQuizShell() {
                   <small>Switch app appearance</small>
                 </span>
                 <select onchange="setAppSetting('theme', this.value)" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 6px;">
-                  <option value="default" ${appSettings.theme === 'default' ? 'selected' : ''}>Misty Blue (Default)</option>
-                  <option value="canvas" ${appSettings.theme === 'canvas' ? 'selected' : ''}>Canvas</option>
-                  <option value="dark-purple" ${appSettings.theme === 'dark-purple' ? 'selected' : ''}>Dark Purple</option>
+                  <option value="default" ${appSettings.theme === 'default' ? 'selected' : ''}>${THEME_MODE_ICONS.default} Misty Blue</option>
+                  <option value="canvas" ${appSettings.theme === 'canvas' ? 'selected' : ''}>${THEME_MODE_ICONS.canvas} Canvas</option>
+                  <option value="dark-purple" ${appSettings.theme === 'dark-purple' ? 'selected' : ''}>${THEME_MODE_ICONS['dark-purple']} Dark Purple</option>
                 </select>
               </label>
               <label class="dropdown-item" style="flex-direction: column; align-items: flex-start; gap: 0.5rem;">
@@ -499,14 +517,14 @@ function renderQuizShell() {
                   <strong>Disable animations</strong>
                   <small>Turn off all transitions and fades</small>
                 </span>
-                <input type="checkbox" onchange="setAppSetting('disableAnimations', this.checked)" ${appSettings.disableAnimations ? 'checked' : ''}>
+                ${renderSwitch("setAppSetting('disableAnimations', this.checked)", appSettings.disableAnimations)}
               </label>
               <label class="dropdown-item">
                 <span class="dropdown-item-text">
                   <strong>Compact mode</strong>
                   <small>Tighter spacing, less scrolling</small>
                 </span>
-                <input type="checkbox" onchange="setAppSetting('compactMode', this.checked)" ${appSettings.compactMode ? 'checked' : ''}>
+                ${renderSwitch("setAppSetting('compactMode', this.checked)", appSettings.compactMode)}
               </label>
             </div>
           </div>
@@ -777,21 +795,21 @@ function renderReviewShell() {
                   <strong>List View</strong>
                   <small>Show all questions on one page</small>
                 </span>
-                <input type="checkbox" onchange="setReviewOption('listView', this.checked)" ${reviewOptions.listView ? 'checked' : ''}>
+                ${renderSwitch("setReviewOption('listView', this.checked)", reviewOptions.listView)}
               </label>
               <label class="dropdown-item">
                 <span class="dropdown-item-text">
                   <strong>Show all choices</strong>
                   <small>Display all options, not just the answer</small>
                 </span>
-                <input type="checkbox" id="opt-allchoices" onchange="setReviewOption('showAllChoices', this.checked)" ${reviewOptions.showAllChoices ? 'checked' : ''}>
+                ${renderSwitch("setReviewOption('showAllChoices', this.checked)", reviewOptions.showAllChoices, 'opt-allchoices')}
               </label>
               <label class="dropdown-item">
                 <span class="dropdown-item-text">
                   <strong>Hide explanation</strong>
                   <small>Don't show the explanation text</small>
                 </span>
-                <input type="checkbox" onchange="setReviewOption('hideExplanation', this.checked)" ${reviewOptions.hideExplanation ? 'checked' : ''}>
+                ${renderSwitch("setReviewOption('hideExplanation', this.checked)", reviewOptions.hideExplanation)}
               </label>
             </div>
             
@@ -804,9 +822,9 @@ function renderReviewShell() {
                   <small>Switch app appearance</small>
                 </span>
                 <select onchange="setAppSetting('theme', this.value)" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 6px;">
-                  <option value="default" ${appSettings.theme === 'default' ? 'selected' : ''}>Misty Blue (Default)</option>
-                  <option value="canvas" ${appSettings.theme === 'canvas' ? 'selected' : ''}>Canvas</option>
-                  <option value="dark-purple" ${appSettings.theme === 'dark-purple' ? 'selected' : ''}>Dark Purple</option>
+                  <option value="default" ${appSettings.theme === 'default' ? 'selected' : ''}>${THEME_MODE_ICONS.default} Misty Blue</option>
+                  <option value="canvas" ${appSettings.theme === 'canvas' ? 'selected' : ''}>${THEME_MODE_ICONS.canvas} Canvas</option>
+                  <option value="dark-purple" ${appSettings.theme === 'dark-purple' ? 'selected' : ''}>${THEME_MODE_ICONS['dark-purple']} Dark Purple</option>
                 </select>
               </label>
               <label class="dropdown-item" style="flex-direction: column; align-items: flex-start; gap: 0.5rem;">
@@ -828,14 +846,14 @@ function renderReviewShell() {
                   <strong>Disable animations</strong>
                   <small>Turn off all transitions and fades</small>
                 </span>
-                <input type="checkbox" onchange="setAppSetting('disableAnimations', this.checked)" ${appSettings.disableAnimations ? 'checked' : ''}>
+                ${renderSwitch("setAppSetting('disableAnimations', this.checked)", appSettings.disableAnimations)}
               </label>
               <label class="dropdown-item">
                 <span class="dropdown-item-text">
                   <strong>Compact mode</strong>
                   <small>Tighter spacing, less scrolling</small>
                 </span>
-                <input type="checkbox" onchange="setAppSetting('compactMode', this.checked)" ${appSettings.compactMode ? 'checked' : ''}>
+                ${renderSwitch("setAppSetting('compactMode', this.checked)", appSettings.compactMode)}
               </label>
             </div>
           </div>
