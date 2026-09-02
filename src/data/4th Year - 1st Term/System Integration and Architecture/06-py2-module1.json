@@ -1,0 +1,272 @@
+{
+  "courseCode": "SIA",
+  "quizTitle": "Python Essentials 2 - Module 1",
+  "totalPoints": 18,
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "Knowing that a function named fun() resides in a module named mod, choose the correct way to import it.",
+      "options": [
+        "from fun import mod",
+        "import fun",
+        "import fun from mod",
+        "from mod import fun"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Syntax is 'from &lt;module&gt; import &lt;function&gt;'. The chosen option reverses module and function names."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "Knowing that a function named fun() resides in a module named mod, and it has been imported using 'import mod', choose the way it can be invoked in your code.",
+      "options": [
+        "mod::fun()",
+        "mod-&gt;fun()",
+        "fun()",
+        "mod.fun()"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "After 'import mod', functions are accessed via dot notation: mod.fun().",
+      "context": "<pre>import mod</pre>"
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "A function which returns a list of all entities available in a module is called:",
+      "options": [
+        "entities()",
+        "listmodule()",
+        "content()",
+        "dir()"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "dir() is the built-in that lists names available in a module/namespace."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "A pyc file contains:",
+      "options": [
+        "Python source code",
+        "a Python compiler",
+        "compiled Python code",
+        "a Python interpreter"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "A .pyc file is compiled bytecode output, not the compiler itself."
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "When a module is imported, its contents:",
+      "options": [
+        "are executed as many times as they are imported",
+        "may be executed (explicitly)",
+        "are ignored",
+        "are executed once (implicitly)"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Python runs a module's top-level code automatically the first time it's imported, then caches it - later imports don't re-run it."
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "A predefined Python variable that stores the current module name is called:",
+      "options": [
+        "__module__",
+        "__mod__",
+        "__name__",
+        "__modname__"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "__name__ holds the module's name (or '__main__' when run directly)."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "The following statement causes the import of:",
+      "options": [
+        "entity c from module a from package b",
+        "entity a from module b from package c",
+        "entity c from module b from package a",
+        "entity b from module a from package c"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "a.b means package a, module b inside it. 'import c' pulls entity c from that module: entity c from module b from package a.",
+      "context": "<pre>from a.b import c</pre>"
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "What is the expected value assigned to the result variable after the following code is executed?",
+      "options": [
+        "False",
+        "0",
+        "True",
+        "1"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "math.e (~2.718) != 16.0 evaluates to True, but int(True) = 1, and the code explicitly prints int(result), so the printed output is 1. Verified by running it.",
+      "context": "<pre>import math\n\nresult = math.e != math.pow(2, 4)\nprint(int(result))</pre>"
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "What is the expected output of the following code?",
+      "options": [
+        "12, or 21",
+        "12",
+        "11, 12, 21, or 22",
+        "There are millions of possible combinations, and the exact output cannot be predicted."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "randint(1,2) independently returns 1 or 2 each call, giving all 4 possible two-digit combinations.",
+      "context": "<pre>from random import randint\n\nfor i in range(2):\n    print(randint(1, 2), end='')</pre>"
+    },
+    {
+      "id": 10,
+      "type": "msq",
+      "text": "Choose the true statements. (Select two answers)",
+      "options": [
+        "The processor function from the platform module returns an integer with the number of processes currently running in your OS.",
+        "The system function from the platform module returns a string with your OS name.",
+        "The version function from the platform module returns a string with your OS version.",
+        "The version function from the platform module returns a string with your Python version."
+      ],
+      "correctAnswer": [
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "Checked platform module directly: processor() returns a string like 'x86_64' (not an int process count). system() returns OS name string - true. version() returns OS version string, not Python version (that's platform.python_version() instead) - so the Python-version claim is false."
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "During the first import of a module, Python deploys the pyc files in the directory called:",
+      "options": [
+        "__pycache__",
+        "__init__",
+        "Mymodules",
+        "Hashbang"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Python 3 caches compiled bytecode in the __pycache__ directory."
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "The digraph written as #! is used to:",
+      "options": [
+        "tell a Unix or Unix-like OS how to execute the contents of a Python file",
+        "make a particular module entity private",
+        "create a docstring",
+        "tell an MS Windows OS how to execute the contents of a Python file"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "#! is the shebang line, used by Unix/Unix-like systems to identify which interpreter should run the script. Windows doesn't use shebang lines for execution."
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "A list of package dependencies can be obtained from pip using a command named:",
+      "options": [
+        "list",
+        "show",
+        "deps",
+        "dir"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "'deps' isn't a real pip command. Confirmed via pip --help: 'pip show &lt;package&gt;' displays package info including its Requires: (dependencies) field."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "The pip list command presents a list of:",
+      "options": [
+        "all packages available at PyPI",
+        "outdated local packages",
+        "locally installed packages",
+        "available pip commands"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Confirmed via pip --help: 'pip list' - List installed packages (i.e. locally installed, in the current environment)."
+    },
+    {
+      "id": 15,
+      "type": "msq",
+      "text": "What is true about the pip search command? (Select two answers)",
+      "options": [
+        "All its searches are limited to locally installed packages.",
+        "It searches through all PyPI packages.",
+        "It searches through package names only.",
+        "It needs a working Internet connection to work."
+      ],
+      "correctAnswer": [
+        1,
+        3
+      ],
+      "points": 1,
+      "explanation": "pip search queries PyPI's remote index (not local packages), so it needs internet access, and it also searches descriptions/summaries, not just names."
+    },
+    {
+      "id": 16,
+      "type": "msq",
+      "text": "What is true about the pip install command? (Select two answers)",
+      "options": [
+        "It installs a package per user only when the --user option is specified.",
+        "It always installs the newest package version and it cannot be changed.",
+        "It installs a package system-wide only when the --system option is specified.",
+        "It allows the user to install a specific version of the package."
+      ],
+      "correctAnswer": [
+        0,
+        3
+      ],
+      "points": 1,
+      "explanation": "Confirmed via pip install --help: --user installs to the user directory only when specified. You CAN pin a specific version with pkg==x.y.z, so 'always newest, cannot be changed' is false. There's also no --system flag."
+    },
+    {
+      "id": 17,
+      "type": "mc",
+      "text": "What is true about updating already installed Python packages?",
+      "options": [
+        "It can be done by reinstalling the package using the reinstall command.",
+        "It's performed by the install command accompanied by the -U option.",
+        "It's an automatic process which doesn't require any user attention.",
+        "It can be done only by uninstalling and installing the packages once again."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "pip install -U (or --upgrade) is the standard way to update a package. There's no 'reinstall' command."
+    },
+    {
+      "id": 18,
+      "type": "mc",
+      "text": "Which command can you use pip to remove an installed package?",
+      "options": [
+        "pip --uninstall package",
+        "pip uninstall package",
+        "pip install --uninstall package",
+        "pip remove package"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Confirmed via pip --help: 'uninstall' is a subcommand (pip uninstall package), not a --flag."
+    }
+  ]
+}

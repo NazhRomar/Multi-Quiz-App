@@ -1,0 +1,341 @@
+{
+  "courseCode": "SIA",
+  "quizTitle": "Python Essentials 1 - Module 4",
+  "totalPoints": 22,
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "Which one of the following lines properly starts a parameterless function definition?",
+      "options": [
+        "def fun:",
+        "function fun():",
+        "def fun():",
+        "fun function():"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Function definitions require the 'def' keyword, the function name, parentheses, and a colon."
+    },
+    {
+      "id": 2,
+      "type": "msq",
+      "text": "A function defined in the following way: (Select two answers)",
+      "options": [
+        "must be invoked with exactly one argument",
+        "may be invoked with exactly one argument",
+        "may be invoked without any argument",
+        "must be invoked without any argument"
+      ],
+      "correctAnswer": [
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "x has a default value, so the function can be called with zero or one argument.",
+      "context": "<pre>def function(x=0):\n    return x</pre>"
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "A built-in function is a function which:",
+      "options": [
+        "comes with Python, and is an integral part of Python",
+        "is hidden from programmers",
+        "has to be imported before use",
+        "has been placed within your code by another programmer"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Built-ins ship with Python and require no import, unlike standard library functions."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "The fact that tuples belong to sequence types means that:",
+      "options": [
+        "they can be modified using the del instruction",
+        "they are actually lists",
+        "they can be extended using the .append() method",
+        "they can be indexed and sliced like lists"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Being a sequence type means indexing/slicing works, like strings and lists. Tuples are immutable, so del and .append() do not apply."
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "1",
+        "the code is erroneous",
+        "3",
+        "6"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "f(3)=3+f(2)=3+2+f(1)=3+2+1+f(0)=3+2+1+0=6. Valid recursion with a proper base case.",
+      "context": "<pre>def f(x):\n    if x == 0:\n        return 0\n    return x + f(x - 1)\n\nprint(f(3))</pre>"
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "the code is erroneous",
+        "5",
+        "3",
+        "4"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "x+1 is evaluated with the old x=2, giving fun(3). Inside fun, x becomes 3+1=4, which is returned and assigned to the outer x.",
+      "context": "<pre>def fun(x):\n    x += 1\n    return x\n\nx = 2\nx = fun(x + 1)\nprint(x)</pre>"
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "What code would you insert instead of the comment to obtain the expected output?\nExpected output:\na\nb\nc",
+      "options": [
+        "print(k)",
+        "print(k[0])",
+        "print(k[\"0\"])",
+        "print(k['0'])"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "k is a one-element tuple like ('a',). print(k) prints the tuple repr \"('a',)\"; print(k[0]) prints just 'a'. Tuples index by integer, so the string-key options error out.",
+      "context": "<pre>dictionary = {}\nmy_list = ['a', 'b', 'c', 'd']\n\nfor i in range(len(my_list) - 1):\n    dictionary[my_list[i]] = (my_list[i], )\n\nfor i in sorted(dictionary.keys()):\n    k = dictionary[i]\n    # Insert your code here.</pre>"
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "The following snippet:",
+      "options": [
+        "will output 4",
+        "will output 2",
+        "is erroneous",
+        "will return None"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "func requires two positional arguments with no defaults; calling func(2) raises TypeError: missing 1 required positional argument: 'b'.",
+      "context": "<pre>def func(a, b):\n    return a ** a\n\nprint(func(2))</pre>"
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "The following snippet:",
+      "options": [
+        "will output 2",
+        "will output 16",
+        "is erroneous",
+        "will output 4"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "func_1(2) = 2**2 = 4. func_2(2) = 4*4 = 16. No error here.",
+      "context": "<pre>def func_1(a):\n    return a ** a\n\ndef func_2(a):\n    return func_1(a) * func_1(a)\n\nprint(func_2(2))</pre>"
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "Which of the following lines properly starts a function using two parameters, both with zeroed default values?",
+      "options": [
+        "fun fun(a=0, b):",
+        "def fun(a=b=0):",
+        "def fun(a=0, b=0):",
+        "fun fun(a, b=0):"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "def fun(a=b=0): is invalid syntax. Each parameter needs its own default: def fun(a=0, b=0):"
+    },
+    {
+      "id": 11,
+      "type": "msq",
+      "text": "Which of the following statements are true? (Select two answers)",
+      "options": [
+        "The None value cannot be used outside functions",
+        "The None value can be compared with variables",
+        "The None value can be assigned to variables",
+        "The None value can be used as an argument of arithmetic operators"
+      ],
+      "correctAnswer": [
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "None can be compared (==, is) and assigned to variables freely. Using None with arithmetic operators (e.g. None + 1) raises TypeError."
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "None",
+        "2",
+        "1",
+        "the code will cause a runtime error"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "fun(2)=1 (even). fun(1): 1 is odd, hits bare 'return' -&gt; None. print(None + 1) raises TypeError.",
+      "context": "<pre>def fun(x):\n    if x % 2 == 0:\n        return 1\n    else:\n        return\n\nprint(fun(fun(2)) + 1)</pre>"
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "4",
+        "the code will cause a runtime error",
+        "2",
+        "None"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "fun(2) sets the global y = 2*2 = 4.",
+      "context": "<pre>def fun(x):\n    global y\n    y = x * x\n    return y\n\nfun(2)\nprint(y)</pre>"
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "21",
+        "12",
+        "22",
+        "11"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "any() reads global var (1), prints 2 with no newline. print(var) then prints 1 (var itself was never changed), landing on the same line: \"21\".",
+      "context": "<pre>def any():\n    print(var + 1, end='')\n\nvar = 1\nany()\nprint(var)</pre>"
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "Assuming that my_tuple is a correctly created tuple, the fact that tuples are immutable means that the following instruction:",
+      "options": [
+        "may be illegal if the tuple contains strings",
+        "can be executed if and only if the tuple contains at least two elements",
+        "is fully correct",
+        "is illegal"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Item assignment on a tuple always raises TypeError: 'tuple' object does not support item assignment, regardless of contents or length.",
+      "context": "<pre>my_tuple[1] = my_tuple[1] + my_tuple[0]</pre>"
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "['Mary', 'had', 'a', 'lamb']",
+        "['Mary', 'had', 'a', 'little', 'lamb']",
+        "no output, the snippet is erroneous",
+        "['Mary', 'had', 'a', 'ram']"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The 'def my_list' statement rebinds the global name my_list to the function itself, overwriting the list. By the time my_list(my_list) is called, both references point to the function object, so del my_list[3] tries to delete an item from a function -&gt; TypeError.",
+      "context": "<pre>my_list = ['Mary', 'had', 'a', 'little', 'lamb']\n\ndef my_list(my_list):\n    del my_list[3]\n    my_list[3] = 'ram'\n\nprint(my_list(my_list))</pre>"
+    },
+    {
+      "id": 17,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "9",
+        "0",
+        "the snippet is erroneous",
+        "3"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "x=0, y=3, z=1 -&gt; 0 + 2*3 + 3*1 = 9.",
+      "context": "<pre>def fun(x, y, z):\n    return x + 2 * y + 3 * z\n\nprint(fun(0, z=1, y=3))</pre>"
+    },
+    {
+      "id": 18,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "4",
+        "6",
+        "the snippet is erroneous",
+        "2"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "inp keeps its default (2), out is overridden to 2. 2*2=4.",
+      "context": "<pre>def fun(inp=2, out=3):\n    return inp * out\n\nprint(fun(out=2))</pre>"
+    },
+    {
+      "id": 19,
+      "type": "mc",
+      "text": "What is the output of the following code?",
+      "options": [
+        "three",
+        "two",
+        "one",
+        "('one', 'two', 'three')"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "v starts as 'two'. Loop runs 3 times: 'two'-&gt;'three'-&gt;'one'-&gt;'two'. Final v is 'two'.",
+      "context": "<pre>dictionary = {'one': 'two', 'three': 'one', 'two': 'three'}\nv = dictionary['one']\n\nfor k in range(len(dictionary)):\n    v = dictionary[v]\n\nprint(v)</pre>"
+    },
+    {
+      "id": 20,
+      "type": "mc",
+      "text": "What is the output of the following code?",
+      "options": [
+        "(2, )",
+        "the snippet is erroneous",
+        "(2)",
+        "2"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "tup[1:-1] slices to (2, 4). tup[0] then indexes (not slices) into that tuple, returning the plain int 2, not a tuple.",
+      "context": "<pre>tup = (1, 2, 4, 8)\ntup = tup[1:-1]\ntup = tup[0]\nprint(tup)</pre>"
+    },
+    {
+      "id": 21,
+      "type": "msq",
+      "text": "Select the true statements about the try-except block in relation to the following example. (Select two answers.)",
+      "options": [
+        "If there is a syntax error in code located in the try block, the except branch will not handle it, and a SyntaxError exception will be raised instead.",
+        "If you suspect that a snippet may raise an exception, you should place it in the try block.",
+        "The code that follows the except statement will be executed if the code in the try clause runs into an error.",
+        "The code that follows the try statement will be executed if the except clause runs into an error."
+      ],
+      "correctAnswer": [
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "A syntax error means the whole file fails to parse before any code runs, so nothing is 'raised' in the normal catchable sense - the program's exception machinery never starts. The two true statements are: you should place risky code in the try block, and the except body runs when the try clause hits a runtime error.",
+      "context": "<pre>try:\n    # Some code is here...\nexcept:\n    # Some code is here...</pre>"
+    },
+    {
+      "id": 22,
+      "type": "mc",
+      "text": "What is the output of the following code?",
+      "options": [
+        "Very bad input...",
+        "Booo!",
+        "Bad input...",
+        "Very very bad input..."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "input() always returns a str, so value/value is str/str, which raises TypeError (unsupported operand type for /). That's caught by the explicit 'except TypeError' clause before the bare except is ever reached.",
+      "context": "<pre>try:\n    value = input(\"Enter a value: \")\n    print(value/value)\nexcept ValueError:\n    print(\"Bad input...\")\nexcept ZeroDivisionError:\n    print(\"Very bad input...\")\nexcept TypeError:\n    print(\"Very very bad input...\")\nexcept:\n    print(\"Booo!\")</pre>"
+    }
+  ]
+}

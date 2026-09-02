@@ -253,6 +253,11 @@ function startQuizMode(term, course, quizData) {
         shuffleArray(arr);
         q.options = arr.map(a => a.text);
         q.correctAnswer = arr.findIndex(a => a.isCorrect);
+      } else if (q.type === 'msq') {
+        let arr = q.options.map((opt, i) => ({ text: opt, isCorrect: q.correctAnswer.includes(i) }));
+        shuffleArray(arr);
+        q.options = arr.map(a => a.text);
+        q.correctAnswer = arr.reduce((acc, a, i) => { if (a.isCorrect) acc.push(i); return acc; }, []);
       } else if (q.type === 'matching' || q.type === 'drag-drop') {
         shuffleArray(q.pairs);
       }
@@ -390,7 +395,7 @@ function renderQuestion() {
   const isLocked = savedState.submitted;
 
   const typeMap = {
-    'mc': 'Multiple Choice', 'tf': 'True / False',
+    'mc': 'Multiple Choice', 'tf': 'True / False', 'msq': 'Multiple Select',
     'fitb': 'Fill in the Blank', 'matching': 'Dropdown Matching', 'drag-drop': 'Drag & Drop'
   };
 
@@ -428,6 +433,28 @@ function renderQuestion() {
         `;
       });
       break;
+
+    case 'msq': {
+      const savedSet = savedState.value || [];
+      question.options.forEach((opt, idx) => {
+        const isChecked = savedSet.includes(idx) ? 'checked' : '';
+        let statusClass = '';
+        if (isLocked) {
+          if (question.correctAnswer.includes(idx)) statusClass = 'reveal-correct';
+          else if (savedSet.includes(idx)) statusClass = 'reveal-wrong';
+        }
+        html += `
+          <label class="option-label ${statusClass} ${isLocked ? 'locked' : ''}">
+            <input type="checkbox" name="q${question.id}" value="${idx}" ${isChecked}
+                   ${isLocked ? 'disabled' : ''}
+                   onchange="toggleMSQAnswer(${question.id}, ${idx}, this.checked)">
+            <span>${opt}</span>
+          </label>
+        `;
+      });
+      if (!isLocked) html += `<button class="btn-check" style="margin-top:1rem;" onclick="checkAnswer(${question.id})">Check Answer ✓</button>`;
+      break;
+    }
 
     case 'fitb': {
       const savedText = savedState.value || '';
@@ -510,6 +537,11 @@ function renderQuestion() {
     } else if (question.type === 'fitb') {
       isPerfect = savedState.value && savedState.value.trim().toLowerCase() === question.correctAnswer.toLowerCase();
       expectedText = question.correctAnswer;
+    } else if (question.type === 'msq') {
+      const sel = (savedState.value || []).slice().sort();
+      const correct = question.correctAnswer.slice().sort();
+      isPerfect = sel.length === correct.length && sel.every((v, i) => v === correct[i]);
+      expectedText = question.correctAnswer.map(i => question.options[i]).join(', ');
     } else {
       let correctCount = 0;
       question.pairs.forEach(pair => { if (savedState.value && savedState.value[pair.term] === pair.match) correctCount++; });
@@ -664,7 +696,7 @@ function renderReviewShell() {
 
 function generateReviewCardHTML(question, index) {
   const typeMap = {
-    'mc': 'Multiple Choice', 'tf': 'True / False',
+    'mc': 'Multiple Choice', 'tf': 'True / False', 'msq': 'Multiple Select',
     'fitb': 'Fill in the Blank', 'matching': 'Dropdown Matching', 'drag-drop': 'Drag & Drop'
   };
 
@@ -708,6 +740,25 @@ function generateReviewCardHTML(question, index) {
         <div class="review-answer-value">${question.correctAnswer}</div>
       </div>
     `;
+  } else if (question.type === 'msq') {
+    if (reviewOptions.showAllChoices) {
+      question.options.forEach((opt, idx) => {
+        const isCorrect = question.correctAnswer.includes(idx);
+        html += `
+          <div class="option-label locked ${isCorrect ? 'reveal-correct' : ''}">
+            ${isCorrect ? '' : '<span style="width:18px;height:18px;flex-shrink:0;margin-right:0.5rem;"></span>'}
+            <span>${opt}</span>
+          </div>
+        `;
+      });
+    } else {
+      html += `
+        <div class="review-answer-block">
+          <span class="review-answer-label">Correct Answers</span>
+          <div class="review-answer-value">${question.correctAnswer.map(i => question.options[i]).join(', ')}</div>
+        </div>
+      `;
+    }
   } else if (question.type === 'matching' || question.type === 'drag-drop') {
     html += `<div class="matching-grid review-matching">`;
     question.pairs.forEach(pair => {
@@ -838,6 +889,17 @@ window.saveAndSubmitMC = (qId, idx) => {
   userAnswers[qId] = { value: idx, submitted: true };
   updateScore();
   renderQuestion();
+};
+
+window.toggleMSQAnswer = (qId, idx, checked) => {
+  if (!userAnswers[qId]) userAnswers[qId] = { value: [], submitted: false };
+  if (!userAnswers[qId].value) userAnswers[qId].value = [];
+  const arr = userAnswers[qId].value;
+  if (checked) {
+    if (!arr.includes(idx)) arr.push(idx);
+  } else {
+    userAnswers[qId].value = arr.filter(i => i !== idx);
+  }
 };
 
 function navigateWithAnimation(fn) {
@@ -974,6 +1036,10 @@ window.submitQuiz = () => {
       if (userAnswer === q.correctAnswer) score += pts;
     } else if (q.type === 'fitb') {
       if (userAnswer && userAnswer.trim().toLowerCase() === q.correctAnswer.toLowerCase()) score += pts;
+    } else if (q.type === 'msq') {
+      const sel = (userAnswer || []).slice().sort();
+      const correct = q.correctAnswer.slice().sort();
+      if (sel.length === correct.length && sel.every((v, i) => v === correct[i])) score += pts;
     } else if (q.type === 'matching' || q.type === 'drag-drop') {
       const ppp = pts / q.pairs.length;
       q.pairs.forEach(pair => { if (userAnswer && userAnswer[pair.term] === pair.match) score += ppp; });
@@ -1009,6 +1075,11 @@ window.updateScore = () => {
     if (data?.submitted) {
       if ((q.type === 'mc' || q.type === 'tf') && data.value === q.correctAnswer) score += (q.points || 1);
       else if (q.type === 'fitb' && data.value?.trim().toLowerCase() === q.correctAnswer.toLowerCase()) score += (q.points || 1);
+      else if (q.type === 'msq' && data.value) {
+        const sel = data.value.slice().sort();
+        const correct = q.correctAnswer.slice().sort();
+        if (sel.length === correct.length && sel.every((v, i) => v === correct[i])) score += (q.points || 1);
+      }
       else if ((q.type === 'matching' || q.type === 'drag-drop') && data.value) {
         const pps = (q.points || 1) / q.pairs.length;
         q.pairs.forEach(pair => { if (data.value[pair.term] === pair.match) score += pps; });

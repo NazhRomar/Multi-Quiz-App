@@ -899,6 +899,12 @@ button:disabled {
   border: 1px solid rgba(130, 160, 200, 0.4);
 }
 
+.q-type-badge.msq {
+  background: rgba(168, 152, 234, 0.15);
+  color: #5d4d8c;
+  border: 1px solid rgba(168, 152, 234, 0.4);
+}
+
 .q-type-badge.matching,
 .q-type-badge.drag-drop {
   background: rgba(100, 140, 190, 0.15);
@@ -948,14 +954,16 @@ button:disabled {
   border-color: var(--accent);
 }
 
-.option-label input[type="radio"] {
+.option-label input[type="radio"],
+.option-label input[type="checkbox"] {
   accent-color: var(--accent);
   width: 18px;
   height: 18px;
   margin: 0;
 }
 
-.option-label:not(.locked):has(input[type="radio"]:checked) {
+.option-label:not(.locked):has(input[type="radio"]:checked),
+.option-label:not(.locked):has(input[type="checkbox"]:checked) {
   border-color: var(--accent);
   background: rgba(91, 155, 213, 0.12);
   color: #1e4d80;
@@ -982,7 +990,9 @@ button:disabled {
 }
 
 .option-label.reveal-correct input[type="radio"],
-.option-label.reveal-wrong input[type="radio"] {
+.option-label.reveal-wrong input[type="radio"],
+.option-label.reveal-correct input[type="checkbox"],
+.option-label.reveal-wrong input[type="checkbox"] {
   display: none;
 }
 
@@ -1186,6 +1196,12 @@ button:disabled {
   font-size: 0.82rem;
   color: var(--text);
   line-height: 1.7;
+}
+
+.q-context-body pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .q-context-body code {
@@ -1478,14 +1494,16 @@ body.theme-canvas .option-label:hover {
   background: #F9F9F9 !important;
 }
 
-body.theme-canvas .option-label input[type="radio"] {
+body.theme-canvas .option-label input[type="radio"],
+body.theme-canvas .option-label input[type="checkbox"] {
   width: 16px;
   height: 16px;
   accent-color: #008EE2;
   margin-right: 0.5rem;
 }
 
-body.theme-canvas .option-label:not(.locked):has(input[type="radio"]:checked) {
+body.theme-canvas .option-label:not(.locked):has(input[type="radio"]:checked),
+body.theme-canvas .option-label:not(.locked):has(input[type="checkbox"]:checked) {
   color: #2D3B45 !important;
   font-weight: normal !important;
 }
@@ -1712,6 +1730,12 @@ body.theme-dark-purple .q-type-badge.fitb {
   background: rgba(168, 152, 234, 0.2) !important;
   color: #d1c8fa !important;
   /* Light powder purple */
+  border-color: rgba(168, 152, 234, 0.4) !important;
+}
+
+body.theme-dark-purple .q-type-badge.msq {
+  background: rgba(168, 152, 234, 0.2) !important;
+  color: #d1c8fa !important;
   border-color: rgba(168, 152, 234, 0.4) !important;
 }
 
