@@ -1,8 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 html {
-  overflow-y: scroll;
-  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent);
 }
 
 /* --- Root Variables (Misty Blue) --- */
@@ -396,8 +415,7 @@ main.question-card {
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(30, 49, 72, 0.12);
   z-index: 200;
-  overflow-y: scroll;
-  scrollbar-gutter: stable;
+  overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
   max-height: 75vh;
