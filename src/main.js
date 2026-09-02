@@ -298,24 +298,74 @@ function renderMenu() {
       const quizList = document.createElement('div');
       quizList.className = 'quiz-list';
 
-      courseMenu[term][course].forEach(quiz => {
+      const courseQuizzes = courseMenu[term][course];
+
+      // Pass 1: count how many quizzes share each "<Series> - <Item>" prefix
+      const prefixCounts = {};
+      courseQuizzes.forEach(quiz => {
+        const parts = quiz.title.split(' - ');
+        if (parts.length < 2) return;
+        const prefix = parts[0];
+        prefixCounts[prefix] = (prefixCounts[prefix] || 0) + 1;
+      });
+
+      // Pass 2: build render units in original order, merging same-prefix quizzes
+      // (2+ siblings) into one series bucket regardless of position.
+      const units = [];
+      const seriesByPrefix = new Map();
+      courseQuizzes.forEach(quiz => {
+        const parts = quiz.title.split(' - ');
+        const prefix = parts.length >= 2 ? parts[0] : null;
+        const isSeries = prefix && prefixCounts[prefix] >= 2;
+
+        if (isSeries) {
+          let series = seriesByPrefix.get(prefix);
+          if (!series) {
+            series = { type: 'series', name: prefix, items: [] };
+            seriesByPrefix.set(prefix, series);
+            units.push(series);
+          }
+          series.items.push({ quiz, label: quiz.title.slice(prefix.length + 3) });
+        } else {
+          units.push({ type: 'standalone', quiz, label: quiz.title });
+        }
+      });
+
+      const makeQuizRow = (quiz, label, nested) => {
         const quizBtn = document.createElement('button');
-        quizBtn.className = 'btn-quiz';
-
-        // Calculate total items
+        quizBtn.className = 'btn-quiz' + (nested ? ' btn-quiz--nested' : '');
         const totalItems = quiz.data.questions ? quiz.data.questions.length : 0;
-
-        // Inject rich HTML into the button
         quizBtn.innerHTML = `
-          <div class="quiz-btn-content">
-            <span class="quiz-btn-title">${quiz.title}</span>
-            <span class="quiz-btn-meta">${totalItems} items</span>
-          </div>
+          <span class="quiz-btn-title">${label}</span>
+          <span class="quiz-btn-right">
+            <span class="quiz-btn-meta">${totalItems}</span>
+            <span class="quiz-btn-icon">→</span>
+          </span>
         `;
-
-        // Launch straight into Quiz Mode
         quizBtn.onclick = () => startQuizMode(term, course, quiz.data);
-        quizList.appendChild(quizBtn);
+        return quizBtn;
+      };
+
+      units.forEach(unit => {
+        if (unit.type === 'series') {
+          const seriesEl = document.createElement('div');
+          seriesEl.className = 'quiz-series';
+
+          const seriesHeader = document.createElement('div');
+          seriesHeader.className = 'quiz-series-header';
+          seriesHeader.innerHTML = `
+            <span>${unit.name}</span>
+            <span class="quiz-series-count">${unit.items.length}</span>
+          `;
+          seriesEl.appendChild(seriesHeader);
+
+          unit.items.forEach(({ quiz, label }) => {
+            seriesEl.appendChild(makeQuizRow(quiz, label, true));
+          });
+          quizList.appendChild(seriesEl);
+        } else {
+          quizList.appendChild(makeQuizRow(unit.quiz, unit.label, false));
+        }
       });
       courseCard.appendChild(quizList);
       termContent.appendChild(courseCard);

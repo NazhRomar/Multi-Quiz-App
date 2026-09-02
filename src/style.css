@@ -929,9 +929,41 @@ main.question-card {
 }
 
 .quiz-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.quiz-series {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.75rem;
+}
+
+.quiz-series-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+  padding: 0 0.2rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.quiz-series-count {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--radio-bg);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
 }
 
 @media (max-width: 600px) {
@@ -942,15 +974,6 @@ main.question-card {
   .menu-container section {
     padding: 1.1rem;
     border-radius: 12px;
-  }
-
-  .quiz-list {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-
-  .btn-quiz {
-    padding: 1rem;
   }
 
   .term-count {
@@ -968,17 +991,18 @@ button {
   border: none;
 }
 
-/* --- Home Page Quiz Cards --- */
+/* --- Home Page Quiz Rows --- */
 .btn-quiz {
   background: #ffffff;
   border: 1px solid var(--border);
-  padding: 1.25rem;
+  padding: 0.65rem 1rem;
   text-align: left;
-  border-radius: 12px;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.2s ease;
+  width: 100%;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
   box-shadow: 0 2px 8px rgba(30, 49, 72, 0.04);
   gap: 1rem;
 }
@@ -986,14 +1010,12 @@ button {
 .btn-quiz:hover {
   background: var(--radio-bg);
   border-color: var(--accent);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(91, 155, 213, 0.15);
 }
 
-.quiz-btn-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+.btn-quiz--nested {
+  background: #ffffff;
+  box-shadow: none;
+  padding: 0.55rem 0.85rem;
 }
 
 .quiz-btn-title {
@@ -1003,13 +1025,18 @@ button {
   line-height: 1.3;
 }
 
+.quiz-btn-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
 .quiz-btn-meta {
   font-family: 'Space Mono', monospace;
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   background: rgba(91, 155, 213, 0.1);
   padding: 0.25rem 0.55rem;
   border-radius: 6px;
