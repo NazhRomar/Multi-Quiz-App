@@ -173,19 +173,10 @@ main.question-card {
     gap: 0.5rem;
   }
 
-  .header-left {
-    width: 100%;
-    flex: none;
-  }
-
   .header-right {
     width: 100%;
     justify-content: flex-start;
     gap: 0.4rem;
-  }
-
-  .breadcrumbs {
-    font-size: 0.72rem;
   }
 }
 
@@ -286,6 +277,12 @@ main.question-card {
 .breadcrumbs span {
   color: var(--border);
   margin: 0 0.3rem;
+}
+
+@media (max-width: 600px) {
+  .breadcrumbs {
+    display: none;
+  }
 }
 
 .score-badge {
@@ -431,10 +428,12 @@ main.question-card {
 @media (max-width: 600px) {
   .dropdown-menu {
     position: fixed;
+    top: 1rem;
     left: 1rem;
     right: 1rem;
     width: auto;
     max-width: none;
+    max-height: calc(100vh - 2rem);
   }
 }
 
