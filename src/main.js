@@ -228,20 +228,6 @@ function renderMenu() {
           <div id="menu-dropdown" class="dropdown-menu" style="display:none;">
             <div class="dropdown-header" onclick="toggleCategory(this)">App Settings</div>
             <div class="dropdown-category-content">
-              <label class="dropdown-item" style="flex-direction: column; align-items: flex-start; gap: 0.5rem;">
-                <span class="dropdown-item-text">
-                  <strong>Navigation Position</strong>
-                  <small>Where to place Prev/Next</small>
-                </span>
-                <select onchange="setAppSetting('navLocation', this.value)" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 6px;">
-                  <option value="up" ${appSettings.navLocation === 'up' ? 'selected' : ''}>Top</option>
-                  <option value="down" ${appSettings.navLocation === 'down' ? 'selected' : ''}>Bottom</option>
-                  <option value="sides" ${appSettings.navLocation === 'sides' ? 'selected' : ''}>Sides</option>
-                  <option value="center" ${appSettings.navLocation === 'center' ? 'selected' : ''}>Centered</option>
-                  <option value="both" ${appSettings.navLocation === 'both' ? 'selected' : ''}>Top and Bottom</option>
-                  <option value="all" ${appSettings.navLocation === 'all' ? 'selected' : ''}>All</option>
-                </select>
-              </label>
               <label class="dropdown-item">
                 <span class="dropdown-item-text">
                   <strong>Disable animations</strong>
