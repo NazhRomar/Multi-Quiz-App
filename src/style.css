@@ -1851,6 +1851,76 @@ body.theme-canvas #quiz-nav-top[style*="display: flex"] {
   margin-bottom: 1rem !important;
 }
 
+/* =========================================================
+   --- COMPACT MODE ---
+   Tightens vertical spacing throughout question rendering
+   so less scrolling is needed while answering.
+========================================================= */
+body.compact-mode main.question-card {
+  margin: 1rem auto !important;
+}
+
+body.compact-mode .question-card {
+  padding: 1rem !important;
+}
+
+body.compact-mode .q-meta {
+  margin-bottom: 0.75rem !important;
+}
+
+body.compact-mode .q-text {
+  font-size: 0.98rem !important;
+  line-height: 1.35 !important;
+  margin-bottom: 0.85rem !important;
+}
+
+body.compact-mode .options-list {
+  gap: 0.5rem !important;
+}
+
+body.compact-mode .option-label {
+  padding: 0.6rem 0.9rem !important;
+}
+
+body.compact-mode .fitb-row {
+  gap: 0.6rem !important;
+}
+
+body.compact-mode .matching-grid {
+  gap: 0.5rem !important;
+}
+
+body.compact-mode .match-row {
+  padding: 0.4rem !important;
+}
+
+body.compact-mode .q-context {
+  margin-bottom: 0.85rem !important;
+}
+
+body.compact-mode .q-context-body {
+  padding: 0.5rem 0.75rem !important;
+  line-height: 1.45 !important;
+}
+
+body.compact-mode .q-explanation {
+  margin-top: 0.6rem !important;
+}
+
+body.compact-mode .q-explanation-text {
+  padding: 0.5rem 0.75rem !important;
+  line-height: 1.45 !important;
+}
+
+body.compact-mode .feedback-banner {
+  margin-top: 0.75rem !important;
+  padding: 0.6rem 0.85rem !important;
+}
+
+body.compact-mode .nav-row {
+  margin: 0.75rem auto !important;
+}
+
 /* 3. Prevent massive double-gaps when Top Navigation is active */
 body.theme-canvas #quiz-nav-top[style*="display: flex"]+#quiz-container {
   margin-top: 0 !important;

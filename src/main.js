@@ -22,10 +22,11 @@ let userAnswers = {};
 let activeMode = 'quiz';
 
 // Load from LocalStorage
-let appSettings = loadState('quizApp_appSettings', { 
+let appSettings = loadState('quizApp_appSettings', {
   disableAnimations: false,
   navLocation: 'down', // 'down', 'up', 'both'
-  theme: 'default'     // <-- NEW THEME SETTING
+  theme: 'default',    // <-- NEW THEME SETTING
+  compactMode: false
 });
 let quizOptions = loadState('quizApp_quizOptions', { 
   noSkip: false, 
@@ -45,6 +46,10 @@ let collapsedTerms = loadState('quizApp_collapsedTerms', {});
 // Apply initial app settings
 if (appSettings.disableAnimations) {
   document.body.classList.add('no-animations');
+}
+
+if (appSettings.compactMode) {
+  document.body.classList.add('compact-mode');
 }
 
 if (appSettings.theme && appSettings.theme !== 'default') {
@@ -145,6 +150,13 @@ function renderMenu() {
                   <small>Turn off all transitions and fades</small>
                 </span>
                 <input type="checkbox" id="opt-disable-anim" onchange="setAppSetting('disableAnimations', this.checked)" ${appSettings.disableAnimations ? 'checked' : ''}>
+              </label>
+              <label class="dropdown-item">
+                <span class="dropdown-item-text">
+                  <strong>Compact mode</strong>
+                  <small>Tighter spacing, less scrolling</small>
+                </span>
+                <input type="checkbox" onchange="setAppSetting('compactMode', this.checked)" ${appSettings.compactMode ? 'checked' : ''}>
               </label>
             </div>
           </div>
@@ -395,6 +407,13 @@ function renderQuizShell() {
                   <small>Turn off all transitions and fades</small>
                 </span>
                 <input type="checkbox" onchange="setAppSetting('disableAnimations', this.checked)" ${appSettings.disableAnimations ? 'checked' : ''}>
+              </label>
+              <label class="dropdown-item">
+                <span class="dropdown-item-text">
+                  <strong>Compact mode</strong>
+                  <small>Tighter spacing, less scrolling</small>
+                </span>
+                <input type="checkbox" onchange="setAppSetting('compactMode', this.checked)" ${appSettings.compactMode ? 'checked' : ''}>
               </label>
             </div>
           </div>
@@ -715,6 +734,13 @@ function renderReviewShell() {
                 </span>
                 <input type="checkbox" onchange="setAppSetting('disableAnimations', this.checked)" ${appSettings.disableAnimations ? 'checked' : ''}>
               </label>
+              <label class="dropdown-item">
+                <span class="dropdown-item-text">
+                  <strong>Compact mode</strong>
+                  <small>Tighter spacing, less scrolling</small>
+                </span>
+                <input type="checkbox" onchange="setAppSetting('compactMode', this.checked)" ${appSettings.compactMode ? 'checked' : ''}>
+              </label>
             </div>
           </div>
         </div>
@@ -1030,6 +1056,8 @@ window.setAppSetting = (key, value) => {
   
   if (key === 'disableAnimations') {
     document.body.classList.toggle('no-animations', value);
+  } else if (key === 'compactMode') {
+    document.body.classList.toggle('compact-mode', value);
   } else if (key === 'navLocation') {
     if (activeMode === 'quiz' && activeQuiz) renderQuestion();
     else if (activeMode === 'review' && activeQuiz) renderReviewQuestion();
