@@ -331,9 +331,9 @@ function renderMenu() {
         }
       });
 
-      const makeQuizRow = (quiz, label, nested) => {
+      const makeQuizRow = (quiz, label) => {
         const quizBtn = document.createElement('button');
-        quizBtn.className = 'btn-quiz' + (nested ? ' btn-quiz--nested' : '');
+        quizBtn.className = 'btn-quiz';
         const totalItems = quiz.data.questions ? quiz.data.questions.length : 0;
         quizBtn.innerHTML = `
           <span class="quiz-btn-title">${label}</span>
@@ -344,6 +344,18 @@ function renderMenu() {
         `;
         quizBtn.onclick = () => startQuizMode(term, course, quiz.data);
         return quizBtn;
+      };
+
+      const makeQuizChip = (quiz, label) => {
+        const chip = document.createElement('button');
+        chip.className = 'quiz-chip';
+        const totalItems = quiz.data.questions ? quiz.data.questions.length : 0;
+        chip.innerHTML = `
+          <span class="quiz-chip-label">${label}</span>
+          <span class="quiz-chip-count">${totalItems}</span>
+        `;
+        chip.onclick = () => startQuizMode(term, course, quiz.data);
+        return chip;
       };
 
       units.forEach(unit => {
@@ -359,12 +371,15 @@ function renderMenu() {
           `;
           seriesEl.appendChild(seriesHeader);
 
+          const chipRow = document.createElement('div');
+          chipRow.className = 'quiz-series-chips';
           unit.items.forEach(({ quiz, label }) => {
-            seriesEl.appendChild(makeQuizRow(quiz, label, true));
+            chipRow.appendChild(makeQuizChip(quiz, label));
           });
+          seriesEl.appendChild(chipRow);
           quizList.appendChild(seriesEl);
         } else {
-          quizList.appendChild(makeQuizRow(unit.quiz, unit.label, false));
+          quizList.appendChild(makeQuizRow(unit.quiz, unit.label));
         }
       });
       courseCard.appendChild(quizList);
