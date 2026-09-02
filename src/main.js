@@ -249,7 +249,16 @@ function renderMenu() {
   const container = document.createElement('main');
   container.className = 'menu-container';
 
-  for (const term in courseMenu) {
+  const sortedTerms = Object.keys(courseMenu).sort((a, b) => {
+    const numsA = a.match(/\d+/g)?.map(Number) || [];
+    const numsB = b.match(/\d+/g)?.map(Number) || [];
+    const yearA = numsA[0] ?? 0;
+    const yearB = numsB[0] ?? 0;
+    if (yearB !== yearA) return yearB - yearA; // newest year first
+    return (numsA[1] ?? 0) - (numsB[1] ?? 0); // then term ascending
+  });
+
+  for (const term of sortedTerms) {
     const isCollapsed = !!collapsedTerms[term];
     const termSection = document.createElement('section');
     termSection.className = 'term-section' + (isCollapsed ? ' collapsed' : '');
