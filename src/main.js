@@ -1297,7 +1297,10 @@ window.confirmSubmitQuiz = () => {
   overlay.onclick = (e) => { if (e.target === overlay) closeModal(); };
   overlay.innerHTML = `
     <div class="modal-card">
-      <h3>Submit Quiz?</h3>
+      <div class="modal-header">
+        <h3>Submit Quiz?</h3>
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+      </div>
       <p>${message}</p>
       <div class="modal-actions">
         <button class="btn-prev" onclick="closeModal()">Cancel</button>
