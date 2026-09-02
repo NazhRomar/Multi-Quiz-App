@@ -1,0 +1,350 @@
+{
+  "courseCode": "SIA",
+  "quizTitle": "Python Essentials 1 - Module 2",
+  "totalPoints": 23,
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "The \\n digraph forces the print() function to:",
+      "options": [
+        "stop its execution",
+        "duplicate the character next to the digraph",
+        "break the output line",
+        "output exactly two characters: \\ and n"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The digraph, called the newline character, causes the current line to end at the point indicated by the digraph, and creates a new line that starts right after it."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "What is the output of the following snippet if the user enters two lines containing 2 and 4 respectively?",
+      "options": [
+        "8.0",
+        "the code will cause a runtime error",
+        "4.0",
+        "2.0"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "x = 2 (int), y = 4 (int). x = x / y = 2/4 = 0.5. y = y / x = 4/0.5 = 8.0. The value assigned to y (8.0) is printed.",
+      "context": "<pre>x = int(input())\ny = int(input())\n\nx = x / y\ny = y / x\n\nprint(y)</pre>"
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "1 1 1",
+        "x*y*z",
+        "1*1*1",
+        "x y z"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "z, y, and x are all assigned 1 via chained assignment (z = y = x = 1). print() with sep='*' joins the printed values with * between them, giving: 1*1*1.",
+      "context": "<pre>z = y = x = 1\nprint(x, y, z, sep='*')</pre>"
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "8.5",
+        "0",
+        "17.5",
+        "17"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Operator precedence applies: 4 ** 2 = 16 first, then 1 / 2 = 0.5, then 3 // 3 = 1. Finally the three values are added: 0.5 + 1 + 16 = 17.5.",
+      "context": "<pre>x = 1 / 2 + 3 // 3 + 4 ** 2\nprint(x)</pre>"
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "What is the output of the following snippet if the user enters two lines containing 2 and 4 respectively?",
+      "options": [
+        "2",
+        "24",
+        "4",
+        "6"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "x = 2 and y = 4 (both converted to int via int(input())). print(x + y) performs integer addition: 2 + 4 = 6.",
+      "context": "<pre>x = int(input())\ny = int(input())\nprint(x + y)</pre>"
+    },
+    {
+      "id": 6,
+      "type": "msq",
+      "text": "Which of the following variable names are illegal? (Select two answers)",
+      "options": [
+        "true",
+        "and",
+        "TRUE",
+        "True"
+      ],
+      "correctAnswer": [
+        1,
+        3
+      ],
+      "points": 1,
+      "explanation": "True and and are Python keywords (reserved words), and they cannot be used as variable names. Since Python is case-sensitive, the names true and TRUE are perfectly legal, though not necessarily the best names."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "The result of the following division:",
+      "options": [
+        "is equal to 1.0",
+        "is equal to 1",
+        "cannot be evaluated",
+        "cannot be predicted"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The / operator always returns a floating-point value in Python 3, even when both operands are integers and divide evenly. The // operator (floor division) rounds down and returns an integer instead.",
+      "context": "<pre>1 / 1</pre>"
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "The ** operator:",
+      "options": [
+        "does not exist",
+        "performs duplicated multiplication",
+        "performs exponentiation",
+        "perform floating-point multiplication"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The ** operator performs exponent arithmetic in Python. It is also called the power operator."
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "the snippet will cause an execution error",
+        "25.",
+        "17",
+        "17.0"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Python is case-sensitive, so y and Y are two different variables. Since Y was never defined, referencing it in print(Y) raises a NameError.",
+      "context": "<pre>y = 2 + 3 * 5.\nprint(Y)</pre>"
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "1 2",
+        "1 1",
+        "2 2",
+        "2 1"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "x=1, y=2, z=x so z=1. Then x=y so x=2, then y=z so y=1. Final print(x, y) outputs: 2 1.",
+      "context": "<pre>x = 1\ny = 2\nz = x\nx = y\ny = z\nprint(x, y)</pre>"
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "The value twenty point twelve times ten raised to the power of eight should be written as:",
+      "options": [
+        "20.12*10^8",
+        "20E12.8",
+        "20.12E8.0",
+        "20.12E8"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Python uses the letter E to mean \"times ten to the power of\" in scientific notation, so 20.12 x 10^8 is written as 20.12E8."
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "What is the output of the following snippet if the user enters two lines containing 2 and 4 respectively?",
+      "options": [
+        "the code will cause a runtime error",
+        "2.0",
+        "8.0",
+        "4.0"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "x=2, y=4. x = x // y = 2 // 4 = 0. Then y = y // x = 4 // 0 raises a ZeroDivisionError, since floor division by zero is not allowed. The program terminates with a runtime error.",
+      "context": "<pre>x = int(input())\ny = int(input())\nx = x // y\ny = y // x\nprint(y)</pre>"
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "What is the output of the following snippet if the user enters two lines containing 11 and 4 respectively?",
+      "options": [
+        "3",
+        "2",
+        "4",
+        "1"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "x=11, y=4. x = 11 % 4 = 3. x = 3 % 4 = 3 (unchanged, since 3 &lt; 4). y = 4 % 3 = 1. Output: 1.",
+      "context": "<pre>x = int(input())\ny = int(input())\nx = x % y\nx = x % y\ny = y % x\nprint(y)</pre>"
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "The print() function can output values of:",
+      "options": [
+        "not more than five arguments",
+        "any number of arguments (including zero)",
+        "any number of arguments (excluding zero)",
+        "just one argument"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The print() function can take no arguments at all (e.g. print()), or any number of positional arguments separated by commas."
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "What is the output of the following snippet if the user enters two lines containing 3 and 6 respectively?",
+      "options": [
+        "333333",
+        "36",
+        "18",
+        "666"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "x is assigned the string \"3\" (input() always returns a string). y is assigned the integer 6 (via int(input())). print(x * y) performs string repetition: \"3\" * 6 = \"333333\".",
+      "context": "<pre>x = input()\ny = int(input())\nprint(x * y)</pre>"
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "text": "Left-sided binding determines that the result of the following expression is equal to:",
+      "options": [
+        "0.0",
+        "0",
+        "4.5",
+        "0.166666666666666666"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Left-sided binding evaluates the expression left to right: 1 // 2 = 0 (integer floor division), then 0 * 3 = 0. Since both operations stay in integer arithmetic, the result is the integer 0, not a float.",
+      "context": "<pre>1 // 2 * 3</pre>"
+    },
+    {
+      "id": 17,
+      "type": "msq",
+      "text": "Which of the following statements are true? (Select two answers)",
+      "options": [
+        "The result of the / operator is always an integer value.",
+        "The ** operator uses right-sided binding.",
+        "Adding precedes multiplication.",
+        "The right argument of the % operator cannot be zero."
+      ],
+      "correctAnswer": [
+        1,
+        3
+      ],
+      "points": 1,
+      "explanation": "The % operator (modulus) returns the remainder of a division, and because you cannot divide by zero, the right operand must be non-zero - otherwise a ZeroDivisionError is raised. The ** operator uses right-sided binding, meaning 2**2**3 evaluates right to left: 2**3=8, then 2**8=256. (The / operator always returns a float, and multiplication precedes addition, not the other way around.)"
+    },
+    {
+      "id": 18,
+      "type": "mc",
+      "text": "What is the output of the following snippet if the user enters two lines containing 2 and 4 respectively?",
+      "options": [
+        "4",
+        "2",
+        "6",
+        "24"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Both input() calls return strings: x=\"2\", y=\"4\". The + operator on strings performs concatenation, not addition: \"2\" + \"4\" = \"24\".",
+      "context": "<pre>x = input()\ny = input()\nprint(x + y)</pre>"
+    },
+    {
+      "id": 19,
+      "type": "mc",
+      "text": "The meaning of the keyword parameter is determined by:",
+      "options": [
+        "its value",
+        "the argument's name specified along with its value",
+        "its connection with existing variables",
+        "its position within the argument list"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Keyword parameters (also called named parameters) are parameters whose meaning is determined by a keyword name specified along with its value, e.g. my_function(x=1), rather than by their position in the argument list."
+    },
+    {
+      "id": 20,
+      "type": "mc",
+      "text": "The 0o prefix means that the number after it is denoted as:",
+      "options": [
+        "hexadecimal",
+        "decimal",
+        "binary",
+        "octal"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The prefix 0o (or 0O) denotes an octal (base 8) number in Python. For example, 0o10 equals 8 in decimal. Similarly, 0x/0X denotes hexadecimal and 0b/0B denotes binary."
+    },
+    {
+      "id": 21,
+      "type": "mc",
+      "text": "What is the output of the following snippet if the user enters two lines containing 11 and 4 respectively?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "x=11, y=4. x = 11 % 4 = 3. x = 3 % 4 = 3 (unchanged). y = 4 % 3 = 1. Output: 1.",
+      "context": "<pre>x = int(input())\ny = int(input())\n\nx = x % y\nx = x % y\ny = y % x\n\nprint(y)</pre>"
+    },
+    {
+      "id": 22,
+      "type": "mc",
+      "text": "What is the output of the following snippet if the user enters two lines containing 2 and 4 respectively?",
+      "options": [
+        "6",
+        "2",
+        "4",
+        "24"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The values 2 and 4 are converted from strings to integers and assigned to x and y. print(x + y) outputs the result of integer addition: 2 + 4 = 6.",
+      "context": "<pre>x = int(input())\ny = int(input())\n\nprint(x + y)</pre>"
+    },
+    {
+      "id": 23,
+      "type": "mc",
+      "text": "What is the output of the following snippet if the user enters two lines containing 2 and 4 respectively?",
+      "options": [
+        "the code will cause a runtime error",
+        "8.0",
+        "2.0",
+        "4.0"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "x = x // y = 2 // 4 = 0. Then y = y // x = 4 // 0 raises a ZeroDivisionError, since integer division by zero is not allowed. The program terminates with a runtime error.",
+      "context": "<pre>x = int(input())\ny = int(input())\n\nx = x // y\ny = y // x\n\nprint(y)</pre>"
+    }
+  ]
+}

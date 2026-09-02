@@ -1,0 +1,312 @@
+{
+  "courseCode": "SIA",
+  "quizTitle": "Python Essentials 1 - Module 3",
+  "totalPoints": 20,
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "An operator able to check whether two values are equal is coded as:",
+      "options": [
+        "==",
+        "=",
+        "===",
+        "!="
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "== checks equality; = assigns a value; != checks inequality; === is not valid Python syntax."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "The value eventually assigned to x is equal to:",
+      "options": [
+        "True",
+        "False",
+        "0",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "x == x compares 1 == 1, which evaluates to True. Verified by running: output is True.",
+      "context": "<pre>x = 1\nx = x == x</pre>"
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "How many stars (*) will the following snippet send to the console?",
+      "options": [
+        "two",
+        "one",
+        "zero",
+        "three"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "i goes 0-&gt;2 (print), 2-&gt;4 (print), then 4&lt;=3 is False, loop ends. Two stars printed. Verified by running.",
+      "context": "<pre>i = 0\nwhile i &lt;= 3 :\n    i += 2\n    print(\"*\")</pre>"
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "How many stars (*) will the following snippet send to the console?",
+      "options": [
+        "one",
+        "two",
+        "three",
+        "zero"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "i becomes 1 (odd, prints), then 2 (even, breaks before printing). Only one star printed. Verified by running.",
+      "context": "<pre>i = 0\nwhile i &lt;= 5 :\n    i += 1\n    if i % 2 == 0:\n        break\n    print(\"*\")</pre>"
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "How many hashes (#) will the following snippet send to the console?",
+      "options": [
+        "two",
+        "one",
+        "three",
+        "zero"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The for-loop runs once and prints one #. Since the loop completes without break, the else block also runs and prints another #. Total: two. Verified by running.",
+      "context": "<pre>for i in range(1):\n    print(\"#\")\nelse:\n    print(\"#\")</pre>"
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "How many hashes (#) will the following snippet send to the console?",
+      "options": [
+        "three",
+        "zero",
+        "one",
+        "two"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "var takes values 1,2,3,4,5,6; even values (2,4,6) hit continue and skip the print, so only odd values 1,3,5 print. Three hashes. Verified by running.",
+      "context": "<pre>var = 0\nwhile var &lt; 6:\n    var += 1\n    if var % 2 == 0:\n        continue\n    print(\"#\")</pre>"
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "How many hashes (#) will the following snippet send to the console?",
+      "options": [
+        "four",
+        "one",
+        "two",
+        "eight"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "var doubles each iteration via left shift: 1,2,4,8, then 16 stops the loop. Prints occur for var=1,2,4,8 -&gt; four hashes. Verified by running.",
+      "context": "<pre>var = 1\nwhile var &lt; 10:\n    print(\"#\")\n    var = var &lt;&lt; 1</pre>"
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "What value will be assigned to the x variable?",
+      "options": [
+        "True",
+        "False",
+        "1",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "(0&lt;10 and 10&gt;0) is True, so the whole 'or' expression short-circuits to True regardless of the second clause. Verified by running.",
+      "context": "<pre>z = 10\ny = 0\nx = y &lt; z and z &gt; y or y &gt; z and z &lt; y</pre>"
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "2",
+        "1",
+        "3",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "c = 1&amp;0 = 0, d = 1|0 = 1, e = 1^0 = 1. Sum = 0+1+1 = 2. Verified by running.",
+      "context": "<pre>a = 1\nb = 0\nc = a &amp; b\nd = a | b\ne = a ^ b\nprint(c + d + e)</pre>"
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "1",
+        "3",
+        "-2",
+        "-1"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "my_list[-1] is -2, so the outer index becomes my_list[-2], which is 1. Verified by running.",
+      "context": "<pre>my_list = [3, 1, -2]\nprint(my_list[my_list[-1]])</pre>"
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "[2]",
+        "[]",
+        "[2, 3]",
+        "[2, 3, 4]"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "-3 corresponds to index 1 (value 2), -2 corresponds to index 2 (exclusive end), so the slice is just [2]. Verified by running.",
+      "context": "<pre>my_list = [1, 2, 3, 4]\nprint(my_list[-3:-2])</pre>"
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "The second assignment:",
+      "options": [
+        "reverses the list",
+        "shortens the list",
+        "extends the list",
+        "doesn't change the list"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Swapping the first and last elements of [0,1,2] gives [2,1,0], which is the reverse of the original 3-element list. Verified by running.",
+      "context": "<pre>vals = [0, 1, 2]\nvals[0], vals[2] = vals[2], vals[0]</pre>"
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "After execution of the following snippet, the sum of all vals elements will be equal to:",
+      "options": [
+        "4",
+        "3",
+        "2",
+        "5"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "insert(0,1) makes [1,0,1,2]; del vals[1] removes the 0, leaving [1,1,2], which sums to 4. Verified by running.",
+      "context": "<pre>vals = [0, 1, 2]\nvals.insert(0, 1)\ndel vals[1]</pre>"
+    },
+    {
+      "id": 14,
+      "type": "msq",
+      "text": "Take a look at the snippet, and choose the true statements: (Select two answers)",
+      "options": [
+        "nums and vals are of the same length",
+        "nums is longer than vals",
+        "nums is replicated and assigned to vals",
+        "nums and vals refer to the same list"
+      ],
+      "correctAnswer": [
+        0,
+        3
+      ],
+      "points": 1,
+      "explanation": "vals = nums assigns a reference, not a copy, so both names point to the same list object. Deleting a slice via vals affects the same list nums sees too, so both end up [1,3] with equal length. Verified by running.",
+      "context": "<pre>nums = [1, 2, 3]\nvals = nums\ndel vals[1:2]</pre>"
+    },
+    {
+      "id": 15,
+      "type": "msq",
+      "text": "Which of the following sentences are true? (Select two answers)",
+      "options": [
+        "nums is longer than vals",
+        "nums and vals are of the same length",
+        "vals is longer than nums",
+        "nums and vals are two different lists"
+      ],
+      "correctAnswer": [
+        0,
+        3
+      ],
+      "points": 1,
+      "explanation": "Slicing always creates a new list object, so vals is a distinct list from nums. The slice [-1:-2] is empty (invalid direction), so vals has length 0 while nums has length 3 -- nums is longer. Verified by running.",
+      "context": "<pre>nums = [1, 2, 3]\nvals = nums[-1:-2]</pre>"
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "[3, 2, 1]",
+        "[1, 2, 3]",
+        "[1, 1, 1]",
+        "[3, 3, 3]"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Each value is inserted at position 0, so later values push earlier ones back, reversing the order: [3, 2, 1]. Verified by running.",
+      "context": "<pre>my_list_1 = [1, 2, 3]\nmy_list_2 = []\nfor v in my_list_1:\n    my_list_2.insert(0, v)\nprint(my_list_2)</pre>"
+    },
+    {
+      "id": 17,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "[1, 1, 1, 1, 2, 3]",
+        "[1, 2, 3, 3, 2, 1]",
+        "[1, 2, 3, 1, 2, 3]",
+        "[3, 2, 1, 1, 2, 3]"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The list grows while being iterated by index, so my_list[v] keeps referencing shifted positions as elements get inserted at index 1. Actually running it step by step gives [1, 1, 1, 1, 2, 3] -- this one is easy to get wrong by hand-tracing since the list mutates mid-loop.",
+      "context": "<pre>my_list = [1, 2, 3]\nfor v in range(len(my_list)):\n    my_list.insert(1, my_list[v])\nprint(my_list)</pre>"
+    },
+    {
+      "id": 18,
+      "type": "mc",
+      "text": "How many elements does the my_list list contain?",
+      "options": [
+        "three",
+        "two",
+        "four",
+        "one"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "range(-1, 2) produces -1, 0, 1 -- three values. Verified by running.",
+      "context": "<pre>my_list = [i for i in range(-1, 2)]</pre>"
+    },
+    {
+      "id": 19,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "6",
+        "2",
+        "4",
+        "7"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Every row of t is identical: [3, 2, 1] (since i is the inner loop variable regardless of j). Diagonal sum: t[0][0]+t[1][1]+t[2][2] = 3+2+1 = 6. Verified by running.",
+      "context": "<pre>t = [[3-i for i in range(3)] for j in range(3)]\ns = 0\nfor i in range(3):\n    s += t[i][i]\nprint(s)</pre>"
+    },
+    {
+      "id": 20,
+      "type": "mc",
+      "text": "What is the output of the following snippet?",
+      "options": [
+        "the snippet will cause a runtime error",
+        "0",
+        "1",
+        "2"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "my_list only has 2 elements (indices 0 and 1) since range(2) was used; index 2 is out of bounds, raising an IndexError. Verified by running.",
+      "context": "<pre>my_list = [[0, 1, 2, 3] for i in range(2)]\nprint(my_list[2][0])</pre>"
+    }
+  ]
+}
