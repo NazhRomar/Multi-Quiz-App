@@ -1,45 +1,105 @@
 {
   "courseCode": "SIA",
   "quizTitle": "Python Essentials 2 - Module 3",
-  "totalPoints": 16,
+  "totalPoints": 17,
   "questions": [
     {
       "id": 1,
       "type": "mc",
-      "text": "What will be the result of executing the following code?",
-      "options": [
-        "it will print ex",
-        "it will print exex",
-        "it will print an empty line",
-        "it will raise an unhandled exception"
-      ],
-      "correctAnswer": 0,
-      "points": 1,
-      "explanation": "Ex.__init__ first calls Exception.__init__(self, msg+msg), which sets self.args to ('exex',), but the very next line overwrites it with self.args = (msg,) = ('ex',). Since except Ex as e matches first, print(e) uses args, printing 'ex'. Verified by running it.",
-      "context": "<pre>class Ex(Exception):\n    def __init__(self, msg):\n        Exception.__init__(self, msg + msg)\n        self.args = (msg,)\n\ntry:\n    raise Ex('ex')\nexcept Ex as e:\n    print(e)\nexcept Exception as e:\n    print(e)</pre>"
-    },
-    {
-      "id": 2,
-      "type": "mc",
       "text": "A data structure described as LIFO is actually a:",
       "options": [
         "list",
+        "tree",
         "stack",
-        "heap",
-        "tree"
+        "heap"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 2,
       "points": 1,
       "explanation": "LIFO (Last In, First Out) is the defining property of a stack."
     },
     {
+      "id": 2,
+      "type": "mc",
+      "text": "If the class's constructor is declared as below, which one of the assignments is valid?",
+      "options": [
+        "object = Class",
+        "object = Class(self)",
+        "object = Class()",
+        "object = Class(object)"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "__init__(self) takes no extra arguments besides the implicit self, so the class must be instantiated with no arguments: Class(). 'object = Class' just rebinds the name to the class itself without instantiating it.",
+      "context": "<pre>class Class:\n    def __init__(self):\n        pass</pre>"
+    },
+    {
       "id": 3,
+      "type": "mc",
+      "text": "If there is a superclass named A and a subclass named B, which one of the presented invocations should you put instead of the comment?",
+      "options": [
+        "__init__()",
+        "A.__init__()",
+        "A.__init__(self)",
+        "A.__init__(1)"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "To explicitly invoke a superclass's constructor from a subclass without super(), you call it as an unbound method on the class, passing self explicitly: A.__init__(self).",
+      "context": "<pre>class A:\n    def __init__(self):\n        self.a = 1\n\nclass B(A):\n    def __init__(self):\n        # Put selected line here.\n        self.b = 2</pre>"
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "What will be the effect of running the following code?",
+      "options": [
+        "The code will raise an AttributeError exception",
+        "1",
+        "0",
+        "2"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "self.__a uses a double leading underscore, which triggers name mangling inside the class body: it's actually stored as self._A__a. print(a.__a) is written outside the class, so no mangling applies there and Python looks for a literal attribute named __a, which doesn't exist, raising AttributeError. Verified by running it.",
+      "context": "<pre>class A:\n    def __init__(self, v):\n        self.__a = v + 1\n\na = A(0)\nprint(a.__a)</pre>"
+    },
+    {
+      "id": 5,
       "type": "mc",
       "text": "What will be the output of the following code?",
       "options": [
         "0",
-        "False",
+        "2",
         "1",
+        "3"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "a.v starts at 1 (the default). a.set(a.v + 1) calls a.set(2), which sets self.v = 2 and returns 2, so the output is 2. The source screenshot had '1' selected, but that was the user's incorrect guess, not the actual output. Verified by running it.",
+      "context": "<pre>class A:\n    def __init__(self, v=1):\n        self.v = v\n\n    def set(self, v):\n        self.v = v\n        return v\n\na = A()\nprint(a.set(a.v + 1))</pre>"
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "What will be the result of executing the following code?",
+      "options": [
+        "3",
+        "0",
+        "2",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A.X is a class variable shared by all instances. Each __init__ call adds v to A.X: a=A() adds 0, b=A(1) adds 1, c=A(2) adds 2, so A.X (and therefore c.X, since c has no instance attribute X) ends up as 0+1+2=3. Verified by running it.",
+      "context": "<pre>class A:\n    X = 0\n    def __init__(self, v = 0):\n        self.Y = v\n        A.X += v\n\na = A()\nb = A(1)\nc = A(2)\nprint(c.X)</pre>"
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "What will be the output of the following code?",
+      "options": [
+        "0",
+        "1",
+        "False",
         "True"
       ],
       "correctAnswer": 3,
@@ -48,52 +108,22 @@
       "context": "<pre>class A:\n    A = 1\n\nprint(hasattr(A, 'A'))</pre>"
     },
     {
-      "id": 4,
+      "id": 8,
       "type": "mc",
-      "text": "What will be the effect of running the following code?",
+      "text": "What will be the result of executing the following code?",
       "options": [
-        "2",
-        "The code will raise an AttributeError exception",
-        "0",
+        "True",
+        "False",
+        "it will raise an exception",
         "1"
       ],
-      "correctAnswer": 1,
-      "points": 1,
-      "explanation": "self.__a uses a double leading underscore, which triggers name mangling: it's actually stored as self._A__a, not self._a. Accessing a._a therefore raises AttributeError. Verified by running it.",
-      "context": "<pre>class A:\n    def __init__(self, v):\n        self.__a = v + 1\n\na = A(0)\nprint(a._a)</pre>"
-    },
-    {
-      "id": 5,
-      "type": "mc",
-      "text": "What will be the result of executing the following code?",
-      "options": [
-        "it will print 1",
-        "it will print False",
-        "it will print True",
-        "it will raise an exception"
-      ],
       "correctAnswer": 2,
       "points": 1,
-      "explanation": "C inherits from B, which inherits from A, so C is a subclass of A both directly and transitively. issubclass(C, A) is True. Verified by running it.",
-      "context": "<pre>class A:\n    pass\n\nclass B(A):\n    pass\n\nclass C(B):\n    pass\n\nprint(issubclass(C, A))</pre>"
+      "explanation": "A(1) calls __init__(self), which accepts no extra parameters besides self, so passing 1 raises TypeError: __init__() takes 1 positional argument but 2 were given. Verified by running it.",
+      "context": "<pre>class A:\n    def __init__(self):\n        pass\n\na = A(1)\nprint(hasattr(a, 'A'))</pre>"
     },
     {
-      "id": 6,
-      "type": "mc",
-      "text": "What will be the result of executing the following code?",
-      "options": [
-        "it will print b",
-        "it will print c",
-        "it will print a",
-        "it will raise an exception"
-      ],
-      "correctAnswer": 2,
-      "points": 1,
-      "explanation": "C(A, B) uses multiple inheritance with MRO C -> A -> B -> object. Python looks up __str__ starting from the leftmost base, finding A's version first, so print(o) calls A's __str__ and prints 'a'. Verified by running it.",
-      "context": "<pre>class A:\n    def __str__(self):\n        return 'a'\n\nclass B:\n    def __str__(self):\n        return 'b'\n\nclass C(A, B):\n    pass\n\no = C()\nprint(o)</pre>"
-    },
-    {
-      "id": 7,
+      "id": 9,
       "type": "mc",
       "text": "What will be the result of executing the following code?",
       "options": [
@@ -104,17 +134,92 @@
       ],
       "correctAnswer": 3,
       "points": 1,
-      "explanation": "C(B, A) uses multiple inheritance, so the MRO is C -> B -> A -> object. o.a() resolves to B's version first (since B precedes A), printing 'b'. Note: the source page's listing of this question was corrupted (it referenced an undefined class C and method o.c()); this reflects the corrected, runnable version consistent with the marked answer. Verified by running it.",
-      "context": "<pre>class A:\n    def a(self):\n        print('a')\n\nclass B:\n    def a(self):\n        print('b')\n\nclass C(B, A):\n    pass\n\no = C()\no.a()</pre>"
+      "explanation": "B inherits from A and overrides __str__ to return 'b'; C inherits from B without overriding __str__, so o = C() uses B's __str__ and print(o) outputs 'b'. The source screenshot had 'it will raise an exception' selected, but that was the user's incorrect guess — the code runs fine. Verified by running it.",
+      "context": "<pre>class A:\n    def __str__(self):\n        return 'a'\n\nclass B(A):\n    def __str__(self):\n        return 'b'\n\nclass C(B):\n    pass\n\no = C()\nprint(o)</pre>"
     },
     {
-      "id": 8,
+      "id": 10,
       "type": "mc",
       "text": "What will be the result of executing the following code?",
       "options": [
         "it will print 1",
+        "it will print False",
+        "it will raise an exception",
+        "it will print True"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "C inherits from B, which inherits from A, so C is a subclass of A both directly and transitively. issubclass(C, A) is True. Verified by running it.",
+      "context": "<pre>class A:\n    pass\n\nclass B(A):\n    pass\n\nclass C(B):\n    pass\n\nprint(issubclass(C,A))</pre>"
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "What will be the result of executing the following code?",
+      "options": [
+        "it will print a",
+        "it will print c",
+        "it will raise an exception",
+        "it will print b"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "C(B, A) uses multiple inheritance, so the MRO is C -> B -> A -> object. o.c() calls self.a(), which resolves to B's version first (since B precedes A in the MRO), printing 'b'. Verified by running it.",
+      "context": "<pre>class A:\n    def a(self):\n        print('a')\n\nclass B:\n    def a(self):\n        print('b')\n\nclass C(B,A):\n    def c(self):\n        self.a()\n\no = C()\no.c()</pre>"
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "What will be the result of executing the following code?",
+      "options": [
+        "it will print c",
+        "it will raise an exception",
+        "it will print a",
+        "it will print b"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "C(A, B) uses multiple inheritance with MRO C -> A -> B -> object. Python looks up __str__ starting from the leftmost base, finding A's version first, so print(o) calls A's __str__ and prints 'a'. The source screenshot had 'it will raise an exception' selected, but that was the user's incorrect guess — the code runs fine. Verified by running it.",
+      "context": "<pre>class A:\n    def __str__(self):\n        return 'a'\n\nclass B:\n    def __str__(self):\n        return 'b'\n\nclass C(A, B):\n    pass\n\no = C()\nprint(o)</pre>"
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "What will be the result of executing the following code?",
+      "options": [
+        "it will print an empty line",
+        "it will print 1",
         "it will print 2",
-        "it will raise as unhandled exception",
+        "it will raise an exception"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "B overrides A's class attribute v (B.v = 1), and C inherits from B without redefining v, so o.v resolves to B's v, which is 1. Verified by running it.",
+      "context": "<pre>class A:\n    v = 2\n\nclass B(A):\n    v = 1\n\nclass C(B):\n    pass\n\no = C()\nprint(o.v)</pre>"
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "What will be the result of executing the following code?",
+      "options": [
+        "it will raise an unhandled exception",
+        "it will print bcbc",
+        "it will print acac",
+        "it will print bcac"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "f(1): x/x = 1, no exception, so 'b' (else) then 'c' (finally) -> 'bc'. f(0): x/x raises ZeroDivisionError, caught by except, so 'a' then 'c' (finally) -> 'ac'. Combined output is 'bcac'. Verified by running it.",
+      "context": "<pre>def f(x):\n    try:\n        x = x / x\n    except:\n        print(\"a\", end='')\n    else:\n        print(\"b\", end='')\n    finally:\n        print(\"c\", end='')\n\nf(1)\nf(0)</pre>"
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "What will be the result of executing the following code?",
+      "options": [
+        "it will print 1",
+        "it will raise an unhandled exception",
+        "it will print 2",
         "it will print 3"
       ],
       "correctAnswer": 3,
@@ -123,124 +228,34 @@
       "context": "<pre>try:\n    raise Exception(1, 2, 3)\nexcept Exception as e:\n    print(len(e.args))</pre>"
     },
     {
-      "id": 9,
-      "type": "mc",
-      "text": "What will be the output of the following code?",
-      "options": [
-        "2",
-        "3",
-        "0",
-        "1"
-      ],
-      "correctAnswer": 1,
-      "points": 1,
-      "explanation": "A.X is a class variable shared by all instances. Each __init__ call adds v to A.X: a=A() adds 0, b=A(1) adds 1, c=A(2) adds 2, so A.X (and therefore c.X, since c has no instance attribute X) ends up as 0+1+2=3. Verified by running it.",
-      "context": "<pre>class A:\n    X = 0\n    def __init__(self, v=0):\n        self.Y = v\n        A.X += v\n\na = A()\nb = A(1)\nc = A(2)\nprint(c.X)</pre>"
-    },
-    {
-      "id": 10,
-      "type": "mc",
-      "text": "If the class's constructor is declared as below, which one of the assignments is valid?",
-      "options": [
-        "object = Class",
-        "object = Class()",
-        "object = Class(self)",
-        "object = Class(object)"
-      ],
-      "correctAnswer": 1,
-      "points": 1,
-      "explanation": "__init__(self) takes no extra arguments besides the implicit self, so the class must be instantiated with no arguments: Class(). 'object = Class' just rebinds the name to the class itself without instantiating it.",
-      "context": "<pre>class Class:\n    def __init__(self):\n        pass</pre>"
-    },
-    {
-      "id": 11,
-      "type": "mc",
-      "text": "What will be the result of executing the following code?",
-      "options": [
-        "it will raise an unhandled exception",
-        "it will print bcac",
-        "it will print acac",
-        "it will print bcbc"
-      ],
-      "correctAnswer": 1,
-      "points": 1,
-      "explanation": "f(1): x/x = 1, no exception, so 'b' (else) then 'c' (finally) -> 'bc'. f(0): x/x raises ZeroDivisionError, caught by except, so 'a' then 'c' (finally) -> 'ac'. Combined output is 'bcac'. Verified by running it.",
-      "context": "<pre>def f(x):\n    try:\n        x = x / x\n    except:\n        print('a', end='')\n    else:\n        print('b', end='')\n    finally:\n        print('c', end='')\n\nf(1)\nf(0)</pre>"
-    },
-    {
-      "id": 12,
-      "type": "mc",
-      "text": "If there is a superclass named A and a subclass named B, which one of the presented invocations should you put instead of the comment?",
-      "options": [
-        "A.__init__(self)",
-        "__init__()",
-        "A.__init__()",
-        "A.__init__(1)"
-      ],
-      "correctAnswer": 0,
-      "points": 1,
-      "explanation": "To explicitly invoke a superclass's constructor from a subclass without super(), you call it as an unbound method on the class, passing self explicitly: A.__init__(self).",
-      "context": "<pre>class A:\n    def __init__(self):\n        self.a = 1\n\nclass B(A):\n    def __init__(self):\n        # put selected line here.\n        self.b = 2</pre>"
-    },
-    {
-      "id": 13,
-      "type": "mc",
-      "text": "What will be the result of executing the following code?",
-      "options": [
-        "1",
-        "False",
-        "it will raise an exception",
-        "True"
-      ],
-      "correctAnswer": 2,
-      "points": 1,
-      "explanation": "A(1) calls __init__(self), which accepts no extra parameters besides self, so passing 1 raises TypeError: __init__() takes 1 positional argument but 2 were given. Verified by running it.",
-      "context": "<pre>class A:\n    def __init__(self):\n        pass\n\na = A(1)\nprint(hasattr(a, 'A'))</pre>"
-    },
-    {
-      "id": 14,
-      "type": "mc",
-      "text": "What will be the result of executing the following code?",
-      "options": [
-        "it will print c",
-        "it will print b",
-        "it will print a",
-        "it will raise an exception"
-      ],
-      "correctAnswer": 3,
-      "points": 1,
-      "explanation": "__init__ must return None. Here A.__init__ and B.__init__ both return a string, and since C(B) inherits B's __init__, instantiating o = C() immediately raises TypeError: __init__() should return None, not 'str', before print(o) ever runs. The source page's marked answer ('prints b') does not match actual behavior. Verified by running it.",
-      "context": "<pre>class A:\n    def __init__(self):\n        return 'a'\n\nclass B(A):\n    def __init__(self):\n        return 'b'\n\nclass C(B):\n    pass\n\no = C()\nprint(o)</pre>"
-    },
-    {
-      "id": 15,
-      "type": "mc",
-      "text": "What will be the output of the following code?",
-      "options": [
-        "2",
-        "1",
-        "3",
-        "0"
-      ],
-      "correctAnswer": 1,
-      "points": 1,
-      "explanation": "a.v starts at 1 (the default). a.set(a.v + 1) calls a.set(2), which sets self.v = 2 and returns 2. Verified by running it.",
-      "context": "<pre>class A:\n    def __init__(self, v=1):\n        self.v = v\n    def set(self, v):\n        self.v = v\n        return v\n\na = A()\nprint(a.set(a.v + 1))</pre>"
-    },
-    {
       "id": 16,
       "type": "mc",
       "text": "What will be the result of executing the following code?",
       "options": [
-        "it will raise an exception",
-        "it will print 2",
+        "it will print exex",
+        "it will print ex",
         "it will print an empty line",
-        "it will print 1"
+        "it will raise an unhandled exception"
       ],
-      "correctAnswer": 3,
+      "correctAnswer": 1,
       "points": 1,
-      "explanation": "B overrides A's class attribute v (B.v = 1), and C inherits from B without redefining v, so o.v resolves to B's v, which is 1. Verified by running it.",
-      "context": "<pre>class A:\n    v = 2\n\nclass B(A):\n    v = 1\n\nclass C(B):\n    pass\n\no = C()\nprint(o.v)</pre>"
+      "explanation": "Ex.__init__ first calls Exception.__init__(self, msg+msg), which sets self.args to ('exex',), but the very next line overwrites it with self.args = (msg,) = ('ex',). Since except Ex as e matches first, print(e) uses args, printing 'ex'. Verified by running it.",
+      "context": "<pre>class Ex(Exception):\n    def __init__(self, msg):\n        Exception.__init__(self, msg + msg)\n        self.args = (msg,)\n\ntry:\n    raise Ex('ex')\nexcept Ex as e:\n    print(e)\nexcept Exception as e:\n    print(e)</pre>"
+    },
+    {
+      "id": 17,
+      "type": "mc",
+      "text": "What will be the result of executing the following code?",
+      "options": [
+        "it will raise an unhandled exception",
+        "it will print abc",
+        "it will raise an handled exception",
+        "it will print 0"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "I implements the iterator protocol (__iter__ returns self, __next__ yields each character of 'abc' then raises StopIteration). The for loop consumes it one character at a time, printing 'abc'. Verified by running it.",
+      "context": "<pre>class I:\n    def __init__(self):\n        self.s = 'abc'\n        self.i = 0\n\n    def __iter__(self):\n        return self\n\n    def __next__(self):\n        if self.i == len(self.s):\n            raise StopIteration\n        v = self.s[self.i]\n        self.i += 1\n        return v\n\nfor x in I():\n    print(x,end='')</pre>"
     }
   ]
 }

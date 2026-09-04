@@ -90,3 +90,7 @@ Start the dev server (`preview_start` with the `dev` launch config) and open the
 - The question count and point total match what you intended.
 - At least one `mc`/`tf` question and any `msq`/`fitb`/`matching`/`drag-drop` question types you used render correctly.
 - Code blocks in `context` display with correct formatting (no broken escaping).
+
+## 6. Report the full answer key in chat
+
+When you finish ingesting or correcting a quiz, list every question's correct answer in your chat reply (a short numbered list: question number → correct option), not just the ones you changed from the source. This is in addition to, not instead of, calling out corrections per section 2 — keep noting what was wrong and what you fixed. The full list lets the user cross-check the whole quiz at a glance instead of only seeing the diffs.
