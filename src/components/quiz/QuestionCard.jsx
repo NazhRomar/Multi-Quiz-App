@@ -31,7 +31,10 @@ export default function QuestionCard({ question, index, savedState, isLocked, ex
           question={question}
           savedState={savedState}
           isLocked={isLocked}
-          onSelect={(idx) => dispatch({ type: 'SAVE_ANSWER', payload: { qId: question.id, value: idx } })}
+          onSelect={(idx) => {
+            dispatch({ type: 'SAVE_ANSWER', payload: { qId: question.id, value: idx } });
+            if (quizOptions.instantSubmit) submit();
+          }}
           onSubmit={submit}
         />
       );

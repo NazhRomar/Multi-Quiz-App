@@ -11,6 +11,13 @@ export default function QuizOptionsFields() {
     <DropdownCategory title="Quiz Options">
       <label className="dropdown-item">
         <span className="dropdown-item-text">
+          <strong>Instant submit</strong>
+          <small>Multiple Choice / True-False: submit the moment you pick an option, no Submit click needed</small>
+        </span>
+        <Switch checked={quizOptions.instantSubmit} onChange={(v) => set('instantSubmit', v)} />
+      </label>
+      <label className="dropdown-item">
+        <span className="dropdown-item-text">
           <strong>Shuffle questions</strong>
           <small>Randomizes order (Applies on Restart)</small>
         </span>

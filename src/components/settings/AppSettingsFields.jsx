@@ -5,7 +5,7 @@ import DropdownCategory from './DropdownCategory.jsx';
 const THEME_MODE_ICONS = {
   default: '☀️',
   canvas: '☀️',
-  modern: '✨',
+  modern: '☀️',
   'dark-purple': '🌙',
 };
 
