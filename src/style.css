@@ -1731,6 +1731,33 @@ button:disabled {
   margin-bottom: 3rem;
 }
 
+/* On mobile the bottom nav position becomes a floating bar pinned to the
+   very bottom of the viewport (hovering slightly above the edge) instead
+   of an inline row after the question card — nav location is clamped to
+   just Top/Bottom on mobile (see useNavRow.jsx), so this is the only
+   "bottom" layout mobile ever needs to support. */
+@media (max-width: 600px) {
+  #quiz-nav-bottom.nav-row {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    z-index: 150;
+    max-width: none;
+    width: auto;
+    margin: 0;
+    padding: 0.6rem 0.9rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+  }
+
+  #quiz-container {
+    padding-bottom: 84px;
+  }
+}
+
 /* --- Centered Side Navigation (fixed, doesn't scroll) --- */
 .nav-side {
   display: none;

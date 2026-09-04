@@ -1,5 +1,6 @@
 import { useApp } from '../../state/AppContext.jsx';
 import Switch from './Switch.jsx';
+import { useIsMobile } from '../../utils/useIsMobile.js';
 
 const THEME_MODE_ICONS = {
   default: '☀️',
@@ -14,6 +15,7 @@ export default function AppSettingsFields({ showNavLocation = false }) {
   const { state, dispatch } = useApp();
   const { appSettings } = state;
   const set = (key, value) => dispatch({ type: 'SET_APP_SETTING', payload: { key, value } });
+  const isMobile = useIsMobile();
 
   return (
     <>
@@ -46,10 +48,14 @@ export default function AppSettingsFields({ showNavLocation = false }) {
           >
             <option value="up">Top</option>
             <option value="down">Bottom</option>
-            <option value="sides">Sides</option>
-            <option value="center">Centered</option>
-            <option value="both">Top and Bottom</option>
-            <option value="all">All</option>
+            {!isMobile && (
+              <>
+                <option value="sides">Sides</option>
+                <option value="center">Centered</option>
+                <option value="both">Top and Bottom</option>
+                <option value="all">All</option>
+              </>
+            )}
           </select>
         </label>
       )}

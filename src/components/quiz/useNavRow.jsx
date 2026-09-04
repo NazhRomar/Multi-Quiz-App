@@ -1,6 +1,7 @@
 import { useLayoutEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { navSideLeft, navSideRight, navNearLeft, navNearRight } from './navPortalTargets.js';
+import { useIsMobile } from '../../utils/useIsMobile.js';
 
 const NAV_POSITION_MAP = {
   up: ['top'],
@@ -16,7 +17,13 @@ const NAV_POSITION_MAP = {
 // location settings, so the caller can place quiz-container content
 // between the top and bottom rows in the actual DOM order.
 export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMode, isListView, onPrev, onNext, onFinishQuiz, onDone }) {
-  const positions = NAV_POSITION_MAP[navLocation] || ['bottom'];
+  const isMobile = useIsMobile();
+  // Mobile only ever offers Top or Bottom in the settings UI (see
+  // AppSettingsFields) — clamp actual rendering to match, so a value chosen
+  // on a wider screen (sides/center/both/all) can't leave mobile in some
+  // half-supported in-between layout.
+  const effectiveLocation = isMobile ? (navLocation === 'up' ? 'up' : 'down') : navLocation;
+  const positions = NAV_POSITION_MAP[effectiveLocation] || ['bottom'];
   const showSides = !isListView && positions.includes('center');
   const showNear = !isListView && positions.includes('sides');
 
@@ -85,13 +92,13 @@ export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMod
   }
 
   const topRow = (
-    <nav className="nav-row" style={{ display: positions.includes('top') ? 'flex' : 'none' }}>
+    <nav id="quiz-nav-top" className="nav-row" style={{ display: positions.includes('top') ? 'flex' : 'none' }}>
       {prevBtn}
       {nextBtn}
     </nav>
   );
   const bottomRow = (
-    <footer className="nav-row" style={{ display: positions.includes('bottom') ? 'flex' : 'none' }}>
+    <footer id="quiz-nav-bottom" className="nav-row" style={{ display: positions.includes('bottom') ? 'flex' : 'none' }}>
       {prevBtn}
       {nextBtn}
     </footer>
