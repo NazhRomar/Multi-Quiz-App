@@ -9,7 +9,7 @@ export default function MenuScreen() {
   const { dispatch } = useApp();
 
   const openQuiz = (term, course, quiz) => {
-    dispatch({ type: 'OPEN_MODE_SELECT', payload: { term, course, quizData: quiz.data } });
+    dispatch({ type: 'START_QUIZ', payload: { term, course, quizData: quiz.data } });
   };
 
   return (

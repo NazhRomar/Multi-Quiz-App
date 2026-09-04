@@ -1,7 +1,6 @@
 import { useCallback, useState } from 'react';
 import { AppProvider, useApp } from './state/AppContext.jsx';
 import MenuScreen from './components/menu/MenuScreen.jsx';
-import ModeSelectScreen from './components/modeSelect/ModeSelectScreen.jsx';
 import QuizScreen from './components/quiz/QuizScreen.jsx';
 import ReviewScreen from './components/review/ReviewScreen.jsx';
 import ResultScreen from './components/result/ResultScreen.jsx';
@@ -26,9 +25,6 @@ function Shell() {
 
   let content;
   switch (state.screen) {
-    case 'modeSelect':
-      content = <ModeSelectScreen goHome={goHome} />;
-      break;
     case 'quiz':
       content = <QuizScreen goHome={goHome} />;
       break;

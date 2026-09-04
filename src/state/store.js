@@ -37,8 +37,7 @@ export const DEFAULT_REVIEW_OPTIONS = {
 
 export function createInitialState() {
   return {
-    screen: 'menu', // 'menu' | 'modeSelect' | 'quiz' | 'review' | 'result'
-    pending: null, // { term, course, quizData } — set while on the mode-select screen
+    screen: 'menu', // 'menu' | 'quiz' | 'review' | 'result'
     activeTerm: '',
     activeCourse: '',
     originalQuizData: null,
@@ -84,16 +83,12 @@ function applyShuffle(quiz, quizOptions) {
 
 export function reducer(state, action) {
   switch (action.type) {
-    case 'OPEN_MODE_SELECT':
-      return { ...state, screen: 'modeSelect', pending: action.payload };
-
     case 'START_QUIZ': {
       const { term, course, quizData } = action.payload;
       const activeQuiz = applyShuffle(JSON.parse(JSON.stringify(quizData)), state.quizOptions);
       return {
         ...state,
         screen: 'quiz',
-        pending: null,
         originalQuizData: quizData,
         activeQuiz,
         activeTerm: term,
@@ -110,7 +105,6 @@ export function reducer(state, action) {
       return {
         ...state,
         screen: 'review',
-        pending: null,
         originalQuizData: quizData,
         activeQuiz: JSON.parse(JSON.stringify(quizData)),
         activeTerm: term,
@@ -149,7 +143,7 @@ export function reducer(state, action) {
       });
 
     case 'GO_HOME':
-      return { ...state, screen: 'menu', pending: null };
+      return { ...state, screen: 'menu' };
 
     // Clamped defensively: the UI only ever offers Next/Prev when it's valid
     // to move (the last question swaps to a Finish/Done button instead),

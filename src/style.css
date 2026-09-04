@@ -1255,6 +1255,12 @@ button:disabled {
   gap: 0.5rem;
 }
 
+.q-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .q-type-badge {
   font-size: 0.7rem;
   font-weight: 700;
