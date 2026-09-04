@@ -59,14 +59,6 @@ export default function QuizScreen({ goHome }) {
         <QuestionCard question={question} index={currentIndex} savedState={savedState} isLocked={isLocked} exiting={isCardExiting} />
       </main>
       {bottomRow}
-      <div className="mobile-quiz-actions">
-        <button className="btn-restart" onClick={() => dispatch({ type: 'RESTART' })}>
-          Restart
-        </button>
-        <button className="btn-exit" onClick={goHome}>
-          Exit
-        </button>
-      </div>
       {portals}
       {showConfirm && (
         <SubmitConfirmModal

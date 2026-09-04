@@ -14,7 +14,6 @@ export default function QuizRow({ quiz, label, onOpen }) {
       </span>
       <span className="quiz-btn-right">
         <span className="quiz-btn-meta">{totalItems}</span>
-        <span className="quiz-btn-icon">→</span>
       </span>
     </button>
   );

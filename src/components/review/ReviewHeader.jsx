@@ -29,7 +29,14 @@ export default function ReviewHeader({ progressLabel, progressPct, goHome }) {
         <button className="btn-exit" onClick={goHome}>
           Exit
         </button>
-        <Dropdown ariaLabel="Options">
+        <Dropdown
+          ariaLabel="Options"
+          headerAction={
+            <button className="dropdown-mode-switch" onClick={() => dispatch({ type: 'SWITCH_TO_QUIZ' })}>
+              Switch to Quiz Mode
+            </button>
+          }
+        >
           <div className="dropdown-mobile-actions">
             <button className="btn-restart" onClick={() => dispatch({ type: 'RESTART' })}>
               Restart
@@ -38,9 +45,6 @@ export default function ReviewHeader({ progressLabel, progressPct, goHome }) {
               Exit
             </button>
           </div>
-          <button className="dropdown-mode-switch" onClick={() => dispatch({ type: 'SWITCH_TO_QUIZ' })}>
-            Switch to Quiz Mode →
-          </button>
           <DropdownTabs
             tabs={[
               { label: 'Review Options', content: <ReviewOptionsFields /> },

@@ -34,7 +34,14 @@ export default function QuizHeader({ score, goHome }) {
         <button className="btn-exit" onClick={goHome}>
           Exit
         </button>
-        <Dropdown ariaLabel="Options">
+        <Dropdown
+          ariaLabel="Options"
+          headerAction={
+            <button className="dropdown-mode-switch" onClick={() => dispatch({ type: 'SWITCH_TO_REVIEW' })}>
+              Switch to Review Mode
+            </button>
+          }
+        >
           <div className="dropdown-mobile-actions">
             <button className="btn-restart" onClick={() => dispatch({ type: 'RESTART' })}>
               Restart
@@ -43,9 +50,6 @@ export default function QuizHeader({ score, goHome }) {
               Exit
             </button>
           </div>
-          <button className="dropdown-mode-switch" onClick={() => dispatch({ type: 'SWITCH_TO_REVIEW' })}>
-            Switch to Review Mode →
-          </button>
           <DropdownTabs
             tabs={[
               { label: 'Quiz Options', content: <QuizOptionsFields /> },

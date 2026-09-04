@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 // add --open on the next frame so the opacity/transform transition actually
 // runs, and keep the panel mounted for 140ms after closing so the reverse
 // transition can play before it's removed.
-export default function Dropdown({ ariaLabel = 'Options', children }) {
+export default function Dropdown({ ariaLabel = 'Options', headerAction, children }) {
   const [phase, setPhase] = useState('closed'); // 'closed' | 'opening' | 'open' | 'closing'
   const wrapRef = useRef(null);
 
@@ -49,6 +49,7 @@ export default function Dropdown({ ariaLabel = 'Options', children }) {
           style={{ display: 'block' }}
         >
           <div className="dropdown-close-row">
+            {headerAction}
             <button className="modal-close" onClick={closeMenu} aria-label="Close">
               ✕
             </button>

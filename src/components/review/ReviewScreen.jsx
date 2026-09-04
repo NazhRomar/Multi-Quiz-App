@@ -63,14 +63,6 @@ export default function ReviewScreen({ goHome }) {
         )}
       </main>
       {bottomRow}
-      <div className="mobile-quiz-actions">
-        <button className="btn-restart" onClick={() => dispatch({ type: 'RESTART' })}>
-          Restart
-        </button>
-        <button className="btn-exit" onClick={goHome}>
-          Exit
-        </button>
-      </div>
       {portals}
     </>
   );
