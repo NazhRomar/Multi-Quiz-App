@@ -1067,6 +1067,12 @@ main.question-card {
   border-radius: 6px;
 }
 
+.quiz-warning {
+  margin-left: 0.4rem;
+  cursor: help;
+  font-size: 0.85em;
+}
+
 @media (max-width: 600px) {
   .menu-container {
     padding: 0 1rem;

@@ -334,12 +334,17 @@ function renderMenu() {
         }
       });
 
+      const UNVERIFIED_TITLE = 'I (the AI) filled these answers in — no manual verification has been made yet.';
+
       const makeQuizRow = (quiz, label) => {
         const quizBtn = document.createElement('button');
         quizBtn.className = 'btn-quiz';
         const totalItems = quiz.data.questions ? quiz.data.questions.length : 0;
+        const warning = quiz.data.unverified
+          ? `<span class="quiz-warning" title="${UNVERIFIED_TITLE}">⚠️</span>`
+          : '';
         quizBtn.innerHTML = `
-          <span class="quiz-btn-title">${label}</span>
+          <span class="quiz-btn-title">${label}${warning}</span>
           <span class="quiz-btn-right">
             <span class="quiz-btn-meta">${totalItems}</span>
             <span class="quiz-btn-icon">→</span>
@@ -353,8 +358,11 @@ function renderMenu() {
         const chip = document.createElement('button');
         chip.className = 'quiz-chip';
         const totalItems = quiz.data.questions ? quiz.data.questions.length : 0;
+        const warning = quiz.data.unverified
+          ? `<span class="quiz-warning" title="${UNVERIFIED_TITLE}">⚠️</span>`
+          : '';
         chip.innerHTML = `
-          <span class="quiz-chip-label">${label}</span>
+          <span class="quiz-chip-label">${label}${warning}</span>
           <span class="quiz-chip-count">${totalItems}</span>
         `;
         chip.onclick = () => startQuizMode(term, course, quiz.data);

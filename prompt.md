@@ -13,6 +13,15 @@ Instructions for a Claude Code session asked to add a quiz to this app from sour
 
 **If it's pasted text/PDF/Word content:** Use it as given, but stay alert for the same kinds of transcription damage (dropped underscores, garbled punctuation, mismatched option counts) described below.
 
+**If a `quiz-capture-*.json` file is given** (exported from the Quiz Harvester Chrome extension in `tools/quiz-harvester-extension/`): this is a raw, unverified capture — read it as data, not as an answer key. Each entry has a `confidence` field (`site-marked`, `user-marked`, `unresolved`, `ambiguous`) describing *how* the extension arrived at a candidate answer, not whether it's actually correct:
+- `site-marked` — the extension found a color/class/checked-state marker on the page. Still just a heuristic guess at what the site's marker means.
+- `user-marked` — you clicked an option yourself in the review panel while looking at the page. More trustworthy than a scraped marker, but still your own live judgment call under time pressure — not exempt from verification.
+- `unresolved` / `ambiguous` — no marker was found, or conflicting ones were; treat `correctIndexes` as empty/unreliable and figure out the real answer yourself (run the code, check the fact) rather than picking one arbitrarily.
+
+Every question in the file still goes through the full verification pass in step 2 below, regardless of `confidence` — this field only tells you how much you already know *not* to trust it going in. `codeContext` is captured from the page's raw `outerHTML` (not flattened text), but re-check it for oddities the same way you would DOM-sourced code from a live site.
+
+Each entry also carries a `questionNumber` when the extension could detect one (from on-page text like "Question 5" or a data attribute) — it's `null` when it couldn't. Some question banks serve questions in a randomized/shuffled order across pages or attempts, so `questionNumber` (when present) is a better ordering key for the final `"id"` sequence than capture order — but don't invent numbers for entries where it's `null`; just slot those in wherever they make sense and renumber `id` sequentially in the final output regardless (the app doesn't care about gaps, but `id` should still just count 1..N).
+
 ## 2. Verify, don't just transcribe
 
 Source material — especially third-party exam-answer sites — is frequently wrong or corrupted. Before trusting a marked "correct" answer:

@@ -2,6 +2,7 @@
   "courseCode": "SIA",
   "quizTitle": "Python Essentials 1 - Module 1",
   "totalPoints": 10,
+  "unverified": true,
   "questions": [
     {
       "id": 1,
