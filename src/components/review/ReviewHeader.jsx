@@ -1,5 +1,6 @@
 import { useApp } from '../../state/AppContext.jsx';
 import Dropdown from '../settings/Dropdown.jsx';
+import DropdownTabs from '../settings/DropdownTabs.jsx';
 import ReviewOptionsFields from '../settings/ReviewOptionsFields.jsx';
 import AppSettingsFields from '../settings/AppSettingsFields.jsx';
 
@@ -29,13 +30,23 @@ export default function ReviewHeader({ progressLabel, progressPct, goHome }) {
           Exit
         </button>
         <Dropdown ariaLabel="Options">
+          <div className="dropdown-mobile-actions">
+            <button className="btn-restart" onClick={() => dispatch({ type: 'RESTART' })}>
+              Restart
+            </button>
+            <button className="btn-exit" onClick={goHome}>
+              Exit
+            </button>
+          </div>
           <button className="dropdown-mode-switch" onClick={() => dispatch({ type: 'SWITCH_TO_QUIZ' })}>
             Switch to Quiz Mode →
           </button>
-          <div className="dropdown-divider"></div>
-          <ReviewOptionsFields />
-          <div className="dropdown-divider"></div>
-          <AppSettingsFields showNavLocation />
+          <DropdownTabs
+            tabs={[
+              { label: 'Review Options', content: <ReviewOptionsFields /> },
+              { label: 'App Settings', content: <AppSettingsFields showNavLocation /> },
+            ]}
+          />
         </Dropdown>
       </div>
     </header>

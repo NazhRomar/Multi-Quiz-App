@@ -1,6 +1,5 @@
 import { useApp } from '../../state/AppContext.jsx';
 import Switch from './Switch.jsx';
-import DropdownCategory from './DropdownCategory.jsx';
 
 const THEME_MODE_ICONS = {
   default: '☀️',
@@ -17,7 +16,7 @@ export default function AppSettingsFields({ showNavLocation = false }) {
   const set = (key, value) => dispatch({ type: 'SET_APP_SETTING', payload: { key, value } });
 
   return (
-    <DropdownCategory title="App Settings">
+    <>
       <label className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '0.5rem' }}>
         <span className="dropdown-item-text">
           <strong>UI Theme</strong>
@@ -68,6 +67,6 @@ export default function AppSettingsFields({ showNavLocation = false }) {
         </span>
         <Switch checked={appSettings.compactMode} onChange={(v) => set('compactMode', v)} />
       </label>
-    </DropdownCategory>
+    </>
   );
 }

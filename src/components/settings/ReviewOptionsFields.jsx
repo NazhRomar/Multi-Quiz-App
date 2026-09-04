@@ -1,6 +1,5 @@
 import { useApp } from '../../state/AppContext.jsx';
 import Switch from './Switch.jsx';
-import DropdownCategory from './DropdownCategory.jsx';
 
 export default function ReviewOptionsFields() {
   const { state, dispatch } = useApp();
@@ -8,7 +7,7 @@ export default function ReviewOptionsFields() {
   const set = (key, value) => dispatch({ type: 'SET_REVIEW_OPTION', payload: { key, value } });
 
   return (
-    <DropdownCategory title="Review Options">
+    <>
       <label className="dropdown-item">
         <span className="dropdown-item-text">
           <strong>List View</strong>
@@ -30,6 +29,6 @@ export default function ReviewOptionsFields() {
         </span>
         <Switch checked={reviewOptions.hideExplanation} onChange={(v) => set('hideExplanation', v)} />
       </label>
-    </DropdownCategory>
+    </>
   );
 }

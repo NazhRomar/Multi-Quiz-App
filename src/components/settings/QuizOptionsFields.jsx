@@ -1,6 +1,5 @@
 import { useApp } from '../../state/AppContext.jsx';
 import Switch from './Switch.jsx';
-import DropdownCategory from './DropdownCategory.jsx';
 
 export default function QuizOptionsFields() {
   const { state, dispatch } = useApp();
@@ -8,7 +7,7 @@ export default function QuizOptionsFields() {
   const set = (key, value) => dispatch({ type: 'SET_QUIZ_OPTION', payload: { key, value } });
 
   return (
-    <DropdownCategory title="Quiz Options">
+    <>
       <label className="dropdown-item">
         <span className="dropdown-item-text">
           <strong>Instant submit</strong>
@@ -58,6 +57,6 @@ export default function QuizOptionsFields() {
         </span>
         <Switch checked={quizOptions.noSkip} onChange={(v) => set('noSkip', v)} />
       </label>
-    </DropdownCategory>
+    </>
   );
 }

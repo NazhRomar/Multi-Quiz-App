@@ -501,7 +501,9 @@ main.question-card {
   background: var(--surface);
 }
 
-.dropdown-header {
+/* Non-interactive label used where a dropdown has only one section (the
+   home-menu settings panel) and tabs would be overkill. */
+.dropdown-section-title {
   padding: 0.6rem 1rem;
   font-family: 'Space Mono', monospace;
   font-size: 0.7rem;
@@ -511,28 +513,74 @@ main.question-card {
   color: var(--text-muted);
   border-bottom: 1px solid var(--border);
   background: var(--radio-bg);
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: sticky;
   top: 0;
   z-index: 2;
 }
 
-.dropdown-header::after {
-  content: '▼';
-  font-size: 0.6rem;
-  transition: transform 0.2s ease;
+/* Tabs replace the old foldable/accordion sections: one category visible
+   at a time, switched by clicking a tab instead of expanding in place. */
+.dropdown-tab-bar {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: var(--radio-bg);
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
-.dropdown-header.collapsed::after {
-  transform: rotate(-90deg);
+.dropdown-tab {
+  flex: 1;
+  padding: 0.7rem 0.5rem;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-/* Instant fold/unfold using display:none (No animations = no flicker) */
-.dropdown-header.collapsed+.dropdown-category-content {
+.dropdown-tab:hover {
+  color: var(--text);
+}
+
+.dropdown-tab--active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Restart/Exit inside the dropdown, shown only on mobile (where the header
+   bar's own Restart/Exit buttons are hidden for space). */
+.dropdown-mobile-actions {
   display: none;
+  gap: 0.6rem;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+@media (max-width: 600px) {
+  .dropdown-mobile-actions {
+    display: flex;
+  }
+
+  .dropdown-mobile-actions .btn-restart,
+  .dropdown-mobile-actions .btn-exit {
+    display: inline-flex !important;
+    flex: 1;
+    justify-content: center;
+    font-size: 0.85rem !important;
+    padding: 0 0.85rem !important;
+  }
+
+  .dropdown-mobile-actions .btn-restart::before,
+  .dropdown-mobile-actions .btn-exit::before {
+    content: none !important;
+  }
 }
 
 .dropdown-item {
@@ -771,20 +819,25 @@ main.question-card {
 }
 
 .modal-close {
-  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--radio-bg);
   border: none;
+  border-radius: 50%;
   color: var(--text-muted);
-  font-size: 1.1rem;
+  font-size: 0.85rem;
   line-height: 1;
-  padding: 0.4rem;
-  margin: -0.4rem;
   flex-shrink: 0;
   cursor: pointer;
-  transition: color 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .modal-close:hover {
-  color: var(--accent);
+  background: var(--radio-hover);
+  color: var(--text);
 }
 
 .modal-card p {
@@ -2154,14 +2207,14 @@ body.theme-dark-purple {
 
 /* Ensure menus and cards pick up the dark surface color */
 body.theme-dark-purple .dropdown-menu,
-body.theme-dark-purple .dropdown-category-content,
 body.theme-dark-purple .question-card {
   background-color: var(--surface);
 }
 
 /* Tint the sticky headers so they blend */
 body.theme-dark-purple .quiz-header,
-body.theme-dark-purple .dropdown-header {
+body.theme-dark-purple .dropdown-section-title,
+body.theme-dark-purple .dropdown-tab-bar {
   background: rgba(29, 26, 39, 0.97);
 }
 
@@ -2216,7 +2269,6 @@ body.theme-dark-purple .quiz-chip-count {
 
 /* 2. Hamburger menu & dropdown items were stuck on white */
 body.theme-dark-purple .dropdown-menu,
-body.theme-dark-purple .dropdown-category-content,
 body.theme-dark-purple .dropdown-item {
   background-color: var(--surface) !important;
   color: var(--text) !important;
@@ -2274,9 +2326,14 @@ body.theme-dark-purple .dropdown-item-text small {
   color: var(--text-muted) !important;
 }
 
-body.theme-dark-purple .dropdown-header {
+body.theme-dark-purple .dropdown-section-title,
+body.theme-dark-purple .dropdown-tab-bar {
   background-color: var(--radio-bg) !important;
   color: var(--text-muted) !important;
+}
+
+body.theme-dark-purple .dropdown-tab--active {
+  color: var(--accent) !important;
 }
 
 /* --- DISABLED BUTTON VISIBILITY FIX --- */
