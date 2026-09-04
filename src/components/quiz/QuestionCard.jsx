@@ -76,6 +76,7 @@ export default function QuestionCard({ question, index, savedState, isLocked, ex
           savedState={savedState}
           isLocked={isLocked}
           onDrop={(value) => dispatch({ type: 'SAVE_DRAGDROP', payload: { qId: question.id, value } })}
+          onSubmit={submit}
         />
       );
       break;
