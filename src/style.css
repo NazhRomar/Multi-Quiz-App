@@ -1575,7 +1575,7 @@ button:disabled {
   border: 1px solid var(--border);
   border-left: 6px solid var(--accent);
   background: var(--radio-bg);
-  border-radius: 12px;
+  border-radius: 0 12px 12px 0;
   overflow: hidden;
 }
 
