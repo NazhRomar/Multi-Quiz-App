@@ -2075,6 +2075,49 @@ body.theme-canvas .menu-container {
 }
 
 /* =========================================================
+   --- MODERN (CLEAN, NEUTRAL LIGHT) ---
+   Activated via body.theme-modern
+========================================================= */
+
+body.theme-modern {
+  --bg: #f2f3f5;
+  --surface: #ffffff;
+  --border: #e2e5ea;
+  --accent: #3b66f5;
+  --accent-hover: #2850d6;
+  --text: #14161a;
+  --text-muted: #6b7280;
+  --radio-bg: #f0f2f5;
+  --radio-hover: #e6e9ee;
+  --correct: #2aa891;
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+
+  background-color: var(--bg);
+}
+
+/* .question-card and .quiz-header bake in Misty Blue's hex values directly
+   instead of using the theme variables (same reason Dark Purple needs to
+   patch them) — everything else in this theme rides the variables above. */
+body.theme-modern .question-card {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+body.theme-modern .question-card--review {
+  background: #f7f7fb;
+  border-color: #e1defa;
+}
+
+body.theme-modern .quiz-header {
+  background: var(--surface);
+}
+
+body.theme-modern .btn-quiz,
+body.theme-modern .quiz-chip {
+  background: var(--surface);
+}
+
+/* =========================================================
    --- DARK MODE (POWDER PURPLE) ---
    Activated via body.theme-dark-purple
 ========================================================= */

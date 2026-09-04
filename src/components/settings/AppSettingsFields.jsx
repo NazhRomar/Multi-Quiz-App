@@ -5,6 +5,7 @@ import DropdownCategory from './DropdownCategory.jsx';
 const THEME_MODE_ICONS = {
   default: '☀️',
   canvas: '☀️',
+  modern: '✨',
   'dark-purple': '🌙',
 };
 
@@ -29,6 +30,7 @@ export default function AppSettingsFields({ showNavLocation = false }) {
         >
           <option value="default">{THEME_MODE_ICONS.default} Misty Blue</option>
           <option value="canvas">{THEME_MODE_ICONS.canvas} Canvas</option>
+          <option value="modern">{THEME_MODE_ICONS.modern} Modern</option>
           <option value="dark-purple">{THEME_MODE_ICONS['dark-purple']} Dark Purple</option>
         </select>
       </label>
