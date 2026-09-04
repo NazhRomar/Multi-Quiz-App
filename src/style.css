@@ -2389,6 +2389,13 @@ body.theme-canvas main.question-card {
   /* Keeps the final Results screen centered */
 }
 
+/* The blanket margin:0 above also wiped out the gap between stacked cards
+   in Review mode's list view (.question-card--list normally gets its own
+   margin-bottom) — restore it specifically for that variant. */
+body.theme-canvas .question-card--list {
+  margin-bottom: 2rem !important;
+}
+
 body.theme-canvas .menu-container section {
   margin: 0 0 1.5rem 0 !important;
 }
