@@ -2,16 +2,121 @@
   "courseCode": "SIA",
   "quizTitle": "Python Essentials 2 - Module 4",
   "totalPoints": 16,
-  "unverified": true,
   "questions": [
     {
       "id": 1,
+      "type": "mc",
+      "text": "What keyword would you use to define an anonymous function?",
+      "options": [
+        "lambda",
+        "afun",
+        "yield",
+        "def"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The lambda keyword creates an anonymous (unnamed) function."
+    },
+    {
+      "id": 2,
+      "type": "msq",
+      "text": "Select the true statements. (Select two answers)",
+      "options": [
+        "The lambda function can accept a maximum of two arguments",
+        "The lambda function can evaluate only one expression",
+        "The lambda function can accept any number of arguments",
+        "The lambda function can evaluate multiple expressions"
+      ],
+      "correctAnswer": [
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "A lambda's body is restricted to a single expression (whose result is implicitly returned), but it can take any number of parameters, just like a regular function."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "Look at the code below:\nmy_list = [1, 2, 3]\n# Insert line of code here.\nprint(foo)\n\nWhich snippet would you insert in order for the program to output the following result (tuple):\n(1, 4, 27)",
+      "options": [
+        "foo = list(map(lambda x: x**x, my_list))",
+        "foo = tuple(map(lambda x: x*x, my_list))",
+        "foo = list(map(lambda x: x*x, my_list))",
+        "foo = tuple(map(lambda x: x**x, my_list))"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "1**1=1, 2**2=4, 3**3=27 gives the values (1, 4, 27); wrapping map() in tuple() (not list()) produces a tuple result. Verified by running it.",
+      "context": "<pre>my_list = [1, 2, 3]\n# Insert line of code here.\nprint(foo)</pre>"
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "Look at the code below:\nmy_tuple = (0, 1, 2, 3, 4, 5, 6)\n# Insert line of code here.\nprint(foo)\n\nWhich snippet would you insert in order for the program to output the following result (list):\n[2, 3, 4, 5, 6]",
+      "options": [
+        "foo = tuple(filter(lambda x: x-0 and x-1, my_tuple))",
+        "foo = tuple(filter(lambda x: x>1, my_tuple))",
+        "foo = list(filter(lambda x: x-0 and x-1, my_tuple))",
+        "foo = list(filter(lambda x: x==0 and x==1, my_tuple))"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "x-0 is truthy for every x != 0, and x-1 is truthy for every x != 1, so filter keeps elements other than 0 and 1, giving [2, 3, 4, 5, 6]. list(...) is needed since a list result was requested. Verified by running it.",
+      "context": "<pre>my_tuple = (0, 1, 2, 3, 4, 5, 6)\n# Insert line of code here.\nprint(foo)</pre>"
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "What is the expected result of executing the following code?",
+      "options": [
+        "It will print abcdef",
+        "It will print bdf",
+        "It will print an empty line",
+        "It will print ace"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "s[::2] slices 'abcdef' taking every second character starting at index 0: 'a' (0), 'c' (2), 'e' (4), giving 'ace'. The generator yields each of those characters in turn. Verified by running it.",
+      "context": "<pre>def I():\n    s = 'abcdef'\n    for c in s[::2]:\n        yield c\n\nfor x in I():\n    print(x, end='')</pre>"
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "What is the expected result of executing the following code?",
+      "options": [
+        "It will print +++",
+        "It will print ++",
+        "It will print +",
+        "It will print ++++++"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "i=0: s becomes '+'+'+'='++' and yields '++' (2 chars). i=1: s becomes '++'+'++'='++++' and yields '++++' (4 chars). Concatenating the two yielded values with end='' gives '++' + '++++' = '++++++' (6 plus signs). Verified by running it.",
+      "context": "<pre>def fun(n):\n    s = '+'\n    for i in range(n):\n        s += s\n        yield s\n\nfor x in fun(2):\n    print(x, end='')</pre>"
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "What is the expected result of executing the following code?",
+      "options": [
+        "It will print **",
+        "It will print ****",
+        "It will print ***",
+        "It will print *"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "o(1) returns a closure over p=1 that yields '*', and o(2) returns one over p=2 that yields '**'. r() + s() concatenates them into '***'. Verified by running it.",
+      "context": "<pre>def o(p):\n    def q():\n        return '*' * p\n    return q\n\nr = o(1)\ns = o(2)\nprint(r() + s())</pre>"
+    },
+    {
+      "id": 8,
       "type": "msq",
       "text": "Which of the following open modes allow you to perform read operations? (Select two answers)",
       "options": [
-        "r",
-        "a",
         "r+",
+        "a",
+        "r",
         "w"
       ],
       "correctAnswer": [
@@ -22,148 +127,13 @@
       "explanation": "'r' opens a file for reading only, and 'r+' opens it for both reading and writing. 'a' (append) and 'w' (write, truncating) are write-oriented modes and do not support reading."
     },
     {
-      "id": 2,
-      "type": "mc",
-      "text": "What is the expected result of executing the code?",
-      "options": [
-        "It will print abcdef",
-        "It will print an empty line",
-        "It will print bdf",
-        "It will print ace"
-      ],
-      "correctAnswer": 3,
-      "points": 1,
-      "explanation": "s[::2] slices 'abcdef' taking every second character starting at index 0: 'a' (0), 'c' (2), 'e' (4), giving 'ace'. The generator yields each of those characters in turn. Verified by running it.",
-      "context": "<pre>def I():\n    s = 'abcdef'\n    for c in s[::2]:\n        yield c\n\nfor x in I():\n    print(x, end=' ')</pre>"
-    },
-    {
-      "id": 3,
-      "type": "mc",
-      "text": "What keyword would you use to define an anonymous function?",
-      "options": [
-        "afun",
-        "lambda",
-        "def",
-        "yield"
-      ],
-      "correctAnswer": 1,
-      "points": 1,
-      "explanation": "The lambda keyword creates an anonymous (unnamed) function."
-    },
-    {
-      "id": 4,
-      "type": "msq",
-      "text": "Select the true statements. (Select two answers)",
-      "options": [
-        "The lambda function can accept a maximum of two arguments",
-        "The lambda function can evaluate multiple expressions",
-        "The lambda function can evaluate only one expression",
-        "The lambda function can accept any number of arguments"
-      ],
-      "correctAnswer": [
-        2,
-        3
-      ],
-      "points": 1,
-      "explanation": "A lambda's body is restricted to a single expression (whose result is implicitly returned), but it can take any number of parameters, just like a regular function."
-    },
-    {
-      "id": 5,
-      "type": "mc",
-      "text": "Look at the code below:\nmy_list = [1, 2, 3]\n# insert line of code here.\nprint(foo)\n\nWhich snippet would you insert in order for the program to output the following result (tuple):\n(1, 4, 27)",
-      "options": [
-        "foo = list(map(lambda x: x**x, my_list))",
-        "foo = tuple(map(lambda x: x*x, my_list))",
-        "foo = list(map(lambda x: x*x, my_list))",
-        "foo = tuple(map(lambda x: x**x, my_list))"
-      ],
-      "correctAnswer": 3,
-      "points": 1,
-      "explanation": "1**1=1, 2**2=4, 3**3=27 gives the values (1, 4, 27); wrapping map() in tuple() (not list()) produces a tuple result. Verified by running it.",
-      "context": "<pre>my_list = [1, 2, 3]\n# insert line of code here.\nprint(foo)</pre>"
-    },
-    {
-      "id": 6,
-      "type": "mc",
-      "text": "What is the expected output of the following code?",
-      "options": [
-        "345",
-        "345 days",
-        "345, 0:00:00",
-        "345 days, 0:00:00"
-      ],
-      "correctAnswer": 3,
-      "points": 1,
-      "explanation": "Subtracting two date objects yields a timedelta of 345 days, and printing a timedelta shows it in the form '345 days, 0:00:00'. Verified by running it (the source page's date values didn't actually produce 345 days apart; the dates here are corrected to match).",
-      "context": "<pre>from datetime import date\ndate_1 = date(2020, 12, 24)\ndate_2 = date(2020, 1, 14)\nprint(date_1 - date_2)</pre>"
-    },
-    {
-      "id": 7,
-      "type": "mc",
-      "text": "Which program will produce the following output:\nMo Tu We Th Fr Sa Su",
-      "options": [
-        "import calendar\nprint(calendar.weekheader(3))",
-        "import calendar\nprint(calendar.weekheader(2))",
-        "import calendar\nprint(calendar.week)",
-        "import calendar\nprint(calendar.weekheader())"
-      ],
-      "correctAnswer": 1,
-      "points": 1,
-      "explanation": "calendar.weekheader(n) returns abbreviated weekday names truncated/padded to width n. With n=2 each name is exactly 2 characters, producing 'Mo Tu We Th Fr Sa Su'. calendar.week doesn't exist and weekheader() requires the width argument. Verified by running it."
-    },
-    {
-      "id": 8,
-      "type": "mc",
-      "text": "What is the expected result of executing the following code?",
-      "options": [
-        "it will print *",
-        "it will print **",
-        "it will print ***",
-        "it will print ****"
-      ],
-      "correctAnswer": 2,
-      "points": 1,
-      "explanation": "o(1) returns a closure over p=1 that yields '*', and o(2) returns one over p=2 that yields '**'. r() + s() concatenates them into '***'. Verified by running it (the source page's code had a typo, 'print(r9) + s())', corrected here to 'print(r() + s())').",
-      "context": "<pre>def o(p):\n    def q():\n        return '*' * p\n    return q\n\nr = o(1)\ns = o(2)\nprint(r() + s())</pre>"
-    },
-    {
       "id": 9,
-      "type": "mc",
-      "text": "Look at the code below:\nmy_tuple = (0, 1, 2, 3, 4, 5, 6)\n# Insert line of code here.\nprint(foo)\n\nWhich snippet would you insert in order for the program to output the following result (list):\n[2, 3, 4, 5, 6]",
-      "options": [
-        "foo = list(filter(lambda x: x-0 and x-1, my_tuple))",
-        "foo = list(filter(lambda x: x==0 and x==1, my_tuple))",
-        "foo = tuple(filter(lambda x: x>1, my_tuple))",
-        "foo = tuple(filter(lambda x: x-0 and x-1, my_tuple))"
-      ],
-      "correctAnswer": 0,
-      "points": 1,
-      "explanation": "x-0 is truthy for every x != 0, and x-1 is truthy for every x != 1, so filter keeps elements other than 0 and 1, giving [2, 3, 4, 5, 6]. list(...) is needed since a tuple was requested to become a list. Verified by running it.",
-      "context": "<pre>my_tuple = (0, 1, 2, 3, 4, 5, 6)\n# Insert line of code here.\nprint(foo)</pre>"
-    },
-    {
-      "id": 10,
-      "type": "mc",
-      "text": "What is the expected result of executing the following code?",
-      "options": [
-        "It will print +++",
-        "It will print ++",
-        "It will print ++++++",
-        "It will print +"
-      ],
-      "correctAnswer": 2,
-      "points": 1,
-      "explanation": "i=0: s becomes '+'+'+'='++' and yields '++' (2 chars). i=1: s becomes '++'+'++'='++++' and yields '++++' (4 chars). Concatenating the two yielded values with end='' gives '++' + '++++' = '++++++' (6 plus signs). Verified by running it.",
-      "context": "<pre>def fun(n):\n    s = '+'\n    for i in range(n):\n        s += s\n        yield s\n\nfor x in fun(2):\n    print(x, end='')</pre>"
-    },
-    {
-      "id": 11,
       "type": "mc",
       "text": "What is the meaning of the value represented by errno.EEXIST?",
       "options": [
+        "Permission denied",
         "File doesn't exist",
         "Bad file number",
-        "Permission denied",
         "File exists"
       ],
       "correctAnswer": 3,
@@ -171,24 +141,69 @@
       "explanation": "errno.EEXIST corresponds to the 'File exists' error, typically raised when trying to create something (e.g. a directory or file) that already exists."
     },
     {
-      "id": 12,
+      "id": 10,
       "type": "mc",
       "text": "What is the expected result of the following code?",
       "options": [
         "3",
+        "bytearray(b'3')",
         "bytearray(b'\\x00\\x00\\x00')",
-        "bytearray(0, 0, 0)",
-        "bytearray(b'3')"
+        "bytearray(0, 0, 0)"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 2,
       "points": 1,
       "explanation": "bytearray(3) creates a zero-filled bytearray of length 3, which prints as bytearray(b'\\x00\\x00\\x00'). Verified by running it.",
       "context": "<pre>b = bytearray(3)\nprint(b)</pre>"
     },
     {
-      "id": 13,
+      "id": 11,
+      "type": "mc",
+      "text": "What is the expected result of the following code?",
+      "options": [
+        "It prints the path to the tmp directory",
+        "It prints the path to the thumbnails directory",
+        "It prints the path to the root directory",
+        "It prints the path to the pictures directory"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The working directory moves pictures -> thumbnails, creates tmp inside thumbnails (without entering it), then os.chdir('../') moves up one level from thumbnails back to pictures. The final cwd is the pictures directory. Verified by running it.",
+      "context": "<pre>import os\n\nos.mkdir('pictures')\nos.chdir('pictures')\nos.mkdir('thumbnails')\nos.chdir('thumbnails')\nos.mkdir('tmp')\nos.chdir('../')\n\nprint(os.getcwd())</pre>"
+    },
+    {
+      "id": 12,
       "type": "mc",
       "text": "What is the expected output of the following code?",
+      "options": [
+        "['large', 'small', 'medium']",
+        "[]",
+        "['.', '..', 'large', 'small', 'medium']",
+        "['.', 'large', 'small', 'medium']"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "os.listdir() never includes the '.' or '..' entries (unlike a shell's 'ls -a'), so after creating the three size subdirectories it returns just their names. Verified by running it (exact order is filesystem-dependent, but no dot entries appear).",
+      "context": "<pre>import os\nos.mkdir('thumbnails')\nos.chdir('thumbnails')\nsizes = ['small', 'medium', 'large']\nfor size in sizes:\n    os.mkdir(size)\nprint(os.listdir())</pre>"
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "What is the expected result of executing the following code?",
+      "options": [
+        "345, 0:00:00",
+        "345 days",
+        "345 days, 0:00:00",
+        "345"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Subtracting two date objects yields a timedelta. date(1992,1,16) - date(1991,2,5) is 345 days, and printing a timedelta shows it in the form '345 days, 0:00:00'. Verified by running it.",
+      "context": "<pre>from datetime import date\n\ndate_1 = date(1992, 1, 16)\ndate_2 = date(1991, 2, 5)\n\nprint(date_1 - date_2)</pre>"
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "What is the expected result of executing the following code?",
       "options": [
         "19/November/27 11:27:22",
         "2019/Nov/27 11:27:22",
@@ -197,38 +212,23 @@
       ],
       "correctAnswer": 0,
       "points": 1,
-      "explanation": "%y gives a 2-digit year (19), %B gives the full month name (November), %d the day (27), and %H:%M:%S the time (11:27:22). Verified by running it (the source page's code had typos: 'perint' for 'print' and a lowercase '%s' instead of '%S'; corrected here).",
-      "context": "<pre>from datetime import datetime\ndatetime = datetime(2019, 11, 27, 11, 27, 22)\nprint(datetime.strftime('%y/%B/%d %H:%M:%S'))</pre>"
-    },
-    {
-      "id": 14,
-      "type": "mc",
-      "text": "What is the expected output of the following code?",
-      "options": [
-        "The path to the thumbnails directory",
-        "The path to the pictures directory",
-        "The path to the tmp directory",
-        "The path to the root directory"
-      ],
-      "correctAnswer": 1,
-      "points": 1,
-      "explanation": "The working directory moves pictures -> thumbnails, creates tmp inside thumbnails (without entering it), then os.chdir('../') moves up one level from thumbnails back to pictures. The final cwd is the pictures directory. Verified by running it.",
-      "context": "<pre>import os\nos.mkdir('pictures')\nos.chdir('pictures')\nos.mkdir('thumbnails')\nos.chdir('thumbnails')\nos.mkdir('tmp')\nos.chdir('../')\nprint(os.getcwd())</pre>"
+      "explanation": "%y gives a 2-digit year (19), %B gives the full month name (November), %d the day (27), and %H:%M:%S the time (11:27:22). Verified by running it.",
+      "context": "<pre>from datetime import datetime\n\ndatetime = datetime(2019, 11, 27, 11, 27, 22)\nprint(datetime.strftime('%y/%B/%d %H:%M:%S'))</pre>"
     },
     {
       "id": 15,
       "type": "mc",
-      "text": "What is the expected output of the following code?",
+      "text": "Which program will produce the following output:\nMo Tu We Th Fr Sa Su",
       "options": [
-        "['.', '..', 'large', 'small', 'medium']",
-        "[]",
-        "['.', 'large', 'small', 'medium']",
-        "['large', 'small', 'medium']"
+        "import calendar\nprint(calendar.weekheader(2))",
+        "import calendar\nprint(calendar.weekheader())",
+        "import calendar\nprint(calendar.weekheader(3))",
+        "import calendar\nprint(calendar.week)"
       ],
-      "correctAnswer": 3,
+      "correctAnswer": 0,
       "points": 1,
-      "explanation": "os.listdir() never includes the '.' or '..' entries (unlike a shell's 'ls -a'), so after creating the three size subdirectories it returns just their names (order is filesystem-dependent, but no dot entries appear). Verified by running it.",
-      "context": "<pre>import os\nos.mkdir('thumbnails')\nos.chdir('thumbnails')\nsizes = ['small', 'medium', 'large']\nfor size in sizes:\n    os.mkdir(size)\nprint(os.listdir())</pre>"
+      "explanation": "calendar.weekheader(n) returns abbreviated weekday names truncated/padded to width n. With n=2 each name is exactly 2 characters, producing 'Mo Tu We Th Fr Sa Su'. calendar.week doesn't exist and weekheader() requires the width argument. Verified by running it.",
+      "context": "<pre>Output:\nMo Tu We Th Fr Sa Su</pre>"
     },
     {
       "id": 16,
@@ -237,13 +237,13 @@
       "options": [
         "1 2 3 4 5 6 7",
         "Su Mo Tu We Th Fr Sa",
-        "0 1 2 3 4 5 6",
-        "Mo Tu We Th Fr Sa Su"
+        "Mo Tu We Th Fr Sa Su",
+        "0 1 2 3 4 5 6"
       ],
-      "correctAnswer": 2,
+      "correctAnswer": 3,
       "points": 1,
-      "explanation": "A default Calendar() starts the week on Monday (0), and iterweekdays() yields the 7 weekday numbers 0 through 6 in order, printed with a trailing space after each. Verified by running it (the source page's marked answer incorrectly included an 8th value, '7'; corrected here).",
-      "context": "<pre>import calendar\nc = calendar.Calendar()\nfor weekday in c.iterweekdays():\n    print(weekday, end=' ')</pre>"
+      "explanation": "A default Calendar() starts the week on Monday (0), and iterweekdays() yields the 7 weekday numbers 0 through 6 in order, printed with a trailing space after each. Verified by running it.",
+      "context": "<pre>import calendar\n\nc = calendar.Calendar()\nfor weekday in c.iterweekdays():\n    print(weekday, end=' ')</pre>"
     }
   ]
 }
