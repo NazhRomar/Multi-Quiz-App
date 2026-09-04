@@ -1572,10 +1572,9 @@ button:disabled {
 /* --- Question Context Block --- */
 .q-context {
   margin-bottom: 1.3rem;
-  border: 1px solid var(--border);
-  border-left: 6px solid var(--accent);
+  border-left: 4px solid var(--accent);
   background: var(--radio-bg);
-  border-radius: 12px;
+  border-radius: 0 8px 8px 0;
   overflow: hidden;
 }
 
@@ -1611,28 +1610,22 @@ button:disabled {
 /* --- Question Explanation Block --- */
 .q-explanation {
   margin-top: 0.8rem;
-  border: 1px solid var(--border);
-  border-left: 6px solid var(--text-muted);
-  background: var(--surface);
-  border-radius: 12px;
-  overflow: hidden;
+  border-left: 4px solid var(--border);
+  padding: 0.2rem 0.9rem;
 }
 
 .q-explanation-label {
   display: block;
-  padding: 0.35rem 1rem;
   font-family: 'Space Mono', monospace;
   font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-muted);
-  border-bottom: 1px solid var(--border);
-  background: rgba(107, 135, 168, 0.08);
+  margin-bottom: 0.3rem;
 }
 
 .q-explanation-text {
-  padding: 0.65rem 0.9rem;
   font-family: 'Nunito', sans-serif;
   font-size: 0.92rem;
   color: var(--text);
@@ -2415,10 +2408,10 @@ body.compact-mode .q-context-body {
 
 body.compact-mode .q-explanation {
   margin-top: 0.6rem !important;
+  padding: 0.15rem 0.75rem !important;
 }
 
 body.compact-mode .q-explanation-text {
-  padding: 0.5rem 0.75rem !important;
   line-height: 1.45 !important;
 }
 
