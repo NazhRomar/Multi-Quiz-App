@@ -2122,6 +2122,15 @@ body.theme-canvas .menu-container {
   margin-top: 2rem !important;
 }
 
+/* Match the header's own 20px horizontal padding — #quiz-container's base
+   padding (1.5rem = 24px) is untouched by Canvas otherwise, so the question
+   cards sat very slightly narrower than the header content above them. */
+body.theme-canvas #quiz-container,
+body.theme-canvas .nav-row {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
 /* =========================================================
    --- MODERN (CLEAN, NEUTRAL LIGHT) ---
    Activated via body.theme-modern
