@@ -1571,7 +1571,8 @@ button:disabled {
 
 /* --- Question Context Block --- */
 .q-context {
-  position: relative;
+  display: flex;
+  align-items: stretch;
   margin-bottom: 1.3rem;
   border: 1px solid var(--border);
   background: var(--radio-bg);
@@ -1579,21 +1580,27 @@ button:disabled {
   overflow: hidden;
 }
 
-/* A separate flat rectangle rather than a clipped border-left, so the card
-   itself can stay fully rounded while the accent bar stays a crisp straight
-   edge (inset from the rounded corners instead of touching/curving with them). */
+/* A flex item rather than an absolutely-positioned bar stretched via
+   top/bottom insets: that approach left the bar short of the container's
+   true height on first paint for taller blocks (a pseudo-element positioned
+   against an ancestor's height can be repainted before that height is
+   settled, particularly with overflow:hidden + an entrance animation in the
+   mix). Flexbox's own stretch sizing doesn't have that failure mode — the
+   bar's height always just is the row's height, no separate calculation to
+   fall out of sync. Card stays fully rounded; the bar (inset via margin,
+   not clipped by the radius) stays a crisp straight edge. */
 .q-context::before {
   content: '';
-  position: absolute;
-  left: 0;
-  top: 8px;
-  bottom: 8px;
+  flex: 0 0 6px;
   width: 6px;
+  margin: 8px 0;
   background: var(--accent);
 }
 
 .q-context-body {
-  padding: 0.65rem 0.9rem 0.65rem 1.05rem;
+  flex: 1;
+  min-width: 0;
+  padding: 0.65rem 0.9rem;
   font-family: 'Space Mono', monospace;
   font-size: 0.82rem;
   color: var(--text);
