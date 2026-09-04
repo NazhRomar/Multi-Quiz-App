@@ -23,12 +23,12 @@ export const DEFAULT_APP_SETTINGS = {
 };
 export const DEFAULT_QUIZ_OPTIONS = {
   noSkip: false,
-  hideFeedback: false,
+  hideFeedback: true,
   hideFeedbackIfExplanation: false,
   hideExplanation: false,
   shuffleQuestions: false,
   shuffleChoices: false,
-  instantSubmit: false, // auto-submit mc/tf the moment you pick an option
+  instantSubmit: true, // auto-submit mc/tf the moment you pick an option
 };
 export const DEFAULT_REVIEW_OPTIONS = {
   showAllChoices: false,

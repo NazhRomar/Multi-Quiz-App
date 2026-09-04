@@ -1570,36 +1570,21 @@ button:disabled {
 }
 
 /* --- Question Context Block --- */
+/* Reverted to the plain boxed style after three attempts at a flat-topped
+   accent bar kept breaking (rounded-cap clipping, then a fragile
+   absolutely-positioned bar that painted short on tall blocks, then
+   conflicting with Canvas theme's own !important border-left override on
+   this same class). Simple and correct beats clever and broken. */
 .q-context {
-  display: flex;
-  align-items: stretch;
   margin-bottom: 1.3rem;
   border: 1px solid var(--border);
+  border-left: 6px solid var(--accent);
   background: var(--radio-bg);
   border-radius: 12px;
   overflow: hidden;
 }
 
-/* A flex item rather than an absolutely-positioned bar stretched via
-   top/bottom insets: that approach left the bar short of the container's
-   true height on first paint for taller blocks (a pseudo-element positioned
-   against an ancestor's height can be repainted before that height is
-   settled, particularly with overflow:hidden + an entrance animation in the
-   mix). Flexbox's own stretch sizing doesn't have that failure mode — the
-   bar's height always just is the row's height, no separate calculation to
-   fall out of sync. Card stays fully rounded; the bar (inset via margin,
-   not clipped by the radius) stays a crisp straight edge. */
-.q-context::before {
-  content: '';
-  flex: 0 0 6px;
-  width: 6px;
-  margin: 8px 0;
-  background: var(--accent);
-}
-
 .q-context-body {
-  flex: 1;
-  min-width: 0;
   padding: 0.65rem 0.9rem;
   font-family: 'Space Mono', monospace;
   font-size: 0.82rem;

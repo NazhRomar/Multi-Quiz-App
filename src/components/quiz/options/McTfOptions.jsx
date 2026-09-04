@@ -1,6 +1,6 @@
 import { renderHtml } from '../../../utils/renderHtml.js';
 
-export default function McTfOptions({ question, savedState, isLocked, onSelect, onSubmit }) {
+export default function McTfOptions({ question, savedState, isLocked, onSelect, onSubmit, hideSubmit }) {
   return (
     <>
       {question.options.map((opt, idx) => {
@@ -23,7 +23,7 @@ export default function McTfOptions({ question, savedState, isLocked, onSelect, 
           </label>
         );
       })}
-      {!isLocked && (
+      {!isLocked && !hideSubmit && (
         <button className="btn-check" style={{ marginTop: '1rem' }} onClick={onSubmit} disabled={savedState.value === null}>
           Submit
         </button>

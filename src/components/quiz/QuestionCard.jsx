@@ -36,6 +36,7 @@ export default function QuestionCard({ question, index, savedState, isLocked, ex
             if (quizOptions.instantSubmit) submit();
           }}
           onSubmit={submit}
+          hideSubmit={quizOptions.instantSubmit}
         />
       );
       break;
