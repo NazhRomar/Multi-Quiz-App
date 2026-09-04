@@ -1571,16 +1571,29 @@ button:disabled {
 
 /* --- Question Context Block --- */
 .q-context {
+  position: relative;
   margin-bottom: 1.3rem;
   border: 1px solid var(--border);
-  border-left: 6px solid var(--accent);
   background: var(--radio-bg);
-  border-radius: 0 12px 12px 0;
+  border-radius: 12px;
   overflow: hidden;
 }
 
+/* A separate flat rectangle rather than a clipped border-left, so the card
+   itself can stay fully rounded while the accent bar stays a crisp straight
+   edge (inset from the rounded corners instead of touching/curving with them). */
+.q-context::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 6px;
+  background: var(--accent);
+}
+
 .q-context-body {
-  padding: 0.65rem 0.9rem;
+  padding: 0.65rem 0.9rem 0.65rem 1.05rem;
   font-family: 'Space Mono', monospace;
   font-size: 0.82rem;
   color: var(--text);
