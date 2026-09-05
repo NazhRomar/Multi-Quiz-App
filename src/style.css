@@ -102,6 +102,41 @@ body.no-animations *::after {
   padding: 0 1.5rem;
 }
 
+.menu-search-wrap {
+  width: 100%;
+  max-width: 900px;
+  margin: 1.5rem auto 0;
+  padding: 0 1.5rem;
+}
+
+.menu-search-input {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.menu-search-input:focus {
+  border-color: var(--accent);
+}
+
+.menu-search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.menu-search-empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
+}
+
 #quiz-container {
   width: 100%;
   max-width: 850px;
@@ -2126,7 +2161,9 @@ body.theme-canvas .menu-container {
    padding (1.5rem = 24px) is untouched by Canvas otherwise, so the question
    cards sat very slightly narrower than the header content above them. */
 body.theme-canvas #quiz-container,
-body.theme-canvas .nav-row {
+body.theme-canvas .nav-row,
+body.theme-canvas .menu-container,
+body.theme-canvas .menu-search-wrap {
   padding-left: 20px !important;
   padding-right: 20px !important;
 }

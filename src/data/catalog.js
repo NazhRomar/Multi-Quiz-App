@@ -18,8 +18,8 @@ for (const path in quizModules) {
   courseMenu[term][course].push({ title: realTitle, data: quizData });
 }
 
-export function sortedTerms() {
-  return Object.keys(courseMenu).sort((a, b) => {
+export function sortedTerms(menu = courseMenu) {
+  return Object.keys(menu).sort((a, b) => {
     const numsA = a.match(/\d+/g)?.map(Number) || [];
     const numsB = b.match(/\d+/g)?.map(Number) || [];
     const yearA = numsA[0] ?? 0;
@@ -27,6 +27,28 @@ export function sortedTerms() {
     if (yearB !== yearA) return yearB - yearA; // newest year first
     return (numsA[1] ?? 0) - (numsB[1] ?? 0); // then term ascending
   });
+}
+
+// Search across every quiz's title/course/term, used by the home menu's
+// search box. Returns a courseMenu-shaped structure with non-matching
+// courses/terms dropped entirely, so callers can render it exactly like
+// the full courseMenu.
+export function filterCourseMenu(query) {
+  const q = query.trim().toLowerCase();
+  if (!q) return courseMenu;
+
+  const filtered = {};
+  for (const term in courseMenu) {
+    const termMatches = term.toLowerCase().includes(q);
+    const filteredCourses = {};
+    for (const course in courseMenu[term]) {
+      const courseMatches = termMatches || course.toLowerCase().includes(q);
+      const quizzes = courseMenu[term][course].filter((quiz) => courseMatches || quiz.title.toLowerCase().includes(q));
+      if (quizzes.length) filteredCourses[course] = quizzes;
+    }
+    if (Object.keys(filteredCourses).length) filtered[term] = filteredCourses;
+  }
+  return filtered;
 }
 
 // Groups a course's quizzes into render units: quizzes sharing a

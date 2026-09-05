@@ -1,15 +1,19 @@
 import { useState } from 'react';
 import { useApp } from '../../state/AppContext.jsx';
 import { useNavRow } from '../quiz/useNavRow.jsx';
+import { isAnswerCorrect } from '../../state/grading.js';
 import ReviewHeader from './ReviewHeader.jsx';
 import ReviewCard from './ReviewCard.jsx';
 
 export default function ReviewScreen({ goHome }) {
   const { state, dispatch } = useApp();
-  const { activeQuiz, currentIndex, appSettings, reviewOptions } = state;
+  const { activeQuiz, currentIndex, appSettings, reviewOptions, userAnswers } = state;
   const [isCardExiting, setIsCardExiting] = useState(false);
   const isListView = reviewOptions.listView;
-  const total = activeQuiz.questions.length;
+  const questions = reviewOptions.wrongOnly
+    ? activeQuiz.questions.filter((q) => !q.flagged && !isAnswerCorrect(q, userAnswers[q.id]?.value ?? null))
+    : activeQuiz.questions;
+  const total = questions.length;
 
   const animatedNav = (actionType) => {
     if (appSettings.disableAnimations || isListView) {
@@ -30,8 +34,8 @@ export default function ReviewScreen({ goHome }) {
 
   const { topRow, bottomRow, portals } = useNavRow({
     navLocation: appSettings.navLocation,
-    isFirst: isListView ? true : isFirst,
-    isLast: isListView ? true : isLast,
+    isFirst: isListView || total === 0 ? true : isFirst,
+    isLast: isListView || total === 0 ? true : isLast,
     nextBlocked: false,
     isQuizMode: false,
     isListView,
@@ -40,22 +44,24 @@ export default function ReviewScreen({ goHome }) {
     onDone: goHome,
   });
 
-  const progressLabel = isListView ? `${total} Items` : `${currentIndex + 1}/${total}`;
-  const progressPct = isListView ? 100 : ((currentIndex + 1) / total) * 100;
+  const progressLabel = total === 0 ? '0 Items' : isListView ? `${total} Items` : `${Math.min(currentIndex + 1, total)}/${total}`;
+  const progressPct = total === 0 ? 100 : isListView ? 100 : ((currentIndex + 1) / total) * 100;
 
   return (
     <>
       <ReviewHeader progressLabel={progressLabel} progressPct={progressPct} goHome={goHome} />
       {topRow}
       <main id="quiz-container">
-        {isListView ? (
-          activeQuiz.questions.map((q, idx) => (
-            <ReviewCard key={q.id} question={q} index={idx} reviewOptions={reviewOptions} isListView />
-          ))
+        {total === 0 ? (
+          <div className="feedback-banner correct" style={{ textAlign: 'center' }}>
+            <strong>🎉 No wrong answers to review!</strong>
+          </div>
+        ) : isListView ? (
+          questions.map((q, idx) => <ReviewCard key={q.id} question={q} index={idx} reviewOptions={reviewOptions} isListView />)
         ) : (
           <ReviewCard
-            question={activeQuiz.questions[currentIndex]}
-            index={currentIndex}
+            question={questions[Math.min(currentIndex, total - 1)]}
+            index={Math.min(currentIndex, total - 1)}
             reviewOptions={reviewOptions}
             isListView={false}
             exiting={isCardExiting}

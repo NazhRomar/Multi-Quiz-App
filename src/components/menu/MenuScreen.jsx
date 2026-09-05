@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { useApp } from '../../state/AppContext.jsx';
-import { courseMenu, sortedTerms } from '../../data/catalog.js';
+import { filterCourseMenu, sortedTerms } from '../../data/catalog.js';
 import Dropdown from '../settings/Dropdown.jsx';
 import AppSettingsFields from '../settings/AppSettingsFields.jsx';
 import TermSection from './TermSection.jsx';
@@ -8,6 +9,10 @@ import { showcaseQuiz } from '../../devFixtures/showcaseQuiz.js';
 
 export default function MenuScreen() {
   const { dispatch } = useApp();
+  const [search, setSearch] = useState('');
+  const isSearching = search.trim().length > 0;
+  const menu = filterCourseMenu(search);
+  const terms = sortedTerms(menu);
 
   const openQuiz = (term, course, quiz) => {
     dispatch({ type: 'START_QUIZ', payload: { term, course, quizData: quiz.data } });
@@ -31,9 +36,25 @@ export default function MenuScreen() {
           </Dropdown>
         </div>
       </header>
+      <div className="menu-search-wrap">
+        <input
+          type="search"
+          className="menu-search-input"
+          placeholder="Search quizzes, courses, terms..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
       <main className="menu-container">
-        {sortedTerms().map((term) => (
-          <TermSection key={term} term={term} courses={courseMenu[term]} onOpen={(course, quiz) => openQuiz(term, course, quiz)} />
+        {isSearching && terms.length === 0 && <div className="menu-search-empty">No quizzes match "{search.trim()}".</div>}
+        {terms.map((term) => (
+          <TermSection
+            key={term}
+            term={term}
+            courses={menu[term]}
+            forceExpanded={isSearching}
+            onOpen={(course, quiz) => openQuiz(term, course, quiz)}
+          />
         ))}
       </main>
       <footer className="home-footer" onClick={openShowcase}>

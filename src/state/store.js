@@ -34,6 +34,7 @@ export const DEFAULT_REVIEW_OPTIONS = {
   showAllChoices: false,
   hideExplanation: false,
   listView: false,
+  wrongOnly: false,
 };
 
 export function createInitialState() {

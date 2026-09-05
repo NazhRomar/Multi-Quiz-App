@@ -17,6 +17,13 @@ export default function ReviewOptionsFields() {
       </label>
       <label className="dropdown-item">
         <span className="dropdown-item-text">
+          <strong>Wrong answers only</strong>
+          <small>Only show questions you missed</small>
+        </span>
+        <Switch checked={reviewOptions.wrongOnly} onChange={(v) => set('wrongOnly', v)} />
+      </label>
+      <label className="dropdown-item">
+        <span className="dropdown-item-text">
           <strong>Show all choices</strong>
           <small>Display all options, not just the answer</small>
         </span>
