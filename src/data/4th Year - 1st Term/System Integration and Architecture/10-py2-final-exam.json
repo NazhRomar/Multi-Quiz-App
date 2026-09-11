@@ -516,7 +516,13 @@
       "id": 35,
       "type": "mc",
       "text": "Look at the code below. Which lines of code would you insert so that it is possible for the program to output the following result: 6 82 0",
-      "context": "<pre>import random\n\n# Insert lines of code here.\n\nprint(a, b, c)</pre>\n<p><strong>A:</strong></p>\n<pre>a = random.randrange(10, 100, 3)\nb = random.randint(0, 100)\nc = random.choice((0, 100, 3))</pre>\n<p><strong>B:</strong></p>\n<pre>a = random.choice((0, 100, 3))\nb = random.randrange(10, 100, 3)\nc = random.randint(0, 100)</pre>\n<p><strong>C:</strong></p>\n<pre>a = random.randint(0, 100)\nb = random.randrange(10, 100, 3)\nc = random.choice((0, 100, 3))</pre>\n<p><strong>D:</strong></p>\n<pre>a = random.randint(0, 100)\nb = random.choice((0, 100, 3))\nc = random.randrange(10, 100, 3)</pre>",
+      "context": [
+        "<pre>import random\n\n# Insert lines of code here.\n\nprint(a, b, c)</pre>\n<p><strong>Expected output:</strong> 6 82 0</p>",
+        "<p><strong>A:</strong></p>\n<pre>a = random.randrange(10, 100, 3)\nb = random.randint(0, 100)\nc = random.choice((0, 100, 3))</pre>",
+        "<p><strong>B:</strong></p>\n<pre>a = random.choice((0, 100, 3))\nb = random.randrange(10, 100, 3)\nc = random.randint(0, 100)</pre>",
+        "<p><strong>C:</strong></p>\n<pre>a = random.randint(0, 100)\nb = random.randrange(10, 100, 3)\nc = random.choice((0, 100, 3))</pre>",
+        "<p><strong>D:</strong></p>\n<pre>a = random.randint(0, 100)\nb = random.choice((0, 100, 3))\nc = random.randrange(10, 100, 3)</pre>"
+      ],
       "options": [
         "D",
         "A",

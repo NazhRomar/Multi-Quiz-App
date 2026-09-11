@@ -99,11 +99,17 @@ export default function QuestionCard({ question, index, savedState, isLocked, ex
           {question.flagged ? 'Not Scored' : `${question.points || 1} pts`}
         </span>
       </div>
-      {question.context && (
+      {question.context && Array.isArray(question.context) ? (
+        question.context.map((block, i) => (
+          <div className="q-context" key={i}>
+            <div className="q-context-body" {...renderHtml(block)} />
+          </div>
+        ))
+      ) : question.context ? (
         <div className="q-context">
           <div className="q-context-body" {...renderHtml(question.context)} />
         </div>
-      )}
+      ) : null}
       <div className="q-text" {...renderHtml(question.text)} />
       <div className="options-list">
         {optionsEl}
