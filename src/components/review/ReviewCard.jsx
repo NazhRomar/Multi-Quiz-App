@@ -22,10 +22,10 @@ const STATUS_LABELS = {
 };
 
 // How the user did on a question in the attempt being reviewed.
-function answerStatus(question, userAnswer) {
+function answerStatus(question, userAnswer, quizOptions) {
   if (!wasAnswered(userAnswer)) return 'unanswered';
   const pts = question.points || 1;
-  const earned = pointsEarned(question, userAnswer);
+  const earned = pointsEarned(question, userAnswer, quizOptions);
   if (earned >= pts - 0.001) return 'correct';
   return earned > 0 ? 'partial' : 'wrong';
 }
@@ -36,8 +36,8 @@ function answerStatus(question, userAnswer) {
 // status badge per question, and on a wrong answer the user's own answer
 // shown in red next to the correct one. A review opened fresh from the home
 // menu has no attempt and stays answer-key only.
-export default function ReviewCard({ question, index, reviewOptions, isListView, exiting, userAnswer, hasAttempt }) {
-  const status = hasAttempt && !question.flagged ? answerStatus(question, userAnswer) : null;
+export default function ReviewCard({ question, index, reviewOptions, quizOptions, isListView, exiting, userAnswer, hasAttempt }) {
+  const status = hasAttempt && !question.flagged ? answerStatus(question, userAnswer, quizOptions) : null;
   return (
     <div
       className={`question-card question-card--review ${isListView ? 'question-card--list' : ''} ${

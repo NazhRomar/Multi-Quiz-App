@@ -45,6 +45,13 @@ export default function QuizOptionsFields() {
       </label>
       <label className="dropdown-item">
         <span className="dropdown-item-text">
+          <strong>Multiple Select partial credit</strong>
+          <small>Each correct pick earns its point and each wrong pick takes one back (never below 0). Off: all or nothing</small>
+        </span>
+        <Switch checked={quizOptions.msqPartialCredit} onChange={(v) => set('msqPartialCredit', v)} />
+      </label>
+      <label className="dropdown-item">
+        <span className="dropdown-item-text">
           <strong>Hide feedback</strong>
           <small>Never show the "Correct!" / "Incorrect" banner after answering</small>
         </span>

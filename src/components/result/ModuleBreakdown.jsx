@@ -7,8 +7,8 @@ const round2 = (n) => Math.round(n * 100) / 100;
 // need another pass. Bar tone: green ≥ 80%, amber ≥ 50%, red below.
 export default function ModuleBreakdown() {
   const { state } = useApp();
-  const { activeQuiz, userAnswers } = state;
-  const rows = scoreBySource(activeQuiz.questions, userAnswers, activeQuiz.multi.quizzes);
+  const { activeQuiz, userAnswers, quizOptions } = state;
+  const rows = scoreBySource(activeQuiz.questions, userAnswers, activeQuiz.multi.quizzes, quizOptions);
   if (rows.length === 0) return null;
   const multiSubject = activeQuiz.multi.subjects.length > 1;
 

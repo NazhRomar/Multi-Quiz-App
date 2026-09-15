@@ -33,6 +33,7 @@ export const DEFAULT_QUIZ_OPTIONS = {
   shuffleChoices: false,
   keepTrueFalseOrder: true, // shuffleChoices leaves True/False questions as True, False
   showMsqCount: false, // "Select N" hint on multiple-select questions
+  msqPartialCredit: true, // multiple select: points per correct pick (minus wrong picks) instead of all-or-nothing
   instantSubmit: true, // auto-submit mc/tf the moment you pick an option
   hideEnterHint: false, // hide the ⏎ keycap on Next (the Enter shortcut still works)
   hideNumberHint: false, // hide the 1–9/0 keycaps on choices (the number keys still work)

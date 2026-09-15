@@ -78,6 +78,7 @@ export default function ReviewScreen({ goHome }) {
               question={q}
               index={idx}
               reviewOptions={reviewOptions}
+              quizOptions={state.quizOptions}
               isListView
               userAnswer={answerOf(q)}
               hasAttempt={hasAttempt}
@@ -88,6 +89,7 @@ export default function ReviewScreen({ goHome }) {
             question={questions[Math.min(currentIndex, total - 1)]}
             index={Math.min(currentIndex, total - 1)}
             reviewOptions={reviewOptions}
+            quizOptions={state.quizOptions}
             isListView={false}
             exiting={isCardExiting}
             userAnswer={answerOf(questions[Math.min(currentIndex, total - 1)])}

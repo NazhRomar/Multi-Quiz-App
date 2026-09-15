@@ -87,7 +87,7 @@ export default function QuizScreen({ goHome }) {
     enterHint: isLocked && !quizOptions.hideEnterHint,
   });
 
-  const score = liveScore(activeQuiz.questions, userAnswers);
+  const score = liveScore(activeQuiz.questions, userAnswers, quizOptions);
 
   return (
     <>
@@ -112,7 +112,7 @@ export default function QuizScreen({ goHome }) {
           onCancel={() => setShowConfirm(false)}
           onConfirm={() => {
             setShowConfirm(false);
-            dispatch({ type: 'SUBMIT_QUIZ', payload: scoreQuiz(activeQuiz.questions, userAnswers) });
+            dispatch({ type: 'SUBMIT_QUIZ', payload: scoreQuiz(activeQuiz.questions, userAnswers, quizOptions) });
           }}
         />
       )}
