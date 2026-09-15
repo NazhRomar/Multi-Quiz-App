@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from 'react';
 import { reducer, createInitialState } from './store.js';
-import { applyAnswerFont } from '../utils/answerFonts.js';
+import { applyFonts } from '../utils/fonts.js';
 import { applyTheme } from '../utils/themes.js';
 
 const AppContext = createContext(null);
@@ -10,8 +10,10 @@ export function AppProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem('quizApp_appSettings', JSON.stringify(state.appSettings));
-    document.body.classList.toggle('no-animations', state.appSettings.disableAnimations);
-    document.body.classList.toggle('compact-mode', state.appSettings.compactMode);
+    // !! — toggle() with an undefined force flips the class instead of
+    // setting it, so a missing setting must not reach it raw.
+    document.body.classList.toggle('no-animations', !!state.appSettings.disableAnimations);
+    document.body.classList.toggle('compact-mode', !!state.appSettings.compactMode);
     applyTheme(state.appSettings.theme);
     // Code block theme: independent of the app theme; 'default' just
     // follows the app theme's own code block look.
@@ -19,7 +21,7 @@ export function AppProvider({ children }) {
     if (state.appSettings.codeTheme && state.appSettings.codeTheme !== 'default') {
       document.body.classList.add(`code-theme-${state.appSettings.codeTheme}`);
     }
-    applyAnswerFont(state.appSettings.answerFont);
+    applyFonts(state.appSettings.appFont, state.appSettings.answerFont);
   }, [state.appSettings]);
 
   useEffect(() => {

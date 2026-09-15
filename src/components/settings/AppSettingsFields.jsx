@@ -1,8 +1,10 @@
 import { useApp } from '../../state/AppContext.jsx';
 import Switch from './Switch.jsx';
 import { useIsMobile } from '../../utils/useIsMobile.js';
-import { ANSWER_FONTS } from '../../utils/answerFonts.js';
-import ThemePicker from './ThemePicker.jsx';
+import { FONTS, fontLabel } from '../../utils/fonts.js';
+import { THEMES } from '../../utils/themes.js';
+import ThemePicker, { ThemeModeIcon, themeSwatchStyle } from './ThemePicker.jsx';
+import FoldSection from './FoldSection.jsx';
 
 // Code block themes (colors live in style.css under body.code-theme-<value>).
 // 'default' adds no class, so code blocks follow the app theme.
@@ -21,6 +23,8 @@ export const CODE_THEMES = [
 // Shows off the characters that are easy to misread in some fonts.
 const ANSWER_PREVIEW = '@csrf · {{ $name }} · 0O 1lI';
 
+const APP_FONT_PREVIEW = 'Who created the Laravel framework? · Score: 12';
+
 const CODE_PREVIEW ="Route::get('/user/{id}', function ($id) {\n    return view('user', ['id' => $id]);\n});";
 
 // showNavLocation: the home-menu dropdown omits this field — only the
@@ -30,24 +34,40 @@ export default function AppSettingsFields({ showNavLocation = false }) {
   const { appSettings } = state;
   const set = (key, value) => dispatch({ type: 'SET_APP_SETTING', payload: { key, value } });
   const isMobile = useIsMobile();
+  const currentTheme = THEMES.find((t) => t.value === appSettings.theme) || THEMES[0];
+  const isCanvas = appSettings.theme === 'canvas';
+  const appFontDefault = isCanvas ? 'Lato' : 'Nunito + Space Mono';
+  // Answers fall back to the App Font when one is set (style.css).
+  const answerFontDefault = fontLabel(appSettings.appFont, null) ? 'same as App Font' : isCanvas ? 'Lato' : 'Space Mono';
 
   return (
     <>
-      {/* A div, not a label: a label would forward clicks on its blank
-          space to the first tile button. ThemePicker renders its own
-          heading row (the fold toggle). */}
-      <div className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'stretch', gap: 0, cursor: 'default' }}>
+      <FoldSection
+        title="UI Theme"
+        summary={
+          <span className="theme-picker-current">
+            <ThemeModeIcon theme={currentTheme} />
+            {currentTheme.label}
+          </span>
+        }
+        badge={<span className="theme-picker-swatch" style={themeSwatchStyle(currentTheme)} />}
+      >
         <ThemePicker value={appSettings.theme} onChange={(v) => set('theme', v)} />
-      </div>
-      <label className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'stretch', gap: '0.5rem' }}>
-        <span className="dropdown-item-text">
-          <strong>Code Block Theme</strong>
-          <small>Colors for code snippets in questions</small>
-        </span>
+      </FoldSection>
+      <FoldSection
+        title="Code Block Theme"
+        summary={(CODE_THEMES.find((t) => t.value === appSettings.codeTheme) || CODE_THEMES[0]).label}
+        badge={
+          <span className="q-context q-context--code code-theme-badge">
+            <span className="q-context-body">{'</>'}</span>
+          </span>
+        }
+      >
         <select
+          className="fold-select"
+          aria-label="Code Block Theme"
           value={appSettings.codeTheme}
           onChange={(e) => set('codeTheme', e.target.value)}
-          style={{ width: '100%', padding: '0.4rem', border: '1px solid var(--border)', borderRadius: '6px' }}
         >
           {CODE_THEMES.map((t) => (
             <option key={t.value} value={t.value}>
@@ -60,27 +80,36 @@ export default function AppSettingsFields({ showNavLocation = false }) {
             <pre>{CODE_PREVIEW}</pre>
           </div>
         </div>
-      </label>
-      <label className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'stretch', gap: '0.5rem' }}>
-        <span className="dropdown-item-text">
-          <strong>Answer Font</strong>
-          <small>Font for answer choices and typed answers</small>
-        </span>
-        <select
-          value={appSettings.answerFont}
-          onChange={(e) => set('answerFont', e.target.value)}
-          style={{ width: '100%', padding: '0.4rem', border: '1px solid var(--border)', borderRadius: '6px' }}
-        >
-          {ANSWER_FONTS.map((f) => (
+      </FoldSection>
+      <FoldSection title="App Font" summary={fontLabel(appSettings.appFont, `Default (${appFontDefault})`)} badge={<span className="app-font-sample">Aa</span>}>
+        <select className="fold-select" aria-label="App Font" value={appSettings.appFont} onChange={(e) => set('appFont', e.target.value)}>
+          {FONTS.map((f) => (
             <option key={f.value} value={f.value}>
-              {f.value === 'default' ? `Default (${appSettings.theme === 'canvas' ? 'Lato' : 'Space Mono'})` : f.label}
+              {f.value === 'default' ? `Default (${appFontDefault})` : f.label}
+            </option>
+          ))}
+        </select>
+        <div className="app-font-preview" aria-hidden="true">
+          {APP_FONT_PREVIEW}
+        </div>
+        <small className="fold-note">Changes all text except code snippets.</small>
+      </FoldSection>
+      <FoldSection
+        title="Answer Font"
+        summary={fontLabel(appSettings.answerFont, `Default (${answerFontDefault})`)}
+        badge={<span className="answer-font-sample">@</span>}
+      >
+        <select className="fold-select" aria-label="Answer Font" value={appSettings.answerFont} onChange={(e) => set('answerFont', e.target.value)}>
+          {FONTS.map((f) => (
+            <option key={f.value} value={f.value}>
+              {f.value === 'default' ? `Default (${answerFontDefault})` : f.label}
             </option>
           ))}
         </select>
         <div className="answer-font-preview" aria-hidden="true">
           {ANSWER_PREVIEW}
         </div>
-      </label>
+      </FoldSection>
       {showNavLocation && (
         <label className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '0.5rem' }}>
           <span className="dropdown-item-text">

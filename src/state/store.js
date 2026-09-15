@@ -20,7 +20,9 @@ export const DEFAULT_APP_SETTINGS = {
   navLocation: 'down', // 'up' | 'down' | 'sides' | 'center' | 'both' | 'all'
   theme: 'default',
   codeTheme: 'default', // see CODE_THEMES in AppSettingsFields.jsx
-  answerFont: 'default', // see ANSWER_FONTS in utils/answerFonts.js  compactMode: false,
+  appFont: 'default', // see FONTS in utils/fonts.js
+  answerFont: 'default', // see FONTS in utils/fonts.js
+  compactMode: false,
 };
 export const DEFAULT_QUIZ_OPTIONS = {
   noSkip: false,
