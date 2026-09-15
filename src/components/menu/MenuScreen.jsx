@@ -1,11 +1,10 @@
-import { useMemo, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useApp } from '../../state/AppContext.jsx';
-import { buildMultiQuiz, courseMenu, filterCourseMenu, MIN_SEARCH_LENGTH, searchQuestions, sortedTerms } from '../../data/catalog.js';
+import { buildMultiQuiz, courseMenu, filterCourseMenu, sortedTerms } from '../../data/catalog.js';
 import Dropdown from '../settings/Dropdown.jsx';
 import AppSettingsFields from '../settings/AppSettingsFields.jsx';
 import SegmentedToggle from '../common/SegmentedToggle.jsx';
 import TermSection from './TermSection.jsx';
-import QuestionSearchResults from './QuestionSearchResults.jsx';
 import { useOverload } from './overload/useOverload.js';
 import OverloadCount from './overload/OverloadCount.jsx';
 import { formatBuildDate } from '../../utils/formatBuildDate.js';
@@ -49,16 +48,9 @@ export default function MenuScreen() {
   const { state, dispatch } = useApp();
   const { homeMode } = state;
   const [search, setSearch] = useState('');
-  // Search only fires from MIN_SEARCH_LENGTH characters. It filters the
-  // term/course/quiz list by name and finds matching questions/answers,
-  // shown as their own section below the list (or above it — App Settings
-  // → Question matches first).
-  const typedLength = search.trim().length;
-  const query = typedLength >= MIN_SEARCH_LENGTH ? search.trim() : '';
-  const isSearching = !!query;
-  const menu = filterCourseMenu(query);
+  const isSearching = search.trim().length > 0;
+  const menu = filterCourseMenu(search);
   const terms = sortedTerms(menu);
-  const questionMatches = useMemo(() => searchQuestions(query), [query]);
   // Multi: tapping a quiz toggles it in the selection instead of opening it.
   const selected = new Set(state.multiSelection);
   const setHomeMode = (key, value) => dispatch({ type: 'SET_HOME_MODE', payload: { key, value } });
@@ -89,14 +81,11 @@ export default function MenuScreen() {
     .reduce((sum, quiz) => sum + (quiz.data.questions?.length || 0), 0);
   const overload = useOverload(selectedQuestionCount);
 
-  const hint =
-    typedLength > 0 && typedLength < MIN_SEARCH_LENGTH
-      ? `Keep typing — search starts at ${MIN_SEARCH_LENGTH} characters.`
-      : homeMode.multi
-        ? `Pick any quizzes, from any subject or term, to combine into one Multi ${homeMode.review ? 'review' : 'quiz'}.`
-        : homeMode.review
-          ? 'Tap a quiz to open it in Review mode.'
-          : null;
+  const hint = homeMode.multi
+    ? `Pick any quizzes, from any subject or term, to combine into one Multi ${homeMode.review ? 'review' : 'quiz'}.`
+    : homeMode.review
+      ? 'Tap a quiz to open it in Review mode.'
+      : null;
   // The hint row and selection bar stay mounted and animate in/out (see
   // style.css) rather than popping, so toggling modes doesn't jolt the
   // layout; keep the last text so a collapsing hint doesn't go blank first.
@@ -110,25 +99,6 @@ export default function MenuScreen() {
     dispatch({ type: 'START_QUIZ', payload: { term: 'Dev', course: 'Testing', quizData: showcaseQuiz } });
   };
 
-  // A question search result opens its quiz in Review mode at that question.
-  const openQuestionResult = (r) => {
-    dispatch({ type: 'START_REVIEW', payload: { term: r.term, course: r.course, quizData: r.quiz.data, fresh: true, startIndex: r.qIndex } });
-  };
-
-  const quizSections = terms.map((term) => (
-    <TermSection
-      key={term}
-      term={term}
-      courses={menu[term]}
-      forceExpanded={isSearching}
-      onOpen={(course, quiz) => openQuiz(term, course, quiz)}
-      selection={homeMode.multi ? { selected, toggleQuizzes } : null}
-    />
-  ));
-  const questionSection = isSearching && questionMatches.total > 0 && (
-    <QuestionSearchResults query={query} results={questionMatches.results} total={questionMatches.total} onOpen={openQuestionResult} />
-  );
-
   return (
     <div className={homeMode.multi ? 'menu--selecting' : ''}>
       <header className="quiz-header">
@@ -136,7 +106,7 @@ export default function MenuScreen() {
         <div className="header-right">
           <Dropdown ariaLabel="Settings">
             <div className="dropdown-section-title">App Settings</div>
-            <AppSettingsFields showSearchOrder />
+            <AppSettingsFields />
           </Dropdown>
         </div>
       </header>
@@ -144,7 +114,7 @@ export default function MenuScreen() {
         <input
           type="search"
           className="menu-search-input"
-          placeholder="Search quizzes, questions, answers..."
+          placeholder="Search quizzes, courses, terms..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -167,20 +137,17 @@ export default function MenuScreen() {
         <div className="menu-mode-hint-inner">{lastHint.current}</div>
       </div>
       <main className="menu-container">
-        {isSearching && terms.length === 0 && questionMatches.total === 0 && (
-          <div className="menu-search-empty">No quizzes, questions or answers match "{query}".</div>
-        )}
-        {state.appSettings.searchQuestionsFirst ? (
-          <>
-            {questionSection}
-            {quizSections}
-          </>
-        ) : (
-          <>
-            {quizSections}
-            {questionSection}
-          </>
-        )}
+        {isSearching && terms.length === 0 && <div className="menu-search-empty">No quizzes match "{search.trim()}".</div>}
+        {terms.map((term) => (
+          <TermSection
+            key={term}
+            term={term}
+            courses={menu[term]}
+            forceExpanded={isSearching}
+            onOpen={(course, quiz) => openQuiz(term, course, quiz)}
+            selection={homeMode.multi ? { selected, toggleQuizzes } : null}
+          />
+        ))}
       </main>
       <footer className="home-footer" onClick={openShowcase}>
         Last updated: {formatBuildDate(__BUILD_DATE__)}
