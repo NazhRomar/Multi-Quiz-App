@@ -66,6 +66,9 @@ export default function ReviewCard({ question, index, reviewOptions, quizOptions
           reviewOptions={reviewOptions}
           // Only show the user's own answer when it was actually wrong.
           userAnswer={status === 'wrong' || status === 'partial' ? userAnswer : undefined}
+          // Not fully right in the attempt (unanswered included): correct
+          // options it didn't pick are marked missed.
+          markMissed={!!status && status !== 'correct'}
         />
       </div>
       {question.explanation && !reviewOptions.hideExplanation && (
@@ -89,8 +92,9 @@ function YourAnswer({ label = 'Your Answer', children, html }) {
 }
 
 // userAnswer: the user's (wrong) answer to show alongside the key, or
-// undefined when there's nothing to contrast.
-function ReviewBody({ question, reviewOptions, userAnswer }) {
+// undefined when there's nothing to contrast. markMissed: Multiple Select
+// flags the correct options that weren't picked.
+function ReviewBody({ question, reviewOptions, userAnswer, markMissed }) {
   const showYours = userAnswer !== undefined;
 
   if (question.flagged) {
@@ -179,9 +183,10 @@ function ReviewBody({ question, reviewOptions, userAnswer }) {
       return question.options.map((opt, idx) => {
         const isCorrect = question.correctAnswer.includes(idx);
         const isYourWrongPick = picked.includes(idx) && !isCorrect;
-        // A correct option left unpicked in a wrong attempt is "missed" —
-        // styled apart from the correct ones the user did pick.
-        const isMissed = isCorrect && picked.length > 0 && !picked.includes(idx);
+        // A correct option left unpicked in a wrong, partial or unanswered
+        // attempt is "missed" — styled apart from the correct ones the user
+        // did pick.
+        const isMissed = isCorrect && markMissed && !picked.includes(idx);
         const cls = isMissed ? 'reveal-missed' : isCorrect ? 'reveal-correct' : isYourWrongPick ? 'reveal-wrong' : '';
         return (
           <div className={`option-label locked ${cls}`} key={idx}>

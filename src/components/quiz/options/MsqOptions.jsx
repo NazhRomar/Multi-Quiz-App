@@ -6,17 +6,16 @@ import { EnterKeyIcon } from '../../common/KeyIcons.jsx';
 // number-key shortcut toggles it, QuizScreen). submitEnterHint: ⏎ on Submit.
 export default function MsqOptions({ question, savedState, isLocked, onToggle, onSubmit, showKeyHints, submitEnterHint }) {
   const savedSet = savedState.value || [];
-  // After an actual attempt, a correct option the user didn't pick is
-  // "missed" (styled apart from the ones they got). With nothing picked
-  // (Show Answer) it's a plain reveal of the key instead.
-  const attempted = savedSet.length > 0;
+  // Once submitted, a correct option the user didn't pick is "missed"
+  // (styled apart from the ones they got) — every correct option, after
+  // Show Answer with nothing picked, since none of them scored.
   return (
     <>
       {question.options.map((opt, idx) => {
         const isChecked = savedSet.includes(idx);
         let statusClass = '';
         if (isLocked) {
-          if (question.correctAnswer.includes(idx)) statusClass = isChecked || !attempted ? 'reveal-correct' : 'reveal-missed';
+          if (question.correctAnswer.includes(idx)) statusClass = isChecked ? 'reveal-correct' : 'reveal-missed';
           else if (isChecked) statusClass = 'reveal-wrong';
         }
         const keyLabel = showKeyHints && !isLocked && choiceKeyLabel(idx);
