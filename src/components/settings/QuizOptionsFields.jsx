@@ -17,13 +17,6 @@ export default function QuizOptionsFields() {
       </label>
       <label className="dropdown-item">
         <span className="dropdown-item-text">
-          <strong>Hide Enter key hint</strong>
-          <small>Hide the ⏎ on the Next button. Enter still goes to the next question once you've answered (and to the next card in review)</small>
-        </span>
-        <Switch checked={quizOptions.hideEnterHint} onChange={(v) => set('hideEnterHint', v)} />
-      </label>
-      <label className="dropdown-item">
-        <span className="dropdown-item-text">
           <strong>Shuffle questions</strong>
           <small>Randomizes order (Applies on Restart)</small>
         </span>
@@ -38,6 +31,20 @@ export default function QuizOptionsFields() {
       </label>
       <label className="dropdown-item">
         <span className="dropdown-item-text">
+          <strong>Keep True/False order</strong>
+          <small>When shuffling choices, leave True / False questions as True then False (Applies on Restart)</small>
+        </span>
+        <Switch checked={quizOptions.keepTrueFalseOrder} onChange={(v) => set('keepTrueFalseOrder', v)} />
+      </label>
+      <label className="dropdown-item">
+        <span className="dropdown-item-text">
+          <strong>Show how many to select</strong>
+          <small>Multiple Select: show how many options to pick for full points, next to the points</small>
+        </span>
+        <Switch checked={quizOptions.showMsqCount} onChange={(v) => set('showMsqCount', v)} />
+      </label>
+      <label className="dropdown-item">
+        <span className="dropdown-item-text">
           <strong>Hide feedback</strong>
           <small>Never show the "Correct!" / "Incorrect" banner after answering</small>
         </span>
@@ -49,6 +56,13 @@ export default function QuizOptionsFields() {
           <small>Never show the explanation text after answering</small>
         </span>
         <Switch checked={quizOptions.hideExplanation} onChange={(v) => set('hideExplanation', v)} />
+      </label>
+      <label className="dropdown-item">
+        <span className="dropdown-item-text">
+          <strong>Hide Enter key hint</strong>
+          <small>Hide the ⏎ on the Next button. Enter still goes to the next question once you've answered (and to the next card in review)</small>
+        </span>
+        <Switch checked={quizOptions.hideEnterHint} onChange={(v) => set('hideEnterHint', v)} />
       </label>
       <label className="dropdown-item">
         <span className="dropdown-item-text">

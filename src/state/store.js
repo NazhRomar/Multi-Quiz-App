@@ -31,6 +31,8 @@ export const DEFAULT_QUIZ_OPTIONS = {
   hideExplanation: false,
   shuffleQuestions: false,
   shuffleChoices: false,
+  keepTrueFalseOrder: true, // shuffleChoices leaves True/False questions as True, False
+  showMsqCount: false, // "Select N" hint on multiple-select questions
   instantSubmit: true, // auto-submit mc/tf the moment you pick an option
   hideEnterHint: false, // hide the ⏎ keycap on Next (the Enter shortcut still works)
 };
@@ -83,6 +85,7 @@ function applyShuffle(quiz, quizOptions) {
   }
   if (quizOptions.shuffleChoices) {
     quiz.questions.forEach((q) => {
+      if (q.type === 'tf' && quizOptions.keepTrueFalseOrder) return;
       if (q.type === 'mc' || q.type === 'tf') {
         let arr = q.options.map((opt, i) => ({ text: opt, isCorrect: i === q.correctAnswer }));
         shuffleArray(arr);

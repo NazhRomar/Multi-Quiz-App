@@ -98,9 +98,17 @@ export default function QuestionCard({ question, index, savedState, isLocked, ex
           <span className="q-num-badge">{index + 1}</span>
           <span className={`q-type-badge ${question.type}`}>{TYPE_LABELS[question.type] || 'Question'}</span>
         </div>
-        <span className={`q-points ${question.flagged ? 'q-points--flagged' : ''}`}>
-          {question.flagged ? 'Not Scored' : `${question.points || 1} pts`}
-        </span>
+        <div className="q-meta-right">
+          {/* Quiz Options → Show how many to select (off by default). */}
+          {question.type === 'msq' && quizOptions.showMsqCount && (
+            <span className="msq-count-hint" title={`Select ${question.correctAnswer.length} options for full points`}>
+              Select {question.correctAnswer.length}
+            </span>
+          )}
+          <span className={`q-points ${question.flagged ? 'q-points--flagged' : ''}`}>
+            {question.flagged ? 'Not Scored' : `${question.points || 1} pts`}
+          </span>
+        </div>
       </div>
       <QuestionSource question={question} variant="inline" />
       <QuestionContext context={question.context} />

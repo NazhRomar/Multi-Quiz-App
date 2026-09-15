@@ -1529,6 +1529,29 @@ button:disabled {
   font-weight: bold;
 }
 
+/* "Select N" on multiple-select questions (Quiz Options → Show how many to
+   select), in the Multiple Select badge's colors. */
+.msq-count-hint {
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(168, 152, 234, 0.45);
+  background: rgba(168, 152, 234, 0.12);
+  color: #5d4d8c;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+body.theme-dark .msq-count-hint {
+  color: #d1c8fa;
+  background: rgba(168, 152, 234, 0.18);
+}
+
+body.theme-canvas .msq-count-hint {
+  background: transparent !important;
+  border-color: #c7cdd1 !important;
+  color: #2d3b45 !important;
+}
+
 .q-text {
   font-size: 1.05rem;
   font-weight: 600;
