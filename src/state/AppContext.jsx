@@ -35,6 +35,10 @@ export function AppProvider({ children }) {
   }, [state.multiOptions]);
 
   useEffect(() => {
+    localStorage.setItem('quizApp_homeMode', JSON.stringify(state.homeMode));
+  }, [state.homeMode]);
+
+  useEffect(() => {
     localStorage.setItem('quizApp_collapsedTerms', JSON.stringify(state.collapsedTerms));
   }, [state.collapsedTerms]);
 

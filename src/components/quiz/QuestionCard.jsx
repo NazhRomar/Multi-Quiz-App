@@ -97,12 +97,12 @@ export default function QuestionCard({ question, index, savedState, isLocked, ex
         <div className="q-meta-left">
           <span className="q-num-badge">{index + 1}</span>
           <span className={`q-type-badge ${question.type}`}>{TYPE_LABELS[question.type] || 'Question'}</span>
-          <QuestionSource question={question} variant="inline" />
         </div>
         <span className={`q-points ${question.flagged ? 'q-points--flagged' : ''}`}>
           {question.flagged ? 'Not Scored' : `${question.points || 1} pts`}
         </span>
       </div>
+      <QuestionSource question={question} variant="inline" />
       <QuestionContext context={question.context} />
       <div className="q-text" {...renderHtml(question.text)} />
       <div className="options-list">

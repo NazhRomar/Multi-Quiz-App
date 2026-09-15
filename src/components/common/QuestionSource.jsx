@@ -3,9 +3,10 @@ import { useApp } from '../../state/AppContext.jsx';
 // Multi sessions only: which quiz a question came from (question.source,
 // set by buildMultiQuiz). Rendered twice per card — variant "aside" sits in
 // the empty page margin beside the card on wide screens (so it adds no
-// vertical height), variant "inline" sits in the card's meta row on
-// narrower screens; CSS shows exactly one of them. The subject is only
-// spelled out when the session spans more than one.
+// vertical height), variant "inline" is a full-width strip under the meta
+// row on narrower screens (it used to live inside the meta row, where it
+// got truncated to nothing on phones); CSS shows exactly one of them. The
+// subject is only spelled out when the session spans more than one.
 export default function QuestionSource({ question, variant }) {
   const { state } = useApp();
   const { activeQuiz, multiOptions } = state;
@@ -28,8 +29,12 @@ export default function QuestionSource({ question, variant }) {
   }
 
   return (
-    <span className="q-source-inline" title={tooltip}>
-      {multiSubject ? `${source.course} · ${source.title}` : source.title}
-    </span>
+    <div className="q-source-inline" title={tooltip}>
+      <span className="q-source-label">From</span>
+      <span className="q-source-inline-text">
+        {multiSubject && <span className="q-source-course">{source.course} · </span>}
+        <strong className="q-source-title">{source.title}</strong>
+      </span>
+    </div>
   );
 }

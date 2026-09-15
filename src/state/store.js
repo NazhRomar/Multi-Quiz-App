@@ -44,6 +44,11 @@ export const DEFAULT_MULTI_OPTIONS = {
   showSource: true, // label each question with the quiz it came from
 };
 
+export const DEFAULT_HOME_MODE = {
+  multi: false, // Single vs Multi: tapping a quiz opens it, or selects it
+  review: false, // Quiz vs Review: which mode quizzes open in
+};
+
 export function createInitialState() {
   return {
     screen: 'menu', // 'menu' | 'quiz' | 'review' | 'result'
@@ -60,6 +65,11 @@ export function createInitialState() {
     quizOptions: loadState('quizApp_quizOptions', DEFAULT_QUIZ_OPTIONS),
     reviewOptions: loadState('quizApp_reviewOptions', DEFAULT_REVIEW_OPTIONS),
     multiOptions: loadState('quizApp_multiOptions', DEFAULT_MULTI_OPTIONS),
+    // Home menu Single/Multi + Quiz/Review toggles (persisted), and the
+    // Multi selection (courseMenu quiz ids; kept across returns to the menu
+    // for the session, not persisted).
+    homeMode: loadState('quizApp_homeMode', DEFAULT_HOME_MODE),
+    multiSelection: [],
     collapsedTerms: loadState('quizApp_collapsedTerms', {}),
   };
 }
@@ -110,8 +120,11 @@ export function reducer(state, action) {
       };
     }
 
+    // fresh: opened straight from the home menu, not switched to from a quiz
+    // attempt — drop any previous attempt's answers so they can't leak into
+    // this review (e.g. the Wrong answers only filter; ids repeat across quizzes).
     case 'START_REVIEW': {
-      const { term, course, quizData } = action.payload;
+      const { term, course, quizData, fresh } = action.payload;
       return {
         ...state,
         screen: 'review',
@@ -122,6 +135,7 @@ export function reducer(state, action) {
         activeMode: 'review',
         currentIndex: 0,
         result: null,
+        ...(fresh ? { userAnswers: {} } : {}),
       };
     }
 
@@ -220,6 +234,12 @@ export function reducer(state, action) {
       const multiOptions = { ...state.multiOptions, [action.payload.key]: action.payload.value };
       return { ...state, multiOptions };
     }
+    case 'SET_HOME_MODE': {
+      const homeMode = { ...state.homeMode, [action.payload.key]: action.payload.value };
+      return { ...state, homeMode };
+    }
+    case 'SET_MULTI_SELECTION':
+      return { ...state, multiSelection: action.payload };
     case 'TOGGLE_TERM': {
       const collapsedTerms = { ...state.collapsedTerms, [action.payload.term]: !state.collapsedTerms[action.payload.term] };
       return { ...state, collapsedTerms };

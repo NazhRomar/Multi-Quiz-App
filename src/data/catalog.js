@@ -57,15 +57,19 @@ export function filterCourseMenu(query) {
 // for a Multi session, in home-menu order. Question ids are renumbered
 // (every source quiz starts at 1, and answers are keyed by id) and each
 // question carries a `source` so the UI can say where it came from.
-// `multi.subjects` lists every distinct term/course involved.
+// `multi.subjects` lists every distinct term/course involved, and
+// `multi.quizzes` every source quiz (the results screen's per-module
+// breakdown order).
 export function buildMultiQuiz(selectedIds) {
   const questions = [];
   const subjects = [];
+  const quizzes = [];
   for (const term of sortedTerms()) {
     for (const course in courseMenu[term]) {
       for (const quiz of courseMenu[term][course]) {
         if (!selectedIds.has(quiz.id)) continue;
         if (!subjects.some((s) => s.term === term && s.course === course)) subjects.push({ term, course });
+        quizzes.push({ term, course, title: quiz.title });
         for (const q of quiz.data.questions) {
           questions.push({
             ...JSON.parse(JSON.stringify(q)),
@@ -81,7 +85,7 @@ export function buildMultiQuiz(selectedIds) {
     quizTitle: 'Multi Quiz',
     totalPoints: questions.reduce((sum, q) => sum + (q.points || 1), 0),
     questions,
-    multi: { subjects, quizCount: selectedIds.size },
+    multi: { subjects, quizzes },
   };
 }
 

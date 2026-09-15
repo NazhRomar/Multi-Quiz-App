@@ -1674,6 +1674,33 @@ button:disabled {
   opacity: 0.9;
 }
 
+/* A <select> is as wide as its longest option by default, and as a flex
+   item it can't shrink below that — long match choices were blowing the
+   row (and on mobile the whole page) far wider than the screen. Let it
+   shrink and truncate; the native picker still shows the full text. */
+.match-select {
+  min-width: 0;
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+
+/* Phones: no room for term and choice side by side — stack them. */
+@media (max-width: 600px) {
+  .match-row {
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .match-term {
+    padding: 0.2rem 0.3rem 0;
+  }
+
+  .match-select {
+    flex: none;
+    width: 100%;
+  }
+}
+
 /* --- Question Context Block --- */
 /* Reverted to the plain boxed style after three attempts at a flat-topped
    accent bar kept breaking (rounded-cap clipping, then a fragile
@@ -1816,6 +1843,17 @@ button:disabled {
 
   #quiz-container {
     padding-bottom: 84px;
+  }
+
+  /* Top nav: tighter gap above and below the row than desktop's. The top
+     row is always in the DOM (hidden via inline display:none), hence the
+     attribute check. */
+  #quiz-nav-top.nav-row {
+    margin-top: 0.8rem;
+  }
+
+  #quiz-nav-top[style*="display: flex"] + #quiz-container {
+    margin-top: 1rem;
   }
 }
 
@@ -2780,44 +2818,116 @@ body .dropdown-item .q-context.code-theme-preview .q-context-body {
   --multi-accent: #d9821e;
 }
 
+/* Home search row: search box + the Single/Multi and Quiz/Review toggles.
+   The toggles wrap under the search box when there's no room beside it. */
 .menu-search-wrap {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 0.6rem;
 }
 
-.btn-multi-toggle {
+.menu-search-wrap .menu-search-input {
+  flex: 1 1 240px;
+  width: auto;
+  min-width: 0;
+}
+
+.menu-mode-toggles {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Segmented toggle (SegmentedToggle.jsx) */
+.segmented {
+  position: relative;
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  padding: 3px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 11px;
   flex-shrink: 0;
-  padding: 0 1rem;
-  border-radius: 10px;
-  border: 1px solid var(--multi-accent);
-  background: color-mix(in srgb, var(--multi-accent) 10%, var(--surface));
-  color: #9a5608;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
 }
 
-.btn-multi-toggle:hover {
+.segmented-thumb {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc((100% - 6px) / var(--seg-count));
+  transform: translateX(calc(100% * var(--seg-index)));
+  border-radius: 8px;
+  background: var(--accent);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--accent) 35%, transparent);
+  transition: transform 0.25s cubic-bezier(0.3, 0.7, 0.4, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.segmented-thumb--multi {
   background: var(--multi-accent);
-  color: #ffffff;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--multi-accent) 35%, transparent);
 }
 
-.btn-multi-toggle--active {
+.segmented-thumb--review {
+  background: var(--review-accent);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--review-accent) 35%, transparent);
+}
+
+.segmented-option {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  height: 34px;
+  padding: 0 0.9rem;
   background: transparent;
-  border-color: var(--border);
+  border-radius: 8px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
   color: var(--text-muted);
+  transition: color 0.2s ease;
 }
 
-.btn-multi-toggle--active:hover {
-  background: var(--radio-bg);
-  border-color: var(--text-muted);
+.segmented-option:hover:not(.segmented-option--active) {
   color: var(--text);
 }
 
-.multi-select-hint {
+.segmented-option:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.segmented-option--active {
+  color: #ffffff;
+}
+
+.segmented-icon {
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .menu-mode-toggles {
+    width: 100%;
+  }
+
+  .menu-mode-toggles .segmented {
+    flex: 1;
+  }
+
+  .segmented-option {
+    padding: 0 0.5rem;
+    font-size: 0.7rem;
+  }
+}
+
+.menu-mode-hint {
   width: 100%;
   max-width: 900px;
   margin: 0.75rem auto 0;
@@ -2936,11 +3046,6 @@ body .btn-quiz.quiz-selected {
   .multi-select-actions .btn-next {
     padding: 0.6rem 0.9rem;
   }
-
-  .btn-multi-toggle {
-    padding: 0 0.75rem;
-    font-size: 0.72rem;
-  }
 }
 
 /* Mode pill */
@@ -2950,11 +3055,112 @@ body .btn-quiz.quiz-selected {
   border: 1px solid rgba(217, 130, 30, 0.4);
 }
 
-body.theme-dark-purple .mode-pill--multi,
-body.theme-dark-purple .btn-multi-toggle:not(.btn-multi-toggle--active):not(:hover) {
+body.theme-dark-purple .mode-pill--multi {
   background: rgba(240, 170, 80, 0.2) !important;
   color: #ffc98a !important;
   border-color: rgba(240, 170, 80, 0.5) !important;
+}
+
+/* --- Multi results: score by module (ModuleBreakdown.jsx) --- */
+.module-breakdown {
+  margin: 1.75rem auto 0;
+  max-width: 560px;
+  text-align: left;
+}
+
+.module-breakdown-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.module-breakdown-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.module-row-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.module-row-name {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.module-row-name small {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.module-row-score {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-shrink: 0;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.module-row-pct {
+  min-width: 3.2em;
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+.module-bar {
+  height: 8px;
+  background: var(--border);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.module-bar-fill {
+  height: 100%;
+  min-width: 4px;
+  border-radius: 99px;
+  transition: width 0.5s ease;
+}
+
+.module-bar-fill--good,
+.module-row-pct--good {
+  --tone: var(--correct);
+}
+
+.module-bar-fill--mid,
+.module-row-pct--mid {
+  --tone: #d9921e;
+}
+
+.module-bar-fill--low,
+.module-row-pct--low {
+  --tone: #d94f4f;
+}
+
+.module-bar-fill {
+  background: var(--tone);
+}
+
+.module-row-pct {
+  color: var(--tone);
 }
 
 /* Question source (Multi sessions). The aside variant floats in the page
@@ -2968,22 +3174,38 @@ body.theme-dark-purple .btn-multi-toggle:not(.btn-multi-toggle--active):not(:hov
   display: none;
 }
 
-.q-meta-left:has(.q-source-inline) {
-  min-width: 0;
+/* Full-width strip under the meta row; wraps instead of truncating. */
+.q-source-inline {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  margin: -0.35rem 0 1rem;
+  padding: 0.4rem 0.7rem;
+  border-left: 3px solid var(--multi-accent);
+  border-radius: 0 8px 8px 0;
+  background: color-mix(in srgb, var(--multi-accent) 8%, transparent);
+  line-height: 1.35;
 }
 
-.q-source-inline {
+.q-source-inline .q-source-label {
+  flex-shrink: 0;
+}
+
+.q-source-inline-text {
   min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  background: var(--radio-bg);
-  border: 1px dashed var(--border);
-  border-radius: 6px;
-  padding: 0.2rem 0.5rem;
+  font-size: 0.82rem;
+  overflow-wrap: anywhere;
+}
+
+.q-source-inline .q-source-course,
+.q-source-inline .q-source-title {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Canvas's meta row is a header bar with its own bottom margin. */
+body.theme-canvas .q-source-inline {
+  margin-top: 0;
 }
 
 @media (min-width: 1240px) {

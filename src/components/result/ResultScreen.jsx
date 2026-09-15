@@ -1,10 +1,11 @@
 import { useApp } from '../../state/AppContext.jsx';
 import ScoreRing from './ScoreRing.jsx';
 import HeaderTitle from '../common/HeaderTitle.jsx';
+import ModuleBreakdown from './ModuleBreakdown.jsx';
 
 export default function ResultScreen({ goHome }) {
   const { state, dispatch } = useApp();
-  const { result } = state;
+  const { activeQuiz, result } = state;
   const { score, totalPossible, correctCount, wrongCount, unansweredCount, flaggedCount } = result;
   const percentage = Math.round((score / totalPossible) * 100);
 
@@ -46,6 +47,7 @@ export default function ResultScreen({ goHome }) {
             </div>
           )}
         </div>
+        {activeQuiz.multi && <ModuleBreakdown />}
         <div className="result-actions">
           <button className="btn-next" onClick={() => dispatch({ type: 'SWITCH_TO_REVIEW' })}>
             Review Answers
