@@ -66,6 +66,13 @@ export default function QuizOptionsFields() {
       </label>
       <label className="dropdown-item">
         <span className="dropdown-item-text">
+          <strong>Hide number key hints</strong>
+          <small>Hide the 1–9 / 0 keys on answer choices. Number keys still pick choices (Multiple Select: pick, then Enter)</small>
+        </span>
+        <Switch checked={quizOptions.hideNumberHint} onChange={(v) => set('hideNumberHint', v)} />
+      </label>
+      <label className="dropdown-item">
+        <span className="dropdown-item-text">
           <strong>Skip feedback if explained</strong>
           <small>Only hide the correct/incorrect banner on questions that already show an explanation</small>
         </span>

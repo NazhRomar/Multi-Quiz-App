@@ -1,6 +1,10 @@
 import { renderHtml } from '../../../utils/renderHtml.js';
+import { choiceKeyLabel } from '../useEnterShortcut.js';
+import EnterKeyIcon from '../../common/EnterKeyIcon.jsx';
 
-export default function McTfOptions({ question, savedState, isLocked, onSelect, onSubmit, hideSubmit }) {
+// showKeyHints: number keycap at the right of each unanswered choice (the
+// number-key shortcut, QuizScreen). submitEnterHint: ⏎ on Submit.
+export default function McTfOptions({ question, savedState, isLocked, onSelect, onSubmit, hideSubmit, showKeyHints, submitEnterHint }) {
   return (
     <>
       {question.options.map((opt, idx) => {
@@ -10,6 +14,7 @@ export default function McTfOptions({ question, savedState, isLocked, onSelect, 
           if (idx === question.correctAnswer) statusClass = 'reveal-correct';
           else if (savedState.value === idx) statusClass = 'reveal-wrong';
         }
+        const keyLabel = showKeyHints && !isLocked && choiceKeyLabel(idx);
         return (
           <label key={idx} className={`option-label ${statusClass} ${isLocked ? 'locked' : ''}`}>
             <input
@@ -20,12 +25,18 @@ export default function McTfOptions({ question, savedState, isLocked, onSelect, 
               onChange={() => onSelect(idx)}
             />
             <span {...renderHtml(opt)} />
+            {keyLabel && (
+              <kbd className="option-key" aria-hidden="true">
+                {keyLabel}
+              </kbd>
+            )}
           </label>
         );
       })}
       {!isLocked && !hideSubmit && (
         <button className="btn-check" style={{ marginTop: '1rem' }} onClick={onSubmit} disabled={savedState.value === null}>
           Submit
+          {submitEnterHint && <EnterKeyIcon />}
         </button>
       )}
     </>

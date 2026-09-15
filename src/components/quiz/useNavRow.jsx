@@ -2,6 +2,7 @@ import { useLayoutEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { navSideLeft, navSideRight, navNearLeft, navNearRight } from './navPortalTargets.js';
 import { useIsMobile } from '../../utils/useIsMobile.js';
+import EnterKeyIcon from '../common/EnterKeyIcon.jsx';
 
 const NAV_POSITION_MAP = {
   up: ['top'],
@@ -16,19 +17,6 @@ const NAV_POSITION_MAP = {
 // rows plus the body-level portal content for the "sides"/"center" nav
 // location settings, so the caller can place quiz-container content
 // between the top and bottom rows in the actual DOM order.
-// A return-key keycap, shown inside the quiz's Next/Finish button when Enter
-// will press it. CSS hides it on touch-only devices (no keyboard).
-function EnterKeyIcon() {
-  return (
-    <span className="enter-hint" aria-hidden="true">
-      <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12.5 3.5v4a2 2 0 0 1-2 2H4" />
-        <path d="M6.5 7L4 9.5 6.5 12" />
-      </svg>
-    </span>
-  );
-}
-
 // sourceTag: optional node (Multi's QuestionSource "nav" variant) rendered
 // as the first child of both inline rows — CSS only shows it on phones:
 // floating above the bottom bar, or on its own line below the top row's

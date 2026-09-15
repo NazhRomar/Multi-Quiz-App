@@ -1,6 +1,10 @@
 import { renderHtml } from '../../../utils/renderHtml.js';
+import { choiceKeyLabel } from '../useEnterShortcut.js';
+import EnterKeyIcon from '../../common/EnterKeyIcon.jsx';
 
-export default function MsqOptions({ question, savedState, isLocked, onToggle, onSubmit }) {
+// showKeyHints: number keycap at the right of each unanswered choice (the
+// number-key shortcut toggles it, QuizScreen). submitEnterHint: ⏎ on Submit.
+export default function MsqOptions({ question, savedState, isLocked, onToggle, onSubmit, showKeyHints, submitEnterHint }) {
   const savedSet = savedState.value || [];
   // After an actual attempt, a correct option the user didn't pick is
   // "missed" (styled apart from the ones they got). With nothing picked
@@ -15,6 +19,7 @@ export default function MsqOptions({ question, savedState, isLocked, onToggle, o
           if (question.correctAnswer.includes(idx)) statusClass = isChecked || !attempted ? 'reveal-correct' : 'reveal-missed';
           else if (isChecked) statusClass = 'reveal-wrong';
         }
+        const keyLabel = showKeyHints && !isLocked && choiceKeyLabel(idx);
         return (
           <label key={idx} className={`option-label ${statusClass} ${isLocked ? 'locked' : ''}`}>
             <input
@@ -26,6 +31,11 @@ export default function MsqOptions({ question, savedState, isLocked, onToggle, o
             />
             <span {...renderHtml(opt)} />
             {statusClass === 'reveal-missed' && <span className="reveal-tag">Missed</span>}
+            {keyLabel && (
+              <kbd className="option-key" aria-hidden="true">
+                {keyLabel}
+              </kbd>
+            )}
           </label>
         );
       })}
@@ -33,6 +43,7 @@ export default function MsqOptions({ question, savedState, isLocked, onToggle, o
         // Nothing picked yet: the same button doubles as "give up and reveal".
         <button className="btn-check" style={{ marginTop: '1rem' }} onClick={onSubmit}>
           {savedSet.length === 0 ? 'Show Answer' : 'Submit'}
+          {submitEnterHint && <EnterKeyIcon />}
         </button>
       )}
     </>

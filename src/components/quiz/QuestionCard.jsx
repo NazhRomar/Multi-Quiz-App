@@ -18,7 +18,9 @@ const TYPE_LABELS = {
   'drag-drop': 'Drag & Drop',
 };
 
-export default function QuestionCard({ question, index, savedState, isLocked, exiting }) {
+// showKeyHints: number keycaps on the choices (QuizScreen's number-key
+// shortcut). submitEnterHint: ⏎ on Submit when Enter would submit.
+export default function QuestionCard({ question, index, savedState, isLocked, exiting, showKeyHints, submitEnterHint }) {
   const { state, dispatch } = useApp();
   const { quizOptions } = state;
 
@@ -39,6 +41,8 @@ export default function QuestionCard({ question, index, savedState, isLocked, ex
           }}
           onSubmit={submit}
           hideSubmit={quizOptions.instantSubmit}
+          showKeyHints={showKeyHints}
+          submitEnterHint={submitEnterHint}
         />
       );
       break;
@@ -50,6 +54,8 @@ export default function QuestionCard({ question, index, savedState, isLocked, ex
           isLocked={isLocked}
           onToggle={(idx, checked) => dispatch({ type: 'TOGGLE_MSQ', payload: { qId: question.id, idx, checked } })}
           onSubmit={submit}
+          showKeyHints={showKeyHints}
+          submitEnterHint={submitEnterHint}
         />
       );
       break;

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useApp } from '../../state/AppContext.jsx';
 import { liveScore, scoreQuiz } from '../../state/grading.js';
 import { useNavRow } from './useNavRow.jsx';
-import { useEnterShortcut } from './useEnterShortcut.js';
+import { useChoiceKeys, useEnterShortcut } from './useEnterShortcut.js';
 import QuizHeader from './QuizHeader.jsx';
 import QuestionCard from './QuestionCard.jsx';
 import SubmitConfirmModal from './SubmitConfirmModal.jsx';
@@ -39,10 +39,39 @@ export default function QuizScreen({ goHome }) {
 
   const unanswered = activeQuiz.questions.filter((q) => !q.flagged && !userAnswers[q.id]?.submitted).length;
 
-  // Enter shortcut: once the current question is answered, Enter does what
-  // the Next button does (Finish on the last question). Not mid card
-  // transition, so a quick double press can't skip a question.
-  useEnterShortcut(isLocked && !showConfirm && !isCardExiting ? (isLast ? () => setShowConfirm(true) : () => animatedNav('NEXT_Q')) : null);
+  // Keyboard shortcuts — only while the question is on screen and settled
+  // (not mid card transition, so a quick double press can't skip one, and
+  // not behind the Finish dialog).
+  const keysActive = !showConfirm && !isCardExiting;
+  const isChoiceType = question.type === 'mc' || question.type === 'tf' || question.type === 'msq';
+  const hasSelection =
+    question.type === 'msq' ? (savedState.value || []).length > 0 : savedState.value !== null && savedState.value !== undefined;
+  const submitCurrent = () => dispatch({ type: 'CHECK_ANSWER', payload: { qId: question.id } });
+
+  // Number keys pick an option (1–9, 0 = 10th): Multiple Choice / True-False
+  // select it (and submit, with Instant submit on); Multiple Select toggles
+  // it, then Enter submits.
+  useChoiceKeys(
+    keysActive && !isLocked && isChoiceType
+      ? (idx) => {
+          if (idx >= question.options.length) return;
+          if (question.type === 'msq') {
+            const checked = !(savedState.value || []).includes(idx);
+            dispatch({ type: 'TOGGLE_MSQ', payload: { qId: question.id, idx, checked } });
+          } else {
+            dispatch({ type: 'SAVE_ANSWER', payload: { qId: question.id, value: idx } });
+            if (quizOptions.instantSubmit) submitCurrent();
+          }
+        }
+      : null
+  );
+
+  // Enter: submits a picked-but-unsubmitted choice answer; once answered,
+  // does what the Next button does (Finish on the last question).
+  const enterSubmits = !isLocked && isChoiceType && hasSelection;
+  useEnterShortcut(
+    !keysActive ? null : isLocked ? (isLast ? () => setShowConfirm(true) : () => animatedNav('NEXT_Q')) : enterSubmits ? submitCurrent : null
+  );
 
   const { topRow, bottomRow, portals } = useNavRow({
     navLocation: appSettings.navLocation,
@@ -65,7 +94,15 @@ export default function QuizScreen({ goHome }) {
       <QuizHeader score={score} goHome={goHome} />
       {topRow}
       <main id="quiz-container">
-        <QuestionCard question={question} index={currentIndex} savedState={savedState} isLocked={isLocked} exiting={isCardExiting} />
+        <QuestionCard
+          question={question}
+          index={currentIndex}
+          savedState={savedState}
+          isLocked={isLocked}
+          exiting={isCardExiting}
+          showKeyHints={!quizOptions.hideNumberHint}
+          submitEnterHint={enterSubmits && !quizOptions.hideEnterHint}
+        />
       </main>
       {bottomRow}
       {portals}
