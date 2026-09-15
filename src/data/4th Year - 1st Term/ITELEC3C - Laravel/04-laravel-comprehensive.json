@@ -1,7 +1,7 @@
 {
   "courseCode": "ITELEC3C",
   "quizTitle": "Laravel - 1-3 Comprehensive",
-  "totalPoints": 290,
+  "totalPoints": 349,
   "questions": [
     {
       "id": 1,
@@ -159,7 +159,7 @@
           "match": "Write database queries using PHP syntax rather than SQL"
         }
       ],
-      "points": 3,
+      "points": 6,
       "explanation": "These are the six features from the two \"Why Laravel?\" slides."
     },
     {
@@ -203,7 +203,7 @@
         4,
         5
       ],
-      "points": 2,
+      "points": 4,
       "explanation": "Slide: \"Laravel offers a range of security features, such as user authentication, role authorizations, email verifications, password hashing and more.\""
     },
     {
@@ -293,7 +293,7 @@
         2,
         3
       ],
-      "points": 2,
+      "points": 4,
       "explanation": "Key Features slide: clean and elegant syntax, built-in authentication &amp; authorization, Eloquent ORM, Blade templating engine, Artisan CLI for automation, and Routing/Middleware/Caching."
     },
     {
@@ -399,7 +399,7 @@
         4,
         5
       ],
-      "points": 2,
+      "points": 4,
       "explanation": "Prerequisites: PHP &gt;= 8.1, Composer, MySQL or any supported DB, a web server (Apache/Nginx) or Laravel Sail (Docker), an IDE, and Node."
     },
     {
@@ -489,7 +489,7 @@
         4,
         5
       ],
-      "points": 2,
+      "points": 3,
       "explanation": "Slide: \"Composer to install Laravel, update Laravel, and bring in external dependencies.\" Migrations and generating controllers are done with Artisan; Blade compiles its own templates."
     },
     {
@@ -618,7 +618,7 @@
           "match": "Connects Model and View and contains the business logic"
         }
       ],
-      "points": 2,
+      "points": 3,
       "explanation": "From the MVC slide."
     },
     {
@@ -778,7 +778,7 @@
         4,
         6
       ],
-      "points": 2,
+      "points": 4,
       "explanation": "Advantages slide: organizing large-scale projects, easier modification, a change in one part won't affect the others, faster development, and Asynchronous Method Invocation."
     },
     {
@@ -811,7 +811,7 @@
           "match": "app/Http/Controllers"
         }
       ],
-      "points": 2,
+      "points": 3,
       "explanation": "From the study plan (Session 1.3): Models → <code>app/Models</code>, Views → <code>resources/views</code>, Controllers → <code>app/Http/Controllers</code>."
     },
     {
@@ -840,7 +840,7 @@
           "match": "Views and raw, un-compiled CSS/JavaScript"
         }
       ],
-      "points": 3,
+      "points": 5,
       "explanation": "From the Laravel Folder Structure slides."
     },
     {
@@ -865,7 +865,7 @@
           "match": "Composer dependencies"
         }
       ],
-      "points": 2,
+      "points": 4,
       "explanation": "From the Laravel Folder Structure slides."
     },
     {
@@ -1110,7 +1110,7 @@
           "match": "routes/api.php"
         }
       ],
-      "points": 1,
+      "points": 2,
       "explanation": "Slide: \"Routes are defined in the routes/web.php file for web routes and routes/api.php for API routes.\""
     },
     {
@@ -1136,7 +1136,7 @@
           "match": "A closure that returns a response"
         }
       ],
-      "points": 2,
+      "points": 3,
       "explanation": "From the Basic Routing slide."
     },
     {
@@ -1223,7 +1223,7 @@
           "match": "Delete a resource"
         }
       ],
-      "points": 3,
+      "points": 5,
       "explanation": "From the HTTP Verbs overview slide."
     },
     {
@@ -1410,7 +1410,7 @@
           "match": "Optional parameter"
         }
       ],
-      "points": 1,
+      "points": 2,
       "explanation": "A <code>?</code> after the parameter name makes it optional. Give the closure's variable a default value."
     },
     {
@@ -1540,7 +1540,7 @@
         3,
         4
       ],
-      "points": 2,
+      "points": 3,
       "explanation": "<code>[0-9]+</code> means one or more digits and nothing else. Letters and the minus sign don't match, so those URLs give a 404. (Checked with PHP <code>preg_match</code> against the anchored pattern.)"
     },
     {
@@ -1559,7 +1559,7 @@
         1,
         2
       ],
-      "points": 2,
+      "points": 3,
       "explanation": "Only letters, digits, and hyphens are allowed. Underscores and dots aren't in the character set, so those URLs give a 404. (Checked with PHP <code>preg_match</code>.)"
     },
     {
@@ -1709,7 +1709,7 @@
           "match": "The HTTP status code"
         }
       ],
-      "points": 2,
+      "points": 3,
       "explanation": "<code>response()-&gt;view($view, $data, $status)</code>: the view name, an array of data for it, and the HTTP status code."
     },
     {
@@ -1845,7 +1845,7 @@
           "match": "Always validate input in routes to prevent security vulnerabilities"
         }
       ],
-      "points": 2,
+      "points": 3,
       "explanation": "From the Best Practices for Routing slide."
     },
     {
@@ -1896,7 +1896,7 @@
         5,
         6
       ],
-      "points": 2,
+      "points": 5,
       "explanation": "Chapter outline: What is Routes?, Basic Routing, Route Parameter, Fallback Route, Route Groups, Route Cache."
     },
     {
@@ -1986,7 +1986,7 @@
         3,
         5
       ],
-      "points": 2,
+      "points": 3,
       "explanation": "Slide: \"Blade templates contain HTML as well as Blade directives that allow you to easily echo values, create 'if' statements, iterate over data, and more.\""
     },
     {
@@ -2310,7 +2310,7 @@
         5,
         6
       ],
-      "points": 2,
+      "points": 5,
       "explanation": "Slide: \"Switch statements can be constructed using the @switch, @case, @break, @default and @endswitch directives.\""
     },
     {
@@ -2553,7 +2553,7 @@
         1,
         3
       ],
-      "points": 2,
+      "points": 3,
       "explanation": "Slide: \"Since HTML forms can't make PUT, PATCH, or DELETE requests, you will need to add a hidden _method field to spoof these HTTP verbs.\""
     },
     {
@@ -2677,7 +2677,7 @@
           "match": "Displays (echoes) data"
         }
       ],
-      "points": 3,
+      "points": 6,
       "explanation": "All of these come from the Blade Templates section of Module 3."
     },
     {
@@ -2954,7 +2954,7 @@
           "match": "Remove the specified user from storage"
         }
       ],
-      "points": 4,
+      "points": 7,
       "explanation": "These are the comments above each method in the CRUD <code>UserController</code> slides."
     },
     {
@@ -2991,7 +2991,7 @@
           "match": "DELETE /users/{id}"
         }
       ],
-      "points": 4,
+      "points": 7,
       "explanation": "Study plan Session 4.5 route list. These are also the standard Laravel resource routes."
     },
     {
@@ -3057,7 +3057,7 @@
         3,
         4
       ],
-      "points": 2,
+      "points": 5,
       "explanation": "<code>'email' =&gt; 'required|string|email|max:255|unique:users'</code>."
     },
     {
@@ -3149,7 +3149,7 @@
         2,
         5
       ],
-      "points": 2,
+      "points": 3,
       "explanation": "<code>store</code>, <code>update</code>, and <code>destroy</code> change data and then <code>redirect()-&gt;route('users.index')-&gt;with(...)</code>. The others return views."
     },
     {
@@ -3171,7 +3171,7 @@
         5,
         6
       ],
-      "points": 2,
+      "points": 4,
       "explanation": "Every method that works on one existing user looks it up with <code>findOrFail</code>. <code>index</code> lists all users, <code>create</code> just shows a form, and <code>store</code> makes a new user."
     },
     {
@@ -3202,7 +3202,7 @@
           "match": "Remove the user"
         }
       ],
-      "points": 2,
+      "points": 4,
       "explanation": "The Eloquent calls used in <code>index</code>, <code>store</code>, <code>update</code>, and <code>destroy</code>."
     },
     {
@@ -3328,7 +3328,7 @@
           "match": "node -v"
         }
       ],
-      "points": 2,
+      "points": 3,
       "explanation": "Session 0 of the study plan."
     },
     {
@@ -3449,7 +3449,7 @@
         3,
         4
       ],
-      "points": 2,
+      "points": 5,
       "explanation": "Routes are written by hand in <code>routes/web.php</code>. There's no <code>make:route</code>, and views are created with <code>make:view</code>, not <code>view:create</code>."
     },
     {
@@ -3482,7 +3482,7 @@
           "match": "Runs database migrations"
         }
       ],
-      "points": 3,
+      "points": 6,
       "explanation": "Artisan commands from all three modules and the study plan."
     },
     {
