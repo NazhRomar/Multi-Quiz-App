@@ -53,6 +53,74 @@ export function filterCourseMenu(query) {
   return filtered;
 }
 
+// Home menu search only kicks in from this many characters (shorter queries
+// match nearly everything, and question search runs on every keystroke).
+export const MIN_SEARCH_LENGTH = 3;
+
+// Quiz content is HTML (inline <code>, <pre> contexts, entities); search
+// and result previews work on its plain text.
+function plainText(html) {
+  return String(html ?? '')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// A question's correct answer(s) as plain text — searchable, and shown
+// under each question search result.
+function answerText(q) {
+  if (q.type === 'mc' || q.type === 'tf') return plainText(q.options?.[q.correctAnswer]);
+  if (q.type === 'msq') return (q.correctAnswer || []).map((i) => plainText(q.options?.[i])).join(', ');
+  if (q.type === 'fitb') return [].concat(q.correctAnswer).map(plainText).join(', ');
+  if (q.type === 'matching' || q.type === 'drag-drop') {
+    return (q.pairs || []).map((p) => `${plainText(p.term)} → ${plainText(p.match)}`).join(' · ');
+  }
+  return '';
+}
+
+// Every question of every quiz, flattened once for question search: plain
+// question text (plus any code snippet) and correct answer text.
+const questionIndex = [];
+for (const term in courseMenu) {
+  for (const course in courseMenu[term]) {
+    for (const quiz of courseMenu[term][course]) {
+      (quiz.data.questions || []).forEach((q, qIndex) => {
+        const text = plainText(q.text);
+        const extra = plainText([].concat(q.context || []).join(' ')) + ' ' + (q.code || '');
+        const answer = answerText(q);
+        questionIndex.push({
+          key: `${quiz.id}#${qIndex}`,
+          term,
+          course,
+          quiz,
+          qIndex,
+          text,
+          answer,
+          haystack: `${text} ${extra} ${answer}`.toLowerCase(),
+        });
+      });
+    }
+  }
+}
+
+// Question search for the home menu: questions whose text, code snippet or
+// correct answer contains the query, in home-menu (catalog) order. Returns
+// { results (up to limit), total }.
+export function searchQuestions(query, limit = 50) {
+  const q = query.trim().toLowerCase();
+  if (q.length < MIN_SEARCH_LENGTH) return { results: [], total: 0 };
+  const matches = questionIndex.filter((entry) => entry.haystack.includes(q));
+  const termOrder = sortedTerms();
+  matches.sort((a, b) => termOrder.indexOf(a.term) - termOrder.indexOf(b.term));
+  return { results: matches.slice(0, limit), total: matches.length };
+}
+
 // Combines the selected quizzes (ids from courseMenu entries) into one quiz
 // for a Multi session, in home-menu order. Question ids are renumbered
 // (every source quiz starts at 1, and answers are keyed by id) and each

@@ -1136,6 +1136,77 @@ body.theme-dark .review-status--partial {
   min-width: 0;
 }
 
+/* --- Home search: matching questions (QuestionSearchResults.jsx) --- */
+/* Same card/header look as a term section, but the header isn't a toggle. */
+.question-search-header {
+  cursor: default;
+}
+
+.question-search-header:hover {
+  background: none;
+}
+
+.question-search-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.question-search-result {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  text-align: left;
+  font-weight: 400;
+}
+
+.question-search-result:hover {
+  background: var(--radio-bg);
+  border-color: var(--accent);
+}
+
+.question-search-source {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.question-search-text {
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.question-search-answer {
+  font-size: 0.85rem;
+  line-height: 1.35;
+  color: var(--text-muted);
+}
+
+.question-search-answer-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--correct);
+}
+
+.question-search mark {
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 1px;
+}
+
 .term-count {
   font-family: 'Space Mono', monospace;
   font-size: 0.72rem;

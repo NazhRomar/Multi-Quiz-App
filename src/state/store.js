@@ -23,6 +23,7 @@ export const DEFAULT_APP_SETTINGS = {
   appFont: 'default', // see FONTS in utils/fonts.js
   answerFont: 'default', // see FONTS in utils/fonts.js
   compactMode: false,
+  searchQuestionsFirst: false, // home search: matching questions above matching quizzes
 };
 export const DEFAULT_QUIZ_OPTIONS = {
   noSkip: false,
@@ -126,8 +127,9 @@ export function reducer(state, action) {
     // fresh: opened straight from the home menu, not switched to from a quiz
     // attempt — drop any previous attempt's answers so they can't leak into
     // this review (e.g. the Wrong answers only filter; ids repeat across quizzes).
+    // startIndex: open at that question (home menu question search results).
     case 'START_REVIEW': {
-      const { term, course, quizData, fresh } = action.payload;
+      const { term, course, quizData, fresh, startIndex = 0 } = action.payload;
       return {
         ...state,
         screen: 'review',
@@ -136,7 +138,7 @@ export function reducer(state, action) {
         activeTerm: term,
         activeCourse: course,
         activeMode: 'review',
-        currentIndex: 0,
+        currentIndex: startIndex,
         result: null,
         ...(fresh ? { userAnswers: {} } : {}),
       };
