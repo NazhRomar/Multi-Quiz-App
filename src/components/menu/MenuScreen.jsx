@@ -8,6 +8,7 @@ import TermSection from './TermSection.jsx';
 import { useOverload } from './overload/useOverload.js';
 import OverloadCount from './overload/OverloadCount.jsx';
 import { formatBuildDate } from '../../utils/formatBuildDate.js';
+import { estimateSeconds, formatDuration } from '../../utils/estimateTime.js';
 import { showcaseQuiz } from '../../devFixtures/showcaseQuiz.js';
 
 const icon = (children) => (
@@ -29,6 +30,13 @@ const SCOPE_OPTIONS = [
     ),
   },
 ];
+
+const CLOCK_ICON = (
+  <svg className="multi-estimate-icon" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <circle cx="8" cy="8" r="6.25" />
+    <path d="M8 4.75V8l2.25 1.5" />
+  </svg>
+);
 
 const MODE_OPTIONS = [
   { value: 'quiz', label: 'Quiz', icon: icon(<path d="M10.5 2.5l3 3L6 13H3v-3z" />) },
@@ -75,11 +83,18 @@ export default function MenuScreen() {
     else start(term, course, quiz.data);
   };
 
-  const selectedQuestionCount = Object.values(courseMenu)
+  const selectedQuestions = Object.values(courseMenu)
     .flatMap((courses) => Object.values(courses).flat())
     .filter((quiz) => selected.has(quiz.id))
-    .reduce((sum, quiz) => sum + (quiz.data.questions?.length || 0), 0);
+    .flatMap((quiz) => quiz.data.questions || []);
+  const selectedQuestionCount = selectedQuestions.length;
   const overload = useOverload(selectedQuestionCount);
+  const estimate = formatDuration(
+    estimateSeconds(selectedQuestions, {
+      review: homeMode.review,
+      showExplanation: homeMode.review ? !state.reviewOptions.hideExplanation : !state.quizOptions.hideExplanation,
+    })
+  );
 
   const hint = homeMode.multi
     ? `Pick any quizzes, from any subject or term, to combine into one Multi ${homeMode.review ? 'review' : 'quiz'}.`
@@ -166,7 +181,19 @@ export default function MenuScreen() {
               <strong>
                 {selected.size} {selected.size === 1 ? 'quiz' : 'quizzes'}
               </strong>{' '}
-              · <OverloadCount count={selectedQuestionCount} heat={overload.heat} surgeId={overload.surgeId} />
+              · <OverloadCount count={selectedQuestionCount} heat={overload.heat} surgeId={overload.surgeId} />{' '}
+              ·{' '}
+              <span
+                className="multi-estimate"
+                title={
+                  homeMode.review
+                    ? 'Estimated review time, from how much there is to read: questions, answers and explanations'
+                    : "Estimated quiz time, from each question's type, how many answers it needs, and how much there is to read"
+                }
+              >
+                {CLOCK_ICON}
+                {estimate}
+              </span>
             </>
           )}
         </div>

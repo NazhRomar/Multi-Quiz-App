@@ -3884,6 +3884,19 @@ body .btn-quiz.quiz-selected {
   color: var(--text);
 }
 
+/* Estimated time: clock + "~N min", kept on one line */
+.multi-estimate {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+.multi-estimate-icon {
+  flex-shrink: 0;
+}
+
 /* =========================================================
    --- OVERLOAD INDICATOR ---
    Warns playfully that a Multi selection is getting big
