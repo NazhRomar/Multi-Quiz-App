@@ -15,7 +15,9 @@ for (const path in quizModules) {
   const realTitle = quizData.quizTitle || 'Untitled Quiz';
   if (!courseMenu[term]) courseMenu[term] = {};
   if (!courseMenu[term][course]) courseMenu[term][course] = [];
-  courseMenu[term][course].push({ title: realTitle, data: quizData });
+  // id: the file path — stable across searches/renders, used to track the
+  // Multi Quiz selection.
+  courseMenu[term][course].push({ id: path, title: realTitle, data: quizData });
 }
 
 export function sortedTerms(menu = courseMenu) {
@@ -49,6 +51,48 @@ export function filterCourseMenu(query) {
     if (Object.keys(filteredCourses).length) filtered[term] = filteredCourses;
   }
   return filtered;
+}
+
+// Combines the selected quizzes (ids from courseMenu entries) into one quiz
+// for a Multi session, in home-menu order. Question ids are renumbered
+// (every source quiz starts at 1, and answers are keyed by id) and each
+// question carries a `source` so the UI can say where it came from.
+// `multi.subjects` lists every distinct term/course involved.
+export function buildMultiQuiz(selectedIds) {
+  const questions = [];
+  const subjects = [];
+  for (const term of sortedTerms()) {
+    for (const course in courseMenu[term]) {
+      for (const quiz of courseMenu[term][course]) {
+        if (!selectedIds.has(quiz.id)) continue;
+        if (!subjects.some((s) => s.term === term && s.course === course)) subjects.push({ term, course });
+        for (const q of quiz.data.questions) {
+          questions.push({
+            ...JSON.parse(JSON.stringify(q)),
+            id: questions.length + 1,
+            source: { term, course, title: quiz.title },
+          });
+        }
+      }
+    }
+  }
+  return {
+    courseCode: 'MULTI',
+    quizTitle: 'Multi Quiz',
+    totalPoints: questions.reduce((sum, q) => sum + (q.points || 1), 0),
+    questions,
+    multi: { subjects, quizCount: selectedIds.size },
+  };
+}
+
+// Header label for a Multi session: just the subject name(s), no module.
+// Past two subjects it collapses to "+N more" (the full list, with terms,
+// goes in the tooltip).
+export function multiSubjectLabel(multi) {
+  const names = multi.subjects.map((s) => s.course);
+  const label = names.length <= 2 ? names.join(' · ') : `${names.slice(0, 2).join(' · ')} · +${names.length - 2} more`;
+  const tooltip = multi.subjects.map((s) => `${s.term} — ${s.course}`).join('\n');
+  return { label, tooltip };
 }
 
 // Groups a course's quizzes into render units: quizzes sharing a

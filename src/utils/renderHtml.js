@@ -8,3 +8,9 @@
 export function renderHtml(html) {
   return { dangerouslySetInnerHTML: { __html: html ?? '' } };
 }
+
+// For plain-text content (e.g. question.code answers) that has to pass
+// through an HTML-rendered string.
+export function escapeHtml(text) {
+  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}

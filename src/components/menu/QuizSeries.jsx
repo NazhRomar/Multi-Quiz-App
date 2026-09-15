@@ -1,6 +1,6 @@
 import QuizChip from './QuizChip.jsx';
 
-export default function QuizSeries({ unit, onOpen }) {
+export default function QuizSeries({ unit, onOpen, isSelected }) {
   return (
     <div className="quiz-series">
       <div className="quiz-series-header">
@@ -9,7 +9,7 @@ export default function QuizSeries({ unit, onOpen }) {
       </div>
       <div className="quiz-series-chips">
         {unit.items.map(({ quiz, label }) => (
-          <QuizChip key={label} quiz={quiz} label={label} onOpen={() => onOpen(quiz)} />
+          <QuizChip key={label} quiz={quiz} label={label} onOpen={() => onOpen(quiz)} selected={isSelected(quiz)} />
         ))}
       </div>
     </div>

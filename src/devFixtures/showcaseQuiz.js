@@ -5,7 +5,7 @@
 export const showcaseQuiz = {
   courseCode: 'DEV',
   quizTitle: 'Question Type Showcase',
-  totalPoints: 7,
+  totalPoints: 9,
   questions: [
     {
       id: 1,
@@ -54,6 +54,15 @@ export const showcaseQuiz = {
     },
     {
       id: 6,
+      type: 'fitb',
+      text: 'This is a multi-blank Code Fill in the Blank question. Fill in "range" and "print".',
+      code: 'for i in ___(3):\n    ___(i)',
+      correctAnswer: ['range', 'print'],
+      points: 2,
+      explanation: 'Several <code>___</code> markers + an array <code>correctAnswer</code> (one per blank, in order). Partial credit per blank.',
+    },
+    {
+      id: 7,
       type: 'matching',
       text: 'This is a Dropdown Matching question. Match each term to its definition.',
       allChoices: ['Definition A', 'Definition B', 'Definition C'],
@@ -66,7 +75,7 @@ export const showcaseQuiz = {
       explanation: 'Dropdown selects, partial credit per correct pair.',
     },
     {
-      id: 7,
+      id: 8,
       type: 'drag-drop',
       text: 'This is a Drag & Drop question. Drag each item into its matching slot.',
       pairs: [

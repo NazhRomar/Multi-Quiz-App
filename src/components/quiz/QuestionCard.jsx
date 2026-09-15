@@ -6,6 +6,8 @@ import FitbInput from './options/FitbInput.jsx';
 import MatchingGrid from './options/MatchingGrid.jsx';
 import DragDropBoard from './options/DragDropBoard.jsx';
 import FeedbackBanner from './FeedbackBanner.jsx';
+import QuestionContext from '../common/QuestionContext.jsx';
+import QuestionSource from '../common/QuestionSource.jsx';
 
 const TYPE_LABELS = {
   mc: 'Multiple Choice',
@@ -90,26 +92,18 @@ export default function QuestionCard({ question, index, savedState, isLocked, ex
 
   return (
     <div className={`question-card ${exiting ? 'question-card--exiting' : ''}`}>
+      <QuestionSource question={question} variant="aside" />
       <div className="q-meta">
         <div className="q-meta-left">
           <span className="q-num-badge">{index + 1}</span>
           <span className={`q-type-badge ${question.type}`}>{TYPE_LABELS[question.type] || 'Question'}</span>
+          <QuestionSource question={question} variant="inline" />
         </div>
         <span className={`q-points ${question.flagged ? 'q-points--flagged' : ''}`}>
           {question.flagged ? 'Not Scored' : `${question.points || 1} pts`}
         </span>
       </div>
-      {question.context && Array.isArray(question.context) ? (
-        question.context.map((block, i) => (
-          <div className="q-context" key={i}>
-            <div className="q-context-body" {...renderHtml(block)} />
-          </div>
-        ))
-      ) : question.context ? (
-        <div className="q-context">
-          <div className="q-context-body" {...renderHtml(question.context)} />
-        </div>
-      ) : null}
+      <QuestionContext context={question.context} />
       <div className="q-text" {...renderHtml(question.text)} />
       <div className="options-list">
         {optionsEl}

@@ -1,21 +1,17 @@
 import { useApp } from '../../state/AppContext.jsx';
 import ScoreRing from './ScoreRing.jsx';
+import HeaderTitle from '../common/HeaderTitle.jsx';
 
 export default function ResultScreen({ goHome }) {
   const { state, dispatch } = useApp();
-  const { activeTerm, activeCourse, activeQuiz, result } = state;
+  const { result } = state;
   const { score, totalPossible, correctCount, wrongCount, unansweredCount, flaggedCount } = result;
   const percentage = Math.round((score / totalPossible) * 100);
 
   return (
     <>
       <header className="quiz-header quiz-header--quiz">
-        <div className="header-left">
-          <span className="mode-pill mode-pill--quiz">Quiz</span>
-          <span className="breadcrumbs">
-            {activeTerm} <span>/</span> {activeCourse} <span>/</span> {activeQuiz.quizTitle}
-          </span>
-        </div>
+        <HeaderTitle mode="quiz" />
         <div className="header-right">
           <button className="btn-restart" onClick={() => dispatch({ type: 'RESTART' })}>
             Restart Quiz

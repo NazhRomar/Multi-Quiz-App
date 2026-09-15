@@ -9,6 +9,22 @@ const THEME_MODE_ICONS = {
   'dark-purple': '🌙',
 };
 
+// Code block themes (colors live in style.css under body.code-theme-<value>).
+// 'default' adds no class, so code blocks follow the app theme.
+export const CODE_THEMES = [
+  { value: 'default', label: 'Default (match app theme)' },
+  { value: 'dark', label: 'Dark' },
+  { value: 'light', label: 'Light' },
+  { value: 'monokai', label: 'Monokai' },
+  { value: 'dracula', label: 'Dracula' },
+  { value: 'nord', label: 'Nord' },
+  { value: 'solarized', label: 'Solarized Light' },
+  { value: 'terminal', label: 'Terminal' },
+  { value: 'amber', label: 'Midnight Amber' },
+];
+
+const CODE_PREVIEW = "Route::get('/user/{id}', function ($id) {\n    return view('user', ['id' => $id]);\n});";
+
 // showNavLocation: the home-menu dropdown omits this field — only the
 // quiz/review dropdowns show it — so it's opt-in, not default.
 export default function AppSettingsFields({ showNavLocation = false }) {
@@ -34,6 +50,28 @@ export default function AppSettingsFields({ showNavLocation = false }) {
           <option value="modern">{THEME_MODE_ICONS.modern} Modern</option>
           <option value="dark-purple">{THEME_MODE_ICONS['dark-purple']} Dark Purple</option>
         </select>
+      </label>
+      <label className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'stretch', gap: '0.5rem' }}>
+        <span className="dropdown-item-text">
+          <strong>Code Block Theme</strong>
+          <small>Colors for code snippets in questions</small>
+        </span>
+        <select
+          value={appSettings.codeTheme}
+          onChange={(e) => set('codeTheme', e.target.value)}
+          style={{ width: '100%', padding: '0.4rem', border: '1px solid var(--border)', borderRadius: '6px' }}
+        >
+          {CODE_THEMES.map((t) => (
+            <option key={t.value} value={t.value}>
+              {t.label}
+            </option>
+          ))}
+        </select>
+        <div className="q-context q-context--code code-theme-preview" aria-hidden="true">
+          <div className="q-context-body">
+            <pre>{CODE_PREVIEW}</pre>
+          </div>
+        </div>
       </label>
       {showNavLocation && (
         <label className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '0.5rem' }}>

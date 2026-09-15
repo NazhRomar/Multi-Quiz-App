@@ -2,15 +2,31 @@
 // slightly different ways (live question feedback, the score badge, and
 // the final submit screen) — one shared implementation used by all three.
 
+import { escapeHtml } from '../utils/renderHtml.js';
+
+// fitb correctAnswer is a single string, or — for a code snippet with
+// several ___ blanks — an array with one string per blank, in order. The
+// saved user answer mirrors that shape. These normalize both to arrays.
+export function fitbExpected(question) {
+  return [].concat(question.correctAnswer);
+}
+
+export function fitbGiven(question, userAnswer) {
+  const given = [].concat(userAnswer ?? '');
+  return fitbExpected(question).map((_, i) => given[i] ?? '');
+}
+
+export function fitbBlankCorrect(given, expected) {
+  return !!given && given.trim().toLowerCase() === expected.toLowerCase();
+}
+
 export function isAnswerCorrect(question, userAnswer) {
   if (question.type === 'mc' || question.type === 'tf') {
     return userAnswer === question.correctAnswer;
   }
   if (question.type === 'fitb') {
-    return (
-      !!userAnswer &&
-      userAnswer.trim().toLowerCase() === question.correctAnswer.toLowerCase()
-    );
+    const given = fitbGiven(question, userAnswer);
+    return fitbExpected(question).every((exp, i) => fitbBlankCorrect(given[i], exp));
   }
   if (question.type === 'msq') {
     const sel = (userAnswer || []).slice().sort();
@@ -36,6 +52,13 @@ export function pointsEarned(question, userAnswer) {
       0
     );
   }
+  // Multi-blank code fill-in: same per-blank partial credit.
+  if (question.type === 'fitb' && Array.isArray(question.correctAnswer)) {
+    const expected = fitbExpected(question);
+    const given = fitbGiven(question, userAnswer);
+    const perBlank = pts / expected.length;
+    return expected.reduce((sum, exp, i) => sum + (fitbBlankCorrect(given[i], exp) ? perBlank : 0), 0);
+  }
   return isAnswerCorrect(question, userAnswer) ? pts : 0;
 }
 
@@ -44,6 +67,8 @@ export function wasAnswered(userAnswer) {
     userAnswer !== null &&
     userAnswer !== undefined &&
     !(Array.isArray(userAnswer) && userAnswer.length === 0) &&
+    // multi-blank fitb with every blank still empty
+    !(Array.isArray(userAnswer) && userAnswer.every((v) => typeof v === 'string' && !v.trim())) &&
     !(typeof userAnswer === 'object' && !Array.isArray(userAnswer) && Object.keys(userAnswer).length === 0)
   );
 }
@@ -53,7 +78,11 @@ export function expectedAnswerText(question) {
     return question.options[question.correctAnswer];
   }
   if (question.type === 'fitb') {
-    return question.correctAnswer;
+    // question.code answers are plain text (not HTML), and this is rendered as HTML
+    if (!question.code) return question.correctAnswer;
+    return fitbExpected(question)
+      .map((a) => `<code>${escapeHtml(a)}</code>`)
+      .join(', ');
   }
   if (question.type === 'msq') {
     return question.correctAnswer.map((i) => question.options[i]).join(', ');

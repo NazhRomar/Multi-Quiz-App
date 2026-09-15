@@ -14,6 +14,12 @@ export function AppProvider({ children }) {
     if (state.appSettings.theme && state.appSettings.theme !== 'default') {
       document.body.classList.add(`theme-${state.appSettings.theme}`);
     }
+    // Code block theme: independent of the app theme; 'default' just
+    // follows the app theme's own code block look.
+    [...document.body.classList].filter((c) => c.startsWith('code-theme-')).forEach((c) => document.body.classList.remove(c));
+    if (state.appSettings.codeTheme && state.appSettings.codeTheme !== 'default') {
+      document.body.classList.add(`code-theme-${state.appSettings.codeTheme}`);
+    }
   }, [state.appSettings]);
 
   useEffect(() => {
@@ -23,6 +29,10 @@ export function AppProvider({ children }) {
   useEffect(() => {
     localStorage.setItem('quizApp_reviewOptions', JSON.stringify(state.reviewOptions));
   }, [state.reviewOptions]);
+
+  useEffect(() => {
+    localStorage.setItem('quizApp_multiOptions', JSON.stringify(state.multiOptions));
+  }, [state.multiOptions]);
 
   useEffect(() => {
     localStorage.setItem('quizApp_collapsedTerms', JSON.stringify(state.collapsedTerms));

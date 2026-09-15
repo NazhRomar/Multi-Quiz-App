@@ -1,10 +1,10 @@
 // Code fill-in-the-blank questions carry raw (plain-text, not HTML) code in
-// question.code with a single "___" marking where the answer goes. Splits
-// on the first marker; a missing marker puts the blank at the end.
+// question.code with each "___" marking a blank. Returns the code segments
+// around the blanks (blank count = segments.length - 1); a code string with
+// no marker puts a single blank at the end.
 export const CODE_BLANK = '___';
 
-export function splitCodeBlank(code) {
-  const i = code.indexOf(CODE_BLANK);
-  if (i === -1) return [code, ''];
-  return [code.slice(0, i), code.slice(i + CODE_BLANK.length)];
+export function splitCodeBlanks(code) {
+  const segments = code.split(CODE_BLANK);
+  return segments.length > 1 ? segments : [code, ''];
 }

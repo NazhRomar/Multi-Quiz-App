@@ -1,7 +1,7 @@
 import { useApp } from '../../state/AppContext.jsx';
 import CourseCard from './CourseCard.jsx';
 
-export default function TermSection({ term, courses, onOpen, forceExpanded = false }) {
+export default function TermSection({ term, courses, onOpen, selection, forceExpanded = false }) {
   const { state, dispatch } = useApp();
   const isCollapsed = !forceExpanded && !!state.collapsedTerms[term];
   const termQuizCount = Object.values(courses).reduce((sum, quizzes) => sum + quizzes.length, 0);
@@ -17,7 +17,7 @@ export default function TermSection({ term, courses, onOpen, forceExpanded = fal
       </h2>
       <div className="term-content">
         {Object.entries(courses).map(([course, quizzes]) => (
-          <CourseCard key={course} course={course} quizzes={quizzes} onOpen={(quiz) => onOpen(course, quiz)} />
+          <CourseCard key={course} course={course} quizzes={quizzes} onOpen={(quiz) => onOpen(course, quiz)} selection={selection} />
         ))}
       </div>
     </section>

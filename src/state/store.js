@@ -19,6 +19,7 @@ export const DEFAULT_APP_SETTINGS = {
   disableAnimations: false,
   navLocation: 'down', // 'up' | 'down' | 'sides' | 'center' | 'both' | 'all'
   theme: 'default',
+  codeTheme: 'default', // see CODE_THEMES in AppSettingsFields.jsx
   compactMode: false,
 };
 export const DEFAULT_QUIZ_OPTIONS = {
@@ -37,6 +38,12 @@ export const DEFAULT_REVIEW_OPTIONS = {
   wrongOnly: false,
 };
 
+// Only shown/used in a Multi session (quizzes combined via the home menu's
+// Multi Quiz selection — see buildMultiQuiz in catalog.js).
+export const DEFAULT_MULTI_OPTIONS = {
+  showSource: true, // label each question with the quiz it came from
+};
+
 export function createInitialState() {
   return {
     screen: 'menu', // 'menu' | 'quiz' | 'review' | 'result'
@@ -52,6 +59,7 @@ export function createInitialState() {
     appSettings: loadState('quizApp_appSettings', DEFAULT_APP_SETTINGS),
     quizOptions: loadState('quizApp_quizOptions', DEFAULT_QUIZ_OPTIONS),
     reviewOptions: loadState('quizApp_reviewOptions', DEFAULT_REVIEW_OPTIONS),
+    multiOptions: loadState('quizApp_multiOptions', DEFAULT_MULTI_OPTIONS),
     collapsedTerms: loadState('quizApp_collapsedTerms', {}),
   };
 }
@@ -207,6 +215,10 @@ export function reducer(state, action) {
     case 'SET_REVIEW_OPTION': {
       const reviewOptions = { ...state.reviewOptions, [action.payload.key]: action.payload.value };
       return { ...state, reviewOptions };
+    }
+    case 'SET_MULTI_OPTION': {
+      const multiOptions = { ...state.multiOptions, [action.payload.key]: action.payload.value };
+      return { ...state, multiOptions };
     }
     case 'TOGGLE_TERM': {
       const collapsedTerms = { ...state.collapsedTerms, [action.payload.term]: !state.collapsedTerms[action.payload.term] };

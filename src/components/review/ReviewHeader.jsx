@@ -3,19 +3,16 @@ import Dropdown from '../settings/Dropdown.jsx';
 import DropdownTabs from '../settings/DropdownTabs.jsx';
 import ReviewOptionsFields from '../settings/ReviewOptionsFields.jsx';
 import AppSettingsFields from '../settings/AppSettingsFields.jsx';
+import MultiOptionsFields from '../settings/MultiOptionsFields.jsx';
+import HeaderTitle from '../common/HeaderTitle.jsx';
 
 export default function ReviewHeader({ progressLabel, progressPct, goHome }) {
   const { state, dispatch } = useApp();
-  const { activeTerm, activeCourse, activeQuiz } = state;
+  const { activeQuiz } = state;
 
   return (
     <header className="quiz-header">
-      <div className="header-left">
-        <span className="mode-pill mode-pill--review">Review</span>
-        <span className="breadcrumbs">
-          {activeTerm} <span>/</span> {activeCourse} <span>/</span> {activeQuiz.quizTitle}
-        </span>
-      </div>
+      <HeaderTitle mode="review" />
       <div className="header-right">
         <div className="progress-wrap">
           <span className="progress-label">{progressLabel}</span>
@@ -48,8 +45,9 @@ export default function ReviewHeader({ progressLabel, progressPct, goHome }) {
           <DropdownTabs
             tabs={[
               { label: 'Review Options', content: <ReviewOptionsFields /> },
+              activeQuiz.multi && { label: 'Multi', content: <MultiOptionsFields /> },
               { label: 'App Settings', content: <AppSettingsFields showNavLocation /> },
-            ]}
+            ].filter(Boolean)}
           />
         </Dropdown>
       </div>

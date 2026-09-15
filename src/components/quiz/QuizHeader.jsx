@@ -3,21 +3,18 @@ import Dropdown from '../settings/Dropdown.jsx';
 import DropdownTabs from '../settings/DropdownTabs.jsx';
 import QuizOptionsFields from '../settings/QuizOptionsFields.jsx';
 import AppSettingsFields from '../settings/AppSettingsFields.jsx';
+import MultiOptionsFields from '../settings/MultiOptionsFields.jsx';
+import HeaderTitle from '../common/HeaderTitle.jsx';
 
 export default function QuizHeader({ score, goHome }) {
   const { state, dispatch } = useApp();
-  const { activeTerm, activeCourse, activeQuiz, currentIndex } = state;
+  const { activeQuiz, currentIndex } = state;
   const total = activeQuiz.questions.length;
   const pct = ((currentIndex + 1) / total) * 100;
 
   return (
     <header className="quiz-header">
-      <div className="header-left">
-        <span className="mode-pill mode-pill--quiz">Quiz</span>
-        <span className="breadcrumbs">
-          {activeTerm} <span>/</span> {activeCourse} <span>/</span> {activeQuiz.quizTitle}
-        </span>
-      </div>
+      <HeaderTitle mode="quiz" />
       <div className="header-right">
         <div className="progress-wrap">
           <span className="progress-label">
@@ -53,8 +50,9 @@ export default function QuizHeader({ score, goHome }) {
           <DropdownTabs
             tabs={[
               { label: 'Quiz Options', content: <QuizOptionsFields /> },
+              activeQuiz.multi && { label: 'Multi', content: <MultiOptionsFields /> },
               { label: 'App Settings', content: <AppSettingsFields showNavLocation /> },
-            ]}
+            ].filter(Boolean)}
           />
         </Dropdown>
       </div>

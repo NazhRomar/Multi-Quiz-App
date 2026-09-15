@@ -2603,3 +2603,437 @@ body.compact-mode .nav-row {
 body.theme-canvas #quiz-nav-top[style*="display: flex"]+#quiz-container {
   margin-top: 0 !important;
 }
+
+/* =========================================================
+   --- CODE BLOCK THEMES ---
+   App Settings → Code Block Theme adds body.code-theme-<name> (none for
+   'default', which keeps the app theme's own code look). Applies only to
+   code boxes (.q-context--code: context blocks holding a <pre>, and code
+   fill-in blanks), not to prose context notes. Each theme just sets the
+   --code-* tokens; the shared rules below consume them.
+========================================================= */
+body.code-theme-dark {
+  --code-bg: #0d1117;
+  --code-fg: #e6edf3;
+  --code-border: #30363d;
+  --code-accent: #58a6ff;
+  --code-input-bg: #161b22;
+  --code-inline: #79c0ff;
+  --code-inline-bg: rgba(110, 118, 129, 0.3);
+  --code-correct: #3fb950;
+  --code-wrong: #f85149;
+}
+
+body.code-theme-light {
+  --code-bg: #f6f8fa;
+  --code-fg: #1f2328;
+  --code-border: #d0d7de;
+  --code-accent: #0969da;
+  --code-input-bg: #ffffff;
+  --code-inline: #0550ae;
+  --code-inline-bg: rgba(175, 184, 193, 0.25);
+  --code-correct: #1a7f37;
+  --code-wrong: #cf222e;
+}
+
+body.code-theme-monokai {
+  --code-bg: #272822;
+  --code-fg: #f8f8f2;
+  --code-border: #3e3d32;
+  --code-accent: #a6e22e;
+  --code-input-bg: #3e3d32;
+  --code-inline: #e6db74;
+  --code-inline-bg: rgba(248, 248, 242, 0.08);
+  --code-correct: #a6e22e;
+  --code-wrong: #f92672;
+}
+
+body.code-theme-dracula {
+  --code-bg: #282a36;
+  --code-fg: #f8f8f2;
+  --code-border: #44475a;
+  --code-accent: #bd93f9;
+  --code-input-bg: #44475a;
+  --code-inline: #ff79c6;
+  --code-inline-bg: rgba(68, 71, 90, 0.6);
+  --code-correct: #50fa7b;
+  --code-wrong: #ff5555;
+}
+
+body.code-theme-nord {
+  --code-bg: #2e3440;
+  --code-fg: #d8dee9;
+  --code-border: #3b4252;
+  --code-accent: #88c0d0;
+  --code-input-bg: #3b4252;
+  --code-inline: #88c0d0;
+  --code-inline-bg: rgba(76, 86, 106, 0.5);
+  --code-correct: #a3be8c;
+  --code-wrong: #bf616a;
+}
+
+body.code-theme-solarized {
+  --code-bg: #fdf6e3;
+  --code-fg: #586e75;
+  --code-border: #eee8d5;
+  --code-accent: #b58900;
+  --code-input-bg: #eee8d5;
+  --code-inline: #268bd2;
+  --code-inline-bg: rgba(147, 161, 161, 0.18);
+  --code-correct: #859900;
+  --code-wrong: #dc322f;
+}
+
+body.code-theme-terminal {
+  --code-bg: #0a0f0a;
+  --code-fg: #33ff66;
+  --code-border: #1c3a22;
+  --code-accent: #33ff66;
+  --code-input-bg: #0f1d12;
+  --code-inline: #ffd54f;
+  --code-inline-bg: rgba(51, 255, 102, 0.1);
+  --code-correct: #33ff66;
+  --code-wrong: #ff5f56;
+}
+
+body.code-theme-amber {
+  --code-bg: #0d1117;
+  --code-fg: #ffd54f;
+  --code-border: rgba(0, 229, 255, 0.25);
+  --code-accent: #00e5ff;
+  --code-input-bg: #161b22;
+  --code-inline: #00e5ff;
+  --code-inline-bg: rgba(0, 229, 255, 0.1);
+  --code-correct: #69f0ae;
+  --code-wrong: #ff6e6e;
+}
+
+/* Specificity is deliberately above the app themes' own !important
+   .q-context overrides (e.g. Canvas), so the code theme always wins. */
+body[class*="code-theme-"] .q-context.q-context--code {
+  background: var(--code-bg) !important;
+  border-color: var(--code-border) !important;
+  border-left-color: var(--code-accent) !important;
+}
+
+body[class*="code-theme-"] .q-context.q-context--code .q-context-body {
+  color: var(--code-fg) !important;
+}
+
+body.code-theme-terminal .q-context.q-context--code .q-context-body {
+  text-shadow: 0 0 6px rgba(51, 255, 102, 0.35);
+}
+
+body[class*="code-theme-"] .q-context.q-context--code .q-context-body code {
+  background: var(--code-inline-bg);
+  border-color: transparent;
+  color: var(--code-inline);
+}
+
+body[class*="code-theme-"] .q-context.q-context--code .q-context-body strong {
+  color: var(--code-fg);
+}
+
+body[class*="code-theme-"] .q-context--code .fitb-input.fitb-input--inline {
+  background: var(--code-input-bg) !important;
+  color: var(--code-fg) !important;
+  border-color: var(--code-border) !important;
+  text-shadow: none;
+}
+
+body[class*="code-theme-"] .q-context--code .fitb-input.fitb-input--inline:focus:not(:disabled) {
+  border-color: var(--code-accent) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--code-accent) 25%, transparent);
+}
+
+body[class*="code-theme-"] .q-context--code .fitb-input.fitb-input--inline.fitb-correct,
+body[class*="code-theme-"] .q-context--code .code-fitb-answer {
+  background: color-mix(in srgb, var(--code-correct) 16%, transparent) !important;
+  border-color: var(--code-correct) !important;
+  color: var(--code-correct) !important;
+}
+
+body[class*="code-theme-"] .q-context--code .fitb-input.fitb-input--inline.fitb-wrong {
+  background: color-mix(in srgb, var(--code-wrong) 16%, transparent) !important;
+  border-color: var(--code-wrong) !important;
+  color: var(--code-wrong) !important;
+}
+
+/* Live preview under the Code Block Theme picker */
+body .dropdown-item .q-context.code-theme-preview {
+  margin: 0 !important;
+  cursor: default;
+}
+
+body .dropdown-item .q-context.code-theme-preview .q-context-body {
+  padding: 0.5rem 0.7rem !important;
+  font-size: 0.7rem !important;
+  line-height: 1.5 !important;
+}
+
+/* =========================================================
+   --- MULTI QUIZ ---
+   Home menu selection mode (MenuScreen isSelecting), the Multi mode
+   pill, and the per-question source labels (QuestionSource.jsx).
+========================================================= */
+:root {
+  --multi-accent: #d9821e;
+}
+
+.menu-search-wrap {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.btn-multi-toggle {
+  flex-shrink: 0;
+  padding: 0 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--multi-accent);
+  background: color-mix(in srgb, var(--multi-accent) 10%, var(--surface));
+  color: #9a5608;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.btn-multi-toggle:hover {
+  background: var(--multi-accent);
+  color: #ffffff;
+}
+
+.btn-multi-toggle--active {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+
+.btn-multi-toggle--active:hover {
+  background: var(--radio-bg);
+  border-color: var(--text-muted);
+  color: var(--text);
+}
+
+.multi-select-hint {
+  width: 100%;
+  max-width: 900px;
+  margin: 0.75rem auto 0;
+  padding: 0 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.btn-select-all {
+  margin-left: auto;
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+}
+
+.btn-select-all:hover {
+  background: var(--radio-bg);
+}
+
+/* Checkbox-style indicator on selectable chips/rows */
+.quiz-select-check {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: -2px;
+  margin-right: 0.5rem;
+  transition: all 0.15s ease;
+}
+
+.quiz-chip .quiz-select-check {
+  margin-right: 0;
+}
+
+.quiz-selected .quiz-select-check {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.quiz-selected .quiz-select-check::after {
+  content: '✓';
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* !important + body prefix to beat Dark Purple's own !important chip/row
+   backgrounds at equal specificity (this rule comes later). */
+body .quiz-chip.quiz-selected,
+body .btn-quiz.quiz-selected {
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface)) !important;
+  border-color: var(--accent) !important;
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+/* Floating selection bar */
+.multi-select-bar {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  width: min(760px, calc(100% - 24px));
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0.75rem 0.65rem 1.2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+  animation: fadeIn 0.15s ease-out;
+}
+
+.multi-select-summary {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  min-width: 0;
+}
+
+.multi-select-summary strong {
+  color: var(--text);
+}
+
+.multi-select-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Room so the floating bar never covers the last quizzes / footer */
+.menu--selecting .home-footer {
+  padding-bottom: 96px;
+}
+
+@media (max-width: 600px) {
+  .multi-select-bar {
+    padding: 0.55rem 0.6rem 0.55rem 0.9rem;
+    gap: 0.6rem;
+  }
+
+  .multi-select-summary {
+    font-size: 0.8rem;
+  }
+
+  .multi-select-actions .btn-prev,
+  .multi-select-actions .btn-next {
+    padding: 0.6rem 0.9rem;
+  }
+
+  .btn-multi-toggle {
+    padding: 0 0.75rem;
+    font-size: 0.72rem;
+  }
+}
+
+/* Mode pill */
+.mode-pill--multi {
+  background: rgba(217, 130, 30, 0.14);
+  color: #9a5608;
+  border: 1px solid rgba(217, 130, 30, 0.4);
+}
+
+body.theme-dark-purple .mode-pill--multi,
+body.theme-dark-purple .btn-multi-toggle:not(.btn-multi-toggle--active):not(:hover) {
+  background: rgba(240, 170, 80, 0.2) !important;
+  color: #ffc98a !important;
+  border-color: rgba(240, 170, 80, 0.5) !important;
+}
+
+/* Question source (Multi sessions). The aside variant floats in the page
+   margin beside the card — no added card height — once the viewport has
+   room for it; below that the inline variant in the meta row takes over. */
+.question-card:has(> .q-source-aside) {
+  position: relative;
+}
+
+.q-source-aside {
+  display: none;
+}
+
+.q-meta-left:has(.q-source-inline) {
+  min-width: 0;
+}
+
+.q-source-inline {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--radio-bg);
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+}
+
+@media (min-width: 1240px) {
+  .q-source-aside {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: calc(100% + 1.25rem);
+    width: min(210px, calc((100vw - 100%) / 2 - 2.75rem));
+  }
+
+  .q-source-inline {
+    display: none;
+  }
+}
+
+/* Sticky inside the full-height aside, so on a tall card (list view) the
+   label stays in view while scrolling through it. */
+.q-source-aside-inner {
+  position: sticky;
+  top: 84px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.15rem;
+  padding: 0.3rem 0.75rem 0.3rem 0;
+  border-right: 3px solid var(--multi-accent);
+  text-align: right;
+}
+
+.q-source-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.q-source-course {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+.q-source-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.3;
+}
