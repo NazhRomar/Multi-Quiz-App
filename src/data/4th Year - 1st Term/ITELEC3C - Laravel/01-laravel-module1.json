@@ -218,8 +218,8 @@
     {
       "id": 17,
       "type": "fitb",
-      "text": "Complete the command to install the Laravel installer tool globally with Composer (fill in the ___):",
-      "context": "<pre>composer global require \"laravel/___\"</pre>",
+      "text": "Complete the command to install the Laravel installer tool globally with Composer:",
+      "code": "composer global require \"laravel/___\"",
       "correctAnswer": "installer",
       "points": 1,
       "explanation": "<code>composer global require \"laravel/installer\"</code> installs the Laravel installer tool."
@@ -227,8 +227,8 @@
     {
       "id": 18,
       "type": "fitb",
-      "text": "Complete the command to create a new project using the Laravel installer tool (fill in the ___):",
-      "context": "<pre>laravel ___ projectName</pre>",
+      "text": "Complete the command to create a new project using the Laravel installer tool:",
+      "code": "laravel ___ projectName",
       "correctAnswer": "new",
       "points": 1,
       "explanation": "<code>laravel new projectName</code> creates a fresh Laravel project."

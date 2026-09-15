@@ -72,6 +72,7 @@ Supported `type` values (verified against the current renderer in `src/main.js`)
 - **`tf`** — true/false. `options`: `["True", "False"]`. `correctAnswer`: 0 or 1.
 - **`msq`** — multiple select (2+ correct). `options`: string array. `correctAnswer`: array of 0-based indices.
 - **`fitb`** — fill in the blank. `text` contains a blank (e.g. `___`). `correctAnswer`: the exact string answer (matched case-insensitively, trimmed).
+  - **Code fill-in variant:** add a `"code"` field holding the raw code (plain text, **not** HTML — don't escape `<`/`>` or wrap it in `<pre>`) with a single `___` marking the blank. The answer box then renders inline inside the code block at that spot, and `text` is just the instruction (no `___` needed there). Don't also put the same code in `"context"`.
 - **`matching`** — dropdown matching. `allChoices`: flat array of every possible right-side value. `pairs`: array of `{ "term": "...", "match": "..." }`.
 - **`drag-drop`** — same shape as `matching` (`pairs` of `{ "term", "match" }`), rendered as drag targets instead of dropdowns.
 

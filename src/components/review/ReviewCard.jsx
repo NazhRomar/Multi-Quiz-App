@@ -1,4 +1,5 @@
 import { renderHtml } from '../../utils/renderHtml.js';
+import { splitCodeBlank } from '../../utils/codeBlank.js';
 
 const TYPE_LABELS = {
   mc: 'Multiple Choice',
@@ -92,6 +93,20 @@ function ReviewBody({ question, reviewOptions }) {
   }
 
   if (question.type === 'fitb') {
+    if (question.code) {
+      const [before, after] = splitCodeBlank(question.code);
+      return (
+        <div className="q-context code-fitb">
+          <div className="q-context-body">
+            <pre>
+              {before}
+              <span className="code-fitb-answer">{question.correctAnswer}</span>
+              {after}
+            </pre>
+          </div>
+        </div>
+      );
+    }
     return (
       <div className="review-answer-block">
         <span className="review-answer-label">Correct Answer</span>

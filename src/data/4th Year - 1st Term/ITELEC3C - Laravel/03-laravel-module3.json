@@ -202,8 +202,8 @@
     {
       "id": 15,
       "type": "fitb",
-      "text": "Complete the Artisan command that generates a new controller (fill in the ___):",
-      "context": "<pre>php artisan make:___ UserController</pre>",
+      "text": "Complete the Artisan command that generates a new controller:",
+      "code": "php artisan make:___ UserController",
       "correctAnswer": "controller",
       "points": 1,
       "explanation": "<code>php artisan make:controller UserController</code> generates a new controller class."
@@ -211,8 +211,8 @@
     {
       "id": 16,
       "type": "fitb",
-      "text": "Complete the Blade echo statement so it displays the $name variable passed to the view (fill in the ___):",
-      "context": "<pre>Hello, {{ $___ }}.</pre>",
+      "text": "Complete the Blade echo statement so it displays the $name variable passed to the view:",
+      "code": "Hello, {{ $___ }}.",
       "correctAnswer": "name",
       "points": 1,
       "explanation": "<code>{{ $name }}</code> echoes the $name variable."
@@ -220,8 +220,8 @@
     {
       "id": 17,
       "type": "fitb",
-      "text": "Complete the loop so it displays each user's name property (fill in the ___):",
-      "context": "<pre>@foreach($users as $user)\n    &lt;li&gt;{{ $user-&gt;___ }}&lt;/li&gt;\n@endforeach</pre>",
+      "text": "Complete the loop so it displays each user's name property:",
+      "code": "@foreach($users as $user)\n    <li>{{ $user->___ }}</li>\n@endforeach",
       "correctAnswer": "name",
       "points": 1,
       "explanation": "<code>$user-&gt;name</code> accesses the user's name property."
@@ -229,8 +229,8 @@
     {
       "id": 18,
       "type": "fitb",
-      "text": "Complete the RESTful controller method name used to permanently remove a resource (fill in the ___):",
-      "context": "<pre>public function ___($id)\n{\n    $user = User::findOrFail($id);\n    $user-&gt;delete();\n}</pre>",
+      "text": "Complete the RESTful controller method name used to permanently remove a resource:",
+      "code": "public function ___($id)\n{\n    $user = User::findOrFail($id);\n    $user->delete();\n}",
       "correctAnswer": "destroy",
       "points": 1,
       "explanation": "<code>destroy($id)</code> is the conventional method for deleting a resource."

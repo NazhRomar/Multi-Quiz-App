@@ -202,8 +202,8 @@
     {
       "id": 15,
       "type": "fitb",
-      "text": "Complete the route definition so it responds to a GET request (fill in the ___):",
-      "context": "<pre>Route::___('/welcome', function () {\n    return view('welcome');\n});</pre>",
+      "text": "Complete the route definition so it responds to a GET request:",
+      "code": "Route::___('/welcome', function () {\n    return view('welcome');\n});",
       "correctAnswer": "get",
       "points": 1,
       "explanation": "<code>Route::get()</code> defines a route that responds to a GET request."
@@ -211,8 +211,8 @@
     {
       "id": 16,
       "type": "fitb",
-      "text": "Complete the route parameter syntax so $id is captured from the URL (fill in the ___):",
-      "context": "<pre>Route::get('/user/___', function ($id) {\n    return 'User '.$id;\n});</pre>",
+      "text": "Complete the route parameter syntax so $id is captured from the URL:",
+      "code": "Route::get('/user/___', function ($id) {\n    return 'User '.$id;\n});",
       "correctAnswer": "{id}",
       "points": 1,
       "explanation": "Route parameters are written as <code>{id}</code> inside the URI string."
@@ -220,8 +220,8 @@
     {
       "id": 17,
       "type": "fitb",
-      "text": "Complete the Artisan command that clears the cached routes (fill in the ___):",
-      "context": "<pre>php artisan route:___</pre>",
+      "text": "Complete the Artisan command that clears the cached routes:",
+      "code": "php artisan route:___",
       "correctAnswer": "clear",
       "points": 1,
       "explanation": "<code>php artisan route:clear</code> clears the route cache."
@@ -229,8 +229,8 @@
     {
       "id": 18,
       "type": "fitb",
-      "text": "Complete the method call that constrains the id parameter to digits only (fill in the ___):",
-      "context": "<pre>Route::get('/user/{id}', function ($id) {\n    return 'User ID: ' . $id;\n})-&gt;___('id', '[0-9]+');</pre>",
+      "text": "Complete the method call that constrains the id parameter to digits only:",
+      "code": "Route::get('/user/{id}', function ($id) {\n    return 'User ID: ' . $id;\n})->___('id', '[0-9]+');",
       "correctAnswer": "where",
       "points": 1,
       "explanation": "<code>-&gt;where('id', '[0-9]+')</code> constrains the parameter with a regex."
