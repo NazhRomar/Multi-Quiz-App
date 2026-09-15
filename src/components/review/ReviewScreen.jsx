@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useApp } from '../../state/AppContext.jsx';
 import { useNavRow } from '../quiz/useNavRow.jsx';
+import { useEnterShortcut } from '../quiz/useEnterShortcut.js';
 import { isAnswerCorrect } from '../../state/grading.js';
 import ReviewHeader from './ReviewHeader.jsx';
 import ReviewCard from './ReviewCard.jsx';
@@ -37,6 +38,12 @@ export default function ReviewScreen({ goHome }) {
   const isFirst = currentIndex === 0;
   const isLast = currentIndex === total - 1;
 
+  // Enter goes to the next card (every review card is already "answered").
+  // Nothing on the last card — its button is Done, which leaves the review,
+  // too easy to trigger by tapping Enter one time too many — or in list view.
+  const canEnterNext = !isListView && total > 0 && currentIndex < total - 1;
+  useEnterShortcut(canEnterNext && !isCardExiting ? () => animatedNav('NEXT_Q') : null);
+
   const { topRow, bottomRow, portals } = useNavRow({
     navLocation: appSettings.navLocation,
     isFirst: isListView || total === 0 ? true : isFirst,
@@ -49,6 +56,7 @@ export default function ReviewScreen({ goHome }) {
     onDone: goHome,
     // List view keeps each card's own in-card source strip instead.
     sourceTag: !isListView && total > 0 && <QuestionSource question={questions[Math.min(currentIndex, total - 1)]} variant="nav" />,
+    enterHint: canEnterNext && !state.quizOptions.hideEnterHint,
   });
 
   const progressLabel = total === 0 ? '0 Items' : isListView ? `${total} Items` : `${Math.min(currentIndex + 1, total)}/${total}`;

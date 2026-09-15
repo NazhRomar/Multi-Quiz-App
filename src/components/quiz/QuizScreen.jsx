@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { useApp } from '../../state/AppContext.jsx';
 import { liveScore, scoreQuiz } from '../../state/grading.js';
 import { useNavRow } from './useNavRow.jsx';
+import { useEnterShortcut } from './useEnterShortcut.js';
 import QuizHeader from './QuizHeader.jsx';
 import QuestionCard from './QuestionCard.jsx';
 import SubmitConfirmModal from './SubmitConfirmModal.jsx';
@@ -39,27 +40,9 @@ export default function QuizScreen({ goHome }) {
   const unanswered = activeQuiz.questions.filter((q) => !q.flagged && !userAnswers[q.id]?.submitted).length;
 
   // Enter shortcut: once the current question is answered, Enter does what
-  // the Next button does (Finish on the last question). The window listener
-  // reads the latest action through a ref. Ignored when the keypress
-  // belongs to something else: typing (Enter in a fill-in already submits —
-  // it mustn't also skip ahead), a focused button/select/link (handles Enter
-  // natively), an open menu, a held-down key, or mid card transition.
-  const enterAction = isLocked && !showConfirm && !isCardExiting ? (isLast ? () => setShowConfirm(true) : () => animatedNav('NEXT_Q')) : null;
-  const enterActionRef = useRef(enterAction);
-  useEffect(() => {
-    enterActionRef.current = enterAction;
-  });
-  useEffect(() => {
-    const onKeyDown = (e) => {
-      if (e.key !== 'Enter' || e.repeat || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
-      if (e.target.closest?.('input, textarea, select, button, a, [role="button"], [contenteditable], .dropdown-menu')) return;
-      if (!enterActionRef.current) return;
-      e.preventDefault();
-      enterActionRef.current();
-    };
-    window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
-  }, []);
+  // the Next button does (Finish on the last question). Not mid card
+  // transition, so a quick double press can't skip a question.
+  useEnterShortcut(isLocked && !showConfirm && !isCardExiting ? (isLast ? () => setShowConfirm(true) : () => animatedNav('NEXT_Q')) : null);
 
   const { topRow, bottomRow, portals } = useNavRow({
     navLocation: appSettings.navLocation,

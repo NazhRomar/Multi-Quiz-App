@@ -89,10 +89,11 @@ export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMod
     );
 
     const disabled = isQuizMode && nextBlocked;
-    // Quiz mode: once the question is answered, Enter triggers this button
-    // (QuizScreen) — enterHint puts a ⏎ keycap inside it to say so.
-    const enterProps = isQuizMode && enterHint ? { 'aria-keyshortcuts': 'Enter' } : {};
-    const enterIcon = isQuizMode && enterHint && <EnterKeyIcon />;
+    // When Enter will trigger this button (answered quiz question, or any
+    // review card but the last — see useEnterShortcut), enterHint puts a ⏎
+    // keycap inside it to say so. Review's Done button never gets it.
+    const enterProps = enterHint ? { 'aria-keyshortcuts': 'Enter' } : {};
+    const enterIcon = enterHint && <EnterKeyIcon />;
     if (isLast) {
       nextBtn = isQuizMode ? (
         <button className="btn-next" onClick={onFinishQuiz} disabled={disabled} title={disabled ? 'Answer this question first' : undefined} {...enterProps}>

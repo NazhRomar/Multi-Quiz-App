@@ -18,7 +18,7 @@ export default function QuizOptionsFields() {
       <label className="dropdown-item">
         <span className="dropdown-item-text">
           <strong>Hide Enter key hint</strong>
-          <small>Hide the ⏎ on the Next button. Enter still goes to the next question once you've answered</small>
+          <small>Hide the ⏎ on the Next button. Enter still goes to the next question once you've answered (and to the next card in review)</small>
         </span>
         <Switch checked={quizOptions.hideEnterHint} onChange={(v) => set('hideEnterHint', v)} />
       </label>
