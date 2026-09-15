@@ -2,13 +2,7 @@ import { useApp } from '../../state/AppContext.jsx';
 import Switch from './Switch.jsx';
 import { useIsMobile } from '../../utils/useIsMobile.js';
 import { ANSWER_FONTS } from '../../utils/answerFonts.js';
-const THEME_MODE_ICONS = {
-  default: '☀️',
-  canvas: '☀️',
-  modern: '☀️',
-  pink: '☀️',
-  'dark-purple': '🌙',
-};
+import ThemePicker from './ThemePicker.jsx';
 
 // Code block themes (colors live in style.css under body.code-theme-<value>).
 // 'default' adds no class, so code blocks follow the app theme.
@@ -39,23 +33,15 @@ export default function AppSettingsFields({ showNavLocation = false }) {
 
   return (
     <>
-      <label className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '0.5rem' }}>
+      {/* A div, not a label: a label would forward clicks on its blank
+          space to the first tile button. */}
+      <div className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'stretch', gap: '0.5rem', cursor: 'default' }}>
         <span className="dropdown-item-text">
           <strong>UI Theme</strong>
           <small>Switch app appearance</small>
         </span>
-        <select
-          value={appSettings.theme}
-          onChange={(e) => set('theme', e.target.value)}
-          style={{ width: '100%', padding: '0.4rem', border: '1px solid var(--border)', borderRadius: '6px' }}
-        >
-          <option value="default">{THEME_MODE_ICONS.default} Misty Blue</option>
-          <option value="canvas">{THEME_MODE_ICONS.canvas} Canvas</option>
-          <option value="modern">{THEME_MODE_ICONS.modern} Modern</option>
-          <option value="pink">{THEME_MODE_ICONS.pink} Misty Pink</option>
-          <option value="dark-purple">{THEME_MODE_ICONS['dark-purple']} Dark Purple</option>
-        </select>
-      </label>
+        <ThemePicker value={appSettings.theme} onChange={(v) => set('theme', v)} />
+      </div>
       <label className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'stretch', gap: '0.5rem' }}>
         <span className="dropdown-item-text">
           <strong>Code Block Theme</strong>

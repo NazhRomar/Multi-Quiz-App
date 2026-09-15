@@ -859,15 +859,15 @@ body.theme-canvas .dropdown-tab {
   color: var(--text-muted);
 }
 
-body.theme-dark-purple .review-status--correct {
+body.theme-dark .review-status--correct {
   color: #7fe0bf;
 }
 
-body.theme-dark-purple .review-status--wrong {
+body.theme-dark .review-status--wrong {
   color: #ff8a8a;
 }
 
-body.theme-dark-purple .review-status--partial {
+body.theme-dark .review-status--partial {
   color: #ffc36e;
 }
 
@@ -2430,13 +2430,18 @@ body.theme-modern .quiz-chip {
 }
 
 /* =========================================================
-   --- MISTY PINK ---
-   Activated via body.theme-pink. Misty Blue's soft, airy light look
-   recolored rose-pink with a mauve/purple lean (review stays purple).
+   --- TINTED LIGHT THEMES (Misty Pink, Lavender, Sepia) ---
+   Misty Blue's soft, airy light look recolored. Every one of these gets
+   body.theme-tinted plus its own body.theme-<name> (see utils/themes.js).
    Misty Blue bakes its blue straight into a number of selectors rather
-   than the variables, so those get pink re-tints below.
+   than the variables, so the shared body.theme-tinted rules below re-tint
+   those from each theme's variables:
+   --accent-rgb / --accent-strong: primary tint + its dark text color
+   --accent-2-rgb / --accent-2-strong: a secondary hue for some badges
+   --header-bg, --review-card-bg, --review-card-border
 ========================================================= */
 
+/* Misty Pink: rose-pink with a mauve lean. */
 body.theme-pink {
   --bg: #fbf1f6;
   --surface: #fff8fb;
@@ -2450,86 +2455,146 @@ body.theme-pink {
   --correct: #4da89a;
   --shadow: 0 4px 20px rgba(208, 111, 159, 0.13);
   --review-accent: #9a6ac8;
+  --accent-rgb: 208, 111, 159;
+  --accent-strong: #a3447a;
+  --accent-2-rgb: 170, 110, 160;
+  --accent-2-strong: #7a3f6c;
+  --header-bg: rgba(253, 244, 249, 0.97);
+  --review-card-bg: #fdf7ff;
+  --review-card-border: #e7d2f2;
+}
 
+/* Lavender: Dark Purple's daytime counterpart — soft lilac. */
+body.theme-lavender {
+  --bg: #f4f2fb;
+  --surface: #fbfaff;
+  --border: #dcd6f2;
+  --accent: #8a79d6;
+  --accent-hover: #7160c4;
+  --text: #2b2544;
+  --text-muted: #7c75a0;
+  --radio-bg: #f3f1fc;
+  --radio-hover: #e9e5f9;
+  --correct: #4da89a;
+  --shadow: 0 4px 20px rgba(138, 121, 214, 0.13);
+  --review-accent: #b0609a;
+  --accent-rgb: 138, 121, 214;
+  --accent-strong: #5846ad;
+  --accent-2-rgb: 110, 140, 210;
+  --accent-2-strong: #3d5a9c;
+  --header-bg: rgba(247, 245, 253, 0.97);
+  --review-card-bg: #fdf8fc;
+  --review-card-border: #ecd5e6;
+}
+
+/* Sepia: warm paper tones, easy on the eyes for long reading. */
+body.theme-sepia {
+  --bg: #f4ede0;
+  --surface: #fbf6ec;
+  --border: #e0d2b8;
+  --accent: #a4733f;
+  --accent-hover: #8a5d2e;
+  --text: #3b2f22;
+  --text-muted: #8a7760;
+  --radio-bg: #f7efe1;
+  --radio-hover: #efe3cd;
+  --correct: #4a957a;
+  --shadow: 0 4px 20px rgba(120, 90, 50, 0.12);
+  --review-accent: #8c6bb0;
+  --accent-rgb: 164, 115, 63;
+  --accent-strong: #7a5226;
+  --accent-2-rgb: 140, 120, 90;
+  --accent-2-strong: #5f4d33;
+  --header-bg: rgba(247, 241, 229, 0.97);
+  --review-card-bg: #fbf7f1;
+  --review-card-border: #e5d8e8;
+}
+
+body.theme-tinted {
   background-color: var(--bg);
 }
 
-body.theme-pink .quiz-header {
-  background: rgba(253, 244, 249, 0.97);
+body.theme-tinted .quiz-header {
+  background: var(--header-bg);
 }
 
-body.theme-pink .question-card {
+body.theme-tinted .question-card {
   background: var(--surface);
   border-color: var(--border);
 }
 
-body.theme-pink .question-card--review {
-  background: #fdf7ff;
-  border-color: #e7d2f2;
+/* Misty Blue's question text is a blue-tinted slate; match that with each
+   theme's own accent. */
+body.theme-tinted .q-text {
+  color: color-mix(in srgb, var(--accent-strong) 40%, var(--text));
 }
 
-body.theme-pink .mode-pill--quiz,
-body.theme-pink .q-type-badge.mc {
-  background: rgba(208, 111, 159, 0.14);
-  color: #a3447a;
-  border-color: rgba(208, 111, 159, 0.4);
+body.theme-tinted .question-card--review {
+  background: var(--review-card-bg);
+  border-color: var(--review-card-border);
 }
 
-body.theme-pink .q-points {
-  background: rgba(208, 111, 159, 0.14);
-  color: #a3447a;
+body.theme-tinted .mode-pill--quiz,
+body.theme-tinted .q-type-badge.mc {
+  background: rgba(var(--accent-rgb), 0.14);
+  color: var(--accent-strong);
+  border-color: rgba(var(--accent-rgb), 0.4);
 }
 
-body.theme-pink .q-type-badge.fitb {
-  background: rgba(196, 130, 170, 0.15);
-  color: #8a4a70;
-  border-color: rgba(196, 130, 170, 0.4);
+body.theme-tinted .q-points {
+  background: rgba(var(--accent-rgb), 0.14);
+  color: var(--accent-strong);
 }
 
-body.theme-pink .q-type-badge.matching,
-body.theme-pink .q-type-badge.drag-drop {
-  background: rgba(170, 110, 160, 0.14);
-  color: #7a3f6c;
-  border-color: rgba(170, 110, 160, 0.4);
+body.theme-tinted .q-type-badge.fitb,
+body.theme-tinted .q-type-badge.matching,
+body.theme-tinted .q-type-badge.drag-drop {
+  background: rgba(var(--accent-2-rgb), 0.14);
+  color: var(--accent-2-strong);
+  border-color: rgba(var(--accent-2-rgb), 0.4);
 }
 
-body.theme-pink .quiz-chip-count,
-body.theme-pink .quiz-btn-meta {
-  background: rgba(208, 111, 159, 0.12);
+body.theme-tinted .quiz-chip-count,
+body.theme-tinted .quiz-btn-meta {
+  background: rgba(var(--accent-rgb), 0.12);
 }
 
-body.theme-pink .btn-next:hover:not(:disabled) {
-  box-shadow: 0 8px 25px rgba(208, 111, 159, 0.35);
+body.theme-tinted .btn-next:hover:not(:disabled) {
+  box-shadow: 0 8px 25px rgba(var(--accent-rgb), 0.35);
 }
 
-body.theme-pink .option-label:not(.locked):has(input[type="radio"]:checked),
-body.theme-pink .option-label:not(.locked):has(input[type="checkbox"]:checked) {
-  background: rgba(208, 111, 159, 0.12);
-  color: #8e2f62;
+body.theme-tinted .option-label:not(.locked):has(input[type="radio"]:checked),
+body.theme-tinted .option-label:not(.locked):has(input[type="checkbox"]:checked) {
+  background: rgba(var(--accent-rgb), 0.12);
+  color: var(--accent-strong);
 }
 
-body.theme-pink .fitb-input:focus:not(:disabled) {
-  box-shadow: 0 0 0 3px rgba(208, 111, 159, 0.2);
+body.theme-tinted .fitb-input:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.2);
 }
 
-body.theme-pink .drop-zone.drag-over {
-  background: rgba(208, 111, 159, 0.12);
+body.theme-tinted .drop-zone.drag-over {
+  background: rgba(var(--accent-rgb), 0.12);
 }
 
-body.theme-pink .q-context-body code {
-  background: rgba(208, 111, 159, 0.1);
-  border-color: rgba(208, 111, 159, 0.25);
+body.theme-tinted .q-context-body code {
+  background: rgba(var(--accent-rgb), 0.1);
+  border-color: rgba(var(--accent-rgb), 0.25);
 }
 
-body.theme-pink .mode-btn-quiz:hover {
-  background: rgba(208, 111, 159, 0.08);
+body.theme-tinted .mode-btn-quiz:hover {
+  background: rgba(var(--accent-rgb), 0.08);
 }
 
 /* =========================================================
-   --- DARK MODE (POWDER PURPLE) ---
-   Activated via body.theme-dark-purple
+   --- DARK THEMES (Dark Purple, Midnight) ---
+   Every dark theme gets body.theme-dark plus its own body.theme-<name>
+   (see utils/themes.js). A theme-<name> block only sets variables; the
+   body.theme-dark rules after them are the shared dark-mode fixes, which
+   read --accent-rgb / --accent-soft / --btn-next-* for accent tints.
 ========================================================= */
 
+/* Dark Purple: deep midnight purple with a powder-purple accent. */
 body.theme-dark-purple {
   /* Core Colors */
   --bg: #15131c;
@@ -2552,203 +2617,248 @@ body.theme-dark-purple {
   /* Adjusted green for dark mode visibility */
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 
+  /* Used by the shared body.theme-dark fixes below */
+  --accent-rgb: 168, 152, 234;
+  --accent-soft: #d1c8fa;
+  --btn-next-bg: #413564;
+  --btn-next-border: #5d4d8c;
+  --btn-next-hover: #7360ab;
+
+  background-color: var(--bg);
+}
+
+/* Midnight: Misty Blue after dark — deep navy with a soft sky-blue accent. */
+body.theme-midnight {
+  --bg: #0e141c;
+  --surface: #151e29;
+  --border: #263345;
+  --accent: #6fb0e6;
+  --accent-hover: #5a9bd3;
+  --text: #dce6f1;
+  --text-muted: #7f92a8;
+  --radio-bg: #1a2533;
+  --radio-hover: #212f40;
+  --correct: #5ecaa5;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  --accent-rgb: 111, 176, 230;
+  --accent-soft: #b9dcf7;
+  --btn-next-bg: #22446a;
+  --btn-next-border: #30608f;
+  --btn-next-hover: #3876b0;
+
   background-color: var(--bg);
 }
 
 /* Ensure menus and cards pick up the dark surface color */
-body.theme-dark-purple .dropdown-menu,
-body.theme-dark-purple .question-card {
+body.theme-dark .dropdown-menu,
+body.theme-dark .question-card {
   background-color: var(--surface);
 }
 
 /* Tint the sticky headers so they blend */
-body.theme-dark-purple .quiz-header,
-body.theme-dark-purple .dropdown-section-title,
-body.theme-dark-purple .dropdown-tab-bar {
-  background: rgba(29, 26, 39, 0.97);
+body.theme-dark .quiz-header,
+body.theme-dark .dropdown-section-title,
+body.theme-dark .dropdown-tab-bar {
+  background: color-mix(in srgb, var(--surface) 97%, transparent);
 }
 
 /* Fix text inputs, drag-items, and selects for dark mode */
-body.theme-dark-purple .drag-item,
-body.theme-dark-purple .fitb-input {
+body.theme-dark .drag-item,
+body.theme-dark .fitb-input {
   background-color: var(--radio-bg);
   color: var(--text);
 }
 
 /* Swap the custom SVG dropdown arrows to a light color so they are visible */
-body.theme-dark-purple .dropdown-item select,
-body.theme-dark-purple .match-select {
-  background-image: url('data:image/svg+xml;utf8,<svg fill="%23e2ddf0" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+body.theme-dark .dropdown-item select,
+body.theme-dark .match-select {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23cfd6e2" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
 }
 
 /* =========================================================
-   --- DARK PURPLE FIXES ---
+   --- SHARED DARK FIXES (body.theme-dark) ---
 ========================================================= */
 
+/* 0. Right/wrong answer text: the base styles use dark green/red meant
+   for light backgrounds, which were nearly unreadable here. */
+body.theme-dark .option-label.reveal-correct,
+body.theme-dark .fitb-correct,
+body.theme-dark .match-correct,
+body.theme-dark .review-answer-value {
+  color: var(--correct) !important;
+}
+
+body.theme-dark .option-label.reveal-wrong,
+body.theme-dark .fitb-wrong,
+body.theme-dark .match-wrong,
+body.theme-dark .review-answer-block--yours .review-answer-value {
+  color: #ff8a8a !important;
+}
+
 /* 1. Main menu quiz buttons were stuck on white */
-body.theme-dark-purple .btn-quiz {
+body.theme-dark .btn-quiz {
   background: var(--surface) !important;
   border-color: var(--border) !important;
 }
 
-body.theme-dark-purple .btn-quiz:hover {
+body.theme-dark .btn-quiz:hover {
   background: var(--radio-bg) !important;
   border-color: var(--accent) !important;
 }
 
-body.theme-dark-purple .quiz-btn-meta {
-  background: rgba(168, 152, 234, 0.15) !important;
+body.theme-dark .quiz-btn-meta {
+  background: rgba(var(--accent-rgb), 0.15) !important;
   color: var(--accent) !important;
 }
 
-body.theme-dark-purple .quiz-chip {
+body.theme-dark .quiz-chip {
   background: var(--surface) !important;
   border-color: var(--border) !important;
   color: var(--text) !important;
 }
 
-body.theme-dark-purple .quiz-chip:hover {
+body.theme-dark .quiz-chip:hover {
   background: var(--radio-bg) !important;
   border-color: var(--accent) !important;
 }
 
-body.theme-dark-purple .quiz-chip-count {
-  background: rgba(168, 152, 234, 0.15) !important;
+body.theme-dark .quiz-chip-count {
+  background: rgba(var(--accent-rgb), 0.15) !important;
   color: var(--accent) !important;
 }
 
 /* 2. Hamburger menu & dropdown items were stuck on white */
-body.theme-dark-purple .dropdown-menu,
-body.theme-dark-purple .dropdown-item {
+body.theme-dark .dropdown-menu,
+body.theme-dark .dropdown-item {
   background-color: var(--surface) !important;
   color: var(--text) !important;
 }
 
-body.theme-dark-purple .dropdown-item:hover {
+body.theme-dark .dropdown-item:hover {
   background-color: var(--radio-bg) !important;
 }
 
 /* 3. Question text bleed-through (was still Misty Blue) */
-body.theme-dark-purple .q-text {
+body.theme-dark .q-text {
   color: var(--text) !important;
   font-weight: normal !important;
 }
 
 /* 4. Score color too bright (Swapped to a softer glowing green) */
-body.theme-dark-purple .score-badge {
+body.theme-dark .score-badge {
   background: rgba(94, 202, 165, 0.15) !important;
   color: var(--correct) !important;
   border: 1px solid rgba(94, 202, 165, 0.3) !important;
 }
 
 /* 5. Next button too bright (Deepened the purple for better contrast) */
-body.theme-dark-purple .btn-next {
-  background: #413564 !important;
+body.theme-dark .btn-next {
+  background: var(--btn-next-bg) !important;
   color: #ffffff !important;
-  border-color: #5d4d8c !important;
+  border-color: var(--btn-next-border) !important;
 }
 
-body.theme-dark-purple .btn-next:hover:not(:disabled) {
-  background: #7360ab !important;
-  border-color: #7360ab !important;
-  box-shadow: 0 8px 25px rgba(168, 152, 234, 0.2) !important;
+body.theme-dark .btn-next:hover:not(:disabled) {
+  background: var(--btn-next-hover) !important;
+  border-color: var(--btn-next-hover) !important;
+  box-shadow: 0 8px 25px rgba(var(--accent-rgb), 0.2) !important;
 }
 
 /* 6. Hover states for Restart and Exit matching the dark theme */
-body.theme-dark-purple .btn-exit:hover {
+body.theme-dark .btn-exit:hover {
   background: rgba(224, 85, 85, 0.15) !important;
   border-color: #e05555 !important;
   color: #e05555 !important;
 }
 
-body.theme-dark-purple .btn-restart:hover {
+body.theme-dark .btn-restart:hover {
   background: rgba(140, 191, 74, 0.15) !important;
   border-color: #8cbf4a !important;
   color: #8cbf4a !important;
 }
 
 /* --- HAMBURGER MENU TEXT FIX --- */
-body.theme-dark-purple .dropdown-item-text strong {
+body.theme-dark .dropdown-item-text strong {
   color: var(--text) !important;
 }
 
-body.theme-dark-purple .dropdown-item-text small {
+body.theme-dark .dropdown-item-text small {
   color: var(--text-muted) !important;
 }
 
-body.theme-dark-purple .dropdown-section-title,
-body.theme-dark-purple .dropdown-tab-bar {
+body.theme-dark .dropdown-section-title,
+body.theme-dark .dropdown-tab-bar {
   background-color: var(--radio-bg) !important;
   color: var(--text-muted) !important;
 }
 
-body.theme-dark-purple .dropdown-tab--active {
+body.theme-dark .dropdown-tab--active {
   color: var(--accent) !important;
 }
 
 /* --- DISABLED BUTTON VISIBILITY FIX --- */
-body.theme-dark-purple button:disabled {
+body.theme-dark button:disabled {
   opacity: 0.5;
   /* Slightly higher opacity for better contrast */
 }
 
-body.theme-dark-purple .btn-prev:disabled {
+body.theme-dark .btn-prev:disabled {
   background: rgba(255, 255, 255, 0.05) !important;
   border-color: rgba(255, 255, 255, 0.1) !important;
   color: rgba(255, 255, 255, 0.3) !important;
 }
 
-body.theme-dark-purple .btn-next:disabled {
-  background: rgba(168, 152, 234, 0.1) !important;
-  border-color: rgba(168, 152, 234, 0.2) !important;
+body.theme-dark .btn-next:disabled {
+  background: rgba(var(--accent-rgb), 0.1) !important;
+  border-color: rgba(var(--accent-rgb), 0.2) !important;
   color: rgba(255, 255, 255, 0.3) !important;
 }
 
 /* --- 7. Mode & Quiz Type Badges Visibility Fix --- */
 
 /* Fix the Quiz and Review mode pills */
-body.theme-dark-purple .mode-pill--quiz {
+body.theme-dark .mode-pill--quiz {
   background: rgba(91, 155, 213, 0.25) !important;
   color: #9cd1ff !important;
   border-color: rgba(91, 155, 213, 0.5) !important;
 }
 
-body.theme-dark-purple .mode-pill--review {
+body.theme-dark .mode-pill--review {
   background: rgba(168, 152, 234, 0.25) !important;
   color: #d1c8fa !important;
   border-color: rgba(168, 152, 234, 0.5) !important;
 }
 
 /* Fix the individual question type badges inside the quiz */
-body.theme-dark-purple .q-type-badge.mc {
+body.theme-dark .q-type-badge.mc {
   background: rgba(91, 155, 213, 0.2) !important;
   color: #9cd1ff !important;
   /* Soft light blue */
   border-color: rgba(91, 155, 213, 0.4) !important;
 }
 
-body.theme-dark-purple .q-type-badge.tf {
+body.theme-dark .q-type-badge.tf {
   background: rgba(94, 202, 165, 0.2) !important;
   color: #8be6c6 !important;
   /* Soft mint green */
   border-color: rgba(94, 202, 165, 0.4) !important;
 }
 
-body.theme-dark-purple .q-type-badge.fitb {
-  background: rgba(168, 152, 234, 0.2) !important;
-  color: #d1c8fa !important;
+body.theme-dark .q-type-badge.fitb {
+  background: rgba(var(--accent-rgb), 0.2) !important;
+  color: var(--accent-soft) !important;
   /* Light powder purple */
-  border-color: rgba(168, 152, 234, 0.4) !important;
+  border-color: rgba(var(--accent-rgb), 0.4) !important;
 }
 
-body.theme-dark-purple .q-type-badge.msq {
-  background: rgba(168, 152, 234, 0.2) !important;
-  color: #d1c8fa !important;
-  border-color: rgba(168, 152, 234, 0.4) !important;
+body.theme-dark .q-type-badge.msq {
+  background: rgba(var(--accent-rgb), 0.2) !important;
+  color: var(--accent-soft) !important;
+  border-color: rgba(var(--accent-rgb), 0.4) !important;
 }
 
-body.theme-dark-purple .q-type-badge.matching,
-body.theme-dark-purple .q-type-badge.drag-drop {
+body.theme-dark .q-type-badge.matching,
+body.theme-dark .q-type-badge.drag-drop {
   background: rgba(224, 138, 172, 0.2) !important;
   color: #f7bbd0 !important;
   /* Light pastel pink/red */
@@ -2756,30 +2866,30 @@ body.theme-dark-purple .q-type-badge.drag-drop {
 }
 
 /* --- Fix Question Card Border --- */
-body.theme-dark-purple .question-card {
+body.theme-dark .question-card {
   border-color: var(--border) !important;
 }
 
 /* --- Fix Dropdown Select Text & Background --- */
-body.theme-dark-purple .dropdown-item select {
+body.theme-dark .dropdown-item select {
   color: var(--text) !important;
   background-color: var(--radio-bg) !important;
 }
 
 /* Also ensure the match-select dropdowns in the matching questions get the text color fix */
-body.theme-dark-purple .match-select {
+body.theme-dark .match-select {
   color: var(--text) !important;
 }
 
 /* --- Fix Native Select Options Background --- */
-body.theme-dark-purple option {
+body.theme-dark option {
   background-color: var(--surface) !important;
   color: var(--text) !important;
 }
 
 /* --- Fix Select Dropdown Arrow Color --- */
-body.theme-dark-purple select {
-  background-image: url('data:image/svg+xml;utf8,<svg fill="%23d1c8fa" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') !important;
+body.theme-dark select {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23cfd6e2" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') !important;
 }
 
 /* =========================================================
@@ -3077,6 +3187,117 @@ body.custom-answer-font :is(.option-label, .review-answer-value, .match-answer, 
   font-family: var(--answer-font) !important;
 }
 
+/* =========================================================
+   --- UI THEME PICKER (settings/ThemePicker.jsx) ---
+   Two-column grid of tiles: a mini page in the theme's own colors
+   (--tile-bg/-surface/-accent, set inline) plus a sun/moon icon and name.
+========================================================= */
+.theme-picker {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.theme-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.4rem;
+  background: var(--radio-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  text-align: left;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.theme-tile:hover {
+  border-color: var(--accent);
+}
+
+.theme-tile:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.theme-tile--active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+/* Check badge on the current theme, over the preview's top-right corner. */
+.theme-tile--active::after {
+  content: '✓';
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.6rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-tile-preview {
+  display: block;
+  height: 44px;
+  padding: 6px 8px;
+  background: var(--tile-bg);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.theme-tile-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 100%;
+  padding: 5px 6px;
+  background: var(--tile-surface);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.theme-tile-bar {
+  width: 45%;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--tile-accent);
+}
+
+.theme-tile-line {
+  width: 80%;
+  height: 3px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--tile-accent) 30%, transparent);
+}
+
+.theme-tile-line--short {
+  width: 55%;
+}
+
+.theme-tile-label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0 0.15rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.theme-tile-icon {
+  flex-shrink: 0;
+  color: var(--text-muted);
+}
+
 .answer-font-preview {
   font-family: 'Space Mono', monospace;
   font-size: 0.95rem;
@@ -3367,7 +3588,7 @@ body .btn-quiz.quiz-selected {
   --overload-color: 229, 72, 77; /* rgb triplet, used with alpha */
 }
 
-body.theme-dark-purple {
+body.theme-dark {
   --overload-color: 255, 107, 107;
 }
 
@@ -3457,7 +3678,7 @@ body.theme-dark-purple {
   border: 1px solid rgba(217, 130, 30, 0.4);
 }
 
-body.theme-dark-purple .mode-pill--multi {
+body.theme-dark .mode-pill--multi {
   background: rgba(240, 170, 80, 0.2) !important;
   color: #ffc98a !important;
   border-color: rgba(240, 170, 80, 0.5) !important;

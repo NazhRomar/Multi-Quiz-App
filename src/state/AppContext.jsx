@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from 'react';
 import { reducer, createInitialState } from './store.js';
 import { applyAnswerFont } from '../utils/answerFonts.js';
+import { applyTheme } from '../utils/themes.js';
 
 const AppContext = createContext(null);
 
@@ -11,10 +12,7 @@ export function AppProvider({ children }) {
     localStorage.setItem('quizApp_appSettings', JSON.stringify(state.appSettings));
     document.body.classList.toggle('no-animations', state.appSettings.disableAnimations);
     document.body.classList.toggle('compact-mode', state.appSettings.compactMode);
-    document.body.classList.remove('theme-canvas', 'theme-modern', 'theme-pink', 'theme-dark-purple');
-    if (state.appSettings.theme && state.appSettings.theme !== 'default') {
-      document.body.classList.add(`theme-${state.appSettings.theme}`);
-    }
+    applyTheme(state.appSettings.theme);
     // Code block theme: independent of the app theme; 'default' just
     // follows the app theme's own code block look.
     [...document.body.classList].filter((c) => c.startsWith('code-theme-')).forEach((c) => document.body.classList.remove(c));
