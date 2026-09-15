@@ -5,6 +5,7 @@ import Dropdown from '../settings/Dropdown.jsx';
 import AppSettingsFields from '../settings/AppSettingsFields.jsx';
 import SegmentedToggle from '../common/SegmentedToggle.jsx';
 import TermSection from './TermSection.jsx';
+import HeatedQuestionCount from './HeatedQuestionCount.jsx';
 import { formatBuildDate } from '../../utils/formatBuildDate.js';
 import { showcaseQuiz } from '../../devFixtures/showcaseQuiz.js';
 
@@ -163,7 +164,7 @@ export default function MenuScreen() {
               <strong>
                 {selected.size} {selected.size === 1 ? 'quiz' : 'quizzes'}
               </strong>{' '}
-              · {selectedQuestionCount} questions
+              · <HeatedQuestionCount count={selectedQuestionCount} />
             </>
           )}
         </div>

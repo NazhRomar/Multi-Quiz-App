@@ -3106,6 +3106,63 @@ body .btn-quiz.quiz-selected {
   color: var(--text);
 }
 
+/* Selected-question count heating up past 50 (HeatedQuestionCount.jsx):
+   redder with --heat-red, and a shake whose size/tilt/duration grow with
+   the count. inline-block so the transform applies. */
+.multi-q-count {
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.multi-q-count--hot {
+  color: color-mix(in srgb, #e5484d var(--heat-red), var(--text-muted));
+}
+
+body.theme-dark-purple .multi-q-count--hot {
+  color: color-mix(in srgb, #ff6b6b var(--heat-red), var(--text-muted));
+}
+
+.multi-q-count--shake {
+  animation: multi-q-count-shake var(--shake-duration) ease-in-out;
+}
+
+@keyframes multi-q-count-shake {
+  0%,
+  100% {
+    transform: none;
+  }
+
+  15% {
+    transform: translateX(calc(var(--shake-x) * -1)) rotate(calc(var(--shake-tilt) * -1));
+  }
+
+  30% {
+    transform: translateX(var(--shake-x)) rotate(var(--shake-tilt));
+  }
+
+  45% {
+    transform: translateX(calc(var(--shake-x) * -0.7)) rotate(calc(var(--shake-tilt) * -0.7));
+  }
+
+  60% {
+    transform: translateX(calc(var(--shake-x) * 0.7)) rotate(calc(var(--shake-tilt) * 0.7));
+  }
+
+  75% {
+    transform: translateX(calc(var(--shake-x) * -0.35)) rotate(calc(var(--shake-tilt) * -0.35));
+  }
+
+  90% {
+    transform: translateX(calc(var(--shake-x) * 0.35)) rotate(calc(var(--shake-tilt) * 0.35));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .multi-q-count--shake {
+    animation: none;
+  }
+}
+
 .multi-select-actions {
   display: flex;
   gap: 0.5rem;
