@@ -1608,15 +1608,41 @@ body.theme-canvas .option-label.locked {
   transition: none !important;
 }
 
+/* Multiple select: a correct option the user did NOT pick — dashed outline,
+   hollow ✓ and a "Missed" tag, so it can't be mistaken for one they got. */
+.option-label.reveal-missed {
+  background: rgba(77, 168, 154, 0.04) !important;
+  border-color: var(--correct) !important;
+  border-style: dashed !important;
+  color: #1f6b60 !important;
+  font-weight: bold;
+}
+
+.reveal-tag {
+  margin-left: auto;
+  flex-shrink: 0;
+  padding: 0.15rem 0.45rem;
+  border: 1px dashed var(--correct);
+  border-radius: 5px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--correct);
+}
+
 .option-label.reveal-correct input[type="radio"],
 .option-label.reveal-wrong input[type="radio"],
 .option-label.reveal-correct input[type="checkbox"],
-.option-label.reveal-wrong input[type="checkbox"] {
+.option-label.reveal-wrong input[type="checkbox"],
+.option-label.reveal-missed input[type="checkbox"] {
   display: none;
 }
 
 .option-label.reveal-correct::before,
-.option-label.reveal-wrong::before {
+.option-label.reveal-wrong::before,
+.option-label.reveal-missed::before {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1638,6 +1664,14 @@ body.theme-canvas .option-label.locked {
 .option-label.reveal-wrong::before {
   content: '✗';
   background-color: #d94f4f;
+}
+
+.option-label.reveal-missed::before {
+  content: '✓';
+  box-sizing: border-box;
+  border: 2px solid var(--correct);
+  background-color: transparent;
+  color: var(--correct);
 }
 
 /* --- Fill in the Blank --- */
@@ -2727,6 +2761,7 @@ body.theme-dark .match-select {
 /* 0. Right/wrong answer text: the base styles use dark green/red meant
    for light backgrounds, which were nearly unreadable here. */
 body.theme-dark .option-label.reveal-correct,
+body.theme-dark .option-label.reveal-missed,
 body.theme-dark .fitb-correct,
 body.theme-dark .match-correct,
 body.theme-dark .review-answer-value {

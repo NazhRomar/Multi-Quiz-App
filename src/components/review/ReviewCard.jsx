@@ -177,10 +177,15 @@ function ReviewBody({ question, reviewOptions, userAnswer }) {
       return question.options.map((opt, idx) => {
         const isCorrect = question.correctAnswer.includes(idx);
         const isYourWrongPick = picked.includes(idx) && !isCorrect;
+        // A correct option left unpicked in a wrong attempt is "missed" —
+        // styled apart from the correct ones the user did pick.
+        const isMissed = isCorrect && picked.length > 0 && !picked.includes(idx);
+        const cls = isMissed ? 'reveal-missed' : isCorrect ? 'reveal-correct' : isYourWrongPick ? 'reveal-wrong' : '';
         return (
-          <div className={`option-label locked ${isCorrect ? 'reveal-correct' : isYourWrongPick ? 'reveal-wrong' : ''}`} key={idx}>
-            {!isCorrect && !isYourWrongPick && <span style={{ width: 18, height: 18, flexShrink: 0, marginRight: '0.5rem' }} />}
+          <div className={`option-label locked ${cls}`} key={idx}>
+            {!cls && <span style={{ width: 18, height: 18, flexShrink: 0, marginRight: '0.5rem' }} />}
             <span {...renderHtml(opt)} />
+            {isMissed && <span className="reveal-tag">Missed</span>}
           </div>
         );
       });
