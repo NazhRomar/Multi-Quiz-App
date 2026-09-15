@@ -85,10 +85,9 @@ export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMod
     );
 
     const disabled = isQuizMode && nextBlocked;
-    // Only when Enter will trigger this button (answered quiz question, or
-    // any review card but the last — see useEnterShortcut) does it get the
-    // ⏎ keycap; otherwise it keeps its → arrow. Review's Done button never
-    // gets it.
+    // The ⏎ keycap: Enter presses this button once the quiz question is
+    // answered (useEnterShortcut), and on any review card but the last.
+    // Review's Done button never gets it.
     const enterProps = enterHint ? { 'aria-keyshortcuts': 'Enter' } : {};
     const enterIcon = enterHint && <EnterKeyIcon />;
     if (isLast) {

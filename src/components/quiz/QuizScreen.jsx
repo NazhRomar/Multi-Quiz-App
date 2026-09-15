@@ -86,7 +86,9 @@ export default function QuizScreen({ goHome }) {
     onNext: () => animatedNav('NEXT_Q'),
     onFinishQuiz: () => setShowConfirm(true),
     sourceTag: <QuestionSource question={question} variant="nav" />,
-    enterHint: isLocked && !quizOptions.hideEnterHint,
+    // Shown even before Enter can go on (unanswered, or Next blocked by No
+    // skipping), so the button doesn't swap its arrow for a keycap mid-question.
+    enterHint: !quizOptions.hideEnterHint,
     prevHint: !quizOptions.hideEnterHint,
   });
 
