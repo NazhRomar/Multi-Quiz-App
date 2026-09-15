@@ -36,6 +36,12 @@ function serviceWorker() {
 export default defineConfig({
   base: '/', // Change this back to '/' (or delete the base line entirely)
   plugins: [react(), serviceWorker()],
+  build: {
+    // Every quiz JSON is bundled into the main JS (catalog.js eager glob),
+    // so it passed Vite's 500 kB warning once the question bank grew.
+    // TODO: load quiz data on demand (code-split the JSON) and drop this.
+    chunkSizeWarningLimit: 1000,
+  },
   define: {
     __BUILD_DATE__: JSON.stringify(buildDate),
   },
