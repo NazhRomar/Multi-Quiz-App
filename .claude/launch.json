@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--", "--port", "5183"],
       "port": 5183
+    },
+    {
+      "name": "multi-quiz-app-preview",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "preview", "--", "--port", "4183", "--strictPort"],
+      "port": 4183
     }
   ]
 }
