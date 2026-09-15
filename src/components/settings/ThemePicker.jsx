@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { THEMES } from '../../utils/themes.js';
 
 const SunIcon = () => (
@@ -13,42 +14,68 @@ const MoonIcon = () => (
   </svg>
 );
 
+const swatchStyle = (theme) => ({
+  '--tile-bg': theme.swatch.bg,
+  '--tile-surface': theme.swatch.surface,
+  '--tile-accent': theme.swatch.accent,
+});
+
 // UI Theme picker: a grid of preview tiles (a mini page in the theme's
 // background, card and accent colors) instead of a native select, which
 // can't show anything but text. Sun/moon icons mark light vs dark themes.
+// Folded by default (each time the settings menu opens) to a single row
+// showing the current theme; the row toggles the grid.
 export default function ThemePicker({ value, onChange }) {
+  const [open, setOpen] = useState(false);
+  const current = THEMES.find((t) => t.value === value) || THEMES[0];
+
   return (
-    <div className="theme-picker" role="radiogroup" aria-label="UI Theme">
-      {THEMES.map((theme) => {
-        const active = theme.value === value;
-        return (
-          <button
-            key={theme.value}
-            type="button"
-            role="radio"
-            aria-checked={active}
-            className={`theme-tile ${active ? 'theme-tile--active' : ''}`}
-            onClick={() => onChange(theme.value)}
-            style={{
-              '--tile-bg': theme.swatch.bg,
-              '--tile-surface': theme.swatch.surface,
-              '--tile-accent': theme.swatch.accent,
-            }}
-          >
-            <span className="theme-tile-preview" aria-hidden="true">
-              <span className="theme-tile-card">
-                <span className="theme-tile-bar" />
-                <span className="theme-tile-line" />
-                <span className="theme-tile-line theme-tile-line--short" />
-              </span>
-            </span>
-            <span className="theme-tile-label">
-              {theme.mode === 'dark' ? <MoonIcon /> : <SunIcon />}
-              {theme.label}
-            </span>
-          </button>
-        );
-      })}
-    </div>
+    <>
+      <button type="button" className="theme-picker-toggle" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
+        <span className="dropdown-item-text">
+          <strong>UI Theme</strong>
+          <small className="theme-picker-current">
+            {current.mode === 'dark' ? <MoonIcon /> : <SunIcon />}
+            {current.label}
+          </small>
+        </span>
+        <span className="theme-picker-swatch" style={swatchStyle(current)} aria-hidden="true" />
+        <svg className="theme-picker-chevron" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M4 6l4 4 4-4" />
+        </svg>
+      </button>
+      <div className={`theme-picker-panel ${open ? 'theme-picker-panel--open' : ''}`} inert={!open}>
+        <div className="theme-picker-panel-inner">
+          <div className="theme-picker" role="radiogroup" aria-label="UI Theme">
+            {THEMES.map((theme) => {
+              const active = theme.value === value;
+              return (
+                <button
+                  key={theme.value}
+                  type="button"
+                  role="radio"
+                  aria-checked={active}
+                  className={`theme-tile ${active ? 'theme-tile--active' : ''}`}
+                  onClick={() => onChange(theme.value)}
+                  style={swatchStyle(theme)}
+                >
+                  <span className="theme-tile-preview" aria-hidden="true">
+                    <span className="theme-tile-card">
+                      <span className="theme-tile-bar" />
+                      <span className="theme-tile-line" />
+                      <span className="theme-tile-line theme-tile-line--short" />
+                    </span>
+                  </span>
+                  <span className="theme-tile-label">
+                    {theme.mode === 'dark' ? <MoonIcon /> : <SunIcon />}
+                    {theme.label}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </>
   );
 }

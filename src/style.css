@@ -3192,10 +3192,77 @@ body.custom-answer-font :is(.option-label, .review-answer-value, .match-answer, 
    Two-column grid of tiles: a mini page in the theme's own colors
    (--tile-bg/-surface/-accent, set inline) plus a sun/moon icon and name.
 ========================================================= */
+/* Fold toggle: heading row with the current theme's name, a swatch of its
+   colors and a chevron. The tile grid below slides open/closed. */
+.theme-picker-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  font-weight: inherit;
+}
+
+.theme-picker-toggle .dropdown-item-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.theme-picker-current {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.theme-picker-swatch {
+  flex-shrink: 0;
+  width: 30px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  /* page background with a card-and-accent corner */
+  background:
+    linear-gradient(var(--tile-accent), var(--tile-accent)) 6px 6px / 12px 3px no-repeat,
+    linear-gradient(var(--tile-surface), var(--tile-surface)) 3px 3px / 20px 12px no-repeat,
+    var(--tile-bg);
+}
+
+.theme-picker-chevron {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: transform 0.2s ease;
+}
+
+.theme-picker-toggle[aria-expanded='true'] .theme-picker-chevron {
+  transform: rotate(180deg);
+}
+
+.theme-picker-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease;
+}
+
+.theme-picker-panel--open {
+  grid-template-rows: 1fr;
+}
+
+.theme-picker-panel-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
 .theme-picker {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.5rem;
+  /* Space from the toggle row lives inside the clipped panel, so it
+     collapses away with it. Side padding keeps the active tile's ring
+     from being clipped. */
+  padding: 0.7rem 3px 3px;
 }
 
 .theme-tile {

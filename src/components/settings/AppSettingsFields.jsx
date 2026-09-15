@@ -34,12 +34,9 @@ export default function AppSettingsFields({ showNavLocation = false }) {
   return (
     <>
       {/* A div, not a label: a label would forward clicks on its blank
-          space to the first tile button. */}
-      <div className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'stretch', gap: '0.5rem', cursor: 'default' }}>
-        <span className="dropdown-item-text">
-          <strong>UI Theme</strong>
-          <small>Switch app appearance</small>
-        </span>
+          space to the first tile button. ThemePicker renders its own
+          heading row (the fold toggle). */}
+      <div className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'stretch', gap: 0, cursor: 'default' }}>
         <ThemePicker value={appSettings.theme} onChange={(v) => set('theme', v)} />
       </div>
       <label className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'stretch', gap: '0.5rem' }}>
