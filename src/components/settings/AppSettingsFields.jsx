@@ -2,11 +2,14 @@ import { useApp } from '../../state/AppContext.jsx';
 import Switch from './Switch.jsx';
 import { useIsMobile } from '../../utils/useIsMobile.js';
 import { ANSWER_FONTS } from '../../utils/answerFonts.js';
+import { OVERLOAD_LIMITS } from '../menu/overload/useOverload.js';
+import { DEFAULT_APP_SETTINGS } from '../../state/store.js';
 
 const THEME_MODE_ICONS = {
   default: '☀️',
   canvas: '☀️',
   modern: '☀️',
+  pink: '☀️',
   'dark-purple': '🌙',
 };
 
@@ -52,6 +55,7 @@ export default function AppSettingsFields({ showNavLocation = false }) {
           <option value="default">{THEME_MODE_ICONS.default} Misty Blue</option>
           <option value="canvas">{THEME_MODE_ICONS.canvas} Canvas</option>
           <option value="modern">{THEME_MODE_ICONS.modern} Modern</option>
+          <option value="pink">{THEME_MODE_ICONS.pink} Misty Pink</option>
           <option value="dark-purple">{THEME_MODE_ICONS['dark-purple']} Dark Purple</option>
         </select>
       </label>
@@ -96,6 +100,24 @@ export default function AppSettingsFields({ showNavLocation = false }) {
         <div className="answer-font-preview" aria-hidden="true">
           {ANSWER_PREVIEW}
         </div>
+      </label>
+      <label className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '0.5rem' }}>
+        <span className="dropdown-item-text">
+          <strong>Overload Warning</strong>
+          <small>Multi selections turn red and shake as they grow, peaking at this many questions</small>
+        </span>
+        <select
+          value={appSettings.overloadLimit}
+          onChange={(e) => set('overloadLimit', Number(e.target.value))}
+          style={{ width: '100%', padding: '0.4rem', border: '1px solid var(--border)', borderRadius: '6px' }}
+        >
+          <option value={0}>Off</option>
+          {OVERLOAD_LIMITS.map((n) => (
+            <option key={n} value={n}>
+              {n} questions{n === DEFAULT_APP_SETTINGS.overloadLimit ? ' (default)' : ''}
+            </option>
+          ))}
+        </select>
       </label>
       {showNavLocation && (
         <label className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '0.5rem' }}>

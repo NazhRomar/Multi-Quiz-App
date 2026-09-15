@@ -11,7 +11,7 @@ export function AppProvider({ children }) {
     localStorage.setItem('quizApp_appSettings', JSON.stringify(state.appSettings));
     document.body.classList.toggle('no-animations', state.appSettings.disableAnimations);
     document.body.classList.toggle('compact-mode', state.appSettings.compactMode);
-    document.body.classList.remove('theme-canvas', 'theme-modern', 'theme-dark-purple');
+    document.body.classList.remove('theme-canvas', 'theme-modern', 'theme-pink', 'theme-dark-purple');
     if (state.appSettings.theme && state.appSettings.theme !== 'default') {
       document.body.classList.add(`theme-${state.appSettings.theme}`);
     }

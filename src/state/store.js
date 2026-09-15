@@ -21,6 +21,7 @@ export const DEFAULT_APP_SETTINGS = {
   theme: 'default',
   codeTheme: 'default', // see CODE_THEMES in AppSettingsFields.jsx
   answerFont: 'default', // see ANSWER_FONTS in utils/answerFonts.js
+  overloadLimit: 250, // Multi selection size that maxes out the Overload indicator (0 = off)
   compactMode: false,
 };
 export const DEFAULT_QUIZ_OPTIONS = {

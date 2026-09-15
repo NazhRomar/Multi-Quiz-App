@@ -2283,6 +2283,102 @@ body.theme-modern .quiz-chip {
 }
 
 /* =========================================================
+   --- MISTY PINK ---
+   Activated via body.theme-pink. Misty Blue's soft, airy light look
+   recolored rose-pink with a mauve/purple lean (review stays purple).
+   Misty Blue bakes its blue straight into a number of selectors rather
+   than the variables, so those get pink re-tints below.
+========================================================= */
+
+body.theme-pink {
+  --bg: #fbf1f6;
+  --surface: #fff8fb;
+  --border: #efd0e1;
+  --accent: #d06f9f;
+  --accent-hover: #b85486;
+  --text: #432538;
+  --text-muted: #a07490;
+  --radio-bg: #fcf0f6;
+  --radio-hover: #f8e2ee;
+  --correct: #4da89a;
+  --shadow: 0 4px 20px rgba(208, 111, 159, 0.13);
+  --review-accent: #9a6ac8;
+
+  background-color: var(--bg);
+}
+
+body.theme-pink .quiz-header {
+  background: rgba(253, 244, 249, 0.97);
+}
+
+body.theme-pink .question-card {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+body.theme-pink .question-card--review {
+  background: #fdf7ff;
+  border-color: #e7d2f2;
+}
+
+body.theme-pink .mode-pill--quiz,
+body.theme-pink .q-type-badge.mc {
+  background: rgba(208, 111, 159, 0.14);
+  color: #a3447a;
+  border-color: rgba(208, 111, 159, 0.4);
+}
+
+body.theme-pink .q-points {
+  background: rgba(208, 111, 159, 0.14);
+  color: #a3447a;
+}
+
+body.theme-pink .q-type-badge.fitb {
+  background: rgba(196, 130, 170, 0.15);
+  color: #8a4a70;
+  border-color: rgba(196, 130, 170, 0.4);
+}
+
+body.theme-pink .q-type-badge.matching,
+body.theme-pink .q-type-badge.drag-drop {
+  background: rgba(170, 110, 160, 0.14);
+  color: #7a3f6c;
+  border-color: rgba(170, 110, 160, 0.4);
+}
+
+body.theme-pink .quiz-chip-count,
+body.theme-pink .quiz-btn-meta {
+  background: rgba(208, 111, 159, 0.12);
+}
+
+body.theme-pink .btn-next:hover:not(:disabled) {
+  box-shadow: 0 8px 25px rgba(208, 111, 159, 0.35);
+}
+
+body.theme-pink .option-label:not(.locked):has(input[type="radio"]:checked),
+body.theme-pink .option-label:not(.locked):has(input[type="checkbox"]:checked) {
+  background: rgba(208, 111, 159, 0.12);
+  color: #8e2f62;
+}
+
+body.theme-pink .fitb-input:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px rgba(208, 111, 159, 0.2);
+}
+
+body.theme-pink .drop-zone.drag-over {
+  background: rgba(208, 111, 159, 0.12);
+}
+
+body.theme-pink .q-context-body code {
+  background: rgba(208, 111, 159, 0.1);
+  border-color: rgba(208, 111, 159, 0.25);
+}
+
+body.theme-pink .mode-btn-quiz:hover {
+  background: rgba(208, 111, 159, 0.08);
+}
+
+/* =========================================================
    --- DARK MODE (POWDER PURPLE) ---
    Activated via body.theme-dark-purple
 ========================================================= */
@@ -3106,27 +3202,69 @@ body .btn-quiz.quiz-selected {
   color: var(--text);
 }
 
-/* Selected-question count heating up past 50 (HeatedQuestionCount.jsx):
-   redder with --heat-red, and a shake whose size/tilt/duration grow with
-   the count. inline-block so the transform applies. */
-.multi-q-count {
+/* =========================================================
+   --- OVERLOAD INDICATOR ---
+   Warns playfully that a Multi selection is getting big
+   (components/menu/overload/). Heat 0→1 between 50 and 300 questions
+   drives both pieces; each surge (count grows) replays their motion.
+========================================================= */
+:root {
+  --overload-color: 229, 72, 77; /* rgb triplet, used with alpha */
+}
+
+body.theme-dark-purple {
+  --overload-color: 255, 107, 107;
+}
+
+/* Count: redder with --overload-red, and a shake whose size/tilt/duration
+   grow with heat. inline-block so the transform applies. */
+.overload-count {
   display: inline-block;
   transition: color 0.3s ease;
 }
 
-.multi-q-count--hot {
-  color: color-mix(in srgb, #e5484d var(--heat-red), var(--text-muted));
+.overload-count--hot {
+  color: color-mix(in srgb, rgb(var(--overload-color)) var(--overload-red), var(--text-muted));
 }
 
-body.theme-dark-purple .multi-q-count--hot {
-  color: color-mix(in srgb, #ff6b6b var(--heat-red), var(--text-muted));
+.overload-count--shake {
+  animation: overload-shake var(--shake-duration) ease-in-out;
 }
 
-.multi-q-count--shake {
-  animation: multi-q-count-shake var(--shake-duration) ease-in-out;
+/* Vignette: a click-through red glow from the screen edges. As heat rises
+   the clear center shrinks (the glow reaches further in) and it deepens;
+   even at max the edges stay translucent. Sits under the sticky header and
+   the selection bar. */
+.overload-vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent calc(74% - 22% * var(--overload-heat)),
+    rgba(var(--overload-color), 0.32) 100%
+  );
+  opacity: var(--vignette-opacity);
+  transition: opacity 0.5s ease;
 }
 
-@keyframes multi-q-count-shake {
+.overload-vignette--surge {
+  animation: overload-pulse 0.7s ease-out;
+}
+
+@keyframes overload-pulse {
+  0%,
+  100% {
+    opacity: var(--vignette-opacity);
+  }
+
+  30% {
+    opacity: calc(var(--vignette-opacity) + 0.18);
+  }
+}
+
+@keyframes overload-shake {
   0%,
   100% {
     transform: none;
@@ -3158,7 +3296,8 @@ body.theme-dark-purple .multi-q-count--hot {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .multi-q-count--shake {
+  .overload-count--shake,
+  .overload-vignette--surge {
     animation: none;
   }
 }
