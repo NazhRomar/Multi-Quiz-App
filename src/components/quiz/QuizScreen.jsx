@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useApp } from '../../state/AppContext.jsx';
 import { liveScore, scoreQuiz } from '../../state/grading.js';
 import { useNavRow } from './useNavRow.jsx';
-import { useChoiceKeys, useEnterShortcut } from './useEnterShortcut.js';
+import { useChoiceKeys, useEnterShortcut, usePrevShortcut } from './useEnterShortcut.js';
 import QuizHeader from './QuizHeader.jsx';
 import QuestionCard from './QuestionCard.jsx';
 import SubmitConfirmModal from './SubmitConfirmModal.jsx';
@@ -72,6 +72,8 @@ export default function QuizScreen({ goHome }) {
   useEnterShortcut(
     !keysActive ? null : isLocked ? (isLast ? () => setShowConfirm(true) : () => animatedNav('NEXT_Q')) : enterSubmits ? submitCurrent : null
   );
+  // Left arrow: what the Previous button does.
+  usePrevShortcut(keysActive && !isFirst ? () => animatedNav('PREV_Q') : null);
 
   const { topRow, bottomRow, portals } = useNavRow({
     navLocation: appSettings.navLocation,
@@ -85,6 +87,7 @@ export default function QuizScreen({ goHome }) {
     onFinishQuiz: () => setShowConfirm(true),
     sourceTag: <QuestionSource question={question} variant="nav" />,
     enterHint: isLocked && !quizOptions.hideEnterHint,
+    prevHint: !quizOptions.hideEnterHint,
   });
 
   const score = liveScore(activeQuiz.questions, userAnswers, quizOptions);

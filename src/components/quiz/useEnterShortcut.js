@@ -37,6 +37,11 @@ export function useEnterShortcut(action) {
   useKeyShortcut((e) => (e.key === 'Enter' && !e.shiftKey ? true : undefined), action, 'button, a, [role="button"]');
 }
 
+// Left arrow (no Shift): Previous.
+export function usePrevShortcut(action) {
+  useKeyShortcut((e) => (e.key === 'ArrowLeft' && !e.shiftKey ? true : undefined), action);
+}
+
 // Number keys 1–9 → option index 0–8, and 0 → index 9 (the 10th option).
 export function useChoiceKeys(action) {
   useKeyShortcut((e) => (/^[0-9]$/.test(e.key) ? (e.key === '0' ? 9 : Number(e.key) - 1) : undefined), action);

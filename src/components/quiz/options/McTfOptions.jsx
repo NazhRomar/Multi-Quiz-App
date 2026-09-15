@@ -1,6 +1,6 @@
 import { renderHtml } from '../../../utils/renderHtml.js';
 import { choiceKeyLabel } from '../useEnterShortcut.js';
-import EnterKeyIcon from '../../common/EnterKeyIcon.jsx';
+import { EnterKeyIcon } from '../../common/KeyIcons.jsx';
 
 // showKeyHints: number keycap at the right of each unanswered choice (the
 // number-key shortcut, QuizScreen). submitEnterHint: ⏎ on Submit.

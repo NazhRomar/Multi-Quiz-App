@@ -94,8 +94,11 @@ export default function QuizOptionsFields() {
       </label>
       <label className="dropdown-item">
         <span className="dropdown-item-text">
-          <strong>Hide Enter key hint</strong>
-          <small>Hide the ⏎ on the Next button. Enter still goes to the next question once you've answered (and to the next card in review)</small>
+          <strong>Hide Enter / ← key hints</strong>
+          <small>
+            Hide the ⏎ on Next and Submit and the ← on Previous (the buttons show plain arrows instead). Enter and ← still
+            work: Enter submits, then goes to the next question (the next card in review); ← goes back
+          </small>
         </span>
         <Switch checked={quizOptions.hideEnterHint} onChange={(v) => set('hideEnterHint', v)} />
       </label>

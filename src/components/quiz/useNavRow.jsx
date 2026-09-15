@@ -2,7 +2,7 @@ import { useLayoutEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { navSideLeft, navSideRight, navNearLeft, navNearRight } from './navPortalTargets.js';
 import { useIsMobile } from '../../utils/useIsMobile.js';
-import EnterKeyIcon from '../common/EnterKeyIcon.jsx';
+import { EnterKeyIcon, LeftKeyIcon } from '../common/KeyIcons.jsx';
 
 const NAV_POSITION_MAP = {
   up: ['top'],
@@ -20,8 +20,9 @@ const NAV_POSITION_MAP = {
 // sourceTag: optional node (Multi's QuestionSource "nav" variant) rendered
 // as the first child of both inline rows — CSS only shows it on phones:
 // floating above the bottom bar, or on its own line below the top row's
-// buttons. enterHint: show the ⏎ keycap on the quiz's Next/Finish button.
-export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMode, isListView, onPrev, onNext, onFinishQuiz, onDone, sourceTag, enterHint }) {
+// buttons. enterHint: the ⏎ keycap on Next/Finish. prevHint: the ← keycap
+// on Previous.
+export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMode, isListView, onPrev, onNext, onFinishQuiz, onDone, sourceTag, enterHint, prevHint }) {
   const isMobile = useIsMobile();
   // Mobile only ever offers Top or Bottom in the settings UI (see
   // AppSettingsFields) — clamp actual rendering to match, so a value chosen
@@ -70,16 +71,24 @@ export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMod
       </button>
     );
   } else {
+    // A keycap takes the place of the button's arrow, saying which key
+    // presses it. The arrow stays in the markup: it's back whenever there's
+    // no keycap, and on touch screens, where CSS hides keycaps and
+    // shows the arrow instead.
+    const arrowClass = (keyed) => `nav-arrow ${keyed ? 'nav-arrow--keyed' : ''}`;
     prevBtn = (
-      <button className="btn-prev" onClick={onPrev} disabled={isFirst}>
-        ← Previous
+      <button className="btn-prev" onClick={onPrev} disabled={isFirst} {...(prevHint ? { 'aria-keyshortcuts': 'ArrowLeft' } : {})}>
+        {prevHint && <LeftKeyIcon />}
+        <span className={arrowClass(prevHint)}>← </span>
+        Previous
       </button>
     );
 
     const disabled = isQuizMode && nextBlocked;
-    // When Enter will trigger this button (answered quiz question, or any
-    // review card but the last — see useEnterShortcut), enterHint puts a ⏎
-    // keycap inside it to say so. Review's Done button never gets it.
+    // Only when Enter will trigger this button (answered quiz question, or
+    // any review card but the last — see useEnterShortcut) does it get the
+    // ⏎ keycap; otherwise it keeps its → arrow. Review's Done button never
+    // gets it.
     const enterProps = enterHint ? { 'aria-keyshortcuts': 'Enter' } : {};
     const enterIcon = enterHint && <EnterKeyIcon />;
     if (isLast) {
@@ -95,7 +104,8 @@ export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMod
     } else {
       nextBtn = (
         <button className="btn-next" onClick={onNext} disabled={disabled} title={disabled ? 'Answer this question first' : undefined} {...enterProps}>
-          Next →{enterIcon}
+          Next<span className={arrowClass(enterHint)}> →</span>
+          {enterIcon}
         </button>
       );
     }

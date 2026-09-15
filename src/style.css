@@ -1408,9 +1408,9 @@ button:disabled {
   transform: none;
 }
 
-/* ⏎ keycap inside the quiz's Next/Finish button once Enter will press it
-   (useNavRow EnterKeyIcon). Touch-only devices have no Enter key to hint. */
-.enter-hint {
+/* Keycap inside a button its key presses (common/KeyIcons): ⏎ on
+   Next/Finish/Submit once Enter will press it, ← on Previous. */
+.key-hint {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1424,8 +1424,18 @@ button:disabled {
   animation: fadeIn 0.15s ease-out;
 }
 
-.enter-hint svg {
+.key-hint--leading {
+  margin-left: 0;
+  margin-right: 0.55rem;
+}
+
+.key-hint svg {
   display: block;
+}
+
+/* A nav button's ←/→ arrow gives way to its keycap (useNavRow). */
+.nav-arrow--keyed {
+  display: none;
 }
 
 /* 1–9 / 0 keycap at the right end of each unanswered choice (the
@@ -1452,11 +1462,16 @@ button:disabled {
   color: var(--accent);
 }
 
-/* Touch-only devices have no keyboard to press these with. */
+/* Touch-only devices have no keyboard to press these with: no keycaps,
+   and the nav buttons keep their arrows. */
 @media (hover: none) {
-  .enter-hint,
+  .key-hint,
   .option-key {
     display: none;
+  }
+
+  .nav-arrow--keyed {
+    display: inline;
   }
 }
 

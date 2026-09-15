@@ -36,7 +36,7 @@ export const DEFAULT_QUIZ_OPTIONS = {
   msqScoring: 'rightMinusWrong', // multiple select: 'right' | 'rightMinusWrong' | 'allOrNothing' (see pointsEarned)
   instantSubmit: true, // auto-submit mc/tf the moment you pick an option
   autoFocusBlank: true, // fitb: cursor in the first blank on arrival (not on touch screens)
-  hideEnterHint: false, // hide the ⏎ keycap on Next (the Enter shortcut still works)
+  hideEnterHint: false, // hide the ⏎ keycaps (Next/Submit) and ← (Previous); the shortcuts still work
   hideNumberHint: false, // hide the 1–9/0 keycaps on choices (the number keys still work)
 };
 export const DEFAULT_REVIEW_OPTIONS = {
