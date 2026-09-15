@@ -10,10 +10,27 @@ export default function QuizOptionsFields() {
     <>
       <label className="dropdown-item">
         <span className="dropdown-item-text">
+          <strong>No skipping</strong>
+          <small>Next stays locked until you submit the current question (Show Answer counts). Previous still works</small>
+        </span>
+        <Switch checked={quizOptions.noSkip} onChange={(v) => set('noSkip', v)} />
+      </label>
+      <label className="dropdown-item">
+        <span className="dropdown-item-text">
           <strong>Instant submit</strong>
           <small>Multiple Choice / True-False: submit the moment you pick an option, no Submit click needed</small>
         </span>
         <Switch checked={quizOptions.instantSubmit} onChange={(v) => set('instantSubmit', v)} />
+      </label>
+      <label className="dropdown-item">
+        <span className="dropdown-item-text">
+          <strong>Auto-focus blanks</strong>
+          <small>
+            Fill in the Blank: the cursor starts in the first blank, so you can type right away. Enter moves to the next
+            blank, then submits (not on touch screens, where it would pop up the keyboard)
+          </small>
+        </span>
+        <Switch checked={quizOptions.autoFocusBlank} onChange={(v) => set('autoFocusBlank', v)} />
       </label>
       <label className="dropdown-item">
         <span className="dropdown-item-text">
@@ -95,13 +112,6 @@ export default function QuizOptionsFields() {
           <small>Only hide the correct/incorrect banner on questions that already show an explanation</small>
         </span>
         <Switch checked={quizOptions.hideFeedbackIfExplanation} onChange={(v) => set('hideFeedbackIfExplanation', v)} />
-      </label>
-      <label className="dropdown-item">
-        <span className="dropdown-item-text">
-          <strong>Disable navigation</strong>
-          <small>Must answer before moving forward</small>
-        </span>
-        <Switch checked={quizOptions.noSkip} onChange={(v) => set('noSkip', v)} />
       </label>
     </>
   );

@@ -67,6 +67,7 @@ export default function QuestionCard({ question, index, savedState, isLocked, ex
           isLocked={isLocked}
           onChange={(value) => dispatch({ type: 'SAVE_ANSWER', payload: { qId: question.id, value } })}
           onSubmit={submit}
+          autoFocus={quizOptions.autoFocusBlank}
         />
       );
       break;

@@ -1,12 +1,24 @@
-import { Fragment, useRef } from 'react';
+import { Fragment, useEffect, useRef } from 'react';
 import { splitCodeBlanks } from '../../../utils/codeBlank.js';
 import { fitbExpected, fitbGiven, fitbBlankCorrect } from '../../../state/grading.js';
 import { renderHtml } from '../../../utils/renderHtml.js';
 
-export default function FitbInput({ question, savedState, isLocked, onChange, onSubmit }) {
+// autoFocus: put the cursor in the first empty blank as the question comes
+// up, so it can be answered without the mouse (Quiz Options → Auto-focus
+// blanks). Not on touch screens, where focusing pops the keyboard open.
+export default function FitbInput({ question, savedState, isLocked, onChange, onSubmit, autoFocus }) {
   const blankRefs = useRef([]);
   const expected = fitbExpected(question);
   const given = fitbGiven(question, savedState.value);
+
+  useEffect(() => {
+    if (!autoFocus || isLocked || window.matchMedia('(hover: none)').matches) return;
+    const blanks = blankRefs.current.filter(Boolean);
+    const target = blanks.find((el) => !el.value.trim()) || blanks[0];
+    target?.focus({ preventScroll: true });
+    // Only on arriving at a question (or the setting turning on), not on
+    // every keystroke.
+  }, [question.id, isLocked, autoFocus]);
   const isRight = (i) => fitbBlankCorrect(given[i], expected[i]);
   const blankClass = (i) => {
     if (!isLocked) return '';

@@ -35,6 +35,7 @@ export const DEFAULT_QUIZ_OPTIONS = {
   showMsqCount: false, // "Select N" hint on multiple-select questions
   msqScoring: 'rightMinusWrong', // multiple select: 'right' | 'rightMinusWrong' | 'allOrNothing' (see pointsEarned)
   instantSubmit: true, // auto-submit mc/tf the moment you pick an option
+  autoFocusBlank: true, // fitb: cursor in the first blank on arrival (not on touch screens)
   hideEnterHint: false, // hide the ⏎ keycap on Next (the Enter shortcut still works)
   hideNumberHint: false, // hide the 1–9/0 keycaps on choices (the number keys still work)
 };
