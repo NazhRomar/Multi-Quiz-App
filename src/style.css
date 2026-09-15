@@ -55,6 +55,27 @@ textarea {
   user-select: text;
 }
 
+/* Question content is selectable/copyable (questions, code, explanations,
+   answers, review cards) — the blanket rule above only keeps taps on
+   buttons, chips and navigation from highlighting text. Unanswered choices
+   are the exception: each is a clickable label, so a drag across one to
+   copy it would also click it and pick (or instantly submit) that answer;
+   they become selectable once answered (.locked, incl. review). */
+:is(.q-text, .q-context-body, .q-explanation-text, .feedback-banner, .review-answer-value, .match-term, .match-answer, .fitb-reveal, .option-label.locked),
+:is(.q-text, .q-context-body, .q-explanation-text, .feedback-banner, .review-answer-value, .match-term, .match-answer, .fitb-reveal, .option-label.locked) * {
+  -webkit-user-select: text;
+  user-select: text;
+  cursor: text;
+}
+
+/* …except the settings menu's code-theme badge, a code box inside a
+   (fold toggle) button. */
+.fold-toggle .fold-badge * {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
 button,
 label,
 select,
