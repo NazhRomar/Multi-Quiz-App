@@ -20,9 +20,7 @@ export const DEFAULT_APP_SETTINGS = {
   navLocation: 'down', // 'up' | 'down' | 'sides' | 'center' | 'both' | 'all'
   theme: 'default',
   codeTheme: 'default', // see CODE_THEMES in AppSettingsFields.jsx
-  answerFont: 'default', // see ANSWER_FONTS in utils/answerFonts.js
-  overloadLimit: 250, // Multi selection size that maxes out the Overload indicator (0 = off)
-  compactMode: false,
+  answerFont: 'default', // see ANSWER_FONTS in utils/answerFonts.js  compactMode: false,
 };
 export const DEFAULT_QUIZ_OPTIONS = {
   noSkip: false,
@@ -148,9 +146,12 @@ export function reducer(state, action) {
           payload: { term: state.activeTerm, course: state.activeCourse, quizData: state.originalQuizData },
         });
       }
+      // Review restarts from the current activeQuiz rather than the original:
+      // after a quiz attempt it may be shuffled, and the kept userAnswers
+      // (graded on the review cards) refer to that shuffled order.
       return reducer(state, {
         type: 'START_REVIEW',
-        payload: { term: state.activeTerm, course: state.activeCourse, quizData: state.originalQuizData },
+        payload: { term: state.activeTerm, course: state.activeCourse, quizData: state.activeQuiz },
       });
     }
 
@@ -210,10 +211,11 @@ export function reducer(state, action) {
       return { ...state, userAnswers: { ...state.userAnswers, [qId]: { ...existing, value } } };
     }
 
+    // Submitting with nothing entered is allowed — it's how you give up and
+    // reveal the answer (the question then counts as unanswered).
     case 'CHECK_ANSWER': {
       const { qId } = action.payload;
-      const existing = state.userAnswers[qId];
-      if (!existing) return state;
+      const existing = state.userAnswers[qId] || { value: null };
       return { ...state, userAnswers: { ...state.userAnswers, [qId]: { ...existing, submitted: true } } };
     }
 

@@ -25,8 +25,9 @@ export default function MsqOptions({ question, savedState, isLocked, onToggle, o
         );
       })}
       {!isLocked && (
+        // Nothing picked yet: the same button doubles as "give up and reveal".
         <button className="btn-check" style={{ marginTop: '1rem' }} onClick={onSubmit}>
-          Submit
+          {savedSet.length === 0 ? 'Show Answer' : 'Submit'}
         </button>
       )}
     </>

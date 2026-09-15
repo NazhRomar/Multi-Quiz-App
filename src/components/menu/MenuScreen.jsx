@@ -7,7 +7,6 @@ import SegmentedToggle from '../common/SegmentedToggle.jsx';
 import TermSection from './TermSection.jsx';
 import { useOverload } from './overload/useOverload.js';
 import OverloadCount from './overload/OverloadCount.jsx';
-import OverloadVignette from './overload/OverloadVignette.jsx';
 import { formatBuildDate } from '../../utils/formatBuildDate.js';
 import { showcaseQuiz } from '../../devFixtures/showcaseQuiz.js';
 
@@ -80,7 +79,7 @@ export default function MenuScreen() {
     .flatMap((courses) => Object.values(courses).flat())
     .filter((quiz) => selected.has(quiz.id))
     .reduce((sum, quiz) => sum + (quiz.data.questions?.length || 0), 0);
-  const overload = useOverload(selectedQuestionCount, state.appSettings.overloadLimit);
+  const overload = useOverload(selectedQuestionCount);
 
   const hint = homeMode.multi
     ? `Pick any quizzes, from any subject or term, to combine into one Multi ${homeMode.review ? 'review' : 'quiz'}.`
@@ -153,7 +152,6 @@ export default function MenuScreen() {
       <footer className="home-footer" onClick={openShowcase}>
         Last updated: {formatBuildDate(__BUILD_DATE__)}
       </footer>
-      <OverloadVignette heat={overload.heat} surgeId={overload.surgeId} active={homeMode.multi} />
       <div
         className={`multi-select-bar ${homeMode.multi ? 'multi-select-bar--visible' : ''}`}
         role="region"

@@ -1,19 +1,23 @@
 import { Fragment, useRef } from 'react';
 import { splitCodeBlanks } from '../../../utils/codeBlank.js';
 import { fitbExpected, fitbGiven, fitbBlankCorrect } from '../../../state/grading.js';
+import { renderHtml } from '../../../utils/renderHtml.js';
 
 export default function FitbInput({ question, savedState, isLocked, onChange, onSubmit }) {
   const blankRefs = useRef([]);
   const expected = fitbExpected(question);
   const given = fitbGiven(question, savedState.value);
+  const isRight = (i) => fitbBlankCorrect(given[i], expected[i]);
   const blankClass = (i) => {
     if (!isLocked) return '';
-    return fitbBlankCorrect(given[i], expected[i]) ? 'fitb-correct' : 'fitb-wrong';
+    return isRight(i) ? 'fitb-correct' : 'fitb-wrong';
   };
 
+  // Nothing typed yet: the same button doubles as "give up and reveal".
+  const isEmpty = given.every((g) => !g.trim());
   const submitButton = !isLocked && (
     <button className="btn-check" onClick={onSubmit}>
-      Submit
+      {isEmpty ? 'Show Answer' : 'Submit'}
     </button>
   );
 
@@ -61,6 +65,10 @@ export default function FitbInput({ question, savedState, isLocked, onChange, on
                       aria-label={blankCount > 1 ? `Blank ${i + 1} of ${blankCount}` : 'Fill in the blank'}
                     />
                   )}
+                  {/* Wrong or skipped blank: reveal its answer right beside it. */}
+                  {i < blankCount && isLocked && !isRight(i) && (
+                    <span className="code-fitb-answer code-fitb-answer--reveal">{expected[i] ?? ''}</span>
+                  )}
                 </Fragment>
               ))}
             </pre>
@@ -72,9 +80,16 @@ export default function FitbInput({ question, savedState, isLocked, onChange, on
   }
 
   return (
-    <div className="fitb-row">
-      <input {...inputProps(0, 1)} className={`fitb-input ${blankClass(0)}`} placeholder="Type your answer..." />
-      {submitButton}
-    </div>
+    <>
+      <div className="fitb-row">
+        <input {...inputProps(0, 1)} className={`fitb-input ${blankClass(0)}`} placeholder="Type your answer..." />
+        {submitButton}
+      </div>
+      {isLocked && !isRight(0) && (
+        <div className="fitb-reveal">
+          Answer: <strong {...renderHtml(expected[0])} />
+        </div>
+      )}
+    </>
   );
 }

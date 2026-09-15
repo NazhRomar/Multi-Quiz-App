@@ -15,6 +15,10 @@ export default function ReviewScreen({ goHome }) {
     ? activeQuiz.questions.filter((q) => !q.flagged && !isAnswerCorrect(q, userAnswers[q.id]?.value ?? null))
     : activeQuiz.questions;
   const total = questions.length;
+  // Reviewing right after a quiz attempt (not a fresh review from home):
+  // cards then grade that attempt.
+  const hasAttempt = Object.keys(userAnswers).length > 0;
+  const answerOf = (q) => userAnswers[q.id]?.value ?? null;
 
   const animatedNav = (actionType) => {
     if (appSettings.disableAnimations || isListView) {
@@ -60,7 +64,17 @@ export default function ReviewScreen({ goHome }) {
             <strong>🎉 No wrong answers to review!</strong>
           </div>
         ) : isListView ? (
-          questions.map((q, idx) => <ReviewCard key={q.id} question={q} index={idx} reviewOptions={reviewOptions} isListView />)
+          questions.map((q, idx) => (
+            <ReviewCard
+              key={q.id}
+              question={q}
+              index={idx}
+              reviewOptions={reviewOptions}
+              isListView
+              userAnswer={answerOf(q)}
+              hasAttempt={hasAttempt}
+            />
+          ))
         ) : (
           <ReviewCard
             question={questions[Math.min(currentIndex, total - 1)]}
@@ -68,6 +82,8 @@ export default function ReviewScreen({ goHome }) {
             reviewOptions={reviewOptions}
             isListView={false}
             exiting={isCardExiting}
+            userAnswer={answerOf(questions[Math.min(currentIndex, total - 1)])}
+            hasAttempt={hasAttempt}
           />
         )}
       </main>

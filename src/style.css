@@ -496,7 +496,18 @@ main.question-card {
     width: auto;
     max-width: none;
     max-height: calc(100vh - 2rem);
+    /* dvh: the height actually visible between the phone's browser bars */
+    max-height: calc(100dvh - 2rem);
   }
+}
+
+/* The dropdown lives inside the sticky header, so it can never stack
+   higher than the header itself — below the floating bottom nav and Multi
+   selection bar (z-index 150), which covered its last items on phones.
+   Lift the whole header above them while the menu is open (still below
+   modals at 300). */
+.quiz-header:has(.dropdown-menu) {
+  z-index: 250;
 }
 
 .dropdown-menu::-webkit-scrollbar {
@@ -799,6 +810,97 @@ body.theme-canvas .dropdown-tab {
   font-weight: 700;
   color: #1f6b60;
   font-family: 'Space Mono', monospace;
+}
+
+/* --- Review of a quiz attempt (ReviewCard hasAttempt) --- */
+.review-status {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.q-meta-left:has(.review-status) {
+  flex-wrap: wrap;
+  row-gap: 0.35rem;
+}
+
+.q-meta-left:has(.review-status) + .q-points {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.review-status--correct {
+  background: rgba(77, 168, 154, 0.14);
+  border-color: rgba(77, 168, 154, 0.45);
+  color: #1f6b60;
+}
+
+.review-status--wrong {
+  background: rgba(217, 79, 79, 0.1);
+  border-color: rgba(217, 79, 79, 0.45);
+  color: #b03030;
+}
+
+.review-status--partial {
+  background: rgba(217, 146, 30, 0.12);
+  border-color: rgba(217, 146, 30, 0.45);
+  color: #95600c;
+}
+
+.review-status--unanswered {
+  background: var(--radio-bg);
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+
+body.theme-dark-purple .review-status--correct {
+  color: #7fe0bf;
+}
+
+body.theme-dark-purple .review-status--wrong {
+  color: #ff8a8a;
+}
+
+body.theme-dark-purple .review-status--partial {
+  color: #ffc36e;
+}
+
+.review-answer-block--yours {
+  margin-bottom: 0.75rem;
+  background: rgba(217, 79, 79, 0.06);
+  border-color: #d94f4f;
+}
+
+.review-answer-block--yours .review-answer-label {
+  color: #d94f4f;
+}
+
+.review-answer-block--yours .review-answer-value {
+  color: #b03030;
+}
+
+.code-fitb-yours {
+  color: #d94f4f;
+  opacity: 0.85;
+  margin: 0 0.25em 0 0.1em;
+}
+
+.review-match-answers {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.review-match-yours {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
 }
 
 .match-answer {
@@ -1653,6 +1755,45 @@ button:disabled {
   border-color: var(--accent);
 }
 
+/* Tap-to-place (DragDropBoard): the picked-up bank item lifts and gets an
+   accent ring, and every answer box lights up as a target until it's
+   placed. */
+.drag-item[role='button'] {
+  cursor: pointer;
+}
+
+.drag-item--picked {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent), 0 6px 14px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.drop-zone[role='button'] {
+  cursor: pointer;
+}
+
+.matching-container--picking .drop-zone {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 7%, var(--radio-bg));
+}
+
+.drag-hint {
+  margin: -0.9rem 0 -0.6rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Revealed answer for a wrong/skipped plain fill-in (FitbInput). */
+.fitb-reveal {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.fitb-reveal strong {
+  color: var(--correct);
+}
+
 .match-select {
   flex: 0 0 40%;
   background: var(--radio-bg) url('data:image/svg+xml;utf8,<svg fill="%231e3148" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 0.8rem center;
@@ -2175,9 +2316,15 @@ body.theme-canvas .option-label {
   border-radius: 0 !important;
   background: transparent !important;
   padding: 0.8rem 0 !important;
+  /* Only hover tints animate. The base `transition: all` also animated the
+     divider's width, which flashed thick (the default 3px) then thin. */
+  transition: background-color 0.2s ease, color 0.2s ease !important;
 }
 
-body.theme-canvas .option-label:last-child {
+/* :last-of-type, not :last-child — once answered, the feedback/explanation
+   (divs) join the options (labels) in .options-list, and :last-child would
+   suddenly give the last option a divider right as the answer appears. */
+body.theme-canvas .option-label:last-of-type {
   border-bottom: none !important;
 }
 
@@ -2727,6 +2874,13 @@ body.compact-mode .q-explanation {
   padding: 0.15rem 0.75rem !important;
 }
 
+/* Canvas's explanation is a bordered box with a full-width title bar; the
+   compact padding above would inset that bar, so Canvas keeps no padding. */
+body.theme-canvas.compact-mode .q-explanation {
+  padding: 0 !important;
+  margin-top: 1rem !important;
+}
+
 body.compact-mode .q-explanation-text {
   line-height: 1.45 !important;
 }
@@ -3205,8 +3359,9 @@ body .btn-quiz.quiz-selected {
 /* =========================================================
    --- OVERLOAD INDICATOR ---
    Warns playfully that a Multi selection is getting big
-   (components/menu/overload/). Heat 0→1 between 50 and 300 questions
-   drives both pieces; each surge (count grows) replays their motion.
+   (components/menu/overload/). Heat 0→1 between 50 and 250 questions
+   drives the count's color and shake; each surge (count grows) replays
+   the shake.
 ========================================================= */
 :root {
   --overload-color: 229, 72, 77; /* rgb triplet, used with alpha */
@@ -3229,39 +3384,6 @@ body.theme-dark-purple {
 
 .overload-count--shake {
   animation: overload-shake var(--shake-duration) ease-in-out;
-}
-
-/* Vignette: a click-through red glow from the screen edges. As heat rises
-   the clear center shrinks (the glow reaches further in) and it deepens;
-   even at max the edges stay translucent. Sits under the sticky header and
-   the selection bar. */
-.overload-vignette {
-  position: fixed;
-  inset: 0;
-  z-index: 90;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse at center,
-    transparent calc(74% - 22% * var(--overload-heat)),
-    rgba(var(--overload-color), 0.32) 100%
-  );
-  opacity: var(--vignette-opacity);
-  transition: opacity 0.5s ease;
-}
-
-.overload-vignette--surge {
-  animation: overload-pulse 0.7s ease-out;
-}
-
-@keyframes overload-pulse {
-  0%,
-  100% {
-    opacity: var(--vignette-opacity);
-  }
-
-  30% {
-    opacity: calc(var(--vignette-opacity) + 0.18);
-  }
 }
 
 @keyframes overload-shake {
@@ -3296,8 +3418,7 @@ body.theme-dark-purple {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .overload-count--shake,
-  .overload-vignette--surge {
+  .overload-count--shake {
     animation: none;
   }
 }
