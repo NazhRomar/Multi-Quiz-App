@@ -825,14 +825,20 @@ body.theme-canvas .dropdown-tab {
   white-space: nowrap;
 }
 
-.q-meta-left:has(.review-status) {
-  flex-wrap: wrap;
-  row-gap: 0.35rem;
+/* Review cards group the result badge with the points on the right. If the
+   row gets too tight (phones), that group wraps below and stays right. */
+.q-meta-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  margin-left: auto;
+  white-space: nowrap;
 }
 
-.q-meta-left:has(.review-status) + .q-points {
-  flex-shrink: 0;
-  white-space: nowrap;
+.q-meta:has(.q-meta-right) {
+  flex-wrap: wrap;
+  row-gap: 0.4rem;
 }
 
 .review-status--correct {

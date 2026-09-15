@@ -47,13 +47,15 @@ export default function ReviewCard({ question, index, reviewOptions, isListView,
       <QuestionSource question={question} variant="aside" />
       <div className="q-meta">
         <div className="q-meta-left">
-          {status && <span className={`review-status review-status--${status}`}>{STATUS_LABELS[status]}</span>}
           <span className="q-num-badge">{index + 1}</span>
           <span className={`q-type-badge ${question.type}`}>{TYPE_LABELS[question.type] || 'Question'}</span>
         </div>
-        <span className={`q-points ${question.flagged ? 'q-points--flagged' : ''}`}>
-          {question.flagged ? 'Not Scored' : `${question.points || 1} pts`}
-        </span>
+        <div className="q-meta-right">
+          {status && <span className={`review-status review-status--${status}`}>{STATUS_LABELS[status]}</span>}
+          <span className={`q-points ${question.flagged ? 'q-points--flagged' : ''}`}>
+            {question.flagged ? 'Not Scored' : `${question.points || 1} pts`}
+          </span>
+        </div>
       </div>
       <QuestionSource question={question} variant="inline" />
       <QuestionContext context={question.context} />
