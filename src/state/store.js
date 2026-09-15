@@ -32,6 +32,7 @@ export const DEFAULT_QUIZ_OPTIONS = {
   shuffleQuestions: false,
   shuffleChoices: false,
   instantSubmit: true, // auto-submit mc/tf the moment you pick an option
+  hideEnterHint: false, // hide the ⏎ keycap on Next (the Enter shortcut still works)
 };
 export const DEFAULT_REVIEW_OPTIONS = {
   showAllChoices: false,

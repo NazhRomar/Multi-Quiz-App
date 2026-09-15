@@ -1381,6 +1381,32 @@ button:disabled {
   transform: none;
 }
 
+/* ⏎ keycap inside the quiz's Next/Finish button once Enter will press it
+   (useNavRow EnterKeyIcon). Touch-only devices have no Enter key to hint. */
+.enter-hint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.55rem;
+  padding: 1px 4px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  opacity: 0.75;
+  vertical-align: middle;
+  line-height: 1;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.enter-hint svg {
+  display: block;
+}
+
+@media (hover: none) {
+  .enter-hint {
+    display: none;
+  }
+}
+
 .btn-check {
   background: transparent;
   border: 1px solid var(--accent);

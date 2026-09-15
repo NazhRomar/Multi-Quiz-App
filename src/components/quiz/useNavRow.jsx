@@ -16,11 +16,24 @@ const NAV_POSITION_MAP = {
 // rows plus the body-level portal content for the "sides"/"center" nav
 // location settings, so the caller can place quiz-container content
 // between the top and bottom rows in the actual DOM order.
+// A return-key keycap, shown inside the quiz's Next/Finish button when Enter
+// will press it. CSS hides it on touch-only devices (no keyboard).
+function EnterKeyIcon() {
+  return (
+    <span className="enter-hint" aria-hidden="true">
+      <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12.5 3.5v4a2 2 0 0 1-2 2H4" />
+        <path d="M6.5 7L4 9.5 6.5 12" />
+      </svg>
+    </span>
+  );
+}
+
 // sourceTag: optional node (Multi's QuestionSource "nav" variant) rendered
 // as the first child of both inline rows — CSS only shows it on phones:
 // floating above the bottom bar, or on its own line below the top row's
-// buttons.
-export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMode, isListView, onPrev, onNext, onFinishQuiz, onDone, sourceTag }) {
+// buttons. enterHint: show the ⏎ keycap on the quiz's Next/Finish button.
+export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMode, isListView, onPrev, onNext, onFinishQuiz, onDone, sourceTag, enterHint }) {
   const isMobile = useIsMobile();
   // Mobile only ever offers Top or Bottom in the settings UI (see
   // AppSettingsFields) — clamp actual rendering to match, so a value chosen
@@ -76,10 +89,14 @@ export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMod
     );
 
     const disabled = isQuizMode && nextBlocked;
+    // Quiz mode: once the question is answered, Enter triggers this button
+    // (QuizScreen) — enterHint puts a ⏎ keycap inside it to say so.
+    const enterProps = isQuizMode && enterHint ? { 'aria-keyshortcuts': 'Enter' } : {};
+    const enterIcon = isQuizMode && enterHint && <EnterKeyIcon />;
     if (isLast) {
       nextBtn = isQuizMode ? (
-        <button className="btn-next" onClick={onFinishQuiz} disabled={disabled} title={disabled ? 'Answer this question first' : undefined}>
-          Finish Quiz ✓
+        <button className="btn-next" onClick={onFinishQuiz} disabled={disabled} title={disabled ? 'Answer this question first' : undefined} {...enterProps}>
+          Finish Quiz ✓{enterIcon}
         </button>
       ) : (
         <button className="btn-next" onClick={onDone}>
@@ -88,8 +105,8 @@ export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMod
       );
     } else {
       nextBtn = (
-        <button className="btn-next" onClick={onNext} disabled={disabled} title={disabled ? 'Answer this question first' : undefined}>
-          Next →
+        <button className="btn-next" onClick={onNext} disabled={disabled} title={disabled ? 'Answer this question first' : undefined} {...enterProps}>
+          Next →{enterIcon}
         </button>
       );
     }
