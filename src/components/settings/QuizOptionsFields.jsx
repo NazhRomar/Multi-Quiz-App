@@ -43,12 +43,23 @@ export default function QuizOptionsFields() {
         </span>
         <Switch checked={quizOptions.showMsqCount} onChange={(v) => set('showMsqCount', v)} />
       </label>
-      <label className="dropdown-item">
+      <label className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '0.5rem' }}>
         <span className="dropdown-item-text">
-          <strong>Multiple Select partial credit</strong>
-          <small>Each correct pick earns its point and each wrong pick takes one back (never below 0). Off: all or nothing</small>
+          <strong>Multiple Select Scoring</strong>
+          <small>
+            Right only: a point per correct pick. Right minus wrong: wrong picks take a point back (never below 0). All or
+            nothing: full points only for the exact set
+          </small>
         </span>
-        <Switch checked={quizOptions.msqPartialCredit} onChange={(v) => set('msqPartialCredit', v)} />
+        <select
+          value={quizOptions.msqScoring}
+          onChange={(e) => set('msqScoring', e.target.value)}
+          style={{ width: '100%', padding: '0.4rem', border: '1px solid var(--border)', borderRadius: '6px' }}
+        >
+          <option value="right">Right only</option>
+          <option value="rightMinusWrong">Right minus wrong</option>
+          <option value="allOrNothing">All or nothing</option>
+        </select>
       </label>
       <label className="dropdown-item">
         <span className="dropdown-item-text">
