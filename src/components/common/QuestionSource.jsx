@@ -6,7 +6,8 @@ import { useApp } from '../../state/AppContext.jsx';
 // - "aside": in the empty page margin beside the card (wide screens), so
 //   it adds no vertical height.
 // - "nav": phones, one-at-a-time view — outside the card, attached to the
-//   Prev/Next row (above the floating bottom bar, or above the top row).
+//   Prev/Next row (above the floating bottom bar, or below the top row's
+//   buttons).
 //   Rendered by the screen into useNavRow, not by the card.
 // - "inline": a full-width strip under the card's meta row, for mid-width
 //   screens and for review list view (where there's no per-card nav row).

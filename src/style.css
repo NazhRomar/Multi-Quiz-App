@@ -3294,9 +3294,9 @@ body.theme-canvas .q-source-inline {
 
 /* Phones, one question at a time: the source moves out of the card and
    rides on the Prev/Next row instead (QuestionSource "nav" variant) —
-   floating just above the bottom bar, or on its own line above the top
-   row. Review list view has no per-card nav row, so its cards keep the
-   in-card strip. */
+   floating just above the bottom bar, or on its own line below the top
+   row's buttons. Review list view has no per-card nav row, so its cards
+   keep the in-card strip. */
 .nav-source {
   display: none;
 }
@@ -3326,9 +3326,12 @@ body.theme-canvas .q-source-inline {
     flex-wrap: wrap;
   }
 
+  /* Top nav: its own line below the Prev/Next buttons (it's the first
+     child in the DOM, so reorder it after them). */
   #quiz-nav-top .nav-source {
+    order: 1;
     flex-basis: 100%;
-    margin-bottom: 0.6rem;
+    margin-top: 0.6rem;
   }
 
   #quiz-nav-bottom .nav-source {

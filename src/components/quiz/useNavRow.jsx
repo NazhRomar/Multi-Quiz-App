@@ -17,8 +17,9 @@ const NAV_POSITION_MAP = {
 // location settings, so the caller can place quiz-container content
 // between the top and bottom rows in the actual DOM order.
 // sourceTag: optional node (Multi's QuestionSource "nav" variant) rendered
-// as the first child of both inline rows — CSS only shows it on phones,
-// above the buttons.
+// as the first child of both inline rows — CSS only shows it on phones:
+// floating above the bottom bar, or on its own line below the top row's
+// buttons.
 export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMode, isListView, onPrev, onNext, onFinishQuiz, onDone, sourceTag }) {
   const isMobile = useIsMobile();
   // Mobile only ever offers Top or Bottom in the settings UI (see
