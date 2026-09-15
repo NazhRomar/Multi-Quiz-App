@@ -19,6 +19,9 @@ export default function MatchingGrid({ question, savedState, isLocked, onSelect,
                 disabled={isLocked}
                 value={selectedVal}
                 onChange={(e) => onSelect(pair.term, e.target.value)}
+                // Hover tooltip with the full selected answer (long ones are
+                // cut off with an ellipsis).
+                title={selectedVal || undefined}
               >
                 <option value="">-- select --</option>
                 {allChoices.map((c, ci) => (

@@ -1655,16 +1655,19 @@ button:disabled {
   font-weight: 700;
 }
 
+/* background-color, not the background shorthand: the shorthand also reset
+   the matching dropdown's arrow image/repeat/position, and dark themes then
+   re-added the arrow image with !important — tiling it across the box. */
 .fitb-correct,
 .match-correct {
-  background: rgba(77, 168, 154, 0.1) !important;
+  background-color: rgba(77, 168, 154, 0.1) !important;
   border-color: var(--correct) !important;
   color: #1f6b60 !important;
 }
 
 .fitb-wrong,
 .match-wrong {
-  background: rgba(220, 70, 70, 0.07) !important;
+  background-color: rgba(220, 70, 70, 0.07) !important;
   border-color: #d94f4f !important;
   color: #b03030 !important;
 }
