@@ -1566,6 +1566,22 @@ button:disabled {
   font-weight: bold;
 }
 
+/* Reveal is instant. Answer rows/inputs ease their hover and focus states
+   (transition: all 0.2s), which also made the answer reveal lag: the new
+   colors faded in and the font weight jumped mid-transition. Locked
+   (checked/revealed) states drop the transition so it all lands at once. */
+.option-label.locked,
+.fitb-input:disabled,
+.match-select:disabled,
+.drop-zone.match-correct,
+.drop-zone.match-wrong {
+  transition: none;
+}
+
+body.theme-canvas .option-label.locked {
+  transition: none !important;
+}
+
 .option-label.reveal-correct input[type="radio"],
 .option-label.reveal-wrong input[type="radio"],
 .option-label.reveal-correct input[type="checkbox"],
