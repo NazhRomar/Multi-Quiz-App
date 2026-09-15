@@ -10,7 +10,8 @@ export default function QuizChip({ quiz, label, onOpen, selected }) {
       onClick={onOpen}
       aria-pressed={selectable ? selected : undefined}
     >
-      {selectable && <span className="quiz-select-check" aria-hidden="true" />}
+      {/* Always mounted (collapsed to zero width outside selection mode) so it can grow in. */}
+      <span className="quiz-select-check" aria-hidden="true" />
       <span className="quiz-chip-label">
         {label}
         {quiz.data.unverified && (

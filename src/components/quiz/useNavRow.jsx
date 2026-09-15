@@ -16,7 +16,10 @@ const NAV_POSITION_MAP = {
 // rows plus the body-level portal content for the "sides"/"center" nav
 // location settings, so the caller can place quiz-container content
 // between the top and bottom rows in the actual DOM order.
-export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMode, isListView, onPrev, onNext, onFinishQuiz, onDone }) {
+// sourceTag: optional node (Multi's QuestionSource "nav" variant) rendered
+// as the first child of both inline rows — CSS only shows it on phones,
+// above the buttons.
+export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMode, isListView, onPrev, onNext, onFinishQuiz, onDone, sourceTag }) {
   const isMobile = useIsMobile();
   // Mobile only ever offers Top or Bottom in the settings UI (see
   // AppSettingsFields) — clamp actual rendering to match, so a value chosen
@@ -93,12 +96,14 @@ export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMod
 
   const topRow = (
     <nav id="quiz-nav-top" className="nav-row" style={{ display: positions.includes('top') ? 'flex' : 'none' }}>
+      {sourceTag}
       {prevBtn}
       {nextBtn}
     </nav>
   );
   const bottomRow = (
     <footer id="quiz-nav-bottom" className="nav-row" style={{ display: positions.includes('bottom') ? 'flex' : 'none' }}>
+      {sourceTag}
       {prevBtn}
       {nextBtn}
     </footer>

@@ -15,11 +15,14 @@ export default function CourseCard({ course, quizzes, onOpen, selection }) {
         <span className="course-count">
           {quizzes.length} {quizzes.length === 1 ? 'quiz' : 'quizzes'}
         </span>
-        {selection && (
-          <button className="btn-select-all" onClick={() => selection.toggleQuizzes(quizzes)}>
-            {allSelected ? 'Deselect all' : 'Select all'}
-          </button>
-        )}
+        {/* Always mounted so it can fade in/out with Multi mode (style.css). */}
+        <button
+          className={`btn-select-all ${selection ? 'btn-select-all--visible' : ''}`}
+          onClick={() => selection?.toggleQuizzes(quizzes)}
+          inert={!selection}
+        >
+          {allSelected ? 'Deselect all' : 'Select all'}
+        </button>
       </div>
       <div className="quiz-list">
         {units.map((unit, i) =>

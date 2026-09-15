@@ -1,6 +1,7 @@
 import { useApp } from '../../state/AppContext.jsx';
 import Switch from './Switch.jsx';
 import { useIsMobile } from '../../utils/useIsMobile.js';
+import { ANSWER_FONTS } from '../../utils/answerFonts.js';
 
 const THEME_MODE_ICONS = {
   default: '☀️',
@@ -23,7 +24,10 @@ export const CODE_THEMES = [
   { value: 'amber', label: 'Midnight Amber' },
 ];
 
-const CODE_PREVIEW = "Route::get('/user/{id}', function ($id) {\n    return view('user', ['id' => $id]);\n});";
+// Shows off the characters that are easy to misread in some fonts.
+const ANSWER_PREVIEW = '@csrf · {{ $name }} · 0O 1lI';
+
+const CODE_PREVIEW ="Route::get('/user/{id}', function ($id) {\n    return view('user', ['id' => $id]);\n});";
 
 // showNavLocation: the home-menu dropdown omits this field — only the
 // quiz/review dropdowns show it — so it's opt-in, not default.
@@ -71,6 +75,26 @@ export default function AppSettingsFields({ showNavLocation = false }) {
           <div className="q-context-body">
             <pre>{CODE_PREVIEW}</pre>
           </div>
+        </div>
+      </label>
+      <label className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'stretch', gap: '0.5rem' }}>
+        <span className="dropdown-item-text">
+          <strong>Answer Font</strong>
+          <small>Font for answer choices and typed answers</small>
+        </span>
+        <select
+          value={appSettings.answerFont}
+          onChange={(e) => set('answerFont', e.target.value)}
+          style={{ width: '100%', padding: '0.4rem', border: '1px solid var(--border)', borderRadius: '6px' }}
+        >
+          {ANSWER_FONTS.map((f) => (
+            <option key={f.value} value={f.value}>
+              {f.value === 'default' ? `Default (${appSettings.theme === 'canvas' ? 'Lato' : 'Space Mono'})` : f.label}
+            </option>
+          ))}
+        </select>
+        <div className="answer-font-preview" aria-hidden="true">
+          {ANSWER_PREVIEW}
         </div>
       </label>
       {showNavLocation && (

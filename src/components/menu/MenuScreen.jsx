@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useApp } from '../../state/AppContext.jsx';
 import { buildMultiQuiz, courseMenu, filterCourseMenu, sortedTerms } from '../../data/catalog.js';
 import Dropdown from '../settings/Dropdown.jsx';
@@ -83,6 +83,11 @@ export default function MenuScreen() {
     : homeMode.review
       ? 'Tap a quiz to open it in Review mode.'
       : null;
+  // The hint row and selection bar stay mounted and animate in/out (see
+  // style.css) rather than popping, so toggling modes doesn't jolt the
+  // layout; keep the last text so a collapsing hint doesn't go blank first.
+  const lastHint = useRef(hint);
+  if (hint) lastHint.current = hint;
 
   // Hidden testing shortcut: click the footer to launch a fixture quiz
   // covering every question type, including drag-drop (no real quiz data
@@ -125,7 +130,9 @@ export default function MenuScreen() {
           />
         </div>
       </div>
-      {hint && <div className="menu-mode-hint">{hint}</div>}
+      <div className={`menu-mode-hint ${hint ? 'menu-mode-hint--visible' : ''}`} aria-hidden={!hint}>
+        <div className="menu-mode-hint-inner">{lastHint.current}</div>
+      </div>
       <main className="menu-container">
         {isSearching && terms.length === 0 && <div className="menu-search-empty">No quizzes match "{search.trim()}".</div>}
         {terms.map((term) => (
@@ -142,36 +149,39 @@ export default function MenuScreen() {
       <footer className="home-footer" onClick={openShowcase}>
         Last updated: {formatBuildDate(__BUILD_DATE__)}
       </footer>
-      {homeMode.multi && (
-        <div className="multi-select-bar" role="region" aria-label="Multi Quiz selection">
-          <div className="multi-select-summary">
-            {selected.size === 0 ? (
-              'No quizzes selected'
-            ) : (
-              <>
-                <strong>
-                  {selected.size} {selected.size === 1 ? 'quiz' : 'quizzes'}
-                </strong>{' '}
-                · {selectedQuestionCount} questions
-              </>
-            )}
-          </div>
-          <div className="multi-select-actions">
-            {selected.size > 0 && (
-              <button className="btn-prev" onClick={() => dispatch({ type: 'SET_MULTI_SELECTION', payload: [] })}>
-                Clear
-              </button>
-            )}
-            <button
-              className={`btn-next ${homeMode.review ? 'btn-next--review' : ''}`}
-              onClick={() => start('', '', buildMultiQuiz(selected))}
-              disabled={selected.size === 0}
-            >
-              {homeMode.review ? 'Start Review' : 'Start Quiz'}
-            </button>
-          </div>
+      <div
+        className={`multi-select-bar ${homeMode.multi ? 'multi-select-bar--visible' : ''}`}
+        role="region"
+        aria-label="Multi Quiz selection"
+        inert={!homeMode.multi}
+      >
+        <div className="multi-select-summary">
+          {selected.size === 0 ? (
+            'No quizzes selected'
+          ) : (
+            <>
+              <strong>
+                {selected.size} {selected.size === 1 ? 'quiz' : 'quizzes'}
+              </strong>{' '}
+              · {selectedQuestionCount} questions
+            </>
+          )}
         </div>
-      )}
+        <div className="multi-select-actions">
+          {selected.size > 0 && (
+            <button className="btn-prev" onClick={() => dispatch({ type: 'SET_MULTI_SELECTION', payload: [] })}>
+              Clear
+            </button>
+          )}
+          <button
+            className={`btn-next ${homeMode.review ? 'btn-next--review' : ''}`}
+            onClick={() => start('', '', buildMultiQuiz(selected))}
+            disabled={selected.size === 0}
+          >
+            {homeMode.review ? 'Start Review' : 'Start Quiz'}
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

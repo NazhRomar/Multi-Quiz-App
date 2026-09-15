@@ -11,7 +11,8 @@ export default function QuizRow({ quiz, label, onOpen, selected }) {
       aria-pressed={selectable ? selected : undefined}
     >
       <span className="quiz-btn-title">
-        {selectable && <span className="quiz-select-check" aria-hidden="true" />}
+        {/* Always mounted (collapsed to zero width outside selection mode) so it can grow in. */}
+        <span className="quiz-select-check" aria-hidden="true" />
         {label}
         {quiz.data.unverified && (
           <span className="quiz-warning" title={UNVERIFIED_TITLE}>

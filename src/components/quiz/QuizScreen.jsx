@@ -5,6 +5,7 @@ import { useNavRow } from './useNavRow.jsx';
 import QuizHeader from './QuizHeader.jsx';
 import QuestionCard from './QuestionCard.jsx';
 import SubmitConfirmModal from './SubmitConfirmModal.jsx';
+import QuestionSource from '../common/QuestionSource.jsx';
 
 export default function QuizScreen({ goHome }) {
   const { state, dispatch } = useApp();
@@ -47,6 +48,7 @@ export default function QuizScreen({ goHome }) {
     onPrev: () => animatedNav('PREV_Q'),
     onNext: () => animatedNav('NEXT_Q'),
     onFinishQuiz: () => setShowConfirm(true),
+    sourceTag: <QuestionSource question={question} variant="nav" />,
   });
 
   const score = liveScore(activeQuiz.questions, userAnswers);

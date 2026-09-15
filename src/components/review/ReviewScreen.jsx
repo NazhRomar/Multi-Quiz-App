@@ -4,6 +4,7 @@ import { useNavRow } from '../quiz/useNavRow.jsx';
 import { isAnswerCorrect } from '../../state/grading.js';
 import ReviewHeader from './ReviewHeader.jsx';
 import ReviewCard from './ReviewCard.jsx';
+import QuestionSource from '../common/QuestionSource.jsx';
 
 export default function ReviewScreen({ goHome }) {
   const { state, dispatch } = useApp();
@@ -42,6 +43,8 @@ export default function ReviewScreen({ goHome }) {
     onPrev: () => animatedNav('PREV_Q'),
     onNext: () => animatedNav('NEXT_Q'),
     onDone: goHome,
+    // List view keeps each card's own in-card source strip instead.
+    sourceTag: !isListView && total > 0 && <QuestionSource question={questions[Math.min(currentIndex, total - 1)]} variant="nav" />,
   });
 
   const progressLabel = total === 0 ? '0 Items' : isListView ? `${total} Items` : `${Math.min(currentIndex + 1, total)}/${total}`;

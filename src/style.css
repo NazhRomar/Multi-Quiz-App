@@ -581,6 +581,13 @@ main.question-card {
   color: var(--text-muted);
   cursor: pointer;
   transition: color 0.15s ease, border-color 0.15s ease;
+  /* Square ends: the global button radius made the active tab's underline
+     curl up at both ends. */
+  border-radius: 0;
+}
+
+body.theme-canvas .dropdown-tab {
+  border-radius: 0 !important;
 }
 
 .dropdown-tab:hover {
@@ -2810,6 +2817,28 @@ body .dropdown-item .q-context.code-theme-preview .q-context-body {
 }
 
 /* =========================================================
+   --- ANSWER FONT ---
+   App Settings → Answer Font (utils/answerFonts.js) adds
+   body.custom-answer-font and sets --answer-font. !important so it also
+   beats Canvas's blanket `* { font-family: inherit !important }`. Inline
+   code fill-in blanks are excluded — they follow the code block's font.
+========================================================= */
+body.custom-answer-font :is(.option-label, .review-answer-value, .match-answer, .match-select, .drag-item, .fitb-input:not(.fitb-input--inline), .answer-font-preview) {
+  font-family: var(--answer-font) !important;
+}
+
+.answer-font-preview {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--radio-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.45rem 0.7rem;
+  cursor: default;
+}
+
+/* =========================================================
    --- MULTI QUIZ ---
    Home menu selection mode (MenuScreen isSelecting), the Multi mode
    pill, and the per-question source labels (QuestionSource.jsx).
@@ -2927,13 +2956,32 @@ body .dropdown-item .q-context.code-theme-preview .q-context-body {
   }
 }
 
+/* Single ↔ Multi / Quiz ↔ Review changes animate instead of jumping: the
+   hint row, the checkboxes and Select all links, and the selection bar are
+   always mounted and transition between collapsed and shown. (Disable
+   animations kills these like every other transition.) */
 .menu-mode-hint {
+  display: grid;
+  grid-template-rows: 0fr;
   width: 100%;
   max-width: 900px;
-  margin: 0.75rem auto 0;
+  margin: 0 auto;
   padding: 0 1.5rem;
   font-size: 0.85rem;
   color: var(--text-muted);
+  opacity: 0;
+  transition: grid-template-rows 0.25s ease, margin-top 0.25s ease, opacity 0.2s ease;
+}
+
+.menu-mode-hint--visible {
+  grid-template-rows: 1fr;
+  margin-top: 0.75rem;
+  opacity: 1;
+}
+
+.menu-mode-hint-inner {
+  min-height: 0;
+  overflow: hidden;
 }
 
 .btn-select-all {
@@ -2943,29 +2991,56 @@ body .dropdown-item .q-context.code-theme-preview .q-context-body {
   font-size: 0.75rem;
   padding: 0.2rem 0.5rem;
   border-radius: 6px;
+  white-space: nowrap;
+  transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.15s ease;
+}
+
+.btn-select-all:not(.btn-select-all--visible) {
+  opacity: 0;
+  transform: translateX(6px);
+  pointer-events: none;
 }
 
 .btn-select-all:hover {
   background: var(--radio-bg);
 }
 
-/* Checkbox-style indicator on selectable chips/rows */
+/* Checkbox-style indicator on chips/rows: zero-width outside selection
+   mode, grows in when the item becomes selectable. */
 .quiz-select-check {
-  width: 16px;
+  width: 0;
   height: 16px;
   flex-shrink: 0;
-  border: 2px solid var(--border);
+  border: 0 solid var(--border);
   border-radius: 4px;
   background: var(--surface);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   vertical-align: -2px;
-  margin-right: 0.5rem;
-  transition: all 0.15s ease;
+  margin-right: 0;
+  opacity: 0;
+  transform: scale(0.5);
+  overflow: hidden;
+  transition: width 0.2s ease, margin 0.2s ease, border-width 0.2s ease, opacity 0.2s ease, transform 0.2s ease,
+    background-color 0.15s ease, border-color 0.15s ease;
 }
 
+.quiz-selectable .quiz-select-check {
+  width: 16px;
+  border-width: 2px;
+  margin-right: 0.5rem;
+  opacity: 1;
+  transform: none;
+}
+
+/* Chips space children with a flex gap — cancel it while the check is
+   collapsed so chips don't carry an empty gap in Single mode. */
 .quiz-chip .quiz-select-check {
+  margin-right: -0.45rem;
+}
+
+.quiz-chip.quiz-selectable .quiz-select-check {
   margin-right: 0;
 }
 
@@ -3008,7 +3083,17 @@ body .btn-quiz.quiz-selected {
   border: 1px solid var(--border);
   border-radius: 14px;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
-  animation: fadeIn 0.15s ease-out;
+  /* Hidden: parked just below its spot, faded out (and inert in the JSX). */
+  opacity: 0;
+  transform: translate(-50%, 24px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.multi-select-bar--visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
 }
 
 .multi-select-summary {
@@ -3187,7 +3272,7 @@ body.theme-dark-purple .mode-pill--multi {
   line-height: 1.35;
 }
 
-.q-source-inline .q-source-label {
+:is(.q-source-inline, .nav-source) .q-source-label {
   flex-shrink: 0;
 }
 
@@ -3197,8 +3282,7 @@ body.theme-dark-purple .mode-pill--multi {
   overflow-wrap: anywhere;
 }
 
-.q-source-inline .q-source-course,
-.q-source-inline .q-source-title {
+:is(.q-source-inline, .nav-source) :is(.q-source-course, .q-source-title) {
   font-size: inherit;
   line-height: inherit;
 }
@@ -3206,6 +3290,59 @@ body.theme-dark-purple .mode-pill--multi {
 /* Canvas's meta row is a header bar with its own bottom margin. */
 body.theme-canvas .q-source-inline {
   margin-top: 0;
+}
+
+/* Phones, one question at a time: the source moves out of the card and
+   rides on the Prev/Next row instead (QuestionSource "nav" variant) —
+   floating just above the bottom bar, or on its own line above the top
+   row. Review list view has no per-card nav row, so its cards keep the
+   in-card strip. */
+.nav-source {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .question-card:not(.question-card--list) .q-source-inline {
+    display: none;
+  }
+
+  .nav-source {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.4rem 0.7rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--multi-accent);
+    border-radius: 10px;
+    line-height: 1.35;
+  }
+
+  .nav-source .q-source-inline-text {
+    font-size: 0.78rem;
+  }
+
+  #quiz-nav-top.nav-row:has(.nav-source) {
+    flex-wrap: wrap;
+  }
+
+  #quiz-nav-top .nav-source {
+    flex-basis: 100%;
+    margin-bottom: 0.6rem;
+  }
+
+  #quiz-nav-bottom .nav-source {
+    position: absolute;
+    left: 0;
+    bottom: calc(100% + 8px);
+    max-width: 100%;
+    box-shadow: var(--shadow);
+  }
+
+  /* Clear both the floating bar and the tag riding on top of it. */
+  #quiz-container:has(+ #quiz-nav-bottom[style*="display: flex"] .nav-source) {
+    padding-bottom: 136px;
+  }
 }
 
 @media (min-width: 1240px) {

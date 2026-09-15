@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from 'react';
 import { reducer, createInitialState } from './store.js';
+import { applyAnswerFont } from '../utils/answerFonts.js';
 
 const AppContext = createContext(null);
 
@@ -20,6 +21,7 @@ export function AppProvider({ children }) {
     if (state.appSettings.codeTheme && state.appSettings.codeTheme !== 'default') {
       document.body.classList.add(`code-theme-${state.appSettings.codeTheme}`);
     }
+    applyAnswerFont(state.appSettings.answerFont);
   }, [state.appSettings]);
 
   useEffect(() => {
