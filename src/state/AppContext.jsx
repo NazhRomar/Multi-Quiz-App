@@ -1,5 +1,12 @@
 import { createContext, useContext, useEffect, useReducer } from 'react';
-import { reducer, createInitialState } from './store.js';
+import {
+  reducer,
+  createInitialState,
+  saveState,
+  clearAttempt,
+  ATTEMPT_QUIZ_KEY,
+  ATTEMPT_PROGRESS_KEY,
+} from './store.js';
 import { applyFonts } from '../utils/fonts.js';
 import { applyTheme } from '../utils/themes.js';
 
@@ -43,6 +50,38 @@ export function AppProvider({ children }) {
   useEffect(() => {
     localStorage.setItem('quizApp_collapsedTerms', JSON.stringify(state.collapsedTerms));
   }, [state.collapsedTerms]);
+
+  // The in-progress attempt, so a reload (or the OS dropping the installed
+  // app from memory mid quiz) doesn't cost you the attempt. The heavy half
+  // — the questions — only gets rewritten when a new attempt starts, which
+  // is exactly when activeQuiz becomes a new object (START_QUIZ /
+  // START_REVIEW, and so RESTART and the mode switches too).
+  useEffect(() => {
+    if (!state.activeQuiz) {
+      clearAttempt();
+      return;
+    }
+    saveState(ATTEMPT_QUIZ_KEY, {
+      activeQuiz: state.activeQuiz,
+      originalQuizData: state.originalQuizData,
+      activeTerm: state.activeTerm,
+      activeCourse: state.activeCourse,
+      activeMode: state.activeMode,
+    });
+  }, [state.activeQuiz, state.originalQuizData, state.activeTerm, state.activeCourse, state.activeMode]);
+
+  // The light half: where you are and what you've answered. Also the
+  // screen, which is what tells the next visit whether to reopen the quiz
+  // or just offer it on the menu (see createInitialState).
+  useEffect(() => {
+    if (!state.activeQuiz) return;
+    saveState(ATTEMPT_PROGRESS_KEY, {
+      screen: state.screen,
+      currentIndex: state.currentIndex,
+      userAnswers: state.userAnswers,
+      result: state.result,
+    });
+  }, [state.activeQuiz, state.screen, state.currentIndex, state.userAnswers, state.result]);
 
   return <AppContext.Provider value={{ state, dispatch }}>{children}</AppContext.Provider>;
 }

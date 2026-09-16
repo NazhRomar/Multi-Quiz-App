@@ -4368,3 +4368,75 @@ body.theme-canvas .q-source-inline {
   color: var(--text);
   line-height: 1.3;
 }
+/* =========================================================
+   --- RESUME CARD (menu/ResumeCard.jsx) ---
+   The unfinished attempt, offered at the top of the home menu. It's a
+   .menu-container section, so it already carries the same surface,
+   radius and shadow as the term cards (including the themes' overrides)
+   — what's left is the row layout and the accent that sets it apart.
+========================================================= */
+.menu-container section.resume-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  padding: 0.9rem 1.1rem;
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 7%, var(--surface));
+}
+
+.resume-card-text {
+  min-width: 0;
+}
+
+.resume-card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.resume-card-name {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+
+.resume-card-meta {
+  margin-top: 0.3rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.resume-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+/* Discard is the destructive one: kept quiet until hovered, so Resume
+   stays the obvious button. */
+.resume-discard:hover {
+  border-color: #d94f4f;
+  color: #d94f4f;
+}
+
+@media (max-width: 600px) {
+  .menu-container section.resume-card {
+    padding: 0.9rem;
+  }
+
+  /* Full-width buttons on their own row rather than squeezed beside a
+     wrapped title. */
+  .resume-card-actions {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .resume-card-actions button {
+    flex: 1;
+  }
+}

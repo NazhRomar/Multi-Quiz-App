@@ -7,6 +7,50 @@ export function loadState(key, defaultState) {
   }
 }
 
+// An in-progress attempt is saved in two pieces, because they change at
+// very different rates: the quiz itself (heavy — the shuffled questions
+// plus the unshuffled original Restart goes back to) is written once when
+// the attempt starts, while the progress (small — answers, position,
+// score) is rewritten on every keystroke in a blank. Splitting them keeps
+// answering cheap no matter how big the quiz is.
+export const ATTEMPT_QUIZ_KEY = 'quizApp_attemptQuiz';
+export const ATTEMPT_PROGRESS_KEY = 'quizApp_attemptProgress';
+
+// The attempt blob is the only thing here big enough to hit the storage
+// quota, and a browser in private mode can refuse writes outright. Either
+// way the app keeps working in memory — it just won't survive a reload.
+export function saveState(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (e) {
+    /* not resumable this time */
+  }
+}
+
+export function clearAttempt() {
+  try {
+    localStorage.removeItem(ATTEMPT_QUIZ_KEY);
+    localStorage.removeItem(ATTEMPT_PROGRESS_KEY);
+  } catch (e) {
+    /* nothing to clear */
+  }
+}
+
+// Reads back a saved attempt, or null if there isn't one (or it's damaged
+// — quiz data can change under a saved attempt between deploys, so every
+// field is treated as untrusted).
+function loadAttempt() {
+  try {
+    const quiz = JSON.parse(localStorage.getItem(ATTEMPT_QUIZ_KEY));
+    const progress = JSON.parse(localStorage.getItem(ATTEMPT_PROGRESS_KEY));
+    if (!quiz || !progress) return null;
+    if (!Array.isArray(quiz.activeQuiz?.questions) || quiz.activeQuiz.questions.length === 0) return null;
+    return { quiz, progress };
+  } catch (e) {
+    return null;
+  }
+}
+
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -59,7 +103,7 @@ export const DEFAULT_HOME_MODE = {
 };
 
 export function createInitialState() {
-  return {
+  const base = {
     screen: 'menu', // 'menu' | 'quiz' | 'review' | 'result'
     activeTerm: '',
     activeCourse: '',
@@ -80,6 +124,35 @@ export function createInitialState() {
     homeMode: loadState('quizApp_homeMode', DEFAULT_HOME_MODE),
     multiSelection: [],
     collapsedTerms: loadState('quizApp_collapsedTerms', {}),
+  };
+
+  // Restore an attempt left over from the last visit, if there is one.
+  // The saved screen is what decides where you land: a reload mid quiz
+  // drops you straight back into it, while leaving via Exit saved
+  // 'menu' — so that one lands on the menu, with the attempt offered as
+  // a Resume card (ResumeCard.jsx) instead of reopening behind your back.
+  const saved = loadAttempt();
+  if (!saved) return base;
+  const { quiz, progress } = saved;
+  const result = progress.result ?? null;
+  // A result screen with no result to show would crash ResultScreen.
+  const screen = ['quiz', 'review', 'result'].includes(progress.screen) && (progress.screen !== 'result' || result)
+    ? progress.screen
+    : 'menu';
+
+  return {
+    ...base,
+    screen,
+    activeTerm: quiz.activeTerm ?? '',
+    activeCourse: quiz.activeCourse ?? '',
+    activeMode: quiz.activeMode === 'review' ? 'review' : 'quiz',
+    activeQuiz: quiz.activeQuiz,
+    // Pre-shuffle copy Restart goes back to. Older saves (or a failed
+    // write) may not have it; the shuffled copy is a workable stand-in.
+    originalQuizData: quiz.originalQuizData ?? quiz.activeQuiz,
+    currentIndex: Math.min(Math.max(progress.currentIndex | 0, 0), quiz.activeQuiz.questions.length - 1),
+    userAnswers: progress.userAnswers ?? {},
+    result,
   };
 }
 
@@ -188,6 +261,27 @@ export function reducer(state, action) {
 
     case 'GO_HOME':
       return { ...state, screen: 'menu' };
+
+    // Back into the attempt the menu's Resume card is offering — the
+    // state is already loaded, only the screen has to change.
+    case 'RESUME_ATTEMPT':
+      return { ...state, screen: state.activeMode === 'review' ? 'review' : 'quiz' };
+
+    // Throw the saved attempt away. Clearing activeQuiz is what actually
+    // wipes it from storage: the persistence effect in AppContext removes
+    // both keys whenever there's no active quiz.
+    case 'DISCARD_ATTEMPT':
+      return {
+        ...state,
+        screen: 'menu',
+        activeTerm: '',
+        activeCourse: '',
+        originalQuizData: null,
+        activeQuiz: null,
+        currentIndex: 0,
+        userAnswers: {},
+        result: null,
+      };
 
     // Clamped defensively: the UI only ever offers Next/Prev when it's valid
     // to move (the last question swaps to a Finish/Done button instead),
