@@ -1446,12 +1446,12 @@
     {
       "id": 95,
       "type": "mc",
-      "text": "Using the same optional-parameter route, what does visiting <code>/user/Nazh</code> return?",
+      "text": "Using the same optional-parameter route, what does visiting <code>/user/Maria</code> return?",
       "context": "<pre>Route::get('/user/{name?}', function ($name = 'Guest') {\n    return 'User '.$name;\n});</pre>",
       "options": [
         "User Guest",
-        "User Nazh",
-        "User Guest Nazh",
+        "User Maria",
+        "User Guest Maria",
         "404 Not Found"
       ],
       "correctAnswer": 1,
@@ -1597,10 +1597,10 @@
       "type": "msq",
       "text": "With <code>-&gt;where('name', '[A-Za-z]+')</code>, which values of <code>{name}</code> are <strong>accepted</strong>? (Select all that apply)",
       "options": [
-        "<code>Samantha</code>",
+        "<code>Camille</code>",
         "<code>JOHN</code>",
-        "<code>Sam123</code>",
-        "<code>sam_x</code>"
+        "<code>Cam123</code>",
+        "<code>cam_x</code>"
       ],
       "correctAnswer": [
         0,
