@@ -14,11 +14,18 @@ const TYPE_LABELS = {
   'drag-drop': 'Drag & Drop',
 };
 
+const STATUS_ICONS = {
+  correct: '✓',
+  partial: '◐',
+  wrong: '✗',
+  unanswered: '—',
+};
+
 const STATUS_LABELS = {
-  correct: '✓ Correct',
-  partial: '◐ Partial',
-  wrong: '✗ Wrong',
-  unanswered: '— Unanswered',
+  correct: 'Correct',
+  partial: 'Partial',
+  wrong: 'Wrong',
+  unanswered: 'Unanswered',
 };
 
 // How the user did on a question in the attempt being reviewed.
@@ -36,7 +43,7 @@ function answerStatus(question, userAnswer, quizOptions) {
 // status badge per question, and on a wrong answer the user's own answer
 // shown in red next to the correct one. A review opened fresh from the home
 // menu has no attempt and stays answer-key only.
-export default function ReviewCard({ question, index, reviewOptions, quizOptions, isListView, exiting, userAnswer, hasAttempt }) {
+export default function ReviewCard({ question, index, reviewOptions, quizOptions, isListView, exiting, userAnswer, hasAttempt, compactStatus }) {
   const status = hasAttempt && !question.flagged ? answerStatus(question, userAnswer, quizOptions) : null;
   return (
     <div
@@ -51,7 +58,15 @@ export default function ReviewCard({ question, index, reviewOptions, quizOptions
           <span className={`q-type-badge ${question.type}`}>{TYPE_LABELS[question.type] || 'Question'}</span>
         </div>
         <div className="q-meta-right">
-          {status && <span className={`review-status review-status--${status}`}>{STATUS_LABELS[status]}</span>}
+          {/* Phones: the icon alone — the full word pushed the meta row onto two lines. */}
+          {status && (
+            <span
+              className={`review-status review-status--${status} ${compactStatus ? 'review-status--icon' : ''}`}
+              title={STATUS_LABELS[status]}
+            >
+              {compactStatus ? STATUS_ICONS[status] : `${STATUS_ICONS[status]} ${STATUS_LABELS[status]}`}
+            </span>
+          )}
           <span className={`q-points ${question.flagged ? 'q-points--flagged' : ''}`}>
             {question.flagged ? 'Not Scored' : `${question.points || 1} pts`}
           </span>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useIsMobile } from '../../utils/useIsMobile.js';
 import { useApp } from '../../state/AppContext.jsx';
 import { useNavRow } from '../quiz/useNavRow.jsx';
 import { useEnterShortcut, usePrevShortcut } from '../quiz/useEnterShortcut.js';
@@ -11,6 +12,7 @@ export default function ReviewScreen({ goHome }) {
   const { state, dispatch } = useApp();
   const { activeQuiz, currentIndex, appSettings, reviewOptions, userAnswers } = state;
   const [isCardExiting, setIsCardExiting] = useState(false);
+  const isMobile = useIsMobile();
   const isListView = reviewOptions.listView;
   const questions = reviewOptions.wrongOnly
     ? activeQuiz.questions.filter((q) => !q.flagged && !isAnswerCorrect(q, userAnswers[q.id]?.value ?? null))
@@ -82,6 +84,7 @@ export default function ReviewScreen({ goHome }) {
               index={idx}
               reviewOptions={reviewOptions}
               quizOptions={state.quizOptions}
+              compactStatus={isMobile}
               isListView
               userAnswer={answerOf(q)}
               hasAttempt={hasAttempt}
@@ -89,6 +92,10 @@ export default function ReviewScreen({ goHome }) {
           ))
         ) : (
           <ReviewCard
+            // Remounts per question, like the quiz card: otherwise the
+            // previous card's revealed colors transition away on this one.
+            key={questions[Math.min(currentIndex, total - 1)].id}
+            compactStatus={isMobile}
             question={questions[Math.min(currentIndex, total - 1)]}
             index={Math.min(currentIndex, total - 1)}
             reviewOptions={reviewOptions}

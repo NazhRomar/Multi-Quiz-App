@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useApp } from '../../state/AppContext.jsx';
 import { liveScore, scoreQuiz } from '../../state/grading.js';
 import { useNavRow } from './useNavRow.jsx';
@@ -39,10 +39,24 @@ export default function QuizScreen({ goHome }) {
 
   const unanswered = activeQuiz.questions.filter((q) => !q.flagged && !userAnswers[q.id]?.submitted).length;
 
+  // Quiz Options → Read first: a new, unanswered question keeps its choices
+  // blurred and untouchable for N seconds, counting down, so the question
+  // itself gets read first. Already-answered questions never blur.
+  const readFirstSecs = quizOptions.readFirstSeconds || 0;
+  const [blurLeft, setBlurLeft] = useState(0);
+  useEffect(() => {
+    setBlurLeft(isLocked ? 0 : readFirstSecs);
+  }, [question.id, isLocked, readFirstSecs]);
+  useEffect(() => {
+    if (blurLeft <= 0) return undefined;
+    const timer = setTimeout(() => setBlurLeft((left) => left - 1), 1000);
+    return () => clearTimeout(timer);
+  }, [blurLeft]);
+
   // Keyboard shortcuts — only while the question is on screen and settled
   // (not mid card transition, so a quick double press can't skip one, and
   // not behind the Finish dialog).
-  const keysActive = !showConfirm && !isCardExiting;
+  const keysActive = !showConfirm && !isCardExiting && blurLeft === 0;
   const isChoiceType = question.type === 'mc' || question.type === 'tf' || question.type === 'msq';
   const hasSelection =
     question.type === 'msq' ? (savedState.value || []).length > 0 : savedState.value !== null && savedState.value !== undefined;
@@ -100,7 +114,11 @@ export default function QuizScreen({ goHome }) {
       {topRow}
       <main id="quiz-container">
         <QuestionCard
+          // Remounts per question: without it the previous question's
+          // revealed green/red choices transition away on the new card.
+          key={question.id}
           question={question}
+          blurLeft={blurLeft}
           index={currentIndex}
           savedState={savedState}
           isLocked={isLocked}

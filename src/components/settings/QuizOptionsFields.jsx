@@ -78,6 +78,24 @@ export default function QuizOptionsFields() {
           <option value="allOrNothing">All or nothing</option>
         </select>
       </label>
+      <label className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '0.5rem' }}>
+        <span className="dropdown-item-text">
+          <strong>Read first</strong>
+          <small>Blurs the choices (and holds back the number keys) for a few seconds, so the question gets read first</small>
+        </span>
+        <select
+          value={quizOptions.readFirstSeconds}
+          onChange={(e) => set('readFirstSeconds', Number(e.target.value))}
+          style={{ width: '100%', padding: '0.4rem', border: '1px solid var(--border)', borderRadius: '6px' }}
+        >
+          <option value={0}>Off</option>
+          <option value={2}>2 seconds</option>
+          <option value={3}>3 seconds</option>
+          <option value={5}>5 seconds</option>
+          <option value={8}>8 seconds</option>
+          <option value={12}>12 seconds</option>
+        </select>
+      </label>
       <label className="dropdown-item">
         <span className="dropdown-item-text">
           <strong>Hide feedback</strong>

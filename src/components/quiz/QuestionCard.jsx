@@ -1,4 +1,5 @@
 import { useApp } from '../../state/AppContext.jsx';
+import { useIsMobile } from '../../utils/useIsMobile.js';
 import { renderHtml } from '../../utils/renderHtml.js';
 import McTfOptions from './options/McTfOptions.jsx';
 import MsqOptions from './options/MsqOptions.jsx';
@@ -20,9 +21,10 @@ const TYPE_LABELS = {
 
 // showKeyHints: number keycaps on the choices (QuizScreen's number-key
 // shortcut). submitEnterHint: ⏎ on Submit when Enter would submit.
-export default function QuestionCard({ question, index, savedState, isLocked, exiting, showKeyHints, submitEnterHint }) {
+export default function QuestionCard({ question, index, savedState, isLocked, exiting, showKeyHints, submitEnterHint, blurLeft = 0 }) {
   const { state, dispatch } = useApp();
   const { quizOptions } = state;
+  const isMobile = useIsMobile();
 
   const submit = () => dispatch({ type: 'CHECK_ANSWER', payload: { qId: question.id } });
 
@@ -109,7 +111,8 @@ export default function QuestionCard({ question, index, savedState, isLocked, ex
           {/* Quiz Options → Show how many to select (off by default). */}
           {question.type === 'msq' && quizOptions.showMsqCount && (
             <span className="msq-count-hint" title={`Select ${question.correctAnswer.length} options for full points`}>
-              Select {question.correctAnswer.length}
+              {/* Phones: icon + number only — the full label wrapped the meta row onto two lines. */}
+              {isMobile ? `☑ ${question.correctAnswer.length}` : `Select ${question.correctAnswer.length}`}
             </span>
           )}
           <span className={`q-points ${question.flagged ? 'q-points--flagged' : ''}`}>
@@ -120,7 +123,12 @@ export default function QuestionCard({ question, index, savedState, isLocked, ex
       <QuestionSource question={question} variant="inline" />
       <QuestionContext context={question.context} />
       <div className="q-text" {...renderHtml(question.text)} />
-      <div className="options-list">
+      {blurLeft > 0 && (
+        <div className="read-first-hint" aria-live="polite">
+          Read the question — choices unlock in {blurLeft}s
+        </div>
+      )}
+      <div className={`options-list ${blurLeft > 0 ? 'options-list--blurred' : ''}`} aria-hidden={blurLeft > 0}>
         {optionsEl}
         {isLocked && <FeedbackBanner question={question} savedState={savedState} quizOptions={quizOptions} />}
       </div>

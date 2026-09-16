@@ -33,6 +33,7 @@ export const DEFAULT_QUIZ_OPTIONS = {
   shuffleChoices: false,
   keepTrueFalseOrder: true, // shuffleChoices leaves True/False questions as True, False
   showMsqCount: false, // "Select N" hint on multiple-select questions
+  readFirstSeconds: 0, // blur the choices for N seconds on a new question (0 = off)
   msqScoring: 'rightMinusWrong', // multiple select: 'right' | 'rightMinusWrong' | 'allOrNothing' (see pointsEarned)
   instantSubmit: true, // auto-submit mc/tf the moment you pick an option
   autoFocusBlank: true, // fitb: cursor in the first blank on arrival (not on touch screens)
@@ -107,6 +108,13 @@ function applyShuffle(quiz, quizOptions) {
       }
     });
   }
+  // The pool of answers to choose from (matching dropdowns, drag & drop
+  // bank) is ALWAYS shuffled, with or without Shuffle choices: authored
+  // order lines up 1:1 with the rows, which hands over the answers.
+  quiz.questions.forEach((q) => {
+    if (q.type !== 'matching' && q.type !== 'drag-drop') return;
+    q.choicePool = shuffleArray(q.allChoices ? [...q.allChoices] : q.pairs.map((p) => p.match));
+  });
   return quiz;
 }
 

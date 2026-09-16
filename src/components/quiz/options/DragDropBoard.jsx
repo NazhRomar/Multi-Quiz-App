@@ -21,7 +21,9 @@ export default function DragDropBoard({ question, savedState, isLocked, onDrop, 
   const boardRef = useRef(null);
   const draggedMatchRef = useRef(null);
   const [pickedMatch, setPickedMatch] = useState(null);
-  const allMatches = question.pairs.map((p) => p.match);
+  // choicePool: the same items in a random order (applyShuffle, store.js) —
+  // pairs order would list the bank in the rows' own answer order.
+  const allMatches = question.choicePool || question.pairs.map((p) => p.match);
   const savedMatches = savedState.value || {};
 
   // The card component is reused across questions — drop any picked-up item.

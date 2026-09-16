@@ -862,6 +862,45 @@ body.theme-canvas .dropdown-tab {
   row-gap: 0.4rem;
 }
 
+/* Phones: keep the whole meta row on one line. The status badge and the
+   "Select N" hint shrink to an icon (ReviewCard compactStatus /
+   QuestionCard isMobile), and the type badge gives up width first, so the
+   row can't wrap onto a second line and shift everything below it. */
+@media (max-width: 600px) {
+  .q-meta,
+  .q-meta:has(.q-meta-right) {
+    flex-wrap: nowrap;
+  }
+
+  .q-meta-left {
+    min-width: 0;
+  }
+
+  /* Scoped to .q-meta to outrank the base badge rules further down. The
+     smaller label means the ellipsis is a last resort, not the norm. */
+  .q-meta .q-type-badge {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.62rem;
+  }
+
+  .q-meta .msq-count-hint {
+    padding: 0.2rem 0.4rem;
+  }
+}
+
+/* Phones: icon only (ReviewCard compactStatus) — a square chip that keeps
+   the meta row on one line. */
+.review-status--icon {
+  padding: 0.25rem 0;
+  width: 1.7rem;
+  text-align: center;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
 .review-status--correct {
   background: rgba(77, 168, 154, 0.14);
   border-color: rgba(77, 168, 154, 0.45);
@@ -1488,6 +1527,16 @@ button:disabled {
   color: white;
 }
 
+/* Long unbroken strings (URLs, file paths, a|b|c lists, code-ish tokens)
+   used to run past the card's edge: flex children default to min-width:auto,
+   so a long word makes the row wider instead of wrapping. These are the
+   text-bearing boxes — break inside the word only when there's no earlier
+   break (a space, and browsers also break after / and |). */
+:is(.q-text, .q-explanation-text, .feedback-banner, .review-answer-value, .match-term, .match-answer, .msq-count-hint, .fitb-reveal, .read-first-hint, .drag-item, .option-label, .option-label > span, .review-match-answers) {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
 /* --- Quiz Engine UI --- */
 .question-card {
   background: #fafcfe;
@@ -1627,6 +1676,28 @@ body.theme-canvas .msq-count-hint {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
+}
+
+/* Quiz Options → Read first: the choices are blurred and untouchable for a
+   few seconds so the question gets read before it can be answered. */
+.options-list--blurred {
+  filter: blur(6px);
+  opacity: 0.75;
+  pointer-events: none;
+  user-select: none;
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+
+.read-first-hint {
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
+  border: 1px dashed var(--border);
+  background: var(--radio-bg);
+  color: var(--text-muted);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  text-align: center;
 }
 
 .option-label {
@@ -2002,11 +2073,36 @@ body.theme-canvas .option-label.locked {
   text-overflow: ellipsis;
 }
 
+/* Quiz mode: the dropdown, and under it the correct answer once the
+   question is answered and that row was wrong. */
+.match-answers {
+  flex: 0 0 40%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.match-answers .match-select {
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+.match-reveal {
+  font-size: 0.8rem;
+  padding: 0.35rem 0.6rem;
+}
+
 /* Phones: no room for term and choice side by side — stack them. */
 @media (max-width: 600px) {
   .match-row {
     flex-direction: column;
     gap: 0.45rem;
+  }
+
+  .match-answers {
+    flex: none;
+    width: 100%;
   }
 
   .match-term {
