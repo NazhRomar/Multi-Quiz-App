@@ -54,19 +54,24 @@ Match the structure already used throughout `src/data/**/*.json` (see any existi
 
 `totalPoints` is the sum of every question's `"points"`.
 
-`courseCode` is carried in every existing file but is currently **not read anywhere in `src/main.js`** — it's not wired into the UI. Still fill it in for consistency with the existing files (reuse the same code already used by sibling quizzes in that folder, e.g. `"SIA"` for everything under `System Integration and Architecture`), but don't treat getting it "right" as important — nothing displays it today.
+Two top-level fields are carried by every existing file but **read by nothing**: `courseCode`, which was never wired into the UI, and `totalPoints`, which the header recomputes from the questions instead (`QuizHeader.jsx`). Still fill both in for consistency with the existing files — reuse the same course code as the sibling quizzes in that folder, e.g. `"SIA"` for everything under `System Integration and Architecture` — but don't treat getting them "right" as important, because nothing displays them today.
+
+Two optional flags *are* read:
+
+- `"unverified": true` (top level) puts a ⚠️ next to the quiz on the home menu, with a tooltip saying the answers were AI-filled and never checked by hand. Set it when you ingested a quiz you couldn't fully verify; drop it once the answers have been confirmed.
+- `"flagged": true` (on a single question) takes that question out of scoring entirely — it shows "Not Scored" instead of its points and is skipped by the score, the totals and the unanswered count. This is the escape hatch for a question the source got so wrong that no listed option can be correct (see `05-py1-final-exam.json` question 1: the real output has 9 elements and every choice has 8). Pair it with `"correctAnswer": null` and an `"explanation"` that says what's broken and that it's worth reporting to the instructor. Don't use it to dodge a question you merely found hard to verify.
 
 ### `quizTitle` drives the sub-grouping in the UI — get this right
 
-`main.js` groups quizzes within a subject by splitting `quizTitle` on `" - "`. The part before the dash is the **series name**; the part after is the **item label**. If 2+ quizzes in the same subject folder share the exact same series name, they're automatically bundled into one card (e.g. every `"Python Essentials 2 - Module N"` title collapses into a single "Python Essentials 2" card with Module 1/2/3/4 as rows inside it). A title with no `" - "`, or whose prefix no other sibling shares, renders as its own standalone row instead.
+`buildRenderUnits()` in `src/data/catalog.js` groups quizzes within a subject by splitting `quizTitle` on `" - "`. The part before the dash is the **series name**; the part after is the **item label**. If 2+ quizzes in the same subject folder share the exact same series name, they're automatically bundled into one card (e.g. every `"Python Essentials 2 - Module N"` title collapses into a single "Python Essentials 2" card with Module 1/2/3/4 as rows inside it). A title with no `" - "`, or whose prefix no other sibling shares, renders as its own standalone row instead.
 
 So: to add a new item to an existing series (another module, another part), reuse that series' exact prefix string, character-for-character (`"Python Essentials 2 - Module 5"`, not `"Python Essentials II - Module 5"` or `"PE2 - Module 5"`). To start a **new** series, pick a prefix, and know it only visually becomes a "series card" once a second quiz shares that same prefix — a lone quiz with a dash in its title still just renders standalone until a sibling shows up.
 
 **If it's ambiguous whether a new quiz belongs to an existing series, extends it with a new naming pattern, or should stand alone — stop and ask the user rather than guessing.** Getting this wrong either silently merges unrelated quizzes into one card or fails to group ones that should be together.
 
-Every question has `id` (sequential integer from 1), `type`, `text`, `options`/type-specific fields, `correctAnswer`, `points`, `explanation`. Add `"context"` (a string, HTML allowed, typically `<pre>...</pre>` for a code block) only when there's a snippet or note to show — omit it entirely rather than setting it to `""` when there's nothing to show, matching the style of existing files.
+Every question has `id` (sequential integer from 1), `type`, `text`, `options`/type-specific fields, `correctAnswer`, `points`, `explanation`. Add `"context"` (HTML allowed, typically `<pre>...</pre>` for a code block) only when there's a snippet or note to show — omit it entirely rather than setting it to `""` when there's nothing to show, matching the style of existing files. `"context"` can also be an **array** of HTML strings, rendered as separate stacked boxes, for a question that shows several code snippets side by side (e.g. "which of these two functions…").
 
-Supported `type` values (verified against the current renderer in `src/main.js`):
+Supported `type` values (verified against the current renderers in `src/components/quiz/options/` — `McTfOptions.jsx`, `MsqOptions.jsx`, `FitbInput.jsx`, `MatchingGrid.jsx`, `DragDropBoard.jsx` — and the scoring in `src/state/grading.js`):
 
 - **`mc`** — multiple choice. `options`: string array. `correctAnswer`: 0-based index.
 - **`tf`** — true/false. `options`: `["True", "False"]`. `correctAnswer`: 0 or 1.
@@ -86,18 +91,18 @@ Supported `type` values (verified against the current renderer in `src/main.js`)
 
 ## 4. Where to save it
 
-The folder path is meaningful, not cosmetic: `main.js` reads `path.split('/')` on every file under `src/data/**/*.json` and uses path segment 2 as the **term** heading and segment 3 as the **subject/course** heading in the UI (e.g. `src/data/4th Year - 1st Term/System Integration and Architecture/…` → term "4th Year - 1st Term", subject "System Integration and Architecture"). So:
+The folder path is meaningful, not cosmetic: `src/data/catalog.js` reads `path.split('/')` on every file under `src/data/**/*.json` and uses path segment 2 as the **term** heading and segment 3 as the **subject/course** heading in the UI (e.g. `src/data/4th Year - 1st Term/System Integration and Architecture/…` → term "4th Year - 1st Term", subject "System Integration and Architecture"). So:
 
 - Adding to an existing subject: drop the file straight into that folder — reuse the folder's exact name.
 - Adding a genuinely new subject or term: create the new folder(s), matching the existing `"<N>th Year - <N>st/nd/rd/th Term"` and plain subject-name conventions seen in `src/data/`.
 - Filenames within a subject folder follow a numeric-prefix convention (`06-py2-module1.json`, `07-py2-module2.json`, `08-py2-module3.json`, …) — the prefix is just a sort/ordering aid, not read by the app, but continue the existing sequence for that folder rather than breaking it.
-- Quizzes are auto-discovered via `import.meta.glob('./data/**/*.json')` — there's no manifest/index file to update. Re-check `src/main.js` if that ever seems not to hold.
+- Quizzes are auto-discovered by `import.meta.glob('./**/*.json', { eager: true })` in `src/data/catalog.js` (the glob is relative to `src/data/`) — there's no manifest/index file to update. Re-check that file if that ever seems not to hold.
 
 **If it's unclear whether a new quiz belongs under an existing term/subject folder or needs a new one — ask rather than guessing**, same as the `quizTitle` series-prefix ambiguity above.
 
 ## 5. Verify before calling it done
 
-Start the dev server (`preview_start` with the `dev` launch config) and open the new quiz in the browser preview. Confirm:
+Start the dev server (`preview_start` with the `multi-quiz-app` launch config — that's its name in `.claude/launch.json`; there is no config called `dev`) and open the new quiz in the browser preview. Confirm:
 - The question count and point total match what you intended.
 - At least one `mc`/`tf` question and any `msq`/`fitb`/`matching`/`drag-drop` question types you used render correctly.
 - Code blocks in `context` display with correct formatting (no broken escaping).

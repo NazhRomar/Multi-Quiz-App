@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Packaged build of the unpacked extension in tools/quiz-harvester-extension/
+tools/quiz-harvester-extension.zip
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
