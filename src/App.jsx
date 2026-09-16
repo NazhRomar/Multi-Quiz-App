@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { AppProvider, useApp } from './state/AppContext.jsx';
 import MenuScreen from './components/menu/MenuScreen.jsx';
 import QuizScreen from './components/quiz/QuizScreen.jsx';
@@ -47,6 +48,10 @@ export default function App() {
   return (
     <AppProvider>
       <Shell />
+      {/* Vercel Web Analytics. The script it injects is served from
+          /_vercel/insights/ — only a Vercel deployment has that path, so
+          this is inert on Netlify (and in dev). */}
+      <Analytics />
     </AppProvider>
   );
 }
