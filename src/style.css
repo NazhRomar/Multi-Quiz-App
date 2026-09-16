@@ -4440,3 +4440,92 @@ body.theme-canvas .q-source-inline {
     flex: 1;
   }
 }
+
+/* =========================================================
+   --- SETTINGS ROWS (settings/SettingsGroup, ToggleRow, SelectRow) ---
+   The dropdown tabs used to be one flat run of a dozen-plus rows, each
+   carrying two to four lines of explanation. These are the headings that
+   break a tab into groups, plus the nested/inert treatment for a setting
+   that only does something while another one is set a certain way.
+========================================================= */
+.settings-group + .settings-group {
+  border-top: 1px solid var(--border);
+}
+
+.settings-group-label {
+  padding: 0.7rem 1rem 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  /* --bg, not --surface: the dark themes force every .dropdown-item to
+     --surface, so a --surface heading would vanish into the rows. --bg sits
+     off the row colour in both directions (lighter themes tint down, dark
+     themes tint darker). */
+  background: var(--bg);
+}
+
+/* One line of explanation per row, and it stays one line's worth of colour:
+   the name is what you read, the hint is what you fall back on. */
+.setting-row .dropdown-item-text small {
+  line-height: 1.35;
+}
+
+/* A setting that hangs off the one above it. The rule is the elbow. */
+.setting-row--nested {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.setting-row--nested::before {
+  content: '';
+  position: absolute;
+  left: 1.1rem;
+  top: 0;
+  bottom: 50%;
+  width: 0.5rem;
+  border-left: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  border-bottom-left-radius: 5px;
+}
+
+/* Its parent is set the other way, so this row currently does nothing.
+   Dimmed rather than hidden, so a setting you went looking for is still
+   where you left it. */
+.setting-row--inert {
+  cursor: default;
+}
+
+.setting-row--inert .dropdown-item-text strong,
+.setting-row--inert .dropdown-item-text small {
+  opacity: 0.45;
+}
+
+.setting-row--inert::before {
+  opacity: 0.45;
+}
+
+.switch--disabled {
+  opacity: 0.4;
+}
+
+.switch--disabled input {
+  cursor: default;
+}
+
+/* Name and hint stacked over a full-width control. */
+.setting-row--select {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+.setting-select {
+  width: 100%;
+  padding: 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 0.82rem;
+}

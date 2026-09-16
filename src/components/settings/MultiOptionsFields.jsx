@@ -1,20 +1,19 @@
 import { useApp } from '../../state/AppContext.jsx';
-import Switch from './Switch.jsx';
+import ToggleRow from './ToggleRow.jsx';
 
 // Shown as an extra "Multi" tab in the quiz/review dropdowns, only during
-// a Multi session.
+// a Multi session. One setting, so it skips the group headings.
 export default function MultiOptionsFields() {
   const { state, dispatch } = useApp();
   const { multiOptions } = state;
   const set = (key, value) => dispatch({ type: 'SET_MULTI_OPTION', payload: { key, value } });
 
   return (
-    <label className="dropdown-item">
-      <span className="dropdown-item-text">
-        <strong>Show question source</strong>
-        <small>Label each question with the subject and module it came from</small>
-      </span>
-      <Switch checked={multiOptions.showSource} onChange={(v) => set('showSource', v)} />
-    </label>
+    <ToggleRow
+      title="Show question source"
+      hint="Label each question with the subject and module it came from"
+      checked={multiOptions.showSource}
+      onChange={(v) => set('showSource', v)}
+    />
   );
 }

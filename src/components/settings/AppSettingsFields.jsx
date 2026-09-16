@@ -1,10 +1,12 @@
 import { useApp } from '../../state/AppContext.jsx';
-import Switch from './Switch.jsx';
 import { useIsMobile } from '../../utils/useIsMobile.js';
 import { FONTS, fontLabel } from '../../utils/fonts.js';
 import { THEMES } from '../../utils/themes.js';
 import ThemePicker, { ThemeModeIcon, themeSwatchStyle } from './ThemePicker.jsx';
 import FoldSection from './FoldSection.jsx';
+import SettingsGroup from './SettingsGroup.jsx';
+import ToggleRow from './ToggleRow.jsx';
+import SelectRow from './SelectRow.jsx';
 
 // Code block themes (colors live in style.css under body.code-theme-<value>).
 // 'default' adds no class, so code blocks follow the app theme.
@@ -42,84 +44,84 @@ export default function AppSettingsFields({ showNavLocation = false }) {
 
   return (
     <>
-      <FoldSection
-        title="UI Theme"
-        summary={
-          <span className="theme-picker-current">
-            <ThemeModeIcon theme={currentTheme} />
-            {currentTheme.label}
-          </span>
-        }
-        badge={<span className="theme-picker-swatch" style={themeSwatchStyle(currentTheme)} />}
-      >
-        <ThemePicker value={appSettings.theme} onChange={(v) => set('theme', v)} />
-      </FoldSection>
-      <FoldSection
-        title="Code Block Theme"
-        summary={(CODE_THEMES.find((t) => t.value === appSettings.codeTheme) || CODE_THEMES[0]).label}
-        badge={
-          <span className="q-context q-context--code code-theme-badge">
-            <span className="q-context-body">{'</>'}</span>
-          </span>
-        }
-      >
-        <select
-          className="fold-select"
-          aria-label="Code Block Theme"
-          value={appSettings.codeTheme}
-          onChange={(e) => set('codeTheme', e.target.value)}
+      <SettingsGroup label="Appearance">
+        <FoldSection
+          title="UI theme"
+          summary={
+            <span className="theme-picker-current">
+              <ThemeModeIcon theme={currentTheme} />
+              {currentTheme.label}
+            </span>
+          }
+          badge={<span className="theme-picker-swatch" style={themeSwatchStyle(currentTheme)} />}
         >
-          {CODE_THEMES.map((t) => (
-            <option key={t.value} value={t.value}>
-              {t.label}
-            </option>
-          ))}
-        </select>
-        <div className="q-context q-context--code code-theme-preview" aria-hidden="true">
-          <div className="q-context-body">
-            <pre>{CODE_PREVIEW}</pre>
-          </div>
-        </div>
-      </FoldSection>
-      <FoldSection title="App Font" summary={fontLabel(appSettings.appFont, `Default (${appFontDefault})`)} badge={<span className="app-font-sample">Aa</span>}>
-        <select className="fold-select" aria-label="App Font" value={appSettings.appFont} onChange={(e) => set('appFont', e.target.value)}>
-          {FONTS.map((f) => (
-            <option key={f.value} value={f.value}>
-              {f.value === 'default' ? `Default (${appFontDefault})` : f.label}
-            </option>
-          ))}
-        </select>
-        <div className="app-font-preview" aria-hidden="true">
-          {APP_FONT_PREVIEW}
-        </div>
-        <small className="fold-note">Changes all text except code snippets.</small>
-      </FoldSection>
-      <FoldSection
-        title="Answer Font"
-        summary={fontLabel(appSettings.answerFont, `Default (${answerFontDefault})`)}
-        badge={<span className="answer-font-sample">@</span>}
-      >
-        <select className="fold-select" aria-label="Answer Font" value={appSettings.answerFont} onChange={(e) => set('answerFont', e.target.value)}>
-          {FONTS.map((f) => (
-            <option key={f.value} value={f.value}>
-              {f.value === 'default' ? `Default (${answerFontDefault})` : f.label}
-            </option>
-          ))}
-        </select>
-        <div className="answer-font-preview" aria-hidden="true">
-          {ANSWER_PREVIEW}
-        </div>
-      </FoldSection>
-      {showNavLocation && (
-        <label className="dropdown-item" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '0.5rem' }}>
-          <span className="dropdown-item-text">
-            <strong>Navigation Position</strong>
-            <small>Where to place Prev/Next</small>
-          </span>
+          <ThemePicker value={appSettings.theme} onChange={(v) => set('theme', v)} />
+        </FoldSection>
+        <FoldSection
+          title="Code block theme"
+          summary={(CODE_THEMES.find((t) => t.value === appSettings.codeTheme) || CODE_THEMES[0]).label}
+          badge={
+            <span className="q-context q-context--code code-theme-badge">
+              <span className="q-context-body">{'</>'}</span>
+            </span>
+          }
+        >
           <select
+            className="fold-select"
+            aria-label="Code block theme"
+            value={appSettings.codeTheme}
+            onChange={(e) => set('codeTheme', e.target.value)}
+          >
+            {CODE_THEMES.map((t) => (
+              <option key={t.value} value={t.value}>
+                {t.label}
+              </option>
+            ))}
+          </select>
+          <div className="q-context q-context--code code-theme-preview" aria-hidden="true">
+            <div className="q-context-body">
+              <pre>{CODE_PREVIEW}</pre>
+            </div>
+          </div>
+        </FoldSection>
+        <FoldSection title="App font" summary={fontLabel(appSettings.appFont, `Default (${appFontDefault})`)} badge={<span className="app-font-sample">Aa</span>}>
+          <select className="fold-select" aria-label="App font" value={appSettings.appFont} onChange={(e) => set('appFont', e.target.value)}>
+            {FONTS.map((f) => (
+              <option key={f.value} value={f.value}>
+                {f.value === 'default' ? `Default (${appFontDefault})` : f.label}
+              </option>
+            ))}
+          </select>
+          <div className="app-font-preview" aria-hidden="true">
+            {APP_FONT_PREVIEW}
+          </div>
+          <small className="fold-note">Changes all text except code snippets.</small>
+        </FoldSection>
+        <FoldSection
+          title="Answer font"
+          summary={fontLabel(appSettings.answerFont, `Default (${answerFontDefault})`)}
+          badge={<span className="answer-font-sample">@</span>}
+        >
+          <select className="fold-select" aria-label="Answer font" value={appSettings.answerFont} onChange={(e) => set('answerFont', e.target.value)}>
+            {FONTS.map((f) => (
+              <option key={f.value} value={f.value}>
+                {f.value === 'default' ? `Default (${answerFontDefault})` : f.label}
+              </option>
+            ))}
+          </select>
+          <div className="answer-font-preview" aria-hidden="true">
+            {ANSWER_PREVIEW}
+          </div>
+        </FoldSection>
+      </SettingsGroup>
+
+      <SettingsGroup label="Layout and motion">
+        {showNavLocation && (
+          <SelectRow
+            title="Navigation position"
+            hint="Where the Previous / Next buttons sit"
             value={appSettings.navLocation}
-            onChange={(e) => set('navLocation', e.target.value)}
-            style={{ width: '100%', padding: '0.4rem', border: '1px solid var(--border)', borderRadius: '6px' }}
+            onChange={(v) => set('navLocation', v)}
           >
             <option value="up">Top</option>
             <option value="down">Bottom</option>
@@ -131,23 +133,21 @@ export default function AppSettingsFields({ showNavLocation = false }) {
                 <option value="all">All</option>
               </>
             )}
-          </select>
-        </label>
-      )}
-      <label className="dropdown-item">
-        <span className="dropdown-item-text">
-          <strong>Disable animations</strong>
-          <small>Turn off all transitions and fades</small>
-        </span>
-        <Switch checked={appSettings.disableAnimations} onChange={(v) => set('disableAnimations', v)} />
-      </label>
-      <label className="dropdown-item">
-        <span className="dropdown-item-text">
-          <strong>Compact mode</strong>
-          <small>Tighter spacing, less scrolling</small>
-        </span>
-        <Switch checked={appSettings.compactMode} onChange={(v) => set('compactMode', v)} />
-      </label>
+          </SelectRow>
+        )}
+        <ToggleRow
+          title="Compact mode"
+          hint="Tighter spacing, less scrolling"
+          checked={appSettings.compactMode}
+          onChange={(v) => set('compactMode', v)}
+        />
+        <ToggleRow
+          title="Disable animations"
+          hint="Turn off all transitions and fades"
+          checked={appSettings.disableAnimations}
+          onChange={(v) => set('disableAnimations', v)}
+        />
+      </SettingsGroup>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import { useApp } from '../../state/AppContext.jsx';
-import Switch from './Switch.jsx';
+import SettingsGroup from './SettingsGroup.jsx';
+import ToggleRow from './ToggleRow.jsx';
 
 export default function ReviewOptionsFields() {
   const { state, dispatch } = useApp();
@@ -8,34 +9,35 @@ export default function ReviewOptionsFields() {
 
   return (
     <>
-      <label className="dropdown-item">
-        <span className="dropdown-item-text">
-          <strong>List View</strong>
-          <small>Show all questions on one page</small>
-        </span>
-        <Switch checked={reviewOptions.listView} onChange={(v) => set('listView', v)} />
-      </label>
-      <label className="dropdown-item">
-        <span className="dropdown-item-text">
-          <strong>Wrong answers only</strong>
-          <small>Only show questions you missed</small>
-        </span>
-        <Switch checked={reviewOptions.wrongOnly} onChange={(v) => set('wrongOnly', v)} />
-      </label>
-      <label className="dropdown-item">
-        <span className="dropdown-item-text">
-          <strong>Show all choices</strong>
-          <small>Display all options, not just the answer</small>
-        </span>
-        <Switch checked={reviewOptions.showAllChoices} onChange={(v) => set('showAllChoices', v)} />
-      </label>
-      <label className="dropdown-item">
-        <span className="dropdown-item-text">
-          <strong>Hide explanation</strong>
-          <small>Don't show the explanation text</small>
-        </span>
-        <Switch checked={reviewOptions.hideExplanation} onChange={(v) => set('hideExplanation', v)} />
-      </label>
+      <SettingsGroup label="View">
+        <ToggleRow
+          title="List view"
+          hint="All questions on one page"
+          checked={reviewOptions.listView}
+          onChange={(v) => set('listView', v)}
+        />
+        <ToggleRow
+          title="Wrong answers only"
+          hint="Only the questions you missed"
+          checked={reviewOptions.wrongOnly}
+          onChange={(v) => set('wrongOnly', v)}
+        />
+      </SettingsGroup>
+
+      <SettingsGroup label="On each card">
+        <ToggleRow
+          title="Show all choices"
+          hint="Every option, not just the answer"
+          checked={reviewOptions.showAllChoices}
+          onChange={(v) => set('showAllChoices', v)}
+        />
+        <ToggleRow
+          title="Hide explanation"
+          hint="Never show the explanation text"
+          checked={reviewOptions.hideExplanation}
+          onChange={(v) => set('hideExplanation', v)}
+        />
+      </SettingsGroup>
     </>
   );
 }
