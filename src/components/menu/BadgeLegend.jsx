@@ -2,14 +2,23 @@ import {
   SourcedIcon,
   UnofficialIcon,
   UnverifiedIcon,
+  VerifiedIcon,
   SOURCED_TITLE,
   UNOFFICIAL_TITLE,
   UNVERIFIED_TITLE,
+  VERIFIED_TITLE,
 } from './QuizBadges.jsx';
 
-// The same three badges QuizBadges puts on a quiz, with what they mean. The
+// The same four badges QuizBadges puts on a quiz, with what they mean. The
 // full sentence stays in the tooltip, as it is on the badge itself.
 const ITEMS = [
+  {
+    key: 'verified',
+    Icon: VerifiedIcon,
+    label: 'Verified',
+    blurb: 'From ccna/itexam/infraexam.',
+    title: VERIFIED_TITLE,
+  },
   {
     key: 'sourced',
     Icon: SourcedIcon,

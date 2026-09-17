@@ -1,7 +1,8 @@
 {
   "courseCode": "SIA",
-  "quizTitle": "Python Essentials 2 - Module 4",
+  "quizTitle": "Python Essentials 2 - Module 4 Exam",
   "totalPoints": 16,
+  "verified": true,
   "questions": [
     {
       "id": 1,

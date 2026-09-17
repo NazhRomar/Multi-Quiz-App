@@ -4,6 +4,30 @@ export const SOURCED_TITLE = '???';
 export const UNOFFICIAL_TITLE =
   'Unofficial — this quiz was put together from the course material, it is not a quiz the course itself gave.';
 export const UNVERIFIED_TITLE = 'I (the AI) filled these answers in — no manual verification has been made yet.';
+export const VERIFIED_TITLE = 'From ccna/itexam/infraexam.';
+
+// Scalloped seal with a tick, the way a social-network verified badge reads:
+// solid fill in the badge colour with the check sitting on top in white, so it
+// holds up on both themes without needing to know the page background. The
+// twelve lobes are quadratic curves between valley points, peaking at r=7.15
+// in a 16-box — the control points sit outside the box on purpose, the curve
+// itself does not.
+export const VerifiedIcon = () => (
+  <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true">
+    <path
+      fill="currentColor"
+      d="M13.65 6.49Q16.65 8.00 13.65 9.51Q15.49 12.32 12.14 12.14Q12.32 15.49 9.51 13.65Q8.00 16.65 6.49 13.65Q3.68 15.49 3.86 12.14Q0.51 12.32 2.35 9.51Q-0.65 8.00 2.35 6.49Q0.51 3.68 3.86 3.86Q3.68 0.51 6.49 2.35Q8.00 -0.65 9.51 2.35Q12.32 0.51 12.14 3.86Q15.49 3.68 13.65 6.49Z"
+    />
+    <path
+      d="M5.15 8.25 7.05 10.15 10.9 6.1"
+      fill="none"
+      stroke="#fff"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 // Flask: a quiz brewed here rather than handed out by the course.
 export const UnofficialIcon = () => (
@@ -32,12 +56,21 @@ export const UnverifiedIcon = () => (
   </svg>
 );
 
-// The badges a quiz can carry on the home menu, in order: where the material
+// The badges a quiz can carry on the home menu, in order: the tick sits right
+// after the name the way a social-network one does, then where the material
 // came from, who wrote the questions, whether the answers are checked. They
-// are independent, so a quiz can show any combination.
+// are independent, so a quiz can show any combination — including the tick
+// beside the warning triangle, which is not a contradiction: one is about
+// where the questions came from, the other about whether the answer key has
+// been checked by hand.
 export default function QuizBadges({ data }) {
   return (
     <>
+      {data.verified && (
+        <span className="quiz-badge quiz-badge--verified" title={VERIFIED_TITLE}>
+          <VerifiedIcon />
+        </span>
+      )}
       {data.unethicallySourced && (
         <span className="quiz-badge quiz-badge--sourced" title={SOURCED_TITLE}>
           <SourcedIcon />

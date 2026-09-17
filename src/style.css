@@ -1336,10 +1336,12 @@ body.theme-dark .review-status--partial {
 
 /* The badges on a quiz's menu entry; a quiz can carry any combination, side
    by side. Provenance stays quiet — violet for the mask, muted for the flask
-   — while the warning takes the eye. */
+   — while the warning takes the eye. The verified tick is the one solid
+   shape of the set, so it reads as a seal rather than an outline. */
 :root {
   --badge-warn: #d9821e;
   --badge-shady: #7c5cbf;
+  --badge-verified: #1d9bf0;
 }
 
 .quiz-badge {
@@ -1362,10 +1364,15 @@ body.theme-dark .review-status--partial {
   color: var(--badge-warn);
 }
 
+.quiz-badge--verified {
+  color: var(--badge-verified);
+}
+
 /* theme-dark is the shared class both dark themes carry (utils/themes.js). */
 body.theme-dark {
   --badge-warn: #e8a33d;
   --badge-shady: #a98fe0;
+  --badge-verified: #4db5f5;
 }
 
 /* --- Icon legend (components/menu/BadgeLegend.jsx) ---
