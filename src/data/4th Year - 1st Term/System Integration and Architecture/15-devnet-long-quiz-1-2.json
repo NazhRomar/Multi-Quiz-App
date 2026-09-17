@@ -21,7 +21,7 @@
     {
       "id": 2,
       "type": "mc",
-      "text": "A fitness application tracks total workout duration in minutes (total_minutes = 130) and converts it to full hours using floor division (hours = total_minutes // 60). In the same fitness application, the remaining workout minutes are computed using the modulo operator (minutes = total_minutes % 60) with total_minutes = 130. What value is assigned to minutes?",
+      "text": "A fitness application tracks total workout duration in minutes (<code>total_minutes = 130</code>) and converts it to full hours using floor division (<code>hours = total_minutes // 60</code>). In the same fitness application, the remaining workout minutes are computed using the modulo operator (<code>minutes = total_minutes % 60</code>) with <code>total_minutes = 130</code>. What value is assigned to <code>minutes</code>?",
       "options": [
         "10",
         "2",
@@ -50,7 +50,7 @@
     {
       "id": 4,
       "type": "mc",
-      "text": "A student is manipulating a Python list of device names in the interactive interpreter by executing the following sequence of commands. What is the final output displayed when the hostnames variable is printed?",
+      "text": "A student is manipulating a Python list of device names in the interactive interpreter by executing the following sequence of commands. What is the final output displayed when the <code>hostnames</code> variable is printed?",
       "context": "<pre>&gt;&gt;&gt; devicenames=[\"RT1\", \"RT2\", \"SW1\", \"SW2\"]\n&gt;&gt;&gt; hostnames=devicenames + [\"RT3\", \"SW3\"]\n&gt;&gt;&gt; del hostnames[3]\n&gt;&gt;&gt; hostnames</pre>",
       "options": [
         "['RT1', 'RT2', 'RT3', 'SW2', 'SW3']",
@@ -65,7 +65,7 @@
     {
       "id": 5,
       "type": "tf",
-      "text": "A warehouse management system maintains a delivery list: manifest = [\"part_101\", \"part_240\", \"part_330\"]. To access the first part in the delivery manifest, the system calls manifest.",
+      "text": "A warehouse management system maintains a delivery list: <code>manifest = [\"part_101\", \"part_240\", \"part_330\"]</code>. To access the first part in the delivery manifest, the system calls <code>manifest</code>.",
       "options": [
         "True",
         "False"
@@ -77,7 +77,7 @@
     {
       "id": 6,
       "type": "tf",
-      "text": "A developer wants to find a terminal bandwidth testing tool but does not know the exact package name. Running sudo apt-get install speed test will automatically search the package repository and list relevant matching packages.",
+      "text": "A developer wants to find a terminal bandwidth testing tool but does not know the exact package name. Running <code>sudo apt-get install speed test</code> will automatically search the package repository and list relevant matching packages.",
       "options": [
         "True",
         "False"
@@ -89,7 +89,7 @@
     {
       "id": 7,
       "type": "mc",
-      "text": "A student is learning Python in the interactive interpreter mode. The student issues the command:\n\n&gt;&gt;&gt; type(True)\n\nWhat is the data type reported by Python?",
+      "text": "A student is learning Python in the interactive interpreter mode. The student issues the command:\n\n<code>&gt;&gt;&gt; type(True)</code>\n\nWhat is the data type reported by Python?",
       "options": [
         "string",
         "Boolean",
@@ -103,7 +103,7 @@
     {
       "id": 8,
       "type": "mc",
-      "text": "An administrator schedules a VM shutdown in one minute using shutdown +1 \"Come back soon!\". Seconds later, they receive notice that the scheduled maintenance is postponed. Which command cancels the scheduled shutdown?",
+      "text": "An administrator schedules a VM shutdown in one minute using <code>shutdown +1 \"Come back soon!\"</code>. Seconds later, they receive notice that the scheduled maintenance is postponed. Which command cancels the scheduled shutdown?",
       "options": [
         "shutdown -c",
         "shutdown now",
@@ -117,7 +117,7 @@
     {
       "id": 9,
       "type": "tf",
-      "text": "A system administrator creates a script named myfile.sh in the /home/devasc/Documents/ directory and attempts to run it using ./myfile.sh. The terminal returns the error bash: ./myfile.sh: Permission denied. The administrator can grant execution permissions to the script file by running the command chmod +x myfile.sh.",
+      "text": "A system administrator creates a script named <code>myfile.sh</code> in the <code>/home/devasc/Documents/</code> directory and attempts to run it using <code>./myfile.sh</code>. The terminal returns the error <code>bash: ./myfile.sh: Permission denied</code>. The administrator can grant execution permissions to the script file by running the command <code>chmod +x myfile.sh</code>.",
       "options": [
         "True",
         "False"
@@ -129,7 +129,7 @@
     {
       "id": 10,
       "type": "mc",
-      "text": "A student is learning Python and is reviewing the Python script below. Under which condition will the elif statement be evaluated?",
+      "text": "A student is learning Python and is reviewing the Python script below. Under which condition will the <code>elif</code> statement be evaluated?",
       "context": "<pre>aclNum = int(input(\"What is the IPv4 ACL number? \"))\nif aclNum &gt;= 1 and aclNum &lt;= 99:\n     print(\"This is a standard IPv4 ACL.\")\nelif aclNum &gt;=100 and aclNum &lt;= 199:\n     print(\"This is an extended IPv4 ACL.\")\nelse:\n     print(\"This is not a standard or extended IPv4 ACL.\")</pre>",
       "options": [
         "when the input is a float number",
@@ -144,7 +144,7 @@
     {
       "id": 11,
       "type": "mc",
-      "text": "A user in the /home/devasc/Documents directory runs the following sequence of commands. What is the final result after the mv command is successfully executed?",
+      "text": "A user in the <code>/home/devasc/Documents</code> directory runs the following sequence of commands. What is the final result after the <code>mv</code> command is successfully executed?",
       "context": "<pre>devasc@labvm:~/Documents$ pwd\n/home/devasc/Documents\ndevasc@labvm:~/Documents$ mv myfile.sh ../Desktop/myfile2.sh</pre>",
       "options": [
         "The file myfile.sh is moved to the /home/devasc/Desktop directory and renamed as myfile2.sh.",
@@ -159,7 +159,7 @@
     {
       "id": 12,
       "type": "tf",
-      "text": "A developer organizes reusable code by creating a directory containing several Python scripts and includes an __init__.py file inside it. In Python, a collection of modules organized in a directory structure marked by an __init__.py file constitutes a package.",
+      "text": "A developer organizes reusable code by creating a directory containing several Python scripts and includes an <code>__init__.py</code> file inside it. In Python, a collection of modules organized in a directory structure marked by an <code>__init__.py</code> file constitutes a package.",
       "options": [
         "True",
         "False"
@@ -215,7 +215,7 @@
     {
       "id": 16,
       "type": "mc",
-      "text": "A fitness application tracks total workout duration in minutes (total_minutes = 130) and converts it to full hours using floor division (hours = total_minutes // 60). What value is stored in hours?",
+      "text": "A fitness application tracks total workout duration in minutes (<code>total_minutes = 130</code>) and converts it to full hours using floor division (<code>hours = total_minutes // 60</code>). What value is stored in <code>hours</code>?",
       "options": [
         "2",
         "10",
@@ -229,7 +229,7 @@
     {
       "id": 17,
       "type": "mc",
-      "text": "A Linux system administrator is auditing user accounts and needs to find any entries in the /etc/passwd file where the username begins with a digit (0-9). Which of the following grep commands should the administrator use to effectively find these specific entries?",
+      "text": "A Linux system administrator is auditing user accounts and needs to find any entries in the <code>/etc/passwd</code> file where the username begins with a digit (0-9). Which of the following <code>grep</code> commands should the administrator use to effectively find these specific entries?",
       "options": [
         "grep '_[0-9]' /etc/passwd",
         "grep '(0-9}' /etc/passwd",
@@ -243,7 +243,7 @@
     {
       "id": 18,
       "type": "tf",
-      "text": "A fitness app calculates the remaining workout minutes after extracting full hours using the modulo operator: minutes = total_minutes % 60. Given 130 total minutes, minutes evaluates to 10.",
+      "text": "A fitness app calculates the remaining workout minutes after extracting full hours using the modulo operator: <code>minutes = total_minutes % 60</code>. Given 130 total minutes, <code>minutes</code> evaluates to <code>10</code>.",
       "options": [
         "True",
         "False"
@@ -290,7 +290,7 @@
     {
       "id": 21,
       "type": "mc",
-      "text": "A software engineer is developing a project and wants to organize multiple related Python scripts inside a directory structure named analytics. They include an __init__.py file inside the directory. What Python construct is created by organizing scripts into a directory marked by an __init__.py file?",
+      "text": "A software engineer is developing a project and wants to organize multiple related Python scripts inside a directory structure named <code>analytics</code>. They include an <code>__init__.py</code> file inside the directory. What Python construct is created by organizing scripts into a directory marked by an <code>__init__.py</code> file?",
       "options": [
         "A standalone module",
         "A package",
@@ -304,7 +304,7 @@
     {
       "id": 22,
       "type": "mc",
-      "text": "A Linux system administrator is searching the passwd file for any username that starts with a digit. Which grep command should the administrator use?",
+      "text": "A Linux system administrator is searching the <code>passwd</code> file for any username that starts with a digit. Which <code>grep</code> command should the administrator use?",
       "options": [
         "grep '^[0-9]' /etc/passwd",
         "grep '[0-9]' /etc/passwd",
@@ -318,7 +318,7 @@
     {
       "id": 23,
       "type": "mc",
-      "text": "A user issues a series of Linux commands as shown. Which directory is the current directory after the cd command is entered?",
+      "text": "A user issues a series of Linux commands as shown. Which directory is the current directory after the <code>cd</code> command is entered?",
       "context": "<pre>(omitted)$ pwd\n/home/devasc/labs/ansible/backups\n(omitted)$ cd ../..</pre>",
       "options": [
         "/home",
@@ -334,7 +334,7 @@
     {
       "id": 24,
       "type": "msq",
-      "text": "In /home/devasc/Documents/, a user creates a script named myfile.sh using echo \"ls ../Desktop\" > myfile.sh. Upon trying to run ./myfile.sh, the shell returns bash: ./myfile.sh: Permission denied. Which of the following statements regarding permissions and ownership for myfile.sh are correct? (Select ALL that apply)",
+      "text": "In <code>/home/devasc/Documents/</code>, a user creates a script named <code>myfile.sh</code> using <code>echo \"ls ../Desktop\" > myfile.sh</code>. Upon trying to run <code>./myfile.sh</code>, the shell returns <code>bash: ./myfile.sh: Permission denied</code>. Which of the following statements regarding permissions and ownership for <code>myfile.sh</code> are correct? (Select ALL that apply)",
       "options": [
         "Executing chmod +x myfile.sh updates file permissions to -rwxrwxr-x, allowing the script to run.",
         "Executing sudo chown root myfile.sh changes both user and group ownership of myfile.sh to root.",
@@ -372,7 +372,7 @@
     {
       "id": 26,
       "type": "mc",
-      "text": "A security analyst needs to filter /etc/passwd to locate account entries where the service shell /bin/false occurs specifically at the end of the line. Which command uses regular expression anchors to return lines ending with false?",
+      "text": "A security analyst needs to filter <code>/etc/passwd</code> to locate account entries where the service shell <code>/bin/false</code> occurs specifically at the end of the line. Which command uses regular expression anchors to return lines ending with <code>false</code>?",
       "options": [
         "grep 'f..se' /etc/passwd",
         "grep '[false]' /etc/passwd",
@@ -400,7 +400,7 @@
     {
       "id": 28,
       "type": "mc",
-      "text": "A developer attempts to modify a text variable text = \"hello\" by directly reassigning its first character: text[0] = \"j\". What will happen when this statement runs, and why?",
+      "text": "A developer attempts to modify a text variable <code>text = \"hello\"</code> by directly reassigning its first character: <code>text[0] = \"j\"</code>. What will happen when this statement runs, and why?",
       "options": [
         "It automatically converts text into a list.",
         "It raises a runtime error because strings are immutable and cannot be modified in place.",
@@ -434,7 +434,7 @@
     {
       "id": 30,
       "type": "tf",
-      "text": "A script parses a comma-separated text string \"apple,banana,cherry\" into individual items and then reformats them into a single string separated by \" & \". Calling .split(\",\") on the string returns a list, and calling \" & \".join(fruits) converts that list back into a single delimited string.",
+      "text": "A script parses a comma-separated text string <code>\"apple,banana,cherry\"</code> into individual items and then reformats them into a single string separated by <code>\" & \"</code>. Calling <code>.split(\",\")</code> on the string returns a list, and calling <code>\" & \".join(fruits)</code> converts that list back into a single delimited string.",
       "options": [
         "True",
         "False"
@@ -446,7 +446,7 @@
     {
       "id": 31,
       "type": "tf",
-      "text": "An IT specialist wants to append the line \"I LOVE Linux!\" to an existing file named linux2.txt without erasing its current contents. Executing the command echo \"I LOVE Linux!\" > linux2.txt will append the text to the bottom of the file without overwriting existing data.",
+      "text": "An IT specialist wants to append the line <code>\"I LOVE Linux!\"</code> to an existing file named <code>linux2.txt</code> without erasing its current contents. Executing the command <code>echo \"I LOVE Linux!\" > linux2.txt</code> will append the text to the bottom of the file without overwriting existing data.",
       "options": [
         "True",
         "False"
@@ -458,7 +458,7 @@
     {
       "id": 32,
       "type": "mc",
-      "text": "A developer needs to generate random numbers for a game. To keep the namespace clean, they want to import only the randint function from the random module and alias it as random_num. Which line of code correctly performs this specific import with an alias?",
+      "text": "A developer needs to generate random numbers for a game. To keep the namespace clean, they want to import only the <code>randint</code> function from the <code>random</code> module and alias it as <code>random_num</code>. Which line of code correctly performs this specific import with an alias?",
       "options": [
         "import random.randint as random_num",
         "import randint as random_num from random",
@@ -472,7 +472,7 @@
     {
       "id": 33,
       "type": "mc",
-      "text": "An academic grading script executes the following conditional structure for a student score of 85. What output is printed?",
+      "text": "An academic grading script executes the following conditional structure for a student score of <code>85</code>. What output is printed?",
       "context": "<pre>score = 85\nif score &gt;= 90:\n    print(\"Grade: A\")\nelif score &gt;= 80:\n    print(\"Grade: B\")\nelif score &gt;= 70:\n    print(\"Grade: C\")\nelse:\n    print(\"Grade: F\")</pre>",
       "options": [
         "Grade: F",
@@ -501,7 +501,7 @@
     {
       "id": 35,
       "type": "tf",
-      "text": "A system monitor checks the latest log entry stored in a list using negative indexing: logs[-1]. This operation successfully retrieves the last item in the list.",
+      "text": "A system monitor checks the latest log entry stored in a list using negative indexing: <code>logs[-1]</code>. This operation successfully retrieves the last item in the list.",
       "options": [
         "True",
         "False"
@@ -513,7 +513,7 @@
     {
       "id": 36,
       "type": "mc",
-      "text": "An engineer executes grep 'new*' /etc/passwd to review user entries. Why does this command match lines containing nonexistent in addition to news?",
+      "text": "An engineer executes <code>grep 'new*' /etc/passwd</code> to review user entries. Why does this command match lines containing <code>nonexistent</code> in addition to <code>news</code>?",
       "options": [
         "The grep tool automatically ignores vowels when searching system configuration files.",
         "The single quotation marks convert new into an unrestricted search range.",
