@@ -1,0 +1,642 @@
+{
+  "courseCode": "SIA",
+  "quizTitle": "DevNet Associate - Canvas - Mod01_Act02 Commands, Options, and Arguments",
+  "totalPoints": 85,
+  "unofficial": true,
+  "questions": [
+    {
+      "type": "matching",
+      "text": "Match each navigation and help command from the lab to what it does.",
+      "allChoices": [
+        "Prints the full path of the directory you are currently in",
+        "Changes which directory you are currently in",
+        "Lists the contents of a directory",
+        "Opens the full manual page for another command"
+      ],
+      "pairs": [
+        {
+          "term": "pwd",
+          "match": "Prints the full path of the directory you are currently in"
+        },
+        {
+          "term": "cd",
+          "match": "Changes which directory you are currently in"
+        },
+        {
+          "term": "ls",
+          "match": "Lists the contents of a directory"
+        },
+        {
+          "term": "man",
+          "match": "Opens the full manual page for another command"
+        }
+      ],
+      "points": 4,
+      "explanation": "Part 2, Step 2. These four plus <code>sudo</code> are all the lab uses to get around the file system.",
+      "id": 1
+    },
+    {
+      "type": "matching",
+      "text": "Match each file-management command from the lab to what it does.",
+      "allChoices": [
+        "Copies a file, leaving the original where it was",
+        "Moves a file elsewhere, or renames it in place",
+        "Deletes a file permanently",
+        "Changes a file's read, write and execute permissions",
+        "Changes which user owns a file"
+      ],
+      "pairs": [
+        {
+          "term": "cp",
+          "match": "Copies a file, leaving the original where it was"
+        },
+        {
+          "term": "mv",
+          "match": "Moves a file elsewhere, or renames it in place"
+        },
+        {
+          "term": "rm",
+          "match": "Deletes a file permanently"
+        },
+        {
+          "term": "chmod",
+          "match": "Changes a file's read, write and execute permissions"
+        },
+        {
+          "term": "chown",
+          "match": "Changes which user owns a file"
+        }
+      ],
+      "points": 5,
+      "explanation": "Part 3, Steps 2-5. The lab runs every one of these on the same <code>myfile.sh</code> it creates in Step 2b.",
+      "id": 2
+    },
+    {
+      "type": "matching",
+      "text": "Match each text and editing command from the lab to what it does.",
+      "allChoices": [
+        "Prints a line of text, which the lab redirects into a file",
+        "Displays the contents of a file",
+        "A terminal text editor with separate Command and Edit modes",
+        "Searches a file for lines matching a pattern"
+      ],
+      "pairs": [
+        {
+          "term": "echo",
+          "match": "Prints a line of text, which the lab redirects into a file"
+        },
+        {
+          "term": "cat",
+          "match": "Displays the contents of a file"
+        },
+        {
+          "term": "vi",
+          "match": "A terminal text editor with separate Command and Edit modes"
+        },
+        {
+          "term": "grep",
+          "match": "Searches a file for lines matching a pattern"
+        }
+      ],
+      "points": 4,
+      "explanation": "Part 3, Steps 6-7 and Part 4. <code>echo</code> and <code>cat</code> are how the lab creates and checks its text files without ever opening an editor.",
+      "id": 3
+    },
+    {
+      "type": "matching",
+      "text": "Match each system-administration command from the lab to what it does.",
+      "allChoices": [
+        "Runs a single command as the root user, without opening a new terminal",
+        "Powers off the OS, immediately or on a timer",
+        "Displays the date and time the OS is set to",
+        "Displays the processes that are running",
+        "Updates a password, or reports its status"
+      ],
+      "pairs": [
+        {
+          "term": "sudo",
+          "match": "Runs a single command as the root user, without opening a new terminal"
+        },
+        {
+          "term": "shutdown",
+          "match": "Powers off the OS, immediately or on a timer"
+        },
+        {
+          "term": "date",
+          "match": "Displays the date and time the OS is set to"
+        },
+        {
+          "term": "ps",
+          "match": "Displays the processes that are running"
+        },
+        {
+          "term": "passwd",
+          "match": "Updates a password, or reports its status"
+        }
+      ],
+      "points": 5,
+      "explanation": "Part 2, Step 3 and Part 5, Steps 1, 3 and 5.",
+      "id": 4
+    },
+    {
+      "type": "matching",
+      "text": "Match each networking and package command from the lab to what it does.",
+      "allChoices": [
+        "Displays the network configuration",
+        "Tests whether another computer answers over the network",
+        "Refreshes, installs, upgrades and purges packages; needs sudo",
+        "Searches for a package by keyword without installing anything",
+        "The package the lab installs, which measures internet connection speed"
+      ],
+      "pairs": [
+        {
+          "term": "ip",
+          "match": "Displays the network configuration"
+        },
+        {
+          "term": "ping",
+          "match": "Tests whether another computer answers over the network"
+        },
+        {
+          "term": "apt-get",
+          "match": "Refreshes, installs, upgrades and purges packages; needs sudo"
+        },
+        {
+          "term": "apt-cache",
+          "match": "Searches for a package by keyword without installing anything"
+        },
+        {
+          "term": "speedtest-cli",
+          "match": "The package the lab installs, which measures internet connection speed"
+        }
+      ],
+      "points": 5,
+      "explanation": "Part 5, Steps 2 and 4. <code>speedtest-cli</code> is the odd one out: it is not part of Linux, it is the example package the lab installs and then purges again.",
+      "id": 5
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>ls</code> option the lab uses to what it does.",
+      "allChoices": [
+        "Long display: adds permissions, owner, size and date to each entry",
+        "Lists the directory in reverse alphabetical order",
+        "Both of those at once, behind a single dash",
+        "Prints a shorter summary of the available options, without opening the manual"
+      ],
+      "pairs": [
+        {
+          "term": "-l",
+          "match": "Long display: adds permissions, owner, size and date to each entry"
+        },
+        {
+          "term": "-r",
+          "match": "Lists the directory in reverse alphabetical order"
+        },
+        {
+          "term": "-lr",
+          "match": "Both of those at once, behind a single dash"
+        },
+        {
+          "term": "--help",
+          "match": "Prints a shorter summary of the available options, without opening the manual"
+        }
+      ],
+      "points": 4,
+      "explanation": "Part 2, Steps 2c-g. Step 2e is the one making the point that multiple options can be used at the same time.",
+      "id": 6
+    },
+    {
+      "type": "matching",
+      "text": "Same command, different arguments. Match each <code>ls</code> line from the lab to what it lists.",
+      "allChoices": [
+        "Lists the current directory, because no argument was given",
+        "Lists the labs folder, named as the argument",
+        "Long display of the Desktop folder, with the option written after the argument",
+        "Long display of one single file rather than a directory",
+        "Lists the Desktop folder by going up one level first"
+      ],
+      "pairs": [
+        {
+          "term": "ls",
+          "match": "Lists the current directory, because no argument was given"
+        },
+        {
+          "term": "ls labs",
+          "match": "Lists the labs folder, named as the argument"
+        },
+        {
+          "term": "ls Desktop -l",
+          "match": "Long display of the Desktop folder, with the option written after the argument"
+        },
+        {
+          "term": "ls -l myfile.sh",
+          "match": "Long display of one single file rather than a directory"
+        },
+        {
+          "term": "ls ../Desktop/",
+          "match": "Lists the Desktop folder by going up one level first"
+        }
+      ],
+      "points": 5,
+      "explanation": "This is the options-vs-arguments split in one command. <code>-l</code> and <code>-r</code> are <em>options</em> that change how <code>ls</code> behaves; <code>labs</code>, <code>Desktop</code> and <code>myfile.sh</code> are <em>arguments</em> saying what to act on. Part 2, Step 2 and Part 3, Steps 1a and 2e.",
+      "id": 7
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>cd</code> argument the lab uses to where it takes you.",
+      "allChoices": [
+        "Moves to the root of the file system",
+        "Moves up exactly one directory level",
+        "Moves into a subdirectory of the current one, named relatively",
+        "Moves to that same folder by its full absolute path"
+      ],
+      "pairs": [
+        {
+          "term": "cd /",
+          "match": "Moves to the root of the file system"
+        },
+        {
+          "term": "cd ..",
+          "match": "Moves up exactly one directory level"
+        },
+        {
+          "term": "cd Documents",
+          "match": "Moves into a subdirectory of the current one, named relatively"
+        },
+        {
+          "term": "cd /home/devasc/Documents/",
+          "match": "Moves to that same folder by its full absolute path"
+        }
+      ],
+      "points": 4,
+      "explanation": "Part 2, Step 2 and Part 3, Step 2a. Everything <code>cd</code> takes is an argument — the lab never gives it an option.",
+      "id": 8
+    },
+    {
+      "type": "matching",
+      "text": "Match each file-management line from the lab to what it did to <code>myfile.sh</code>.",
+      "allChoices": [
+        "Hands ownership of the file to root, which is why it needs sudo",
+        "Moves the file to the Desktop, keeping its name",
+        "Renames the file in place, because the destination is a filename",
+        "Makes a second copy, leaving the first one in place",
+        "Deletes that copy again, permanently"
+      ],
+      "pairs": [
+        {
+          "term": "sudo chown root myfile.sh",
+          "match": "Hands ownership of the file to root, which is why it needs sudo"
+        },
+        {
+          "term": "mv myfile.sh /home/devasc/Desktop/",
+          "match": "Moves the file to the Desktop, keeping its name"
+        },
+        {
+          "term": "mv myfile.sh myfile_renamed.sh",
+          "match": "Renames the file in place, because the destination is a filename"
+        },
+        {
+          "term": "cp myfile_renamed.sh myfile_renamed_and_copied.sh",
+          "match": "Makes a second copy, leaving the first one in place"
+        },
+        {
+          "term": "rm myfile_renamed_and_copied.sh",
+          "match": "Deletes that copy again, permanently"
+        }
+      ],
+      "points": 5,
+      "explanation": "Part 3, Steps 2h, 3a, 3d, 4a and 5. Note the two <code>mv</code> lines: moving and renaming are the same command, and the only difference is whether the second argument is a directory or a new filename.",
+      "id": 9
+    },
+    {
+      "type": "matching",
+      "text": "Match each redirection or pipe character the lab uses to what it does.",
+      "allChoices": [
+        "Sends output into a file, overwriting whatever was there",
+        "Adds output to the end of a file, keeping what was already in it",
+        "Feeds one command's output into another command"
+      ],
+      "pairs": [
+        {
+          "term": "&gt;",
+          "match": "Sends output into a file, overwriting whatever was there"
+        },
+        {
+          "term": "&gt;&gt;",
+          "match": "Adds output to the end of a file, keeping what was already in it"
+        },
+        {
+          "term": "|",
+          "match": "Feeds one command's output into another command"
+        }
+      ],
+      "points": 3,
+      "explanation": "Part 3, Step 6 and Part 5, Step 3c. Step 6f overwrites <code>linux.txt</code> on purpose, to show the difference between <code>&gt;</code> and <code>&gt;&gt;</code>.",
+      "id": 10
+    },
+    {
+      "type": "matching",
+      "text": "Part 3, Step 2 builds a small script and then fails to run it. Match each line to what happened.",
+      "allChoices": [
+        "Creates the script file, with one command inside it",
+        "Shows the single command the script contains",
+        "Fails with bash: ./myfile.sh: Permission denied",
+        "Shows why it failed: the permissions read -rw-rw-r--, with no x",
+        "Adds the missing execute permission, so the script runs on the next try"
+      ],
+      "pairs": [
+        {
+          "term": "echo \"ls ../Desktop\" &gt; myfile.sh",
+          "match": "Creates the script file, with one command inside it"
+        },
+        {
+          "term": "cat myfile.sh",
+          "match": "Shows the single command the script contains"
+        },
+        {
+          "term": "./myfile.sh",
+          "match": "Fails with bash: ./myfile.sh: Permission denied"
+        },
+        {
+          "term": "ls -l myfile.sh",
+          "match": "Shows why it failed: the permissions read -rw-rw-r--, with no x"
+        },
+        {
+          "term": "chmod +x myfile.sh",
+          "match": "Adds the missing execute permission, so the script runs on the next try"
+        }
+      ],
+      "points": 5,
+      "explanation": "A file made by redirection is plain text, not a program, until <code>chmod +x</code> says otherwise. Part 3, Step 2b-g.",
+      "id": 11
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>vi</code> key the lab uses to what it does.",
+      "allChoices": [
+        "Enters Edit mode, inserting at the cursor's position",
+        "Enters Edit mode, appending after the cursor's position",
+        "Returns to Command mode so you can move around again",
+        "Writes the file out under the new name linux3.txt",
+        "Quits the editor"
+      ],
+      "pairs": [
+        {
+          "term": "i",
+          "match": "Enters Edit mode, inserting at the cursor's position"
+        },
+        {
+          "term": "a",
+          "match": "Enters Edit mode, appending after the cursor's position"
+        },
+        {
+          "term": "Esc",
+          "match": "Returns to Command mode so you can move around again"
+        },
+        {
+          "term": ":w linux3.txt",
+          "match": "Writes the file out under the new name linux3.txt"
+        },
+        {
+          "term": ":q",
+          "match": "Quits the editor"
+        }
+      ],
+      "points": 5,
+      "explanation": "Part 3, Step 7b-c. The colon is what takes you from Command mode into ex mode, where <code>:w</code> and <code>:q</code> are typed.",
+      "id": 12
+    },
+    {
+      "type": "matching",
+      "text": "Part 3, Step 7b also names three Command-mode keys. Match each to what the lab says it does.",
+      "allChoices": [
+        "Deletes (cuts) the current line",
+        "Yanks (copies) the current line",
+        "Puts (pastes) the line back"
+      ],
+      "pairs": [
+        {
+          "term": "d",
+          "match": "Deletes (cuts) the current line"
+        },
+        {
+          "term": "y",
+          "match": "Yanks (copies) the current line"
+        },
+        {
+          "term": "p",
+          "match": "Puts (pastes) the line back"
+        }
+      ],
+      "points": 3,
+      "explanation": "Worth knowing: in real <code>vi</code> the line-wise cut and copy are the doubled <code>dd</code> and <code>yy</code> — a single <code>d</code> or <code>y</code> waits for you to say how much. The lab states them singly.",
+      "id": 13
+    },
+    {
+      "type": "matching",
+      "text": "Match each pattern argument the lab gives <code>grep</code> to what it matches.",
+      "allChoices": [
+        "Only lines where root is at the very start",
+        "Only lines that end with false",
+        "A d, then any two characters, then an m — which is how dnsmasq matches",
+        "ne followed by zero or more w, so plain ne matches too",
+        "Any line containing an 8 or a 9",
+        "Any line containing a comma"
+      ],
+      "pairs": [
+        {
+          "term": "^root",
+          "match": "Only lines where root is at the very start"
+        },
+        {
+          "term": "false$",
+          "match": "Only lines that end with false"
+        },
+        {
+          "term": "d..m",
+          "match": "A d, then any two characters, then an m — which is how dnsmasq matches"
+        },
+        {
+          "term": "new*",
+          "match": "ne followed by zero or more w, so plain ne matches too"
+        },
+        {
+          "term": "[8-9]",
+          "match": "Any line containing an 8 or a 9"
+        },
+        {
+          "term": "[,]",
+          "match": "Any line containing a comma"
+        }
+      ],
+      "points": 6,
+      "explanation": "Part 4, Steps c-h. The trap is <code>*</code>: it means zero or more of the character before it, which is why <code>new*</code> also matches lines containing only <code>ne</code>.",
+      "id": 14
+    },
+    {
+      "type": "matching",
+      "text": "The lab runs <code>grep root /etc/passwd</code>. Match each part of that line to its job.",
+      "allChoices": [
+        "The command itself",
+        "The pattern argument: what to search for",
+        "The file argument: where to search"
+      ],
+      "pairs": [
+        {
+          "term": "grep",
+          "match": "The command itself"
+        },
+        {
+          "term": "root",
+          "match": "The pattern argument: what to search for"
+        },
+        {
+          "term": "/etc/passwd",
+          "match": "The file argument: where to search"
+        }
+      ],
+      "points": 3,
+      "explanation": "Both are arguments, and the order is what tells them apart — pattern first, file second. Part 4, Step a also shows <code>grep</code> is case-sensitive by default.",
+      "id": 15
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>shutdown</code> argument the lab uses to what it does.",
+      "allChoices": [
+        "Shuts the OS down immediately, with no delay",
+        "Shuts down in one minute, showing a message to logged-in users",
+        "Cancels the shutdown that was just scheduled"
+      ],
+      "pairs": [
+        {
+          "term": "now",
+          "match": "Shuts the OS down immediately, with no delay"
+        },
+        {
+          "term": "+1 \"Come back soon!\"",
+          "match": "Shuts down in one minute, showing a message to logged-in users"
+        },
+        {
+          "term": "-c",
+          "match": "Cancels the shutdown that was just scheduled"
+        }
+      ],
+      "points": 3,
+      "explanation": "Part 5, Step 1a-c. <code>now</code> and <code>+1</code> are time arguments; <code>-c</code> is an option.",
+      "id": 16
+    },
+    {
+      "type": "matching",
+      "text": "Match each way the lab runs <code>ps</code> to what it displays.",
+      "allChoices": [
+        "The processes running in the current terminal only",
+        "Every process running on the computer",
+        "That same full list, paged one screen at a time",
+        "Every process, with more detail on each one"
+      ],
+      "pairs": [
+        {
+          "term": "ps",
+          "match": "The processes running in the current terminal only"
+        },
+        {
+          "term": "ps -e",
+          "match": "Every process running on the computer"
+        },
+        {
+          "term": "ps -e | more",
+          "match": "That same full list, paged one screen at a time"
+        },
+        {
+          "term": "ps -ef",
+          "match": "Every process, with more detail on each one"
+        }
+      ],
+      "points": 4,
+      "explanation": "Part 5, Step 3a-d. Step 3c makes the wider point that <code>| more</code> can be added to any command whose output runs off the screen.",
+      "id": 17
+    },
+    {
+      "type": "matching",
+      "text": "Match each system and network check from Part 5 to what it reports.",
+      "allChoices": [
+        "Checks the date and time the OS is set to",
+        "Displays the network configuration in detail",
+        "Pings a computer on the local network exactly four times",
+        "Pings by name, so DNS has to resolve it to an address first",
+        "Prompts you to update your own password",
+        "Reports the status of your password instead of changing it"
+      ],
+      "pairs": [
+        {
+          "term": "date",
+          "match": "Checks the date and time the OS is set to"
+        },
+        {
+          "term": "ip address",
+          "match": "Displays the network configuration in detail"
+        },
+        {
+          "term": "ping -c 4 192.168.1.1",
+          "match": "Pings a computer on the local network exactly four times"
+        },
+        {
+          "term": "ping -c 4 www.cisco.com",
+          "match": "Pings by name, so DNS has to resolve it to an address first"
+        },
+        {
+          "term": "passwd",
+          "match": "Prompts you to update your own password"
+        },
+        {
+          "term": "passwd -S",
+          "match": "Reports the status of your password instead of changing it"
+        }
+      ],
+      "points": 6,
+      "explanation": "Part 5, Steps 1b, 2a-c and 5a-b. Without <code>-c 4</code>, <code>ping</code> would keep going until you stopped it.",
+      "id": 18
+    },
+    {
+      "type": "matching",
+      "text": "Match each package-management line from Part 5, Step 4 to what it does.",
+      "allChoices": [
+        "Refreshes the list of packages available to the OS",
+        "Finds a package by keyword; the only line here needing no sudo",
+        "Installs the named package",
+        "Runs the newly installed tool to test the connection speed",
+        "Updates all packages and dependencies on the computer",
+        "Completely removes that package again"
+      ],
+      "pairs": [
+        {
+          "term": "sudo apt-get update",
+          "match": "Refreshes the list of packages available to the OS"
+        },
+        {
+          "term": "apt-cache search speed test",
+          "match": "Finds a package by keyword; the only line here needing no sudo"
+        },
+        {
+          "term": "sudo apt-get install speedtest-cli",
+          "match": "Installs the named package"
+        },
+        {
+          "term": "speedtest-cli",
+          "match": "Runs the newly installed tool to test the connection speed"
+        },
+        {
+          "term": "sudo apt-get upgrade",
+          "match": "Updates all packages and dependencies on the computer"
+        },
+        {
+          "term": "sudo apt-get purge speedtest-cli",
+          "match": "Completely removes that package again"
+        }
+      ],
+      "points": 6,
+      "explanation": "Part 5, Step 4a-f, in the order the lab runs them. <code>apt-cache</code> only reads the local cache, so it changes nothing and needs no privileges; every <code>apt-get</code> line writes to the system and does.",
+      "id": 19
+    }
+  ]
+}
