@@ -1,0 +1,263 @@
+{
+  "courseCode": "SIA",
+  "quizTitle": "DevNet Associate - Module 1 Exam",
+  "totalPoints": 17,
+  "unethicallySourced": true,
+  "questions": [
+    {
+      "type": "mc",
+      "text": "A system administrator issues the <code>apt-get upgrade</code> command on a Linux operating system. What is the purpose of this command?",
+      "options": [
+        "Every application installed will update itself to the latest version.",
+        "Operating system updates are downloaded and will be installed.",
+        "The remote repository of applications and dependencies will be updated to the latest version.",
+        "A specific application named upgrade will be installed."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>apt-get upgrade</code> installs newer versions of the packages already on the system. The third option describes <code>apt-get update</code>, which only refreshes the local list of what the repositories have available and installs nothing — the two are almost always run in that order, update then upgrade.",
+      "id": 1
+    },
+    {
+      "type": "mc",
+      "text": "A Linux system administrator is searching the <code>passwd</code> file for any username that starts with a digit. Which <code>grep</code> command should the administrator use?",
+      "options": [
+        "grep '(0-9}' /etc/passwd",
+        "grep '[0-9]' /etc/passwd",
+        "grep '_[0-9]' /etc/passwd",
+        "grep '^[0-9]' /etc/passwd"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>^</code> anchors the match to the start of the line and <code>[0-9]</code> matches a single digit, so <code>'^[0-9]'</code> finds lines beginning with a digit. Without the anchor, <code>'[0-9]'</code> matches a digit anywhere on the line — which would return nearly every line, since each one carries a UID and a GID.",
+      "id": 2
+    },
+    {
+      "type": "mc",
+      "text": "What is the output when the following code is entered into a Python interpreter?",
+      "context": "<pre>[1,2,4,5] + [3,6]</pre>",
+      "options": [
+        "[1,2,3,4,5,6]",
+        "[12]+[9]",
+        "[21]",
+        "[1,2,4,5,3,6]"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>+</code> concatenates two lists: the second is appended to the end of the first, in order. Nothing is sorted — the first option is what you would get from <code>sorted([1,2,4,5] + [3,6])</code>.",
+      "id": 3
+    },
+    {
+      "type": "mc",
+      "text": "What is displayed after the following code is entered into a Python interpreter?",
+      "context": "<pre>addition = 22 +10\nprint(addition)</pre>",
+      "options": [
+        "nothing (because the print command is wrong)",
+        "[22]+[10]",
+        "a syntax error, because there should not be a space between the numerical values",
+        "32"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>22 + 10</code> is evaluated and bound to <code>addition</code>, then <code>print()</code> displays <code>32</code>. Whitespace around an operator makes no difference to Python's parser.",
+      "id": 4
+    },
+    {
+      "type": "mc",
+      "text": "A Linux administrator is attempting to use a terminal to configure the network interface card on a computer. The administrator receives a message that they do not have the necessary permissions to perform the configuration. What should be done prior to the configuration command?",
+      "options": [
+        "identify a different network interface",
+        "use a different user account",
+        "use the sudo command",
+        "change the chmod permissions on the network configuration file"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Configuring an interface changes system state, so it needs root. <code>sudo</code> runs that one command as root, prompting for <em>your own</em> password, and drops straight back to your normal shell. Loosening the permissions on the config file instead would be working around the protection rather than using it.",
+      "id": 5
+    },
+    {
+      "type": "mc",
+      "text": "A network engineer needs to review the status of all network interfaces of a server running a Linux operating system. The engineer enters the command <code>ifconfig -a</code>. What is the result of this command?",
+      "options": [
+        "All active interfaces will display information.",
+        "The ARP table of the computer will be displayed.",
+        "Both active and inactive interfaces will display information.",
+        "The host routing table will be displayed."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>-a</code> means all: without it, <code>ifconfig</code> lists only the interfaces that are up. Worth knowing that <code>ifconfig</code> is deprecated on current distributions — the DEVASC VM's own labs use <code>ip address</code> for this, and <code>ip route</code> for the routing table.",
+      "id": 6
+    },
+    {
+      "type": "mc",
+      "text": "A system administrator attempts to determine what is causing a computer to perform slower than normal. The administrator issues the <code>ps</code> command. What is displayed by this command?",
+      "options": [
+        "current RAM usage",
+        "current NIC status",
+        "active processes using CPU time",
+        "current HDD usage"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>ps</code> reports the running processes and the CPU time each has used. Memory and disk are not its job — <code>free</code> reports RAM and <code>df</code> reports disk space.",
+      "id": 7
+    },
+    {
+      "type": "msq",
+      "text": "A user issues the Linux command <code>ls -l myfile.sh</code> to check the permissions of the file <code>myfile.sh</code>. Which two statements describe the permissions assigned to the file? (Choose two.)",
+      "context": "<pre>devasc@labvm:~/Documents$ ls -l myfile.sh\n-rwxr-xr-- 1 self test 15 Mar 30 21:24 myfile.sh</pre>",
+      "options": [
+        "Any user in the self group can read, modify, and execute the file.",
+        "The user with the user ID of self can modify the file.",
+        "The user with the user ID of devasc can modify the file.",
+        "All users can execute the file.",
+        "Any user in the test group can execute the file."
+      ],
+      "correctAnswer": [
+        1,
+        4
+      ],
+      "points": 1,
+      "explanation": "Read the string in three blocks after the leading type dash: owner <code>rwx</code>, group <code>r-x</code>, others <code>r--</code>. The owner is <code>self</code> and the group is <code>test</code>. So <code>self</code> has write and can modify it, and anyone in <code>test</code> has execute. The traps: <code>self</code> is the owning <em>user</em>, not a group; <code>devasc</code> is only the account at the prompt, and falls under others with <code>r--</code>; and others have no <code>x</code>, so not all users can execute it.",
+      "id": 8
+    },
+    {
+      "type": "mc",
+      "text": "Which Python command creates a conditional control structure?",
+      "options": [
+        "def",
+        "delay",
+        "from",
+        "if"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>if</code>, with <code>elif</code> and <code>else</code>, is Python's conditional. <code>def</code> defines a function and <code>from</code> imports from a module; <code>delay</code> is not a Python keyword at all. Repetition uses <code>for</code> and <code>while</code>.",
+      "id": 9
+    },
+    {
+      "type": "mc",
+      "text": "A user enters the commands as shown. What is the result after the <code>mv</code> command is entered?",
+      "context": "<pre>devasc@labvm:~/Documents$ pwd\n/home/devasc/Documents\ndevasc@labvm:~/Documents$ mv myfile.sh ../Desktop/myfile2.sh</pre>",
+      "options": [
+        "The file myfile.sh is copied to the /home/devasc/Desktop directory and renamed as myfile2.sh.",
+        "The file myfile.sh is copied to the /home/devasc/Desktop directory and replaces the file myfile2.sh.",
+        "The file myfile.sh is copied and renamed to myfile2.sh in the current directory.",
+        "The file myfile.sh is moved to the /home/devasc/Desktop directory and renamed as myfile2.sh."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>mv</code> moves rather than copies, so nothing is left behind in <code>Documents</code> — that rules out the three options that say copied. Because the destination path ends in a different filename, the file is renamed as part of the same move.",
+      "id": 10
+    },
+    {
+      "type": "mc",
+      "text": "A student new to Python is working in interactive interpreter mode and issues the command shown. Which data type is used to represent the variable <code>ipAddress</code>?",
+      "context": "<pre>&gt;&gt;&gt; ipAddress = {\"R1\":\"10.1.1.1\",\"R2\":\"10.2.2.1\",\"R3\":\"10.3.3.1\"}</pre>",
+      "options": [
+        "list",
+        "array",
+        "tuple",
+        "dictionary"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Curly braces holding <code>key:value</code> pairs make a dictionary. Square brackets would have made a list and parentheses a tuple; Python has no built-in type called <code>array</code>.",
+      "id": 11
+    },
+    {
+      "type": "mc",
+      "text": "Working with the same dictionary, which Python expression retrieves the IP address of R2?",
+      "context": "<pre>&gt;&gt;&gt; ipAddress = {\"R1\":\"10.1.1.1\",\"R2\":\"10.2.2.1\",\"R3\":\"10.3.3.1\"}\n&gt;&gt;&gt; </pre>",
+      "options": [
+        "ipAddress{'R2'}",
+        "ipAddress['R2']",
+        "ipAddress[R2]",
+        "ipAddress{\"R2\"}"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "A dictionary value is looked up by its key in square brackets. The key is the string <code>\"R2\"</code>, so it needs its quotes — <code>ipAddress[R2]</code> would look for a <em>variable</em> named <code>R2</code> and raise a NameError. Curly braces only build the dictionary; they never index it.",
+      "id": 12
+    },
+    {
+      "type": "mc",
+      "text": "A user issues a series of Linux commands as shown. Which directory is the current directory after the <code>cd</code> command is entered?",
+      "context": "<pre>(omitted)$ pwd\n/home/devasc/labs/ansible/backups\n(omitted)$ cd ../..</pre>",
+      "options": [
+        "/",
+        "/home",
+        "/home/devasc/",
+        "/home/devasc/labs",
+        "/home/devasc/labs/ansible"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>..</code> is the parent directory, so <code>../..</code> goes up two levels in one step: <code>backups</code> to <code>ansible</code>, then <code>ansible</code> to <code>labs</code>.",
+      "id": 13
+    },
+    {
+      "type": "mc",
+      "text": "A student new to Python is working in interactive interpreter mode and issues the commands shown. What is the result?",
+      "context": "<pre>&gt;&gt;&gt; devicenames=[\"RT1\", \"RT2\", \"SW1\", \"SW2\"]\n&gt;&gt;&gt; hostnames=devicenames + [\"RT3\", \"SW3\"]\n&gt;&gt;&gt; del hostnames[3]\n&gt;&gt;&gt; hostnames</pre>",
+      "options": [
+        "['RT1', 'RT2', 'RT3', 'SW2', 'SW3']",
+        "['RT1', 'RT2', 'SW2', 'RT3', 'SW3']",
+        "['RT1', 'RT2', 'SW1', 'RT3', 'SW3']",
+        "['RT1', 'RT2', 'SW1', 'SW2', 'SW3']"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Concatenation first gives <code>['RT1', 'RT2', 'SW1', 'SW2', 'RT3', 'SW3']</code>. Indexing starts at zero, so <code>del hostnames[3]</code> removes the <em>fourth</em> item, <code>'SW2'</code> — not <code>'SW1'</code>, which is the trap.",
+      "id": 14
+    },
+    {
+      "type": "mc",
+      "text": "A student is learning Python in interactive interpreter mode and issues the commands shown. What is the result of the last line?",
+      "context": "<pre>&gt;&gt;&gt; y=2\n&gt;&gt;&gt; y*3\n6\n&gt;&gt;&gt; 'Test'*y</pre>",
+      "options": [
+        "'Test2'",
+        "'Test6'",
+        "TypeError: a string type cannot be multiplied by an integer",
+        "'TestTest'",
+        "'TestTestTestTestTestTest'"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Multiplying a string by an integer repeats it that many times. <code>y</code> is 2, so <code>'Test' * y</code> is <code>'TestTest'</code>. The <code>y*3</code> on the line before is ordinary arithmetic and does not change <code>y</code> — it is still 2, which is why the answer is not six copies.",
+      "id": 15
+    },
+    {
+      "type": "mc",
+      "text": "A student is reviewing the Python script shown. Under which condition will the <code>elif</code> statement be evaluated?",
+      "context": "<pre>aclNum = int(input(\"What is the IPv4 ACL number? \"))\nif aclNum &gt;= 1 and aclNum &lt;= 99:\n     print(\"This is a standard IPv4 ACL.\")\nelif aclNum &gt;=100 and aclNum &lt;= 199:\n     print(\"This is an extended IPv4 ACL.\")\nelse:\n     print(\"This is not a standard or extended IPv4 ACL.\")</pre>",
+      "options": [
+        "when the input is a float number",
+        "when the first print statement fails",
+        "when the input is a string",
+        "when the if statement is false"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "A chain is tested top to bottom and stops at the first branch that is true: <code>elif</code> is only reached once the <code>if</code> above it evaluates false. If the <code>if</code> is true, its block runs and the rest of the chain is skipped entirely. A string typed at the prompt would not reach the chain at all — <code>int()</code> would raise a ValueError first.",
+      "id": 16
+    },
+    {
+      "type": "mc",
+      "text": "A user issues a Linux command and gets the result shown. Which command displayed the contents of the current directory this way?",
+      "context": "<pre>total 40\ndrwxr-xr-x 2 devasc devasc 4096 Mar 30 21:25 Desktop\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Documents\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Downloads\ndrwxr-xr-x 5 devasc devasc 4096 Mar 30 21:21 labs\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Music\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Pictures\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Public\ndrwxr-xr-x 5 devasc devasc 4096 Mar 30 21:24 snap\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Templates\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Videos\ndevasc@labvm:~$</pre>",
+      "options": [
+        "ls -a",
+        "ls -l",
+        "ls",
+        "ls -lr"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Each entry carries permissions, link count, owner, group, size and date, which is exactly what <code>-l</code> adds. Plain <code>ls</code> would print bare names in columns, <code>-a</code> would also list the hidden dotfiles, and <code>-lr</code> would show this same long format in reverse — but the listing runs Desktop to Videos, forwards.",
+      "id": 17
+    }
+  ]
+}
