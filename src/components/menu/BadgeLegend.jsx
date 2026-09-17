@@ -10,7 +10,8 @@ import {
 } from './QuizBadges.jsx';
 
 // The same four badges QuizBadges puts on a quiz, with what they mean. The
-// full sentence stays in the tooltip, as it is on the badge itself.
+// badge's own tooltip is just its short name now; the full explanation lives
+// here in the blurb instead.
 const ITEMS = [
   {
     key: 'verified',
