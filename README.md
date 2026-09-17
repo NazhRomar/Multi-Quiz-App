@@ -1,7 +1,7 @@
 # Multi Quiz App
 
 A study app for my own coursework: the quizzes and reviewers for each subject, in one
-place, as an installable offline PWA. 25 quizzes / 980 questions across 4 subjects today,
+place, as an installable offline PWA. 26 quizzes / 1,010 questions across 4 subjects today,
 all bundled at build time — there is no backend, no account and no network call once the
 app has loaded.
 
@@ -92,8 +92,8 @@ always shuffled, with or without "Shuffle choices" — authored order lines up 1
 rows and hands over the answers.
 
 **Tapping the "Last updated" footer** opens a hidden fixture quiz covering every question
-type, including `drag-drop` (no real quiz uses that type, so it is the only way to
-exercise it).
+type. It used to be the only way to exercise `drag-drop`; "grep Basics" now uses it for
+one question, but the fixture is still the quicker way to poke at all six types at once.
 
 ## Deployment
 
