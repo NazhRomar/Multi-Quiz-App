@@ -58,6 +58,8 @@ export default function ReviewScreen({ goHome }) {
     onPrev: () => animatedNav('PREV_Q'),
     onNext: () => animatedNav('NEXT_Q'),
     onDone: goHome,
+    onRestart: () => dispatch({ type: 'RESTART' }),
+    onExit: goHome,
     // List view keeps each card's own in-card source strip instead.
     sourceTag: !isListView && total > 0 && <QuestionSource question={questions[Math.min(currentIndex, total - 1)]} variant="nav" />,
     enterHint: canEnterNext && !state.quizOptions.hideEnterHint,
