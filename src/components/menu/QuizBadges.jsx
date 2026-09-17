@@ -1,19 +1,9 @@
-export const CANVAS_TITLE = 'From Canvas — built from the material posted on the course’s Canvas page.';
-export const UNOFFICIAL_TITLE =
-  'Unofficial — this quiz was put together from the course material, it is not a quiz the course itself gave.';
 // Deliberately says nothing. The flag name is the codename; the badge is
 // not supposed to explain itself to whoever is reading over your shoulder.
 export const SOURCED_TITLE = '???';
+export const UNOFFICIAL_TITLE =
+  'Unofficial — this quiz was put together from the course material, it is not a quiz the course itself gave.';
 export const UNVERIFIED_TITLE = 'I (the AI) filled these answers in — no manual verification has been made yet.';
-
-// Graduation cap: the source material came off Canvas.
-export const CanvasIcon = () => (
-  <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M14.4 6.6 8.7 9.2a1.6 1.6 0 0 1-1.4 0L1.6 6.6a.7.7 0 0 1 0-1.3l5.7-2.6a1.6 1.6 0 0 1 1.4 0l5.7 2.6a.7.7 0 0 1 0 1.3Z" />
-    <path d="M14.7 6.1v3.9" />
-    <path d="M4.2 7.7v2.6c0 1.1 1.7 2 3.8 2s3.8-.9 3.8-2V7.7" />
-  </svg>
-);
 
 // Flask: a quiz brewed here rather than handed out by the course.
 export const UnofficialIcon = () => (
@@ -48,11 +38,6 @@ export const UnverifiedIcon = () => (
 export default function QuizBadges({ data }) {
   return (
     <>
-      {data.fromCanvas && (
-        <span className="quiz-badge quiz-badge--canvas" title={CANVAS_TITLE}>
-          <CanvasIcon />
-        </span>
-      )}
       {data.unethicallySourced && (
         <span className="quiz-badge quiz-badge--sourced" title={SOURCED_TITLE}>
           <SourcedIcon />

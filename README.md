@@ -39,13 +39,12 @@ The short version of the mechanics:
   character-for-character.
 - Six question types: `mc`, `tf`, `msq`, `fitb` (including multi-blank code fill-ins),
   `matching`, `drag-drop`.
-- Four top-level badge flags show on the menu entry: `"fromCanvas": true` (graduation cap
-  — the source material came off Canvas), `"unethicallySourced": true` (mask — lifted from
-  a sitting of the real quiz), `"unofficial": true` (flask — a quiz assembled from the
-  course material rather than handed out by the course) and `"unverified": true` (warning
-  triangle — answers AI-filled, never hand-checked). They are independent, and a quiz can
-  carry any combination. The home menu explains all four in a legend: a sticky rail in the
-  right-hand gutter from 1320px up, and a fold-away summary below that.
+- Three top-level badge flags show on the menu entry: `"unethicallySourced": true` (mask),
+  `"unofficial": true` (flask — a quiz assembled from the course material rather than
+  handed out by the course) and `"unverified": true` (warning triangle — answers AI-filled,
+  never hand-checked). They are independent, and a quiz can carry any combination. The home
+  menu explains them in a legend: a sticky rail in the right-hand gutter from 1320px up,
+  and a fold-away summary below that.
 
 ## How it fits together
 

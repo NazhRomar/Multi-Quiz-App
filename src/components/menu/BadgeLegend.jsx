@@ -1,9 +1,7 @@
 import {
-  CanvasIcon,
   SourcedIcon,
   UnofficialIcon,
   UnverifiedIcon,
-  CANVAS_TITLE,
   SOURCED_TITLE,
   UNOFFICIAL_TITLE,
   UNVERIFIED_TITLE,
@@ -13,17 +11,9 @@ import {
 // full sentence stays in the tooltip, as it is on the badge itself.
 const ITEMS = [
   {
-    key: 'canvas',
-    Icon: CanvasIcon,
-    label: 'From Canvas',
-    blurb: 'Built from material posted on the course’s Canvas page.',
-    title: CANVAS_TITLE,
-  },
-  {
     key: 'sourced',
     Icon: SourcedIcon,
     label: '???',
-    blurb: 'Best not to ask.',
     title: SOURCED_TITLE,
   },
   {
@@ -51,7 +41,7 @@ const LegendItems = () => (
         </span>
         <span className="badge-legend-text">
           <strong>{label}</strong>
-          <span className="badge-legend-blurb">{blurb}</span>
+          {blurb && <span className="badge-legend-blurb">{blurb}</span>}
         </span>
       </li>
     ))}

@@ -1334,10 +1334,9 @@ body.theme-dark .review-status--partial {
   border-radius: 6px;
 }
 
-/* The from-Canvas (cap), unethically-sourced (mask), unofficial (flask) and
-   unverified (warning) markers on a quiz's menu entry; a quiz can carry any
-   combination, side by side. Provenance stays quiet — accent for Canvas,
-   violet for the mask, muted for the flask — while the warning takes the eye. */
+/* The badges on a quiz's menu entry; a quiz can carry any combination, side
+   by side. Provenance stays quiet — violet for the mask, muted for the flask
+   — while the warning takes the eye. */
 :root {
   --badge-warn: #d9821e;
   --badge-shady: #7c5cbf;
@@ -1349,10 +1348,6 @@ body.theme-dark .review-status--partial {
   margin-left: 0.35rem;
   cursor: help;
   vertical-align: -0.14em;
-}
-
-.quiz-badge--canvas {
-  color: var(--accent);
 }
 
 .quiz-badge--sourced {
