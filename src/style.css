@@ -117,6 +117,7 @@ body.no-animations *::after {
 
 /* --- Content Containers --- */
 .menu-container {
+  position: relative; /* the badge legend hangs off this in the right gutter */
   width: 100%;
   max-width: 900px;
   margin: 2rem auto;
@@ -1364,6 +1365,111 @@ body.theme-dark .review-status--partial {
 /* theme-dark is the shared class both dark themes carry (utils/themes.js). */
 body.theme-dark {
   --badge-warn: #e8a33d;
+}
+
+/* --- Icon legend (components/menu/BadgeLegend.jsx) ---
+   Two presentations of the same three items: a sticky rail in the gutter
+   beside the menu once there is room for one, and a fold-away summary
+   below that, so a phone doesn't lose a band of the quiz list to a key. */
+.badge-legend-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.badge-legend-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.badge-legend-item .quiz-badge {
+  margin-left: 0;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+.badge-legend-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.badge-legend-text strong {
+  font-size: 0.78rem;
+  color: var(--text);
+}
+
+.badge-legend-blurb {
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: var(--text-muted);
+}
+
+.badge-legend-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Narrow: closed by default, and out of the way when closed. */
+.badge-legend-fold {
+  margin-bottom: 1rem;
+}
+
+.badge-legend-fold summary {
+  cursor: pointer;
+  width: fit-content;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  padding: 0.15rem 0;
+}
+
+.badge-legend-fold summary:hover {
+  color: var(--accent);
+}
+
+.badge-legend-fold[open] summary {
+  margin-bottom: 0.65rem;
+}
+
+.badge-legend-aside {
+  display: none;
+}
+
+/* Wide: the same width/offset maths as .q-source-aside, mirrored to the
+   right-hand gutter. */
+@media (min-width: 1320px) {
+  .badge-legend-aside {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(100% + 1.25rem);
+    width: min(220px, calc((100vw - 100%) / 2 - 2.75rem));
+  }
+
+  .badge-legend-aside-inner {
+    position: sticky;
+    /* clears the sticky header, same offset .q-source-aside-inner uses */
+    top: 84px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 0.3rem 0 0.3rem 0.85rem;
+    border-left: 3px solid var(--border);
+  }
+
+  .badge-legend-fold {
+    display: none;
+  }
 }
 
 @media (max-width: 600px) {

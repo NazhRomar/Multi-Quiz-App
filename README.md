@@ -43,7 +43,8 @@ The short version of the mechanics:
   — the source material came off Canvas), `"unofficial": true` (flask — a quiz assembled
   from the course material rather than handed out by the course) and `"unverified": true`
   (warning triangle — answers AI-filled, never hand-checked). They are independent, and a
-  quiz can carry any combination.
+  quiz can carry any combination. The home menu explains all three in a legend: a sticky
+  rail in the right-hand gutter from 1320px up, and a fold-away summary below that.
 
 ## How it fits together
 

@@ -5,6 +5,7 @@ import Dropdown from '../settings/Dropdown.jsx';
 import AppSettingsFields from '../settings/AppSettingsFields.jsx';
 import SegmentedToggle from '../common/SegmentedToggle.jsx';
 import TermSection from './TermSection.jsx';
+import BadgeLegend from './BadgeLegend.jsx';
 import ResumeCard from './ResumeCard.jsx';
 import ChangelogModal from './ChangelogModal.jsx';
 import { useOverload } from './overload/useOverload.js';
@@ -163,6 +164,7 @@ export default function MenuScreen() {
         <div className="menu-mode-hint-inner">{lastHint.current}</div>
       </div>
       <main className="menu-container">
+        <BadgeLegend />
         {/* Hidden while searching — a search is about finding something
             else, and the card would sit on top of the results. */}
         {!isSearching && <ResumeCard />}
