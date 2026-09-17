@@ -14,6 +14,8 @@ export const THEMES = [
   { value: 'sepia', label: 'Sepia', mode: 'light', family: 'tinted', swatch: { bg: '#f4ede0', surface: '#fbf6ec', accent: '#a4733f' } },
   { value: 'dark-purple', label: 'Dark Purple', mode: 'dark', family: 'dark', swatch: { bg: '#15131c', surface: '#1d1a27', accent: '#a898ea' } },
   { value: 'midnight', label: 'Midnight', mode: 'dark', family: 'dark', swatch: { bg: '#0e141c', surface: '#151e29', accent: '#6fb0e6' } },
+  { value: 'forest', label: 'Forest', mode: 'dark', family: 'dark', swatch: { bg: '#10190f', surface: '#182619', accent: '#c9a856' } },
+  { value: 'amber', label: 'Amber', mode: 'dark', family: 'dark', swatch: { bg: '#150e09', surface: '#1e150d', accent: '#e0983f' } },
 ];
 
 export function applyTheme(value) {
