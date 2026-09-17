@@ -1,8 +1,10 @@
 import {
   CanvasIcon,
+  SourcedIcon,
   UnofficialIcon,
   UnverifiedIcon,
   CANVAS_TITLE,
+  SOURCED_TITLE,
   UNOFFICIAL_TITLE,
   UNVERIFIED_TITLE,
 } from './QuizBadges.jsx';
@@ -16,6 +18,13 @@ const ITEMS = [
     label: 'From Canvas',
     blurb: 'Built from material posted on the course’s Canvas page.',
     title: CANVAS_TITLE,
+  },
+  {
+    key: 'sourced',
+    Icon: SourcedIcon,
+    label: '???',
+    blurb: 'Best not to ask.',
+    title: SOURCED_TITLE,
   },
   {
     key: 'unofficial',
