@@ -1,0 +1,270 @@
+{
+  "courseCode": "SIA",
+  "quizTitle": "DevNet Associate - Canvas - Mod01_Act02 Commands",
+  "totalPoints": 37,
+  "unofficial": true,
+  "questions": [
+    {
+      "type": "matching",
+      "text": "Match each navigation/help command from the lab to what it does.",
+      "allChoices": [
+        "Prints the current working directory",
+        "Changes the current working directory",
+        "Lists the contents of a directory",
+        "Opens the full manual page for a command"
+      ],
+      "pairs": [
+        { "term": "pwd", "match": "Prints the current working directory" },
+        { "term": "cd", "match": "Changes the current working directory" },
+        { "term": "ls", "match": "Lists the contents of a directory" },
+        { "term": "man", "match": "Opens the full manual page for a command" }
+      ],
+      "points": 4,
+      "explanation": "Part 2 of the lab (\"Review Command Syntax Navigation\") introduces these four in that order.",
+      "id": 1
+    },
+    {
+      "type": "matching",
+      "text": "Match each file-manipulation command from the lab to what it does.",
+      "allChoices": [
+        "Copies a file, leaving the original in place",
+        "Moves a file, or renames it if the destination is in the same folder",
+        "Permanently deletes a file",
+        "Changes a file's read/write/execute permission bits",
+        "Changes a file's owning user"
+      ],
+      "pairs": [
+        { "term": "cp", "match": "Copies a file, leaving the original in place" },
+        { "term": "mv", "match": "Moves a file, or renames it if the destination is in the same folder" },
+        { "term": "rm", "match": "Permanently deletes a file" },
+        { "term": "chmod", "match": "Changes a file's read/write/execute permission bits" },
+        { "term": "chown", "match": "Changes a file's owning user" }
+      ],
+      "points": 5,
+      "explanation": "Part 3 of the lab (\"Review File Management\"), Steps 2-5.",
+      "id": 2
+    },
+    {
+      "type": "matching",
+      "text": "Match each text/editing command from the lab to what it does.",
+      "allChoices": [
+        "Prints text to the screen, or into a file when redirected",
+        "Displays a file's contents (or copies them elsewhere via redirection)",
+        "A terminal text editor with separate Command and Edit modes",
+        "Searches text for lines matching a pattern"
+      ],
+      "pairs": [
+        { "term": "echo", "match": "Prints text to the screen, or into a file when redirected" },
+        { "term": "cat", "match": "Displays a file's contents (or copies them elsewhere via redirection)" },
+        { "term": "vi", "match": "A terminal text editor with separate Command and Edit modes" },
+        { "term": "grep", "match": "Searches text for lines matching a pattern" }
+      ],
+      "points": 4,
+      "explanation": "Part 3, Steps 6-7 (echo, cat, vi) and Part 4 (grep).",
+      "id": 3
+    },
+    {
+      "type": "matching",
+      "text": "Match each system/account administration command from the lab to what it does.",
+      "allChoices": [
+        "Runs a single command with administrative (root) privileges",
+        "Powers off, or schedules the power-off of, the system",
+        "Displays the system's current date and time",
+        "Lists currently running processes",
+        "Changes, or reports the status of, a user's password"
+      ],
+      "pairs": [
+        { "term": "sudo", "match": "Runs a single command with administrative (root) privileges" },
+        { "term": "shutdown", "match": "Powers off, or schedules the power-off of, the system" },
+        { "term": "date", "match": "Displays the system's current date and time" },
+        { "term": "ps", "match": "Lists currently running processes" },
+        { "term": "passwd", "match": "Changes, or reports the status of, a user's password" }
+      ],
+      "points": 5,
+      "explanation": "sudo appears throughout Parts 2-5; shutdown, date, ps and passwd are all introduced in Part 5 (\"Review System Administration\").",
+      "id": 4
+    },
+    {
+      "type": "matching",
+      "text": "Match each networking/package command from the lab to what it does.",
+      "allChoices": [
+        "Displays network interface and address configuration",
+        "Tests connectivity to a host by sending ICMP echo requests",
+        "Installs, updates, upgrades or removes software packages (needs sudo)",
+        "Searches the local package cache without changing anything on the system",
+        "An installed third-party tool that measures internet download/upload speed"
+      ],
+      "pairs": [
+        { "term": "ip", "match": "Displays network interface and address configuration" },
+        { "term": "ping", "match": "Tests connectivity to a host by sending ICMP echo requests" },
+        { "term": "apt-get", "match": "Installs, updates, upgrades or removes software packages (needs sudo)" },
+        { "term": "apt-cache", "match": "Searches the local package cache without changing anything on the system" },
+        { "term": "speedtest-cli", "match": "An installed third-party tool that measures internet download/upload speed" }
+      ],
+      "points": 5,
+      "explanation": "Part 5, Steps 2 and 4: ip and ping cover networking, apt-get/apt-cache manage packages, and speedtest-cli is the example package installed and used.",
+      "id": 5
+    },
+    {
+      "type": "mc",
+      "text": "Adding <code>-l</code> to <code>ls</code> changes the output to include which of these?",
+      "options": [
+        "Permissions, owner, group, size and modification date for each item",
+        "Only hidden files",
+        "A reverse-alphabetical ordering",
+        "A count of files only, no names"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2, Step 2c: the \"long display\" adds all of these columns that plain <code>ls</code> leaves out.",
+      "id": 6
+    },
+    {
+      "type": "tf",
+      "text": "<code>-l</code> and <code>-r</code> can be combined into a single <code>-lr</code> flag on the same <code>ls</code> call.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True — Part 2, Step 2e: \"Multiple options can be used at the same time,\" demonstrated with <code>ls -lr</code>.",
+      "id": 7
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the flag that grants execute permission on a file with <code>chmod</code>.",
+      "code": "devasc@labvm:~/Documents$ chmod ___ myfile.sh",
+      "correctAnswer": "+x",
+      "points": 1,
+      "explanation": "Part 3, Step 2f. Without it, the permission string has no <code>x</code> and the file can't be run.",
+      "id": 8
+    },
+    {
+      "type": "mc",
+      "text": "In <code>sudo chown root myfile.sh</code>, what does the argument <code>root</code> specify?",
+      "options": [
+        "The directory to move the file into",
+        "The new owning user for the file",
+        "The new owning group for the file",
+        "The new filename"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 3, Step 2h-i. <code>chown</code>'s bare argument (no group after a colon) only changes the owning user.",
+      "id": 9
+    },
+    {
+      "type": "mc",
+      "text": "Which of these three gives the most detailed listing of every running process on the machine?",
+      "options": ["ps", "ps -e", "ps -ef", "They're all equally detailed"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Part 5, Step 3: plain <code>ps</code> is limited to the current terminal, <code>-e</code> adds every process on the system, and <code>-ef</code> adds full columns like UID and PPID on top of that.",
+      "id": 10
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the option that limits <code>ping</code> to a fixed number of packets instead of running forever.",
+      "code": "devasc@labvm:~$ ping ___ 4 192.168.1.1",
+      "correctAnswer": "-c",
+      "points": 1,
+      "explanation": "Part 5, Step 2b: <code>-c 4</code> capped the ping at four packets.",
+      "id": 11
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>passwd -S</code> do, compared to plain <code>passwd</code>?",
+      "options": [
+        "It reports the password's current status instead of changing it",
+        "It forces an immediate password change",
+        "It deletes the current password",
+        "It suspends the account"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 5, Step 5a-b: plain <code>passwd</code> updates the password; <code>-S</code> only reports on its status.",
+      "id": 12
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>shutdown -c</code> do?",
+      "options": [
+        "Cancels a shutdown that was already scheduled",
+        "Halts the system immediately",
+        "Restarts the system immediately",
+        "Schedules a new shutdown one minute out"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 5, Step 1c: after scheduling <code>shutdown +1 \"Come back soon!\"</code>, the lab has you cancel it with <code>shutdown -c</code>.",
+      "id": 13
+    },
+    {
+      "type": "tf",
+      "text": "<code>apt-cache search</code> does not require <code>sudo</code>, unlike <code>apt-get update</code>, <code>install</code>, <code>upgrade</code> or <code>purge</code>.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True — Part 5, Step 4b runs <code>apt-cache search speed test</code> with no <code>sudo</code>, since it only reads the local cache rather than changing the system.",
+      "id": 14
+    },
+    {
+      "type": "mc",
+      "text": "In <code>sudo apt-get install speedtest-cli</code>, what does the argument <code>speedtest-cli</code> specify?",
+      "options": [
+        "The exact name of the package to download and install",
+        "A search keyword to look for a package",
+        "The directory to install into",
+        "The version number to install"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 5, Step 4c. Unlike <code>apt-cache search</code>, which takes a loose keyword, <code>apt-get install</code> needs the package's exact name.",
+      "id": 15
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the anchor character that makes <code>grep</code> match only lines starting with the given text.",
+      "code": "devasc@labvm:~$ grep '___root' /etc/passwd",
+      "correctAnswer": "^",
+      "points": 1,
+      "explanation": "Part 4c. <code>grep</code>'s pattern argument can include regex anchors like <code>^</code> and <code>$</code>, not just literal text.",
+      "id": 16
+    },
+    {
+      "type": "mc",
+      "text": "In <code>:w linux3.txt</code> inside <code>vi</code>, what does the argument <code>linux3.txt</code> do?",
+      "options": [
+        "Names the file the current buffer should be saved to",
+        "Names a file to open next",
+        "Names the file to delete",
+        "Sets the editor's syntax-highlighting mode"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 7c: <code>:w</code> normally saves under the file's current name, but giving it an argument saves to that name instead — which is how <code>linux2.txt</code>'s edits ended up in a new file, <code>linux3.txt</code>.",
+      "id": 17
+    },
+    {
+      "type": "mc",
+      "text": "In <code>cd Documents</code>, is <code>Documents</code> an option or an argument?",
+      "options": [
+        "An argument — it names the specific target the command acts on",
+        "An option — it modifies how <code>cd</code> behaves",
+        "Neither — it's part of the command name itself",
+        "Both, depending on capitalization"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Options are flags that start with a dash (like <code>-l</code>); <code>Documents</code> has no dash, so it's the argument — the specific thing <code>cd</code> is told to act on.",
+      "id": 18
+    },
+    {
+      "type": "tf",
+      "text": "<code>man</code> and <code>--help</code> both take the target command's name as their argument.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True — <code>man ls</code> and <code>ls --help</code> both name <code>ls</code> as their target, though <code>--help</code> is attached to the command itself as a flag rather than passed to a separate program.",
+      "id": 19
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "courseCode": "SIA",
+  "quizTitle": "DevNet Associate - Canvas - Mod01_Act02 Options & Arguments",
+  "totalPoints": 37,
+  "unofficial": true,
+  "questions": [
+    {
+      "type": "matching",
+      "text": "Match each <code>ls</code> option to what it does.",
+      "allChoices": [
+        "Long format: shows permissions, owner, size and date",
+        "Reverse alphabetical order",
+        "Long format, in reverse alphabetical order",
+        "Prints a short built-in summary of the command's options"
+      ],
+      "pairs": [
+        { "term": "-l", "match": "Long format: shows permissions, owner, size and date" },
+        { "term": "-r", "match": "Reverse alphabetical order" },
+        { "term": "-lr", "match": "Long format, in reverse alphabetical order" },
+        { "term": "--help", "match": "Prints a short built-in summary of the command's options" }
+      ],
+      "points": 4,
+      "explanation": "Part 2, Step 2c-g.",
+      "id": 1
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>cd</code> target to where it takes you.",
+      "allChoices": [
+        "The root of the entire file system",
+        "Exactly one directory level up",
+        "Into that named subdirectory"
+      ],
+      "pairs": [
+        { "term": "/", "match": "The root of the entire file system" },
+        { "term": "..", "match": "Exactly one directory level up" },
+        { "term": "Documents", "match": "Into that named subdirectory" }
+      ],
+      "points": 3,
+      "explanation": "Part 2, Step 2i-l.",
+      "id": 2
+    },
+    {
+      "type": "matching",
+      "text": "Match each privilege/ownership argument to what it does.",
+      "allChoices": [
+        "Grants execute permission on the file",
+        "Makes root the file's new owning user",
+        "Runs the single command that follows with administrative privileges"
+      ],
+      "pairs": [
+        { "term": "chmod +x", "match": "Grants execute permission on the file" },
+        { "term": "chown root", "match": "Makes root the file's new owning user" },
+        { "term": "sudo [command]", "match": "Runs the single command that follows with administrative privileges" }
+      ],
+      "points": 3,
+      "explanation": "Part 2, Step 3a and Part 3, Step 2f-h.",
+      "id": 3
+    },
+    {
+      "type": "matching",
+      "text": "Match each redirection/piping operator to what it does.",
+      "allChoices": [
+        "Overwrites the target file with the command's output",
+        "Appends the command's output to the end of the target file",
+        "Feeds one command's output into a second command as input"
+      ],
+      "pairs": [
+        { "term": ">", "match": "Overwrites the target file with the command's output" },
+        { "term": ">>", "match": "Appends the command's output to the end of the target file" },
+        { "term": "|", "match": "Feeds one command's output into a second command as input" }
+      ],
+      "points": 3,
+      "explanation": "Part 3, Step 6 (<code>&gt;</code>, <code>&gt;&gt;</code>) and Part 5, Step 3c (<code>ps -e | more</code>).",
+      "id": 4
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>vi</code> mode key or ex-mode command to what it does.",
+      "allChoices": [
+        "Enters Edit mode, inserting before the cursor",
+        "Enters Edit mode, inserting after the cursor",
+        "Returns to Command mode",
+        "Writes (saves) the buffer, optionally under a new filename",
+        "Quits the editor"
+      ],
+      "pairs": [
+        { "term": "i", "match": "Enters Edit mode, inserting before the cursor" },
+        { "term": "a", "match": "Enters Edit mode, inserting after the cursor" },
+        { "term": "Esc", "match": "Returns to Command mode" },
+        { "term": ":w [filename]", "match": "Writes (saves) the buffer, optionally under a new filename" },
+        { "term": ":q", "match": "Quits the editor" }
+      ],
+      "points": 5,
+      "explanation": "Part 3, Step 7b-c.",
+      "id": 5
+    },
+    {
+      "type": "matching",
+      "text": "Match each regular-expression symbol usable as a <code>grep</code> pattern argument to what it matches.",
+      "allChoices": [
+        "The start of a line",
+        "The end of a line",
+        "Exactly one of any character",
+        "Any single character from the set/range inside",
+        "Zero or more of the character right before it"
+      ],
+      "pairs": [
+        { "term": "^", "match": "The start of a line" },
+        { "term": "$", "match": "The end of a line" },
+        { "term": ".", "match": "Exactly one of any character" },
+        { "term": "[ ]", "match": "Any single character from the set/range inside" },
+        { "term": "*", "match": "Zero or more of the character right before it" }
+      ],
+      "points": 5,
+      "explanation": "Part 4, Steps c-h.",
+      "id": 6
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>shutdown</code> argument to what it does.",
+      "allChoices": [
+        "Halts the system immediately",
+        "Schedules a shutdown one minute out, broadcasting a message first",
+        "Cancels a shutdown that was already scheduled"
+      ],
+      "pairs": [
+        { "term": "now", "match": "Halts the system immediately" },
+        { "term": "+1 \"Come back soon!\"", "match": "Schedules a shutdown one minute out, broadcasting a message first" },
+        { "term": "-c", "match": "Cancels a shutdown that was already scheduled" }
+      ],
+      "points": 3,
+      "explanation": "Part 5, Step 1a-c.",
+      "id": 7
+    },
+    {
+      "type": "matching",
+      "text": "Match each way of running <code>ps</code> to what it shows.",
+      "allChoices": [
+        "Only this terminal's own processes",
+        "Every process on the whole system",
+        "Every process, with full extended detail such as UID and PPID"
+      ],
+      "pairs": [
+        { "term": "ps", "match": "Only this terminal's own processes" },
+        { "term": "-e", "match": "Every process on the whole system" },
+        { "term": "-ef", "match": "Every process, with full extended detail such as UID and PPID" }
+      ],
+      "points": 3,
+      "explanation": "Part 5, Step 3a, b and d.",
+      "id": 8
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>apt-get</code> subcommand to what it does.",
+      "allChoices": [
+        "Refreshes the local list of packages available from the repositories",
+        "Downloads and installs that specific named package",
+        "Updates every installed package and dependency on the system",
+        "Completely removes a package and frees the disk space it used"
+      ],
+      "pairs": [
+        { "term": "update", "match": "Refreshes the local list of packages available from the repositories" },
+        { "term": "install speedtest-cli", "match": "Downloads and installs that specific named package" },
+        { "term": "upgrade", "match": "Updates every installed package and dependency on the system" },
+        { "term": "purge speedtest-cli", "match": "Completely removes a package and frees the disk space it used" }
+      ],
+      "points": 4,
+      "explanation": "Part 5, Step 4a, c, e, f.",
+      "id": 9
+    },
+    {
+      "type": "matching",
+      "text": "Match each remaining single-purpose option/argument to what it does.",
+      "allChoices": [
+        "Limits ping to a fixed number of packets instead of running forever",
+        "Reports the password's status instead of changing it",
+        "Looks up a package by keyword in the local cache",
+        "Displays the interface and IP address configuration"
+      ],
+      "pairs": [
+        { "term": "ping -c 4", "match": "Limits ping to a fixed number of packets instead of running forever" },
+        { "term": "passwd -S", "match": "Reports the password's status instead of changing it" },
+        { "term": "apt-cache search speed test", "match": "Looks up a package by keyword in the local cache" },
+        { "term": "ip address", "match": "Displays the interface and IP address configuration" }
+      ],
+      "points": 4,
+      "explanation": "Part 5, Step 2a-b and Step 5b.",
+      "id": 10
+    }
+  ]
+}
