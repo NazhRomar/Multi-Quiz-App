@@ -1,0 +1,655 @@
+{
+  "courseCode": "SIA",
+  "quizTitle": "DevNet Associate - Canvas - Mod01_Act02",
+  "totalPoints": 79,
+  "unofficial": true,
+  "questions": [
+    {
+      "type": "matching",
+      "text": "Match each <code>ls</code> variation from Part 2 of the lab to what it displayed.",
+      "allChoices": [
+        "Just the ten folder names in the home directory",
+        "The single item inside the labs folder (devnet-src)",
+        "A long listing with permissions, owner, size and date for each folder",
+        "The same ten folders in reverse alphabetical order",
+        "The long listing, but in reverse alphabetical order"
+      ],
+      "pairs": [
+        { "term": "ls", "match": "Just the ten folder names in the home directory" },
+        { "term": "ls labs", "match": "The single item inside the labs folder (devnet-src)" },
+        { "term": "ls -l", "match": "A long listing with permissions, owner, size and date for each folder" },
+        { "term": "ls -r", "match": "The same ten folders in reverse alphabetical order" },
+        { "term": "ls -lr", "match": "The long listing, but in reverse alphabetical order" }
+      ],
+      "points": 5,
+      "explanation": "Part 2, Step 2 (a-e). <code>ls -lr</code> shows options can be stacked: <code>-l</code> for the long format, <code>-r</code> to reverse the sort.",
+      "id": 1
+    },
+    {
+      "type": "mc",
+      "text": "How do you open the full manual page for a command, and how do you leave it again?",
+      "options": [
+        "<code>man [command]</code>, then press <code>q</code> to quit",
+        "<code>help [command]</code>, then press <code>Ctrl+C</code> to quit",
+        "<code>man [command]</code>, then press <code>Ctrl+Z</code> to quit",
+        "<code>info [command]</code>, then press <code>Esc</code> to quit"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2, Step 2f: <code>man ls</code> opens the manual (use Space to page through it), and <code>q</code> quits back to the prompt.",
+      "id": 2
+    },
+    {
+      "type": "mc",
+      "text": "What is the difference between <code>ls --help</code> and <code>man ls</code>?",
+      "options": [
+        "<code>--help</code> only works for <code>ls</code>; <code>man</code> works for every command",
+        "<code>--help</code> prints a short summary of the options and returns to the prompt; <code>man</code> opens the full manual, which you must quit with <code>q</code>",
+        "They are the same command with different names",
+        "<code>man</code> is only for administrative commands, <code>--help</code> for everything else"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 2, Step 2f-g: <code>man ls</code> takes over the screen until you press <code>q</code>; <code>--help</code> just prints a shorter summary and hands the prompt straight back.",
+      "id": 3
+    },
+    {
+      "type": "mc",
+      "text": "What does the <code>pwd</code> command do?",
+      "options": [
+        "Prints the current working directory, e.g. <code>/home/devasc</code>",
+        "Changes the current user's password",
+        "Prints the contents of the current directory",
+        "Prints the directory you were in before your last <code>cd</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2, Step 2h: <code>pwd</code> (print working directory) printed <code>/home/devasc</code>. It has nothing to do with passwords, despite the similar name.",
+      "id": 4
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the command that jumps straight to the root of the file system, from anywhere.",
+      "code": "devasc@labvm:~/Documents$ ___ /",
+      "correctAnswer": "cd",
+      "points": 1,
+      "explanation": "Part 2, Step 2j: <code>cd /</code> changed directly to <code>/</code>, confirmed with <code>pwd</code>.",
+      "id": 5
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>cd ..</code> do?",
+      "options": [
+        "Moves up exactly one directory level",
+        "Returns to the home directory, however deep you are",
+        "Returns to the root directory",
+        "Returns to whichever directory you were in previously"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2, Step 2l: from <code>~/Documents</code>, <code>cd ..</code> landed back in <code>/home/devasc</code> — one level up, not all the way home.",
+      "id": 6
+    },
+    {
+      "type": "tf",
+      "text": "<code>cd documents</code> (lowercase d) would work just as well as <code>cd Documents</code>.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. Part 2, Step 2k explicitly warns: \"Remember that names are case-sensitive.\" Linux treats <code>Documents</code> and <code>documents</code> as different names.",
+      "id": 7
+    },
+    {
+      "type": "mc",
+      "text": "According to the lab's tip, which key auto-completes a directory name after you type its first few letters?",
+      "options": ["Enter", "Tab", "Ctrl+Space", "Esc"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 2, Step 2k's tip: type the first few letters and press <code>Tab</code> to let the system finish the name for you.",
+      "id": 8
+    },
+    {
+      "type": "mc",
+      "text": "Why does <code>sudo apt-get update</code> need <code>sudo</code> in front of it?",
+      "options": [
+        "It doesn't — the lab only adds <code>sudo</code> out of habit",
+        "Refreshing the system's package list is an administrative action that requires root privileges",
+        "<code>sudo</code> makes the command run faster",
+        "<code>apt-get</code> only exists as a root-owned alias"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 2, Step 3a: \"This command will not work without using the sudo command\" — refreshing package lists needs administrative access.",
+      "id": 9
+    },
+    {
+      "type": "mc",
+      "text": "What does the initial dash represent in <code>-rwxr-xr-x</code>?",
+      "context": "<pre>-rwxr-xr-x 1 devasc devasc 1095 Mar 30 21:24 chromium_chromium.desktop</pre>",
+      "options": [
+        "The file type — here, a regular file",
+        "That the owner has no permissions at all",
+        "That the file is hidden",
+        "The number of hard links to the file"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 1b (the lab's own first question). The first character identifies the file type; a dash means a plain file.",
+      "id": 10
+    },
+    {
+      "type": "mc",
+      "text": "What would be in the place of that first dash if the item were a directory instead of a file?",
+      "options": ["d", "f", "x", "r"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 1b. Compare with Step 2b's <code>ls -l</code> output from Part 2, where every folder line starts with <code>d</code>, e.g. <code>drwxr-xr-x 2 devasc devasc 4096 ... Desktop</code>.",
+      "id": 11
+    },
+    {
+      "type": "matching",
+      "text": "In the permission string <code>-rwxr-xr-x</code>, match each block of characters to who it governs.",
+      "allChoices": [
+        "The file type (position 1)",
+        "The owner's permissions (positions 2-4)",
+        "The group's permissions (positions 5-7)",
+        "Everyone else's permissions (positions 8-10)"
+      ],
+      "pairs": [
+        { "term": "- (dash)", "match": "The file type (position 1)" },
+        { "term": "rwx (next three)", "match": "The owner's permissions (positions 2-4)" },
+        { "term": "r-x (middle three)", "match": "The group's permissions (positions 5-7)" },
+        { "term": "r-x (last three)", "match": "Everyone else's permissions (positions 8-10)" }
+      ],
+      "points": 3,
+      "explanation": "Part 3, Step 1b's own questions, walking through the ten characters of <code>-rwxr-xr-x</code> left to right.",
+      "id": 12
+    },
+    {
+      "type": "matching",
+      "text": "Match each permission letter to what it grants.",
+      "allChoices": ["Permission to view the contents", "Permission to modify the contents", "Permission to run the file as a program"],
+      "pairs": [
+        { "term": "r", "match": "Permission to view the contents" },
+        { "term": "w", "match": "Permission to modify the contents" },
+        { "term": "x", "match": "Permission to run the file as a program" }
+      ],
+      "points": 3,
+      "explanation": "Part 3, Step 1b's last three questions — read, write and execute.",
+      "id": 13
+    },
+    {
+      "type": "mc",
+      "text": "In <code>-rwxr-xr-x 1 devasc devasc ... chromium_chromium.desktop</code>, what does the <em>first</em> instance of <code>devasc</code> indicate?",
+      "options": ["The group that owns the file", "The user who owns the file", "The last user who edited it", "The directory it lives in"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 3, Step 1b: the first name after the permission string and link count is the file's owning user.",
+      "id": 14
+    },
+    {
+      "type": "mc",
+      "text": "And what does the <em>second</em> instance of <code>devasc</code> indicate, in that same line?",
+      "options": ["The owning user, repeated for confirmation", "The owning group", "A symbolic link target", "The parent directory's owner"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 3, Step 1b: the second name is the file's owning group.",
+      "id": 15
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the operator that sends the output of <code>echo</code> into a brand-new file called <code>myfile.sh</code>, instead of printing it to the screen.",
+      "code": "devasc@labvm:~/Documents$ echo \"ls ../Desktop\" ___ myfile.sh",
+      "correctAnswer": ">",
+      "points": 1,
+      "explanation": "Part 3, Step 2b: \"the greater than (&gt;) character redirects command output to a file.\"",
+      "id": 16
+    },
+    {
+      "type": "mc",
+      "text": "Why did <code>./myfile.sh</code> fail with \"Permission denied\" right after it was created?",
+      "context": "<pre>devasc@labvm:~/Documents$ ls -l myfile.sh\n-rw-rw-r-- 1 devasc devasc 14 Apr 16 12:46 myfile.sh</pre>",
+      "options": [
+        "The file didn't actually exist yet",
+        "None of the three permission groups include the execute (x) bit",
+        "Only root is allowed to run shell scripts",
+        "The script contained a syntax error"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 3, Step 2d-e: <code>-rw-rw-r--</code> has no <code>x</code> anywhere, so nobody — not even the owner — is allowed to execute it yet.",
+      "id": 17
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the command that grants execute permission on <code>myfile.sh</code>, fixing the \"Permission denied\" error.",
+      "code": "devasc@labvm:~/Documents$ chmod ___ myfile.sh",
+      "correctAnswer": "+x",
+      "points": 1,
+      "explanation": "Part 3, Step 2f: <code>chmod +x myfile.sh</code> added the missing execute bit; Step 2g then ran the script successfully.",
+      "id": 18
+    },
+    {
+      "type": "mc",
+      "text": "After <code>sudo chown root myfile.sh</code>, the listing read <code>-rwxrwxr-x 1 root devasc ... myfile.sh</code>. What actually changed?",
+      "options": [
+        "Both the owner and the group became root",
+        "The owning user became root, but the owning group stayed devasc",
+        "Only the permission bits changed; ownership stayed with devasc",
+        "The file was moved into root's home directory"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 3, Step 2h-i: <code>chown</code> without a group argument only changes the owning user. The second name in the listing, the group, remained <code>devasc</code>.",
+      "id": 19
+    },
+    {
+      "type": "matching",
+      "text": "Match each command used in Part 3 to what it does to a file.",
+      "allChoices": [
+        "Creates a duplicate under a new name, leaving the original in place",
+        "Relocates the file, or renames it if the destination is in the same folder",
+        "Deletes the file outright",
+        "Adds execute permission so the file can be run",
+        "Transfers ownership of the file to another user"
+      ],
+      "pairs": [
+        { "term": "cp", "match": "Creates a duplicate under a new name, leaving the original in place" },
+        { "term": "mv", "match": "Relocates the file, or renames it if the destination is in the same folder" },
+        { "term": "rm", "match": "Deletes the file outright" },
+        { "term": "chmod +x", "match": "Adds execute permission so the file can be run" },
+        { "term": "chown", "match": "Transfers ownership of the file to another user" }
+      ],
+      "points": 5,
+      "explanation": "Part 3, Steps 2-5, run in that order on <code>myfile.sh</code>/<code>myfile_renamed.sh</code>.",
+      "id": 20
+    },
+    {
+      "type": "tf",
+      "text": "In Part 3, <code>mv myfile.sh myfile_renamed.sh</code> renamed the file rather than moving it to a new location.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True — Part 3, Step 3d. Since the destination has no path in front of it, <code>mv</code> just relabels the file in place.",
+      "id": 21
+    },
+    {
+      "type": "mc",
+      "text": "What is the key difference between <code>&gt;</code> and <code>&gt;&gt;</code> when redirecting <code>echo</code> output to a file?",
+      "options": [
+        "<code>&gt;</code> appends to the file; <code>&gt;&gt;</code> overwrites it",
+        "<code>&gt;</code> overwrites the file's existing contents; <code>&gt;&gt;</code> appends to the end of it",
+        "They behave identically; <code>&gt;&gt;</code> is just an older syntax",
+        "<code>&gt;</code> writes to disk; <code>&gt;&gt;</code> writes only to memory"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 3, Step 6a-g: <code>echo \"Linux is POWERFUL!\" &gt; linux.txt</code> erased the earlier \"Linux is AWESOME!\" line, while <code>&gt;&gt;</code> on <code>linux2.txt</code> left both lines intact.",
+      "id": 22
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the operator that adds this line to the end of <code>linux2.txt</code> without erasing what's already there.",
+      "code": "devasc@labvm:~$ echo \"I LOVE Linux!\" ___ linux2.txt",
+      "correctAnswer": ">>",
+      "points": 1,
+      "explanation": "Part 3, Step 6d: <code>&gt;&gt;</code> appends. A single <code>&gt;</code> would have wiped out \"Linux is AWESOME!\".",
+      "id": 23
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>cat linux.txt &gt; linux2.txt</code> do?",
+      "options": [
+        "Deletes <code>linux.txt</code> after copying it",
+        "Copies the contents of <code>linux.txt</code> into <code>linux2.txt</code>, leaving <code>linux.txt</code> untouched",
+        "Merges both files' contents into <code>linux.txt</code>",
+        "Renames <code>linux.txt</code> to <code>linux2.txt</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 3, Step 6b-c: <code>cat</code> printed <code>linux.txt</code>'s contents, and <code>&gt;</code> redirected that output into <code>linux2.txt</code>. <code>linux.txt</code> itself was never modified.",
+      "id": 24
+    },
+    {
+      "type": "mc",
+      "text": "In the <code>vi</code> editor, which key returns you to Command mode from Edit mode?",
+      "options": ["i", "a", "Esc", ":"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Part 3, Step 7b: <code>i</code> inserts at the cursor and <code>a</code> appends after it — both enter Edit mode. <code>Esc</code> is what brings you back to Command mode.",
+      "id": 25
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>vi</code> Command-mode action to what it does.",
+      "allChoices": [
+        "Deletes (cuts) the current line",
+        "Yanks (copies) the current line",
+        "Puts (pastes) the yanked or deleted line",
+        "Writes (saves) the buffer to a named file",
+        "Quits the editor"
+      ],
+      "pairs": [
+        { "term": "d", "match": "Deletes (cuts) the current line" },
+        { "term": "y", "match": "Yanks (copies) the current line" },
+        { "term": "p", "match": "Puts (pastes) the yanked or deleted line" },
+        { "term": ":w linux3.txt", "match": "Writes (saves) the buffer to a named file" },
+        { "term": ":q", "match": "Quits the editor" }
+      ],
+      "points": 5,
+      "explanation": "Part 3, Step 7b-c: \"d will delete (cut), y will yank (copy), and p will put (paste)\", then <code>:w linux3.txt</code> saved the edit under a new filename and <code>:q</code> exited.",
+      "id": 26
+    },
+    {
+      "type": "tf",
+      "text": "You can type <code>:w</code> and <code>:q</code> while still in Edit mode, without pressing <code>Esc</code> first.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. Part 3, Step 7c: you must be \"in the command mode\" before typing a colon to enter ex mode — Edit mode has no save/quit commands of its own.",
+      "id": 27
+    },
+    {
+      "type": "tf",
+      "text": "The <code>grep</code> command is case-sensitive by default.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True — Part 4a: <code>grep devasc /etc/passwd</code> highlighted both lowercase instances of <code>devasc</code> but skipped the uppercase <code>DEVASC</code> in the same line.",
+      "id": 28
+    },
+    {
+      "type": "mc",
+      "text": "Running <code>grep root /etc/passwd</code> returned one line with three highlighted instances of \"root\". Where do those three instances come from?",
+      "context": "<pre>root:x:0:0:root:/root:/bin/bash</pre>",
+      "options": [
+        "The username field, the GECOS/comment field, and the home directory path",
+        "The username field, the UID, and the GID",
+        "Three separate matching lines in the file",
+        "The username field, repeated three times for emphasis"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4b: reading the colon-separated fields left to right, \"root\" appears as the username, then again as the GECOS name, then again inside <code>/root</code> as the home directory — three hits in one line.",
+      "id": 29
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the anchor character that makes <code>grep</code> return only lines where <code>root</code> is at the very start.",
+      "code": "devasc@labvm:~$ grep '___root' /etc/passwd",
+      "correctAnswer": "^",
+      "points": 1,
+      "explanation": "Part 4c: the caret <code>^</code> anchors a match to the beginning of the line, so only the <code>root:x:0:0...</code> line qualified, not lines merely containing \"root\" elsewhere.",
+      "id": 30
+    },
+    {
+      "type": "mc",
+      "text": "What kind of lines does <code>grep 'false$' /etc/passwd</code> return?",
+      "options": [
+        "Lines that start with \"false\"",
+        "Lines where \"false\" is the very last thing on the line",
+        "Lines containing the literal text \"false$\"",
+        "Every line that mentions \"false\" anywhere"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 4d: the dollar sign <code>$</code> anchors to the end of the line, matching entries such as <code>tss:...:/bin/false</code> and <code>lightdm:...:/bin/false</code>.",
+      "id": 31
+    },
+    {
+      "type": "mc",
+      "text": "The lab runs <code>grep 'd..m' /etc/passwd</code> and both <code>daemon</code> and <code>dnsmasq</code> get highlighted. Why does <code>dnsmasq</code> qualify even though it's spelled differently from \"daem\"?",
+      "options": [
+        "Each <code>.</code> matches exactly one character, so <code>d..m</code> also matches <code>d</code> + <code>n</code> + <code>s</code> + <code>m</code> in <code>dnsmasq</code>",
+        "<code>grep</code> ignores letter order by default",
+        "<code>.</code> matches zero or more characters, so it absorbed the extra letters",
+        "It's a coincidence — <code>dnsmasq</code> also contains the literal substring \"d..m\""
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4e: the dot is a single-character wildcard, so <code>d..m</code> matches any 4-letter run starting with <code>d</code> and ending with <code>m</code> — <code>daem</code>(on) and <code>dnsm</code>(asq) both fit.",
+      "id": 32
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>grep '[8-9]' /etc/passwd</code> return?",
+      "options": [
+        "Lines containing an 8, a 9, or both",
+        "Only lines with exactly 8 or 9 characters",
+        "Lines containing the literal text \"[8-9]\"",
+        "Lines listing users with UID 8 or 9 specifically"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4f: square brackets define a set/range to match against, so any line with an 8 or a 9 anywhere in it — like UID <code>38</code>, <code>39</code>, or <code>900</code> — was returned.",
+      "id": 33
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>grep '[,]' /etc/passwd</code> return, and why?",
+      "options": [
+        "Lines containing a literal comma — here, mostly the GECOS fields ending in <code>,,,</code>",
+        "Lines with no commas at all, since brackets negate the character",
+        "Every line, since brackets are ignored by grep",
+        "Only lines with exactly one comma"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4g: a single character inside brackets is matched literally, so this pulled every line whose comment field has commas, e.g. <code>devasc:x:900:900:DEVASC,,,:/home/devasc:/bin/bash</code>.",
+      "id": 34
+    },
+    {
+      "type": "mc",
+      "text": "The lab notes that <code>grep 'new*'</code> matches lines containing either \"new\" or \"ne\". Why does \"ne\" alone match?",
+      "options": [
+        "<code>*</code> means zero or more of the character right before it, so the trailing <code>w</code> becomes optional",
+        "<code>*</code> is a wildcard for any single character",
+        "grep automatically ignores the last letter of any pattern",
+        "<code>*</code> makes the match case-insensitive"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4h: <code>*</code> applies only to the <code>w</code>, and \"zero copies\" is a valid count — so the pattern really just means \"an <code>n</code> then an <code>e</code>, optionally followed by more <code>w</code>s\", matching things like <code>nonexistent</code> and <code>network</code>.",
+      "id": 35
+    },
+    {
+      "type": "matching",
+      "text": "Match each regular-expression symbol used in Part 4 to what it matches.",
+      "allChoices": [
+        "The start of a line",
+        "The end of a line",
+        "Exactly one of any character",
+        "Any character within a set or range",
+        "Zero or more of the character immediately before it"
+      ],
+      "pairs": [
+        { "term": "^", "match": "The start of a line" },
+        { "term": "$", "match": "The end of a line" },
+        { "term": ". (dot)", "match": "Exactly one of any character" },
+        { "term": "[ ]", "match": "Any character within a set or range" },
+        { "term": "*", "match": "Zero or more of the character immediately before it" }
+      ],
+      "points": 5,
+      "explanation": "Part 4, Steps c through h, one symbol at a time.",
+      "id": 36
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>shutdown</code> variant used in Part 5, Step 1 to what it does.",
+      "allChoices": [
+        "Halts the system immediately",
+        "Schedules a shutdown one minute out, broadcasting a message first",
+        "Cancels a shutdown that was already scheduled"
+      ],
+      "pairs": [
+        { "term": "shutdown now", "match": "Halts the system immediately" },
+        { "term": "shutdown +1 \"Come back soon!\"", "match": "Schedules a shutdown one minute out, broadcasting a message first" },
+        { "term": "shutdown -c", "match": "Cancels a shutdown that was already scheduled" }
+      ],
+      "points": 3,
+      "explanation": "Part 5, Step 1a and 1c. The lab is careful to have you cancel the scheduled shutdown so the VM stays up.",
+      "id": 37
+    },
+    {
+      "type": "mc",
+      "text": "The <code>ip address</code> output in Part 5 shows the <code>dummy0</code> interface holding five separate IPv4 addresses (192.0.2.1 through 192.0.2.5). What does that demonstrate?",
+      "options": [
+        "That five virtual interfaces are aliased as dummy0",
+        "That a single network interface can be assigned more than one IP address at once",
+        "That DHCP is cycling the interface through five addresses over time",
+        "That the addresses are misconfigured duplicates"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 5, Step 2a: one interface, <code>dummy0</code>, lists five <code>inet</code> lines — proof that an interface isn't limited to a single IP.",
+      "id": 38
+    },
+    {
+      "type": "mc",
+      "text": "In <code>ping -c 4 192.168.1.1</code>, what does <code>-c 4</code> control?",
+      "options": [
+        "It limits the ping to exactly 4 packets, then stops",
+        "It sets the packet size to 4 bytes",
+        "It waits 4 seconds before the first packet",
+        "It retries the ping 4 times if there's no reply"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 5, Step 2b: without <code>-c</code>, <code>ping</code> would keep sending packets indefinitely; <code>-c 4</code> caps it at four, matching the four <code>icmp_seq</code> lines shown.",
+      "id": 39
+    },
+    {
+      "type": "tf",
+      "text": "Pinging <code>www.cisco.com</code> by name instead of by IP address triggers a DNS lookup before any ping packet is sent.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True — Part 5, Step 2c: \"Your VM will send out a DNS request first to get the IP address and then send the ping packets.\"",
+      "id": 40
+    },
+    {
+      "type": "mc",
+      "text": "What's the difference between plain <code>ps</code> and <code>ps -e</code>?",
+      "options": [
+        "<code>ps</code> shows only the processes tied to the current terminal (like <code>bash</code> and <code>ps</code> itself); <code>ps -e</code> shows every process on the whole system",
+        "<code>ps -e</code> only shows processes owned by root",
+        "They are identical; <code>-e</code> just changes the column formatting",
+        "<code>ps</code> shows every process; <code>-e</code> narrows it to the current terminal"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 5, Step 3a-b: plain <code>ps</code> listed just <code>bash</code> and <code>ps</code>; <code>ps -e</code> listed dozens of system-wide processes starting from PID 1.",
+      "id": 41
+    },
+    {
+      "type": "mc",
+      "text": "In the <code>ps -ef</code> output, what is process ID 1?",
+      "options": [
+        "<code>kthreadd</code>, the kernel's thread-spawning helper",
+        "<code>/sbin/init</code>, with PPID 0 — the root of the whole process tree",
+        "The current shell (<code>bash</code>)",
+        "Whatever process happened to start first after boot, which varies each run"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 5, Step 3d: <code>root 1 0 0 20:57 ? 00:00:01 /sbin/init</code> — PID 1, parent PID 0, the ancestor every other process traces back to.",
+      "id": 42
+    },
+    {
+      "type": "mc",
+      "text": "While paging through <code>ps -e | more</code>, what do the Enter key and the Space bar each do?",
+      "options": [
+        "Enter advances one line at a time; Space advances a full screen at a time",
+        "Both advance a full screen at a time",
+        "Enter advances a full screen; Space advances one line",
+        "Enter quits <code>more</code>; Space advances one line"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 5, Step 3c: \"the Enter key to display one line at a time, the space bar to display one screen at a time, or Ctrl+C to exit\".",
+      "id": 43
+    },
+    {
+      "type": "matching",
+      "text": "Match each package-management command from Part 5, Step 4 to what it does.",
+      "allChoices": [
+        "Refreshes the local list of packages available from the repositories",
+        "Searches the local package cache for a keyword to find the exact package name",
+        "Downloads and installs a specific named package and its dependencies",
+        "Updates every installed package and dependency on the system",
+        "Completely removes a package, freeing the disk space it used"
+      ],
+      "pairs": [
+        { "term": "sudo apt-get update", "match": "Refreshes the local list of packages available from the repositories" },
+        { "term": "apt-cache search speed test", "match": "Searches the local package cache for a keyword to find the exact package name" },
+        { "term": "sudo apt-get install speedtest-cli", "match": "Downloads and installs a specific named package and its dependencies" },
+        { "term": "sudo apt-get upgrade", "match": "Updates every installed package and dependency on the system" },
+        { "term": "sudo apt-get purge speedtest-cli", "match": "Completely removes a package, freeing the disk space it used" }
+      ],
+      "points": 5,
+      "explanation": "Part 5, Step 4a-f, run in that order against the <code>speedtest-cli</code> package as an example.",
+      "id": 44
+    },
+    {
+      "type": "msq",
+      "text": "Of the commands used in Part 5, Step 4, which ones needed <code>sudo</code> to run? (Select four answers)",
+      "options": [
+        "apt-get update",
+        "apt-cache search",
+        "apt-get install",
+        "speedtest-cli",
+        "apt-get upgrade",
+        "apt-get purge"
+      ],
+      "correctAnswer": [0, 2, 4, 5],
+      "points": 4,
+      "explanation": "Every command in the lab that shows as <code>devasc@labvm:~$ sudo apt-get ...</code> needed elevated privileges — update, install, upgrade and purge. <code>apt-cache search</code> only reads the local cache, and <code>speedtest-cli</code> just runs a network test, so neither needs <code>sudo</code>.",
+      "id": 45
+    },
+    {
+      "type": "mc",
+      "text": "What does running <code>passwd</code> with no options prompt you for, in order?",
+      "options": [
+        "Your username, then your new password",
+        "Your current password, then your new password, then a confirmation retype of the new password",
+        "Only a new password, typed once",
+        "A security question, then a new password"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 5, Step 5a: <code>passwd</code> asks for \"Current password\", \"New password\", then \"Retype new password\" before confirming the update.",
+      "id": 46
+    },
+    {
+      "type": "matching",
+      "text": "The lab asks you to interpret <code>passwd -S</code>'s output. Match each field to what it means.",
+      "allChoices": [
+        "The password is set and usable",
+        "The account can be re-passworded again immediately — no waiting period",
+        "The account never gets disabled for having an expired password"
+      ],
+      "pairs": [
+        { "term": "P", "match": "The password is set and usable" },
+        { "term": "0", "match": "The account can be re-passworded again immediately — no waiting period" },
+        { "term": "-1", "match": "The account never gets disabled for having an expired password" }
+      ],
+      "points": 3,
+      "explanation": "Part 5, Step 5b-c, using <code>devasc P 04/17/2020 0 99999 7 -1</code>: <code>P</code> is the password status, the first <code>0</code> is the minimum days before another change, and <code>-1</code> is the number of days the account stays active after expiration — here, unlimited.",
+      "id": 47
+    },
+    {
+      "type": "mc",
+      "text": "The lab's own \"Background / Scenario\" note says this lab is meant to serve what purpose?",
+      "options": [
+        "A substitute for prior Linux experience",
+        "A pass/fail gate before you may continue the course",
+        "A measure of your existing Linux skills, to help direct you to where you may need more review",
+        "A graded certification exam"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Background / Scenario: the lab \"is not meant as a substitute for prior Linux experience\" but \"should serve as a good measure of your Linux skills and help direct you to where you may need more review.\"",
+      "id": 48
+    }
+  ]
+}
