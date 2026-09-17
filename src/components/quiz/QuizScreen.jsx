@@ -99,6 +99,8 @@ export default function QuizScreen({ goHome }) {
     onPrev: () => animatedNav('PREV_Q'),
     onNext: () => animatedNav('NEXT_Q'),
     onFinishQuiz: () => setShowConfirm(true),
+    onRestart: () => dispatch({ type: 'RESTART' }),
+    onExit: goHome,
     sourceTag: <QuestionSource question={question} variant="nav" />,
     // Shown even before Enter can go on (unanswered, or Next blocked by No
     // skipping), so the button doesn't swap its arrow for a keycap mid-question.

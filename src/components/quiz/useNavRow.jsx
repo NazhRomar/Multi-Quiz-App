@@ -1,8 +1,19 @@
-import { useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { navSideLeft, navSideRight, navNearLeft, navNearRight } from './navPortalTargets.js';
 import { useIsMobile } from '../../utils/useIsMobile.js';
 import { EnterKeyIcon, LeftKeyIcon } from '../common/KeyIcons.jsx';
+
+// Chevron for the mobile nav's expand toggle. Points down at rest; CSS
+// flips it per row (#quiz-nav-top/#quiz-nav-bottom) and open state so it
+// always points toward wherever the Restart/Exit panel will appear.
+function CaretIcon() {
+  return (
+    <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 6l4 4 4-4" />
+    </svg>
+  );
+}
 
 const NAV_POSITION_MAP = {
   up: ['top'],
@@ -21,9 +32,28 @@ const NAV_POSITION_MAP = {
 // as the first child of both inline rows — CSS only shows it on phones:
 // floating above the bottom bar, or on its own line below the top row's
 // buttons. enterHint: the ⏎ keycap on Next/Finish. prevHint: the ← keycap
-// on Previous.
-export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMode, isListView, onPrev, onNext, onFinishQuiz, onDone, sourceTag, enterHint, prevHint }) {
+// on Previous. onRestart/onExit: wired up to a caret button that appears
+// between Previous and Next on mobile, expanding the row to reveal them
+// (otherwise only reachable via the header's hamburger menu there).
+export function useNavRow({
+  navLocation,
+  isFirst,
+  isLast,
+  nextBlocked,
+  isQuizMode,
+  isListView,
+  onPrev,
+  onNext,
+  onFinishQuiz,
+  onDone,
+  onRestart,
+  onExit,
+  sourceTag,
+  enterHint,
+  prevHint,
+}) {
   const isMobile = useIsMobile();
+  const [expanded, setExpanded] = useState(false);
   // Mobile only ever offers Top or Bottom in the settings UI (see
   // AppSettingsFields) — clamp actual rendering to match, so a value chosen
   // on a wider screen (sides/center/both/all) can't leave mobile in some
@@ -32,6 +62,19 @@ export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMod
   const positions = NAV_POSITION_MAP[effectiveLocation] || ['bottom'];
   const showSides = !isListView && positions.includes('center');
   const showNear = !isListView && positions.includes('sides');
+
+  // A tap outside the (currently visible) row collapses the panel.
+  useEffect(() => {
+    if (!expanded) return undefined;
+    const handler = (e) => {
+      const top = document.getElementById('quiz-nav-top');
+      const bottom = document.getElementById('quiz-nav-bottom');
+      if (top?.contains(e.target) || bottom?.contains(e.target)) return;
+      setExpanded(false);
+    };
+    document.addEventListener('click', handler);
+    return () => document.removeEventListener('click', handler);
+  }, [expanded]);
 
   useLayoutEffect(() => {
     navSideLeft.style.display = showSides ? 'flex' : 'none';
@@ -64,6 +107,9 @@ export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMod
   let prevBtn = null;
   let nextBtn = null;
 
+  // Navigating away collapses an open Restart/Exit panel.
+  const wrapClose = (fn) => (fn ? () => { setExpanded(false); fn(); } : fn);
+
   if (isListView) {
     nextBtn = (
       <button className="btn-next" style={{ marginLeft: 'auto' }} onClick={onDone}>
@@ -77,7 +123,7 @@ export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMod
     // shows the arrow instead.
     const arrowClass = (keyed) => `nav-arrow ${keyed ? 'nav-arrow--keyed' : ''}`;
     prevBtn = (
-      <button className="btn-prev" onClick={onPrev} disabled={isFirst} {...(prevHint ? { 'aria-keyshortcuts': 'ArrowLeft' } : {})}>
+      <button className="btn-prev" onClick={wrapClose(onPrev)} disabled={isFirst} {...(prevHint ? { 'aria-keyshortcuts': 'ArrowLeft' } : {})}>
         {prevHint && <LeftKeyIcon />}
         <span className={arrowClass(prevHint)}>← </span>
         Previous
@@ -92,7 +138,13 @@ export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMod
     const enterIcon = enterHint && <EnterKeyIcon />;
     if (isLast) {
       nextBtn = isQuizMode ? (
-        <button className="btn-next" onClick={onFinishQuiz} disabled={disabled} title={disabled ? 'Answer this question first' : undefined} {...enterProps}>
+        <button
+          className="btn-next"
+          onClick={wrapClose(onFinishQuiz)}
+          disabled={disabled}
+          title={disabled ? 'Answer this question first' : undefined}
+          {...enterProps}
+        >
           Finish Quiz ✓{enterIcon}
         </button>
       ) : (
@@ -102,7 +154,7 @@ export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMod
       );
     } else {
       nextBtn = (
-        <button className="btn-next" onClick={onNext} disabled={disabled} title={disabled ? 'Answer this question first' : undefined} {...enterProps}>
+        <button className="btn-next" onClick={wrapClose(onNext)} disabled={disabled} title={disabled ? 'Answer this question first' : undefined} {...enterProps}>
           Next<span className={arrowClass(enterHint)}> →</span>
           {enterIcon}
         </button>
@@ -110,18 +162,53 @@ export function useNavRow({ navLocation, isFirst, isLast, nextBlocked, isQuizMod
     }
   }
 
+  // Mobile-only: a caret between Previous and Next expands the row to
+  // reveal Restart/Exit (otherwise only reachable via the header dropdown
+  // there). Not offered in list view — it has no Previous/Next pair.
+  const hasExpand = isMobile && !isListView && (onRestart || onExit);
+  const expandBtn = hasExpand && (
+    <button
+      type="button"
+      className="btn-nav-expand"
+      onClick={() => setExpanded((e) => !e)}
+      aria-expanded={expanded}
+      aria-label={expanded ? 'Hide restart and exit' : 'Show restart and exit'}
+    >
+      <CaretIcon />
+    </button>
+  );
+  const expandPanel = hasExpand && (
+    <div className="nav-expand-panel">
+      {onRestart && (
+        <button className="btn-restart" onClick={wrapClose(onRestart)}>
+          Restart
+        </button>
+      )}
+      {onExit && (
+        <button className="btn-exit" onClick={onExit}>
+          Exit
+        </button>
+      )}
+    </div>
+  );
+  const rowClass = `nav-row${hasExpand ? ' nav-row--paired' : ''}${expanded ? ' nav-row--expanded' : ''}`;
+
   const topRow = (
-    <nav id="quiz-nav-top" className="nav-row" style={{ display: positions.includes('top') ? 'flex' : 'none' }}>
+    <nav id="quiz-nav-top" className={rowClass} style={{ display: positions.includes('top') ? 'flex' : 'none' }}>
       {sourceTag}
       {prevBtn}
+      {expandBtn}
       {nextBtn}
+      {expandPanel}
     </nav>
   );
   const bottomRow = (
-    <footer id="quiz-nav-bottom" className="nav-row" style={{ display: positions.includes('bottom') ? 'flex' : 'none' }}>
+    <footer id="quiz-nav-bottom" className={rowClass} style={{ display: positions.includes('bottom') ? 'flex' : 'none' }}>
       {sourceTag}
       {prevBtn}
+      {expandBtn}
       {nextBtn}
+      {expandPanel}
     </footer>
   );
 

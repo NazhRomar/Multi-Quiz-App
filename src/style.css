@@ -2415,6 +2415,131 @@ body.theme-canvas .option-label.locked {
   #quiz-nav-top[style*="display: flex"] + #quiz-container {
     margin-top: 1rem;
   }
+
+  /* Previous/Next share the row evenly instead of sizing to their own
+     text, so the caret between them sits in a real gap rather than
+     wherever the shorter label happens to leave space. */
+  .nav-row--paired {
+    flex-wrap: wrap;
+  }
+
+  .nav-row--paired .btn-prev,
+  .nav-row--paired .btn-next {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0.65rem 0.5rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Caret toggle between Previous/Next — expands the row to reveal
+     Restart/Exit, which mobile otherwise only surfaces in the header's
+     hamburger menu. */
+  .btn-nav-expand {
+    flex: 0 0 auto;
+    align-self: stretch;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    margin: 0 0.35rem;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .btn-nav-expand:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .btn-nav-expand svg {
+    transition: transform 0.2s ease;
+  }
+
+  /* Top row opens downward: caret points down at rest, flips up (toward
+     the row) once its panel is showing below. */
+  #quiz-nav-top.nav-row--expanded .btn-nav-expand svg {
+    transform: rotate(180deg);
+  }
+
+  /* Bottom row opens upward: caret points up at rest, flips down once
+     its panel is showing above. */
+  #quiz-nav-bottom .btn-nav-expand svg {
+    transform: rotate(180deg);
+  }
+
+  #quiz-nav-bottom.nav-row--expanded .btn-nav-expand svg {
+    transform: rotate(0deg);
+  }
+
+  .nav-expand-panel {
+    display: flex;
+    gap: 0.5rem;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.22s ease, opacity 0.18s ease, margin 0.22s ease, padding 0.22s ease;
+  }
+
+  .nav-expand-panel .btn-restart,
+  .nav-expand-panel .btn-exit {
+    flex: 1;
+    justify-content: center;
+    font-size: 0.85rem !important;
+    padding: 0 0.85rem !important;
+  }
+
+  .nav-expand-panel .btn-restart::before,
+  .nav-expand-panel .btn-exit::before {
+    content: none !important;
+  }
+
+  /* Top row: panel unfolds in-flow, below the buttons. */
+  #quiz-nav-top .nav-expand-panel {
+    flex-basis: 100%;
+  }
+
+  #quiz-nav-top.nav-row--expanded .nav-expand-panel {
+    max-height: 60px;
+    opacity: 1;
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Bottom row is a fixed pill — the panel floats above it instead. */
+  #quiz-nav-bottom .nav-expand-panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(100% + 8px);
+    margin: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    pointer-events: none;
+  }
+
+  /* The per-question source tag already floats in that same spot — clear
+     it too when both are showing. */
+  #quiz-nav-bottom.nav-row:has(.nav-source) .nav-expand-panel {
+    bottom: calc(100% + 60px);
+  }
+
+  #quiz-nav-bottom.nav-row--expanded .nav-expand-panel {
+    max-height: 60px;
+    opacity: 1;
+    padding: 0.6rem 0.9rem;
+    pointer-events: auto;
+  }
 }
 
 /* --- Centered Side Navigation (fixed, doesn't scroll) --- */
