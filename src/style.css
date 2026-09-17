@@ -1333,10 +1333,37 @@ body.theme-dark .review-status--partial {
   border-radius: 6px;
 }
 
-.quiz-warning {
-  margin-left: 0.4rem;
+/* The from-Canvas (cap), unofficial (flask) and unverified (warning) markers
+   on a quiz's menu entry; a quiz can carry any combination, side by side.
+   Provenance stays quiet — accent for Canvas, muted for the flask — while the
+   warning takes the eye. */
+:root {
+  --badge-warn: #d9821e;
+}
+
+.quiz-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.35rem;
   cursor: help;
-  font-size: 0.85em;
+  vertical-align: -0.14em;
+}
+
+.quiz-badge--canvas {
+  color: var(--accent);
+}
+
+.quiz-badge--unofficial {
+  color: var(--text-muted);
+}
+
+.quiz-badge--unverified {
+  color: var(--badge-warn);
+}
+
+/* theme-dark is the shared class both dark themes carry (utils/themes.js). */
+body.theme-dark {
+  --badge-warn: #e8a33d;
 }
 
 @media (max-width: 600px) {

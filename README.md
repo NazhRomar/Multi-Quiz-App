@@ -39,6 +39,11 @@ The short version of the mechanics:
   character-for-character.
 - Six question types: `mc`, `tf`, `msq`, `fitb` (including multi-blank code fill-ins),
   `matching`, `drag-drop`.
+- Three top-level badge flags show on the menu entry: `"fromCanvas": true` (graduation cap
+  — the source material came off Canvas), `"unofficial": true` (flask — a quiz assembled
+  from the course material rather than handed out by the course) and `"unverified": true`
+  (warning triangle — answers AI-filled, never hand-checked). They are independent, and a
+  quiz can carry any combination.
 
 ## How it fits together
 

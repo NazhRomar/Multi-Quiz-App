@@ -1,4 +1,4 @@
-const UNVERIFIED_TITLE = 'I (the AI) filled these answers in — no manual verification has been made yet.';
+import QuizBadges from './QuizBadges.jsx';
 
 // selected: undefined outside Multi Quiz selection mode, else true/false.
 export default function QuizRow({ quiz, label, onOpen, selected }) {
@@ -14,11 +14,7 @@ export default function QuizRow({ quiz, label, onOpen, selected }) {
         {/* Always mounted (collapsed to zero width outside selection mode) so it can grow in. */}
         <span className="quiz-select-check" aria-hidden="true" />
         {label}
-        {quiz.data.unverified && (
-          <span className="quiz-warning" title={UNVERIFIED_TITLE}>
-            ⚠️
-          </span>
-        )}
+        <QuizBadges data={quiz.data} />
       </span>
       <span className="quiz-btn-right">
         <span className="quiz-btn-meta">{totalItems}</span>
