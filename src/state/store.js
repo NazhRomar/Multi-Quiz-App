@@ -84,6 +84,10 @@ export const DEFAULT_QUIZ_OPTIONS = {
   readFirstSeconds: 0, // blur the choices for N seconds on a new question (0 = off)
   msqScoring: 'rightMinusWrong', // multiple select: 'right' | 'rightMinusWrong' | 'allOrNothing' (see pointsEarned)
   instantSubmit: true, // auto-submit mc/tf the moment you pick an option
+  // Mobile: Next turns into Submit once the question could actually be
+  // submitted (mirroring the in-card Submit button), then back to Next
+  // once it's locked in. See QuizScreen's submitReady / useNavRow.jsx.
+  mobileSubmitButton: false,
   autoFocusBlank: true, // fitb: cursor in the first blank on arrival (not on touch screens)
   hideEnterHint: false, // hide the ⏎ keycaps (Next/Submit) and ← (Previous); the shortcuts still work
   hideNumberHint: false, // hide the 1–9/0 keycaps on choices (the number keys still work)
