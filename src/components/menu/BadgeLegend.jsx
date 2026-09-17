@@ -16,13 +16,14 @@ const ITEMS = [
     key: 'verified',
     Icon: VerifiedIcon,
     label: 'Verified',
-    blurb: 'From ccna/itexam/infraexam.',
+    blurb: 'From CCNA/ITExamAnswers/InfraExam.',
     title: VERIFIED_TITLE,
   },
   {
     key: 'sourced',
     Icon: SourcedIcon,
     label: '???',
+    blurb: 'Daniel Caesar - Who Knows',
     title: SOURCED_TITLE,
   },
   {
