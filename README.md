@@ -1,7 +1,7 @@
 # Multi Quiz App
 
 A study app for my own coursework: the quizzes and reviewers for each subject, in one
-place, as an installable offline PWA. 24 quizzes / 962 questions across 4 subjects today,
+place, as an installable offline PWA. 23 quizzes / 944 questions across 4 subjects today,
 all bundled at build time — there is no backend, no account and no network call once the
 app has loaded.
 
