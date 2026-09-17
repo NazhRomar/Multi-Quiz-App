@@ -3184,7 +3184,7 @@ body.theme-tinted .mode-btn-quiz:hover {
 }
 
 /* =========================================================
-   --- DARK THEMES (Dark Purple, Midnight) ---
+   --- DARK THEMES (Dark Purple, Midnight, Forest, Amber) ---
    Every dark theme gets body.theme-dark plus its own body.theme-<name>
    (see utils/themes.js). A theme-<name> block only sets variables; the
    body.theme-dark rules after them are the shared dark-mode fixes, which
@@ -3242,6 +3242,52 @@ body.theme-midnight {
   --btn-next-bg: #22446a;
   --btn-next-border: #30608f;
   --btn-next-hover: #3876b0;
+
+  background-color: var(--bg);
+}
+
+/* Forest: deep pine green with a warm gold accent — sunlight through the
+   canopy, rather than another cool blue/purple dark theme. */
+body.theme-forest {
+  --bg: #10190f;
+  --surface: #182619;
+  --border: #2d3f2b;
+  --accent: #c9a856;
+  --accent-hover: #b8933f;
+  --text: #e2ecdf;
+  --text-muted: #82977d;
+  --radio-bg: #1e2f1e;
+  --radio-hover: #263b25;
+  --correct: #6bcf8f;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  --accent-rgb: 201, 168, 86;
+  --accent-soft: #e4cd93;
+  --btn-next-bg: #4a3f22;
+  --btn-next-border: #6b5a2e;
+  --btn-next-hover: #8a7239;
+
+  background-color: var(--bg);
+}
+
+/* Amber: near-black warm brown with an amber accent — a terminal-glow
+   dark theme, the one warm option next to three cool ones. */
+body.theme-amber {
+  --bg: #150e09;
+  --surface: #1e150d;
+  --border: #3a2818;
+  --accent: #e0983f;
+  --accent-hover: #c97f2c;
+  --text: #f0e3d2;
+  --text-muted: #a3846a;
+  --radio-bg: #241a10;
+  --radio-hover: #2e2214;
+  --correct: #6bcf8f;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  --accent-rgb: 224, 152, 63;
+  --accent-soft: #f3cfa0;
+  --btn-next-bg: #4a2f14;
+  --btn-next-border: #6b451f;
+  --btn-next-hover: #8a5a29;
 
   background-color: var(--bg);
 }
