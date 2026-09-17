@@ -1,5 +1,6 @@
 import { useApp } from '../../state/AppContext.jsx';
 import { useIsMobile } from '../../utils/useIsMobile.js';
+import { totalPointsOf } from '../../utils/quizTotals.js';
 import Dropdown from '../settings/Dropdown.jsx';
 import DropdownTabs from '../settings/DropdownTabs.jsx';
 import QuizOptionsFields from '../settings/QuizOptionsFields.jsx';
@@ -12,7 +13,7 @@ export default function QuizHeader({ score, goHome }) {
   const { activeQuiz, currentIndex } = state;
   const isMobile = useIsMobile();
   const total = activeQuiz.questions.length;
-  const totalPoints = activeQuiz.questions.reduce((sum, q) => (q.flagged ? sum : sum + (q.points || 1)), 0);
+  const totalPoints = totalPointsOf(activeQuiz.questions);
   const pct = ((currentIndex + 1) / total) * 100;
 
   return (

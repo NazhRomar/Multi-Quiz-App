@@ -1,8 +1,9 @@
 import QuizBadges from './QuizBadges.jsx';
+import { totalPointsOf } from '../../utils/quizTotals.js';
 
 // selected: undefined outside Multi Quiz selection mode, else true/false.
 export default function QuizRow({ quiz, label, onOpen, selected }) {
-  const totalItems = quiz.data.questions ? quiz.data.questions.length : 0;
+  const totalPoints = totalPointsOf(quiz.data.questions);
   const selectable = selected !== undefined;
   return (
     <button
@@ -17,7 +18,9 @@ export default function QuizRow({ quiz, label, onOpen, selected }) {
         <QuizBadges data={quiz.data} />
       </span>
       <span className="quiz-btn-right">
-        <span className="quiz-btn-meta">{totalItems}</span>
+        <span className="quiz-btn-meta" title={`${totalPoints} points`}>
+          {totalPoints}
+        </span>
       </span>
     </button>
   );
