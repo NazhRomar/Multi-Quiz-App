@@ -1,416 +1,1282 @@
 {
   "courseCode": "SIA",
-  "quizTitle": "DevNet Associate - Canvas - Mod01_Act02 Options & Arguments",
-  "totalPoints": 94,
+  "quizTitle": "DevNet Associate - Canvas - Mod01_Act02 Options & Arguments Reference",
+  "totalPoints": 191,
   "unofficial": true,
   "questions": [
     {
       "type": "matching",
-      "text": "Match each <code>ls</code> option to what it does. The lab only used <code>-l</code> and <code>-r</code> — the rest are standard <code>ls</code> options worth knowing too.",
+      "text": "Match each <code>ls</code> option to what it does. The lab only used <code>-l</code> and <code>-r</code>; the rest are the flags you will actually reach for day to day.",
       "allChoices": [
-        "Shows every entry, including hidden dotfiles",
-        "Long format: shows permissions, owner, size and date",
-        "With -l, prints sizes in human-readable units (K, M, G)",
-        "Lists the contents of subdirectories too, recursively",
+        "Lists every entry, including the hidden dotfiles",
+        "Long format: permissions, link count, owner, group, size and date",
+        "Reverses the sort order, so Z comes before A",
+        "Recurses into every subdirectory and lists their contents too",
+        "Used with -l, prints sizes in human-readable units (K, M, G)",
         "Sorts by modification time, newest first",
-        "Sorts by file size, largest first"
+        "Sorts by file size, largest first",
+        "Appends a type marker to each name: / for a directory, * for an executable"
       ],
       "pairs": [
-        { "term": "-a", "match": "Shows every entry, including hidden dotfiles" },
-        { "term": "-l", "match": "Long format: shows permissions, owner, size and date" },
-        { "term": "-h", "match": "With -l, prints sizes in human-readable units (K, M, G)" },
-        { "term": "-R", "match": "Lists the contents of subdirectories too, recursively" },
-        { "term": "-t", "match": "Sorts by modification time, newest first" },
-        { "term": "-S", "match": "Sorts by file size, largest first" }
+        {
+          "term": "-a",
+          "match": "Lists every entry, including the hidden dotfiles"
+        },
+        {
+          "term": "-l",
+          "match": "Long format: permissions, link count, owner, group, size and date"
+        },
+        {
+          "term": "-r",
+          "match": "Reverses the sort order, so Z comes before A"
+        },
+        {
+          "term": "-R",
+          "match": "Recurses into every subdirectory and lists their contents too"
+        },
+        {
+          "term": "-h",
+          "match": "Used with -l, prints sizes in human-readable units (K, M, G)"
+        },
+        {
+          "term": "-t",
+          "match": "Sorts by modification time, newest first"
+        },
+        {
+          "term": "-S",
+          "match": "Sorts by file size, largest first"
+        },
+        {
+          "term": "-F",
+          "match": "Appends a type marker to each name: / for a directory, * for an executable"
+        }
       ],
-      "points": 6,
-      "explanation": "Beyond the lab: these are the other <code>ls</code> flags you'll reach for constantly, e.g. <code>ls -lah</code> to see everything, human-sized, in one long listing.",
+      "points": 8,
+      "explanation": "Combine them freely: <code>ls -lah</code> is the everyday listing — long format, hidden files included, sizes in K/M/G. The lab's <code>ls -lr</code> (Part 2, Step 2e) is the same idea with two flags.",
       "id": 1
     },
     {
       "type": "matching",
-      "text": "Match each <code>cd</code> target to where it takes you.",
+      "text": "Same command, different arguments. Match each <code>ls</code> invocation from the lab to what it lists.",
       "allChoices": [
-        "Your home directory",
-        "Your home directory (shorthand)",
-        "The directory you were in before this one",
-        "The root of the entire file system",
-        "Exactly one directory level up"
+        "Lists the current working directory, because no argument was given",
+        "Lists the named directory instead of the current one",
+        "Long listing of one single named file, not a whole directory",
+        "Two options behind one dash: long format, reverse order",
+        "Options may follow the argument too; identical to ls -l Desktop",
+        "Prints the command's own built-in usage summary and exits"
       ],
       "pairs": [
-        { "term": "cd (no argument)", "match": "Your home directory" },
-        { "term": "~", "match": "Your home directory (shorthand)" },
-        { "term": "-", "match": "The directory you were in before this one" },
-        { "term": "/", "match": "The root of the entire file system" },
-        { "term": "..", "match": "Exactly one directory level up" }
+        {
+          "term": "ls",
+          "match": "Lists the current working directory, because no argument was given"
+        },
+        {
+          "term": "ls labs",
+          "match": "Lists the named directory instead of the current one"
+        },
+        {
+          "term": "ls -l myfile.sh",
+          "match": "Long listing of one single named file, not a whole directory"
+        },
+        {
+          "term": "ls -lr",
+          "match": "Two options behind one dash: long format, reverse order"
+        },
+        {
+          "term": "ls Desktop -l",
+          "match": "Options may follow the argument too; identical to ls -l Desktop"
+        },
+        {
+          "term": "ls --help",
+          "match": "Prints the command's own built-in usage summary and exits"
+        }
       ],
-      "points": 5,
-      "explanation": "The lab only showed <code>/</code>, <code>..</code> and named subfolders (Part 2). Typing <code>cd</code> alone or <code>cd ~</code> always jumps home, and <code>cd -</code> is a quick toggle back to your last location.",
+      "points": 6,
+      "explanation": "This is the options-vs-arguments distinction in one command. <code>-l</code>, <code>-r</code> and <code>--help</code> are <em>options</em> that change how <code>ls</code> behaves; <code>labs</code>, <code>myfile.sh</code> and <code>Desktop</code> are <em>arguments</em> that tell it what to act on. Part 2, Steps 2a-g.",
       "id": 2
     },
     {
       "type": "matching",
-      "text": "Match each <code>chmod</code> mode to the permission change it makes.",
+      "text": "Match each <code>pwd</code> form to what it prints. The lab ran it bare.",
       "allChoices": [
-        "Adds execute permission for owner, group and others",
-        "Removes execute permission for owner, group and others",
-        "Adds write permission for the owner only",
-        "Owner gets read/write/execute; group and others get read/execute",
-        "Owner gets read/write; group and others get read-only"
+        "Prints the absolute path of the directory you are currently in",
+        "Logical: prints the path as you walked it, leaving any symlinks in place (the default)",
+        "Physical: resolves every symlink and prints the real path on disk"
       ],
       "pairs": [
-        { "term": "+x", "match": "Adds execute permission for owner, group and others" },
-        { "term": "-x", "match": "Removes execute permission for owner, group and others" },
-        { "term": "u+w", "match": "Adds write permission for the owner only" },
-        { "term": "755", "match": "Owner gets read/write/execute; group and others get read/execute" },
-        { "term": "644", "match": "Owner gets read/write; group and others get read-only" }
+        {
+          "term": "pwd",
+          "match": "Prints the absolute path of the directory you are currently in"
+        },
+        {
+          "term": "-L",
+          "match": "Logical: prints the path as you walked it, leaving any symlinks in place (the default)"
+        },
+        {
+          "term": "-P",
+          "match": "Physical: resolves every symlink and prints the real path on disk"
+        }
       ],
-      "points": 5,
-      "explanation": "The lab only used <code>+x</code> (Part 3, Step 2f). <code>chmod</code> also accepts symbolic changes scoped to one category (<code>u</code>/<code>g</code>/<code>o</code>) or a numeric/octal mode like <code>755</code>, which sets all three categories in one shot.",
+      "points": 3,
+      "explanation": "<code>pwd</code> takes no arguments — there is nothing to point it at, since it only ever reports where you already are. <code>-L</code> vs <code>-P</code> only differ once a symlinked directory is in your path.",
       "id": 3
     },
     {
       "type": "matching",
-      "text": "Match each <code>chown</code> argument to what it does.",
+      "text": "Match each <code>cd</code> argument to where it takes you.",
       "allChoices": [
-        "Changes only the owning user",
-        "Changes both the owning user and group in one call",
-        "Changes only the group, leaving the owner untouched",
-        "Applies the ownership change recursively through a directory"
+        "Your home directory",
+        "Your home directory, written as a shorthand you can also paste into a longer path",
+        "Straight back to whatever directory you were in before this one",
+        "The root of the entire file system",
+        "Exactly one directory level up",
+        "Two directory levels up in one jump",
+        "A relative path: the subdirectory of wherever you happen to be right now",
+        "An absolute path: the same destination no matter where you start from"
       ],
       "pairs": [
-        { "term": "chown devasc file", "match": "Changes only the owning user" },
-        { "term": "chown devasc:staff file", "match": "Changes both the owning user and group in one call" },
-        { "term": "chown :staff file", "match": "Changes only the group, leaving the owner untouched" },
-        { "term": "chown -R devasc dir/", "match": "Applies the ownership change recursively through a directory" }
+        {
+          "term": "cd (no argument)",
+          "match": "Your home directory"
+        },
+        {
+          "term": "~",
+          "match": "Your home directory, written as a shorthand you can also paste into a longer path"
+        },
+        {
+          "term": "-",
+          "match": "Straight back to whatever directory you were in before this one"
+        },
+        {
+          "term": "/",
+          "match": "The root of the entire file system"
+        },
+        {
+          "term": "..",
+          "match": "Exactly one directory level up"
+        },
+        {
+          "term": "../..",
+          "match": "Two directory levels up in one jump"
+        },
+        {
+          "term": "Documents",
+          "match": "A relative path: the subdirectory of wherever you happen to be right now"
+        },
+        {
+          "term": "/home/devasc/Documents/",
+          "match": "An absolute path: the same destination no matter where you start from"
+        }
       ],
-      "points": 4,
-      "explanation": "The lab only ran <code>sudo chown root myfile.sh</code> (Part 3, Step 2h) — a bare username, which only changes the owner. The <code>user:group</code> and <code>-R</code> forms extend that to the group and to whole directory trees.",
+      "points": 8,
+      "explanation": "Part 2, Step 2 walks through <code>/</code>, <code>..</code>, a relative name and the full absolute path. Everything <code>cd</code> takes is an argument — it has no options worth using. <code>cd -</code> is the one to remember: it toggles between the last two directories.",
       "id": 4
     },
     {
       "type": "matching",
-      "text": "Match each file-operation flag to what it does.",
+      "text": "Match each way of asking for help to what you get.",
       "allChoices": [
-        "Asks for confirmation before an existing file would be overwritten",
-        "Copies a directory and everything inside it",
-        "Prints each file's name as it's copied (verbose)",
-        "Deletes a directory and everything inside it, recursively",
-        "Deletes without prompting, and ignores files that don't exist",
-        "Asks for confirmation before deleting each file"
+        "The full multi-page manual for the command, opened in a pager",
+        "A short usage summary printed straight to the terminal, no pager",
+        "Searches every manual page description for a keyword, when you do not know the command's name",
+        "Opens a specific manual section: the file format, not the command of the same name",
+        "Prints the one-line description of each manual page with that name"
       ],
       "pairs": [
-        { "term": "mv -i", "match": "Asks for confirmation before an existing file would be overwritten" },
-        { "term": "cp -r", "match": "Copies a directory and everything inside it" },
-        { "term": "cp -v", "match": "Prints each file's name as it's copied (verbose)" },
-        { "term": "rm -r", "match": "Deletes a directory and everything inside it, recursively" },
-        { "term": "rm -f", "match": "Deletes without prompting, and ignores files that don't exist" },
-        { "term": "rm -i", "match": "Asks for confirmation before deleting each file" }
+        {
+          "term": "man ls",
+          "match": "The full multi-page manual for the command, opened in a pager"
+        },
+        {
+          "term": "ls --help",
+          "match": "A short usage summary printed straight to the terminal, no pager"
+        },
+        {
+          "term": "man -k copy",
+          "match": "Searches every manual page description for a keyword, when you do not know the command's name"
+        },
+        {
+          "term": "man 5 passwd",
+          "match": "Opens a specific manual section: the file format, not the command of the same name"
+        },
+        {
+          "term": "man -f ls",
+          "match": "Prints the one-line description of each manual page with that name"
+        }
       ],
-      "points": 6,
-      "explanation": "The lab's <code>mv</code>/<code>cp</code>/<code>rm</code> calls in Part 3 all ran bare. <code>-r</code> matters most: plain <code>cp</code> or <code>rm</code> refuses to touch a directory without it.",
+      "points": 5,
+      "explanation": "Part 2, Step 2g and Step 4. Both <code>man</code> and <code>--help</code> take the command's name as their <em>argument</em>. <code>man -k</code> is the one to reach for when you know what you want to do but not what it is called.",
       "id": 5
     },
     {
       "type": "matching",
-      "text": "Match each <code>echo</code>/<code>cat</code> flag to what it does.",
+      "text": "Match each way of invoking <code>sudo</code> to what it does. Every <code>sudo</code> in the lab used the plain form.",
       "allChoices": [
-        "Suppresses the trailing newline after the printed text",
-        "Interprets backslash escapes like \\n and \\t in the text",
-        "Numbers every line of the output",
-        "Displays non-printing characters, like line endings, explicitly"
+        "Runs just that one command as root, then drops straight back to your normal shell",
+        "Opens an interactive root login shell, loading root's own environment and startup files",
+        "Opens a root shell, but keeps your current environment",
+        "Runs the command as another named user, not necessarily root",
+        "Lists which commands your account is allowed to run with sudo",
+        "Forgets the cached credentials so the very next sudo asks for your password again"
       ],
       "pairs": [
-        { "term": "echo -n", "match": "Suppresses the trailing newline after the printed text" },
-        { "term": "echo -e", "match": "Interprets backslash escapes like \\n and \\t in the text" },
-        { "term": "cat -n", "match": "Numbers every line of the output" },
-        { "term": "cat -A", "match": "Displays non-printing characters, like line endings, explicitly" }
+        {
+          "term": "sudo apt-get update",
+          "match": "Runs just that one command as root, then drops straight back to your normal shell"
+        },
+        {
+          "term": "-i",
+          "match": "Opens an interactive root login shell, loading root's own environment and startup files"
+        },
+        {
+          "term": "-s",
+          "match": "Opens a root shell, but keeps your current environment"
+        },
+        {
+          "term": "-u alice",
+          "match": "Runs the command as another named user, not necessarily root"
+        },
+        {
+          "term": "-l",
+          "match": "Lists which commands your account is allowed to run with sudo"
+        },
+        {
+          "term": "-k",
+          "match": "Forgets the cached credentials so the very next sudo asks for your password again"
+        }
       ],
-      "points": 4,
-      "explanation": "The lab's <code>echo</code> and <code>cat</code> calls in Part 3, Step 6 never used flags — these are the ones worth knowing for formatting output or debugging invisible whitespace.",
+      "points": 6,
+      "explanation": "The password <code>sudo</code> asks for is <strong>your own</strong>, not root's, and it is cached for a few minutes afterwards — which is what <code>-k</code> clears. Part 2, Step 3.",
       "id": 6
     },
     {
       "type": "matching",
-      "text": "Match each redirection/piping operator to what it does.",
+      "text": "Match each <code>cp</code> option to what it does. The lab's copy in Part 3 ran completely bare.",
       "allChoices": [
-        "Overwrites the target file with the command's output",
-        "Appends the command's output to the end of the target file",
-        "Feeds one command's output into a second command as input"
+        "Copies a directory and everything inside it; without this, cp refuses a directory outright",
+        "Prompts for confirmation before overwriting a file that already exists",
+        "Never overwrites an existing file, and does not ask either",
+        "Verbose: prints each file's name as it is copied",
+        "Preserves the original's permissions, ownership and timestamps",
+        "Copies only if the source is newer than the destination, or the destination is missing",
+        "Archive mode: recursive plus preserve everything, for making an exact copy of a tree"
       ],
       "pairs": [
-        { "term": ">", "match": "Overwrites the target file with the command's output" },
-        { "term": ">>", "match": "Appends the command's output to the end of the target file" },
-        { "term": "|", "match": "Feeds one command's output into a second command as input" }
+        {
+          "term": "-r",
+          "match": "Copies a directory and everything inside it; without this, cp refuses a directory outright"
+        },
+        {
+          "term": "-i",
+          "match": "Prompts for confirmation before overwriting a file that already exists"
+        },
+        {
+          "term": "-n",
+          "match": "Never overwrites an existing file, and does not ask either"
+        },
+        {
+          "term": "-v",
+          "match": "Verbose: prints each file's name as it is copied"
+        },
+        {
+          "term": "-p",
+          "match": "Preserves the original's permissions, ownership and timestamps"
+        },
+        {
+          "term": "-u",
+          "match": "Copies only if the source is newer than the destination, or the destination is missing"
+        },
+        {
+          "term": "-a",
+          "match": "Archive mode: recursive plus preserve everything, for making an exact copy of a tree"
+        }
       ],
-      "points": 3,
-      "explanation": "Part 3, Step 6 (<code>&gt;</code>, <code>&gt;&gt;</code>) and Part 5, Step 3c (<code>ps -e | more</code>).",
+      "points": 7,
+      "explanation": "By default <code>cp</code> silently clobbers the destination, which is why <code>-i</code> exists. <code>cp</code> always takes two arguments: source first, destination last.",
       "id": 7
     },
     {
       "type": "matching",
-      "text": "Match each <code>vi</code> mode key or ex-mode command from the lab to what it does.",
+      "text": "Match each <code>mv</code> option or argument form to what it does.",
       "allChoices": [
-        "Enters Edit mode, inserting before the cursor",
-        "Enters Edit mode, inserting after the cursor",
-        "Returns to Command mode",
-        "Writes (saves) the buffer, optionally under a new filename",
-        "Quits the editor"
+        "Prompts for confirmation before an existing file would be overwritten",
+        "Overwrites the destination without asking, even if it is write-protected",
+        "Refuses to overwrite an existing destination, silently",
+        "Verbose: prints what was moved and where it went",
+        "Moves only if the source is newer than the destination",
+        "Destination is a filename in the same directory, so this is a rename",
+        "Destination is a directory, so the file moves there keeping its name"
       ],
       "pairs": [
-        { "term": "i", "match": "Enters Edit mode, inserting before the cursor" },
-        { "term": "a", "match": "Enters Edit mode, inserting after the cursor" },
-        { "term": "Esc", "match": "Returns to Command mode" },
-        { "term": ":w [filename]", "match": "Writes (saves) the buffer, optionally under a new filename" },
-        { "term": ":q", "match": "Quits the editor" }
+        {
+          "term": "-i",
+          "match": "Prompts for confirmation before an existing file would be overwritten"
+        },
+        {
+          "term": "-f",
+          "match": "Overwrites the destination without asking, even if it is write-protected"
+        },
+        {
+          "term": "-n",
+          "match": "Refuses to overwrite an existing destination, silently"
+        },
+        {
+          "term": "-v",
+          "match": "Verbose: prints what was moved and where it went"
+        },
+        {
+          "term": "-u",
+          "match": "Moves only if the source is newer than the destination"
+        },
+        {
+          "term": "mv myfile.sh myfile_renamed.sh",
+          "match": "Destination is a filename in the same directory, so this is a rename"
+        },
+        {
+          "term": "mv myfile.sh /home/devasc/Desktop/",
+          "match": "Destination is a directory, so the file moves there keeping its name"
+        }
       ],
-      "points": 5,
-      "explanation": "Part 3, Step 7b-c.",
+      "points": 7,
+      "explanation": "Moving and renaming are the same operation to Linux — the only difference is whether the second argument is a directory or a new name. Part 3, Steps 2c-e.",
       "id": 8
     },
     {
       "type": "matching",
-      "text": "Match each additional <code>vi</code> Command-mode move to what it does. These go beyond what the lab covered.",
+      "text": "Match each <code>rm</code> option to what it does.",
       "allChoices": [
-        "Deletes (cuts) the entire current line",
-        "Yanks (copies) the entire current line",
-        "Deletes just the single character under the cursor",
-        "Undoes the last change",
-        "Writes and quits in one step",
-        "Searches forward for the next match of a pattern"
+        "Deletes a directory and everything inside it, recursively",
+        "Deletes without prompting, and does not complain about files that do not exist",
+        "Prompts for confirmation before deleting each individual file",
+        "Verbose: prints each file's name as it is removed",
+        "Removes a directory, but only if it is already empty",
+        "The combination that wipes a whole directory tree without a single prompt"
       ],
       "pairs": [
-        { "term": "dd", "match": "Deletes (cuts) the entire current line" },
-        { "term": "yy", "match": "Yanks (copies) the entire current line" },
-        { "term": "x", "match": "Deletes just the single character under the cursor" },
-        { "term": "u", "match": "Undoes the last change" },
-        { "term": ":wq", "match": "Writes and quits in one step" },
-        { "term": "/pattern", "match": "Searches forward for the next match of a pattern" }
+        {
+          "term": "-r",
+          "match": "Deletes a directory and everything inside it, recursively"
+        },
+        {
+          "term": "-f",
+          "match": "Deletes without prompting, and does not complain about files that do not exist"
+        },
+        {
+          "term": "-i",
+          "match": "Prompts for confirmation before deleting each individual file"
+        },
+        {
+          "term": "-v",
+          "match": "Verbose: prints each file's name as it is removed"
+        },
+        {
+          "term": "-d",
+          "match": "Removes a directory, but only if it is already empty"
+        },
+        {
+          "term": "-rf",
+          "match": "The combination that wipes a whole directory tree without a single prompt"
+        }
       ],
       "points": 6,
-      "explanation": "The lab's Step 7 describes single letters d/y/p loosely; in real <code>vi</code> the line-wise cut and copy are doubled — <code>dd</code> and <code>yy</code> — and there's a lot more to Command mode than the lab shows.",
+      "explanation": "There is no undelete and no recycle bin — <code>rm</code> is permanent. <code>rm -rf</code> is the flag pair worth being frightened of, especially with a wildcard or a stray space in the path. Part 3, Step 2g.",
       "id": 9
     },
     {
       "type": "matching",
-      "text": "Match each <code>grep</code> flag to what it does. The lab never used a flag on <code>grep</code> — every example relied on the bare command plus a pattern.",
+      "text": "Match each <code>chmod</code> mode argument to the permission change it makes. The lab only used <code>+x</code>.",
       "allChoices": [
-        "Matches case-insensitively",
-        "Inverts the match — shows lines that do NOT match",
-        "Prints only a count of matching lines, not the lines themselves",
-        "Prefixes each match with its line number",
-        "Matches only whole words, not substrings",
-        "Searches recursively through every file in a directory"
+        "Adds execute permission for owner, group and others at once",
+        "Removes execute permission from owner, group and others",
+        "Adds write permission for the owner only",
+        "Removes write permission from the group only",
+        "Sets others to exactly read-only, clearing whatever else they had",
+        "Applies the mode change recursively through a whole directory tree",
+        "Owner gets read/write/execute; group and others get read and execute",
+        "Owner gets read and write; group and others get read only"
       ],
       "pairs": [
-        { "term": "-i", "match": "Matches case-insensitively" },
-        { "term": "-v", "match": "Inverts the match — shows lines that do NOT match" },
-        { "term": "-c", "match": "Prints only a count of matching lines, not the lines themselves" },
-        { "term": "-n", "match": "Prefixes each match with its line number" },
-        { "term": "-w", "match": "Matches only whole words, not substrings" },
-        { "term": "-r", "match": "Searches recursively through every file in a directory" }
+        {
+          "term": "+x",
+          "match": "Adds execute permission for owner, group and others at once"
+        },
+        {
+          "term": "-x",
+          "match": "Removes execute permission from owner, group and others"
+        },
+        {
+          "term": "u+w",
+          "match": "Adds write permission for the owner only"
+        },
+        {
+          "term": "g-w",
+          "match": "Removes write permission from the group only"
+        },
+        {
+          "term": "o=r",
+          "match": "Sets others to exactly read-only, clearing whatever else they had"
+        },
+        {
+          "term": "-R",
+          "match": "Applies the mode change recursively through a whole directory tree"
+        },
+        {
+          "term": "755",
+          "match": "Owner gets read/write/execute; group and others get read and execute"
+        },
+        {
+          "term": "644",
+          "match": "Owner gets read and write; group and others get read only"
+        }
       ],
-      "points": 6,
-      "explanation": "Part 4 showed <code>grep</code> is case-sensitive by default (Step a) — <code>-i</code> is how you turn that off. The rest round out the flags you'd reach for day to day.",
+      "points": 8,
+      "explanation": "Symbolic mode is <em>who</em> (<code>u</code>/<code>g</code>/<code>o</code>/<code>a</code>) + <em>operator</em> (<code>+</code> add, <code>-</code> remove, <code>=</code> set exactly) + <em>what</em> (<code>r</code>/<code>w</code>/<code>x</code>). Numeric mode is three octal digits, read=4, write=2, execute=1: 755 is 4+2+1 / 4+1 / 4+1. <code>600</code> (owner read/write, nobody else anything) is the other one to know. Part 3, Step 2f.",
       "id": 10
     },
     {
       "type": "matching",
-      "text": "Match each regular-expression symbol usable as a <code>grep</code> pattern argument to what it matches.",
+      "text": "Match each <code>chown</code> argument to what it changes. The lab ran <code>sudo chown root myfile.sh</code>.",
       "allChoices": [
-        "The start of a line",
-        "The end of a line",
-        "Exactly one of any character",
-        "Any single character from the set/range inside",
-        "Zero or more of the character right before it"
+        "A bare username: changes the owning user only, leaving the group alone",
+        "user:group form: changes both the owning user and the group in one call",
+        "Leading colon with no user: changes only the group",
+        "Applies the ownership change recursively through a directory",
+        "Verbose: reports every file whose ownership it actually changed"
       ],
       "pairs": [
-        { "term": "^", "match": "The start of a line" },
-        { "term": "$", "match": "The end of a line" },
-        { "term": ".", "match": "Exactly one of any character" },
-        { "term": "[ ]", "match": "Any single character from the set/range inside" },
-        { "term": "*", "match": "Zero or more of the character right before it" }
+        {
+          "term": "chown root myfile.sh",
+          "match": "A bare username: changes the owning user only, leaving the group alone"
+        },
+        {
+          "term": "chown devasc:devasc file",
+          "match": "user:group form: changes both the owning user and the group in one call"
+        },
+        {
+          "term": "chown :staff file",
+          "match": "Leading colon with no user: changes only the group"
+        },
+        {
+          "term": "-R",
+          "match": "Applies the ownership change recursively through a directory"
+        },
+        {
+          "term": "-v",
+          "match": "Verbose: reports every file whose ownership it actually changed"
+        }
       ],
       "points": 5,
-      "explanation": "Part 4, Steps c-h.",
+      "explanation": "Changing ownership away from yourself needs <code>sudo</code> — and once root owns the file, you need <code>sudo</code> again to get it back. Part 3, Step 2h.",
       "id": 11
     },
     {
       "type": "matching",
-      "text": "Match each way of invoking <code>sudo</code> to what it does. The lab always used the plain form.",
+      "text": "Match each <code>echo</code> option or argument to what it prints.",
       "allChoices": [
-        "Opens an interactive root login shell",
-        "Runs the command as a specific user, not necessarily root",
-        "Lists which commands you're allowed to run with sudo",
-        "Runs just that one command with root privileges, then returns to your normal shell"
+        "Prints the text without the trailing newline, leaving the prompt on the same line",
+        "Interprets backslash escapes in the text, so \\n becomes a real line break and \\t a tab",
+        "Prints backslash escapes literally instead of interpreting them (the default)",
+        "The quoted string is the argument, printed exactly as written",
+        "The shell expands the variable first, so echo only ever sees the resulting path"
       ],
       "pairs": [
-        { "term": "sudo -i", "match": "Opens an interactive root login shell" },
-        { "term": "sudo -u alice command", "match": "Runs the command as a specific user, not necessarily root" },
-        { "term": "sudo -l", "match": "Lists which commands you're allowed to run with sudo" },
-        { "term": "sudo command", "match": "Runs just that one command with root privileges, then returns to your normal shell" }
+        {
+          "term": "-n",
+          "match": "Prints the text without the trailing newline, leaving the prompt on the same line"
+        },
+        {
+          "term": "-e",
+          "match": "Interprets backslash escapes in the text, so \\n becomes a real line break and \\t a tab"
+        },
+        {
+          "term": "-E",
+          "match": "Prints backslash escapes literally instead of interpreting them (the default)"
+        },
+        {
+          "term": "echo \"Linux is AWESOME!\"",
+          "match": "The quoted string is the argument, printed exactly as written"
+        },
+        {
+          "term": "echo $HOME",
+          "match": "The shell expands the variable first, so echo only ever sees the resulting path"
+        }
       ],
-      "points": 4,
-      "explanation": "Every <code>sudo</code> call in the lab (Parts 2-5) used this last, plain form — one privileged command at a time, with no new shell created.",
+      "points": 5,
+      "explanation": "Quoting matters: double quotes still let the shell expand <code>$variables</code>, single quotes do not. Part 3, Step 6.",
       "id": 12
     },
     {
       "type": "matching",
-      "text": "Match each <code>shutdown</code> argument to what it does.",
+      "text": "Match each <code>cat</code> option or argument form to what it does. The lab's <code>cat</code> calls all ran bare.",
       "allChoices": [
-        "Halts the system immediately",
-        "Schedules a shutdown one minute out, broadcasting a message first",
-        "Cancels a shutdown that was already scheduled",
-        "Reboots the system instead of halting it",
-        "Halts (powers down) the system",
-        "Powers off the system"
+        "Numbers every output line, blank ones included",
+        "Numbers only the non-blank lines",
+        "Squeezes runs of repeated blank lines down to a single blank line",
+        "Marks the end of every line with a $, so you can see trailing spaces",
+        "Displays tab characters as ^I instead of whitespace",
+        "Shows all non-printing characters at once: line ends, tabs and control codes",
+        "Several file arguments are concatenated in order into one output"
       ],
       "pairs": [
-        { "term": "now", "match": "Halts the system immediately" },
-        { "term": "+1 \"Come back soon!\"", "match": "Schedules a shutdown one minute out, broadcasting a message first" },
-        { "term": "-c", "match": "Cancels a shutdown that was already scheduled" },
-        { "term": "-r", "match": "Reboots the system instead of halting it" },
-        { "term": "-h", "match": "Halts (powers down) the system" },
-        { "term": "-P", "match": "Powers off the system" }
+        {
+          "term": "-n",
+          "match": "Numbers every output line, blank ones included"
+        },
+        {
+          "term": "-b",
+          "match": "Numbers only the non-blank lines"
+        },
+        {
+          "term": "-s",
+          "match": "Squeezes runs of repeated blank lines down to a single blank line"
+        },
+        {
+          "term": "-E",
+          "match": "Marks the end of every line with a $, so you can see trailing spaces"
+        },
+        {
+          "term": "-T",
+          "match": "Displays tab characters as ^I instead of whitespace"
+        },
+        {
+          "term": "-A",
+          "match": "Shows all non-printing characters at once: line ends, tabs and control codes"
+        },
+        {
+          "term": "cat linux.txt linux2.txt &gt; both.txt",
+          "match": "Several file arguments are concatenated in order into one output"
+        }
       ],
-      "points": 6,
-      "explanation": "Part 5, Step 1a-c covers <code>now</code>, the timed form and <code>-c</code>. <code>-r</code>/<code>-h</code>/<code>-P</code> choose what happens once the timer hits zero — reboot vs. halt vs. full power-off.",
+      "points": 7,
+      "explanation": "The name is short for <em>concatenate</em>, which is what the last row shows — displaying a single file is just the degenerate case. <code>-A</code> is the debugging flag: it is how you see the whitespace that is breaking something. Part 3, Step 6.",
       "id": 13
     },
     {
       "type": "matching",
-      "text": "Match each <code>date</code> flag to what it does. The lab ran <code>date</code> completely bare.",
+      "text": "Match each redirection or pipe operator to what it does.",
       "allChoices": [
-        "Prints the date/time using a custom format string",
-        "Displays the time in UTC instead of local time",
-        "Displays a specified date/time instead of right now",
-        "Sets the system clock to a specified date/time (needs root)"
+        "Sends the command's output into a file, overwriting whatever was there",
+        "Appends the command's output to the end of the file, keeping the existing contents",
+        "Feeds one command's output straight into the next command as its input",
+        "Feeds a file's contents into the command as its standard input",
+        "Redirects only the error messages, leaving normal output on screen",
+        "Redirects both normal output and error messages to the same place",
+        "Throws the output away entirely",
+        "Runs the second command only if the first one succeeded"
       ],
       "pairs": [
-        { "term": "date +%Y-%m-%d", "match": "Prints the date/time using a custom format string" },
-        { "term": "date -u", "match": "Displays the time in UTC instead of local time" },
-        { "term": "date -d \"next friday\"", "match": "Displays a specified date/time instead of right now" },
-        { "term": "date -s \"2026-01-01 00:00\"", "match": "Sets the system clock to a specified date/time (needs root)" }
+        {
+          "term": "&gt;",
+          "match": "Sends the command's output into a file, overwriting whatever was there"
+        },
+        {
+          "term": "&gt;&gt;",
+          "match": "Appends the command's output to the end of the file, keeping the existing contents"
+        },
+        {
+          "term": "|",
+          "match": "Feeds one command's output straight into the next command as its input"
+        },
+        {
+          "term": "&lt;",
+          "match": "Feeds a file's contents into the command as its standard input"
+        },
+        {
+          "term": "2&gt;",
+          "match": "Redirects only the error messages, leaving normal output on screen"
+        },
+        {
+          "term": "&amp;&gt;",
+          "match": "Redirects both normal output and error messages to the same place"
+        },
+        {
+          "term": "&gt; /dev/null",
+          "match": "Throws the output away entirely"
+        },
+        {
+          "term": "&amp;&amp;",
+          "match": "Runs the second command only if the first one succeeded"
+        }
       ],
-      "points": 4,
-      "explanation": "Part 5, Step 2b just called <code>date</code> with no arguments to check the system clock. These flags cover formatting, timezone, hypothetical dates and actually changing the clock.",
+      "points": 8,
+      "explanation": "Part 3, Step 6 uses <code>&gt;</code> and <code>&gt;&gt;</code>; Part 5, Step 3c uses <code>ps -e | more</code>. The distinction that catches people out is <code>&gt;</code> vs <code>&gt;&gt;</code> — the lab's Step 6b overwrites <code>linux.txt</code> on purpose to prove it.",
       "id": 14
     },
     {
       "type": "matching",
-      "text": "Match each way of running <code>ps</code> to what it shows.",
+      "text": "Match each step of the lab's little shell-script exercise to what it accomplishes.",
       "allChoices": [
-        "Only this terminal's own processes",
-        "Every process on the whole system",
-        "Every process, with full extended detail such as UID and PPID",
-        "Every process for every user, BSD-style, with extra columns like %CPU"
+        "Creates the script by redirecting a line of text into a new file",
+        "Reads the file back to confirm the line really landed in it",
+        "Shows the permission bits, so you can see whether it is executable yet",
+        "Flips on the execute bit that the file did not have when it was created",
+        "Runs it — the leading ./ is required because the current directory is not on your PATH"
       ],
       "pairs": [
-        { "term": "ps", "match": "Only this terminal's own processes" },
-        { "term": "-e", "match": "Every process on the whole system" },
-        { "term": "-ef", "match": "Every process, with full extended detail such as UID and PPID" },
-        { "term": "aux", "match": "Every process for every user, BSD-style, with extra columns like %CPU" }
+        {
+          "term": "echo \"ls ../Desktop\" &gt; myfile.sh",
+          "match": "Creates the script by redirecting a line of text into a new file"
+        },
+        {
+          "term": "cat myfile.sh",
+          "match": "Reads the file back to confirm the line really landed in it"
+        },
+        {
+          "term": "ls -l myfile.sh",
+          "match": "Shows the permission bits, so you can see whether it is executable yet"
+        },
+        {
+          "term": "chmod +x myfile.sh",
+          "match": "Flips on the execute bit that the file did not have when it was created"
+        },
+        {
+          "term": "./myfile.sh",
+          "match": "Runs it — the leading ./ is required because the current directory is not on your PATH"
+        }
       ],
-      "points": 4,
-      "explanation": "Part 5, Step 3a, b and d cover the first three. <code>ps aux</code> is the other listing format you'll see everywhere outside this lab.",
+      "points": 5,
+      "explanation": "A file created by redirection is plain data, not a program, until <code>chmod +x</code> says otherwise. The <code>./</code> is the part people forget: without it the shell searches <code>PATH</code>, does not find <code>myfile.sh</code>, and reports command not found. Part 3, Steps 5-6.",
       "id": 15
     },
     {
       "type": "matching",
-      "text": "Match each <code>passwd</code> flag to what it does. The lab only showed <code>-S</code>.",
+      "text": "Match each <code>vi</code> key to what it does. In Command mode these are bare keystrokes, not typed text.",
       "allChoices": [
-        "Reports the password's status instead of changing it",
-        "Locks the account, disabling its password",
-        "Unlocks a previously locked account",
-        "Forces the password to expire immediately, prompting a change at next login"
+        "Enters Edit mode, inserting before the cursor",
+        "Enters Edit mode, inserting after the cursor",
+        "Opens a brand-new line below the current one and enters Edit mode on it",
+        "Leaves Edit mode and returns to Command mode",
+        "Deletes just the single character under the cursor",
+        "Cuts the entire current line",
+        "Yanks — copies — the entire current line",
+        "Pastes whatever was last cut or yanked, below the current line"
       ],
       "pairs": [
-        { "term": "-S", "match": "Reports the password's status instead of changing it" },
-        { "term": "-l", "match": "Locks the account, disabling its password" },
-        { "term": "-u", "match": "Unlocks a previously locked account" },
-        { "term": "-e", "match": "Forces the password to expire immediately, prompting a change at next login" }
+        {
+          "term": "i",
+          "match": "Enters Edit mode, inserting before the cursor"
+        },
+        {
+          "term": "a",
+          "match": "Enters Edit mode, inserting after the cursor"
+        },
+        {
+          "term": "o",
+          "match": "Opens a brand-new line below the current one and enters Edit mode on it"
+        },
+        {
+          "term": "Esc",
+          "match": "Leaves Edit mode and returns to Command mode"
+        },
+        {
+          "term": "x",
+          "match": "Deletes just the single character under the cursor"
+        },
+        {
+          "term": "dd",
+          "match": "Cuts the entire current line"
+        },
+        {
+          "term": "yy",
+          "match": "Yanks — copies — the entire current line"
+        },
+        {
+          "term": "p",
+          "match": "Pastes whatever was last cut or yanked, below the current line"
+        }
       ],
-      "points": 4,
-      "explanation": "Part 5, Step 5b used <code>-S</code> to check status only. Locking, unlocking and forcing expiry are the other administrative actions <code>passwd</code> can take on an account.",
+      "points": 8,
+      "explanation": "<code>vi</code> opens in Command mode, where every key is a command rather than text. That is why the very first thing you press is <code>i</code> or <code>a</code>, and why Esc is the escape hatch when you are not sure which mode you are in. The lab describes d/y/p loosely in Part 3, Step 7 — the line-wise forms are the doubled <code>dd</code> and <code>yy</code>.",
       "id": 16
     },
     {
       "type": "matching",
-      "text": "Match each <code>ip</code> subcommand to what it shows or does. The lab only used <code>address</code>.",
+      "text": "Match each <code>vi</code> colon command or search to what it does. These are typed from Command mode and run with Enter.",
       "allChoices": [
-        "Displays the interface and IP address configuration",
-        "Shows each interface's link/hardware status",
-        "Shows the system's routing table",
-        "Assigns a new IP address to an interface"
+        "Writes the buffer back to the file it was opened from",
+        "Writes the buffer out under a different filename, a save-as",
+        "Quits, but refuses if there are unsaved changes",
+        "Quits and throws away every unsaved change",
+        "Writes and quits in one step",
+        "Substitutes every occurrence on every line in the file",
+        "Searches forward for the next match of a pattern",
+        "Undoes the last change"
       ],
       "pairs": [
-        { "term": "ip address", "match": "Displays the interface and IP address configuration" },
-        { "term": "ip link", "match": "Shows each interface's link/hardware status" },
-        { "term": "ip route", "match": "Shows the system's routing table" },
-        { "term": "ip addr add 10.0.0.5/24 dev eth0", "match": "Assigns a new IP address to an interface" }
+        {
+          "term": ":w",
+          "match": "Writes the buffer back to the file it was opened from"
+        },
+        {
+          "term": ":w linux3.txt",
+          "match": "Writes the buffer out under a different filename, a save-as"
+        },
+        {
+          "term": ":q",
+          "match": "Quits, but refuses if there are unsaved changes"
+        },
+        {
+          "term": ":q!",
+          "match": "Quits and throws away every unsaved change"
+        },
+        {
+          "term": ":wq",
+          "match": "Writes and quits in one step"
+        },
+        {
+          "term": ":%s/old/new/g",
+          "match": "Substitutes every occurrence on every line in the file"
+        },
+        {
+          "term": "/pattern",
+          "match": "Searches forward for the next match of a pattern"
+        },
+        {
+          "term": "u",
+          "match": "Undoes the last change"
+        }
       ],
-      "points": 4,
-      "explanation": "Part 5, Step 2a used <code>ip address</code> to read the dummy0 interface's five IPs. <code>ip</code> has several other subcommands for reading and changing network state.",
+      "points": 8,
+      "explanation": "Part 3, Step 7b-c covers <code>:w</code>, the save-as form and <code>:q</code>. <code>:q!</code> is the one to memorise — it is how you get out of an editing session you have made a mess of.",
       "id": 17
     },
     {
       "type": "matching",
-      "text": "Match each <code>ping</code> flag to what it does. The lab only used <code>-c</code>.",
+      "text": "Match each <code>grep</code> option to what it does. Every <code>grep</code> in the lab ran with no options at all — just a pattern and a file.",
       "allChoices": [
-        "Limits the ping to a fixed number of packets",
-        "Sets the interval, in seconds, between packets",
-        "Sets how long to wait for a reply before giving up",
-        "Sets the size, in bytes, of each packet"
+        "Matches case-insensitively, so root also finds ROOT and Root",
+        "Inverts the match: shows only the lines that do NOT match",
+        "Prints just a count of matching lines instead of the lines themselves",
+        "Prefixes each matching line with its line number in the file",
+        "Matches whole words only, so root no longer matches chroot",
+        "Searches recursively through every file under a directory",
+        "Prints only the names of files that contain a match, not the matches",
+        "Extended regex: lets you write +, ?, | and () without backslashes"
       ],
       "pairs": [
-        { "term": "-c 4", "match": "Limits the ping to a fixed number of packets" },
-        { "term": "-i 2", "match": "Sets the interval, in seconds, between packets" },
-        { "term": "-W 5", "match": "Sets how long to wait for a reply before giving up" },
-        { "term": "-s 100", "match": "Sets the size, in bytes, of each packet" }
+        {
+          "term": "-i",
+          "match": "Matches case-insensitively, so root also finds ROOT and Root"
+        },
+        {
+          "term": "-v",
+          "match": "Inverts the match: shows only the lines that do NOT match"
+        },
+        {
+          "term": "-c",
+          "match": "Prints just a count of matching lines instead of the lines themselves"
+        },
+        {
+          "term": "-n",
+          "match": "Prefixes each matching line with its line number in the file"
+        },
+        {
+          "term": "-w",
+          "match": "Matches whole words only, so root no longer matches chroot"
+        },
+        {
+          "term": "-r",
+          "match": "Searches recursively through every file under a directory"
+        },
+        {
+          "term": "-l",
+          "match": "Prints only the names of files that contain a match, not the matches"
+        },
+        {
+          "term": "-E",
+          "match": "Extended regex: lets you write +, ?, | and () without backslashes"
+        }
       ],
-      "points": 4,
-      "explanation": "Part 5, Step 2b used <code>-c 4</code> to cap the packet count. The others tune the timing and packet size that <code>-c</code> doesn't touch.",
+      "points": 8,
+      "explanation": "Part 4, Step a makes the point that <code>grep</code> is case-sensitive by default — <code>-i</code> is how you turn that off. <code>grep</code> always takes two arguments: the pattern first, then the file (or files) to search.",
       "id": 18
     },
     {
       "type": "matching",
-      "text": "Match each <code>apt-get</code> subcommand to what it does.",
+      "text": "Match each regular expression, used as <code>grep</code>'s pattern argument, to what it matches.",
       "allChoices": [
-        "Refreshes the local list of packages available from the repositories",
-        "Downloads and installs a specific named package",
-        "Updates every installed package and dependency on the system",
-        "Completely removes a package and its configuration files",
-        "Uninstalls a package but keeps its configuration files",
-        "Removes packages that were pulled in as dependencies and are no longer needed"
+        "Only lines that begin with root",
+        "Only lines that end with false",
+        "A d, then any two characters at all, then an m",
+        "ne followed by zero or more w characters, so it matches plain ne as well",
+        "Any single character in the range: an 8 or a 9",
+        "A literal comma, with the brackets stripping the character of any special meaning",
+        "Exactly one of any character",
+        "Any run of any characters at all, including none"
       ],
       "pairs": [
-        { "term": "update", "match": "Refreshes the local list of packages available from the repositories" },
-        { "term": "install speedtest-cli", "match": "Downloads and installs a specific named package" },
-        { "term": "upgrade", "match": "Updates every installed package and dependency on the system" },
-        { "term": "purge speedtest-cli", "match": "Completely removes a package and its configuration files" },
-        { "term": "remove speedtest-cli", "match": "Uninstalls a package but keeps its configuration files" },
-        { "term": "autoremove", "match": "Removes packages that were pulled in as dependencies and are no longer needed" }
+        {
+          "term": "^root",
+          "match": "Only lines that begin with root"
+        },
+        {
+          "term": "false$",
+          "match": "Only lines that end with false"
+        },
+        {
+          "term": "d..m",
+          "match": "A d, then any two characters at all, then an m"
+        },
+        {
+          "term": "new*",
+          "match": "ne followed by zero or more w characters, so it matches plain ne as well"
+        },
+        {
+          "term": "[8-9]",
+          "match": "Any single character in the range: an 8 or a 9"
+        },
+        {
+          "term": "[,]",
+          "match": "A literal comma, with the brackets stripping the character of any special meaning"
+        },
+        {
+          "term": ".",
+          "match": "Exactly one of any character"
+        },
+        {
+          "term": ".*",
+          "match": "Any run of any characters at all, including none"
+        }
       ],
-      "points": 6,
-      "explanation": "Part 5, Step 4a, c, e, f cover update/install/upgrade/purge. <code>remove</code> is <code>purge</code>'s gentler sibling, and <code>autoremove</code> is the cleanup step the lab never runs.",
+      "points": 8,
+      "explanation": "Part 4, Steps c-h. The trap is <code>*</code>: it means <em>zero or more of the thing immediately before it</em>, not the shell's any-text wildcard — which is why <code>new*</code> also matches lines containing only <code>ne</code>. Quote patterns in single quotes so the shell hands them to <code>grep</code> untouched.",
       "id": 19
     },
     {
       "type": "matching",
-      "text": "Match each <code>apt-cache</code> subcommand to what it does. The lab only used <code>search</code>.",
+      "text": "Match each <code>shutdown</code> option or time argument to what it does.",
       "allChoices": [
-        "Looks up a package by keyword in the local cache",
-        "Shows a specific package's full details (description, size, dependencies)",
-        "Shows a package's installed vs. candidate version and its priority"
+        "Begins the shutdown immediately, with no delay",
+        "Schedules the shutdown for one minute from now",
+        "Schedules it a minute out and broadcasts a message to every logged-in user first",
+        "Schedules the shutdown for a specific time on the clock",
+        "Cancels a shutdown that has already been scheduled",
+        "Reboots the machine instead of leaving it off",
+        "Powers the machine off completely, which is the default action",
+        "Halts the system: stops the OS but leaves the hardware powered"
       ],
       "pairs": [
-        { "term": "search speed test", "match": "Looks up a package by keyword in the local cache" },
-        { "term": "show speedtest-cli", "match": "Shows a specific package's full details (description, size, dependencies)" },
-        { "term": "policy speedtest-cli", "match": "Shows a package's installed vs. candidate version and its priority" }
+        {
+          "term": "now",
+          "match": "Begins the shutdown immediately, with no delay"
+        },
+        {
+          "term": "+1",
+          "match": "Schedules the shutdown for one minute from now"
+        },
+        {
+          "term": "+1 \"Come back soon!\"",
+          "match": "Schedules it a minute out and broadcasts a message to every logged-in user first"
+        },
+        {
+          "term": "22:00",
+          "match": "Schedules the shutdown for a specific time on the clock"
+        },
+        {
+          "term": "-c",
+          "match": "Cancels a shutdown that has already been scheduled"
+        },
+        {
+          "term": "-r",
+          "match": "Reboots the machine instead of leaving it off"
+        },
+        {
+          "term": "-P",
+          "match": "Powers the machine off completely, which is the default action"
+        },
+        {
+          "term": "-H",
+          "match": "Halts the system: stops the OS but leaves the hardware powered"
+        }
       ],
-      "points": 3,
-      "explanation": "Part 5, Step 4b used <code>search</code> to find the exact package name. Once you have that name, <code>show</code> and <code>policy</code> tell you more about it before you install anything.",
+      "points": 8,
+      "explanation": "Part 5, Step 1a-c covers <code>now</code>, the timed form with a message and <code>-c</code>. The time is an <em>argument</em>; <code>-r</code>/<code>-P</code>/<code>-H</code> are <em>options</em> choosing what happens when the timer reaches zero. All of it needs <code>sudo</code>.",
       "id": 20
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>date</code> option to what it does. The lab ran <code>date</code> completely bare.",
+      "allChoices": [
+        "Prints the current date and time in the system locale's default format",
+        "Prints it using a custom format string, here just the year, month and day",
+        "Prints the time in UTC instead of local time",
+        "Displays some other date entirely rather than right now",
+        "Sets the system clock to a given date and time; needs root",
+        "Prints the date in the RFC 5322 format used in email headers"
+      ],
+      "pairs": [
+        {
+          "term": "date",
+          "match": "Prints the current date and time in the system locale's default format"
+        },
+        {
+          "term": "+%Y-%m-%d",
+          "match": "Prints it using a custom format string, here just the year, month and day"
+        },
+        {
+          "term": "-u",
+          "match": "Prints the time in UTC instead of local time"
+        },
+        {
+          "term": "-d \"next friday\"",
+          "match": "Displays some other date entirely rather than right now"
+        },
+        {
+          "term": "-s \"2026-01-01 00:00\"",
+          "match": "Sets the system clock to a given date and time; needs root"
+        },
+        {
+          "term": "-R",
+          "match": "Prints the date in the RFC 5322 format used in email headers"
+        }
+      ],
+      "points": 6,
+      "explanation": "Anything starting with <code>+</code> is a format string, not an option — that is why <code>date +%H:%M</code> has no dash. Part 5, Step 2b.",
+      "id": 21
+    },
+    {
+      "type": "matching",
+      "text": "Match each way of running <code>ps</code> to what it lists.",
+      "allChoices": [
+        "Only the processes attached to this terminal, which is usually just your shell",
+        "Every process running on the whole system",
+        "Full format: adds columns like UID, PPID and the start time",
+        "The two combined: every process on the system, in full format",
+        "Every process for every user, BSD style, with %CPU and %MEM columns",
+        "Only the processes belonging to one named user"
+      ],
+      "pairs": [
+        {
+          "term": "ps",
+          "match": "Only the processes attached to this terminal, which is usually just your shell"
+        },
+        {
+          "term": "-e",
+          "match": "Every process running on the whole system"
+        },
+        {
+          "term": "-f",
+          "match": "Full format: adds columns like UID, PPID and the start time"
+        },
+        {
+          "term": "-ef",
+          "match": "The two combined: every process on the system, in full format"
+        },
+        {
+          "term": "aux",
+          "match": "Every process for every user, BSD style, with %CPU and %MEM columns"
+        },
+        {
+          "term": "-u devasc",
+          "match": "Only the processes belonging to one named user"
+        }
+      ],
+      "points": 6,
+      "explanation": "<code>ps -ef</code> and <code>ps aux</code> are two different option syntaxes for roughly the same listing — UNIX style takes a dash, BSD style does not. Part 5, Step 3a-d.",
+      "id": 22
+    },
+    {
+      "type": "matching",
+      "text": "The lab pipes <code>ps -e</code> into <code>more</code>. Match each pager key to what it does.",
+      "allChoices": [
+        "Moves forward one full screen",
+        "Moves forward a single line",
+        "Quits the pager and returns to the prompt",
+        "Searches forward for the next occurrence of some text",
+        "Shows the pager's own summary of its keys"
+      ],
+      "pairs": [
+        {
+          "term": "Space",
+          "match": "Moves forward one full screen"
+        },
+        {
+          "term": "Enter",
+          "match": "Moves forward a single line"
+        },
+        {
+          "term": "q",
+          "match": "Quits the pager and returns to the prompt"
+        },
+        {
+          "term": "/pattern",
+          "match": "Searches forward for the next occurrence of some text"
+        },
+        {
+          "term": "h",
+          "match": "Shows the pager's own summary of its keys"
+        }
+      ],
+      "points": 5,
+      "explanation": "Part 5, Step 3c. Piping into <code>more</code> or <code>less</code> is the fix for any command whose output scrolls off the top of the screen. <code>less</code> is the more capable of the two and also scrolls backwards.",
+      "id": 23
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>passwd</code> option or argument to what it does. The lab used the bare form and <code>-S</code>.",
+      "allChoices": [
+        "Changes your own password: asks for the current one, then the new one twice",
+        "Changes another named user's password; only root may do this",
+        "Reports the password's status instead of changing anything",
+        "Locks the account so its password no longer works",
+        "Unlocks an account that was previously locked",
+        "Expires the password immediately, forcing a change at the next login",
+        "Deletes the password outright, leaving the account with none"
+      ],
+      "pairs": [
+        {
+          "term": "passwd",
+          "match": "Changes your own password: asks for the current one, then the new one twice"
+        },
+        {
+          "term": "passwd devasc",
+          "match": "Changes another named user's password; only root may do this"
+        },
+        {
+          "term": "-S",
+          "match": "Reports the password's status instead of changing anything"
+        },
+        {
+          "term": "-l",
+          "match": "Locks the account so its password no longer works"
+        },
+        {
+          "term": "-u",
+          "match": "Unlocks an account that was previously locked"
+        },
+        {
+          "term": "-e",
+          "match": "Expires the password immediately, forcing a change at the next login"
+        },
+        {
+          "term": "-d",
+          "match": "Deletes the password outright, leaving the account with none"
+        }
+      ],
+      "points": 7,
+      "explanation": "Part 5, Step 5. <code>-S</code>'s output reads like <code>devasc P 04/15/2020 0 99999 7 -1</code>: the <code>P</code> means a usable password is set (<code>L</code> would be locked, <code>NP</code> none at all).",
+      "id": 24
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>ip</code> subcommand to what it shows or does. The lab only used <code>ip address</code>.",
+      "allChoices": [
+        "Shows every interface with the IP addresses assigned to it; abbreviates to ip a",
+        "Shows each interface's link-layer state: MAC address, MTU, up or down",
+        "Shows the routing table, including the default gateway",
+        "Shows the ARP table: which MAC address answers for which neighbour IP",
+        "The same address listing, condensed to one short line per interface",
+        "Assigns an additional IP address to a named interface",
+        "Brings an interface up"
+      ],
+      "pairs": [
+        {
+          "term": "ip address",
+          "match": "Shows every interface with the IP addresses assigned to it; abbreviates to ip a"
+        },
+        {
+          "term": "ip link",
+          "match": "Shows each interface's link-layer state: MAC address, MTU, up or down"
+        },
+        {
+          "term": "ip route",
+          "match": "Shows the routing table, including the default gateway"
+        },
+        {
+          "term": "ip neigh",
+          "match": "Shows the ARP table: which MAC address answers for which neighbour IP"
+        },
+        {
+          "term": "ip -br address",
+          "match": "The same address listing, condensed to one short line per interface"
+        },
+        {
+          "term": "ip addr add 10.0.0.5/24 dev eth0",
+          "match": "Assigns an additional IP address to a named interface"
+        },
+        {
+          "term": "ip link set eth0 up",
+          "match": "Brings an interface up"
+        }
+      ],
+      "points": 7,
+      "explanation": "Part 5, Step 2a reads the five addresses on the VM's dummy0 interface. <code>ip</code> is the modern replacement for <code>ifconfig</code>; anything that changes state rather than just reading it needs <code>sudo</code>.",
+      "id": 25
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>ping</code> option or argument to what it does. The lab only used <code>-c</code>.",
+      "allChoices": [
+        "Stops after a fixed number of packets instead of running until interrupted",
+        "Sets the interval, in seconds, to wait between packets",
+        "Sets how long to wait for a reply before giving up on it",
+        "Sets the size, in bytes, of each packet's payload",
+        "Quiet: hides the per-packet lines and prints only the closing summary",
+        "Forces IPv4 even if the name also resolves to an IPv6 address",
+        "A hostname argument, which only works once DNS resolution is working"
+      ],
+      "pairs": [
+        {
+          "term": "-c 4",
+          "match": "Stops after a fixed number of packets instead of running until interrupted"
+        },
+        {
+          "term": "-i 2",
+          "match": "Sets the interval, in seconds, to wait between packets"
+        },
+        {
+          "term": "-W 5",
+          "match": "Sets how long to wait for a reply before giving up on it"
+        },
+        {
+          "term": "-s 100",
+          "match": "Sets the size, in bytes, of each packet's payload"
+        },
+        {
+          "term": "-q",
+          "match": "Quiet: hides the per-packet lines and prints only the closing summary"
+        },
+        {
+          "term": "-4",
+          "match": "Forces IPv4 even if the name also resolves to an IPv6 address"
+        },
+        {
+          "term": "www.cisco.com",
+          "match": "A hostname argument, which only works once DNS resolution is working"
+        }
+      ],
+      "points": 7,
+      "explanation": "Part 5, Step 2b-c pings both an IP and a hostname. That pairing is the point: if the IP answers but the name does not, the network is fine and DNS is the problem. Without <code>-c</code>, <code>ping</code> runs forever until you press Ctrl+C.",
+      "id": 26
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>apt-get</code> subcommand or option to what it does.",
+      "allChoices": [
+        "Refreshes the local list of what the repositories have available; installs nothing",
+        "Installs newer versions of the packages you already have",
+        "Upgrades, and is allowed to add or remove packages to satisfy new dependencies",
+        "Downloads and installs a specific named package",
+        "Uninstalls a package but leaves its configuration files behind",
+        "Uninstalls a package and deletes its configuration files too",
+        "Removes packages that were only pulled in as dependencies and are no longer needed",
+        "Answers yes to the confirmation prompt automatically"
+      ],
+      "pairs": [
+        {
+          "term": "update",
+          "match": "Refreshes the local list of what the repositories have available; installs nothing"
+        },
+        {
+          "term": "upgrade",
+          "match": "Installs newer versions of the packages you already have"
+        },
+        {
+          "term": "dist-upgrade",
+          "match": "Upgrades, and is allowed to add or remove packages to satisfy new dependencies"
+        },
+        {
+          "term": "install speedtest-cli",
+          "match": "Downloads and installs a specific named package"
+        },
+        {
+          "term": "remove speedtest-cli",
+          "match": "Uninstalls a package but leaves its configuration files behind"
+        },
+        {
+          "term": "purge speedtest-cli",
+          "match": "Uninstalls a package and deletes its configuration files too"
+        },
+        {
+          "term": "autoremove",
+          "match": "Removes packages that were only pulled in as dependencies and are no longer needed"
+        },
+        {
+          "term": "-y",
+          "match": "Answers yes to the confirmation prompt automatically"
+        }
+      ],
+      "points": 8,
+      "explanation": "<code>update</code> then <code>upgrade</code> is the standard pair, and in that order — upgrading without refreshing the lists first just reinstalls what you already knew about. Everything here writes to the system, so all of it needs <code>sudo</code>. Part 5, Step 4a-f.",
+      "id": 27
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>apt-cache</code> subcommand to what it reports. The lab only used <code>search</code>.",
+      "allChoices": [
+        "Looks up packages whose name or description contains the keywords",
+        "Prints one package's full details: description, size, dependencies, maintainer",
+        "Shows the installed version against the candidate version available",
+        "Lists the other packages this one depends on",
+        "Lists the name of every package the cache knows about"
+      ],
+      "pairs": [
+        {
+          "term": "search speed test",
+          "match": "Looks up packages whose name or description contains the keywords"
+        },
+        {
+          "term": "show speedtest-cli",
+          "match": "Prints one package's full details: description, size, dependencies, maintainer"
+        },
+        {
+          "term": "policy speedtest-cli",
+          "match": "Shows the installed version against the candidate version available"
+        },
+        {
+          "term": "depends speedtest-cli",
+          "match": "Lists the other packages this one depends on"
+        },
+        {
+          "term": "pkgnames",
+          "match": "Lists the name of every package the cache knows about"
+        }
+      ],
+      "points": 5,
+      "explanation": "<code>apt-cache</code> only reads the local cache, so unlike <code>apt-get</code> it changes nothing and needs no <code>sudo</code>. Part 5, Step 4b uses <code>search</code> to find the exact package name before installing it.",
+      "id": 28
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>speedtest-cli</code> option to what it does. The lab ran the tool bare after installing it.",
+      "allChoices": [
+        "Picks the nearest server automatically and reports ping, download and upload in Mbit/s",
+        "Prints only the three result lines, with none of the server and URL chatter",
+        "Reports the speeds in bytes per second rather than bits",
+        "Lists nearby test servers with their IDs and distances",
+        "Tests against one specific server by ID instead of the automatic choice",
+        "Emits the results as JSON, for a script to consume"
+      ],
+      "pairs": [
+        {
+          "term": "speedtest-cli",
+          "match": "Picks the nearest server automatically and reports ping, download and upload in Mbit/s"
+        },
+        {
+          "term": "--simple",
+          "match": "Prints only the three result lines, with none of the server and URL chatter"
+        },
+        {
+          "term": "--bytes",
+          "match": "Reports the speeds in bytes per second rather than bits"
+        },
+        {
+          "term": "--list",
+          "match": "Lists nearby test servers with their IDs and distances"
+        },
+        {
+          "term": "--server 1234",
+          "match": "Tests against one specific server by ID instead of the automatic choice"
+        },
+        {
+          "term": "--json",
+          "match": "Emits the results as JSON, for a script to consume"
+        }
+      ],
+      "points": 6,
+      "explanation": "Note the double dashes: long-form options spell the word out (<code>--simple</code>), single-dash options are the one-letter kind (<code>-c</code>). Part 5, Step 4d.",
+      "id": 29
     }
   ]
 }
