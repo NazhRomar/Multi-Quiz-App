@@ -1,9 +1,135 @@
 {
   "courseCode": "SIA",
   "quizTitle": "DevNet Associate - Canvas - Mod01_Act02 Options & Arguments Reference",
-  "totalPoints": 191,
+  "totalPoints": 214,
   "unofficial": true,
   "questions": [
+    {
+      "type": "matching",
+      "text": "Every command in this quiz, in one place. Match each command to what it does — the questions after this one drill into each command's own options and arguments.",
+      "allChoices": [
+        "Lists what is inside a directory",
+        "Opens the full manual page for another command",
+        "Prints the full path of the directory you are currently in",
+        "Changes which directory you are currently in",
+        "Runs a single command with administrative root privileges",
+        "Installs, upgrades, removes and purges software packages; needs root",
+        "Prints a line of text to the screen, or into a file when redirected",
+        "Displays a file's contents, or concatenates several files into one",
+        "Changes a file's read, write and execute permission bits",
+        "Changes which user and group own a file",
+        "Moves a file to another directory, or renames it in place",
+        "Copies a file, leaving the original where it was",
+        "Deletes a file permanently, with no recycle bin to recover it from",
+        "A terminal text editor with separate Command and Edit modes",
+        "Searches text for the lines that match a pattern",
+        "Powers the machine off, or schedules and cancels a power-off; needs root",
+        "Displays, formats or sets the system clock",
+        "Displays and configures network interfaces, addresses and routes",
+        "Tests whether a host is reachable by sending ICMP echo requests",
+        "Lists the processes currently running",
+        "Searches and reports on the local package cache without changing anything",
+        "Third-party tool that measures internet download and upload speed",
+        "Changes a password, or reports an account's password status"
+      ],
+      "pairs": [
+        {
+          "term": "ls",
+          "match": "Lists what is inside a directory"
+        },
+        {
+          "term": "man",
+          "match": "Opens the full manual page for another command"
+        },
+        {
+          "term": "pwd",
+          "match": "Prints the full path of the directory you are currently in"
+        },
+        {
+          "term": "cd",
+          "match": "Changes which directory you are currently in"
+        },
+        {
+          "term": "sudo",
+          "match": "Runs a single command with administrative root privileges"
+        },
+        {
+          "term": "apt-get",
+          "match": "Installs, upgrades, removes and purges software packages; needs root"
+        },
+        {
+          "term": "echo",
+          "match": "Prints a line of text to the screen, or into a file when redirected"
+        },
+        {
+          "term": "cat",
+          "match": "Displays a file's contents, or concatenates several files into one"
+        },
+        {
+          "term": "chmod",
+          "match": "Changes a file's read, write and execute permission bits"
+        },
+        {
+          "term": "chown",
+          "match": "Changes which user and group own a file"
+        },
+        {
+          "term": "mv",
+          "match": "Moves a file to another directory, or renames it in place"
+        },
+        {
+          "term": "cp",
+          "match": "Copies a file, leaving the original where it was"
+        },
+        {
+          "term": "rm",
+          "match": "Deletes a file permanently, with no recycle bin to recover it from"
+        },
+        {
+          "term": "vi",
+          "match": "A terminal text editor with separate Command and Edit modes"
+        },
+        {
+          "term": "grep",
+          "match": "Searches text for the lines that match a pattern"
+        },
+        {
+          "term": "shutdown",
+          "match": "Powers the machine off, or schedules and cancels a power-off; needs root"
+        },
+        {
+          "term": "date",
+          "match": "Displays, formats or sets the system clock"
+        },
+        {
+          "term": "ip",
+          "match": "Displays and configures network interfaces, addresses and routes"
+        },
+        {
+          "term": "ping",
+          "match": "Tests whether a host is reachable by sending ICMP echo requests"
+        },
+        {
+          "term": "ps",
+          "match": "Lists the processes currently running"
+        },
+        {
+          "term": "apt-cache",
+          "match": "Searches and reports on the local package cache without changing anything"
+        },
+        {
+          "term": "speedtest-cli",
+          "match": "Third-party tool that measures internet download and upload speed"
+        },
+        {
+          "term": "passwd",
+          "match": "Changes a password, or reports an account's password status"
+        }
+      ],
+      "points": 23,
+      "explanation": "Every command Parts 2-5 of the lab touch, in 23 rows. Knowing what a command <em>is</em> is the easy half; the rest of this quiz is the other half — which options change its behaviour, and which arguments tell it what to act on.",
+      "id": 1
+    },
     {
       "type": "matching",
       "text": "Match each <code>ls</code> option to what it does. The lab only used <code>-l</code> and <code>-r</code>; the rest are the flags you will actually reach for day to day.",
@@ -53,7 +179,7 @@
       ],
       "points": 8,
       "explanation": "Combine them freely: <code>ls -lah</code> is the everyday listing — long format, hidden files included, sizes in K/M/G. The lab's <code>ls -lr</code> (Part 2, Step 2e) is the same idea with two flags.",
-      "id": 1
+      "id": 2
     },
     {
       "type": "matching",
@@ -94,7 +220,7 @@
       ],
       "points": 6,
       "explanation": "This is the options-vs-arguments distinction in one command. <code>-l</code>, <code>-r</code> and <code>--help</code> are <em>options</em> that change how <code>ls</code> behaves; <code>labs</code>, <code>myfile.sh</code> and <code>Desktop</code> are <em>arguments</em> that tell it what to act on. Part 2, Steps 2a-g.",
-      "id": 2
+      "id": 3
     },
     {
       "type": "matching",
@@ -120,7 +246,7 @@
       ],
       "points": 3,
       "explanation": "<code>pwd</code> takes no arguments — there is nothing to point it at, since it only ever reports where you already are. <code>-L</code> vs <code>-P</code> only differ once a symlinked directory is in your path.",
-      "id": 3
+      "id": 4
     },
     {
       "type": "matching",
@@ -171,7 +297,7 @@
       ],
       "points": 8,
       "explanation": "Part 2, Step 2 walks through <code>/</code>, <code>..</code>, a relative name and the full absolute path. Everything <code>cd</code> takes is an argument — it has no options worth using. <code>cd -</code> is the one to remember: it toggles between the last two directories.",
-      "id": 4
+      "id": 5
     },
     {
       "type": "matching",
@@ -207,7 +333,7 @@
       ],
       "points": 5,
       "explanation": "Part 2, Step 2g and Step 4. Both <code>man</code> and <code>--help</code> take the command's name as their <em>argument</em>. <code>man -k</code> is the one to reach for when you know what you want to do but not what it is called.",
-      "id": 5
+      "id": 6
     },
     {
       "type": "matching",
@@ -248,7 +374,7 @@
       ],
       "points": 6,
       "explanation": "The password <code>sudo</code> asks for is <strong>your own</strong>, not root's, and it is cached for a few minutes afterwards — which is what <code>-k</code> clears. Part 2, Step 3.",
-      "id": 6
+      "id": 7
     },
     {
       "type": "matching",
@@ -294,7 +420,7 @@
       ],
       "points": 7,
       "explanation": "By default <code>cp</code> silently clobbers the destination, which is why <code>-i</code> exists. <code>cp</code> always takes two arguments: source first, destination last.",
-      "id": 7
+      "id": 8
     },
     {
       "type": "matching",
@@ -340,7 +466,7 @@
       ],
       "points": 7,
       "explanation": "Moving and renaming are the same operation to Linux — the only difference is whether the second argument is a directory or a new name. Part 3, Steps 2c-e.",
-      "id": 8
+      "id": 9
     },
     {
       "type": "matching",
@@ -381,7 +507,7 @@
       ],
       "points": 6,
       "explanation": "There is no undelete and no recycle bin — <code>rm</code> is permanent. <code>rm -rf</code> is the flag pair worth being frightened of, especially with a wildcard or a stray space in the path. Part 3, Step 2g.",
-      "id": 9
+      "id": 10
     },
     {
       "type": "matching",
@@ -432,7 +558,7 @@
       ],
       "points": 8,
       "explanation": "Symbolic mode is <em>who</em> (<code>u</code>/<code>g</code>/<code>o</code>/<code>a</code>) + <em>operator</em> (<code>+</code> add, <code>-</code> remove, <code>=</code> set exactly) + <em>what</em> (<code>r</code>/<code>w</code>/<code>x</code>). Numeric mode is three octal digits, read=4, write=2, execute=1: 755 is 4+2+1 / 4+1 / 4+1. <code>600</code> (owner read/write, nobody else anything) is the other one to know. Part 3, Step 2f.",
-      "id": 10
+      "id": 11
     },
     {
       "type": "matching",
@@ -468,7 +594,7 @@
       ],
       "points": 5,
       "explanation": "Changing ownership away from yourself needs <code>sudo</code> — and once root owns the file, you need <code>sudo</code> again to get it back. Part 3, Step 2h.",
-      "id": 11
+      "id": 12
     },
     {
       "type": "matching",
@@ -504,7 +630,7 @@
       ],
       "points": 5,
       "explanation": "Quoting matters: double quotes still let the shell expand <code>$variables</code>, single quotes do not. Part 3, Step 6.",
-      "id": 12
+      "id": 13
     },
     {
       "type": "matching",
@@ -550,7 +676,7 @@
       ],
       "points": 7,
       "explanation": "The name is short for <em>concatenate</em>, which is what the last row shows — displaying a single file is just the degenerate case. <code>-A</code> is the debugging flag: it is how you see the whitespace that is breaking something. Part 3, Step 6.",
-      "id": 13
+      "id": 14
     },
     {
       "type": "matching",
@@ -601,7 +727,7 @@
       ],
       "points": 8,
       "explanation": "Part 3, Step 6 uses <code>&gt;</code> and <code>&gt;&gt;</code>; Part 5, Step 3c uses <code>ps -e | more</code>. The distinction that catches people out is <code>&gt;</code> vs <code>&gt;&gt;</code> — the lab's Step 6b overwrites <code>linux.txt</code> on purpose to prove it.",
-      "id": 14
+      "id": 15
     },
     {
       "type": "matching",
@@ -637,7 +763,7 @@
       ],
       "points": 5,
       "explanation": "A file created by redirection is plain data, not a program, until <code>chmod +x</code> says otherwise. The <code>./</code> is the part people forget: without it the shell searches <code>PATH</code>, does not find <code>myfile.sh</code>, and reports command not found. Part 3, Steps 5-6.",
-      "id": 15
+      "id": 16
     },
     {
       "type": "matching",
@@ -688,7 +814,7 @@
       ],
       "points": 8,
       "explanation": "<code>vi</code> opens in Command mode, where every key is a command rather than text. That is why the very first thing you press is <code>i</code> or <code>a</code>, and why Esc is the escape hatch when you are not sure which mode you are in. The lab describes d/y/p loosely in Part 3, Step 7 — the line-wise forms are the doubled <code>dd</code> and <code>yy</code>.",
-      "id": 16
+      "id": 17
     },
     {
       "type": "matching",
@@ -739,7 +865,7 @@
       ],
       "points": 8,
       "explanation": "Part 3, Step 7b-c covers <code>:w</code>, the save-as form and <code>:q</code>. <code>:q!</code> is the one to memorise — it is how you get out of an editing session you have made a mess of.",
-      "id": 17
+      "id": 18
     },
     {
       "type": "matching",
@@ -790,7 +916,7 @@
       ],
       "points": 8,
       "explanation": "Part 4, Step a makes the point that <code>grep</code> is case-sensitive by default — <code>-i</code> is how you turn that off. <code>grep</code> always takes two arguments: the pattern first, then the file (or files) to search.",
-      "id": 18
+      "id": 19
     },
     {
       "type": "matching",
@@ -841,7 +967,7 @@
       ],
       "points": 8,
       "explanation": "Part 4, Steps c-h. The trap is <code>*</code>: it means <em>zero or more of the thing immediately before it</em>, not the shell's any-text wildcard — which is why <code>new*</code> also matches lines containing only <code>ne</code>. Quote patterns in single quotes so the shell hands them to <code>grep</code> untouched.",
-      "id": 19
+      "id": 20
     },
     {
       "type": "matching",
@@ -892,7 +1018,7 @@
       ],
       "points": 8,
       "explanation": "Part 5, Step 1a-c covers <code>now</code>, the timed form with a message and <code>-c</code>. The time is an <em>argument</em>; <code>-r</code>/<code>-P</code>/<code>-H</code> are <em>options</em> choosing what happens when the timer reaches zero. All of it needs <code>sudo</code>.",
-      "id": 20
+      "id": 21
     },
     {
       "type": "matching",
@@ -933,7 +1059,7 @@
       ],
       "points": 6,
       "explanation": "Anything starting with <code>+</code> is a format string, not an option — that is why <code>date +%H:%M</code> has no dash. Part 5, Step 2b.",
-      "id": 21
+      "id": 22
     },
     {
       "type": "matching",
@@ -974,7 +1100,7 @@
       ],
       "points": 6,
       "explanation": "<code>ps -ef</code> and <code>ps aux</code> are two different option syntaxes for roughly the same listing — UNIX style takes a dash, BSD style does not. Part 5, Step 3a-d.",
-      "id": 22
+      "id": 23
     },
     {
       "type": "matching",
@@ -1010,7 +1136,7 @@
       ],
       "points": 5,
       "explanation": "Part 5, Step 3c. Piping into <code>more</code> or <code>less</code> is the fix for any command whose output scrolls off the top of the screen. <code>less</code> is the more capable of the two and also scrolls backwards.",
-      "id": 23
+      "id": 24
     },
     {
       "type": "matching",
@@ -1056,7 +1182,7 @@
       ],
       "points": 7,
       "explanation": "Part 5, Step 5. <code>-S</code>'s output reads like <code>devasc P 04/15/2020 0 99999 7 -1</code>: the <code>P</code> means a usable password is set (<code>L</code> would be locked, <code>NP</code> none at all).",
-      "id": 24
+      "id": 25
     },
     {
       "type": "matching",
@@ -1102,7 +1228,7 @@
       ],
       "points": 7,
       "explanation": "Part 5, Step 2a reads the five addresses on the VM's dummy0 interface. <code>ip</code> is the modern replacement for <code>ifconfig</code>; anything that changes state rather than just reading it needs <code>sudo</code>.",
-      "id": 25
+      "id": 26
     },
     {
       "type": "matching",
@@ -1148,7 +1274,7 @@
       ],
       "points": 7,
       "explanation": "Part 5, Step 2b-c pings both an IP and a hostname. That pairing is the point: if the IP answers but the name does not, the network is fine and DNS is the problem. Without <code>-c</code>, <code>ping</code> runs forever until you press Ctrl+C.",
-      "id": 26
+      "id": 27
     },
     {
       "type": "matching",
@@ -1199,7 +1325,7 @@
       ],
       "points": 8,
       "explanation": "<code>update</code> then <code>upgrade</code> is the standard pair, and in that order — upgrading without refreshing the lists first just reinstalls what you already knew about. Everything here writes to the system, so all of it needs <code>sudo</code>. Part 5, Step 4a-f.",
-      "id": 27
+      "id": 28
     },
     {
       "type": "matching",
@@ -1235,7 +1361,7 @@
       ],
       "points": 5,
       "explanation": "<code>apt-cache</code> only reads the local cache, so unlike <code>apt-get</code> it changes nothing and needs no <code>sudo</code>. Part 5, Step 4b uses <code>search</code> to find the exact package name before installing it.",
-      "id": 28
+      "id": 29
     },
     {
       "type": "matching",
@@ -1276,7 +1402,7 @@
       ],
       "points": 6,
       "explanation": "Note the double dashes: long-form options spell the word out (<code>--simple</code>), single-dash options are the one-letter kind (<code>-c</code>). Part 5, Step 4d.",
-      "id": 29
+      "id": 30
     }
   ]
 }
