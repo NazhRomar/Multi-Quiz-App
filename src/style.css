@@ -2439,16 +2439,16 @@ body.theme-canvas .option-label.locked {
      hamburger menu. */
   .btn-nav-expand {
     flex: 0 0 auto;
+    align-self: stretch;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
+    aspect-ratio: 1 / 1;
     margin: 0 0.35rem;
     padding: 0;
     background: transparent;
     border: 1px solid var(--border);
-    border-radius: 50%;
+    border-radius: 8px;
     color: var(--text-muted);
     cursor: pointer;
     transition: color 0.2s ease, border-color 0.2s ease;
