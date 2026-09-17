@@ -1829,7 +1829,17 @@ body.theme-canvas .msq-count-hint {
   position: relative;
 }
 
+/* One box around the whole group (first choice's top to last choice's
+   bottom), not per-row — so the blur itself has to live on each row
+   individually (a filter on the shared parent would blur its own outline
+   too), while the outline stays on the parent, crisp. */
 .options-list--blurred {
+  outline: 1px dashed var(--border);
+  outline-offset: 10px;
+  border-radius: 12px;
+}
+
+.options-list--blurred > * {
   filter: blur(6px);
   opacity: 0.75;
   pointer-events: none;
