@@ -2,9 +2,9 @@
 // not supposed to explain itself to whoever is reading over your shoulder.
 export const SOURCED_TITLE = '???';
 export const UNOFFICIAL_TITLE =
-  'Unofficial — this quiz was put together from the course material, it is not a quiz the course itself gave.';
-export const UNVERIFIED_TITLE = 'I (the AI) filled these answers in — no manual verification has been made yet.';
-export const VERIFIED_TITLE = 'From ccna/itexam/infraexam.';
+  'Unofficial';
+export const UNVERIFIED_TITLE = 'Unverified';
+export const VERIFIED_TITLE = 'Verified';
 
 // Scalloped seal with a tick, the way a social-network verified badge reads:
 // solid fill in the badge colour with the check sitting on top in white, so it
