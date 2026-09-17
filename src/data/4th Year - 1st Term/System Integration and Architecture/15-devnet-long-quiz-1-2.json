@@ -35,7 +35,8 @@
     {
       "id": 3,
       "type": "mc",
-      "text": "An inventory system manages a fruit collection:\n\nfruits = [\"apple\", \"banana\", \"cherry\", \"date\", \"elderberry\"]\n\nA worker executes print(fruits[1:4]).\n\nWhich list is displayed?",
+      "text": "An inventory system manages a fruit collection. A worker executes the following print statement. Which list is displayed?",
+      "context": "<pre>fruits = [\"apple\", \"banana\", \"cherry\", \"date\", \"elderberry\"]\nprint(fruits[1:4])</pre>",
       "options": [
         "[\"apple\", \"banana\", \"cherry\"]",
         "[\"apple\", \"elderberry\"]",
@@ -49,7 +50,8 @@
     {
       "id": 4,
       "type": "mc",
-      "text": "A student is manipulating a Python list of device names in the interactive interpreter by executing the following sequence of commands:\n\n> devicenames=[\"RT1\", \"RT2\", \"SW1\", \"SW2\"]\n> hostnames=devicenames + [\"RT3\", \"SW3\"]\n> del hostnames[3]\n> hostnames\n\nWhat is the final output displayed when the hostnames variable is printed?",
+      "text": "A student is manipulating a Python list of device names in the interactive interpreter by executing the following sequence of commands. What is the final output displayed when the hostnames variable is printed?",
+      "context": "<pre>> devicenames=[\"RT1\", \"RT2\", \"SW1\", \"SW2\"]\n> hostnames=devicenames + [\"RT3\", \"SW3\"]\n> del hostnames[3]\n> hostnames</pre>",
       "options": [
         "['RT1', 'RT2', 'RT3', 'SW2', 'SW3']",
         "['RT1', 'RT2', 'SW2', 'RT3', 'SW3']",
@@ -87,7 +89,8 @@
     {
       "id": 7,
       "type": "mc",
-      "text": "A student new to Python is working in the interactive interpreter mode. The student issues the command:\n\n> ipAddress = {\"R1\":\"10.1.1.1\",\"R2\":\"10.2.2.1\",\"R3\":\"10.3.3.1\"}\n\nWhich Python expression can be used to retrieve the IP address of R2?",
+      "text": "A student new to Python is working in the interactive interpreter mode. The student issues the command below. Which Python expression can be used to retrieve the IP address of R2?",
+      "context": "<pre>> ipAddress = {\"R1\":\"10.1.1.1\",\"R2\":\"10.2.2.1\",\"R3\":\"10.3.3.1\"}</pre>",
       "options": [
         "ipAddress[R2]",
         "ipAddress{\"R2\"}",
@@ -153,7 +156,8 @@
     {
       "id": 12,
       "type": "mc",
-      "text": "A student is learning Python and is reviewing a Python script as follows:\n\naclNum = int(input(\"What is the IPv4 ACL number? \"))\nif aclNum >= 1 and aclNum <= 99:\n     print(\"This is a standard IPv4 ACL.\")\nelif aclNum >=100 and aclNum <= 199:\n     print(\"This is an extended IPv4 ACL.\")\nelse:\n     print(\"This is not a standard or extended IPv4 ACL.\")\n\nUnder which condition will the elif statement be evaluated?",
+      "text": "A student is learning Python and is reviewing the Python script below. Under which condition will the elif statement be evaluated?",
+      "context": "<pre>aclNum = int(input(\"What is the IPv4 ACL number? \"))\nif aclNum >= 1 and aclNum <= 99:\n     print(\"This is a standard IPv4 ACL.\")\nelif aclNum >=100 and aclNum <= 199:\n     print(\"This is an extended IPv4 ACL.\")\nelse:\n     print(\"This is not a standard or extended IPv4 ACL.\")</pre>",
       "options": [
         "when the input is a float number",
         "when the first print statement fails",
@@ -167,7 +171,8 @@
     {
       "id": 13,
       "type": "mc",
-      "text": "A user in the /home/devasc/Documents directory runs the following sequence of commands:\n\ndevasc@labvm:~/Documents$ pwd\n/home/devasc/Documents\ndevasc@labvm:~/Documents$ mv myfile.sh ../Desktop/myfile2.sh\n\nWhat is the final result after the mv command is successfully executed?",
+      "text": "A user in the /home/devasc/Documents directory runs the following sequence of commands. What is the final result after the mv command is successfully executed?",
+      "context": "<pre>devasc@labvm:~/Documents$ pwd\n/home/devasc/Documents\ndevasc@labvm:~/Documents$ mv myfile.sh ../Desktop/myfile2.sh</pre>",
       "options": [
         "The file myfile.sh is moved to the /home/devasc/Desktop directory and renamed as myfile2.sh.",
         "The file myfile.sh is copied and renamed to myfile2.sh in the current directory.",
@@ -207,7 +212,8 @@
     {
       "id": 16,
       "type": "mc",
-      "text": "A student is practicing basic Python operations and enters the following two lines into the interactive interpreter:\n\naddition = 22 + 10\nprint(addition)\n\nWhat is the numerical output displayed to the student's screen after the second line is executed?",
+      "text": "A student is practicing basic Python operations and enters the following two lines into the interactive interpreter. What is the numerical output displayed to the student's screen after the second line is executed?",
+      "context": "<pre>addition = 22 + 10\nprint(addition)</pre>",
       "options": [
         "(syntaxerror)-...",
         "32",
@@ -221,7 +227,8 @@
     {
       "id": 17,
       "type": "mc",
-      "text": "A script defines a global calculation variable and a function:\n\nmultiplier = 5 # Global variable\ndef multiply_number(num):\n    return num * multiplier\n\nprint(multiply_number(10))\n\nWhat is printed when this script runs?",
+      "text": "A script defines a global calculation variable and a function. What is printed when this script runs?",
+      "context": "<pre>multiplier = 5 # Global variable\ndef multiply_number(num):\n    return num * multiplier\n\nprint(multiply_number(10))</pre>",
       "options": [
         "15",
         "NameError",
@@ -277,7 +284,8 @@
     {
       "id": 21,
       "type": "mc",
-      "text": "A user issues a Linux command and the result is shown:\n\ntotal 40\ndrwxr-xr-x 2 devasc devasc 4096 Mar 30 21:25 Desktop\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Documents\n...\n\nWhich Linux command is used to display the contents of the current directory as shown?",
+      "text": "A user issues a Linux command and the result is shown below. Which Linux command is used to display the contents of the current directory as shown?",
+      "context": "<pre>total 40\ndrwxr-xr-x 2 devasc devasc 4096 Mar 30 21:25 Desktop\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Documents\n...</pre>",
       "options": [
         "ls -l",
         "ls -lr",
@@ -324,14 +332,20 @@
         "Executing shutdown -c cancels a previously scheduled delayed system shutdown.",
         "Executing ps displays only the processes running in the current terminal session."
       ],
-      "correctAnswer": [0, 1, 2, 3],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3
+      ],
       "points": 1,
       "explanation": "All four statements accurately describe standard Linux command behaviors. Verified via POSIX command documentation."
     },
     {
       "id": 25,
       "type": "mc",
-      "text": "A student is learning Python in the interactive interpreter mode. The student issues the commands:\n\n> devicenames=[\"RT1\", \"RT2\", \"SW1\", \"SW2\"]\n> devicenames[-1]\n\nWhat is the result?",
+      "text": "A student is learning Python in the interactive interpreter mode. The student issues the commands below. What is the result?",
+      "context": "<pre>> devicenames=[\"RT1\", \"RT2\", \"SW1\", \"SW2\"]\n> devicenames[-1]</pre>",
       "options": [
         "['RT2', 'SW1', 'SW2']",
         "SW1",
@@ -374,7 +388,8 @@
     {
       "id": 28,
       "type": "mc",
-      "text": "A user issues a series of Linux commands as shown.\n\n(omitted)$ pwd\n/home/devasc/labs/ansible/backups\n(omitted)$ cd ../..\n\nWhich directory is the current directory after the cd command is entered?",
+      "text": "A user issues a series of Linux commands as shown. Which directory is the current directory after the cd command is entered?",
+      "context": "<pre>(omitted)$ pwd\n/home/devasc/labs/ansible/backups\n(omitted)$ cd ../..</pre>",
       "options": [
         "/home",
         "/home/devasc/",
@@ -396,7 +411,11 @@
         "After running sudo chown root myfile.sh, the file ownership reflects user root and group devasc.",
         "The default permissions assigned to myfile.sh upon creation are -rw-rw-r--, which lack execution bits."
       ],
-      "correctAnswer": [0, 2, 3],
+      "correctAnswer": [
+        0,
+        2,
+        3
+      ],
       "points": 1,
       "explanation": "Statement B is incorrect because `chown root` only changes user ownership; changing both requires `chown root:root`. The remaining statements are correct."
     },
@@ -411,7 +430,12 @@
         "Individual characters in a string can be modified directly in place using index assignment (e.g., text[0] = \"a\").",
         "Lists can be changed in place because they are mutable, whereas strings are immutable."
       ],
-      "correctAnswer": [0, 1, 2, 4],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        4
+      ],
       "points": 1,
       "explanation": "Strings are immutable in Python, making direct index reassignment (Statement D) invalid. The rest are true. Fixed bracket transcription error in option 4."
     },
@@ -468,7 +492,12 @@
         "A collection of modules organized in a directory structure marked by an __init__.py file constitutes a package.",
         "PIP serves as the standard package manager that connects to the Python Package Index (PyPI) to install external libraries."
       ],
-      "correctAnswer": [0, 2, 3, 4],
+      "correctAnswer": [
+        0,
+        2,
+        3,
+        4
+      ],
       "points": 1,
       "explanation": "Statement B is false because importing does not alter the directory structure or convert files into packages. Fixed transcription error `init.py` to `__init__.py` in statement D."
     },
@@ -513,7 +542,8 @@
     {
       "id": 38,
       "type": "mc",
-      "text": "An academic grading script executes the following conditional structure for a student score of 85:\n\nscore = 85\nif score >= 90:\n    print(\"Grade: A\")\nelif score >= 80:\n    print(\"Grade: B\")\nelif score >= 70:\n    print(\"Grade: C\")\nelse:\n    print(\"Grade: F\")\n\nWhat output is printed?",
+      "text": "An academic grading script executes the following conditional structure for a student score of 85. What output is printed?",
+      "context": "<pre>score = 85\nif score >= 90:\n    print(\"Grade: A\")\nelif score >= 80:\n    print(\"Grade: B\")\nelif score >= 70:\n    print(\"Grade: C\")\nelse:\n    print(\"Grade: F\")</pre>",
       "options": [
         "Grade: F",
         "Grade: C",
