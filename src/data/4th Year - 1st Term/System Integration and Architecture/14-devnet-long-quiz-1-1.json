@@ -205,7 +205,7 @@
         3
       ],
       "points": 3,
-      "explanation": "Verified by running all four. A single <code>&gt;</code> always truncates the target first, which is exactly why it copies in the second statement and overwrites in the third — and why the first statement is wrong. Only <code>&gt;&gt;</code> appends.",
+      "explanation": "Verified by running all four. A single <code>&gt;</code> always truncates the target first — that's exactly why <code>cat linux.txt &gt; linux2.txt</code> copies the file and <code>echo \"Linux is POWERFUL!\" &gt; linux.txt</code> overwrites it, and why the claim that <code>echo \"I LOVE Linux!\" &gt; linux2.txt</code> appends without overwriting is wrong. Only <code>&gt;&gt;</code> appends.",
       "id": 14
     },
     {

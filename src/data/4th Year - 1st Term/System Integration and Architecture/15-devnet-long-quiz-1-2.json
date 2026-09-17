@@ -45,7 +45,7 @@
       ],
       "correctAnswer": 3,
       "points": 1,
-      "explanation": "Verified: <code>fruits[1:4]</code> starts at index 1 (<code>\"banana\"</code>) and stops before index 4, returning <code>[\"banana\", \"cherry\", \"date\"]</code>. The first option starts from index 0 instead of 1, the second only grabs the two endpoints, and the third runs one element too far by including <code>\"elderberry\"</code> at index 4, which is outside the slice's upper bound."
+      "explanation": "Verified: <code>fruits[1:4]</code> starts at index 1 (<code>\"banana\"</code>) and stops before index 4, returning <code>[\"banana\", \"cherry\", \"date\"]</code>. <code>[\"apple\", \"banana\", \"cherry\"]</code> starts from index 0 instead of 1; <code>[\"apple\", \"elderberry\"]</code> only grabs the two endpoints; and <code>[\"banana\", \"cherry\", \"date\", \"elderberry\"]</code> runs one element too far by including <code>\"elderberry\"</code> at index 4, which is outside the slice's upper bound."
     },
     {
       "id": 4,
@@ -347,7 +347,7 @@
         3
       ],
       "points": 1,
-      "explanation": "Statement B is the odd one out: <code>chown root myfile.sh</code> (no colon) changes only the user owner to root and leaves the group untouched — which is exactly what statement C describes, so B and C can't both be true. The other two are correct: a freshly created file typically gets <code>-rw-rw-r--</code> under the default umask (no execute bits), and <code>chmod +x</code> adds the execute bit for all three permission classes, producing <code>-rwxrwxr-x</code>."
+      "explanation": "The claim that <code>sudo chown root myfile.sh</code> changes both user and group ownership is the odd one out: without a colon, <code>chown</code> changes only the user owner to root and leaves the group untouched — exactly matching the statement that says ownership ends up as user root, group devasc, so the two can't both be true. The other two are correct: a freshly created file typically gets <code>-rw-rw-r--</code> under the default umask (no execute bits), and <code>chmod +x</code> adds the execute bit for all three permission classes, producing <code>-rwxrwxr-x</code>."
     },
     {
       "id": 25,
@@ -367,7 +367,7 @@
         4
       ],
       "points": 1,
-      "explanation": "Only the fourth statement is false: Python strings are immutable, so <code>text[0] = \"a\"</code> raises a <code>TypeError</code> rather than modifying the string in place — that's a list operation. The rest are accurate: <code>.split(\",\")</code> returns a list of substrings, both strings and lists support iteration, <code>.join()</code> stitches a list back into a single delimited string, and lists (unlike strings) can be mutated in place."
+      "explanation": "The claim that a string's characters can be modified directly via index assignment (e.g., <code>text[0] = \"a\"</code>) is false: Python strings are immutable, so that raises a <code>TypeError</code> rather than modifying the string in place — that's a list operation. The rest are accurate: <code>.split(\",\")</code> returns a list of substrings, both strings and lists support iteration, <code>.join()</code> stitches a list back into a single delimited string, and lists (unlike strings) can be mutated in place."
     },
     {
       "id": 26,
@@ -429,7 +429,7 @@
         4
       ],
       "points": 1,
-      "explanation": "Only the second statement is false: importing a function doesn't restructure anything on disk — a single .py file stays a module regardless of what imports from it. Turning code into a package requires actually creating a directory with an <code>__init__.py</code> file (corrected from \"init.py\" here too). The rest hold: a single file is a module, the aliased import syntax shown is valid, a directory marked with <code>__init__.py</code> is a package, and PIP is indeed the standard installer that pulls from PyPI."
+      "explanation": "The claim that importing a function automatically converts a module file into a directory package is false: importing doesn't restructure anything on disk — a single .py file stays a module regardless of what imports from it. Turning code into a package requires actually creating a directory with an <code>__init__.py</code> file (corrected from \"init.py\" here too). The rest hold: a single file is a module, the aliased import syntax shown is valid, a directory marked with <code>__init__.py</code> is a package, and PIP is indeed the standard installer that pulls from PyPI."
     },
     {
       "id": 30,
