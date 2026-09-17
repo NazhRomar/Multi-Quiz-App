@@ -1574,12 +1574,44 @@ button {
   background: var(--accent);
   color: white;
   box-shadow: var(--shadow);
+  /* Quiz options → Mobile Submit button gives this a different `key` (see
+     useNavRow.jsx) whenever it swaps between Next and Submit, forcing a
+     remount so this replays each time — a flip, like a sign flapping over
+     to show new text, rather than the label just changing in place. */
+  animation: btn-next-swap 0.32s ease;
 }
 
 .btn-next:hover:not(:disabled) {
   background: var(--accent-hover);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(91, 155, 213, 0.35);
+}
+
+@keyframes btn-next-swap {
+  0% {
+    transform: perspective(300px) rotateX(65deg) scale(0.9);
+    opacity: 0;
+  }
+  60% {
+    transform: perspective(300px) rotateX(0deg) scale(1.03);
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(300px) rotateX(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Mobile Submit button: standing in for the in-card Submit, so it reads as
+   the same "lock in this answer" action — the correct-answer green rather
+   than the ordinary Next blue. */
+.btn-next--submit {
+  background: var(--correct);
+}
+
+.btn-next--submit:hover:not(:disabled) {
+  background: var(--correct);
+  filter: brightness(1.1);
 }
 
 button:disabled {

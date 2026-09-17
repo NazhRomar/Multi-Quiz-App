@@ -24,6 +24,12 @@ export default function QuizOptionsFields() {
           onChange={(v) => set('instantSubmit', v)}
         />
         <ToggleRow
+          title="Mobile Submit button"
+          hint="On phones, Next turns into Submit once you're able to (Multiple Select, Fill in the Blank, etc.), then back to Next after"
+          checked={quizOptions.mobileSubmitButton}
+          onChange={(v) => set('mobileSubmitButton', v)}
+        />
+        <ToggleRow
           title="Auto-focus blanks"
           hint="Fill in the Blank starts in the first blank (not on touch screens)"
           checked={quizOptions.autoFocusBlank}

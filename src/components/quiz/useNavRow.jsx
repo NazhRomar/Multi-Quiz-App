@@ -48,6 +48,9 @@ export function useNavRow({
   onDone,
   onRestart,
   onExit,
+  submitReady,
+  onSubmit,
+  mobileSubmitButton,
   sourceTag,
   enterHint,
   prevHint,
@@ -139,6 +142,7 @@ export function useNavRow({
     if (isLast) {
       nextBtn = isQuizMode ? (
         <button
+          key="nav-next"
           className="btn-next"
           onClick={wrapClose(onFinishQuiz)}
           disabled={disabled}
@@ -148,15 +152,37 @@ export function useNavRow({
           Finish Quiz ✓{enterIcon}
         </button>
       ) : (
-        <button className="btn-next" onClick={onDone}>
+        <button key="nav-next" className="btn-next" onClick={onDone}>
           Done ✓
         </button>
       );
     } else {
       nextBtn = (
-        <button className="btn-next" onClick={wrapClose(onNext)} disabled={disabled} title={disabled ? 'Answer this question first' : undefined} {...enterProps}>
+        <button
+          key="nav-next"
+          className="btn-next"
+          onClick={wrapClose(onNext)}
+          disabled={disabled}
+          title={disabled ? 'Answer this question first' : undefined}
+          {...enterProps}
+        >
           Next<span className={arrowClass(enterHint)}> →</span>
           {enterIcon}
+        </button>
+      );
+    }
+
+    // Quiz options → Mobile Submit button: once this question could actually
+    // be submitted (see QuizScreen's submitReady), Next transforms into a
+    // Submit button standing in for the in-card one — so on mobile you don't
+    // have to scroll back up to it. A different `key` than the buttons above
+    // forces React to remount rather than patch the existing one in place,
+    // which is what lets the CSS mount animation (style.css) play each time
+    // it swaps either way.
+    if (isMobile && mobileSubmitButton && submitReady) {
+      nextBtn = (
+        <button key="nav-submit" className="btn-next btn-next--submit" onClick={wrapClose(onSubmit)}>
+          Submit ✓
         </button>
       );
     }

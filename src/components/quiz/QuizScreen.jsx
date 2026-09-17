@@ -62,6 +62,18 @@ export default function QuizScreen({ goHome }) {
     question.type === 'msq' ? (savedState.value || []).length > 0 : savedState.value !== null && savedState.value !== undefined;
   const submitCurrent = () => dispatch({ type: 'CHECK_ANSWER', payload: { qId: question.id } });
 
+  // Quiz options → Mobile Submit button: whether *this* question could be
+  // submitted right now via its in-card Submit button (Multiple Select,
+  // Fill in the Blank, Dropdown Matching and Drag & Drop always can — they
+  // double as "give up and reveal" — Multiple Choice/True-False only once
+  // something's picked, and only when Instant submit is off, since with it
+  // on there's no in-card Submit button to mirror).
+  const submitReady =
+    !isLocked &&
+    (question.type === 'msq' || question.type === 'fitb' || question.type === 'matching' || question.type === 'drag-drop'
+      ? true
+      : (question.type === 'mc' || question.type === 'tf') && !quizOptions.instantSubmit && hasSelection);
+
   // Number keys pick an option (1–9, 0 = 10th): Multiple Choice / True-False
   // select it (and submit, with Instant submit on); Multiple Select toggles
   // it, then Enter submits.
@@ -101,6 +113,9 @@ export default function QuizScreen({ goHome }) {
     onFinishQuiz: () => setShowConfirm(true),
     onRestart: () => dispatch({ type: 'RESTART' }),
     onExit: goHome,
+    submitReady,
+    onSubmit: submitCurrent,
+    mobileSubmitButton: quizOptions.mobileSubmitButton,
     sourceTag: <QuestionSource question={question} variant="nav" />,
     // Shown even before Enter can go on (unanswered, or Next blocked by No
     // skipping), so the button doesn't swap its arrow for a keycap mid-question.
