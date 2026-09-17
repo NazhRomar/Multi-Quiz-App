@@ -52,6 +52,15 @@ export default function QuizOptionsFields() {
           onChange={(v) => set('shuffleQuestions', v)}
         />
         <ToggleRow
+          title="Shuffle matching rows"
+          hint="Dropdown Matching and Drag & Drop: reorder the terms down the left too"
+          nested
+          inert={!quizOptions.shuffleQuestions}
+          why="Only applies while Shuffle questions is on"
+          checked={quizOptions.shuffleMatchingRows}
+          onChange={(v) => set('shuffleMatchingRows', v)}
+        />
+        <ToggleRow
           title="Shuffle choices"
           hint="Applies on restart"
           checked={quizOptions.shuffleChoices}

@@ -74,6 +74,7 @@ export const DEFAULT_QUIZ_OPTIONS = {
   hideFeedbackIfExplanation: false,
   hideExplanation: false,
   shuffleQuestions: false,
+  shuffleMatchingRows: false, // shuffleQuestions also reorders the term rows of matching/drag & drop questions
   shuffleChoices: false,
   keepTrueFalseOrder: true, // shuffleChoices leaves True/False questions as True, False
   showMsqCount: false, // "Select N" hint on multiple-select questions
@@ -159,6 +160,15 @@ export function createInitialState() {
 function applyShuffle(quiz, quizOptions) {
   if (quizOptions.shuffleQuestions) {
     shuffleArray(quiz.questions);
+    // A matching/drag & drop row is a sub-question, so its order rides with
+    // Shuffle questions rather than Shuffle choices (which names the pool
+    // below). Behind its own toggle, because the terms are often in a
+    // deliberate order - alphabetical, or grouped by topic.
+    if (quizOptions.shuffleMatchingRows) {
+      quiz.questions.forEach((q) => {
+        if (q.type === 'matching' || q.type === 'drag-drop') shuffleArray(q.pairs);
+      });
+    }
   }
   if (quizOptions.shuffleChoices) {
     quiz.questions.forEach((q) => {
@@ -176,8 +186,6 @@ function applyShuffle(quiz, quizOptions) {
           if (a.isCorrect) acc.push(i);
           return acc;
         }, []);
-      } else if (q.type === 'matching' || q.type === 'drag-drop') {
-        shuffleArray(q.pairs);
       }
     });
   }
