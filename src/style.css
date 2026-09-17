@@ -1642,16 +1642,14 @@ button:disabled {
   color: var(--accent);
 }
 
-/* Touch-only devices have no keyboard to press these with: no keycaps,
-   and the nav buttons keep their arrows. */
+/* Touch-only devices have no keyboard to press these with: no keycaps.
+   The nav buttons drop their ←/→ arrows too — Previous/Next read fine on
+   their own, and the arrow was only ever standing in for the keycap. */
 @media (hover: none) {
   .key-hint,
-  .option-key {
+  .option-key,
+  .nav-arrow {
     display: none;
-  }
-
-  .nav-arrow--keyed {
-    display: inline;
   }
 }
 
@@ -1824,8 +1822,13 @@ body.theme-canvas .msq-count-hint {
   gap: 0.65rem;
 }
 
-/* Quiz options → Read first: the choices are blurred and untouchable for a
-   few seconds so the question gets read before it can be answered. */
+/* Quiz options → Read first: the countdown floats over the (still
+   full-height, just blurred) choices instead of sitting in a block above
+   them, so the layout doesn't jump when it counts down and disappears. */
+.options-list-wrap {
+  position: relative;
+}
+
 .options-list--blurred {
   filter: blur(6px);
   opacity: 0.75;
@@ -1835,15 +1838,21 @@ body.theme-canvas .msq-count-hint {
 }
 
 .read-first-hint {
-  margin-bottom: 0.75rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  max-width: 85%;
   padding: 0.5rem 0.8rem;
   border-radius: 10px;
   border: 1px dashed var(--border);
-  background: var(--radio-bg);
+  background: var(--surface);
   color: var(--text-muted);
   font-family: 'Space Mono', monospace;
   font-size: 0.8rem;
   text-align: center;
+  box-shadow: var(--shadow);
 }
 
 .option-label {

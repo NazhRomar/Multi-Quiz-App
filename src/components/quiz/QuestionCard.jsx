@@ -123,14 +123,16 @@ export default function QuestionCard({ question, index, savedState, isLocked, ex
       <QuestionSource question={question} variant="inline" />
       <QuestionContext context={question.context} />
       <div className="q-text" {...renderHtml(question.text)} />
-      {blurLeft > 0 && (
-        <div className="read-first-hint" aria-live="polite">
-          Read the question — choices unlock in {blurLeft}s
+      <div className="options-list-wrap">
+        <div className={`options-list ${blurLeft > 0 ? 'options-list--blurred' : ''}`} aria-hidden={blurLeft > 0}>
+          {optionsEl}
+          {isLocked && <FeedbackBanner question={question} savedState={savedState} quizOptions={quizOptions} />}
         </div>
-      )}
-      <div className={`options-list ${blurLeft > 0 ? 'options-list--blurred' : ''}`} aria-hidden={blurLeft > 0}>
-        {optionsEl}
-        {isLocked && <FeedbackBanner question={question} savedState={savedState} quizOptions={quizOptions} />}
+        {blurLeft > 0 && (
+          <div className="read-first-hint" aria-live="polite">
+            Read the question — choices unlock in {blurLeft}s
+          </div>
+        )}
       </div>
     </div>
   );
