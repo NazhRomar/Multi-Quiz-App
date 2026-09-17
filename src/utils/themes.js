@@ -1,4 +1,4 @@
-// App themes (App Settings → UI Theme). Each non-default theme adds
+// App themes (App settings → UI theme). Each non-default theme adds
 // body.theme-<value>; `family` also adds a shared base class whose rules
 // the theme drives purely through CSS variables (style.css):
 // - 'tinted' → body.theme-tinted: Misty Blue recolored (light).

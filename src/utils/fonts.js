@@ -1,4 +1,4 @@
-// Font settings (App Settings → App Font / Answer Font), sharing one list:
+// Font settings (App settings → App font / Answer font), sharing one list:
 // - App Font: the whole interface. 'default' keeps the design's own mix
 //   (Nunito text + Space Mono labels; Lato under Canvas). Code snippets
 //   always keep their code font.

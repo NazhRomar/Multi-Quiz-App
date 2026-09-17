@@ -129,7 +129,7 @@ export default function AppSettingsFields({ showNavLocation = false }) {
               <>
                 <option value="sides">Sides</option>
                 <option value="center">Centered</option>
-                <option value="both">Top and Bottom</option>
+                <option value="both">Top and bottom</option>
                 <option value="all">All</option>
               </>
             )}

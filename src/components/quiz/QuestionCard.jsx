@@ -108,7 +108,7 @@ export default function QuestionCard({ question, index, savedState, isLocked, ex
           <span className={`q-type-badge ${question.type}`}>{TYPE_LABELS[question.type] || 'Question'}</span>
         </div>
         <div className="q-meta-right">
-          {/* Quiz Options → Show how many to select (off by default). */}
+          {/* Quiz options → Show how many to select (off by default). */}
           {question.type === 'msq' && quizOptions.showMsqCount && (
             <span className="msq-count-hint" title={`Select ${question.correctAnswer.length} options for full points`}>
               {/* Phones: icon + number only — the full label wrapped the meta row onto two lines. */}

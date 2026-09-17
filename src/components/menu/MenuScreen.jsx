@@ -121,7 +121,7 @@ export default function MenuScreen() {
         <h1>Multi Quiz App</h1>
         <div className="header-right">
           <Dropdown ariaLabel="Settings">
-            <div className="dropdown-section-title">App Settings</div>
+            <div className="dropdown-section-title">App settings</div>
             <AppSettingsFields />
           </Dropdown>
         </div>

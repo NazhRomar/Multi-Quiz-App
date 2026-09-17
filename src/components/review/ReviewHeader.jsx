@@ -30,7 +30,7 @@ export default function ReviewHeader({ progressLabel, progressPct, goHome }) {
           ariaLabel="Options"
           headerAction={
             <button className="dropdown-mode-switch" onClick={() => dispatch({ type: 'SWITCH_TO_QUIZ' })}>
-              Switch to Quiz Mode
+              Switch to quiz mode
             </button>
           }
         >
@@ -44,9 +44,9 @@ export default function ReviewHeader({ progressLabel, progressPct, goHome }) {
           </div>
           <DropdownTabs
             tabs={[
-              { label: 'Review Options', content: <ReviewOptionsFields /> },
+              { label: 'Review options', content: <ReviewOptionsFields /> },
               activeQuiz.multi && { label: 'Multi', content: <MultiOptionsFields /> },
-              { label: 'App Settings', content: <AppSettingsFields showNavLocation /> },
+              { label: 'App settings', content: <AppSettingsFields showNavLocation /> },
             ].filter(Boolean)}
           />
         </Dropdown>

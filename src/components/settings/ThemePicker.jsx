@@ -21,13 +21,13 @@ export const themeSwatchStyle = (theme) => ({
   '--tile-accent': theme.swatch.accent,
 });
 
-// UI Theme picker: a grid of preview tiles (a mini page in the theme's
+// UI theme picker: a grid of preview tiles (a mini page in the theme's
 // background, card and accent colors) instead of a native select, which
 // can't show anything but text. Sun/moon icons mark light vs dark themes.
 // Lives inside a FoldSection in AppSettingsFields.
 export default function ThemePicker({ value, onChange }) {
   return (
-    <div className="theme-picker" role="radiogroup" aria-label="UI Theme">
+    <div className="theme-picker" role="radiogroup" aria-label="UI theme">
       {THEMES.map((theme) => {
         const active = theme.value === value;
         return (

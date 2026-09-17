@@ -39,7 +39,7 @@ export default function QuizScreen({ goHome }) {
 
   const unanswered = activeQuiz.questions.filter((q) => !q.flagged && !userAnswers[q.id]?.submitted).length;
 
-  // Quiz Options → Read first: a new, unanswered question keeps its choices
+  // Quiz options → Read first: a new, unanswered question keeps its choices
   // blurred and untouchable for N seconds, counting down, so the question
   // itself gets read first. Already-answered questions never blur.
   const readFirstSecs = quizOptions.readFirstSeconds || 0;

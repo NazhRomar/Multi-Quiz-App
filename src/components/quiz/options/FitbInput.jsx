@@ -4,7 +4,7 @@ import { fitbExpected, fitbGiven, fitbBlankCorrect } from '../../../state/gradin
 import { renderHtml } from '../../../utils/renderHtml.js';
 
 // autoFocus: put the cursor in the first empty blank as the question comes
-// up, so it can be answered without the mouse (Quiz Options → Auto-focus
+// up, so it can be answered without the mouse (Quiz options → Auto-focus
 // blanks). Not on touch screens, where focusing pops the keyboard open.
 export default function FitbInput({ question, savedState, isLocked, onChange, onSubmit, autoFocus }) {
   const blankRefs = useRef([]);
