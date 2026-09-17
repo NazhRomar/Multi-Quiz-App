@@ -1542,7 +1542,12 @@ button:disabled {
   background: #fafcfe;
   border: 1px solid #dce8f5;
   border-radius: 16px;
-  padding: 1.35rem;
+  /* --card-pad is the card's own padding, published so anything that has to
+     break out of it (Canvas's full-bleed question header) can cancel exactly
+     as much as the card applies. Every rule that changes the padding below
+     changes this with it. */
+  --card-pad: 1.35rem;
+  padding: var(--card-pad);
   box-shadow: var(--shadow);
   animation: fadeIn 0.15s ease-out forwards;
 }
@@ -1640,7 +1645,7 @@ button:disabled {
   font-weight: bold;
 }
 
-/* "Select N" on multiple-select questions (Quiz Options → Show how many to
+/* "Select N" on multiple-select questions (Quiz options → Show how many to
    select), in the Multiple Select badge's colors. */
 .msq-count-hint {
   padding: 0.2rem 0.6rem;
@@ -1678,7 +1683,7 @@ body.theme-canvas .msq-count-hint {
   gap: 0.65rem;
 }
 
-/* Quiz Options → Read first: the choices are blurred and untouchable for a
+/* Quiz options → Read first: the choices are blurred and untouchable for a
    few seconds so the question gets read before it can be answered. */
 .options-list--blurred {
   filter: blur(6px);
@@ -2450,8 +2455,10 @@ body.theme-canvas * {
 /* Canvas puts a gray header bar at the top of every question box */
 body.theme-canvas .q-meta {
   background-color: #F5F5F5;
-  margin: -1.5rem -1.5rem 1.5rem -1.5rem !important;
-  /* Break out of container padding */
+  /* Break out of the card's padding, whatever it currently is — Compact mode
+     shrinks it, and a hardcoded -1.5rem here left the grey bar hanging 7px
+     past the card's sides. */
+  margin: calc(-1 * var(--card-pad)) calc(-1 * var(--card-pad)) 1.5rem !important;
   padding: 12px 20px !important;
   border-bottom: 1px solid #C7CDD1;
   border-radius: 3px 3px 0 0 !important;
@@ -2473,7 +2480,8 @@ body.theme-canvas .menu-container section,
 body.theme-canvas .mode-select-card {
   border: 1px solid #C7CDD1 !important;
   background: #ffffff !important;
-  padding: 1.5rem !important;
+  --card-pad: 1.5rem;
+  padding: var(--card-pad) !important;
 }
 
 /* --- CANVAS CONTEXT & EXPLANATION BLOCKS --- */
@@ -3204,7 +3212,8 @@ body.compact-mode main.question-card {
 }
 
 body.compact-mode .question-card {
-  padding: 1rem !important;
+  --card-pad: 1rem;
+  padding: var(--card-pad) !important;
 }
 
 body.compact-mode .q-meta {
@@ -3278,7 +3287,7 @@ body.theme-canvas #quiz-nav-top[style*="display: flex"]+#quiz-container {
 
 /* =========================================================
    --- CODE BLOCK THEMES ---
-   App Settings → Code Block Theme adds body.code-theme-<name> (none for
+   App settings → Code block theme adds body.code-theme-<name> (none for
    'default', which keeps the app theme's own code look). Applies only to
    code boxes (.q-context--code: context blocks holding a <pre>, and code
    fill-in blanks), not to prose context notes. Each theme just sets the
@@ -3445,7 +3454,7 @@ body .dropdown-item .q-context.code-theme-preview .q-context-body {
 
 /* =========================================================
    --- APP FONT / ANSWER FONT ---
-   App Settings → App Font / Answer Font (utils/fonts.js) add
+   App settings → App font / Answer font (utils/fonts.js) add
    body.custom-app-font / body.custom-answer-font and set --app-font /
    --answer-font. !important so they also beat Canvas's blanket
    `* { font-family: inherit !important }` (these rules come later and are
