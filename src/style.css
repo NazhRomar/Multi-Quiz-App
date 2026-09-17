@@ -2575,7 +2575,9 @@ body.code-wrap .q-context-body pre {
     border-top: 1px solid var(--border);
   }
 
-  /* Bottom row is a fixed pill — the panel floats above it instead. */
+  /* Bottom row is a fixed pill — the panel floats above it instead, in
+     the source tag's usual spot (see #quiz-nav-bottom .nav-source below,
+     which moves out of the way when this is open). */
   #quiz-nav-bottom .nav-expand-panel {
     position: absolute;
     left: 0;
@@ -2587,12 +2589,6 @@ body.code-wrap .q-context-body pre {
     border-radius: 14px;
     box-shadow: var(--shadow);
     pointer-events: none;
-  }
-
-  /* The per-question source tag already floats in that same spot — clear
-     it too when both are showing. */
-  #quiz-nav-bottom.nav-row:has(.nav-source) .nav-expand-panel {
-    bottom: calc(100% + 60px);
   }
 
   #quiz-nav-bottom.nav-row--expanded .nav-expand-panel {
@@ -4645,6 +4641,14 @@ body.theme-canvas .q-source-inline {
     bottom: calc(100% + 8px);
     max-width: 100%;
     box-shadow: var(--shadow);
+    transition: bottom 0.22s ease;
+  }
+
+  /* Caret expanded: the source tag rides up above the Restart/Exit panel
+     instead of sitting underneath it, so the two never overlap or stack
+     out of order. */
+  #quiz-nav-bottom.nav-row--expanded .nav-source {
+    bottom: calc(100% + 76px);
   }
 
   /* Clear both the floating bar and the tag riding on top of it. */
