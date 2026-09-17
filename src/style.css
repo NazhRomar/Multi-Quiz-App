@@ -2427,7 +2427,13 @@ body.theme-canvas .option-label.locked {
   .nav-row--paired .btn-next {
     flex: 1 1 0;
     min-width: 0;
-    padding: 0.65rem 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Height comes from stretching to the caret's fixed size below, so
+       only horizontal padding — the same amount Previous always used —
+       matters here. */
+    padding: 0 0.75rem;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -2436,15 +2442,17 @@ body.theme-canvas .option-label.locked {
 
   /* Caret toggle between Previous/Next — expands the row to reveal
      Restart/Exit, which mobile otherwise only surfaces in the header's
-     hamburger menu. */
+     hamburger menu. Its fixed size (not stretch + aspect-ratio, which
+     collapsed to a sliver here) sets the row's height, so Previous/Next
+     stretch to match it. */
   .btn-nav-expand {
     flex: 0 0 auto;
-    align-self: stretch;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    aspect-ratio: 1 / 1;
-    margin: 0 0.35rem;
+    width: 48px;
+    height: 48px;
+    margin: 0 0.4rem;
     padding: 0;
     background: transparent;
     border: 1px solid var(--border);
@@ -2460,6 +2468,8 @@ body.theme-canvas .option-label.locked {
   }
 
   .btn-nav-expand svg {
+    width: 18px;
+    height: 18px;
     transition: transform 0.2s ease;
   }
 
