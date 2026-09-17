@@ -24,6 +24,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          # Full history, not the default shallow single commit: the build
+          # reads git log to generate the changelog (readChangelog in
+          # vite.config.js). Without this the deployed app would list one
+          # entry, or none.
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4

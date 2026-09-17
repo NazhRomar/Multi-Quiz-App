@@ -4538,3 +4538,200 @@ body.theme-canvas .q-source-inline {
   color: var(--text);
   font-size: 0.82rem;
 }
+
+/* =========================================================
+   --- CHANGELOG (menu/ChangelogModal.jsx) ---
+   The home footer's "What's changed" button and the panel it opens. The
+   footer is deliberately quiet — this sits beside the build date in the
+   same muted type, not as a call to action.
+========================================================= */
+.home-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.home-footer-sep {
+  opacity: 0.5;
+}
+
+.changelog-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.changelog-link:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+
+.changelog-link-icon {
+  flex-shrink: 0;
+}
+
+/* Wider and taller than the confirm modal — this one is a list to read
+   through, capped so it never outgrows the viewport. */
+.changelog-card {
+  max-width: 640px;
+  max-height: min(78vh, 720px);
+  display: flex;
+  flex-direction: column;
+}
+
+.changelog-count {
+  margin-left: 0.4rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: var(--radio-bg);
+  border: 1px solid var(--border);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  vertical-align: 0.15em;
+}
+
+.changelog-note {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.changelog-scroll {
+  overflow-y: auto;
+  margin: 0 -0.5rem;
+  padding: 0 0.5rem;
+  /* Selectable: these are release notes, worth copying out of. */
+  user-select: text;
+}
+
+.changelog-day + .changelog-day {
+  margin-top: 1rem;
+}
+
+.changelog-day-label {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 0.35rem 0;
+  background: var(--surface);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.changelog-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.changelog-entry-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.3rem 0;
+}
+
+.changelog-subject {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.86rem;
+  /* Explicit: a <button> defaults to bold here while the plain <span> rows
+     don't, which made "has a longer description" look like "more
+     important". The chevron is the only thing that should mark those. */
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: left;
+  color: var(--text);
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.changelog-subject--plain {
+  cursor: default;
+  /* Sits level with the expandable ones, which carry a chevron. */
+  padding-left: calc(12px + 0.4rem);
+}
+
+.changelog-entry--expandable > .changelog-entry-head:hover .changelog-subject {
+  color: var(--accent);
+}
+
+.changelog-chevron {
+  flex-shrink: 0;
+  /* Sits on the first line, not halfway down a subject that wrapped to
+     three. The offset centres it against that line's box. */
+  align-self: flex-start;
+  margin-top: 0.22rem;
+  color: var(--text-muted);
+  transition: transform 0.15s ease;
+}
+
+.changelog-subject[aria-expanded='true'] .changelog-chevron {
+  transform: rotate(90deg);
+}
+
+.changelog-hash {
+  flex-shrink: 0;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  opacity: 0.75;
+}
+
+.changelog-hash:hover {
+  color: var(--accent);
+  opacity: 1;
+}
+
+/* Commit bodies are hand-wrapped, so they keep their own line breaks. */
+.changelog-body {
+  margin: 0.1rem 0 0.6rem calc(12px + 0.4rem);
+  padding: 0.6rem 0.75rem;
+  border-left: 2px solid var(--border);
+  background: var(--radio-bg);
+  border-radius: 0 6px 6px 0;
+  font-family: inherit;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .changelog-card {
+    max-height: 80vh;
+  }
+}
+
+.changelog-state {
+  padding: 1rem 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}

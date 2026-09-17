@@ -6,6 +6,7 @@ import AppSettingsFields from '../settings/AppSettingsFields.jsx';
 import SegmentedToggle from '../common/SegmentedToggle.jsx';
 import TermSection from './TermSection.jsx';
 import ResumeCard from './ResumeCard.jsx';
+import ChangelogModal from './ChangelogModal.jsx';
 import { useOverload } from './overload/useOverload.js';
 import OverloadCount from './overload/OverloadCount.jsx';
 import { formatBuildDate } from '../../utils/formatBuildDate.js';
@@ -39,6 +40,14 @@ const CLOCK_ICON = (
   </svg>
 );
 
+const HISTORY_ICON = (
+  <svg className="changelog-link-icon" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M2.5 8a5.5 5.5 0 1 0 1.7-4" />
+    <path d="M2.2 2.5v3.2h3.2" />
+    <path d="M8 5.2V8l2 1.4" />
+  </svg>
+);
+
 const MODE_OPTIONS = [
   { value: 'quiz', label: 'Quiz', icon: icon(<path d="M10.5 2.5l3 3L6 13H3v-3z" />) },
   {
@@ -57,6 +66,7 @@ export default function MenuScreen() {
   const { state, dispatch } = useApp();
   const { homeMode } = state;
   const [search, setSearch] = useState('');
+  const [showChangelog, setShowChangelog] = useState(false);
   const isSearching = search.trim().length > 0;
   const menu = filterCourseMenu(search);
   const terms = sortedTerms(menu);
@@ -168,9 +178,25 @@ export default function MenuScreen() {
           />
         ))}
       </main>
-      <footer className="home-footer" onClick={openShowcase}>
-        Last updated: {formatBuildDate(__BUILD_DATE__)}
+      <footer className="home-footer">
+        {/* The showcase shortcut is scoped to the date text rather than the
+            whole footer, so the changelog button beside it doesn't also
+            launch a quiz. */}
+        <span onClick={openShowcase}>Last updated: {formatBuildDate(__BUILD_DATE__)}</span>
+        {/* Hidden entirely when the build couldn't read git history. */}
+        {__CHANGELOG_COUNT__ > 0 && (
+          <>
+            <span className="home-footer-sep" aria-hidden="true">
+              ·
+            </span>
+            <button type="button" className="changelog-link" onClick={() => setShowChangelog(true)}>
+              {HISTORY_ICON}
+              What&apos;s changed
+            </button>
+          </>
+        )}
       </footer>
+      {showChangelog && <ChangelogModal onClose={() => setShowChangelog(false)} />}
       <div
         className={`multi-select-bar ${homeMode.multi ? 'multi-select-bar--visible' : ''}`}
         role="region"
