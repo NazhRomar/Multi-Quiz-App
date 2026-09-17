@@ -64,6 +64,9 @@ export const DEFAULT_APP_SETTINGS = {
   navLocation: 'down', // 'up' | 'down' | 'sides' | 'center' | 'both' | 'all'
   theme: 'default',
   codeTheme: 'default', // see CODE_THEMES in AppSettingsFields.jsx
+  // false (default): long code lines scroll sideways, keeping indentation
+  // intact. true: wrap to fit the screen instead (no horizontal scrolling).
+  codeWrap: false,
   appFont: 'default', // see FONTS in utils/fonts.js
   answerFont: 'default', // see FONTS in utils/fonts.js
   compactMode: false,

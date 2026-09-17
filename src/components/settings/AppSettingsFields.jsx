@@ -84,6 +84,12 @@ export default function AppSettingsFields({ showNavLocation = false }) {
             </div>
           </div>
         </FoldSection>
+        <ToggleRow
+          title="Wrap code lines"
+          hint="Off: scroll sideways, keeps indentation intact. On: wraps to fit the screen."
+          checked={appSettings.codeWrap}
+          onChange={(v) => set('codeWrap', v)}
+        />
         <FoldSection title="App font" summary={fontLabel(appSettings.appFont, `Default (${appFontDefault})`)} badge={<span className="app-font-sample">Aa</span>}>
           <select className="fold-select" aria-label="App font" value={appSettings.appFont} onChange={(e) => set('appFont', e.target.value)}>
             {FONTS.map((f) => (

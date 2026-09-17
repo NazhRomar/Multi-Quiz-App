@@ -2284,10 +2284,42 @@ body.theme-canvas .option-label.locked {
   line-height: 1.6;
 }
 
+/* Default: scroll sideways instead of wrapping, so indentation/alignment
+   survives on narrow screens (App settings → Wrap code lines flips this).
+   The background layers are Lea Verou's scroll-shadow technique: two
+   solid masks scroll with the content (hiding the shadows behind them
+   until there's actually more to scroll to) and two shadow gradients
+   stay fixed to the edges, giving a fade hint only on the side(s) with
+   more content, with no JS required. */
 .q-context-body pre {
   margin: 0;
+  white-space: pre;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  background: linear-gradient(to right, var(--code-bg, var(--radio-bg)) 30%, transparent),
+    linear-gradient(to left, var(--code-bg, var(--radio-bg)) 30%, transparent) right,
+    linear-gradient(to right, rgba(0, 0, 0, 0.12), transparent),
+    linear-gradient(to left, rgba(0, 0, 0, 0.12), transparent) right;
+  background-repeat: no-repeat;
+  background-size: 24px 100%, 24px 100%, 10px 100%, 10px 100%;
+  background-attachment: local, local, scroll, scroll;
+}
+
+.q-context-body pre::-webkit-scrollbar {
+  height: 6px;
+}
+
+.q-context-body pre::-webkit-scrollbar-thumb {
+  background: var(--code-border, var(--border));
+  border-radius: 3px;
+}
+
+body.code-wrap .q-context-body pre {
   white-space: pre-wrap;
   word-break: break-word;
+  overflow-x: visible;
+  background: none;
 }
 
 .q-context-body code {
