@@ -21,6 +21,7 @@ export function AppProvider({ children }) {
     // setting it, so a missing setting must not reach it raw.
     document.body.classList.toggle('no-animations', !!state.appSettings.disableAnimations);
     document.body.classList.toggle('compact-mode', !!state.appSettings.compactMode);
+    document.body.classList.toggle('code-wrap', !!state.appSettings.codeWrap);
     applyTheme(state.appSettings.theme);
     // Code block theme: independent of the app theme; 'default' just
     // follows the app theme's own code block look.
