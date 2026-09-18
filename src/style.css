@@ -2066,6 +2066,15 @@ body.theme-canvas .option-label.locked {
   color: var(--correct);
 }
 
+/* Multiple Select's rows use a checkbox, not a radio — its revealed
+   indicator follows that shape (a checkbox's own rounding) instead of the
+   radio-style circle, rather than implying a single-choice input. */
+.option-label.reveal-correct:has(input[type="checkbox"])::before,
+.option-label.reveal-wrong:has(input[type="checkbox"])::before,
+.option-label.reveal-missed:has(input[type="checkbox"])::before {
+  border-radius: 5px;
+}
+
 /* --- Fill in the Blank --- */
 .fitb-row {
   display: flex;
