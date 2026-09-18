@@ -1,7 +1,10 @@
 {
   "courseCode": "SIA",
-  "quizTitle": "DevNet Associate Extras - Linux Intensive",
+  "quizTitle": "Linux Extensive",
   "totalPoints": 80,
+  "section": "canvas",
+  "series": "module1",
+  "order": 6,
   "unofficial": true,
   "questions": [
     {

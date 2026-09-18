@@ -1,7 +1,10 @@
 {
   "courseCode": "SIA",
-  "quizTitle": "DevNet Associate Extras - grep and Regex",
+  "quizTitle": "grep and Regex",
   "totalPoints": 64,
+  "section": "canvas",
+  "series": "module1",
+  "order": 8,
   "unofficial": true,
   "questions": [
     {

@@ -1,7 +1,10 @@
 {
   "courseCode": "SIA",
-  "quizTitle": "DevNet Associate - Canvas - Mod01_Act02",
+  "quizTitle": "Mod01_Act02 Activity",
   "totalPoints": 79,
+  "section": "canvas",
+  "series": "module1",
+  "order": 3,
   "unofficial": true,
   "questions": [
     {

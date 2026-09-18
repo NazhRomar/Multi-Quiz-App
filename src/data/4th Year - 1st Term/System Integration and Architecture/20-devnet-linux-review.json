@@ -1,7 +1,10 @@
 {
   "courseCode": "SIA",
-  "quizTitle": "DevNet Associate Extras - Canvas - Linux Review",
+  "quizTitle": "Linux Review PDF",
   "totalPoints": 74,
+  "section": "canvas",
+  "series": "module1",
+  "order": 2,
   "unofficial": true,
   "questions": [
     {

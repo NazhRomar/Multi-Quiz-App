@@ -1,7 +1,9 @@
 {
   "courseCode": "SIA",
-  "quizTitle": "DevNet Associate - Long Quiz 1 (2)",
+  "quizTitle": "Long Quiz 1 (2)",
   "totalPoints": 36,
+  "section": "canvas",
+  "series": "quizzes",
   "unethicallySourced": true,
   "questions": [
     {

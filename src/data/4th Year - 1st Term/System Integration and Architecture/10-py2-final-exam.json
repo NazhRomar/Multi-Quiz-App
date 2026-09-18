@@ -2,6 +2,7 @@
   "courseCode": "SIA",
   "quizTitle": "Python Essentials 2 - Final Exam",
   "totalPoints": 40,
+  "section": "netacad",
   "verified": true,
   "questions": [
     {

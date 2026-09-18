@@ -1,7 +1,10 @@
 {
   "courseCode": "SIA",
-  "quizTitle": "DevNet Associate Extras - Canvas - Module 1",
+  "quizTitle": "Module 1: Course Introduction PDF",
   "totalPoints": 39,
+  "section": "canvas",
+  "series": "module1",
+  "order": 1,
   "unofficial": true,
   "questions": [
     {

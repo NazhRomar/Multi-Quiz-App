@@ -1,7 +1,14 @@
 {
   "sections": [
-    { "id": "py1", "name": "Python Essentials 1", "order": 1 },
-    { "id": "py2", "name": "Python Essentials 2", "order": 2 },
-    { "id": "devnet", "name": "DevNet Associate", "order": 3 }
+    {
+      "id": "canvas",
+      "name": "Canvas",
+      "order": 1,
+      "series": [
+        { "id": "module1", "name": "Module 1", "order": 1 },
+        { "id": "quizzes", "name": "Quizzes", "order": 2 }
+      ]
+    },
+    { "id": "netacad", "name": "NetAcad", "order": 2 }
   ]
 }

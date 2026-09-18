@@ -19,16 +19,32 @@
   "displayName": "System Integration and Architecture",
   "order": 1,
   "archived": false,
-  // Optional explicit sub-sections. Omit entirely (or leave as []) to keep
+  // Optional explicit sections. Omit entirely (or leave as []) to keep
   // today's behavior: quizzes are grouped purely by a shared "<Series> -
   // <Item>" title prefix (see buildRenderUnits in catalog.js), no section
   // headers. Declaring sections here instead requires every quiz that
   // belongs to one to carry a matching "section" field (see prompt.md) —
   // a quiz with no "section", or one that doesn't match an id below, falls
-  // into a trailing "Other" bucket under that subject's card on Home.
+  // into that subject's ordinary title-prefix grouping instead.
   "sections": [
     { "id": "py1", "name": "Python Essentials 1", "order": 1 },
     { "id": "py2", "name": "Python Essentials 2", "order": 2 },
-    { "id": "devnet", "name": "DevNet Associate", "order": 3 }
+    {
+      "id": "devnet",
+      "name": "DevNet Associate",
+      "order": 3,
+      // Optional explicit series *within* this section — same idea one
+      // level down. A quiz opts in with a top-level "series": "<id>" field
+      // (see prompt.md). Unlike the automatic title-prefix grouping, a
+      // declared series renders as a named card even with a single
+      // member — useful for a group you want labeled from day one, before
+      // a second quiz exists to trigger inference. A quiz with no
+      // "series", or one that doesn't match an id below, falls into this
+      // section's ordinary title-prefix grouping instead.
+      "series": [
+        { "id": "module1", "name": "Module 1", "order": 1 },
+        { "id": "quizzes", "name": "Quizzes", "order": 2 }
+      ]
+    }
   ]
 }

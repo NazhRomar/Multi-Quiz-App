@@ -1,7 +1,10 @@
 {
   "courseCode": "SIA",
-  "quizTitle": "DevNet Associate Extras - grep Basics",
+  "quizTitle": "grep Basics",
   "totalPoints": 55,
+  "section": "canvas",
+  "series": "module1",
+  "order": 7,
   "unofficial": true,
   "questions": [
     {

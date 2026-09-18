@@ -72,13 +72,19 @@ So: to add a new item to an existing series (another module, another part), reus
 
 **If it's ambiguous whether a new quiz belongs to an existing series, extends it with a new naming pattern, or should stand alone — stop and ask the user rather than guessing.** Getting this wrong either silently merges unrelated quizzes into one card or fails to group ones that should be together.
 
-### Optional: explicit sections instead of title-prefix inference
+### Optional: explicit sections and series instead of title-prefix inference
 
-A subject folder's `_meta.json` (see next section) can declare a `sections` array — `{ "id", "name", "order" }` — as an alternative to the title-prefix inference above. If it does, a quiz opts into one by adding a top-level `"section": "<id>"` field matching one of those ids. A quiz with no `"section"`, or one that doesn't match a declared id, still falls into the ordinary title-prefix grouping shown under a trailing "Other" heading — so this is purely additive, never required. Only add a `"section"` field when the subject you're adding to already has `sections` declared in its `_meta.json`; don't invent a subject-level `_meta.json` just to tag one quiz unless the user asks for it.
+A subject folder's `_meta.json` (see next section) can declare a `sections` array — `{ "id", "name", "order" }` — as an alternative to the title-prefix inference above. If it does, a quiz opts into one by adding a top-level `"section": "<id>"` field matching one of those ids. A quiz with no `"section"`, or one that doesn't match a declared id, still falls into that subject's ordinary title-prefix grouping — so this is purely additive, never required.
+
+A section can go one level further and declare its own `series` array — same shape, `{ "id", "name", "order" }`, nested inside that section's object. A quiz opts in with a top-level `"series": "<id>"` field. The difference from title-prefix inference: **a declared series renders as a named card even with a single quiz in it** (inference needs 2+ quizzes sharing a prefix before it forms a card at all) — useful when you want a group labeled from day one, not just once a second quiz happens to share a title. A quiz with no `"series"`, or one that doesn't match a declared id, falls into that section's ordinary title-prefix grouping instead.
+
+A quiz inside a declared series can also carry a top-level `"order"` (a plain number) to control its position within that series card, independent of the filename's numeric prefix — ties, or quizzes with no `"order"`, keep filename order among themselves. Only meaningful inside an explicit series; it has no effect anywhere else.
+
+Only add a `"section"`/`"series"` field when the subject/section you're adding to already declares it in `_meta.json`; don't invent one just to tag a single quiz unless the user asks for it.
 
 ## Subject/term metadata (`_meta.json`)
 
-A term folder (`src/data/<Term>/_meta.json`) or subject folder (`src/data/<Term>/<Subject>/_meta.json`) can optionally carry a metadata file overriding the folder-name defaults: `id` (URL slug), `displayName`, `order` (explicit sort position), `archived`, and — subject-level only — `sections` (see above). Every field is independently optional, and a folder with no `_meta.json` at all falls back to its raw folder name for everything. See `src/data/_meta.json.example` for the full shape.
+A term folder (`src/data/<Term>/_meta.json`) or subject folder (`src/data/<Term>/<Subject>/_meta.json`) can optionally carry a metadata file overriding the folder-name defaults: `id` (URL slug), `displayName`, `order` (explicit sort position), `archived`, and — subject-level only — `sections` (see above, which can itself nest a `series` list per section). Every field is independently optional, and a folder with no `_meta.json` at all falls back to its raw folder name for everything. See `src/data/_meta.json.example` for the full shape.
 
 Don't create or edit a `_meta.json` as part of an ordinary "add a quiz" task unless the user specifically asks for it — it's organizational, not required for a quiz to show up correctly.
 

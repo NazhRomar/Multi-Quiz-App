@@ -5,12 +5,13 @@
 //
 // A term or subject folder may optionally carry a `_meta.json` file
 // declaring a URL id override, display name, explicit sort order, an
-// archived flag, and (subject-level only) an explicit list of sections.
-// None of this is required — every field falls back to something derived
-// from the folder name, so dropping a new quiz into a new folder with no
-// _meta.json still works exactly as before. See _meta.json.example in this
-// folder for the full shape, and prompt.md for the quiz-level `"section"`
-// field that assigns a quiz to one of those sections.
+// archived flag, and (subject-level only) an explicit list of sections —
+// which can themselves nest an explicit list of series. None of this is
+// required — every field falls back to something derived from the folder
+// name, so dropping a new quiz into a new folder with no _meta.json still
+// works exactly as before. See _meta.json.example in this folder for the
+// full shape, and prompt.md for the quiz-level `"section"`/`"series"`
+// fields that assign a quiz to one.
 import { slugify } from '../utils/slugify.js';
 
 const modules = import.meta.glob('./**/*.json', { eager: true });
@@ -70,6 +71,13 @@ for (const path in modules) {
     slug: slugify(filename.replace(/\.json$/, '')),
     title: quizData.quizTitle || 'Untitled Quiz',
     section: quizData.section || null,
+    // Explicit series id (see a section's own `series` list in _meta.json).
+    // Unlike the automatic title-prefix inference below, an explicit series
+    // renders as a named group even with a single member.
+    series: quizData.series || null,
+    // Explicit position within its series (see buildSeriesUnits) — quizzes
+    // with no order keep glob/filename order among themselves.
+    order: quizData.order ?? null,
     data: quizData,
   });
 }
@@ -108,7 +116,9 @@ export const catalog = [...termsByKey.values()]
     const courses = [...term.coursesByKey.values()]
       .map((course) => {
         const cmeta = course.meta || {};
-        const sections = (cmeta.sections || []).slice().sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+        const sections = (cmeta.sections || [])
+          .map((s) => ({ ...s, series: (s.series || []).slice().sort((a, b) => (a.order ?? 0) - (b.order ?? 0)) }))
+          .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
         return {
           key: course.key,
           id: cmeta.id || slugify(course.key),
@@ -275,7 +285,13 @@ export function multiSubjectLabel(multi) {
   return { label, tooltip };
 }
 
-function groupUnits(quizzes) {
+// Automatic fallback grouping: quizzes sharing a "<Series> - <Item>" title
+// prefix with 2+ siblings become one series bucket (rendered as chips);
+// everything else stands alone as a row. This is what runs when nothing
+// declares an explicit series (see buildSeriesUnits below) — a quiz with a
+// dash in its title still just renders standalone until a sibling shares
+// its exact prefix.
+function inferUnits(quizzes) {
   const prefixCounts = {};
   quizzes.forEach((quiz) => {
     const parts = quiz.title.split(' - ');
@@ -306,28 +322,51 @@ function groupUnits(quizzes) {
   return units;
 }
 
-// Groups a course's quizzes into render units for CourseCard: quizzes
-// sharing a "<Series> - <Item>" title prefix with 2+ siblings become one
-// series bucket (rendered as chips); everything else stands alone as a row.
+// Explicit, declared series (a section's `series` list in _meta.json) take
+// priority over the automatic title-prefix inference above: a quiz opts in
+// with a top-level `"series": "<id>"` field, and — unlike inference — a
+// declared series renders as a named group even with a single member,
+// using the quiz's full title as its item label (there's no shared prefix
+// to strip). Items within a series are ordered by their own optional
+// `"order"` field (ties/absent keep glob/filename order). Anything left
+// over (no `series` field, or one that doesn't match a declared id) falls
+// through to inferUnits as before.
+function buildSeriesUnits(quizzes, explicitSeries) {
+  if (!explicitSeries || !explicitSeries.length) return inferUnits(quizzes);
+
+  const used = new Set();
+  const units = [];
+  explicitSeries.forEach((s) => {
+    const items = quizzes.filter((q) => q.series === s.id).sort((a, b) => orderThenFallback(a, b, () => 0));
+    if (!items.length) return;
+    items.forEach((q) => used.add(q));
+    units.push({ type: 'series', name: s.name, items: items.map((quiz) => ({ quiz, label: quiz.title })) });
+  });
+  const leftover = quizzes.filter((q) => !used.has(q));
+  return [...units, ...inferUnits(leftover)];
+}
+
+// Groups a course's quizzes into render units for CourseCard.
 //
 // If the subject's _meta.json declares explicit `sections`, quizzes are
-// first bucketed by their own `section` field (falling back to the same
-// title-prefix grouping *within* each section), and any quiz with no
-// section, or one that doesn't match a declared id, lands in `ungrouped`.
-// A subject with no declared sections (every subject today) gets
-// `sections: []` and all its quizzes in `ungrouped` — byte-identical to
+// first bucketed by their own `section` field, then within each section by
+// its own explicit `series` (if declared) plus title-prefix inference for
+// the rest; any quiz with no section, or one that doesn't match a declared
+// id, lands in `ungrouped`. A subject with no declared sections (every
+// subject today, unless it opts in) gets `sections: []` and all its
+// quizzes run through plain inference in `ungrouped` — byte-identical to
 // what this function used to return outright.
 export function buildRenderUnits(course) {
   if (!course.sections.length) {
-    return { sections: [], ungrouped: groupUnits(course.quizzes) };
+    return { sections: [], ungrouped: inferUnits(course.quizzes) };
   }
 
   const used = new Set();
   const sections = course.sections.map((section) => {
     const quizzes = course.quizzes.filter((q) => q.section === section.id);
     quizzes.forEach((q) => used.add(q));
-    return { id: section.id, name: section.name, units: groupUnits(quizzes) };
+    return { id: section.id, name: section.name, units: buildSeriesUnits(quizzes, section.series) };
   });
   const leftover = course.quizzes.filter((q) => !used.has(q));
-  return { sections, ungrouped: groupUnits(leftover) };
+  return { sections, ungrouped: inferUnits(leftover) };
 }

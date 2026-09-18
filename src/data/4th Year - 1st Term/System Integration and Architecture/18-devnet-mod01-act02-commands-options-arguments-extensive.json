@@ -1,7 +1,10 @@
 {
   "courseCode": "SIA",
-  "quizTitle": "DevNet Associate - Commands, Options, and Arguments Extensive",
+  "quizTitle": "Commands, Options, and Arguments Extensive",
   "totalPoints": 214,
+  "section": "canvas",
+  "series": "module1",
+  "order": 5,
   "unofficial": true,
   "questions": [
     {

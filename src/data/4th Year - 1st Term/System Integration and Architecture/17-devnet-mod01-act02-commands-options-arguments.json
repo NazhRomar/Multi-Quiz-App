@@ -1,7 +1,10 @@
 {
   "courseCode": "SIA",
-  "quizTitle": "DevNet Associate - Canvas - Mod01_Act02 Commands, Options, and Arguments",
+  "quizTitle": "Mod01_Act02 Commands, Options, and Arguments",
   "totalPoints": 85,
+  "section": "canvas",
+  "series": "module1",
+  "order": 4,
   "unofficial": true,
   "questions": [
     {
