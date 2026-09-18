@@ -68,8 +68,9 @@ export function AppProvider({ children }) {
       activeTerm: state.activeTerm,
       activeCourse: state.activeCourse,
       activeMode: state.activeMode,
+      activeQuizId: state.activeQuizId,
     });
-  }, [state.activeQuiz, state.originalQuizData, state.activeTerm, state.activeCourse, state.activeMode]);
+  }, [state.activeQuiz, state.originalQuizData, state.activeTerm, state.activeCourse, state.activeMode, state.activeQuizId]);
 
   // The light half: where you are and what you've answered. Also the
   // screen, which is what tells the next visit whether to reopen the quiz

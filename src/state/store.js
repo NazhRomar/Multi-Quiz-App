@@ -117,6 +117,11 @@ export function createInitialState() {
     activeCourse: '',
     originalQuizData: null,
     activeQuiz: null,
+    // Stable id (the catalog quiz's file path) of the current session's
+    // quiz — null for a Multi session. Lets the router resolve the current
+    // attempt back to a URL (see routes/RootLayout.jsx) without depending
+    // on activeQuiz's shape.
+    activeQuizId: null,
     activeMode: 'quiz', // 'quiz' | 'review' — which mode the current activeQuiz session is in
     currentIndex: 0,
     userAnswers: {},
@@ -127,7 +132,7 @@ export function createInitialState() {
     reviewOptions: loadState('quizApp_reviewOptions', DEFAULT_REVIEW_OPTIONS),
     multiOptions: loadState('quizApp_multiOptions', DEFAULT_MULTI_OPTIONS),
     // Home menu Single/Multi + Quiz/Review toggles (persisted), and the
-    // Multi selection (courseMenu quiz ids; kept across returns to the menu
+    // Multi selection (catalog quiz ids; kept across returns to the menu
     // for the session, not persisted).
     homeMode: loadState('quizApp_homeMode', DEFAULT_HOME_MODE),
     multiSelection: [],
@@ -155,6 +160,10 @@ export function createInitialState() {
     activeCourse: quiz.activeCourse ?? '',
     activeMode: quiz.activeMode === 'review' ? 'review' : 'quiz',
     activeQuiz: quiz.activeQuiz,
+    // Older saves (before this field existed) won't have it — the router's
+    // boot redirect just falls back to Home in that case, same as an
+    // attempt whose quiz was since renamed/deleted.
+    activeQuizId: quiz.activeQuizId ?? null,
     // Pre-shuffle copy Restart goes back to. Older saves (or a failed
     // write) may not have it; the shuffled copy is a workable stand-in.
     originalQuizData: quiz.originalQuizData ?? quiz.activeQuiz,
@@ -209,7 +218,7 @@ function applyShuffle(quiz, quizOptions) {
 export function reducer(state, action) {
   switch (action.type) {
     case 'START_QUIZ': {
-      const { term, course, quizData } = action.payload;
+      const { term, course, quizData, quizId } = action.payload;
       const activeQuiz = applyShuffle(JSON.parse(JSON.stringify(quizData)), state.quizOptions);
       return {
         ...state,
@@ -218,6 +227,7 @@ export function reducer(state, action) {
         activeQuiz,
         activeTerm: term,
         activeCourse: course,
+        activeQuizId: quizId ?? null, // null for a Multi session
         activeMode: 'quiz',
         currentIndex: 0,
         userAnswers: {},
@@ -229,7 +239,7 @@ export function reducer(state, action) {
     // attempt — drop any previous attempt's answers so they can't leak into
     // this review (e.g. the Wrong answers only filter; ids repeat across quizzes).
     case 'START_REVIEW': {
-      const { term, course, quizData, fresh } = action.payload;
+      const { term, course, quizData, quizId, fresh } = action.payload;
       return {
         ...state,
         screen: 'review',
@@ -237,6 +247,7 @@ export function reducer(state, action) {
         activeQuiz: JSON.parse(JSON.stringify(quizData)),
         activeTerm: term,
         activeCourse: course,
+        activeQuizId: quizId ?? null, // null for a Multi session
         activeMode: 'review',
         currentIndex: 0,
         result: null,
@@ -248,7 +259,7 @@ export function reducer(state, action) {
       if (state.activeMode === 'quiz') {
         return reducer(state, {
           type: 'START_QUIZ',
-          payload: { term: state.activeTerm, course: state.activeCourse, quizData: state.originalQuizData },
+          payload: { term: state.activeTerm, course: state.activeCourse, quizData: state.originalQuizData, quizId: state.activeQuizId },
         });
       }
       // Review restarts from the current activeQuiz rather than the original:
@@ -256,7 +267,7 @@ export function reducer(state, action) {
       // (graded on the review cards) refer to that shuffled order.
       return reducer(state, {
         type: 'START_REVIEW',
-        payload: { term: state.activeTerm, course: state.activeCourse, quizData: state.activeQuiz },
+        payload: { term: state.activeTerm, course: state.activeCourse, quizData: state.activeQuiz, quizId: state.activeQuizId },
       });
     }
 
@@ -266,12 +277,12 @@ export function reducer(state, action) {
     case 'SWITCH_TO_REVIEW':
       return reducer(state, {
         type: 'START_REVIEW',
-        payload: { term: state.activeTerm, course: state.activeCourse, quizData: state.activeQuiz },
+        payload: { term: state.activeTerm, course: state.activeCourse, quizData: state.activeQuiz, quizId: state.activeQuizId },
       });
     case 'SWITCH_TO_QUIZ':
       return reducer(state, {
         type: 'START_QUIZ',
-        payload: { term: state.activeTerm, course: state.activeCourse, quizData: state.activeQuiz },
+        payload: { term: state.activeTerm, course: state.activeCourse, quizData: state.activeQuiz, quizId: state.activeQuizId },
       });
 
     case 'GO_HOME':
@@ -293,6 +304,7 @@ export function reducer(state, action) {
         activeCourse: '',
         originalQuizData: null,
         activeQuiz: null,
+        activeQuizId: null,
         currentIndex: 0,
         userAnswers: {},
         result: null,

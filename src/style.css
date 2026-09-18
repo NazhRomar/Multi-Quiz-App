@@ -1495,6 +1495,26 @@ body.theme-dark {
   }
 }
 
+/* --- Subject sections (CourseCard, when its _meta.json declares explicit
+   sections instead of relying on title-prefix inference) --- */
+.quiz-section {
+  margin-bottom: 1.1rem;
+}
+
+.quiz-section:last-child {
+  margin-bottom: 0;
+}
+
+.quiz-section-header {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+
 /* --- Global Buttons --- */
 button {
   font-family: 'Nunito', sans-serif;

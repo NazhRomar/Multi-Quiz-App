@@ -72,6 +72,16 @@ So: to add a new item to an existing series (another module, another part), reus
 
 **If it's ambiguous whether a new quiz belongs to an existing series, extends it with a new naming pattern, or should stand alone — stop and ask the user rather than guessing.** Getting this wrong either silently merges unrelated quizzes into one card or fails to group ones that should be together.
 
+### Optional: explicit sections instead of title-prefix inference
+
+A subject folder's `_meta.json` (see next section) can declare a `sections` array — `{ "id", "name", "order" }` — as an alternative to the title-prefix inference above. If it does, a quiz opts into one by adding a top-level `"section": "<id>"` field matching one of those ids. A quiz with no `"section"`, or one that doesn't match a declared id, still falls into the ordinary title-prefix grouping shown under a trailing "Other" heading — so this is purely additive, never required. Only add a `"section"` field when the subject you're adding to already has `sections` declared in its `_meta.json`; don't invent a subject-level `_meta.json` just to tag one quiz unless the user asks for it.
+
+## Subject/term metadata (`_meta.json`)
+
+A term folder (`src/data/<Term>/_meta.json`) or subject folder (`src/data/<Term>/<Subject>/_meta.json`) can optionally carry a metadata file overriding the folder-name defaults: `id` (URL slug), `displayName`, `order` (explicit sort position), `archived`, and — subject-level only — `sections` (see above). Every field is independently optional, and a folder with no `_meta.json` at all falls back to its raw folder name for everything. See `src/data/_meta.json.example` for the full shape.
+
+Don't create or edit a `_meta.json` as part of an ordinary "add a quiz" task unless the user specifically asks for it — it's organizational, not required for a quiz to show up correctly.
+
 Every question has `id` (sequential integer from 1), `type`, `text`, `options`/type-specific fields, `correctAnswer`, `points`, `explanation`. Add `"context"` (HTML allowed, typically `<pre>...</pre>` for a code block) only when there's a snippet or note to show — omit it entirely rather than setting it to `""` when there's nothing to show, matching the style of existing files. `"context"` can also be an **array** of HTML strings, rendered as separate stacked boxes, for a question that shows several code snippets side by side (e.g. "which of these two functions…").
 
 Supported `type` values (verified against the current renderers in `src/components/quiz/options/` — `McTfOptions.jsx`, `MsqOptions.jsx`, `FitbInput.jsx`, `MatchingGrid.jsx`, `DragDropBoard.jsx` — and the scoring in `src/state/grading.js`):

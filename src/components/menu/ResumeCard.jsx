@@ -1,5 +1,6 @@
+import { useNavigate } from 'react-router-dom';
 import { useApp } from '../../state/AppContext.jsx';
-import { multiSubjectLabel } from '../../data/catalog.js';
+import { findQuizById, multiSubjectLabel, quizUrlFor } from '../../data/catalog.js';
 
 // Top of the home menu: the attempt you left unfinished, whether you
 // walked away via Exit or the browser/OS dropped the app mid quiz (the
@@ -8,7 +9,8 @@ import { multiSubjectLabel } from '../../data/catalog.js';
 // finished and just sits in storage until the next quiz replaces it.
 export default function ResumeCard() {
   const { state, dispatch } = useApp();
-  const { activeQuiz, activeMode, activeTerm, activeCourse, currentIndex, userAnswers, result } = state;
+  const navigate = useNavigate();
+  const { activeQuiz, activeMode, activeTerm, activeCourse, activeQuizId, currentIndex, userAnswers, result } = state;
 
   // Nothing worth resuming: opened and backed straight out again without
   // touching anything. Any saved answer counts, submitted or not — a
@@ -22,6 +24,24 @@ export default function ResumeCard() {
   const { label, tooltip } = activeQuiz.multi
     ? multiSubjectLabel(activeQuiz.multi)
     : { label: `${activeCourse} / ${activeQuiz.quizTitle}`, tooltip: `${activeTerm} — ${activeCourse}` };
+
+  // Navigates to the session's URL — QuizSessionRoute/MultiSessionRoute
+  // pick up from there (it's already the active session, so they just flip
+  // the screen rather than restarting it). Falls back to the direct
+  // dispatch only for an attempt saved before activeQuizId existed, or one
+  // whose quiz was since renamed/deleted.
+  const resume = () => {
+    if (activeQuiz.multi) {
+      navigate(isReview ? '/multi/review' : '/multi/quiz');
+      return;
+    }
+    const found = findQuizById(activeQuizId);
+    if (found) {
+      navigate(quizUrlFor(found.term, found.course, found.quiz, isReview ? 'review' : 'quiz'));
+      return;
+    }
+    dispatch({ type: 'RESUME_ATTEMPT' });
+  };
 
   return (
     <section className="resume-card">
@@ -45,10 +65,7 @@ export default function ResumeCard() {
         <button className="btn-prev resume-discard" onClick={() => dispatch({ type: 'DISCARD_ATTEMPT' })}>
           Discard
         </button>
-        <button
-          className={`btn-next ${isReview ? 'btn-next--review' : ''}`}
-          onClick={() => dispatch({ type: 'RESUME_ATTEMPT' })}
-        >
+        <button className={`btn-next ${isReview ? 'btn-next--review' : ''}`} onClick={resume}>
           Resume
         </button>
       </div>

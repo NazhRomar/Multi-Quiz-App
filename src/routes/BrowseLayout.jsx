@@ -1,18 +1,17 @@
 import { useRef, useState } from 'react';
-import { useApp } from '../../state/AppContext.jsx';
-import { buildMultiQuiz, courseMenu, filterCourseMenu, sortedTerms } from '../../data/catalog.js';
-import Dropdown from '../settings/Dropdown.jsx';
-import AppSettingsFields from '../settings/AppSettingsFields.jsx';
-import SegmentedToggle from '../common/SegmentedToggle.jsx';
-import TermSection from './TermSection.jsx';
-import BadgeLegend from './BadgeLegend.jsx';
-import ResumeCard from './ResumeCard.jsx';
-import ChangelogModal from './ChangelogModal.jsx';
-import { useOverload } from './overload/useOverload.js';
-import OverloadCount from './overload/OverloadCount.jsx';
-import { formatBuildDate } from '../../utils/formatBuildDate.js';
-import { estimateSeconds, formatDuration } from '../../utils/estimateTime.js';
-import { showcaseQuiz } from '../../devFixtures/showcaseQuiz.js';
+import { Outlet, useNavigate, useSearchParams } from 'react-router-dom';
+import { useApp } from '../state/AppContext.jsx';
+import { catalog } from '../data/catalog.js';
+import Dropdown from '../components/settings/Dropdown.jsx';
+import AppSettingsFields from '../components/settings/AppSettingsFields.jsx';
+import SegmentedToggle from '../components/common/SegmentedToggle.jsx';
+import BadgeLegend from '../components/menu/BadgeLegend.jsx';
+import ResumeCard from '../components/menu/ResumeCard.jsx';
+import ChangelogModal from '../components/menu/ChangelogModal.jsx';
+import { useOverload } from '../components/menu/overload/useOverload.js';
+import OverloadCount from '../components/menu/overload/OverloadCount.jsx';
+import { formatBuildDate } from '../utils/formatBuildDate.js';
+import { estimateSeconds, formatDuration } from '../utils/estimateTime.js';
 
 const icon = (children) => (
   <svg className="segmented-icon" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -63,40 +62,32 @@ const MODE_OPTIONS = [
   },
 ];
 
-export default function MenuScreen() {
+// Home's chrome: header, search box, mode toggles, the Resume card, the
+// badge legend, footer and the Multi Quiz selection bar. HomeScreen renders
+// in the <Outlet/>, receiving { search, isSearching } via outlet context.
+export default function BrowseLayout() {
   const { state, dispatch } = useApp();
   const { homeMode } = state;
-  const [search, setSearch] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [showChangelog, setShowChangelog] = useState(false);
+
+  const search = searchParams.get('q') || '';
   const isSearching = search.trim().length > 0;
-  const menu = filterCourseMenu(search);
-  const terms = sortedTerms(menu);
-  // Multi: tapping a quiz toggles it in the selection instead of opening it.
+
+  const onSearchChange = (value) => setSearchParams(value ? { q: value } : {}, { replace: true });
+
   const selected = new Set(state.multiSelection);
   const setHomeMode = (key, value) => dispatch({ type: 'SET_HOME_MODE', payload: { key, value } });
 
-  const toggleQuizzes = (quizzes) => {
-    const next = new Set(selected);
-    const allSelected = quizzes.every((q) => next.has(q.id));
-    quizzes.forEach((q) => (allSelected ? next.delete(q.id) : next.add(q.id)));
-    dispatch({ type: 'SET_MULTI_SELECTION', payload: [...next] });
-  };
+  // Just navigates — MultiSessionRoute is what actually starts the session
+  // from state.multiSelection once it mounts (same split as a single quiz:
+  // click navigates, the destination route dispatches).
+  const startMulti = () => navigate(homeMode.review ? '/multi/review' : '/multi/quiz');
 
-  const start = (term, course, quizData) => {
-    if (homeMode.review) {
-      dispatch({ type: 'START_REVIEW', payload: { term, course, quizData, fresh: true } });
-    } else {
-      dispatch({ type: 'START_QUIZ', payload: { term, course, quizData } });
-    }
-  };
-
-  const openQuiz = (term, course, quiz) => {
-    if (homeMode.multi) toggleQuizzes([quiz]);
-    else start(term, course, quiz.data);
-  };
-
-  const selectedQuestions = Object.values(courseMenu)
-    .flatMap((courses) => Object.values(courses).flat())
+  const selectedQuestions = catalog
+    .flatMap((term) => term.courses)
+    .flatMap((course) => course.quizzes)
     .filter((quiz) => selected.has(quiz.id))
     .flatMap((quiz) => quiz.data.questions || []);
   const selectedQuestionCount = selectedQuestions.length;
@@ -120,11 +111,8 @@ export default function MenuScreen() {
   if (hint) lastHint.current = hint;
 
   // Hidden testing shortcut: click the footer to launch a fixture quiz
-  // covering every question type, including drag-drop (no real quiz data
-  // uses that type, so this is the only way to exercise it end to end).
-  const openShowcase = () => {
-    dispatch({ type: 'START_QUIZ', payload: { term: 'Dev', course: 'Testing', quizData: showcaseQuiz } });
-  };
+  // covering every question type, including drag-drop.
+  const openShowcase = () => navigate('/dev/showcase');
 
   return (
     <div className={homeMode.multi ? 'menu--selecting' : ''}>
@@ -143,7 +131,7 @@ export default function MenuScreen() {
           className="menu-search-input"
           placeholder="Search quizzes, courses, terms..."
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => onSearchChange(e.target.value)}
         />
         <div className="menu-mode-toggles">
           <SegmentedToggle
@@ -168,17 +156,7 @@ export default function MenuScreen() {
         {/* Hidden while searching — a search is about finding something
             else, and the card would sit on top of the results. */}
         {!isSearching && <ResumeCard />}
-        {isSearching && terms.length === 0 && <div className="menu-search-empty">No quizzes match "{search.trim()}".</div>}
-        {terms.map((term) => (
-          <TermSection
-            key={term}
-            term={term}
-            courses={menu[term]}
-            forceExpanded={isSearching}
-            onOpen={(course, quiz) => openQuiz(term, course, quiz)}
-            selection={homeMode.multi ? { selected, toggleQuizzes } : null}
-          />
-        ))}
+        <Outlet context={{ search, isSearching }} />
       </main>
       <footer className="home-footer">
         {/* The showcase shortcut is scoped to the date text rather than the
@@ -237,7 +215,7 @@ export default function MenuScreen() {
           )}
           <button
             className={`btn-next ${homeMode.review ? 'btn-next--review' : ''}`}
-            onClick={() => start('', '', buildMultiQuiz(selected))}
+            onClick={startMulti}
             disabled={selected.size === 0}
           >
             {homeMode.review ? 'Start Review' : 'Start Quiz'}

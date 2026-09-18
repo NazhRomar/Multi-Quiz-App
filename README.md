@@ -1,7 +1,7 @@
 # Multi Quiz App
 
 A study app for my own coursework: the quizzes and reviewers for each subject, in one
-place, as an installable offline PWA. 26 quizzes / 1,010 questions across 4 subjects today,
+place, as an installable offline PWA. 31 quizzes / 1,130 questions across 5 subjects today,
 all bundled at build time — there is no backend, no account and no network call once the
 app has loaded.
 
@@ -34,6 +34,11 @@ The short version of the mechanics:
   taxonomy** — path segment 2 becomes the term heading, segment 3 the subject heading.
 - Files are auto-discovered by `import.meta.glob` in `src/data/catalog.js`. There is no
   index or manifest to update.
+- A term or subject folder can optionally carry a `_meta.json` (display name, explicit sort
+  order, and — subject-level — explicit `sections`) to override the folder-name defaults.
+  See `src/data/_meta.json.example` and `prompt.md`. Every field is independently optional,
+  and a subject with no `_meta.json` at all still works — it just falls back to its folder
+  name and today's title-prefix grouping.
 - `quizTitle` drives sub-grouping: quizzes sharing a `"<Series> - <Item>"` prefix collapse
   into one card, but only once two of them share it. Reuse an existing prefix
   character-for-character.
@@ -51,14 +56,15 @@ The short version of the mechanics:
 
 ```
 src/
-  App.jsx              screen switch: menu | quiz | review | result
+  App.jsx              mounts AppProvider + the router
+  routes/              the route tree (see "Routing" below)
   state/
     store.js           the reducer, defaults, and localStorage load/save
     AppContext.jsx     provider + the persistence effects
     grading.js         all correctness and scoring logic, in one place
   data/
     catalog.js         quiz discovery, grouping, Multi quiz assembly
-    <Term>/<Subject>/  the quiz JSON
+    <Term>/<Subject>/  the quiz JSON (+ optional _meta.json)
   components/
     menu/ quiz/ review/ result/ settings/ common/
   style.css            every style, including all 8 themes
@@ -67,6 +73,25 @@ src/
 `grading.js` is the file to be careful with — correctness, partial credit for
 matching/drag-drop/multi-blank, and the three multiple-select scoring modes all live
 there, and a bug in it silently produces a wrong score rather than an error.
+
+## Routing
+
+Real, bookmarkable, back-button-able URLs via `react-router-dom`'s `createHashRouter`
+(`src/routes/router.jsx`): `/`, `/quiz/:term/:subject/:quiz`, `/review/:term/:subject/:quiz`,
+`/multi/quiz`, `/multi/review`. Hash-based (`#/...`) deliberately, not `createBrowserRouter`:
+GitHub Pages (the primary deploy target) has no server rewrite and no `public/404.html`, so
+a plain browser-router deep link or reload would 404 at the CDN before React loads. A hash
+URL is never sent to the server at all, so every host just sees requests for `/`. The
+trade-off is the `#` in the address bar.
+
+Home (`routes/HomeScreen.jsx`) shows every term/subject/quiz inline, one screen, exactly
+like the app always has — browsing never needs more than one navigation. Searching (the
+`?q=` param, so a search is itself bookmarkable) narrows the same list down to matches.
+Shared chrome (search box, mode toggles, Resume card, badge legend, footer, Multi Quiz bar)
+lives in `routes/BrowseLayout.jsx`, wrapping Home. `routes/RootLayout.jsx` handles the one
+thing that has to run before any route renders: pointing the address bar at whatever
+attempt `createInitialState()` already restored from `localStorage`, so a reload
+mid-attempt lands back on the matching URL instead of resetting to `/`.
 
 ## Things worth knowing
 

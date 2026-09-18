@@ -1,0 +1,34 @@
+// NOT a real data file (note the .example extension — src/data/catalog.js's
+// glob only picks up "*.json"). This documents the optional _meta.json a
+// term or subject folder can carry. Every field is independently optional;
+// see catalog.js's top-of-file comment and prompt.md for the fallback rule
+// when a field (or the whole file) is absent.
+
+// --- src/data/<Term>/_meta.json (term-level) ---
+{
+  "id": "4th-year-1st-term",     // URL slug override; default: slugify(folder name)
+  "displayName": "4th Year, 1st Term",
+  "order": 10,                   // explicit sort position; terms without one keep
+                                  // today's "two numbers in the folder name" sort
+  "archived": false
+}
+
+// --- src/data/<Term>/<Subject>/_meta.json (subject-level) ---
+{
+  "id": "sia",
+  "displayName": "System Integration and Architecture",
+  "order": 1,
+  "archived": false,
+  // Optional explicit sub-sections. Omit entirely (or leave as []) to keep
+  // today's behavior: quizzes are grouped purely by a shared "<Series> -
+  // <Item>" title prefix (see buildRenderUnits in catalog.js), no section
+  // headers. Declaring sections here instead requires every quiz that
+  // belongs to one to carry a matching "section" field (see prompt.md) —
+  // a quiz with no "section", or one that doesn't match an id below, falls
+  // into a trailing "Other" bucket under that subject's card on Home.
+  "sections": [
+    { "id": "py1", "name": "Python Essentials 1", "order": 1 },
+    { "id": "py2", "name": "Python Essentials 2", "order": 2 },
+    { "id": "devnet", "name": "DevNet Associate", "order": 3 }
+  ]
+}

@@ -1,7 +1,7 @@
 // Not real quiz content — a fixture covering every supported question type,
-// used only by the hidden "click the home footer" testing shortcut in
-// MenuScreen.jsx. Deliberately kept out of src/data/ so it never shows up
-// in the normal course/term menu.
+// used only by the hidden "click the home footer" testing shortcut
+// (routes/DevShowcaseRoute.jsx). Deliberately kept out of src/data/ so it
+// never shows up in the normal course/term menu.
 export const showcaseQuiz = {
   courseCode: 'DEV',
   quizTitle: 'Question Type Showcase',
