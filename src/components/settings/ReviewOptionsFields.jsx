@@ -6,6 +6,11 @@ export default function ReviewOptionsFields() {
   const { state, dispatch } = useApp();
   const { reviewOptions } = state;
   const set = (key, value) => dispatch({ type: 'SET_REVIEW_OPTION', payload: { key, value } });
+  // A review started fresh from the home menu (not right after a quiz
+  // attempt) has no grading to filter by — see ReviewScreen.jsx, which
+  // ignores the setting either way, but it's disabled here too rather than
+  // left checked and silently doing nothing.
+  const hasAttempt = Object.keys(state.userAnswers).length > 0;
 
   return (
     <>
@@ -19,6 +24,8 @@ export default function ReviewOptionsFields() {
         <ToggleRow
           title="Wrong answers only"
           hint="Only the questions you missed"
+          inert={!hasAttempt}
+          why="This review didn't start from a quiz attempt, so there's nothing to grade"
           checked={reviewOptions.wrongOnly}
           onChange={(v) => set('wrongOnly', v)}
         />
