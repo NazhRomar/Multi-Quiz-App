@@ -9,6 +9,11 @@
         { "id": "quizzes", "name": "Quizzes", "order": 2 }
       ]
     },
-    { "id": "netacad", "name": "NetAcad", "order": 2 }
+    {
+      "id": "netacad",
+      "name": "NetAcad",
+      "order": 2,
+      "series": [{ "id": "devnet", "name": "DevNet Associate", "order": 1 }]
+    }
   ]
 }

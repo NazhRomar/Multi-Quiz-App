@@ -1,8 +1,9 @@
 {
   "courseCode": "SIA",
-  "quizTitle": "DevNet Associate - Module 1 Exam",
+  "quizTitle": "Module 1 Exam",
   "totalPoints": 17,
   "section": "netacad",
+  "series": "devnet",
   "verified": true,
   "questions": [
     {
