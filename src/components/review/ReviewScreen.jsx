@@ -14,13 +14,23 @@ export default function ReviewScreen({ goHome }) {
   const [isCardExiting, setIsCardExiting] = useState(false);
   const isMobile = useIsMobile();
   const isListView = reviewOptions.listView;
-  const questions = reviewOptions.wrongOnly
-    ? activeQuiz.questions.filter((q) => !q.flagged && !isAnswerCorrect(q, userAnswers[q.id]?.value ?? null))
-    : activeQuiz.questions;
-  const total = questions.length;
   // Reviewing right after a quiz attempt (not a fresh review from home):
-  // cards then grade that attempt.
+  // cards then grade that attempt. Wrong answers only needs one to filter
+  // by — started fresh, there's no grading to base it on (and nothing
+  // filtered would ever be "wrong"), so it's ignored either way; the
+  // setting itself is also disabled in Review options (ReviewOptionsFields).
   const hasAttempt = Object.keys(userAnswers).length > 0;
+  const questions =
+    reviewOptions.wrongOnly && hasAttempt
+      ? activeQuiz.questions.filter((q) => !q.flagged && !isAnswerCorrect(q, userAnswers[q.id]?.value ?? null))
+      : activeQuiz.questions;
+  const total = questions.length;
+  // Each card's own number badge (ReviewCard) always names its position in
+  // the quiz itself — stable for the session (shuffled once at quiz start,
+  // same order throughout) — never its position in a Wrong-only subset, so
+  // "Question 7" stays Question 7 whether you're looking at every question
+  // or only the ones you missed.
+  const quizIndexById = new Map(activeQuiz.questions.map((q, i) => [q.id, i]));
   const answerOf = (q) => userAnswers[q.id]?.value ?? null;
 
   const animatedNav = (actionType) => {
@@ -79,11 +89,11 @@ export default function ReviewScreen({ goHome }) {
             <strong>🎉 No wrong answers to review!</strong>
           </div>
         ) : isListView ? (
-          questions.map((q, idx) => (
+          questions.map((q) => (
             <ReviewCard
               key={q.id}
               question={q}
-              index={idx}
+              index={quizIndexById.get(q.id)}
               reviewOptions={reviewOptions}
               quizOptions={state.quizOptions}
               compactStatus={isMobile}
@@ -99,7 +109,7 @@ export default function ReviewScreen({ goHome }) {
             key={questions[Math.min(currentIndex, total - 1)].id}
             compactStatus={isMobile}
             question={questions[Math.min(currentIndex, total - 1)]}
-            index={Math.min(currentIndex, total - 1)}
+            index={quizIndexById.get(questions[Math.min(currentIndex, total - 1)].id)}
             reviewOptions={reviewOptions}
             quizOptions={state.quizOptions}
             isListView={false}
