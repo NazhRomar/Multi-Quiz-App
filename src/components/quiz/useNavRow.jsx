@@ -49,6 +49,7 @@ export function useNavRow({
   onRestart,
   onExit,
   submitReady,
+  submitIsEmpty,
   onSubmit,
   mobileSubmitButton,
   sourceTag,
@@ -182,7 +183,9 @@ export function useNavRow({
     if (isMobile && mobileSubmitButton && submitReady) {
       nextBtn = (
         <button key="nav-submit" className="btn-next btn-next--submit" onClick={wrapClose(onSubmit)}>
-          Submit ✓
+          {/* Above the glint sweep (style.css), which paints as this
+              button's last child otherwise on top of the text. */}
+          <span className="btn-next-label">{submitIsEmpty ? 'Show Answer' : 'Submit ✓'}</span>
         </button>
       );
     }

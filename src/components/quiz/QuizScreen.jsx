@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useApp } from '../../state/AppContext.jsx';
-import { liveScore, scoreQuiz } from '../../state/grading.js';
+import { liveScore, scoreQuiz, fitbGiven } from '../../state/grading.js';
 import { useNavRow } from './useNavRow.jsx';
 import { useChoiceKeys, useEnterShortcut, usePrevShortcut } from './useEnterShortcut.js';
 import QuizHeader from './QuizHeader.jsx';
@@ -74,6 +74,17 @@ export default function QuizScreen({ goHome }) {
       ? true
       : (question.type === 'mc' || question.type === 'tf') && !quizOptions.instantSubmit && hasSelection);
 
+  // Nothing picked yet on a question that doubles as "give up and reveal"
+  // (msq/fitb — matching and drag-drop's in-card button says Submit either
+  // way, so it's mirrored as-is): the mobile Submit button should say Show
+  // Answer too, matching what tapping it actually does.
+  const submitIsEmpty =
+    question.type === 'msq'
+      ? (savedState.value || []).length === 0
+      : question.type === 'fitb'
+        ? fitbGiven(question, savedState.value).every((g) => !g.trim())
+        : false;
+
   // Number keys pick an option (1–9, 0 = 10th): Multiple Choice / True-False
   // select it (and submit, with Instant submit on); Multiple Select toggles
   // it, then Enter submits.
@@ -114,6 +125,7 @@ export default function QuizScreen({ goHome }) {
     onRestart: () => dispatch({ type: 'RESTART' }),
     onExit: goHome,
     submitReady,
+    submitIsEmpty,
     onSubmit: submitCurrent,
     mobileSubmitButton: quizOptions.mobileSubmitButton,
     sourceTag: <QuestionSource question={question} variant="nav" />,
