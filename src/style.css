@@ -1604,14 +1604,47 @@ button {
 
 /* Mobile Submit button: standing in for the in-card Submit, so it reads as
    the same "lock in this answer" action — the correct-answer green rather
-   than the ordinary Next blue. */
+   than the ordinary Next blue. A soft diagonal glint sweeps across it every
+   few seconds (paused in between, not a constant shimmer) as a second,
+   ambient cue — beyond the one-off flip on mount — that this button is
+   ready and worth tapping. */
 .btn-next--submit {
   background: var(--correct);
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-next--submit:hover:not(:disabled) {
   background: var(--correct);
   filter: brightness(1.1);
+}
+
+.btn-next-label {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-next--submit::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: skewX(-20deg);
+  animation: btn-submit-glint 2.8s ease-in-out infinite;
+}
+
+@keyframes btn-submit-glint {
+  0%,
+  15% {
+    left: -60%;
+  }
+  55%,
+  100% {
+    left: 130%;
+  }
 }
 
 button:disabled {
