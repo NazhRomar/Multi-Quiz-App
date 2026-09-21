@@ -1,4 +1,5 @@
 {
   "id": "laravel",
-  "displayName": "Laravel"
+  "displayName": "Laravel",
+  "order": 1
 }
