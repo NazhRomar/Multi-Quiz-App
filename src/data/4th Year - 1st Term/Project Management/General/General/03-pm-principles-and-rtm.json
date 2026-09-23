@@ -1,0 +1,277 @@
+{
+  "quizTitle": "Project Management - Module 3: Principles & RTM",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "How is a \"project\" defined in the material?",
+      "options": [
+        "A temporary endeavor with a unique goal and usually a budget",
+        "A permanent business function with recurring output",
+        "An informal team activity with no defined goal",
+        "A single-person task with unlimited time"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A project is defined as a temporary endeavor that has a unique goal and usually a budget."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "Project management is the application of processes, methods, skills, knowledge, and experience to achieve project objectives within which agreed-upon parameters?",
+      "options": ["Scope, time, cost, and quality", "Marketing, sales, and branding", "Hiring, payroll, and benefits", "Location, weather, and logistics"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Project management aims to deliver a result within agreed-upon scope, time, cost, and quality parameters."
+    },
+    {
+      "id": 3,
+      "type": "msq",
+      "text": "Which of the following are listed as reasons project management is important?",
+      "options": ["Organization and Structure", "Improved Efficiency", "Guaranteed Profit Margins", "Stakeholder Satisfaction"],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "The material lists Organization and Structure, Improved Efficiency, Stakeholder Satisfaction, Risk Management, and Achieving Strategic Goals. Guaranteed profit is not one of them."
+    },
+    {
+      "id": 4,
+      "type": "matching",
+      "text": "Match each project management importance area to its description.",
+      "allChoices": [
+        "Brings structure to processes that could otherwise be chaotic",
+        "Resources are allocated optimally, leading to higher productivity and cost savings",
+        "Ensures clear communication with stakeholders, keeping them informed and engaged",
+        "Enables teams to identify, assess, and mitigate risks",
+        "Projects are essential vehicles to drive organizational change and meet strategic objectives"
+      ],
+      "pairs": [
+        { "term": "Organization and Structure", "match": "Brings structure to processes that could otherwise be chaotic" },
+        { "term": "Improved Efficiency", "match": "Resources are allocated optimally, leading to higher productivity and cost savings" },
+        { "term": "Stakeholder Satisfaction", "match": "Ensures clear communication with stakeholders, keeping them informed and engaged" },
+        { "term": "Risk Management", "match": "Enables teams to identify, assess, and mitigate risks" },
+        { "term": "Achieving Strategic Goals", "match": "Projects are essential vehicles to drive organizational change and meet strategic objectives" }
+      ],
+      "points": 1,
+      "explanation": "Each importance area maps to a distinct benefit described under \"Importance of Project Management.\""
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "Which role of the Project Manager involves developing a comprehensive project plan that outlines the scope, schedule, resources, and budget?",
+      "options": ["Planning", "Execution", "Risk Management", "Communication"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Planning covers developing the comprehensive project plan (scope, schedule, resources, budget)."
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "Which PM role involves leading the project team and coordinating activities to ensure timely delivery?",
+      "options": ["Planning", "Execution", "Problem-Solving", "Communication"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Execution covers leading the team and coordinating activities for timely delivery."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "Which PM role focuses on identifying and managing potential risks to minimize their impact on the project?",
+      "options": ["Execution", "Risk Management", "Communication", "Problem-Solving"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Risk Management covers identifying and managing potential risks."
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "Which PM role involves addressing challenges and conflicts that arise during the project lifecycle?",
+      "options": ["Planning", "Problem-Solving", "Communication", "Execution"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Problem-Solving covers addressing challenges and conflicts during the lifecycle."
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "Which PM role keeps stakeholders updated on progress, issues, and changes through regular communication?",
+      "options": ["Communication", "Planning", "Execution", "Risk Management"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Communication covers keeping stakeholders updated on progress, issues, and changes."
+    },
+    {
+      "id": 10,
+      "type": "fitb",
+      "text": "Project Performance Domains are a group of related activities that are critical for the effective delivery of project ___.",
+      "correctAnswer": "outcomes",
+      "points": 1,
+      "explanation": "Performance Domains are described as critical for the effective delivery of project outcomes."
+    },
+    {
+      "id": 11,
+      "type": "msq",
+      "text": "Which of the following are among the 8 Project Performance Domains listed in the material?",
+      "options": ["Stakeholders", "Measurement", "Budgeting", "Team"],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "The 8 domains listed are Team, Stakeholders, Development Approach and Life Cycle, Planning, Project Work, Delivery, Measurement, and Uncertainty. \"Budgeting\" is not named as its own domain."
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "How is a \"Stakeholder\" defined in the material?",
+      "options": [
+        "An individual, group, or organization that may affect, be affected by, or perceive itself to be affected by a decision, activity, or outcome of a project",
+        "Only the paying client of a project",
+        "Any employee within the performing organization",
+        "The project's software vendor"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "This is the definition given for a stakeholder."
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "How is \"Stakeholder Analysis\" defined?",
+      "options": [
+        "A method of systematically gathering and analyzing quantitative and qualitative information to determine whose interests should be taken into account throughout the project",
+        "A financial audit of stakeholder contracts",
+        "A survey sent only at project closure",
+        "A ranking of stakeholders by job title"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "This is the definition given for Stakeholder Analysis."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "Which stakeholder management tool maps stakeholders by power and interest to enhance project management efficiency and foster better relationships?",
+      "options": ["Power-Interest Matrix", "Cooperation-Threat Matrix", "Stakeholder Register", "Communication Plan"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The Power-Interest Matrix is listed as enhancing project management efficiency and fostering better stakeholder relationships."
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "Which document is described as used throughout the project, closely related to the communication plan, to manage stakeholder interactions?",
+      "options": ["Stakeholder Register", "Risk Register", "WBS Dictionary", "Business Case"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The Stakeholder Register is used throughout the project and is closely related to the project communication plan."
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "text": "Who is described as signing off that the project is complete, and is \"the one the PM has to satisfy\"?",
+      "options": ["The Project Sponsor", "The Scope & Requirements Lead", "The end user", "The vendor"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The Project Sponsor signs off that the project is complete."
+    },
+    {
+      "id": 17,
+      "type": "tf",
+      "text": "The Project Sponsor is usually inside the project team.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The material states the sponsor \"may be inside but is usually outside the project.\""
+    },
+    {
+      "id": 18,
+      "type": "mc",
+      "text": "What does RTM stand for in project management?",
+      "options": ["Requirements Traceability Matrix", "Risk Tracking Model", "Resource Time Management", "Reporting and Testing Metrics"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "RTM stands for Requirements Traceability Matrix."
+    },
+    {
+      "id": 19,
+      "type": "msq",
+      "text": "Which of the following are listed as typical columns/fields of a Requirements Traceability Matrix?",
+      "options": ["Requirement ID", "Related Test Cases", "Employee Salary", "Verification Status"],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "RTM columns include Requirement ID, Requirement Description, Source, Related Test Cases, Design and Implementation Details, Verification Status, and Priority. Employee Salary is not one of them."
+    },
+    {
+      "id": 20,
+      "type": "matching",
+      "text": "Match each type of RTM traceability to its description.",
+      "allChoices": [
+        "Tracks requirements from inception to ensure they are covered by design, development, and test cases",
+        "Ensures every element in the final product can be traced back to its original requirement",
+        "A combination of forward and backward traceability"
+      ],
+      "pairs": [
+        { "term": "Forward Traceability", "match": "Tracks requirements from inception to ensure they are covered by design, development, and test cases" },
+        { "term": "Backward Traceability", "match": "Ensures every element in the final product can be traced back to its original requirement" },
+        { "term": "Bi-directional Traceability", "match": "A combination of forward and backward traceability" }
+      ],
+      "points": 1,
+      "explanation": "Forward traceability goes requirement-to-test, backward goes final-product-to-requirement, and bi-directional combines both."
+    },
+    {
+      "id": 21,
+      "type": "mc",
+      "text": "Which RTM benefit involves linking requirements to test cases to identify and fix gaps early in the development process?",
+      "options": ["Defect Prevention", "Requirement Compliance", "Project Visibility", "Simplifies Audits"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Defect Prevention is achieved by linking requirements to test cases to catch gaps early."
+    },
+    {
+      "id": 22,
+      "type": "mc",
+      "text": "Which RTM tool is described as \"widely used due to its simplicity and flexibility\"?",
+      "options": ["Microsoft Excel", "JIRA", "IBM DOORS", "Trello"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Microsoft Excel is described as widely used for RTMs due to its simplicity and flexibility."
+    },
+    {
+      "id": 23,
+      "type": "msq",
+      "text": "Which of the following are listed as challenges of maintaining an RTM?",
+      "options": ["Complexity", "Frequent Updates", "Automation", "Manual Errors"],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "The listed challenges are Complexity, Frequent Updates, and Manual Errors. Automation is instead listed as a best practice, not a challenge."
+    },
+    {
+      "id": 24,
+      "type": "fitb",
+      "text": "One RTM best practice states: \"___ early: Create the RTM at the beginning of the project and update it continuously.\"",
+      "correctAnswer": "Start",
+      "points": 1,
+      "explanation": "The best practice is \"Start early: Create the RTM at the beginning of the project and update it continuously.\""
+    },
+    {
+      "id": 25,
+      "type": "mc",
+      "text": "In the RTM class exercise, what kind of system are students tasked with tracking requirements for?",
+      "options": [
+        "An online learning platform for a university",
+        "A hospital billing system",
+        "A retail point-of-sale system",
+        "A ride-sharing mobile app"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The exercise scenario is developing an online learning platform for a university."
+    },
+    {
+      "id": 26,
+      "type": "tf",
+      "text": "In the RTM exercise, the Requirement Type column classifies each requirement as Functional (F) or Non-Functional (NF).",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The RTM template's Requirement Type column classifies requirements as Functional (F) or Non-Functional (NF)."
+    }
+  ]
+}

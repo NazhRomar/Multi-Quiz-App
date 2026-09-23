@@ -15,7 +15,7 @@ export default function QuizRow({ quiz, label, onOpen, selected }) {
         {/* Always mounted (collapsed to zero width outside selection mode) so it can grow in. */}
         <span className="quiz-select-check" aria-hidden="true" />
         {label}
-        <QuizBadges data={quiz.data} />
+        <QuizBadges badges={quiz.badges} />
       </span>
       <span className="quiz-btn-right">
         <span className="quiz-btn-meta" title={`${totalPoints} points`}>

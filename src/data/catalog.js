@@ -1,45 +1,58 @@
 // Loads every quiz JSON under src/data/**/*.json at build time and groups
-// them into a `catalog` tree: term (path segment 2) -> subject/course (path
-// segment 3) -> quiz. The folder path is meaningful, not cosmetic; see
-// prompt.md at the repo root.
-//
-// A term or subject folder may optionally carry a `_meta.json` file
-// declaring a URL id override, display name, explicit sort order, an
-// archived flag, and (subject-level only) an explicit list of sections —
-// which can themselves nest an explicit list of series. None of this is
-// required — every field falls back to something derived from the folder
-// name, so dropping a new quiz into a new folder with no _meta.json still
-// works exactly as before. See _meta.json.example in this folder for the
-// full shape, and prompt.md for the quiz-level `"section"`/`"series"`
-// fields that assign a quiz to one.
+// them into a `catalog` tree: term -> subject -> section -> series -> quiz.
+// The folder path is meaningful, not cosmetic — every level requires a
+// `_meta.json` declaring at least an `id` (the URL slug); see prompt.md and
+// _meta.json.example for the full shape of each level's metadata, including
+// the `badges` default and `showLabel`/`showCount` display toggles a
+// section or series can carry.
 import { slugify } from '../utils/slugify.js';
 
 const modules = import.meta.glob('./**/*.json', { eager: true });
+
+const BADGE_KEYS = ['verified', 'unofficial', 'unverified', 'unethicallySourced'];
 
 const termsByKey = new Map();
 
 function getTerm(key) {
   let term = termsByKey.get(key);
   if (!term) {
-    term = { key, meta: null, coursesByKey: new Map() };
+    term = { key, meta: null, subjectsByKey: new Map() };
     termsByKey.set(key, term);
   }
   return term;
 }
 
-function getCourse(term, key) {
-  let course = term.coursesByKey.get(key);
-  if (!course) {
-    course = { key, meta: null, quizzes: [] };
-    term.coursesByKey.set(key, course);
+function getSubject(term, key) {
+  let subject = term.subjectsByKey.get(key);
+  if (!subject) {
+    subject = { key, meta: null, sectionsByKey: new Map() };
+    term.subjectsByKey.set(key, subject);
   }
-  return course;
+  return subject;
 }
 
+function getSection(subject, key) {
+  let section = subject.sectionsByKey.get(key);
+  if (!section) {
+    section = { key, meta: null, seriesByKey: new Map() };
+    subject.sectionsByKey.set(key, section);
+  }
+  return section;
+}
+
+function getSeries(section, key) {
+  let series = section.seriesByKey.get(key);
+  if (!series) {
+    series = { key, meta: null, quizzes: [] };
+    section.seriesByKey.set(key, series);
+  }
+  return series;
+}
+
+// path is relative to this file (src/data/), e.g.
+// "./4th Year - 1st Term/System Integration and Architecture/Canvas/Module 1/01-module1.json"
+// or ".../Canvas/Module 1/_meta.json" (series-level metadata).
 for (const path in modules) {
-  // path is relative to this file (src/data/), e.g.
-  // "./4th Year - 1st Term/System Integration and Architecture/01-....json"
-  // or "./4th Year - 1st Term/_meta.json" (term-level metadata).
   const parts = path.split('/');
   const termKey = parts[1];
   if (!termKey) continue;
@@ -50,58 +63,51 @@ for (const path in modules) {
     continue;
   }
 
-  const courseKey = parts[2];
-  const filename = parts[3];
-  if (!courseKey || !filename) continue;
-  const course = getCourse(term, courseKey);
+  const subjectKey = parts[2];
+  if (!subjectKey) continue;
+  const subject = getSubject(term, subjectKey);
+
+  if (parts.length === 4) {
+    if (parts[3] === '_meta.json') subject.meta = modules[path];
+    continue;
+  }
+
+  const sectionKey = parts[3];
+  if (!sectionKey) continue;
+  const section = getSection(subject, sectionKey);
+
+  if (parts.length === 5) {
+    if (parts[4] === '_meta.json') section.meta = modules[path];
+    continue;
+  }
+
+  const seriesKey = parts[4];
+  const filename = parts[5];
+  if (!seriesKey || !filename) continue;
+  const series = getSeries(section, seriesKey);
 
   if (filename === '_meta.json') {
-    course.meta = modules[path];
+    series.meta = modules[path];
     continue;
   }
 
   const quizData = modules[path];
-  course.quizzes.push({
-    // id: the file path — stable across searches/renders, used to track the
-    // Multi Quiz selection.
+  series.quizzes.push({
     id: path,
-    // slug: URL-safe form of the filename, used in routes instead of id
-    // (which contains slashes/spaces). Unique within a course by
-    // construction, since it comes from the filename.
     slug: slugify(filename.replace(/\.json$/, '')),
     title: quizData.quizTitle || 'Untitled Quiz',
-    section: quizData.section || null,
-    // Explicit series id (see a section's own `series` list in _meta.json).
-    // Unlike the automatic title-prefix inference below, an explicit series
-    // renders as a named group even with a single member.
-    series: quizData.series || null,
-    // Explicit position within its series (see buildSeriesUnits) — quizzes
-    // with no order keep glob/filename order among themselves.
-    order: quizData.order ?? null,
+    // sectionKey/seriesKey: which folders this quiz sits in, so
+    // buildRenderUnits can regroup it later straight off course.quizzes
+    // (which filterCatalog may have narrowed down) instead of a separately
+    // pre-grouped tree that wouldn't reflect a search's results.
+    sectionKey,
+    seriesKey,
+    // Resolved per-tag from quizData.badges plus the series/section/subject
+    // defaults once those metas are known — filled in below, after every
+    // level's meta has been collected.
+    badges: quizData.badges || {},
     data: quizData,
   });
-}
-
-// An entry with an explicit `order` always sorts before one without;
-// entries carrying one are compared numerically, entries without one fall
-// through to `fallback` among themselves.
-function orderThenFallback(a, b, fallback) {
-  if (a.order != null && b.order != null) return a.order - b.order;
-  if (a.order != null) return -1;
-  if (b.order != null) return 1;
-  return fallback(a, b);
-}
-
-// Today's term-sort convention: two numbers pulled out of the folder name
-// (e.g. "4th Year - 1st Term" -> [4, 1]), newest year first, then term
-// ascending. Used only for terms with no explicit `order`.
-function regexTermCompare(a, b) {
-  const numsA = a.key.match(/\d+/g)?.map(Number) || [];
-  const numsB = b.key.match(/\d+/g)?.map(Number) || [];
-  const yearA = numsA[0] ?? 0;
-  const yearB = numsB[0] ?? 0;
-  if (yearB !== yearA) return yearB - yearA;
-  return (numsA[1] ?? 0) - (numsB[1] ?? 0);
 }
 
 function warnDuplicate(scope, id) {
@@ -110,53 +116,134 @@ function warnDuplicate(scope, id) {
   }
 }
 
+// A quiz's own badges win per-tag; otherwise it falls back through its
+// series, then section, then subject defaults — each declared as a
+// `"badges": { "<tag>": true }` object in that level's _meta.json.
+function resolveBadges(quizBadges, ...defaults) {
+  const resolved = {};
+  for (const key of BADGE_KEYS) {
+    if (key in quizBadges) {
+      resolved[key] = quizBadges[key];
+      continue;
+    }
+    const fromDefault = defaults.find((d) => d && key in d);
+    if (fromDefault) resolved[key] = fromDefault[key];
+  }
+  return resolved;
+}
+
 export const catalog = [...termsByKey.values()]
   .map((term) => {
-    const meta = term.meta || {};
-    const courses = [...term.coursesByKey.values()]
-      .map((course) => {
-        const cmeta = course.meta || {};
-        const sections = (cmeta.sections || [])
-          .map((s) => ({ ...s, series: (s.series || []).slice().sort((a, b) => (a.order ?? 0) - (b.order ?? 0)) }))
+    const tmeta = term.meta || {};
+    const subjects = [...term.subjectsByKey.values()]
+      .map((subject) => {
+        const smeta = subject.meta || {};
+        // "sections" is display metadata only — id/name/order/showLabel/
+        // showCount for each Section and its Series — never a pre-grouped
+        // quiz list. Actual membership is looked up from course.quizzes at
+        // render time (via each quiz's sectionKey/seriesKey), so a caller
+        // that narrows course.quizzes first (filterCatalog) still groups
+        // correctly instead of a stale, pre-baked tree ignoring the filter.
+        const sections = [...subject.sectionsByKey.values()]
+          .map((section) => {
+            const secmeta = section.meta || {};
+            const seriesList = [...section.seriesByKey.values()]
+              .map((series) => {
+                const sermeta = series.meta || {};
+                return {
+                  key: series.key,
+                  id: sermeta.id || slugify(series.key),
+                  name: series.key,
+                  order: sermeta.order ?? null,
+                  showLabel: sermeta.showLabel !== false,
+                  showCount: !!sermeta.showCount,
+                  badges: sermeta.badges || null,
+                };
+              })
+              .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+            return {
+              key: section.key,
+              id: secmeta.id || slugify(section.key),
+              name: section.key,
+              order: secmeta.order ?? null,
+              showLabel: secmeta.showLabel !== false,
+              showCount: !!secmeta.showCount,
+              badges: secmeta.badges || null,
+              series: seriesList,
+            };
+          })
           .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+
+        // The canonical quiz order: section order -> series order -> each
+        // series' own file order (matches display order top to bottom).
+        // Badges are resolved once here, per quiz.
+        const quizzes = sections.flatMap((sec) =>
+          sec.series.flatMap((ser) => {
+            const rawSeries = subject.sectionsByKey.get(sec.key).seriesByKey.get(ser.key);
+            return rawSeries.quizzes.map((q) => ({
+              ...q,
+              badges: resolveBadges(q.badges, ser.badges, sec.badges, smeta.badges),
+            }));
+          })
+        );
         return {
-          key: course.key,
-          id: cmeta.id || slugify(course.key),
-          displayName: cmeta.displayName || course.key,
-          order: cmeta.order ?? null,
-          archived: !!cmeta.archived,
+          key: subject.key,
+          id: smeta.id || slugify(subject.key),
+          displayName: smeta.displayName || subject.key,
+          order: smeta.order ?? null,
+          archived: !!smeta.archived,
           sections,
-          quizzes: course.quizzes,
+          quizzes,
         };
       })
-      // No native tiebreaker needed for courses without an explicit order:
+      .filter((subject) => !subject.archived)
+      // No native tiebreaker needed for subjects without an explicit order:
       // Array.prototype.sort is stable, so they keep glob (alphabetical)
-      // insertion order among themselves, same as today's Object.keys().
-      .sort((a, b) => orderThenFallback(a, b, () => 0));
+      // insertion order among themselves, same as today's Map order.
+      .sort((a, b) => {
+        if (a.order != null && b.order != null) return a.order - b.order;
+        if (a.order != null) return -1;
+        if (b.order != null) return 1;
+        return 0;
+      });
 
-    const seenCourseIds = new Set();
-    const seenQuizSlugs = new Map(); // courseId -> Set<slug>
-    courses.forEach((c) => {
-      if (seenCourseIds.has(c.id)) warnDuplicate('subject', `${term.key}/${c.id}`);
-      seenCourseIds.add(c.id);
+    const seenSubjectIds = new Set();
+    const seenQuizSlugs = new Map(); // subjectId -> Set<slug>
+    subjects.forEach((s) => {
+      if (seenSubjectIds.has(s.id)) warnDuplicate('subject', `${term.key}/${s.id}`);
+      seenSubjectIds.add(s.id);
       const slugs = new Set();
-      c.quizzes.forEach((q) => {
-        if (slugs.has(q.slug)) warnDuplicate('quiz slug', `${term.key}/${c.key}/${q.slug}`);
+      s.quizzes.forEach((q) => {
+        if (slugs.has(q.slug)) warnDuplicate('quiz slug', `${term.key}/${s.key}/${q.slug}`);
         slugs.add(q.slug);
       });
-      seenQuizSlugs.set(c.id, slugs);
+      seenQuizSlugs.set(s.id, slugs);
     });
 
     return {
       key: term.key,
-      id: meta.id || slugify(term.key),
-      displayName: meta.displayName || term.key,
-      order: meta.order ?? null,
-      archived: !!meta.archived,
-      courses,
+      id: tmeta.id || slugify(term.key),
+      displayName: tmeta.displayName || term.key,
+      order: tmeta.order ?? null,
+      archived: !!tmeta.archived,
+      courses: subjects,
     };
   })
-  .sort((a, b) => orderThenFallback(a, b, regexTermCompare));
+  .filter((term) => !term.archived)
+  // Today's term-sort convention: two numbers pulled out of the folder name
+  // (e.g. "4th Year - 1st Term" -> [4, 1]), newest year first, then term
+  // ascending. Used only for terms with no explicit `order`.
+  .sort((a, b) => {
+    if (a.order != null && b.order != null) return a.order - b.order;
+    if (a.order != null) return -1;
+    if (b.order != null) return 1;
+    const numsA = a.key.match(/\d+/g)?.map(Number) || [];
+    const numsB = b.key.match(/\d+/g)?.map(Number) || [];
+    const yearA = numsA[0] ?? 0;
+    const yearB = numsB[0] ?? 0;
+    if (yearB !== yearA) return yearB - yearA;
+    return (numsA[1] ?? 0) - (numsB[1] ?? 0);
+  });
 
 {
   const seenTermIds = new Set();
@@ -267,9 +354,7 @@ export function buildMultiQuiz(selectedIds) {
     }
   }
   return {
-    courseCode: 'MULTI',
     quizTitle: 'Multi Quiz',
-    totalPoints: questions.reduce((sum, q) => sum + (q.points || 1), 0),
     questions,
     multi: { subjects, quizzes },
   };
@@ -285,88 +370,45 @@ export function multiSubjectLabel(multi) {
   return { label, tooltip };
 }
 
-// Automatic fallback grouping: quizzes sharing a "<Series> - <Item>" title
-// prefix with 2+ siblings become one series bucket (rendered as chips);
-// everything else stands alone as a row. This is what runs when nothing
-// declares an explicit series (see buildSeriesUnits below) — a quiz with a
-// dash in its title still just renders standalone until a sibling shares
-// its exact prefix.
-function inferUnits(quizzes) {
-  const prefixCounts = {};
-  quizzes.forEach((quiz) => {
-    const parts = quiz.title.split(' - ');
-    if (parts.length < 2) return;
-    const prefix = parts[0];
-    prefixCounts[prefix] = (prefixCounts[prefix] || 0) + 1;
-  });
-
-  const units = [];
-  const seriesByPrefix = new Map();
-  quizzes.forEach((quiz) => {
-    const parts = quiz.title.split(' - ');
-    const prefix = parts.length >= 2 ? parts[0] : null;
-    const isSeries = prefix && prefixCounts[prefix] >= 2;
-
-    if (isSeries) {
-      let series = seriesByPrefix.get(prefix);
-      if (!series) {
-        series = { type: 'series', name: prefix, items: [] };
-        seriesByPrefix.set(prefix, series);
-        units.push(series);
-      }
-      series.items.push({ quiz, label: quiz.title.slice(prefix.length + 3) });
-    } else {
-      units.push({ type: 'standalone', quiz, label: quiz.title });
-    }
-  });
-  return units;
-}
-
-// Explicit, declared series (a section's `series` list in _meta.json) take
-// priority over the automatic title-prefix inference above: a quiz opts in
-// with a top-level `"series": "<id>"` field, and — unlike inference — a
-// declared series renders as a named group even with a single member,
-// using the quiz's full title as its item label (there's no shared prefix
-// to strip). Items within a series are ordered by their own optional
-// `"order"` field (ties/absent keep glob/filename order). Anything left
-// over (no `series` field, or one that doesn't match a declared id) falls
-// through to inferUnits as before.
-function buildSeriesUnits(quizzes, explicitSeries) {
-  if (!explicitSeries || !explicitSeries.length) return inferUnits(quizzes);
-
-  const used = new Set();
-  const units = [];
-  explicitSeries.forEach((s) => {
-    const items = quizzes.filter((q) => q.series === s.id).sort((a, b) => orderThenFallback(a, b, () => 0));
-    if (!items.length) return;
-    items.forEach((q) => used.add(q));
-    units.push({ type: 'series', name: s.name, items: items.map((quiz) => ({ quiz, label: quiz.title })) });
-  });
-  const leftover = quizzes.filter((q) => !used.has(q));
-  return [...units, ...inferUnits(leftover)];
-}
-
-// Groups a course's quizzes into render units for CourseCard.
+// Groups a section's quizzes for CourseCard: every series folder becomes a
+// render unit, its membership looked up from `quizzes` (course.quizzes, as
+// passed to buildRenderUnits — so a search-narrowed list still groups
+// correctly) by matching each quiz's sectionKey/seriesKey. A series with a
+// single quiz and showLabel:false renders as a plain standalone row instead
+// of a boxed/counted series card — the same visual a lone quiz always got,
+// just driven by the folder's _meta.json instead of the old
+// explicit-vs-inferred distinction.
 //
-// If the subject's _meta.json declares explicit `sections`, quizzes are
-// first bucketed by their own `section` field, then within each section by
-// its own explicit `series` (if declared) plus title-prefix inference for
-// the rest; any quiz with no section, or one that doesn't match a declared
-// id, lands in `ungrouped`. A subject with no declared sections (every
-// subject today, unless it opts in) gets `sections: []` and all its
-// quizzes run through plain inference in `ungrouped` — byte-identical to
-// what this function used to return outright.
-export function buildRenderUnits(course) {
-  if (!course.sections.length) {
-    return { sections: [], ungrouped: inferUnits(course.quizzes) };
-  }
+// Item labels: when every quiz in the series shares the exact same
+// "<Prefix> - " title prefix, that prefix is stripped from each label
+// (matches the old title-prefix inference); otherwise each quiz's full
+// title is used (matches the old explicit-series behavior).
+function buildSeriesUnit(series, quizzes) {
+  const first = quizzes[0]?.title.split(' - ');
+  const prefix = first && first.length >= 2 ? first[0] : null;
+  const sharedPrefix = prefix && quizzes.every((q) => q.title.startsWith(`${prefix} - `)) ? prefix : null;
+  const items = quizzes.map((quiz) => ({ quiz, label: sharedPrefix ? quiz.title.slice(sharedPrefix.length + 3) : quiz.title }));
 
-  const used = new Set();
-  const sections = course.sections.map((section) => {
-    const quizzes = course.quizzes.filter((q) => q.section === section.id);
-    quizzes.forEach((q) => used.add(q));
-    return { id: section.id, name: section.name, units: buildSeriesUnits(quizzes, section.series) };
-  });
-  const leftover = course.quizzes.filter((q) => !used.has(q));
-  return { sections, ungrouped: inferUnits(leftover) };
+  if (quizzes.length === 1 && !series.showLabel) {
+    return { type: 'standalone', quiz: quizzes[0], label: quizzes[0].title };
+  }
+  return { type: 'series', key: series.key, name: series.name, showLabel: series.showLabel, showCount: series.showCount, items };
+}
+
+export function buildRenderUnits(course) {
+  return course.sections
+    .map((section) => {
+      const seriesUnits = section.series
+        .map((series) => ({ series, quizzes: course.quizzes.filter((q) => q.sectionKey === section.key && q.seriesKey === series.key) }))
+        .filter(({ quizzes }) => quizzes.length > 0);
+      return {
+        key: section.key,
+        name: section.name,
+        showLabel: section.showLabel,
+        showCount: section.showCount,
+        count: seriesUnits.reduce((sum, { quizzes }) => sum + quizzes.length, 0),
+        units: seriesUnits.map(({ series, quizzes }) => buildSeriesUnit(series, quizzes)),
+      };
+    })
+    .filter((section) => section.units.length > 0);
 }

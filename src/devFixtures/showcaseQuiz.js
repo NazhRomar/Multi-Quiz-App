@@ -3,9 +3,7 @@
 // (routes/DevShowcaseRoute.jsx). Deliberately kept out of src/data/ so it
 // never shows up in the normal course/term menu.
 export const showcaseQuiz = {
-  courseCode: 'DEV',
   quizTitle: 'Question Type Showcase',
-  totalPoints: 9,
   questions: [
     {
       id: 1,

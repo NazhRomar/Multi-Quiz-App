@@ -1,0 +1,611 @@
+{
+  "quizTitle": "Python Essentials 2 - Final Exam",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "Knowing that a function named fun() resides in a module named mod, and was imported using the following statement, choose the right way to invoke the fun() function:",
+      "context": "<pre>from mod import fun</pre>",
+      "options": [
+        "fun()",
+        "mod.fun()",
+        "mod:fun()",
+        "mod::fun()"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "from mod import fun binds the name fun directly into the current namespace, so it's called as fun(), not mod.fun(). The mod. prefix is only needed after a plain 'import mod'."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "Given the Python code snippet below, what will be the output of this code?",
+      "context": "<pre>import random\nprint(len(dir(random)))</pre>",
+      "options": [
+        "The number of attributes in the random module.",
+        "A TypeError because dir cannot be used with modules.",
+        "A list of attributes belonging to the random module.",
+        "The documentation string of the random module."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "dir(random) returns a list of the module's attribute names; wrapping it in len() gives the count of those attributes, an integer, not the list itself."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "The compiled Python bytecode is stored in files which have their names ending with:",
+      "options": [
+        "pyb",
+        "pc",
+        "pyc",
+        "py"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Compiled bytecode is cached in .pyc files, typically under a __pycache__ directory."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "Assuming that the following three files: a.py, b.py, and c.py reside in the same directory, what will be the output produced after running the c.py file?",
+      "context": "<pre># file a.py\nprint(\"a\", end='')\n\n# file b.py\nimport a\nprint(\"b\", end='')\n\n# file c.py\nprint(\"c\", end='')\nimport a\nimport b</pre>",
+      "options": [
+        "bc",
+        "cab",
+        "cba",
+        "bac"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "c.py prints 'c' first, then import a runs a.py for the first time (prints 'a'), then import b runs b.py, whose own 'import a' is a no-op since a is already cached in sys.modules - only b.py's own print('b') runs. Result: cab."
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "If the following line of code is at the end of a Python script named calculator.py, what will be the output when this script is run directly?",
+      "context": "<pre>print(__name__)</pre>",
+      "options": [
+        "calculator",
+        "__calculator__",
+        "main",
+        "__main__"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "A script executed directly (not imported) always has its __name__ set to the string \"__main__\", regardless of the file's actual name."
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "Consider the following Python import statement in a script. What does this statement accomplish?",
+      "context": "<pre>from data.processing.analysis.v1 import compute_metrics as cm</pre>",
+      "options": [
+        "Imports the v1 package from the analysis submodule, which is part of the processing function inside the data module, and renames it to compute_metrics.",
+        "Imports the entire data package and renames it to compute_metrics, allowing all functions and classes within to be accessed using the prefix cm.",
+        "Imports the compute_metrics function from the v1.py script, which is part of the analysis subpackage in the processing package inside the data package, and renames it to cm.",
+        "Imports the data module from the processing package, which is part of the analysis subpackage inside the v1 package, and renames it to cm."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Reading the dotted path left to right: data is the top package, processing and analysis are subpackages, v1 is the module, and compute_metrics is the name imported from it and renamed to cm."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "Given the following Python code segment, if an exception is raised within risky_call(), how many except: blocks can be executed?",
+      "context": "<pre>try:\n    # Code that may raise an exception\n    risky_call()\nexcept ValueError:\n    print(\"Caught ValueError\")\nexcept TypeError:\n    print(\"Caught TypeError\")\nexcept Exception:\n    print(\"Caught a different exception\")</pre>",
+      "options": [
+        "One or more except: blocks will be executed.",
+        "None of the except: blocks will be executed.",
+        "Exactly one except: block will be executed.",
+        "Not more than one except: block will be executed."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "except clauses are checked in order and at most one can match and run - execution never falls through to a second one. \"Not more than one\" is the precise answer because it also covers the edge case of an exception that isn't an Exception subclass (e.g. a BaseException like SystemExit), which none of these three clauses would catch at all."
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "Consider the following Python code. What will be the output when this code is executed?",
+      "context": "<pre>try:\n    raise Exception(\"An error occurred\")\nexcept ValueError as ve:\n    print(\"ValueError:\", str(ve))\nexcept BaseException as be:\n    print(\"BaseException:\", str(be))\nexcept:\n    print(\"Caught some other exception\")</pre>",
+      "options": [
+        "No output; an unhandled exception will terminate the program",
+        "Caught some other exception",
+        "BaseException: An error occurred",
+        "ValueError: An error occurred"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "A plain Exception is not a ValueError, so the first clause doesn't match. It is a BaseException (Exception is a subclass of BaseException), so the second clause catches it and prints 'BaseException: An error occurred'."
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "Review the Python code below. What will be the expected result when this code is executed?",
+      "context": "<pre>try:\n    raise Exception(\"An error has occurred\")\nexcept Exception:\n    print(\"a\")\nexcept:\n    print(\"b\")\nexcept BaseException:\n    print(\"c\")</pre>",
+      "options": [
+        "The code will cause a syntax error",
+        "The code will print \"b\"",
+        "The code will print \"a\"",
+        "The code will print \"c\""
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A bare except: clause must always be the last except clause in a try statement. Here it's placed before except BaseException:, which is a SyntaxError (\"default 'except:' must be last\") - the code never runs at all."
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "Analyze the Python statement below. Which of the following statements is correct about the code above?",
+      "context": "<pre>with open('data.csv', 'r') as file:\n    for record in file:</pre>",
+      "options": [
+        "The code is invalid because the open function with 'r' mode returns nothing.",
+        "The code is valid because the open function with 'r' mode returns an iterable file object.",
+        "The code is invalid because the open function with 'r' mode returns a non-iterable object.",
+        "The code may be valid if record is predefined as a list before the loop."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "open() in text mode returns a file object that is iterable line-by-line, which is exactly what the for loop iterates over. The open() call does not return nothing or a non-iterable object."
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "Examine the Python assertion statement provided. What is the behavior of this code segment?",
+      "context": "<pre>assert var > 0</pre>",
+      "options": [
+        "It will raise an AssertionError if var is greater than 0.",
+        "It will do nothing regardless of the value of var.",
+        "It will raise an AssertionError if var is less than or equal to 0.",
+        "It will output the value of var if it is greater than 0."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "assert <condition> raises an AssertionError only when the condition evaluates to False, i.e. when var <= 0. If the condition is True, it does nothing."
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "Given the Python code segment below, what is the expected behavior when this code is executed?",
+      "context": "<pre>x = r\"\\\"\nprint(len(x))</pre>",
+      "options": [
+        "The code will print 4, as the raw string preserves the backslashes and the ending double quote is considered part of the string.",
+        "The code will print 3, as the raw string treats backslashes as literal characters.",
+        "The code will print 1, as the triple backslash in a raw string represents a single backslash.",
+        "The code will cause a syntax error due to the unescaped sequence at the end of the raw string."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "A raw string still cannot end in an odd number of backslashes - the backslash still escapes the following quote for parsing purposes (even though it stays literal in the value), so the string is never properly closed. This is a SyntaxError, not a valid string."
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "Given the Python code segment below, what will be the output when the code is executed?",
+      "context": "<pre>x = \"\\//\"\nprint(len(x))</pre>",
+      "options": [
+        "The code will output 3, recognizing the sequence of two backslashes as a single escaped backslash and two forward slashes.",
+        "The code will output 4, as there are four characters in the string, with the backslash escaping the following forward slash.",
+        "The code will output 2, as the double backslash represents a single backslash and the double forward slashes are combined.",
+        "The code will cause a syntax error due to an improper sequence of escape characters."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "\\/ is not a recognized escape sequence in a regular string, so Python keeps the backslash literally (at most a deprecation-style warning, not an error). The string ends up being backslash, slash, slash - 3 characters. Verified by running it."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "Consider the Python code provided below. What will be the output of this code?",
+      "context": "<pre>print(chr(ord('a') + 1))</pre>",
+      "options": [
+        "The code will print \"a\" because the addition operation does not affect the character.",
+        "The code will cause a syntax error because you cannot add a number to a character's ord() value.",
+        "The code will print \"A\" because the addition operation converts the lowercase 'a' to an uppercase 'A' without changing its position in the alphabet.",
+        "The code will print \"b\" as it takes the Unicode code point of 'a', adds 1, and converts it back to a character."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "ord('a') is 97, adding 1 gives 98, and chr(98) is 'b'. ord()/chr() work with plain integers, so there's no syntax error, and the result is not an uppercase conversion."
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "Consider the following Python code snippet. What will be the output when this code is executed?",
+      "context": "<pre>print(int(\"1.0\"))</pre>",
+      "options": [
+        "The code will print 1 because it converts the string \"1.0\" to an integer.",
+        "The code will cause a TypeError because strings cannot be converted to integers directly when they represent a float.",
+        "The code will cause a ValueError because \"1.0\" is not a valid literal for the int() constructor without prior conversion to a float.",
+        "The code will print 1.0 as it maintains the floating-point format."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "int() only accepts strings that look like plain integers. \"1.0\" must first go through float(\"1.0\") and then int(...) to succeed; passing it straight to int() raises ValueError, not TypeError."
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "text": "If the class constructor is declared in the following way, which one of the assignments is invalid?",
+      "context": "<pre>class Class:\n    def __init__(self, val=0):\n        pass</pre>",
+      "options": [
+        "object = Class(1, 2)",
+        "object = Class()",
+        "object = Class(None)",
+        "object = Class(1)"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "__init__ only accepts self and one optional val parameter, so passing two positional arguments (Class(1, 2)) raises a TypeError. Class(None) is fine - Python doesn't type-check val, so None is a perfectly valid value for it."
+    },
+    {
+      "id": 17,
+      "type": "mc",
+      "text": "Consider the Python class CustomNumber and the subsequent operations performed on its instance. What will be the output when the code is executed?",
+      "context": "<pre>class CustomNumber:\n    def __init__(self, value=1.5):\n        self.value = value\n\n    def increment(self, increase=2):\n        self.value -= increase\n        return self.value\n\nnum_instance = CustomNumber()\nnum_alias = num_instance\nnum_alias.increment()\n\nprint(num_instance.value)</pre>",
+      "options": [
+        "0.5",
+        "-0.5",
+        "3.5",
+        "A TypeError is raised."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "num_alias is not a copy - it's another name for the same object as num_instance. increment() subtracts increase from self.value (despite the misleading method name): 1.5 - 2 = -0.5. Since both names refer to the same object, num_instance.value is also -0.5."
+    },
+    {
+      "id": 18,
+      "type": "mc",
+      "text": "What is the expected output of the following code?",
+      "context": "<pre>class A:\n    A = 1\n    def __init__(self):\n        self.a = 0\n\nprint(hasattr(A, 'a'))</pre>",
+      "options": [
+        "True",
+        "0",
+        "False",
+        "1"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "hasattr(A, 'a') checks the class object A itself, not an instance. The class only carries the attribute A (capital, =1) and the __init__ method - the lowercase a attribute is only created on instances when __init__ runs, so no instance was ever made here. Attribute names are case-sensitive, so hasattr returns False. Verified by running it."
+    },
+    {
+      "id": 19,
+      "type": "mc",
+      "text": "What will the following Python code output?",
+      "context": "<pre>class Parent:\n    pass\n\nclass Uncle(Parent):\n    pass\n\nclass Child(Uncle):\n    pass\n\nclass Cousin(Parent):\n    pass\n\nprint(issubclass(Child, Cousin), issubclass(Cousin, Uncle))</pre>",
+      "options": [
+        "True, True",
+        "False, False",
+        "True, False",
+        "False, True"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Uncle and Cousin are sibling branches that both descend from Parent, but neither descends from the other. Child descends from Uncle, not from Cousin. So issubclass(Child, Cousin) is False and issubclass(Cousin, Uncle) is False. Verified by running it."
+    },
+    {
+      "id": 20,
+      "type": "mc",
+      "text": "What is the sys.stdout stream in Python typically associated with?",
+      "options": [
+        "The printer",
+        "A null device",
+        "The screen",
+        "The keyboard"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "sys.stdout is the standard output stream, which by default is connected to the console/screen. sys.stdin is the keyboard (standard input)."
+    },
+    {
+      "id": 21,
+      "type": "mc",
+      "text": "What will be the result of running the following code?",
+      "context": "<pre>class A:\n    def __init__(self, v):\n        self.__a = v + 1\n\nclass B(A):\n    def __init__(self, v):\n        super().__init__(v)\n        self.__a += 1\n\nb = B(0)\nprint(b._A__a)</pre>",
+      "options": [
+        "1",
+        "3",
+        "AttributeError is raised",
+        "2"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Name mangling is based on the class where the code is written, not the instance's actual type. Inside A.__init__, self.__a becomes self._A__a (set to v+1=1). Inside B.__init__, self.__a becomes self._B__a - a different attribute that was never created. self.__a += 1 tries to read self._B__a first, which doesn't exist, raising AttributeError before print() is ever reached."
+    },
+    {
+      "id": 22,
+      "type": "mc",
+      "text": "What is the expected result of executing the following code?",
+      "context": "<pre>class A:\n    def __init__(self):\n        pass\n\na = A(1)\nprint(hasattr(a, 'A'))</pre>",
+      "options": [
+        "The code will print 1",
+        "The code will raise an exception",
+        "The code will print True",
+        "The code will print False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "A.__init__(self) only accepts self, with no extra parameters. Calling A(1) supplies one extra positional argument, raising a TypeError immediately - the hasattr() call never executes."
+    },
+    {
+      "id": 23,
+      "type": "mc",
+      "text": "What is the expected result of executing the following code?",
+      "context": "<pre>class A:\n    def a(self):\n        print('a')\n\nclass B:\n    def a(self):\n        print('b')\n\nclass C(B, A):\n    def c(self):\n        self.a()\n\no = C()\no.c()</pre>",
+      "options": [
+        "The code will print c",
+        "The code will print a",
+        "The code will print b",
+        "The code will raise an exception"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "C(B, A) has a valid MRO of C -> B -> A -> object (B and A don't conflict, so there's no linearization error). self.a() resolves to the first a() found in that order, which is B's, printing 'b'."
+    },
+    {
+      "id": 24,
+      "type": "mc",
+      "text": "What is the expected result of executing the following code?",
+      "context": "<pre>try:\n    raise Exception(1, 2, 3, (4), \"A\",)\nexcept Exception as e:\n    print(len(e.args))</pre>",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "An exception will be raised"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "A trailing comma in a function call is just syntax, not an extra argument, and (4) is a plain parenthesized int (no comma inside, so it's not a tuple). The actual arguments are 1, 2, 3, 4, \"A\" - five values - so e.args has length 5. Verified by running it."
+    },
+    {
+      "id": 25,
+      "type": "mc",
+      "text": "What is the expected result of executing the following code?",
+      "context": "<pre>def my_fun(n):\n    s = '+'\n    for i in range(n):\n        s += s\n        yield s\n\nfor x in my_fun(2):\n    print(x, end='')</pre>",
+      "options": [
+        "The code will print ++",
+        "The code will print +",
+        "The code will print ++++++",
+        "The code will print +++"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "First iteration: s doubles from '+' to '++' and yields '++'. Second iteration: s doubles from '++' to '++++' and yields '++++'. Printed back to back with no separator: '++' + '++++' = six plus signs total. Verified by running it."
+    },
+    {
+      "id": 26,
+      "type": "mc",
+      "text": "What is the expected result of executing the following code?",
+      "context": "<pre>class I:\n    def __init__(self):\n        self.s = 'abc'\n        self.i = 0\n\n    def __iter__(self):\n        return self\n\n    def __next__(self):\n        if self.i == len(self.s):\n            raise StopIteration\n        v = self.s[self.i]\n        self.i += 1\n        return v\n\nfor x in I():\n    print(x, end='')</pre>",
+      "options": [
+        "The code will print cba",
+        "The code will print abc",
+        "The code will print 210",
+        "The code will print 012"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "__next__ returns self.s[self.i], i.e. the actual characters of 'abc' at increasing indices (0, 1, 2), not the index numbers themselves. Output is the characters in order: abc."
+    },
+    {
+      "id": 27,
+      "type": "mc",
+      "text": "What will be the output of the following code?",
+      "context": "<pre>def generate_pattern(n):\n    def create_pattern():\n        return '**' * n\n\n    return create_pattern\n\npattern1 = generate_pattern(1)\npattern2 = generate_pattern(2)\nprint(pattern1() + pattern2())</pre>",
+      "options": [
+        "***",
+        "******",
+        "**",
+        "****"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Each call to generate_pattern(n) creates a fresh closure over its own n, so pattern1() returns '**'*1 = '**' and pattern2() returns '**'*2 = '****'. Concatenated: '**' + '****' = six asterisks."
+    },
+    {
+      "id": 28,
+      "type": "mc",
+      "text": "If s is a stream opened in read mode, what does the following line of code do?",
+      "context": "<pre>q = s.read(-1)</pre>",
+      "options": [
+        "It reads the entire contents of the stream s.",
+        "It reads one character from the stream s.",
+        "It raises an error because a negative value is provided as an argument.",
+        "It reads nothing from the stream s."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "read(size) reads size characters/bytes, but when size is negative (or omitted), it reads and returns everything up to EOF - the same as calling read() with no argument."
+    },
+    {
+      "id": 29,
+      "type": "mc",
+      "text": "Assuming that the open() invocation has gone successfully, the following snippet will:",
+      "context": "<pre>for x in open('file', 'rt'):\n    print(x)</pre>",
+      "options": [
+        "read the file line by line",
+        "read the file character by character",
+        "read the whole file at once",
+        "cause an exception"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Iterating directly over a text-mode file object yields one line at a time, not individual characters and not the whole file in one shot."
+    },
+    {
+      "id": 30,
+      "type": "mc",
+      "text": "If you want to fill a byte array with data read in from a stream, which method can you use?",
+      "options": [
+        "The readfrom() method",
+        "The readbytes() method",
+        "The readinto() method",
+        "The read() method"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "readinto() reads bytes from a binary stream directly into a pre-allocated buffer (such as a bytearray) that you supply, rather than allocating and returning a new object like read() does."
+    },
+    {
+      "id": 31,
+      "type": "msq",
+      "text": "Which of the following commands would you use to check pip's version? (Select two answers)",
+      "options": [
+        "pip --version",
+        "pip3 --version",
+        "pip-version",
+        "pip version"
+      ],
+      "correctAnswer": [
+        0,
+        1
+      ],
+      "points": 1,
+      "explanation": "Both pip --version and pip3 --version are valid ways to check the installed pip version, depending on which command name is mapped to your Python 3 installation."
+    },
+    {
+      "id": 32,
+      "type": "mc",
+      "text": "Which of the following commands can be used with pip to uninstall a specific Python package?",
+      "options": [
+        "pip erase package_name",
+        "pip delete package_name",
+        "pip --remove package_name",
+        "pip uninstall package_name"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "pip uninstall package_name is the correct subcommand for removing an installed package. erase, delete, and --remove are not real pip options."
+    },
+    {
+      "id": 33,
+      "type": "mc",
+      "flagged": true,
+      "text": "Look at the following code. Which line would you insert in order for the program to produce the expected output shown below?",
+      "context": "<pre>numbers = [0, 2, 7, 9, 10]\n# Insert line of code here.\nprint(list(foo))</pre>\n<p><strong>Expected output:</strong> [0, 4, 49, 81, 100]</p>",
+      "options": [
+        "foo = lambda num: num * 2, numbers)",
+        "foo = lambda num: num ** 2, numbers",
+        "foo = filter(lambda num: num ** 2, numbers)",
+        "foo = map(lambda num: num ** 2, numbers)"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "FLAGGED: options 1 and 2 look malformed as transcribed (an unmatched closing parenthesis on option 1, and no wrapping call at all on option 2, which would just pack a (function, numbers) tuple) - worth double-checking their exact text against the real exam. Regardless of that, the only choice that actually transforms every element by squaring it is map(lambda num: num ** 2, numbers): map(...) applies the square to each of 0,2,7,9,10 giving 0,4,49,81,100, matching list(foo). filter(...) would instead keep/discard original elements based on truthiness of num**2 (dropping only the 0), giving [2,7,9,10] - not the expected output."
+    },
+    {
+      "id": 34,
+      "type": "mc",
+      "text": "Look at the following code. Which line would you insert in order for the program to produce the expected output shown below?",
+      "context": "<pre>numbers = [i*i for i in range(5)]\n# Insert line of code here.\nprint(foo)</pre>\n<p><strong>Expected output:</strong> [1, 9]</p>",
+      "options": [
+        "foo = list(filter(lambda x: x % 2, numbers))",
+        "foo = list(map(lambda x: x // 2, numbers))",
+        "foo = list(map(lambda x: x % 2, numbers))",
+        "foo = list(filter(lambda x: x / 2, numbers))"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "numbers = [0, 1, 4, 9, 16]. filter(lambda x: x % 2, numbers) keeps only the elements where x % 2 is truthy, i.e. the odd numbers themselves: 1 and 9, matching the expected [1, 9]. map(lambda x: x % 2, numbers) would instead replace each element with 0 or 1 - not what's expected. filter(lambda x: x / 2, ...) would drop only 0 (falsy) and keep everything else, giving [1, 4, 9, 16]."
+    },
+    {
+      "id": 35,
+      "type": "mc",
+      "text": "Look at the code below. Which lines of code would you insert so that it is possible for the program to output the following result: 6 82 0",
+      "context": [
+        "<pre>import random\n\n# Insert lines of code here.\n\nprint(a, b, c)</pre>\n<p><strong>Expected output:</strong> 6 82 0</p>",
+        "<p><strong>A:</strong></p>\n<pre>a = random.randrange(10, 100, 3)\nb = random.randint(0, 100)\nc = random.choice((0, 100, 3))</pre>",
+        "<p><strong>B:</strong></p>\n<pre>a = random.choice((0, 100, 3))\nb = random.randrange(10, 100, 3)\nc = random.randint(0, 100)</pre>",
+        "<p><strong>C:</strong></p>\n<pre>a = random.randint(0, 100)\nb = random.randrange(10, 100, 3)\nc = random.choice((0, 100, 3))</pre>",
+        "<p><strong>D:</strong></p>\n<pre>a = random.randint(0, 100)\nb = random.choice((0, 100, 3))\nc = random.randrange(10, 100, 3)</pre>"
+      ],
+      "options": [
+        "D",
+        "A",
+        "B",
+        "C"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "randrange(10, 100, 3) can only ever produce values >= 10 that are congruent to 10 mod 3 (10, 13, ..., 97) - it can never produce 6 or 0. choice((0, 100, 3)) can only ever produce exactly 0, 100, or 3 - it can never produce 6 or 82. randint(0, 100) can produce any integer 0-100, including 6. So a=6 forces randint for a, b=82 (only achievable by randrange, since 82 = 10 + 24*3) forces randrange for b, and c=0 (only achievable by choice, since 0 is outside randrange's range) forces choice for c - exactly option C."
+    },
+    {
+      "id": 36,
+      "type": "mc",
+      "text": "What is the expected result of the following code?",
+      "context": "<pre>import os\n\nos.mkdir('pictures')\nos.chdir('pictures')\n\nprint(os.getcwd())</pre>",
+      "options": [
+        "The code will print the owner of the created directory",
+        "The code will print the content of the created directory",
+        "The code will print the path to the created directory",
+        "The code will print the name of the created directory"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "os.getcwd() returns the current working directory as a full path string. After chdir('pictures'), that path points into the newly created pictures directory - it does not list contents, owner, or just a bare name."
+    },
+    {
+      "id": 37,
+      "type": "msq",
+      "text": "What information can be read using the uname function provided by the os module? (Select two answers)",
+      "options": [
+        "Hardware identifier",
+        "Last login date",
+        "Operating system name",
+        "Current path"
+      ],
+      "correctAnswer": [
+        0,
+        2
+      ],
+      "points": 1,
+      "explanation": "os.uname() returns a structure with fields including sysname (operating system name) and machine (hardware identifier/architecture), along with nodename, release, and version. It has no concept of last login date or current path."
+    },
+    {
+      "id": 38,
+      "type": "mc",
+      "text": "What is the expected result of the following code?",
+      "context": "<pre>from datetime import datetime\n\ndatetime_1 = datetime(2019, 11, 27, 11, 27, 22)\ndatetime_2 = datetime(2019, 11, 27, 0, 0, 0)\n\nprint(datetime_1 - datetime_2)</pre>",
+      "options": [
+        "11:27:22",
+        "0 days, 11:27:22",
+        "0 days",
+        "11 hours, 27 minutes, 22 seconds"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Subtracting two datetimes gives a timedelta. timedelta's string representation only prepends an 'X day(s), ' prefix when the days component is non-zero; since the difference here is entirely within one day (days=0), it prints as plain 11:27:22 with no days prefix. Verified against Python's timedelta.__str__ behavior."
+    },
+    {
+      "id": 39,
+      "type": "mc",
+      "text": "If you want to calculate the date that is 30 days after the current date, which of the following code snippets would you use?",
+      "options": [
+        "current_date + timedelta(30)",
+        "current_date + timedelta(days=30)",
+        "current_date + timedelta(days-=30)",
+        "current_date + timedelta(-30)"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "timedelta(days=-30) and timedelta(-30) both go 30 days into the past, the wrong direction. timedelta(days-=30) is a SyntaxError - you cannot use -= inside a call argument. The credited answer is the explicit keyword form timedelta(days=30); note that timedelta(30) is functionally identical to it since days is the constructor's first positional parameter, so it also produces a correct 30-day-forward result even though it isn't the officially keyed choice."
+    },
+    {
+      "id": 40,
+      "type": "mc",
+      "text": "What is the expected result of executing the following Python code?",
+      "context": "<pre>import calendar\n\ncalendar.setfirstweekday(calendar.FRIDAY)\nprint(calendar.weekheader(2))</pre>",
+      "options": [
+        "It will only print the names of the days of the week from Friday to Sunday.",
+        "It will raise an error because calendar.weekheader() does not accept arguments.",
+        "It will print the names of all the days of the week in a shorter format.",
+        "It will only print the names of the first two days of the week starting with Friday."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "calendar.weekheader(n) requires an integer width argument n and returns a header with all 7 day names abbreviated to that width, ordered starting from whichever day setfirstweekday() configured (Friday here). It does not error out, and it doesn't limit the number of days shown - only their abbreviation width."
+    }
+  ]
+}

@@ -1495,8 +1495,9 @@ body.theme-dark {
   }
 }
 
-/* --- Subject sections (CourseCard, when its _meta.json declares explicit
-   sections instead of relying on title-prefix inference) --- */
+/* --- Subject sections (CourseCard; every subject folder now always has at
+   least one, though a section whose _meta.json sets showLabel:false skips
+   the header below entirely) --- */
 .quiz-section {
   margin-bottom: 1.1rem;
 }
@@ -1506,6 +1507,10 @@ body.theme-dark {
 }
 
 .quiz-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
   font-family: 'Space Mono', monospace;
   font-size: 0.78rem;
   font-weight: 700;
@@ -1513,6 +1518,17 @@ body.theme-dark {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   margin-bottom: 0.5rem;
+}
+
+.quiz-section-count {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--radio-bg);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 /* --- Global Buttons --- */

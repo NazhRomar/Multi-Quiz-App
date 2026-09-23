@@ -1,50 +1,73 @@
 // NOT a real data file (note the .example extension — src/data/catalog.js's
-// glob only picks up "*.json"). This documents the optional _meta.json a
-// term or subject folder can carry. Every field is independently optional;
-// see catalog.js's top-of-file comment and prompt.md for the fallback rule
-// when a field (or the whole file) is absent.
+// glob only picks up "*.json"). This documents the _meta.json every folder
+// level carries. See catalog.js's top-of-file comment and prompt.md for the
+// full field list and fallback rules.
 
-// --- src/data/<Term>/_meta.json (term-level) ---
+// The hierarchy is fixed and five levels deep, every level a real folder
+// with its own _meta.json:
+//   src/data/<Term>/<Subject>/<Section>/<Series>/<quiz files>
+// A quiz's section/series membership comes from the folder it sits in —
+// there's no "section"/"series" field on the quiz JSON itself. A subject
+// with no natural grouping still needs at least one Section and one Series
+// folder (conventionally both named "General"), typically with
+// showLabel:false at both so nothing extra renders — see below.
+
+// --- src/data/<Term>/_meta.json ---
 {
-  "id": "4th-year-1st-term",     // URL slug override; default: slugify(folder name)
-  "displayName": "4th Year, 1st Term",
-  "order": 10,                   // explicit sort position; terms without one keep
-                                  // today's "two numbers in the folder name" sort
-  "archived": false
+  "id": "4th-year-1st-term",     // URL slug — REQUIRED at every level
+  "displayName": "4th Year, 1st Term",  // optional; default: the folder name
+  "order": 10,                   // optional explicit sort position; terms
+                                  // without one keep today's "two numbers in
+                                  // the folder name" sort
+  "archived": false               // optional; true hides this term (and
+                                   // everything under it) from the built
+                                   // catalog entirely
 }
 
-// --- src/data/<Term>/<Subject>/_meta.json (subject-level) ---
+// --- src/data/<Term>/<Subject>/_meta.json ---
 {
   "id": "sia",
   "displayName": "System Integration and Architecture",
   "order": 1,
   "archived": false,
-  // Optional explicit sections. Omit entirely (or leave as []) to keep
-  // today's behavior: quizzes are grouped purely by a shared "<Series> -
-  // <Item>" title prefix (see buildRenderUnits in catalog.js), no section
-  // headers. Declaring sections here instead requires every quiz that
-  // belongs to one to carry a matching "section" field (see prompt.md) —
-  // a quiz with no "section", or one that doesn't match an id below, falls
-  // into that subject's ordinary title-prefix grouping instead.
-  "sections": [
-    { "id": "py1", "name": "Python Essentials 1", "order": 1 },
-    { "id": "py2", "name": "Python Essentials 2", "order": 2 },
-    {
-      "id": "devnet",
-      "name": "DevNet Associate",
-      "order": 3,
-      // Optional explicit series *within* this section — same idea one
-      // level down. A quiz opts in with a top-level "series": "<id>" field
-      // (see prompt.md). Unlike the automatic title-prefix grouping, a
-      // declared series renders as a named card even with a single
-      // member — useful for a group you want labeled from day one, before
-      // a second quiz exists to trigger inference. A quiz with no
-      // "series", or one that doesn't match an id below, falls into this
-      // section's ordinary title-prefix grouping instead.
-      "series": [
-        { "id": "module1", "name": "Module 1", "order": 1 },
-        { "id": "quizzes", "name": "Quizzes", "order": 2 }
-      ]
-    }
-  ]
+  // Optional per-tag badge defaults (see the Section/Series example below
+  // for how these cascade) — a subject-level default is the fallback of
+  // last resort, used when neither the quiz nor its series/section says
+  // otherwise.
+  "badges": { "unofficial": true }
 }
+
+// --- src/data/<Term>/<Subject>/<Section>/_meta.json ---
+{
+  "id": "netacad",
+  "order": 2,
+  // "showLabel" (default true): whether this Section's name renders as a
+  // header at all. Turn it off when the name would be redundant — a
+  // subject's only section, or one that just repeats the subject's name.
+  "showLabel": true,
+  // "showCount" (default false, and only meaningful when showLabel is
+  // true): show a quiz count alongside the name.
+  "showCount": false,
+  // Optional per-tag badge default for every quiz under this section,
+  // overridable per Series below and per quiz (see prompt.md). Each of the
+  // four badge keys resolves independently: quiz's own "badges" wins if it
+  // sets that key, else its series' default, else its section's, else its
+  // subject's.
+  "badges": { "verified": true }
+}
+
+// --- src/data/<Term>/<Subject>/<Section>/<Series>/_meta.json ---
+{
+  "id": "devnet",
+  "order": 3,
+  "showLabel": true,
+  // Every existing named series shows its item count today, so this is
+  // "true" wherever showLabel is also true — the default (false) is for a
+  // series that wants a name but no count, or none of either.
+  "showCount": true,
+  "badges": { "unofficial": true }
+}
+
+// A trivial wrapper Section/Series (a subject with no real grouping) looks
+// like this at both levels — same shape, just opted out of display:
+// { "id": "general", "showLabel": false }

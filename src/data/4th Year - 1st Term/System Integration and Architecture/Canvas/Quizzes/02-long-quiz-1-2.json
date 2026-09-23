@@ -1,0 +1,528 @@
+{
+  "quizTitle": "Long Quiz 1 (2)",
+  "badges": {
+    "unverified": true
+  },
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "A developer needs to check the version of the running Python package. Which command should the developer use?",
+      "options": [
+        "python3 -i",
+        "python3 -q",
+        "python3 --v",
+        "python3 -V"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>-V</code> (uppercase) prints the interpreter's version and exits. <code>-i</code> forces an interactive session after a script runs, <code>-q</code> only suppresses the interactive-mode startup banner, and <code>--v</code> is not a recognized flag (the long form is <code>--version</code>)."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "A fitness application tracks total workout duration in minutes (<code>total_minutes = 130</code>) and converts it to full hours using floor division (<code>hours = total_minutes // 60</code>). In the same fitness application, the remaining workout minutes are computed using the modulo operator (<code>minutes = total_minutes % 60</code>) with <code>total_minutes = 130</code>. What value is assigned to <code>minutes</code>?",
+      "options": [
+        "10",
+        "2",
+        "60",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "130 % 60 is the remainder left over after removing two full 60-minute hours, which is 10. 2 is the hour count from the separate floor-division step, not the remainder; 60 and 0 don't match 130's actual remainder."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "An inventory system manages a fruit collection. A worker executes the following print statement. Which list is displayed?",
+      "context": "<pre>fruits = [\"apple\", \"banana\", \"cherry\", \"date\", \"elderberry\"]\nprint(fruits[1:4])</pre>",
+      "options": [
+        "[\"apple\", \"banana\", \"cherry\"]",
+        "[\"apple\", \"elderberry\"]",
+        "[\"banana\", \"cherry\", \"date\", \"elderberry\"]",
+        "[\"banana\", \"cherry\", \"date\"]"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Verified: <code>fruits[1:4]</code> starts at index 1 (<code>\"banana\"</code>) and stops before index 4, returning <code>[\"banana\", \"cherry\", \"date\"]</code>. <code>[\"apple\", \"banana\", \"cherry\"]</code> starts from index 0 instead of 1; <code>[\"apple\", \"elderberry\"]</code> only grabs the two endpoints; and <code>[\"banana\", \"cherry\", \"date\", \"elderberry\"]</code> runs one element too far by including <code>\"elderberry\"</code> at index 4, which is outside the slice's upper bound."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "A student is manipulating a Python list of device names in the interactive interpreter by executing the following sequence of commands. What is the final output displayed when the <code>hostnames</code> variable is printed?",
+      "context": "<pre>&gt;&gt;&gt; devicenames=[\"RT1\", \"RT2\", \"SW1\", \"SW2\"]\n&gt;&gt;&gt; hostnames=devicenames + [\"RT3\", \"SW3\"]\n&gt;&gt;&gt; del hostnames[3]\n&gt;&gt;&gt; hostnames</pre>",
+      "options": [
+        "['RT1', 'RT2', 'RT3', 'SW2', 'SW3']",
+        "['RT1', 'RT2', 'SW2', 'RT3', 'SW3']",
+        "['RT1', 'RT2', 'SW1', 'SW2', 'SW3']",
+        "['RT1', 'RT2', 'SW1', 'RT3', 'SW3']"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Verified by tracing it: concatenation gives <code>['RT1', 'RT2', 'SW1', 'SW2', 'RT3', 'SW3']</code>, and indexing starts at 0, so <code>del hostnames[3]</code> removes the fourth item, <code>'SW2'</code>, leaving <code>['RT1', 'RT2', 'SW1', 'RT3', 'SW3']</code>. Restored the interactive prompts (they had been flattened to a single <code>&gt;</code> per line in the source, likely by the messaging app that carried it)."
+    },
+    {
+      "id": 5,
+      "type": "tf",
+      "text": "A warehouse management system maintains a delivery list: <code>manifest = [\"part_101\", \"part_240\", \"part_330\"]</code>. To access the first part in the delivery manifest, the system calls <code>manifest</code>.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. Verified: referencing <code>manifest</code> alone returns the entire list. Reaching the first element needs explicit indexing, <code>manifest[0]</code>."
+    },
+    {
+      "id": 6,
+      "type": "tf",
+      "text": "A developer wants to find a terminal bandwidth testing tool but does not know the exact package name. Running <code>sudo apt-get install speed test</code> will automatically search the package repository and list relevant matching packages.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. <code>apt-get install speed test</code> treats <code>speed</code> and <code>test</code> as two separate package names to install — it does not search for anything. Finding a package by keyword requires <code>apt search</code> or <code>apt-cache search</code> instead."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "A student is learning Python in the interactive interpreter mode. The student issues the command:\n\n<code>&gt;&gt;&gt; type(True)</code>\n\nWhat is the data type reported by Python?",
+      "options": [
+        "string",
+        "Boolean",
+        "integer",
+        "float"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Verified: <code>type(True)</code> reports <code>&lt;class 'bool'&gt;</code>, the Boolean type. It's not a string or a float, and while <code>bool</code> is technically a subclass of <code>int</code> under the hood, Python still reports it distinctly as Boolean rather than as a plain integer."
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "An administrator schedules a VM shutdown in one minute using <code>shutdown +1 \"Come back soon!\"</code>. Seconds later, they receive notice that the scheduled maintenance is postponed. Which command cancels the scheduled shutdown?",
+      "options": [
+        "shutdown -c",
+        "shutdown now",
+        "ps -ef | shutdown",
+        "sudo apt-get purge shutdown"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>shutdown -c</code> cancels a pending, delayed shutdown. <code>shutdown now</code> would instead trigger an immediate shutdown; <code>ps -ef | shutdown</code> isn't valid syntax for canceling anything; and <code>shutdown</code> is a core system utility, not something to purge just to stop one scheduled job."
+    },
+    {
+      "id": 9,
+      "type": "tf",
+      "text": "A system administrator creates a script named <code>myfile.sh</code> in the <code>/home/devasc/Documents/</code> directory and attempts to run it using <code>./myfile.sh</code>. The terminal returns the error <code>bash: ./myfile.sh: Permission denied</code>. The administrator can grant execution permissions to the script file by running the command <code>chmod +x myfile.sh</code>.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True. <code>chmod +x myfile.sh</code> adds the execute bit for owner, group, and others, which is exactly the missing permission behind the \"Permission denied\" error."
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "A student is learning Python and is reviewing the Python script below. Under which condition will the <code>elif</code> statement be evaluated?",
+      "context": "<pre>aclNum = int(input(\"What is the IPv4 ACL number? \"))\nif aclNum &gt;= 1 and aclNum &lt;= 99:\n     print(\"This is a standard IPv4 ACL.\")\nelif aclNum &gt;=100 and aclNum &lt;= 199:\n     print(\"This is an extended IPv4 ACL.\")\nelse:\n     print(\"This is not a standard or extended IPv4 ACL.\")</pre>",
+      "options": [
+        "when the input is a float number",
+        "when the first print statement fails",
+        "when the if statement is false",
+        "when the input is a string"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "An <code>elif</code> branch is only evaluated once its preceding <code>if</code> condition evaluates to False. It has nothing to do with the input being a float or a string — either of those would make <code>int(input(...))</code> raise an exception before any branch runs — and a <code>print</code> call doesn't \"fail\" here."
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "A user in the <code>/home/devasc/Documents</code> directory runs the following sequence of commands. What is the final result after the <code>mv</code> command is successfully executed?",
+      "context": "<pre>devasc@labvm:~/Documents$ pwd\n/home/devasc/Documents\ndevasc@labvm:~/Documents$ mv myfile.sh ../Desktop/myfile2.sh</pre>",
+      "options": [
+        "The file myfile.sh is moved to the /home/devasc/Desktop directory and renamed as myfile2.sh.",
+        "The file myfile.sh is copied and renamed to myfile2.sh in the current directory.",
+        "The file myfile.sh is copied to the /home/devasc/Desktop directory and renamed as myfile2.sh.",
+        "The file myfile.sh is copied to the /home/devasc/Desktop directory and replaces the file myfile2.sh."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>mv</code> moves rather than copies, and <code>../Desktop</code> resolves to <code>/home/devasc/Desktop</code> from <code>/home/devasc/Documents</code>; the destination filename in the command doubles as the rename. That rules out every \"copied\" option, and there's no existing <code>myfile2.sh</code> to be \"replaced\"."
+    },
+    {
+      "id": 12,
+      "type": "tf",
+      "text": "A developer organizes reusable code by creating a directory containing several Python scripts and includes an <code>__init__.py</code> file inside it. In Python, a collection of modules organized in a directory structure marked by an <code>__init__.py</code> file constitutes a package.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True. Restored a transcription error from the source (\"init.py\" had lost its leading and trailing double underscores; it should read <code>__init__.py</code>). A directory containing an <code>__init__.py</code> file is what Python recognizes as a package."
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "A student is practicing basic Python operations and enters the following two lines into the interactive interpreter. What is the numerical output displayed to the student's screen after the second line is executed?",
+      "context": "<pre>addition = 22 + 10\nprint(addition)</pre>",
+      "options": [
+        "(syntaxerror)-...",
+        "32",
+        "nothing",
+        "[22] + [10]"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>22 + 10</code> evaluates to the integer <code>32</code>, and <code>print(addition)</code> writes that value to the screen. There is no syntax error here, and the assignment plus print doesn't silently produce nothing. <code>[22] + [10]</code> describes list concatenation (which would give <code>[22, 10]</code>), not what happens with two plain integers."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "A script defines a global calculation variable and a function. What is printed when this script runs?",
+      "context": "<pre>multiplier = 5 # Global variable\ndef multiply_number(num):\n    return num * multiplier\n\nprint(multiply_number(10))</pre>",
+      "options": [
+        "15",
+        "NameError",
+        "10",
+        "50"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Verified: <code>multiply_number</code> has no local <code>multiplier</code>, so it reads the global one (<code>5</code>), returning <code>10 * 5 = 50</code>. It's not a <code>NameError</code> because a function can read a global variable freely — only assigning to a name inside a function creates a shadowing local. <code>10</code> would be the result of multiplying by 1, and <code>15</code> the result of adding instead of multiplying."
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "A Linux administrator attempts to configure the network interface card using a terminal command but immediately receives an error message stating they do not have the necessary permissions to perform the configuration. What is the most common and appropriate action the administrator should take immediately before re-issuing the configuration command?",
+      "options": [
+        "Use a different user account.",
+        "Change the chmod permissions on the network configuration file.",
+        "Use the sudo command.",
+        "Identify a different network interface."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Network interface configuration requires root privileges, and <code>sudo</code> is the standard, immediate way to elevate for a single command. Switching user accounts is slower and unnecessary; editing permissions on a config file doesn't grant the command itself the capability to reconfigure a NIC; and picking a different interface doesn't address a permissions error at all."
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "text": "A fitness application tracks total workout duration in minutes (<code>total_minutes = 130</code>) and converts it to full hours using floor division (<code>hours = total_minutes // 60</code>). What value is stored in <code>hours</code>?",
+      "options": [
+        "2",
+        "10",
+        "2.17",
+        "2.1666666666666665"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Floor division (<code>//</code>) discards the fractional part, so <code>130 // 60</code> evaluates to <code>2</code>. The <code>2.17</code> and <code>2.1666666666666665</code> options are what plain division (<code>/</code>) would give instead, and <code>10</code> is the remainder from the separate modulo calculation, not the quotient."
+    },
+    {
+      "id": 17,
+      "type": "mc",
+      "text": "A Linux system administrator is auditing user accounts and needs to find any entries in the <code>/etc/passwd</code> file where the username begins with a digit (0-9). Which of the following <code>grep</code> commands should the administrator use to effectively find these specific entries?",
+      "options": [
+        "grep '_[0-9]' /etc/passwd",
+        "grep '(0-9}' /etc/passwd",
+        "grep '^[0-9]' /etc/passwd",
+        "grep '[0-9]' /etc/passwd"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The <code>^</code> anchor restricts the match to the start of the line, so <code>grep '^[0-9]'</code> only matches lines where the very first character is a digit. Without <code>^</code>, <code>grep '[0-9]'</code> would match a digit appearing anywhere on the line (e.g. in a UID field), <code>'(0-9}'</code> mismatches its own bracket types and isn't valid grep syntax, and <code>'_[0-9]'</code> looks for an underscore immediately before a digit instead of a line-starting one."
+    },
+    {
+      "id": 18,
+      "type": "tf",
+      "text": "A fitness app calculates the remaining workout minutes after extracting full hours using the modulo operator: <code>minutes = total_minutes % 60</code>. Given 130 total minutes, <code>minutes</code> evaluates to <code>10</code>.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True. <code>130 % 60</code> leaves <code>10</code> as the remaining minutes after two full 60-minute hours are extracted."
+    },
+    {
+      "id": 19,
+      "type": "msq",
+      "text": "A system administrator is monitoring running processes, pagination, and system power controls on the terminal. Which of the following statements correctly describe Linux administrative utilities? (Select ALL that apply)",
+      "options": [
+        "Executing ps -ef lists all running processes formatted with columns showing User ID (UID), Process ID (PID), and Parent Process ID (PPID).",
+        "Piping output to | more (e.g., ps -e | more) allows page-by-page viewing where Spacebar advances one screen and Enter advances one line.",
+        "Executing shutdown -c cancels a previously scheduled delayed system shutdown.",
+        "Executing ps displays only the processes running in the current terminal session."
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "All four hold up: <code>ps -ef</code>'s columns include UID, PID and PPID; <code>more</code> advances a full screen on Spacebar and one line on Enter; <code>shutdown -c</code> cancels a pending delayed shutdown; and bare <code>ps</code> with no options defaults to only the processes attached to the current terminal session (add <code>-e</code>/<code>-ef</code> to see every process on the system)."
+    },
+    {
+      "id": 20,
+      "type": "mc",
+      "text": "A student is learning Python in the interactive interpreter mode. The student issues the commands below. What is the result?",
+      "context": "<pre>&gt;&gt;&gt; devicenames=[\"RT1\", \"RT2\", \"SW1\", \"SW2\"]\n&gt;&gt;&gt; devicenames[-1]</pre>",
+      "options": [
+        "['RT2', 'SW1', 'SW2']",
+        "SW1",
+        "an error message",
+        "SW2",
+        "RT1"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Verified: negative indices count from the end of the list, so <code>devicenames[-1]</code> retrieves the last element, <code>'SW2'</code>. It doesn't slice a sublist, raise an error (a negative index within range is perfectly valid), or return the first element — those would be <code>devicenames[1:]</code>, nothing invalid at all, and <code>devicenames[0]</code> respectively. Restored the interactive prompts here too, for the same reason as question 4."
+    },
+    {
+      "id": 21,
+      "type": "mc",
+      "text": "A software engineer is developing a project and wants to organize multiple related Python scripts inside a directory structure named <code>analytics</code>. They include an <code>__init__.py</code> file inside the directory. What Python construct is created by organizing scripts into a directory marked by an <code>__init__.py</code> file?",
+      "options": [
+        "A standalone module",
+        "A package",
+        "An exception handler",
+        "A standard library module"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Restored the same dropped-underscore transcription error as elsewhere (\"init.py\" to <code>__init__.py</code>). A directory holding an <code>__init__.py</code> file is what Python recognizes as an importable package — not a standalone module (that's a single .py file on its own), an exception handler (a try/except construct), or part of the standard library (code you write yourself isn't bundled with Python)."
+    },
+    {
+      "id": 22,
+      "type": "mc",
+      "text": "A Linux system administrator is searching the <code>passwd</code> file for any username that starts with a digit. Which <code>grep</code> command should the administrator use?",
+      "options": [
+        "grep '^[0-9]' /etc/passwd",
+        "grep '[0-9]' /etc/passwd",
+        "grep '{0-9}' /etc/passwd",
+        "grep '_[0-9]' /etc/passwd"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Same reasoning as the other <code>^[0-9]</code> question: the caret anchors the match to the start of the line, unlike an unanchored <code>'[0-9]'</code> (matches a digit anywhere), the mismatched-bracket <code>'{0-9}'</code>, or <code>'_[0-9]'</code> (looks for a digit right after an underscore)."
+    },
+    {
+      "id": 23,
+      "type": "mc",
+      "text": "A user issues a series of Linux commands as shown. Which directory is the current directory after the <code>cd</code> command is entered?",
+      "context": "<pre>(omitted)$ pwd\n/home/devasc/labs/ansible/backups\n(omitted)$ cd ../..</pre>",
+      "options": [
+        "/home",
+        "/home/devasc/",
+        "/",
+        "/home/devasc/labs/ansible",
+        "/home/devasc/labs"
+      ],
+      "correctAnswer": 4,
+      "points": 1,
+      "explanation": "Starting at <code>/home/devasc/labs/ansible/backups</code>, each <code>..</code> moves up one level: the first reaches <code>.../labs/ansible</code>, and the second reaches <code>.../labs</code>. So <code>cd ../..</code> lands in <code>/home/devasc/labs</code> — not <code>/home/devasc/</code> (only one level up), and not <code>/home</code> or <code>/</code> (too many levels up)."
+    },
+    {
+      "id": 24,
+      "type": "msq",
+      "text": "In <code>/home/devasc/Documents/</code>, a user creates a script named <code>myfile.sh</code> using <code>echo \"ls ../Desktop\" > myfile.sh</code>. Upon trying to run <code>./myfile.sh</code>, the shell returns <code>bash: ./myfile.sh: Permission denied</code>. Which of the following statements regarding permissions and ownership for <code>myfile.sh</code> are correct? (Select ALL that apply)",
+      "options": [
+        "Executing chmod +x myfile.sh updates file permissions to -rwxrwxr-x, allowing the script to run.",
+        "Executing sudo chown root myfile.sh changes both user and group ownership of myfile.sh to root.",
+        "After running sudo chown root myfile.sh, the file ownership reflects user root and group devasc.",
+        "The default permissions assigned to myfile.sh upon creation are -rw-rw-r--, which lack execution bits."
+      ],
+      "correctAnswer": [
+        0,
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "The claim that <code>sudo chown root myfile.sh</code> changes both user and group ownership is the odd one out: without a colon, <code>chown</code> changes only the user owner to root and leaves the group untouched — exactly matching the statement that says ownership ends up as user root, group devasc, so the two can't both be true. The other two are correct: a freshly created file typically gets <code>-rw-rw-r--</code> under the default umask (no execute bits), and <code>chmod +x</code> adds the execute bit for all three permission classes, producing <code>-rwxrwxr-x</code>."
+    },
+    {
+      "id": 25,
+      "type": "msq",
+      "text": "A backend developer is writing a data processing script to sanitize text strings and store formatted records in memory. Which of the following statements accurately describe the characteristics and operations of strings and lists in Python? (Select ALL that apply)",
+      "options": [
+        "Calling .split(\",\") on a comma-separated string returns a list of substrings.",
+        "Both strings and lists are iterable sequences in Python.",
+        "The .join() string method combines elements of a list into a single delimited string.",
+        "Individual characters in a string can be modified directly in place using index assignment (e.g., text[0] = \"a\").",
+        "Lists can be changed in place because they are mutable, whereas strings are immutable."
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "points": 1,
+      "explanation": "The claim that a string's characters can be modified directly via index assignment (e.g., <code>text[0] = \"a\"</code>) is false: Python strings are immutable, so that raises a <code>TypeError</code> rather than modifying the string in place — that's a list operation. The rest are accurate: <code>.split(\",\")</code> returns a list of substrings, both strings and lists support iteration, <code>.join()</code> stitches a list back into a single delimited string, and lists (unlike strings) can be mutated in place."
+    },
+    {
+      "id": 26,
+      "type": "mc",
+      "text": "A security analyst needs to filter <code>/etc/passwd</code> to locate account entries where the service shell <code>/bin/false</code> occurs specifically at the end of the line. Which command uses regular expression anchors to return lines ending with <code>false</code>?",
+      "options": [
+        "grep 'f..se' /etc/passwd",
+        "grep '[false]' /etc/passwd",
+        "grep 'false$' /etc/passwd",
+        "grep '^false' /etc/passwd"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The <code>$</code> anchor matches the end of a line, so <code>grep 'false$'</code> only returns lines where <code>false</code> is the last thing on the line. <code>'f..se'</code> matches any 5-character sequence starting with <code>f</code> and ending with <code>se</code> anywhere on the line (too loose); <code>'[false]'</code> is a character class matching any single one of those letters, not the word <code>false</code> at all; and <code>'^false'</code> anchors to the start of the line instead of the end."
+    },
+    {
+      "id": 27,
+      "type": "mc",
+      "text": "What Linux command is used to display the contents of the current directory?",
+      "options": [
+        "pwd",
+        "cat",
+        "ls",
+        "ln"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>ls</code> lists the contents of the current directory. <code>pwd</code> prints the current path (not its contents), <code>cat</code> displays a file's contents (not a directory listing), and <code>ln</code> creates links."
+    },
+    {
+      "id": 28,
+      "type": "mc",
+      "text": "A developer attempts to modify a text variable <code>text = \"hello\"</code> by directly reassigning its first character: <code>text[0] = \"j\"</code>. What will happen when this statement runs, and why?",
+      "options": [
+        "It automatically converts text into a list.",
+        "It raises a runtime error because strings are immutable and cannot be modified in place.",
+        "It creates a new list containing ['j', 'e', 'l', 'l', 'o'].",
+        "It successfully changes text to \"jello\" because strings are mutable."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Verified: Python strings are immutable, so item assignment on one raises <code>TypeError: 'str' object does not support item assignment</code>. It doesn't silently convert to a list, produce a new list of characters, or succeed in mutating the string in place — none of those are how Python actually handles this. Corrected a transcription error in the question text (the source read <code>text = \"j\"</code>, a plain reassignment that would run fine; the scenario only makes sense as the indexed assignment <code>text[0] = \"j\"</code>, matching the answer choices)."
+    },
+    {
+      "id": 29,
+      "type": "msq",
+      "text": "A software engineer is designing a Python application and wants to structure code into reusable components while incorporating third-party libraries. Which of the following statements regarding modules, packages, and package management in Python are correct? (Select ALL that apply)",
+      "options": [
+        "A single file containing Python code functions as a module.",
+        "Importing a function automatically converts a single module file into a directory package.",
+        "Executing from random import randint as random_num imports a specific function and assigns it an alias.",
+        "A collection of modules organized in a directory structure marked by an __init__.py file constitutes a package.",
+        "PIP serves as the standard package manager that connects to the Python Package Index (PyPI) to install external libraries."
+      ],
+      "correctAnswer": [
+        0,
+        2,
+        3,
+        4
+      ],
+      "points": 1,
+      "explanation": "The claim that importing a function automatically converts a module file into a directory package is false: importing doesn't restructure anything on disk — a single .py file stays a module regardless of what imports from it. Turning code into a package requires actually creating a directory with an <code>__init__.py</code> file (corrected from \"init.py\" here too). The rest hold: a single file is a module, the aliased import syntax shown is valid, a directory marked with <code>__init__.py</code> is a package, and PIP is indeed the standard installer that pulls from PyPI."
+    },
+    {
+      "id": 30,
+      "type": "tf",
+      "text": "A script parses a comma-separated text string <code>\"apple,banana,cherry\"</code> into individual items and then reformats them into a single string separated by <code>\" & \"</code>. Calling <code>.split(\",\")</code> on the string returns a list, and calling <code>\" & \".join(fruits)</code> converts that list back into a single delimited string.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True. Verified: <code>\"apple,banana,cherry\".split(\",\")</code> returns <code>['apple', 'banana', 'cherry']</code>, and <code>\" & \".join(fruits)</code> joins that list back into one string using <code>\" & \"</code> between each element."
+    },
+    {
+      "id": 31,
+      "type": "tf",
+      "text": "An IT specialist wants to append the line <code>\"I LOVE Linux!\"</code> to an existing file named <code>linux2.txt</code> without erasing its current contents. Executing the command <code>echo \"I LOVE Linux!\" > linux2.txt</code> will append the text to the bottom of the file without overwriting existing data.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. A single <code>&gt;</code> always truncates (overwrites) the target file before writing, even though the intent here was to append — that's what <code>&gt;&gt;</code> is for. So this command would replace <code>linux2.txt</code>'s contents with just the new line instead of adding to what was already there."
+    },
+    {
+      "id": 32,
+      "type": "mc",
+      "text": "A developer needs to generate random numbers for a game. To keep the namespace clean, they want to import only the <code>randint</code> function from the <code>random</code> module and alias it as <code>random_num</code>. Which line of code correctly performs this specific import with an alias?",
+      "options": [
+        "import random.randint as random_num",
+        "import randint as random_num from random",
+        "from random import random_num as randint",
+        "from random import randint as random_num"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>from random import randint as random_num</code> is the correct syntax for importing one specific name and aliasing it locally. <code>import random.randint as random_num</code> is invalid because <code>randint</code> is a function, not a submodule, so it can't be dotted into like that; the other two options put the module name, function name, and <code>as</code> alias in the wrong order entirely."
+    },
+    {
+      "id": 33,
+      "type": "mc",
+      "text": "An academic grading script executes the following conditional structure for a student score of <code>85</code>. What output is printed?",
+      "context": "<pre>score = 85\nif score &gt;= 90:\n    print(\"Grade: A\")\nelif score &gt;= 80:\n    print(\"Grade: B\")\nelif score &gt;= 70:\n    print(\"Grade: C\")\nelse:\n    print(\"Grade: F\")</pre>",
+      "options": [
+        "Grade: F",
+        "Grade: C",
+        "Grade: A",
+        "Grade: B"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>score &gt;= 90</code> is False for 85, so control falls to the first <code>elif</code>: <code>score &gt;= 80</code> is True, so <code>Grade: B</code> prints and the remaining branches are skipped. <code>Grade: C</code> or <code>Grade: F</code> would need a lower score, and <code>Grade: A</code> would need <code>score &gt;= 90</code>."
+    },
+    {
+      "id": 34,
+      "type": "mc",
+      "text": "Which Python programming function is used to display output?",
+      "options": [
+        "print",
+        "for",
+        "while",
+        "if"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>print()</code> is Python's built-in for writing output to the console. <code>for</code> and <code>while</code> are loop constructs, and <code>if</code> is a conditional keyword — none of them display anything by themselves."
+    },
+    {
+      "id": 35,
+      "type": "tf",
+      "text": "A system monitor checks the latest log entry stored in a list using negative indexing: <code>logs[-1]</code>. This operation successfully retrieves the last item in the list.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True. Negative indices count backward from the end of a sequence, so <code>-1</code> always refers to the last element regardless of the list's length."
+    },
+    {
+      "id": 36,
+      "type": "mc",
+      "text": "An engineer executes <code>grep 'new*' /etc/passwd</code> to review user entries. Why does this command match lines containing <code>nonexistent</code> in addition to <code>news</code>?",
+      "options": [
+        "The grep tool automatically ignores vowels when searching system configuration files.",
+        "The single quotation marks convert new into an unrestricted search range.",
+        "The * repetition operator matches zero or more occurrences of the preceding character (w), matching ne followed by zero 'w's.",
+        "The * character acts as a wildcard matching any word that starts with the letter 'n'."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "In POSIX regular expressions, <code>*</code> means zero or more of the immediately preceding character — here, that's <code>w</code>. So <code>new*</code> matches <code>ne</code> followed by zero or more w's (<code>ne</code>, <code>new</code>, <code>neww</code>, ...), and since grep matches that pattern anywhere on the line, it hits <code>nonexistent</code> wherever the substring <code>ne</code> occurs — not just lines containing the literal word \"new\". It has nothing to do with vowels, the quoting, or <code>*</code> acting as a generic word-start wildcard."
+    }
+  ]
+}
