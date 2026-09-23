@@ -1,0 +1,8 @@
+{
+  "id": "module1",
+  "order": 1,
+  "showCount": true,
+  "badges": {
+    "unofficial": true
+  }
+}

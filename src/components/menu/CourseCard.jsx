@@ -5,7 +5,7 @@ import QuizRow from './QuizRow.jsx';
 function RenderUnits({ units, onOpen, isSelected }) {
   return units.map((unit, i) =>
     unit.type === 'series' ? (
-      <QuizSeries key={unit.name} unit={unit} onOpen={onOpen} isSelected={isSelected} />
+      <QuizSeries key={unit.key} unit={unit} onOpen={onOpen} isSelected={isSelected} />
     ) : (
       <QuizRow key={i} quiz={unit.quiz} label={unit.label} onOpen={() => onOpen(unit.quiz)} selected={isSelected(unit.quiz)} />
     )
@@ -16,7 +16,7 @@ function RenderUnits({ units, onOpen, isSelected }) {
 // is in Multi Quiz selection mode.
 export default function CourseCard({ course, onOpen, selection }) {
   const { quizzes } = course;
-  const { sections, ungrouped } = buildRenderUnits(course);
+  const sections = buildRenderUnits(course);
   const isSelected = selection ? (quiz) => selection.selected.has(quiz.id) : () => undefined;
   const allSelected = selection && quizzes.every((q) => selection.selected.has(q.id));
   return (
@@ -35,35 +35,28 @@ export default function CourseCard({ course, onOpen, selection }) {
           {allSelected ? 'Deselect all' : 'Select all'}
         </button>
       </div>
-      {/* A subject with no declared sections (every subject today, unless
-          its _meta.json opts in) renders exactly like before: one flat
-          list, no section headers. */}
-      {sections.length === 0 ? (
-        <div className="quiz-list">
-          <RenderUnits units={ungrouped} onOpen={onOpen} isSelected={isSelected} />
-        </div>
-      ) : (
-        <>
-          {sections
-            .filter((section) => section.units.length > 0)
-            .map((section) => (
-              <div className="quiz-section" key={section.id}>
-                <div className="quiz-section-header">{section.name}</div>
-                <div className="quiz-list">
-                  <RenderUnits units={section.units} onOpen={onOpen} isSelected={isSelected} />
-                </div>
-              </div>
-            ))}
-          {ungrouped.length > 0 && (
-            <div className="quiz-section" key="__ungrouped">
-              <div className="quiz-section-header">Other</div>
-              <div className="quiz-list">
-                <RenderUnits units={ungrouped} onOpen={onOpen} isSelected={isSelected} />
-              </div>
+      {sections.map((section) => (
+        <div className="quiz-section" key={section.key}>
+          {/* A section's own name is redundant often enough (a lone
+              section wrapping a subject's whole quiz list, or one that
+              just repeats the subject's name) that its _meta.json can
+              turn the header off entirely via showLabel — see
+              catalog.js/buildRenderUnits. */}
+          {section.showLabel && (
+            <div className="quiz-section-header">
+              {section.name}
+              {section.showCount && (
+                <span className="quiz-section-count">
+                  {section.count} {section.count === 1 ? 'quiz' : 'quizzes'}
+                </span>
+              )}
             </div>
           )}
-        </>
-      )}
+          <div className="quiz-list">
+            <RenderUnits units={section.units} onOpen={onOpen} isSelected={isSelected} />
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

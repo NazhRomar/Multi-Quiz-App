@@ -1,0 +1,393 @@
+{
+  "quizTitle": "Technopreneurship - Module 3: Scalable Business Ideas",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "According to the module, what is the question most frequently asked by aspiring entrepreneurs in entrepreneurship fora?",
+      "options": [
+        "\"How much capital do I need?\"",
+        "\"What is the best business to go into?\"",
+        "\"Should I register as a sole proprietorship or a corporation?\"",
+        "\"Where can I find investors?\""
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The module says the most frequently asked question is \"What is the best business to go into?\""
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "Why is it a problem if everyone is simply told that the best business to go into is a sago-pearl business?",
+      "options": [
+        "Sago pearls are too expensive to produce",
+        "Everybody would put up their own sago business, so many would compete for a share of the market",
+        "Sago pearls can't be sold in the Philippines",
+        "Sago businesses require a franchise"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "If everyone were told the same best business, everybody would put up a sago business and many would compete for their share of the market."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "Instead of asking for a one-size-fits-all best business, what should an aspiring entrepreneur do to identify the best business for them?",
+      "options": [
+        "Copy the most popular business in town",
+        "Look within and outside",
+        "Wait for the market to settle",
+        "Buy an existing business immediately"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The module says you should \"look within and outside to identify what is the best business for you to go into.\""
+    },
+    {
+      "id": 4,
+      "type": "msq",
+      "text": "\"Looking Within\" asks you to consider which of the following?",
+      "options": ["Who you are", "What you know", "What you have", "What your competitors charge"],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "Looking Within means considering who you are, what you know, and what you have. Competitor pricing is part of looking at the outside environment."
+    },
+    {
+      "id": 5,
+      "type": "matching",
+      "text": "Match each \"Looking Within\" question to the kind of business idea it can lead to.",
+      "allChoices": [
+        "A hobby, such as voice lessons, expanded into a business",
+        "Experience from a previous job, as with Cecilio K. Pedro of Lamoiyan Corporation",
+        "An extra lot, room, equipment, appliances or furniture, such as a bike for rent"
+      ],
+      "pairs": [
+        { "term": "Who you are", "match": "A hobby, such as voice lessons, expanded into a business" },
+        { "term": "What you know", "match": "Experience from a previous job, as with Cecilio K. Pedro of Lamoiyan Corporation" },
+        { "term": "What you have", "match": "An extra lot, room, equipment, appliances or furniture, such as a bike for rent" }
+      ],
+      "points": 1,
+      "explanation": "Who you are: a hobby could become a full-time enterprise (e.g., voice lessons). What you know: many small business ideas come from experience in a previous job (e.g., Cecilio K. Pedro of Lamoiyan Corporation). What you have: an extra lot, rooms, equipment, appliances or furniture (e.g., selling excess furniture online, renting out a bike)."
+    },
+    {
+      "id": 6,
+      "type": "tf",
+      "text": "According to the module, a hobby could become the basis for a full-time successful enterprise.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Under \"Who you are,\" the module says a hobby could become the basis for a full-time successful enterprise, and asks whether you have one you could expand into a business."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "\"Looking Outside\" means looking at the total business environment and observing developments and trends in which areas?",
+      "options": [
+        "Your own skills, hobbies and savings",
+        "The economy, demography and society as a whole",
+        "Your franchisor's operations",
+        "Your competitors' financial statements"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Looking Outside means looking around at the total business environment and observing developments and trends in the economy, demography and society as a whole."
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "To find a business opportunity in every market need, where should you begin?",
+      "options": [
+        "By studying your own community, village, or barangay and asking whether it is self-sufficient",
+        "By studying foreign markets only",
+        "By asking a franchisor for a list of ideas",
+        "By copying a business from another country"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The module says to begin by studying your own community, village, or barangay and asking whether it is self-sufficient."
+    },
+    {
+      "id": 9,
+      "type": "fitb",
+      "text": "To spot opportunities, you should study demand and ___ gaps: find out whether local supply can cope with or totally satisfy local demand.",
+      "correctAnswer": "supply",
+      "points": 1,
+      "explanation": "The item reads \"Study demand and supply gaps.\""
+    },
+    {
+      "id": 10,
+      "type": "matching",
+      "text": "Match each example from the module to the idea-generation approach it illustrates.",
+      "allChoices": [
+        "Study import-export movements",
+        "Local skills",
+        "Industry information",
+        "Technology",
+        "Adapt, complement, reshape",
+        "Explore forward-backward industry linkages"
+      ],
+      "pairs": [
+        { "term": "Locally cured ham, tocino and longganisa replacing imported processed meats", "match": "Study import-export movements" },
+        { "term": "Shoemaking in Marikina", "match": "Local skills" },
+        { "term": "Reading technical and business journals and industry studies", "match": "Industry information" },
+        { "term": "A web-based business", "match": "Technology" },
+        { "term": "Internet cafes", "match": "Adapt, complement, reshape" },
+        { "term": "Meat processing", "match": "Explore forward-backward industry linkages" }
+      ],
+      "points": 1,
+      "explanation": "Import-export movements: locally made ham, tocino and longganisa substitute for imported processed meats (rattan is a local product that may be exported). Local skills: shoemaking in Marikina. Industry information: technical and business journals and industry studies. Technology: web-based business. Adapt, complement, reshape: internet cafes. Forward-backward industry linkages: the module's example is meat processing."
+    },
+    {
+      "id": 11,
+      "type": "msq",
+      "text": "Under \"Capitalize on available resources,\" which of the following are listed as resources that can suggest business opportunities?",
+      "options": ["Raw materials", "Local skills", "Industry information", "Technology", "Royalty payments"],
+      "correctAnswer": [0, 1, 2, 3],
+      "points": 1,
+      "explanation": "The listed resources are raw materials, local skills, industry information, and technology. Royalty payments are a con of franchising, not a resource for generating ideas."
+    },
+    {
+      "id": 12,
+      "type": "msq",
+      "text": "For raw materials that are native and abundant in an area, the module suggests making money out of them by:",
+      "options": [
+        "Trading them",
+        "Partially processing them",
+        "Manufacturing finished products out of them",
+        "Leaving them unused until prices rise"
+      ],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "The module suggests trading the materials, partially processing them, or manufacturing finished products out of them."
+    },
+    {
+      "id": 13,
+      "type": "fitb",
+      "text": "To screen and select the best investment alternative, narrow your choice down to ___ or three alternatives, then select the best one.",
+      "correctAnswer": "two",
+      "points": 1,
+      "explanation": "The module says to \"narrow down your choice to two or three alternatives. Then, select the best one.\""
+    },
+    {
+      "id": 14,
+      "type": "msq",
+      "text": "According to the module, preparing your organization for technological trends helps improve people's:",
+      "options": ["Productivity", "Efficiency", "Collaboration", "Absenteeism"],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "The module lists productivity, efficiency, and collaboration."
+    },
+    {
+      "id": 15,
+      "type": "msq",
+      "text": "Which of the following are named as emerging technologies that can help organizations?",
+      "options": ["Machine learning", "Augmented reality", "Floppy disks", "Quantum computing"],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "The module names artificial intelligence (AI), machine learning (ML), augmented reality (AR), the Internet of Things (IoT), and quantum computing."
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "text": "According to the module, emerging technologies can help organizations to:",
+      "options": [
+        "Scale on demand, improve resiliency, minimize infrastructure investments, and deploy solutions rapidly and securely",
+        "Eliminate the need for customers",
+        "Avoid all regulation",
+        "Guarantee profit in the first year"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Emerging technologies help organizations scale on demand, improve resiliency, minimize infrastructure investments, and deploy solutions rapidly and securely."
+    },
+    {
+      "id": 17,
+      "type": "mc",
+      "text": "Emerging technology helps companies create more effective and less costly ___ processes.",
+      "options": ["Payroll", "Research and development", "Franchising", "Recruitment"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The module says emerging technology helps companies create more effective and less costly research and development processes."
+    },
+    {
+      "id": 18,
+      "type": "mc",
+      "text": "According to CIO.com, who has the greatest knowledge of what is possible, along with an understanding of emerging technologies and how they can be used?",
+      "options": ["The business leaders", "The CIO", "The customers", "The franchisor"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Business leaders have the greatest insight into the organization's needs and objectives, while the CIO has the greatest knowledge of what is possible."
+    },
+    {
+      "id": 19,
+      "type": "mc",
+      "text": "Which is the correct order of the steps in buying a business?",
+      "options": [
+        "Agree on the price, conduct research, meet the owner",
+        "Meet the owner, agree on the price, conduct research",
+        "Conduct research, meet the owner, agree on the price",
+        "Conduct research, agree on the price, meet the owner"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The steps are (a) conduct research, (b) meet the owner, and (c) agree on the price."
+    },
+    {
+      "id": 20,
+      "type": "msq",
+      "text": "Which of the following are considerations in buying a business?",
+      "options": [
+        "How volatile the company's cash flows are",
+        "Whether the industry is growing or declining",
+        "Whether a competent management team and work crew are in place",
+        "How much royalty is owed to a franchisor"
+      ],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "The considerations include cash-flow volatility, how fierce the competition is, whether the industry is growing or declining, how established the company is, whether a competent management team and work crew are in place, the company's historical growth, and how attractive the marketplace finds the line of business. Royalties belong to franchising."
+    },
+    {
+      "id": 21,
+      "type": "fitb",
+      "text": "When buying a business, ask: historically, has the company been growing or ___, and how fast?",
+      "correctAnswer": "shrinking",
+      "points": 1,
+      "explanation": "One consideration reads: \"Historically, has the company been growing or shrinking, and how fast?\""
+    },
+    {
+      "id": 22,
+      "type": "mc",
+      "text": "In franchising, what is the owner of the trademark, service mark, brand name, or advertising symbol called?",
+      "options": ["Franchisee", "Franchisor", "Licensee", "Investor"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Franchising is a legal and commercial relationship between the owner (franchisor) of the trademark, service mark, brand name or advertising symbol and an individual or small business (franchisee) wishing to use that identification."
+    },
+    {
+      "id": 23,
+      "type": "fitb",
+      "text": "The module calls franchising \"the business with the least fears and ___.\"",
+      "correctAnswer": "tears",
+      "points": 1,
+      "explanation": "The slide says franchising is \"the business with the least fears and tears.\""
+    },
+    {
+      "id": 24,
+      "type": "msq",
+      "text": "Which of the following are listed as PROS of franchising?",
+      "options": ["Marketing support", "Training support", "Royalty payments", "Reputable suppliers"],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "The pros include an established brand and customer base, marketing support, reputable suppliers, training support, financial assistance, and ongoing research and development. Royalty payments are a con."
+    },
+    {
+      "id": 25,
+      "type": "msq",
+      "text": "Which of the following are listed as CONS of franchising?",
+      "options": [
+        "Royalty payments",
+        "Limited creativity and flexibility",
+        "Ongoing research and development",
+        "Sole sourcing"
+      ],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "The cons include initial payout, royalty payments, marketing and advertising fees, limited creativity and flexibility, sole sourcing, being locked into operation by contract, dependence on franchisor success, and risk. Ongoing research and development is a pro."
+    },
+    {
+      "id": 26,
+      "type": "msq",
+      "text": "Which of the following are criteria in the Selection Checklist for choosing a business idea?",
+      "options": ["Knowledge of the business", "Uniqueness", "Number of employees", "Skills"],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "The five criteria are knowledge of the business, experience in the field, skills, ease of entry, and uniqueness."
+    },
+    {
+      "id": 27,
+      "type": "matching",
+      "text": "Match each Selection Checklist criterion to what it measures.",
+      "allChoices": [
+        "How much you know about the business idea",
+        "Whether you have enough hands-on experience, even if you know a lot about the business",
+        "The extent of your useful skills and how hard or easy it is to learn the ones you lack",
+        "The costs of entering the business and the blocks or hindrances that might exist",
+        "Whether no one else provides the product or service in the way you intend to"
+      ],
+      "pairs": [
+        { "term": "Knowledge of the business", "match": "How much you know about the business idea" },
+        { "term": "Experience in the field", "match": "Whether you have enough hands-on experience, even if you know a lot about the business" },
+        { "term": "Skills", "match": "The extent of your useful skills and how hard or easy it is to learn the ones you lack" },
+        { "term": "Ease of entry", "match": "The costs of entering the business and the blocks or hindrances that might exist" },
+        { "term": "Uniqueness", "match": "Whether no one else provides the product or service in the way you intend to" }
+      ],
+      "points": 1,
+      "explanation": "Knowledge measures how much you know about the idea. Experience covers the case where you may know a lot but lack experience. Skills measures your useful skills and how easily you can acquire them. Ease of entry refers to entry costs and hindrances. Uniqueness means no one provides the product or service the way you intend, or in that specific area."
+    },
+    {
+      "id": 28,
+      "type": "matching",
+      "text": "On the \"Ease of entry\" rating guide, match each score to its meaning.",
+      "allChoices": [
+        "Crowded field, very difficult to enter",
+        "Limited entry available",
+        "Mix of large and small competitors",
+        "Unrestricted entry for any business size"
+      ],
+      "pairs": [
+        { "term": "0", "match": "Crowded field, very difficult to enter" },
+        { "term": "1", "match": "Limited entry available" },
+        { "term": "2", "match": "Mix of large and small competitors" },
+        { "term": "3", "match": "Unrestricted entry for any business size" }
+      ],
+      "points": 1,
+      "explanation": "For ease of entry, 0 is a crowded field that is very difficult to enter, 1 is limited entry available, 2 is a mix of large and small competitors, and 3 is unrestricted entry for any business size."
+    },
+    {
+      "id": 29,
+      "type": "mc",
+      "text": "On the \"Uniqueness\" rating guide, what does a score of 0 mean?",
+      "options": [
+        "No one else provides your product or service",
+        "About one or two others offer your product or service",
+        "A few to several others offer your product or service",
+        "The product or service is widely available"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "For uniqueness, 0 is a product or service that is widely available, 1 is a few to several others offering it, 2 is about one or two others, and 3 is no one else providing it."
+    },
+    {
+      "id": 30,
+      "type": "mc",
+      "text": "On the \"Knowledge of the business\" rating guide, what does a score of 3 mean?",
+      "options": [
+        "No knowledge of the business",
+        "Some indirect knowledge of the business",
+        "Limited knowledge",
+        "Working knowledge"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "For knowledge of the business, 0 is no knowledge, 1 is some indirect knowledge, 2 is limited knowledge, and 3 is working knowledge."
+    },
+    {
+      "id": 31,
+      "type": "tf",
+      "text": "According to the module, uniqueness can come from going the \"extra mile,\" such as giving your clients some convenience.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Under Uniqueness, the module says: going an \"extra mile,\" by giving your clients some convenience."
+    },
+    {
+      "id": 32,
+      "type": "mc",
+      "text": "In the group activity, what is the minimum number of business ideas your group must propose in its selection checklist?",
+      "options": ["1", "2", "At least 3", "At least 10"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The instructions say to prepare a selection checklist, propose at least 3 business ideas, tabulate the results and encircle your chosen business."
+    }
+  ]
+}

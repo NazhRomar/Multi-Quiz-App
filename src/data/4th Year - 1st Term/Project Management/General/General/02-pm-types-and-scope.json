@@ -1,0 +1,166 @@
+{
+  "quizTitle": "Project Management - Module 2: Project Types & Scope",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "What type of project experience does this course center on?",
+      "options": [
+        "A live client contract project",
+        "A simulated / paper-based IT project management case study",
+        "An open-source contribution project",
+        "A hackathon competition"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The course is a Simulated / Paper-Based IT Project Management Case Study."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "In the simulation, what role do student teams take on?",
+      "options": ["End users testing the system", "The Project Management Team (PMO / PMs)", "External auditors", "Marketing consultants"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Students act as the Project Management Team (PMO / PMs) for a complex, realistic enterprise IT initiative."
+    },
+    {
+      "id": 3,
+      "type": "msq",
+      "text": "Which of the following are listed as real-world IT enterprise scenarios teams may select or be assigned?",
+      "options": [
+        "Enterprise Cloud Migration & Infrastructure Upgrade",
+        "Fintech / Digital Payment Integration",
+        "Video Game Development Studio",
+        "Campus-Wide Smart Campus / IoT Infrastructure"
+      ],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "The four listed scenarios are Enterprise Cloud Migration, Fintech / Digital Payment Integration, Campus-Wide Smart Campus / IoT Infrastructure, and Data Platform & Business Intelligence Rollout. Video Game Development is not one of them."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "The Fintech / Digital Payment Integration scenario example involves adding which features to an existing retail app?",
+      "options": [
+        "Multi-factor authentication, e-wallet processing, and fraud detection",
+        "Inventory management and barcode scanning",
+        "Social media login only",
+        "Offline mode support"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The example given is adding multi-factor authentication, e-wallet processing, and fraud detection to an existing retail app."
+    },
+    {
+      "id": 5,
+      "type": "fitb",
+      "text": "The Campus-Wide Smart Campus / IoT scenario example includes automated attendance, turnstiles, and ___ management systems.",
+      "correctAnswer": "facility",
+      "points": 1,
+      "explanation": "The example describes \"Automated attendance, turnstiles, and facility management system.\""
+    },
+    {
+      "id": 6,
+      "type": "matching",
+      "text": "Match each PMO / Project Steering Committee role to its primary deliverables.",
+      "allChoices": [
+        "Business Case, Project Charter, Change Control / Requests, Final Presentation",
+        "Scope Statement, Requirements Traceability Matrix (RTM), WBS & WBS Dictionary",
+        "Activity List, Network Diagram, Gantt Chart (Schedule), Resource Allocation",
+        "Cost Estimates, Budget Baseline, Quality Control Tools (Fishbone, Pareto)",
+        "Stakeholder Register & Plan, Risk Register & Matrix, Risk Response Strategy"
+      ],
+      "pairs": [
+        { "term": "Project Manager / Integration Lead", "match": "Business Case, Project Charter, Change Control / Requests, Final Presentation" },
+        { "term": "Scope & Requirements Lead", "match": "Scope Statement, Requirements Traceability Matrix (RTM), WBS & WBS Dictionary" },
+        { "term": "Schedule & Resource Lead", "match": "Activity List, Network Diagram, Gantt Chart (Schedule), Resource Allocation" },
+        { "term": "Cost & Quality Lead", "match": "Cost Estimates, Budget Baseline, Quality Control Tools (Fishbone, Pareto)" },
+        { "term": "Risk & Stakeholder Lead", "match": "Stakeholder Register & Plan, Risk Register & Matrix, Risk Response Strategy" }
+      ],
+      "points": 1,
+      "explanation": "Each PMO role maps to a distinct set of deliverables per the course's team-role table."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "Which PMO role is responsible for the Requirements Traceability Matrix (RTM)?",
+      "options": ["Project Manager / Integration Lead", "Scope & Requirements Lead", "Schedule & Resource Lead", "Cost & Quality Lead"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The Scope & Requirements Lead owns the Scope Statement, RTM, and WBS & WBS Dictionary."
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "Which PMO role produces the Network Diagram and Gantt Chart?",
+      "options": ["Scope & Requirements Lead", "Schedule & Resource Lead", "Cost & Quality Lead", "Risk & Stakeholder Lead"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The Schedule & Resource Lead produces the Activity List, Network Diagram, Gantt Chart, and Resource Allocation."
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "Which PMO role applies Quality Control tools like Fishbone diagrams and Pareto analysis?",
+      "options": ["Cost & Quality Lead", "Risk & Stakeholder Lead", "Scope & Requirements Lead", "Project Manager / Integration Lead"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The Cost & Quality Lead owns Cost Estimates, Budget Baseline, and Quality Control Tools (Fishbone, Pareto)."
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "Which PMO role owns the Risk Register & Matrix and Risk Response Strategy?",
+      "options": ["Cost & Quality Lead", "Risk & Stakeholder Lead", "Schedule & Resource Lead", "Project Manager / Integration Lead"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The Risk & Stakeholder Lead owns the Stakeholder Register & Plan, Risk Register & Matrix, and Risk Response Strategy."
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "Which PMO role is responsible for the Business Case, Project Charter, and Final Presentation?",
+      "options": ["Scope & Requirements Lead", "Cost & Quality Lead", "Project Manager / Integration Lead", "Risk & Stakeholder Lead"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The Project Manager / Integration Lead owns the Business Case, Project Charter, Change Control / Requests, and Final Presentation."
+    },
+    {
+      "id": 12,
+      "type": "msq",
+      "text": "Which of the following IT Program Outcomes are the project scenarios explicitly aligned to?",
+      "options": ["IT05", "IT07", "IT08", "IT09"],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "The scenarios are aligned to IT Program Outcomes IT05, IT06, IT07, and IT09. IT08 is not mentioned."
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "Per the 2026 estimated salary chart, which IT role has the highest senior-level (6+ yrs) monthly gross salary range?",
+      "options": ["Software Developer / Engineer", "Data Engineer / Analyst", "IT Project Manager", "DevOps / Cloud Engineer"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "IT Project Manager has the highest listed senior-level range at PHP 127,000 - 190,000."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "Which IT role has the lowest listed junior-level (0-2 yrs) salary range in the 2026 chart?",
+      "options": ["QA Engineer", "Software Developer / Engineer", "Data Engineer / Analyst", "DevOps / Cloud Engineer"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "QA Engineer has the lowest junior-level range at PHP 26,000 - 42,000."
+    },
+    {
+      "id": 15,
+      "type": "tf",
+      "text": "The Enterprise Cloud Migration scenario example includes migrating a legacy university portal or hospital record system to AWS/Azure.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The example given is \"Migrating a legacy university portal or hospital record system to AWS/Azure.\""
+    }
+  ]
+}

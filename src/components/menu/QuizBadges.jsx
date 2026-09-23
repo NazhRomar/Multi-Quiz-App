@@ -63,25 +63,25 @@ export const UnverifiedIcon = () => (
 // beside the warning triangle, which is not a contradiction: one is about
 // where the questions came from, the other about whether the answer key has
 // been checked by hand.
-export default function QuizBadges({ data }) {
+export default function QuizBadges({ badges }) {
   return (
     <>
-      {data.verified && (
+      {badges.verified && (
         <span className="quiz-badge quiz-badge--verified" title={VERIFIED_TITLE}>
           <VerifiedIcon />
         </span>
       )}
-      {data.unethicallySourced && (
+      {badges.unethicallySourced && (
         <span className="quiz-badge quiz-badge--sourced" title={SOURCED_TITLE}>
           <SourcedIcon />
         </span>
       )}
-      {data.unofficial && (
+      {badges.unofficial && (
         <span className="quiz-badge quiz-badge--unofficial" title={UNOFFICIAL_TITLE}>
           <UnofficialIcon />
         </span>
       )}
-      {data.unverified && (
+      {badges.unverified && (
         <span className="quiz-badge quiz-badge--unverified" title={UNVERIFIED_TITLE}>
           <UnverifiedIcon />
         </span>

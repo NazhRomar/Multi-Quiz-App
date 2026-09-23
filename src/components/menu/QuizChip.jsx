@@ -15,7 +15,7 @@ export default function QuizChip({ quiz, label, onOpen, selected }) {
       <span className="quiz-select-check" aria-hidden="true" />
       <span className="quiz-chip-label">
         {label}
-        <QuizBadges data={quiz.data} />
+        <QuizBadges badges={quiz.badges} />
       </span>
       <span className="quiz-chip-count" title={`${totalPoints} points`}>
         {totalPoints}

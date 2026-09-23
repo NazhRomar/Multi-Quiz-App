@@ -1,0 +1,514 @@
+{
+  "quizTitle": "Technopreneurship - Module 1: Introduction",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "The word \"technology\" comes from which two Greek words?",
+      "options": ["techne and logos", "techne and graphia", "logos and mythos", "tekton and logia"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Technology comes from the Greek words techne and logos."
+    },
+    {
+      "id": 2,
+      "type": "matching",
+      "text": "Match each term from the etymology of \"technology\" to its meaning.",
+      "allChoices": [
+        "Art, skill, craft, or the way a thing is gained",
+        "The word or utterance by which inward thought is expressed",
+        "\"Systematic treatment\" of grammar or an art",
+        "A discourse or technical treatise on an art",
+        "The actual application of the mechanical and industrial arts and sciences"
+      ],
+      "pairs": [
+        { "term": "Techne", "match": "Art, skill, craft, or the way a thing is gained" },
+        { "term": "Logos", "match": "The word or utterance by which inward thought is expressed" },
+        { "term": "Technologia (Greek form)", "match": "\"Systematic treatment\" of grammar or an art" },
+        { "term": "17th-century English use", "match": "A discourse or technical treatise on an art" },
+        { "term": "19th-century meaning", "match": "The actual application of the mechanical and industrial arts and sciences" }
+      ],
+      "points": 1,
+      "explanation": "Techne is art/skill/craft and logos is the word that expresses inward thought. The Greek technologia meant a systematic treatment of grammar or an art. In the 17th century English \"technology\" meant a technical treatise on an art. By the 19th century it meant the actual application of those arts and sciences."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "Technology is the making, modification, usage, and knowledge of tools, machines, techniques, crafts, systems, and methods of organization in order to:",
+      "options": [
+        "Solve a problem or improve a pre-existing solution",
+        "Replace human workers with machines",
+        "Maximize profit for the owner",
+        "Reduce the cost of raw materials"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The definition ends with \"in order to solve a problem, improve a pre-existing solution.\""
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "According to the module, entrepreneurship is the practice of:",
+      "options": [
+        "Managing employees on behalf of an owner",
+        "Converting good ideas to something profitable",
+        "Providing capital in exchange for future gains",
+        "Holding two or more jobs at the same time"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Entrepreneurship is \"the practice of converting good ideas to something profitable.\" The other options describe management, investing, and moonlighting."
+    },
+    {
+      "id": 5,
+      "type": "fitb",
+      "text": "Entrepreneurship is a process of identifying and starting a business venture, sourcing and organizing the required ___, and taking both the risks and rewards associated with the venture.",
+      "correctAnswer": "resources",
+      "points": 1,
+      "explanation": "The definition reads: \"...sourcing and organizing the required resources, and taking both the risks and rewards associated with the venture.\""
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "Technopreneurship is simply:",
+      "options": [
+        "Investing in technology companies",
+        "Working two jobs, one of them in IT",
+        "Entrepreneurship in a technology-intensive context",
+        "Managing an IT department"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The module defines it as \"simply entrepreneurship in a technology intensive context.\""
+    },
+    {
+      "id": 7,
+      "type": "fitb",
+      "text": "Technopreneurship is the process of merging technology and entrepreneurial ___ and skills.",
+      "correctAnswer": "talent",
+      "points": 1,
+      "explanation": "\"It is the process of merging technology and entrepreneurial talent and skills.\""
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "Which of these IT jobs has the highest annual salary ceiling in the list of high-paying jobs in the PH?",
+      "options": [
+        "Software Engineer/Developer",
+        "Data Scientist/Analyst",
+        "DevOps Engineer",
+        "Network Security Engineer"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The list shows DevOps Engineer at P850,000 to P1,500,000 annually. Software Engineer tops out at P1,200,000, Data Scientist at P1,200,000, and Network Security Engineer at about P1,000,000."
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "According to the 2023-2024 figures in the module, how many out of 10 graduates apply in a company after graduation?",
+      "options": ["1 out of 10", "3 out of 10", "5 out of 10", "7 out of 10"],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "7 out of 10 graduates apply in a company, 1 out of 10 puts up their own business, and the remainder stay at home."
+    },
+    {
+      "id": 10,
+      "type": "msq",
+      "text": "Which of the following are listed as PROS of being a business owner (as opposed to an employee)?",
+      "options": [
+        "Flexible work hours",
+        "Guaranteed paycheck",
+        "Diverse learning experience",
+        "Greater sense of personal satisfaction"
+      ],
+      "correctAnswer": [0, 2, 3],
+      "points": 1,
+      "explanation": "The business-owner pros are flexible work hours, diverse learning experience, and a greater sense of personal satisfaction. A guaranteed paycheck is listed as a pro of being an employee."
+    },
+    {
+      "id": 11,
+      "type": "tf",
+      "text": "According to the module, in the short term a business owner will always make more money than an employee.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "In the short term the employee makes more money. In the long term the business owner has the potential to make more money and reap additional benefits."
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "What mainly distinguishes an entrepreneur from management?",
+      "options": [
+        "The entrepreneur is the owner who bears both profit and loss, while management runs the company through administrative functions",
+        "The entrepreneur only provides capital, while management invents the product",
+        "The entrepreneur works for a salary, while management owns the company",
+        "There is no difference; the two terms are interchangeable"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The entrepreneur owns the company and bears both profit and loss. Management operates and runs the company with the help of various administrative functions."
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "How does an investor differ from an entrepreneur?",
+      "options": [
+        "An investor invents or innovates a good or service and accepts all the risk of failure",
+        "An investor provides capital to a business in exchange for the expectation of future gains and profits",
+        "An investor runs the company's day-to-day administrative functions",
+        "An investor holds two or more jobs at the same time"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "An investor is a person or group that provides capital in exchange for expected future gains and profits. It is the entrepreneur who launches the company to invent or innovate."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "What is moonlighting?",
+      "options": [
+        "Starting a business overnight",
+        "Investing in stocks or bonds",
+        "Holding down two or more jobs at the same time",
+        "Managing a company on behalf of its owner"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Moonlighting is holding two or more jobs at once, usually one primary income source plus a side gig or freelance work."
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "According to the module, how does a technopreneur differ from an entrepreneur?",
+      "options": [
+        "A technopreneur starts out with nothing but an \"idea\" and defies existing practices and systems",
+        "A technopreneur only invests money in tech companies",
+        "A technopreneur avoids risk and relies on proven business models",
+        "A technopreneur is always a large corporation"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "An entrepreneur identifies an opportunity and converts it into a product or service. A technopreneur starts out with just an idea, defies existing practices, and thinks of doing things differently."
+    },
+    {
+      "id": 16,
+      "type": "msq",
+      "text": "Technopreneurship involves a coming together of people who are:",
+      "options": [
+        "Intelligent and driven",
+        "Creative and tech-savvy",
+        "Risk-averse",
+        "Passionate, with an appetite for calculated risk"
+      ],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "The module lists people who are intelligent, driven, creative, tech-savvy, passionate and have an appetite for calculated risk. Risk-averse is the opposite of that."
+    },
+    {
+      "id": 17,
+      "type": "mc",
+      "text": "For a technopreneur, it is not as much about the money as it is about:",
+      "options": [
+        "Becoming famous",
+        "The affirmation that the \"idea\" is a worthy one and that it works",
+        "Beating the competition",
+        "Avoiding the 8 a.m. to 5 p.m. routine"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The module says it is about the affirmation that the idea is worthy and works, and the idea needs to work for the greater common good."
+    },
+    {
+      "id": 18,
+      "type": "tf",
+      "text": "For a technopreneur's idea to be worthwhile, it must become a global blockbuster.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The module says the idea needs to work for the greater common good, and that it doesn't need to be a global blockbuster."
+    },
+    {
+      "id": 19,
+      "type": "mc",
+      "text": "More often than not, technopreneurship begins with:",
+      "options": [
+        "A new technology, then looks for a customer",
+        "The customer experience, then works backward to the technology that provides it",
+        "A government subsidy",
+        "A copy of an existing competitor's product"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Technopreneurship begins with the customer experience and works backward to arrive at the technology to provide that experience."
+    },
+    {
+      "id": 20,
+      "type": "mc",
+      "text": "The Philippine government defines the size of a small business based on:",
+      "options": [
+        "Asset size and employment size",
+        "Annual profit and number of branches",
+        "Number of customers and years in operation",
+        "Sales volume and location"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The government categorizes a business by how much it owns (asset size) and how many people work for it (employment size)."
+    },
+    {
+      "id": 21,
+      "type": "matching",
+      "text": "Match each business category to its asset size.",
+      "allChoices": [
+        "Up to P3,000,000",
+        "P3,000,001 - P15,000,000",
+        "P15,000,001 - P100,000,000",
+        "Above P100,000,000"
+      ],
+      "pairs": [
+        { "term": "Micro", "match": "Up to P3,000,000" },
+        { "term": "Small", "match": "P3,000,001 - P15,000,000" },
+        { "term": "Medium", "match": "P15,000,001 - P100,000,000" },
+        { "term": "Large", "match": "Above P100,000,000" }
+      ],
+      "points": 1,
+      "explanation": "By asset size: Micro is up to P3M, Small is P3,000,001 to P15M, Medium is P15,000,001 to P100M, and Large is above P100M."
+    },
+    {
+      "id": 22,
+      "type": "matching",
+      "text": "Match each business category to its employment size.",
+      "allChoices": [
+        "1 - 9 employees",
+        "10 - 99 employees",
+        "100 - 199 employees",
+        "More than 200 employees"
+      ],
+      "pairs": [
+        { "term": "Micro", "match": "1 - 9 employees" },
+        { "term": "Small", "match": "10 - 99 employees" },
+        { "term": "Medium", "match": "100 - 199 employees" },
+        { "term": "Large", "match": "More than 200 employees" }
+      ],
+      "points": 1,
+      "explanation": "By employment size: Micro is 1 to 9, Small is 10 to 99, Medium is 100 to 199, and Large is more than 200 employees."
+    },
+    {
+      "id": 23,
+      "type": "msq",
+      "text": "Which of the following are listed as ADVANTAGES of a small business?",
+      "options": [
+        "Can easily modify products to address market demand and preferences",
+        "Lack of skill in marketing planning and market studies",
+        "Faster communication",
+        "Can easily adjust production, personnel and other systems in times of economic crisis"
+      ],
+      "correctAnswer": [0, 2, 3],
+      "points": 1,
+      "explanation": "Product flexibility, faster communication, and the ability to adjust in an economic crisis are all listed advantages. Lack of marketing skills is a disadvantage."
+    },
+    {
+      "id": 24,
+      "type": "msq",
+      "text": "Which of the following are listed as DISADVANTAGES of a small business?",
+      "options": [
+        "Lack of skills in marketing planning and doing market studies",
+        "Hardly undertaking promotional activities such as media advertising",
+        "Faster communication",
+        "Control and administration centralized in the hands of the owner-manager"
+      ],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "Weak marketing skills, little promotion, and centralized control by the owner-manager are listed disadvantages. Faster communication is an advantage."
+    },
+    {
+      "id": 25,
+      "type": "fitb",
+      "text": "Many small businesses may fail because of the lack of a workable and realistic ___ plan.",
+      "correctAnswer": "financial",
+      "points": 1,
+      "explanation": "Disadvantage #6 reads: \"Many small businesses may fail because of lack of workable and realistic financial plan.\""
+    },
+    {
+      "id": 26,
+      "type": "msq",
+      "text": "According to DTI, which of the following are NON-human resources that an entrepreneur puts together?",
+      "options": [
+        "Workers",
+        "Money",
+        "Machines",
+        "Suppliers",
+        "Land and building"
+      ],
+      "correctAnswer": [1, 2, 4],
+      "points": 1,
+      "explanation": "Human resources are workers, managers, customers, and suppliers. Non-human resources are land and building, money, machines, materials, and methods or processes."
+    },
+    {
+      "id": 27,
+      "type": "mc",
+      "text": "How does DTI describe the risk-taking of an entrepreneur?",
+      "options": [
+        "Betting money on chance outcomes like a gambler or speculator",
+        "Putting resources together to realize business objectives even though the result is uncertain",
+        "Avoiding any investment until success is guaranteed",
+        "Passing all losses on to investors"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Entrepreneurs take risks \"not just in the way gamblers and speculators do,\" but by putting resources together to realize business objectives whose result is uncertain."
+    },
+    {
+      "id": 28,
+      "type": "fitb",
+      "text": "Small entrepreneurs are often called the \"backbone of the economy\" or the \"___ of growth.\"",
+      "correctAnswer": "engine",
+      "points": 1,
+      "explanation": "Entrepreneurs are called the \"backbone of the economy\" or \"the engine of growth\" because they help build the nation."
+    },
+    {
+      "id": 29,
+      "type": "matching",
+      "text": "Match each role of the entrepreneur in society to the description or example given in the module.",
+      "allChoices": [
+        "Hiring people so they can feed their families and pay income taxes",
+        "Faster stoves, microwave ovens and pressure cookers making cooking easier",
+        "Locating in the provinces to spread development and slow migration to the metropolis",
+        "Making handicrafts and computer casings out of pandan, rattan and bamboo",
+        "Taxes, duties and licenses paying for roads, schools, and medical services"
+      ],
+      "pairs": [
+        { "term": "Bring about employment", "match": "Hiring people so they can feed their families and pay income taxes" },
+        { "term": "Improve the quality of life", "match": "Faster stoves, microwave ovens and pressure cookers making cooking easier" },
+        { "term": "Contribute to a wider distribution of income", "match": "Locating in the provinces to spread development and slow migration to the metropolis" },
+        { "term": "Utilize resources for national productivity", "match": "Making handicrafts and computer casings out of pandan, rattan and bamboo" },
+        { "term": "Generate social benefits through government", "match": "Taxes, duties and licenses paying for roads, schools, and medical services" }
+      ],
+      "points": 1,
+      "explanation": "These are the five societal roles (4a-4e) from DTI. Employment: hiring. Quality of life: cooking innovations. Wider income distribution: locating in rural areas. National productivity: local materials such as bamboo. Social benefits: government revenue from taxes, duties and licenses."
+    },
+    {
+      "id": 30,
+      "type": "mc",
+      "text": "Bamboo being used as computer casing is given as an example of which role of the entrepreneur?",
+      "options": [
+        "Bring about employment",
+        "Improve the quality of life",
+        "Utilize resources for national productivity",
+        "Generate social benefits through government"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Bamboo computer casing, a part of the green computing scheme, illustrates putting locally abundant natural resources to good use."
+    },
+    {
+      "id": 31,
+      "type": "msq",
+      "text": "Which of the following are listed as RISKS of being an entrepreneur?",
+      "options": [
+        "The risk of failure",
+        "Long hours of hard work",
+        "Being your own boss",
+        "Unwanted responsibilities"
+      ],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "The risks are the risk of failure, long hours of hard work, and unwanted responsibilities. Being your own boss is listed as a reward, along with making money, expressing creativity, and feeling fulfilled."
+    },
+    {
+      "id": 32,
+      "type": "mc",
+      "text": "Which environment can a small business owner actually control, as opposed to only respond or adjust to?",
+      "options": [
+        "The external environment",
+        "The internal environment",
+        "The political environment",
+        "The economic environment"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "An entrepreneur can only control the internal environment, and can only respond or adjust to changes in the external environment."
+    },
+    {
+      "id": 33,
+      "type": "msq",
+      "text": "Which of the following belong to the INTERNAL environment of a business?",
+      "options": [
+        "Organizational structure",
+        "Political factors",
+        "Management support",
+        "Legal factors",
+        "Employees"
+      ],
+      "correctAnswer": [0, 2, 4],
+      "points": 1,
+      "explanation": "The internal environment is organizational structure, management support, employees, and resources. Political and legal factors are part of the external environment."
+    },
+    {
+      "id": 34,
+      "type": "fitb",
+      "text": "The external environment covers Political, Economic, Social, Technological, Legal, and ___ factors.",
+      "correctAnswer": "Environmental",
+      "points": 1,
+      "explanation": "The six external factors listed are Political, Economic, Social, Technological, Legal, and Environmental."
+    },
+    {
+      "id": 35,
+      "type": "msq",
+      "text": "Which of the following are listed as personal characteristics of an entrepreneur?",
+      "options": [
+        "Opportunity seekers",
+        "Risk-takers",
+        "Easily discouraged by failure",
+        "Persuasive and good in networking",
+        "Demanding in terms of quality and efficiency"
+      ],
+      "correctAnswer": [0, 1, 3, 4],
+      "points": 1,
+      "explanation": "The list includes opportunity seekers, persistent, committed to work, risk-takers, demanding in terms of quality and efficiency, goal setters, information seekers, good in planning and monitoring, persuasive and good in networking, and self-confident. Persistence is the opposite of being easily discouraged."
+    },
+    {
+      "id": 36,
+      "type": "msq",
+      "text": "Which of the following are listed among the technology trends and opportunities for 2025?",
+      "options": [
+        "Generative AI",
+        "Quantum Computing",
+        "Dial-up internet",
+        "Edge Computing"
+      ],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "The 2025 list includes Generative AI, Quantum Computing, 5G expansion, Virtual Reality 2.0, Augmented Reality, Internet of Things, Biotechnology in Agriculture, Autonomous Vehicles, Blockchain, and Edge Computing."
+    },
+    {
+      "id": 37,
+      "type": "msq",
+      "text": "Which of the following are listed as technology-based business ideas?",
+      "options": [
+        "Search engine optimization (SEO)",
+        "Game development",
+        "Blogging",
+        "Restaurant franchising"
+      ],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "The list includes website design and development, software design and development, graphic design, animation and 3D, game development, blogging, SEO, online selling, and digital shirt printing and souvenirs."
+    },
+    {
+      "id": 38,
+      "type": "mc",
+      "text": "Under \"What's Next?\", which three activities make up \"Start Empathizing\"?",
+      "options": [
+        "Plan, Budget, Launch",
+        "Observe, Engage, Immerse",
+        "Ideate, Prototype, Test",
+        "Research, Pitch, Scale"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The closing slide lists Observe, Engage, and Immerse as the way to start empathizing."
+    }
+  ]
+}

@@ -1,0 +1,655 @@
+{
+  "quizTitle": "Technopreneurship - Module 2: Business Formation",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "The \"Big Three\" forms of business ownership (Sole Proprietorship, Partnership, Corporation) are becoming the \"Big Four\". What is the fourth form?",
+      "options": ["Franchise", "Limited Liability Company", "Cooperative", "Joint Venture"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The Big Four are Sole Proprietorship, Partnership, Corporation, and Limited Liability Company. Franchising is not a form of ownership; it is an operation option."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "Which of the following is NOT listed as something the form of ownership affects?",
+      "options": ["Start-up costs", "Profit distribution", "Management succession plans", "Product design"],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The form of ownership affects operation, start-up costs, profit distribution, taxes, and management succession plans. Product design is not on the list."
+    },
+    {
+      "id": 3,
+      "type": "msq",
+      "text": "Which of the following are listed as ADVANTAGES of a sole proprietorship?",
+      "options": ["Ease of formation", "Retention of control", "Pride of ownership", "Limited liability"],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "The listed advantages are ease of formation, retention of control, pride of ownership, retention of profits, and possible tax advantages. A sole proprietor has unlimited liability, not limited."
+    },
+    {
+      "id": 4,
+      "type": "msq",
+      "text": "Which of the following are listed as DISADVANTAGES of a sole proprietorship?",
+      "options": [
+        "Unlimited liability",
+        "Lack of permanence",
+        "Double taxation",
+        "Limited ability to attract and maintain talented employees"
+      ],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "The disadvantages are limited financial resources, unlimited liability, limited ability to attract and maintain talented employees, and lack of permanence. Double taxation is a disadvantage of corporations."
+    },
+    {
+      "id": 5,
+      "type": "msq",
+      "text": "Which of the following are listed as ADVANTAGES of a partnership?",
+      "options": [
+        "Pooled financial resources",
+        "Shared responsibilities",
+        "Ease of formation",
+        "Guaranteed continuity of the business"
+      ],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "Partnership advantages are pooled financial resources, shared responsibilities, ease of formation, and tax advantages. Lack of continuity is listed as a disadvantage."
+    },
+    {
+      "id": 6,
+      "type": "fitb",
+      "text": "Besides unlimited liability, disagreements, and difficulty in withdrawing from the agreement, a disadvantage of partnerships is lack of ___.",
+      "correctAnswer": "continuity",
+      "points": 1,
+      "explanation": "The four partnership disadvantages are unlimited liability, disagreements, difficulty in withdrawing from the agreement, and lack of continuity."
+    },
+    {
+      "id": 7,
+      "type": "matching",
+      "text": "Match each type of partnership to its description.",
+      "allChoices": [
+        "Includes at least one general partner and at least one limited partner",
+        "All partners are actively involved but have some form of limited liability",
+        "All partners may participate in management and share in profits and losses",
+        "Parents are general partners and children are limited partners"
+      ],
+      "pairs": [
+        { "term": "Limited Partnership", "match": "Includes at least one general partner and at least one limited partner" },
+        { "term": "Limited Liability Partnership", "match": "All partners are actively involved but have some form of limited liability" },
+        { "term": "General Partnership", "match": "All partners may participate in management and share in profits and losses" },
+        { "term": "Family Limited Partnership", "match": "Parents are general partners and children are limited partners" }
+      ],
+      "points": 1,
+      "explanation": "A limited partnership has at least one general and one limited partner. In a limited liability partnership all partners are active but have some limited liability (the amount differs per state). In a general partnership all partners can manage and share profits and losses. A family limited partnership has parents as general partners and children as limited partners."
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "In a limited partnership, what is the limitation on the limited partner(s)?",
+      "options": [
+        "They cannot contribute financially",
+        "They cannot share in the profits",
+        "They cannot actively participate in management",
+        "They have unlimited liability"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "All partners contribute financially and share in the profits, but limited partners cannot actively participate in management, and their liability is limited."
+    },
+    {
+      "id": 9,
+      "type": "msq",
+      "text": "Which of the following are strategies or effects of a Family Limited Partnership?",
+      "options": [
+        "Reduces gift and inheritance taxes",
+        "Protects family assets from creditors and lawsuits",
+        "Guarantees that it will never be audited by the IRS",
+        "Parents transfer assets to the limited partners while still maintaining control"
+      ],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "Parents keep control while transferring assets, which reduces gift and inheritance taxes and protects assets from creditors and lawsuits. The module also warns that family limited partnerships can attract tax auditors."
+    },
+    {
+      "id": 10,
+      "type": "tf",
+      "text": "A corporation is a legal entity, separate and distinct from its owners.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The module describes a corporation as \"a legal entity, separate and distinct from its owners.\""
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "Who elects the Board of Directors, which establishes the corporation's mission and objectives?",
+      "options": ["The employees", "The stockholders", "The government", "The creditors"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Corporations are owned by stockholders, and the Board is elected by the stockholders to represent their interests."
+    },
+    {
+      "id": 12,
+      "type": "msq",
+      "text": "Which of the following are listed as ADVANTAGES of a corporation?",
+      "options": ["Limited liability", "Permanence", "Double taxation", "Ability to raise capital"],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "The advantages are limited liability, permanence, easy transfer of ownership, ability to raise capital, and specialized management. Double taxation is a disadvantage."
+    },
+    {
+      "id": 13,
+      "type": "msq",
+      "text": "Which of the following are listed as DISADVANTAGES of a corporation?",
+      "options": ["Double taxation", "Paperwork and regulation", "Easy transfer of ownership", "Conflicts of interest"],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "The disadvantages are expense and complexity of formation and operation, double taxation, paperwork and regulation, and conflicts of interest. Easy transfer of ownership is an advantage."
+    },
+    {
+      "id": 14,
+      "type": "matching",
+      "text": "Match each type of corporation to one of its characteristics.",
+      "allChoices": [
+        "No more than 100 stockholders",
+        "Owners can participate in management while maintaining limited liability",
+        "Can't distribute dividends"
+      ],
+      "pairs": [
+        { "term": "S Corporation", "match": "No more than 100 stockholders" },
+        { "term": "Statutory Close Corporation", "match": "Owners can participate in management while maintaining limited liability" },
+        { "term": "Nonprofit Corporation", "match": "Can't distribute dividends" }
+      ],
+      "points": 1,
+      "explanation": "An S corporation is limited to 100 stockholders, who must be US citizens or permanent residents. A statutory close corporation lets owners take part in management while keeping limited liability. A nonprofit corporation has no stockholders and can't distribute dividends or make political donations."
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "Which of the following is a limitation of a nonprofit corporation?",
+      "options": [
+        "It can't distribute dividends",
+        "Its earnings are taxed like any other corporation",
+        "It must have stockholders",
+        "Contributions made to it are not tax-deductible"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A nonprofit may have dues-paying members but no stockholders, can't distribute dividends or make political donations, and must keep accurate records to document its tax exemption. Its earnings are exempt from income taxes and contributions are tax-deductible."
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "text": "Which of the following is a limitation of an S Corporation?",
+      "options": [
+        "Stockholders have unlimited liability",
+        "Earnings are taxed separately by the IRS",
+        "It may have no more than 100 stockholders",
+        "It can't have a board of directors"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "S corporations may have no more than 100 stockholders, who must be US citizens or permanent residents. Their key advantages are that the IRS does not tax earnings separately and stockholders have limited liability."
+    },
+    {
+      "id": 17,
+      "type": "msq",
+      "text": "Which of the following are listed as ADVANTAGES of a Limited Liability Company (LLC)?",
+      "options": ["Limited liability", "Tax pass-through", "Franchise taxes", "Flexible ownership"],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "LLC advantages are limited liability, tax pass-through, simplified management and operation, and flexible ownership. Franchise taxes are a disadvantage."
+    },
+    {
+      "id": 18,
+      "type": "mc",
+      "text": "Which of the following is a DISADVANTAGE of an LLC?",
+      "options": ["Tax pass-through", "Flexible ownership", "Franchise taxes", "Simplified management and operation"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The LLC disadvantages are franchise taxes, foreign status in other states, state law differences, and being limited to select industries."
+    },
+    {
+      "id": 19,
+      "type": "mc",
+      "text": "On the \"Comparing Business Forms\" spectrum, which form has the HIGHEST degree of personal liability and the LOWEST degree of complexity and perpetuity?",
+      "options": ["Sole proprietorship", "Partnership", "Corporation", "They are all equal"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Going from sole proprietorships to partnerships to corporations, personal liability goes from high to low while complexity and perpetuity go from low to high."
+    },
+    {
+      "id": 20,
+      "type": "mc",
+      "text": "In corporate restructuring, what is an acquisition?",
+      "options": [
+        "Two companies agree to a combination of equals",
+        "One firm buys another",
+        "A firm sells its brand name to a franchisee",
+        "A firm splits into two smaller companies"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "An acquisition is when one firm buys another. A merger is when two companies agree to a combination of equals."
+    },
+    {
+      "id": 21,
+      "type": "msq",
+      "text": "Which of the following do corporations look for when restructuring through mergers and acquisitions?",
+      "options": ["Growth opportunities", "Operational efficiencies", "Tax-exempt status", "Competitive advantages"],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "Corporations look for growth opportunities, operational efficiencies, and competitive advantages."
+    },
+    {
+      "id": 22,
+      "type": "matching",
+      "text": "Match each type of merger to its definition.",
+      "allChoices": [
+        "Combines firms in the same industry",
+        "Combines companies with a buyer-seller relationship",
+        "Combines unrelated companies"
+      ],
+      "pairs": [
+        { "term": "Horizontal", "match": "Combines firms in the same industry" },
+        { "term": "Vertical", "match": "Combines companies with a buyer-seller relationship" },
+        { "term": "Conglomerate", "match": "Combines unrelated companies" }
+      ],
+      "points": 1,
+      "explanation": "Horizontal mergers combine firms in the same industry (to increase size, market power and efficiency). Vertical mergers combine companies with a buyer-seller relationship (tighter integration and more control). Conglomerate mergers combine unrelated companies (to increase diversity)."
+    },
+    {
+      "id": 23,
+      "type": "matching",
+      "text": "Match each example from the module to the type of merger it illustrates.",
+      "allChoices": ["Horizontal", "Vertical", "Conglomerate"],
+      "pairs": [
+        { "term": "AT&T and SBC", "match": "Horizontal" },
+        { "term": "Time Warner and Turner Broadcasting", "match": "Vertical" },
+        { "term": "GE acquiring RCA", "match": "Conglomerate" }
+      ],
+      "points": 1,
+      "explanation": "The module's examples are AT&T and SBC (horizontal), Time Warner and Turner Broadcasting (vertical), and GE acquiring RCA (conglomerate)."
+    },
+    {
+      "id": 24,
+      "type": "tf",
+      "text": "Franchising is a form of business ownership, just like a sole proprietorship, partnership, or corporation.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The module says franchising is \"not a form of ownership but an operation option.\""
+    },
+    {
+      "id": 25,
+      "type": "mc",
+      "text": "In franchising, what does the franchisee use?",
+      "options": [
+        "The brand name, trademark and practices of the franchisor",
+        "The capital of the franchisor",
+        "The employees of the franchisor",
+        "The tax exemption of the franchisor"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The franchisee uses the brand name, trademark and practices of the franchisor, for a price."
+    },
+    {
+      "id": 26,
+      "type": "msq",
+      "text": "Which of the following are listed as ADVANTAGES of franchising?",
+      "options": ["Less risk", "Brand recognition", "Lack of control", "Training and support"],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "The advantages are less risk, training and support, brand recognition, and access to funding. Lack of control is a disadvantage."
+    },
+    {
+      "id": 27,
+      "type": "mc",
+      "text": "Which of the following is NOT listed as a disadvantage of franchising?",
+      "options": ["Costs", "Negative halo effect", "Restriction on sale", "Access to funding"],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The disadvantages are costs, lack of control, negative halo effect, growth challenges, restriction on sale, and poor execution. Access to funding is an advantage."
+    },
+    {
+      "id": 28,
+      "type": "mc",
+      "text": "In the Philippines, where is a sole proprietorship's business name reserved and registered?",
+      "options": [
+        "DTI Business Name Registration System (BNRS)",
+        "SEC",
+        "BIR",
+        "SSS"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A sole proprietorship's name is registered in the DTI Business Name Registration System (BNRS). Partnerships and corporations register their names with the SEC."
+    },
+    {
+      "id": 29,
+      "type": "msq",
+      "text": "Which of the following are listed as requirements for registering a sole proprietorship?",
+      "options": [
+        "Applicant's TIN number",
+        "Draft of the articles of partnership",
+        "Copy of a government-issued ID as proof of citizenship",
+        "Signed copy of the undertaking from the DTI BNRS"
+      ],
+      "correctAnswer": [0, 2, 3],
+      "points": 1,
+      "explanation": "The requirements are the business name, the applicant's TIN, a copy of a government-issued ID, a signed undertaking from the DTI BNRS, and payment for the application. Articles of partnership are for partnerships."
+    },
+    {
+      "id": 30,
+      "type": "mc",
+      "text": "In the sole proprietorship registration process, what comes right after getting the certificate from DTI?",
+      "options": [
+        "Registering with the SEC",
+        "Securing business registration from the local government (Barangay Certificate, Mayor's Permit & Licenses)",
+        "Registering with the SSS",
+        "Submitting the articles of incorporation"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "After the DTI certificate, the owner secures business registration from the local government of the chosen location, then registers with the BIR, and, if there are employees, with SSS, PhilHealth and HDMF."
+    },
+    {
+      "id": 31,
+      "type": "msq",
+      "text": "If a business has employees, which of the following must it also register with, according to the module?",
+      "options": ["Social Security System (SSS)", "Philippine Health Insurance Corporation (PhilHealth)", "SEC", "Home Development Mutual Fund (HDMF)"],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "Businesses with employees register with SSS, PhilHealth, and HDMF. The SEC is for registering partnerships and corporations."
+    },
+    {
+      "id": 32,
+      "type": "matching",
+      "text": "Match each abbreviation from the business registration process to what it stands for.",
+      "allChoices": [
+        "DTI Business Name Registration System",
+        "Bureau of Internal Revenue",
+        "Social Security System",
+        "Philippine Health Insurance Corporation",
+        "Home Development Mutual Fund"
+      ],
+      "pairs": [
+        { "term": "BNRS", "match": "DTI Business Name Registration System" },
+        { "term": "BIR", "match": "Bureau of Internal Revenue" },
+        { "term": "SSS", "match": "Social Security System" },
+        { "term": "PhilHealth", "match": "Philippine Health Insurance Corporation" },
+        { "term": "HDMF", "match": "Home Development Mutual Fund" }
+      ],
+      "points": 1,
+      "explanation": "BNRS is the DTI Business Name Registration System, BIR is the Bureau of Internal Revenue, SSS is the Social Security System, PhilHealth is the Philippine Health Insurance Corporation, and HDMF is the Home Development Mutual Fund."
+    },
+    {
+      "id": 33,
+      "type": "mc",
+      "text": "Which SEC form is required for a partnership with foreigner partners?",
+      "options": ["SEC Form F-100", "SEC Form F-105", "SEC Form F-200", "SEC Form F-10"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "SEC form F-105 is for foreigner partners. F-100 is the form listed for corporations."
+    },
+    {
+      "id": 34,
+      "type": "mc",
+      "text": "According to the module, how many shareholders must a corporation have?",
+      "options": ["At least 1", "At least 2", "At least 5 to 15", "At least 100"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The corporation requirements state that it \"must have at least 5-15 shareholders.\""
+    },
+    {
+      "id": 35,
+      "type": "mc",
+      "text": "What is the minimum paid-up capital for a Filipino corporation, according to the module?",
+      "options": ["Php 10,000", "Php 50,000", "Php 100,000", "Php 500,000"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "A Filipino corporation needs at least Php 100,000 in paid-up capital. For foreign-owned corporations the minimum is expected to be higher, depending on the type of corporation."
+    },
+    {
+      "id": 36,
+      "type": "mc",
+      "text": "Which SEC form is listed for a corporation with more than 40% (foreign ownership)?",
+      "options": ["SEC Form F-105", "SEC Form F-100", "SEC Form F-200", "SEC Form F-10"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The module lists SEC form F-100 for a corporation with more than 40%. F-105 is the form for foreigner partners in a partnership."
+    },
+    {
+      "id": 37,
+      "type": "msq",
+      "text": "Which of the following are documents a corporation submits to the SEC?",
+      "options": ["Cover Sheet", "Name Verification Slip", "Mayor's Permit", "Treasurer's Affidavit"],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "The SEC submission includes the Cover Sheet, Name Verification Slip, Articles of Incorporation, Treasurer's Affidavit, By-Laws, and an undertaking to change name. The Mayor's Permit is secured later from the local government."
+    },
+    {
+      "id": 38,
+      "type": "mc",
+      "text": "Under the Magna Carta for Micro, Small and Medium Enterprises, which total asset value defines a SMALL enterprise?",
+      "options": [
+        "Up to P3,000,000",
+        "P3,000,001 - P15,000,000",
+        "P15,000,001 - P100,000,000",
+        "Above P100,000,000"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The Magna Carta defines MSMEs by asset size: micro is up to P3,000,000, small is P3,000,001 to P15,000,000, and medium is P15,000,001 to P100,000,000."
+    },
+    {
+      "id": 39,
+      "type": "matching",
+      "text": "Match each statistic to what it describes about MSMEs (Philippine Statistics Authority, 2015).",
+      "allChoices": [
+        "Share of total establishments that are MSMEs",
+        "Share of the total labor force employed by MSMEs",
+        "MSMEs' contribution to total value added",
+        "Share of all exporters that are MSMEs"
+      ],
+      "pairs": [
+        { "term": "99.5%", "match": "Share of total establishments that are MSMEs" },
+        { "term": "61.6%", "match": "Share of the total labor force employed by MSMEs" },
+        { "term": "36.7%", "match": "MSMEs' contribution to total value added" },
+        { "term": "59%", "match": "Share of all exporters that are MSMEs" }
+      ],
+      "points": 1,
+      "explanation": "MSMEs account for 99.5% of establishments, employ 61.6% of the labor force, contribute 36.7% of total value added, and make up 59% of all exporters."
+    },
+    {
+      "id": 40,
+      "type": "mc",
+      "text": "In the 2015 distribution of establishments by enterprise size, what percentage of establishments are MICRO enterprises?",
+      "options": ["29.43%", "38.39%", "89.53%", "9.59%"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Micro enterprises are 806,609 of 900,914 establishments (89.53%). Small enterprises are 9.59%, medium 0.43%, and large 0.45%. The 29.43% figure is micro enterprises' share of total employment, not of establishments."
+    },
+    {
+      "id": 41,
+      "type": "mc",
+      "text": "By total employment, which enterprise size has the LARGEST share?",
+      "options": ["Micro (29.43%)", "Small (25.34%)", "Medium (6.83%)", "Large (38.39%)"],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Large enterprises have 2,981,819 of the 7,766,689 total employed (38.39%), even though they are only 0.45% of establishments."
+    },
+    {
+      "id": 42,
+      "type": "msq",
+      "text": "Which of the following are listed as NON-FINANCIAL barriers to MSME growth and development?",
+      "options": [
+        "Lack of access to market",
+        "Lack of access to finance",
+        "Low productivity and efficiency",
+        "Lack of awareness of national and international standards"
+      ],
+      "correctAnswer": [0, 2, 3],
+      "points": 1,
+      "explanation": "Lack of access to finance is the one financial barrier. The non-financial barriers include poor business environment and high cost of doing business, lack of access to market, lack of awareness of standards, low productivity and efficiency, and dealing with climate change and other risks."
+    },
+    {
+      "id": 43,
+      "type": "matching",
+      "text": "Match each Republic Act to its title.",
+      "allChoices": [
+        "Magna Carta for Micro, Small and Medium Enterprises",
+        "Barangay Micro Business Enterprises (BMBEs) Act",
+        "Go Negosyo Act"
+      ],
+      "pairs": [
+        { "term": "R.A. 6977", "match": "Magna Carta for Micro, Small and Medium Enterprises" },
+        { "term": "R.A. 9178", "match": "Barangay Micro Business Enterprises (BMBEs) Act" },
+        { "term": "R.A. 10644", "match": "Go Negosyo Act" }
+      ],
+      "points": 1,
+      "explanation": "R.A. 6977 is the Magna Carta for MSMEs, R.A. 9178 is the BMBEs Act, and R.A. 10644 is the Go Negosyo Act."
+    },
+    {
+      "id": 44,
+      "type": "msq",
+      "text": "Which of the following are major provisions of R.A. 6977 (Magna Carta for MSMEs)?",
+      "options": [
+        "Creation of the MSMED Council",
+        "Establishment of Negosyo Centers",
+        "Creation of the Small Business Guarantee and Finance Corporation (SB Corporation)",
+        "Mandatory allocation of credit resources for MSME lending"
+      ],
+      "correctAnswer": [0, 2, 3],
+      "points": 1,
+      "explanation": "R.A. 6977 created the MSMED Council and the SB Corporation and required mandatory allocation of credit resources for MSME lending. Establishing Negosyo Centers comes from the Go Negosyo Act (R.A. 10644)."
+    },
+    {
+      "id": 45,
+      "type": "msq",
+      "text": "Which of the following incentives are given to Barangay Micro Business Enterprises (BMBEs) under R.A. 9178?",
+      "options": [
+        "Exemption from income tax",
+        "Exemption from the coverage of the Minimum Wage Law",
+        "Guaranteed government contracts",
+        "Special credit window"
+      ],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "BMBEs get exemption from income tax, exemption from the Minimum Wage Law, a special credit window, and technology transfer, production and management training, and marketing assistance."
+    },
+    {
+      "id": 46,
+      "type": "msq",
+      "text": "Which of the following are services offered through Negosyo Centers to promote ease of doing business for MSMEs?",
+      "options": [
+        "Business registration assistance",
+        "Loan collection services",
+        "Business advisory services",
+        "Business information and advocacy"
+      ],
+      "correctAnswer": [0, 2, 3],
+      "points": 1,
+      "explanation": "The four services shown are business registration assistance, business advisory services, business information and advocacy, and monitoring and evaluation. Loan collection is not one of them."
+    },
+    {
+      "id": 47,
+      "type": "mc",
+      "text": "Under BSP Circular No. 625 (Series of 2008), banks must set aside what share of their total loan portfolio for MSME credit?",
+      "options": [
+        "At least 8% for micro and small enterprises and at least 2% for medium enterprises",
+        "At least 2% for micro and small enterprises and at least 8% for medium enterprises",
+        "At least 10% for micro enterprises and at least 5% for small enterprises",
+        "At least 5% for all MSMEs"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The circular requires at least 8% for micro and small enterprises and at least 2% for medium enterprises, for ten years from the effectivity of R.A. 9501."
+    },
+    {
+      "id": 48,
+      "type": "mc",
+      "text": "Which program is described as the government's flagship program for the MSME sector, aimed at creating an MSME-friendly lending environment?",
+      "options": [
+        "ASENSO (Access of Small Enterprises to Sound Lending Opportunities)",
+        "Shared Service Facilities",
+        "SME Roving Academy",
+        "Mentor ME"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "ASENSO is the flagship program in which government financial institutions extend loans to MSMEs on manageable terms. It reported P207.448B released (2011-2015), 249,606 MSME borrowers, and 2.618M jobs."
+    },
+    {
+      "id": 49,
+      "type": "mc",
+      "text": "Which agency administers the Pondo sa Pagbabago at Pag-asenso (P3) Program?",
+      "options": [
+        "Bureau of Internal Revenue",
+        "Small Business Corporation, an attached agency of the DTI",
+        "Securities and Exchange Commission",
+        "Social Security System"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The Small Business Corporation, an attached agency of the DTI, administers P3. Its primary beneficiaries are microenterprises and entrepreneurs without easy access to credit, or who pay very high interest."
+    },
+    {
+      "id": 50,
+      "type": "matching",
+      "text": "Match each MSME development initiative to its description.",
+      "allChoices": [
+        "Flagship lending program with GFIs extending loans on manageable terms",
+        "Alternative, easy-to-access financing for microenterprises",
+        "Continuous learning program to enhance MSME competitiveness",
+        "Coaching and mentoring by business owners and practitioners, held in Negosyo Centers",
+        "Enhancing industry competitiveness to develop exports, generate investments and create jobs",
+        "Provides machinery, equipment, tools and systems under a shared system"
+      ],
+      "pairs": [
+        { "term": "ASENSO", "match": "Flagship lending program with GFIs extending loans on manageable terms" },
+        { "term": "P3 Program", "match": "Alternative, easy-to-access financing for microenterprises" },
+        { "term": "SME Roving Academy", "match": "Continuous learning program to enhance MSME competitiveness" },
+        { "term": "Mentor ME", "match": "Coaching and mentoring by business owners and practitioners, held in Negosyo Centers" },
+        { "term": "Industry Clustering", "match": "Enhancing industry competitiveness to develop exports, generate investments and create jobs" },
+        { "term": "Shared Service Facilities (SSF)", "match": "Provides machinery, equipment, tools and systems under a shared system" }
+      ],
+      "points": 1,
+      "explanation": "ASENSO is the lending flagship, P3 is alternative financing for microenterprises, SME Roving Academy is a continuous learning program, Mentor ME provides coaching and mentoring in Negosyo Centers, Industry Clustering enhances industry competitiveness and exports, and SSF provides shared machinery, equipment and skills."
+    },
+    {
+      "id": 51,
+      "type": "msq",
+      "text": "Which of the following are part of the DTI's 7Ms for MSME Development?",
+      "options": ["Mindset", "Money", "Marketing", "Mentoring", "Manpower"],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "The 7Ms are Mindset, Money, Mentoring, Machines, Mastery, Business Models, and Markets. Marketing and Manpower are not among them."
+    },
+    {
+      "id": 52,
+      "type": "fitb",
+      "text": "The SME Development Plan 2017-2022 envisions an MSME sector \"performing as one of the most effective drivers of ___ Philippine economic growth.\"",
+      "correctAnswer": "inclusive",
+      "points": 1,
+      "explanation": "The vision ends: \"...one of the most effective drivers of inclusive Philippine economic growth.\""
+    },
+    {
+      "id": 53,
+      "type": "matching",
+      "text": "In the MSME Development Framework (2017-2022), match each theme to the focus area it falls under.",
+      "allChoices": ["Business Environment", "Business Capacity", "Business Opportunities"],
+      "pairs": [
+        { "term": "Business Climate", "match": "Business Environment" },
+        { "term": "Access to Finance", "match": "Business Environment" },
+        { "term": "Human Capital Development", "match": "Business Capacity" },
+        { "term": "Technology and Innovation", "match": "Business Capacity" },
+        { "term": "Access to Market", "match": "Business Opportunities" }
+      ],
+      "points": 1,
+      "explanation": "Business Environment covers Business Climate and Access to Finance. Business Capacity covers Human Capital Development and Technology and Innovation. Business Opportunities covers Access to Market."
+    }
+  ]
+}
