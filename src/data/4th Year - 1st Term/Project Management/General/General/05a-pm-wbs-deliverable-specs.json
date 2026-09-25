@@ -1,0 +1,255 @@
+{
+  "quizTitle": "Project Management - Module 5a: WBS Deliverable Specs",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "What does WBS stand for?",
+      "options": ["Work Breakdown Structure", "Workflow Baseline Schedule", "Work Budget Summary", "Weighted Benefit Score"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "WBS stands for Work Breakdown Structure: a hierarchical decomposition of the total project scope into deliverables and work packages."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "Which Course Intended Learning Outcome does the WBS & WBS Dictionary deliverable target?",
+      "options": ["CILO1", "CILO2", "CILO3", "CILO4"],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The deliverable targets CILO4 - Project Deliverable Decomposition across the 10 PM Knowledge Areas."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "According to CILO4, students should analyze project deliverables by applying knowledge and techniques along how many project management knowledge areas?",
+      "options": ["5", "8", "10", "12"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "CILO4 refers to the 10 project management knowledge areas."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "What type of assessment is the WBS & WBS Dictionary deliverable?",
+      "options": ["Individual formative quiz", "Group summative deliverable", "Individual summative exam", "Group formative exercise"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "It is specified as a Group Summative Deliverable."
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "The WBS decomposes total project scope into manageable units of what kind?",
+      "options": [
+        "Deliverable-oriented work packages",
+        "Daily to-do checklists",
+        "Individual team member timesheets",
+        "Budget line items"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Groups must decompose the total scope into manageable, deliverable-oriented work packages."
+    },
+    {
+      "id": 6,
+      "type": "msq",
+      "text": "The WBS serves as the foundational scope baseline for which of the following? (Select all that apply.)",
+      "options": ["Schedule development", "Cost estimation", "Hiring and payroll", "Marketing strategy"],
+      "correctAnswer": [0, 1],
+      "points": 1,
+      "explanation": "As the scope baseline anchor, the WBS defines all work to be produced and is the foundation for schedule development and cost estimation."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "What range of levels should the WBS structure span, from high-level phases down to actionable work packages?",
+      "options": ["Level 1 only", "Levels 1 to 2", "Levels 1 to 4", "Levels 1 to 10"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The WBS is structured from Level 1 (high-level project phases) down to Level 4 (individual actionable work packages)."
+    },
+    {
+      "id": 8,
+      "type": "tf",
+      "text": "The WBS Dictionary only needs to document the top-level phases of the WBS, not the lowest-level work packages.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. The WBS Dictionary documents detailed attributes for every lowest-level work package element."
+    },
+    {
+      "id": 9,
+      "type": "matching",
+      "text": "Match each evaluation criterion to its weight in the rubric.",
+      "allChoices": ["30%", "25%", "10%"],
+      "pairs": [
+        { "term": "Structure & Decomposition", "match": "30%" },
+        { "term": "Scope Alignment", "match": "25%" },
+        { "term": "Dictionary Detail", "match": "25%" },
+        { "term": "Granularity & 100% Rule", "match": "10%" },
+        { "term": "Formatting & Coding", "match": "10%" }
+      ],
+      "points": 5,
+      "explanation": "Structure & Decomposition is 30%, Scope Alignment and Dictionary Detail are 25% each, and Granularity & 100% Rule and Formatting & Coding are 10% each."
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "What percentage of the total grade relies on proper structural hierarchy, complete scope baseline alignment, and comprehensive WBS dictionary documentation?",
+      "options": ["50%", "65%", "80%", "100%"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The key insight is that 80% of the grade comes from Structure & Decomposition (30%) + Scope Alignment (25%) + Dictionary Detail (25%)."
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "Under Structure & Decomposition, what earns only a Good / Fair (3 pts) rating?",
+      "options": [
+        "A multi-level breakdown from Levels 1 to 4 grouped into phases/modules",
+        "A basic 2 to 3 level hierarchy that relies heavily on activity/task lists rather than deliverables",
+        "A disorganized, flat list of tasks with no hierarchy",
+        "A perfect adherence to the 100% Rule"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Good / Fair is a basic hierarchy (2 to 3 levels) that leans on activity/task lists instead of deliverables. Excellent is a clear, deliverable-oriented Levels 1 to 4 breakdown; Unsatisfactory is a flat task list."
+    },
+    {
+      "id": 12,
+      "type": "msq",
+      "text": "For an Excellent Scope Alignment rating, the WBS must be 100% aligned with the Charter and Scope Statement and cover which of the following? (Select all that apply.)",
+      "options": ["All technical deliverables", "Testing", "Deployment", "Project management", "Personal team hobbies"],
+      "correctAnswer": [0, 1, 2, 3],
+      "points": 1,
+      "explanation": "Excellent Scope Alignment covers all technical deliverables, testing, deploy, and PM. Omitting deliverables like UAT or training drops the rating to Good / Fair."
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "Which example does the rubric give of important deliverables that, if omitted, drop Scope Alignment to Good / Fair?",
+      "options": ["UAT and training", "Logo and branding", "Office supplies and furniture", "Team outing and snacks"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The Good / Fair level describes a WBS aligned with core scope but omitting important technical or administrative deliverables, e.g. UAT (User Acceptance Testing) and training."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "What does the 100% Rule state?",
+      "options": [
+        "Every team member must contribute 100% effort",
+        "The child elements must sum to 100% of their parent element",
+        "100% of work packages must be finished before testing",
+        "The project budget must be 100% spent"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Under the 100% Rule, child elements sum to 100% of the parent: no work is missing and no extra work is added at any level."
+    },
+    {
+      "id": 15,
+      "type": "tf",
+      "text": "Work packages that are unevenly decomposed, with some too broad and others broken into micro-task lists, earn an Excellent rating for Granularity.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. Uneven decomposition (some too broad, others micro-task lists) is rated Good / Fair. Excellent requires appropriately sized work packages and perfect adherence to the 100% Rule."
+    },
+    {
+      "id": 16,
+      "type": "fitb",
+      "text": "In a professional WBS numbering scheme, the Level 3 element under 1.1 would be coded ___.",
+      "correctAnswer": "1.1.1",
+      "points": 1,
+      "explanation": "The hierarchical decimal numbering scheme goes 1.0, 1.1, 1.1.1, 1.1.1.1, with each added segment representing one level deeper."
+    },
+    {
+      "id": 17,
+      "type": "msq",
+      "text": "Which are the three required submission artifacts? (Select all that apply.)",
+      "options": ["Visual Diagram", "Structured Outline", "WBS Dictionary Table", "Gantt Chart", "Risk Register"],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "The required artifacts are a Visual Diagram (tree of Levels 1 to 3/4), a Structured Outline (hierarchical decimal numbering), and a WBS Dictionary Table (every lowest-level work package with full metadata)."
+    },
+    {
+      "id": 18,
+      "type": "fitb",
+      "text": "Every lowest-level work package entry in the WBS Dictionary must explicitly define ___ fields.",
+      "correctAnswer": "6",
+      "points": 1,
+      "explanation": "The WBS Dictionary specification lists 6 required fields per work package."
+    },
+    {
+      "id": 19,
+      "type": "matching",
+      "text": "Match each WBS Dictionary field to its example or description.",
+      "allChoices": [
+        "1.2.1 Database Schema Design",
+        "Clear explanation of the technical scope and work required",
+        ".sql migration scripts, ERD document",
+        "Objective conditions for PM/client sign-off",
+        "Lead Database Engineer",
+        "Technical dependencies, boundary conditions, or platform limits"
+      ],
+      "pairs": [
+        { "term": "WBS Code & Work Package Name", "match": "1.2.1 Database Schema Design" },
+        { "term": "Work Description", "match": "Clear explanation of the technical scope and work required" },
+        { "term": "Deliverable Output", "match": ".sql migration scripts, ERD document" },
+        { "term": "Acceptance Criteria", "match": "Objective conditions for PM/client sign-off" },
+        { "term": "Assigned Role / Owner", "match": "Lead Database Engineer" },
+        { "term": "Assumptions & Constraints", "match": "Technical dependencies, boundary conditions, or platform limits" }
+      ],
+      "points": 6,
+      "explanation": "These are the six WBS Dictionary fields and the specification's example or description for each."
+    },
+    {
+      "id": 20,
+      "type": "mc",
+      "text": "Which WBS Dictionary field describes the tangible artifact produced when the work package is complete?",
+      "options": ["Work Description", "Deliverable Output", "Acceptance Criteria", "Assumptions & Constraints"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Deliverable Output is the tangible artifact produced upon completion (e.g. .sql migration scripts, an ERD document)."
+    },
+    {
+      "id": 21,
+      "type": "mc",
+      "text": "Under Dictionary Detail, what earns only a Good / Fair rating?",
+      "options": [
+        "A thorough dictionary covering every work package with all fields",
+        "A dictionary with brief or generic entries lacking clear acceptance criteria and ownership",
+        "A missing dictionary",
+        "A dictionary filled with placeholder text"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Good / Fair: the dictionary exists but entries are brief, generic, or lack clear acceptance criteria and ownership. A missing or placeholder-only dictionary is Unsatisfactory."
+    },
+    {
+      "id": 22,
+      "type": "mc",
+      "text": "Under Formatting & Coding, what earns an Unsatisfactory rating?",
+      "options": [
+        "A professional numbering system with an outstanding tree/outline layout",
+        "A coding scheme that is inconsistent in places or has a cluttered layout",
+        "A missing structured numbering scheme and poorly formatted text submission",
+        "A visual diagram that covers only Levels 1 to 3"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Unsatisfactory is a missing structured numbering scheme and a poorly formatted submission. Inconsistent coding or a cluttered layout is Good / Fair."
+    },
+    {
+      "id": 23,
+      "type": "tf",
+      "text": "Group deliverables are posted on Google Workspace first, then submitted to Canvas on or before the Sep 26 (Sat) class.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True. The submission guidelines say to post all group deliverables on Google Workspace and later to Canvas on or before Sep 26 (Sat) class."
+    }
+  ]
+}
