@@ -1,0 +1,355 @@
+{
+  "quizTitle": "Quiz 1",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "Scenario: Capital Budget = $500,000. Project Alpha (Cloud Migration): Cost = $500k, NPV = $120k, Payback = 3.5 yrs, IRR = 11%. Project Beta (AI Chatbot): Cost = $300k, NPV = $180k, Payback = 1.8 yrs, IRR = 22%. Discount rate = 8%. Which decision is correct based on financial criteria?",
+      "options": [
+        "Select Project Alpha because enterprise core infrastructure modernization initiatives automatically supersede commercial consumer application builds regardless of baseline NPV financial metrics.",
+        "Merge both candidate proposals into a single combined charter while averaging their calculated Net Present Values to justify expanding the total capital expenditure allocation.",
+        "Recommend Project Beta because it yields higher NPV ($180k), faster Payback (1.8 yrs), and higher IRR (22%), while leaving $200k unallocated.",
+        "Reject both initiatives because an Internal Rate of Return reaching 22% indicates that Project Beta carries unacceptably high financial volatility compared to the discount rate baseline."
+      ],
+      "correctAnswer": 2,
+      "points": 2,
+      "explanation": "Beta wins on every criterion: higher NPV ($180k vs $120k), shorter payback (1.8 vs 3.5 yrs) and higher IRR (22% vs 11%, both above the 8% discount rate). It also fits inside the $500k budget with $200k to spare. Averaging NPVs or merging charters is not a selection method, and a high IRR is a good sign, not a volatility warning."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "A PM wants to document stakeholder details plus sensitive political strategies on how to handle resistance from a hostile department head. Where should these two types of information be stored?",
+      "options": [
+        "Public details belong in the Stakeholder Register; sensitive engagement strategies belong in the restricted Stakeholder Management Plan.",
+        "Publish all identification details and political strategy notes openly within the Project Charter to maintain organizational transparency across all business units.",
+        "Both data sets belong in the public Stakeholder Register, provided the master file is encrypted and password-protected against general staff inspection.",
+        "Political management and stakeholder neutralisation strategies are strictly prohibited under PMBOK guidelines and must be erased from project records."
+      ],
+      "correctAnswer": 0,
+      "points": 2,
+      "explanation": "The Stakeholder Register holds identification and assessment info that is widely shared. Sensitive engagement strategies go in the Stakeholder (Engagement) Management Plan, which has restricted distribution."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "During registration portal kickoff, a Dean demands an AI scholarship matching module. The Project Manager notes scholarship matching is explicitly listed as “Out of Scope” in the signed Project Charter. What is the primary function of the Charter here?",
+      "options": [
+        "It legally forces the Project Manager to accept all incoming stakeholder feature modifications until the Work Breakdown Structure dictionary achieves formal baseline approval.",
+        "It acts as a binding internal contract requiring unanimous written consent from all academic department heads before core implementation work is permitted to commence.",
+        "It functions as a flexible technical specification document that can be retroactively expanded whenever executive institutional stakeholders request new feature additions.",
+        "It provides formal authority to enforce agreed-upon project boundaries and constraints baselined by the sponsor."
+      ],
+      "correctAnswer": 3,
+      "points": 2,
+      "explanation": "The signed charter authorizes the project and records its high-level boundaries. The PM can point to its “Out of Scope” list to turn down the request, or send it through change control. (The source's option A ended in a stray “[cite: 1, 3]” artifact, which has been removed.)"
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "A company is evaluating a software project requiring an initial investment of $100,000. It is expected to generate net cash inflows of $40,000 in Year 1, $40,000 in Year 2, and $40,000 in Year 3. What is the Payback Period for this project, and how is it interpreted?",
+      "options": [
+        "Payback Period = 1.5 years; the project recovers its initial capital investment midway through the second fiscal year.",
+        "Payback Period = 0.8 years; the project’s Internal Rate of Return automatically offsets initial capital outlay.",
+        "Payback Period = 2.5 years; the project recovers its initial $100,000 investment halfway through Year 3.",
+        "Payback Period = 3.0 years; the project only breaks even upon final completion of all Year 3 operations."
+      ],
+      "correctAnswer": 2,
+      "points": 2,
+      "explanation": "After 2 years, $80,000 has been recovered, leaving $20,000. That is half of Year 3's $40,000 inflow, so payback = 2 + 20,000/40,000 = 2.5 years."
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "During project execution, a software vendor delivers a major system module. The buyer’s project manager conducts a review and notices that while the module passes functional tests, the vendor did not submit the required technical documentation specified in the contract. What step in the PMBOK Procurement process is the PM executing?",
+      "options": [
+        "Conduct Procurements, because the PM is actively evaluating proposal submissions and negotiating vendor rates.",
+        "Close Procurements, because the project has reached administrative completion and financial audit closure.",
+        "Plan Procurements, because the PM is establishing the baseline terms for future vendor bidding documents.",
+        "Control Procurements, because the PM is managing procurement relationships and verifying vendor deliverable compliance against contract terms."
+      ],
+      "correctAnswer": 3,
+      "points": 2,
+      "explanation": "Checking a delivered item against the contract terms (here, missing documentation) is done during Control Procurements. Conduct covers selecting sellers, Plan covers writing the procurement approach, and Close covers formal completion."
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "A government agency needs to build a custom citizen tax portal. The requirements are vague, highly volatile, and expected to change weekly based on new legislation. Which contract type should the agency select to minimize vendor legal disputes while allowing flexible scope adjustments?",
+      "options": [
+        "Time and Materials (T&M) Contract, because it allows flexible labor billing when scope cannot be precisely defined upfront.",
+        "Lump Sum Contract, because it guarantees that the vendor will complete all unknown future scope changes at zero extra cost.",
+        "Firm Fixed-Price (FFP) Contract, because it forces the vendor to absorb all cost overruns resulting from evolving legal requirements.",
+        "Fixed-Price Incentive Fee (FPIF) Contract, because it eliminates the need to track vendor labor hours or hourly developer invoices."
+      ],
+      "correctAnswer": 0,
+      "points": 2,
+      "explanation": "Fixed-price contracts need a well-defined scope. With vague, weekly-changing requirements, every change would lead to a dispute. T&M bills for actual labor, so scope can change without renegotiation."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "Data points comparing System RAM Usage (X) and API Latency (Y) form an upward diagonal trend line from left to right across 100 tests. Which QC tool was used and what does it show?",
+      "options": [
+        "Quality Checksheet; it serves as an operational tally sheet used by infrastructure teams to record the frequency of manual server restarts.",
+        "Histogram Analysis; it conclusively proves that system performance metrics conform to a standard symmetrical Gaussian bell curve distribution.",
+        "System Flowchart; it visually maps out the step-by-step sequential operational procedures required to safely restart the database server.",
+        "Scatter Diagram demonstrates a strong positive correlation between RAM usage and latency."
+      ],
+      "correctAnswer": 3,
+      "points": 2,
+      "explanation": "Plotting two variables against each other (X vs Y) makes a scatter diagram. An upward left-to-right trend means a positive correlation: latency rises as RAM usage rises."
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "A newly appointed IT Project Manager steps into a struggling mobile banking project. The team is missing deadlines, developers are writing unapproved features, and the sponsor complains about lack of visibility. According to Slide Deck 1, what is the PM’s primary role to ensure project success?",
+      "options": [
+        "Unilaterally reduce the agreed project scope baseline without notifying the client or executive steering committee.",
+        "Write backend system source code personally to make up for developer schedule slippages and technical delays.",
+        "Threaten underperforming software engineers with immediate administrative termination to force schedule compliance.",
+        "Act as the lead integrator and communicator, aligning team output with project objectives and stakeholder expectations."
+      ],
+      "correctAnswer": 3,
+      "points": 2,
+      "explanation": "The PM integrates and communicates: they keep the team's work tied to approved objectives, which fixes the unapproved features, and keep stakeholders informed, which fixes the sponsor's visibility complaint."
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "A telecommunications provider has three active IT initiatives: (1) Upgrading cell towers to 5G across 12 provinces; (2) Developing a unified billing portal; (3) Managing interconnected projects for data migration, billing integration, and customer portal creation to launch a digital billing ecosystem. How should the Project Portfolio Office classify Initiative #3?",
+      "options": [
+        "Classify it as a standalone Project because it maintains a single, tightly defined start and finish date alongside a fixed baseline cost allocation.",
+        "Classify it as a Program because it consists of a group of related projects managed in a coordinated way to obtain benefits not available individually.",
+        "Classify it as a routine Operations Task because customer billing maintenance and database migrations represent ongoing corporate business tasks.",
+        "Classify it as an enterprise Portfolio because it spans multiple operational business units while utilizing diverse software engineering talent."
+      ],
+      "correctAnswer": 1,
+      "points": 2,
+      "explanation": "Initiative #3 is a set of interconnected projects coordinated toward one shared outcome (the digital billing ecosystem), which makes it a program. A portfolio groups work by strategic alignment and its components need not be related to each other."
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "During UAT for a banking app, QA tests WhatsApp OTP resets. The feature works, but the RTM explicitly specifies SMS OTPs and has no story for WhatsApp. Why is this considered an issue?",
+      "options": [
+        "It represents Gold Plating (unauthorized scope addition), exposing the app to unbudgeted API costs and security risks.",
+        "It violates core architectural rules because the Requirements Traceability Matrix is strictly utilized to evaluate automated software syntax error rates.",
+        "The PM must immediately erase the original SMS baseline requirement from the matrix to retroactively align documentation with the delivered software code.",
+        "Any deployed system feature missing an explicit link in the matrix is automatically reclassified as a critical severity defect under Six Sigma guidelines."
+      ],
+      "correctAnswer": 0,
+      "points": 2,
+      "explanation": "A feature that doesn't trace back to any requirement in the RTM is unapproved scope, which is gold plating. Even if it works, it adds cost, security exposure and maintenance burden nobody agreed to."
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "Bugs logged: Sync Failures (142), Startup Freezes (98), Color Misalignments (12), Typos (5), Broken Help Links (3). According to the 80/20 Rule, where should engineering resources focus?",
+      "options": [
+        "Focus on Sync Failures and Startup Freezes, which account for ~92% of total defects",
+        "Resolve Typos and Color Misalignments first because eliminating low-complexity bugs builds positive momentum for the engineering team.",
+        "Allocate engineering effort equally by distributing exactly 20% of available debugging time across each of the 5 logged defect categories.",
+        "Postpone fixing Sync Failures until the next major platform update because high defect frequency is expected during early software releases."
+      ],
+      "correctAnswer": 0,
+      "points": 2,
+      "explanation": "Total defects = 142 + 98 + 12 + 5 + 3 = 260. The top two categories make up 240 / 260 ≈ 92.3%. Pareto analysis says to focus on those few causes."
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "In an organization structured as a Strong Matrix, a software developer is assigned 50% to Project Alpha and 50% to departmental maintenance. Who holds primary authority over the developer’s project task prioritization and performance evaluation for Project Alpha?",
+      "options": [
+        "The Functional Manager, because functional line managers retain 100% authority in all matrix organizational structures.",
+        "The external software vendor, because external contractors manage internal matrix personnel priorities.",
+        "The Project Manager, because in a Strong Matrix structure, the PM holds primary authority over project work assignments.",
+        "The Chief Financial Officer, because financial auditors control day-to-day staff allocations in matrix environments."
+      ],
+      "correctAnswer": 2,
+      "points": 2,
+      "explanation": "In a strong matrix, the balance of power leans toward the PM, who directs project work and has the main say on performance for that project. Functional managers have the most authority in functional and weak-matrix organizations."
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "An IT investment committee compares two projects with identical 3-year cash flows. Project X has a Net Present Value (NPV) of $50,000 calculated at a 10% discount rate. Project Y has an NPV of $50,000 calculated at a 15% discount rate. Assuming capital is constrained, which project is financially stronger?",
+      "options": [
+        "Both projects are financially identical because their calculated Net Present Value figures are both $50,000.",
+        "Neither project should be selected because discount rates above 5% indicate severe inflation risk.",
+        "Project Y, because it generates the same NPV despite facing a higher hurdle/discount rate, indicating stronger underlying cash flows.",
+        "Project X, because a lower discount rate proves that the enterprise’s cost of capital is declining."
+      ],
+      "correctAnswer": 2,
+      "points": 2,
+      "explanation": "A higher discount rate shrinks future cash flows more. For Y to still reach $50k NPV at 15%, its cash flows must be stronger than X's. At the same rate, Y would have the higher NPV."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "An enterprise IT director reviews a list of corporate activities: (1) Running nightly database backups; (2) Migrating an on-premises ERP system to AWS over 9 months; (3) Answering customer helpdesk tickets; (4) Upgrading corporate laptop OS builds every 3 years. Which of these is a true Project according to PMBOK foundational definitions?",
+      "options": [
+        "Running nightly database backups because it requires automated scripts and dedicated database administrator supervision.",
+        "Upgrading corporate laptop OS builds every 3 years because it occurs on a recurring calendar schedule across departments.",
+        "Answering customer helpdesk tickets because it involves direct client interaction and strict SLA resolution metrics.",
+        "Migrating an on-premises ERP system to AWS over 9 months because it is a temporary endeavor undertaken to create a unique result."
+      ],
+      "correctAnswer": 3,
+      "points": 2,
+      "explanation": "PMBOK defines a project as a temporary endeavor that creates a unique product, service or result. The ERP migration has a set timeframe and a unique outcome. Backups, helpdesk tickets and recurring OS refreshes are ongoing or repeating operations."
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "What is the primary role of Project Integration Management during project execution according to Slide Deck 3?",
+      "options": [
+        "Managing server hardware warranties and negotiating bulk purchasing discounts with third-party vendors.",
+        "Coordinating all project management processes, resource plans, and deliverables to ensure cohesive execution.",
+        "Writing daily software code and performing automated database schema updates for the development team.",
+        "Conducting financial audits on corporate tax filings to guarantee compliance with national accounting laws."
+      ],
+      "correctAnswer": 1,
+      "points": 2,
+      "explanation": "Integration Management ties the other knowledge areas together, coordinating processes, plans and deliverables so the project runs as one whole."
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "text": "Stakeholders for a smart-traffic system: Mayor (High Power, High Interest), Traffic Police Chief (High Power, Low Interest), Taxi Union Leader (Low Power, High Interest), Commuters (Low Power, Low Interest). How should the Police Chief and Taxi Union Leader be managed?",
+      "options": [
+        "Police Chief: Keep Informed via formal reports; Taxi Union Leader: Monitor passively without intervention.",
+        "Police Chief: Manage Closely with weekly steering meetings; Taxi Union Leader: Keep Satisfied via surveys.",
+        "Police Chief: Monitor closely across all milestones; Taxi Union Leader: Manage Closely with daily updates.",
+        "Police Chief: Keep Satisfied; Taxi Union Leader: Keep Informed."
+      ],
+      "correctAnswer": 3,
+      "points": 2,
+      "explanation": "Power/Interest grid: High Power + Low Interest → Keep Satisfied; Low Power + High Interest → Keep Informed. (For reference, the Mayor is High/High → Manage Closely, and Commuters are Low/Low → Monitor.)"
+    },
+    {
+      "id": 17,
+      "type": "mc",
+      "text": "A Chief Technology Officer (CTO) oversees 15 active software initiatives. Three involve digital customer onboarding, four upgrade internal cybersecurity, and eight automate back-office accounting. Some projects share resources, but they do not share common deliverables. How should the enterprise organize all 15 initiatives at the executive level?",
+      "options": [
+        "Group all 15 initiatives into a single Work Breakdown Structure element to ensure uniform daily task assignment.",
+        "Reclassify all 15 initiatives as operational maintenance items to bypass formal steering committee oversight.",
+        "Group all 15 initiatives into an IT Portfolio to align investments with overarching corporate strategic goals.",
+        "Convert all 15 initiatives into a single Program to mandate identical coding frameworks and daily standup meetings."
+      ],
+      "correctAnswer": 2,
+      "points": 2,
+      "explanation": "The initiatives don't share common deliverables or benefits, so they don't form one program. A portfolio groups projects and programs, related or not, to manage them against strategic goals and to prioritize shared resources."
+    },
+    {
+      "id": 18,
+      "type": "mc",
+      "text": "Junior developers receive the Scope Statement (“build secure e-learning portal”) and immediately write frontend code, omitting database design and API security layers. What planning deliverable was bypassed?",
+      "options": [
+        "The Risk Register was bypassed; technical software development cannot commence until qualitative and quantitative risk analyses are fully completed.",
+        "Work Breakdown Structure (WBS) and WBS Dictionary, which decompose high-level deliverables into detailed work packages.",
+        "The Resource Histogram was bypassed; team workload capacity distributions must be mathematically calculated prior to writing system code.",
+        "The Project Charter was bypassed; developers are strictly prohibited from writing source code without explicit written authorization from executive sponsors."
+      ],
+      "correctAnswer": 1,
+      "points": 2,
+      "explanation": "The WBS breaks the scope statement into all its deliverables and work packages (database design, API security, frontend, and so on), and the WBS Dictionary describes each one. Skipping that step is why whole components were left out."
+    },
+    {
+      "id": 19,
+      "type": "mc",
+      "text": "A PM in a Functional Organization needs two senior DBAs for an ERP project. The Functional Manager refuses and assigns two junior interns instead. What structural limitation is the PM facing, and what is the best immediate action?",
+      "options": [
+        "The PM must immediately draft a revised Project Charter to officially convert the enterprise’s corporate organizational framework from Functional to a Strong Matrix model.",
+        "The PM should reassign complex database architectural work directly to software developers on the active project team to bypass the IT Operations department completely.",
+        "The PM possesses strong authority; they should issue a formal administrative reprimand to the Functional Manager for failing to comply with approved staffing allocations.",
+        "The PM has low formal authority; they must negotiate with the Functional Manager or escalate to the project sponsor."
+      ],
+      "correctAnswer": 3,
+      "points": 2,
+      "explanation": "In a functional organization, the functional manager controls resources and the PM has little formal authority. The realistic options are to negotiate for the right people or escalate to the sponsor. A PM can't restructure the company or reprimand a line manager."
+    },
+    {
+      "id": 20,
+      "type": "mc",
+      "text": "A project manager is explaining the PMBOK Framework to a client. The client asks: “What is the core difference between Process Groups and Knowledge Areas?” How should the PM accurately explain this structural relationship based on Slide Deck 2?",
+      "options": [
+        "Process Groups represent specialized technical subjects, whereas Knowledge Areas represent chronological project phases from start to finish.",
+        "Process Groups are managed by the executive steering committee, whereas Knowledge Areas are managed solely by junior software developers.",
+        "Process Groups apply exclusively to Agile software projects, whereas Knowledge Areas apply strictly to traditional Waterfall construction projects.",
+        "Process Groups represent chronological management stages (Initiating to Closing), whereas Knowledge Areas represent specialized PM subject domains."
+      ],
+      "correctAnswer": 3,
+      "points": 2,
+      "explanation": "The five Process Groups (Initiating, Planning, Executing, Monitoring & Controlling, Closing) describe when work happens. The Knowledge Areas (Scope, Schedule, Cost, Quality, Risk, and so on) describe what subject is being managed. Option A swaps the two definitions."
+    },
+    {
+      "id": 21,
+      "type": "mc",
+      "text": "Causes identified for payment crashes: (1) Developers lack async training; (2) Outdated API docs; (3) Inadequate server RAM; (4) No peer code reviews. How are these categorized on a Fishbone Diagram?",
+      "options": [
+        "1: People; 2: Information/Materials; 3: Hardware/Environment; 4: Process.",
+        "1: Risk Identification; 2: Stakeholder Expectations; 3: Vendor Procurement; 4: System Integration Management.",
+        "1: Scope Management; 2: Schedule Execution; 3: Baseline Cost Management; 4: Quality Assurance Protocols.",
+        "1: Machine Architecture; 2: Personnel Staffing; 3: Operational Methodologies; 4: Raw Procurement Materials."
+      ],
+      "correctAnswer": 0,
+      "points": 2,
+      "explanation": "Map each cause to its fishbone category. A training gap is about People, outdated docs are Information/Materials, insufficient RAM is Hardware/Environment (machine), and a missing review step is Process (method). Option D uses category-sounding names but assigns them in the wrong order."
+    },
+    {
+      "id": 22,
+      "type": "mc",
+      "text": "A health insurer hires a vendor under a Firm Fixed-Price (FFP) contract to build a claims engine. Four months in, the buyer discovers the vendor is using an outdated database framework. The vendor claims FFP contracts prohibit mandating internal tech choices. How should the PM resolve this?",
+      "options": [
+        "Permit the vendor to deliver the database architecture as-is, given that Firm Fixed-Price contractual agreements transfer all operational technical risk to the seller.",
+        "Authorize an immediate payout from the project’s Contingency Reserve to compensate the vendor for upgrading their internal underlying framework.",
+        "Unilaterally terminate the Firm Fixed-Price contract agreement and immediately convert the engagement into a Time and Materials structure to gain direct operational control.",
+        "Issue a formal non-conformance notice based on enterprise technical standards baselined in the contract’s Statement of Work (SOW)."
+      ],
+      "correctAnswer": 3,
+      "points": 2,
+      "explanation": "FFP fixes the price, not the specifications. If the SOW baselines technical standards, the vendor must meet them, and the PM enforces that through Control Procurements with a formal non-conformance notice. Paying extra or terminating unilaterally is not justified."
+    },
+    {
+      "id": 23,
+      "type": "mc",
+      "text": "Spending: $50k Prevention, $30k Appraisal, $10k Internal Failure, $2k External Failure. The sponsor complains that $80k was “wasted” on quality. How should the PM defend this?",
+      "options": [
+        "Explain that investing $80k in Cost of Conformance prevented massive Cost of Non-Conformance (catastrophic outages/lawsuits).",
+        "Reclassify the $50,000 spent on automated testing software as an operational profit asset within the master project financial accounting balance sheet.",
+        "Concede to the executive sponsor’s complaint and convert all remaining Quality Control budget reserves into direct sales commission bonuses.",
+        "Agree with the sponsor and completely eliminate appraisal spending moving forward since automated unit testing tools render code review redundant."
+      ],
+      "correctAnswer": 0,
+      "points": 2,
+      "explanation": "Prevention ($50k) + Appraisal ($30k) = $80k is the Cost of Conformance. Failure costs (Cost of Non-Conformance) were only $12k, with just $2k external. The spending on prevention and appraisal is what kept failure costs low."
+    },
+    {
+      "id": 24,
+      "type": "mc",
+      "text": "A client emails a developer directly asking for a “20-minute dashboard filter change.” The developer deploys it directly to production, causing an unindexed query database crash. Which rule was violated?",
+      "options": [
+        "The Stakeholder Register governance protocol was violated; external client representatives are legally barred from emailing technical project staff.",
+        "Change Control Procedure: all modifications must be submitted via formal Change Request, impact-analyzed, and routed to the CCB.",
+        "The Seven Run Rule was violated; software developers must execute and validate automated regression scripts exactly seven times prior to production deployment.",
+        "The Requirements Traceability protocol was violated; dashboard filtering mechanisms can only be requested during the formal initiation phase."
+      ],
+      "correctAnswer": 1,
+      "points": 2,
+      "explanation": "Every change, however small it seems, must go through Integrated Change Control: a formal Change Request, impact analysis, then a CCB decision. Skipping it let an untested change reach production. (The Seven Run Rule is a control-chart rule, not a deployment rule. The source's option C ended in a stray “[cite: 1. 3]” artifact, which has been removed.)"
+    },
+    {
+      "id": 25,
+      "type": "mc",
+      "text": "A Project Manager notices that senior engineers resist using new Agile project management software because “our company culture has always done Waterfall documentation on paper.” According to Slide Deck 4, how should the PM address organizational culture resistance?",
+      "options": [
+        "Re-assign all corporate software development tasks to external offshore vendors to bypass internal company culture.",
+        "Understand cultural norms, secure executive sponsor buy-in, and provide change management training to ease transition.",
+        "Ignore team feedback and mandate immediate termination for any employee who raises concerns about paper processes.",
+        "Cancel the software upgrade project immediately and revert all enterprise systems back to legacy paper filing."
+      ],
+      "correctAnswer": 1,
+      "points": 2,
+      "explanation": "Culture is an enterprise environmental factor. The PM should work with it: understand the norms, get sponsor backing, and use change management and training to move people over, rather than bypass them, force them, or give up."
+    }
+  ]
+}
