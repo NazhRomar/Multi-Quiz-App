@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../state/AppContext.jsx';
 import { buildMultiQuiz } from '../data/catalog.js';
@@ -45,9 +45,13 @@ export default function MultiSessionRoute({ mode }) {
 
   // Mirrors QuizSessionRoute: keeps the address bar honest when the
   // in-session Quiz/Review switch changes activeMode without going through
-  // this route's own dispatch.
+  // this route's own dispatch. Skips the mount run, where activeMode is still
+  // the previous session's.
+  const prevActiveMode = useRef(state.activeMode);
   useEffect(() => {
-    if (!state.activeQuiz?.multi || state.activeMode === mode) return;
+    const changed = prevActiveMode.current !== state.activeMode;
+    prevActiveMode.current = state.activeMode;
+    if (!changed || !state.activeQuiz?.multi || state.activeMode === mode) return;
     navigate(state.activeMode === 'review' ? '/multi/review' : '/multi/quiz', { replace: true });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.activeMode]);

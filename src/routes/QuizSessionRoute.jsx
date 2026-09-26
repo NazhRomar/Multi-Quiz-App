@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useApp } from '../state/AppContext.jsx';
 import { findQuizBySlug, quizUrlFor } from '../data/catalog.js';
@@ -51,10 +51,16 @@ export default function QuizSessionRoute({ mode }) {
   // dispatch from this route — cosmetic (a reload would already land on
   // the right URL via RootLayout's boot redirect either way), but a
   // bookmark taken mid-session should still say what's on screen.
+  // Skips the mount run: activeMode then still belongs to the previous
+  // session, and following it would bounce e.g. a fresh Review back to /quiz.
+  const prevActiveMode = useRef(state.activeMode);
   useEffect(() => {
-    if (state.activeMode === mode || state.activeQuizId == null) return;
+    const changed = prevActiveMode.current !== state.activeMode;
+    prevActiveMode.current = state.activeMode;
+    if (!changed || state.activeMode === mode || state.activeQuizId == null) return;
     const found = findQuizBySlug(termSlug, courseSlug, quizSlug);
-    if (found) navigate(quizUrlFor(found.term, found.course, found.quiz, state.activeMode), { replace: true });
+    if (found && found.quiz.id === state.activeQuizId)
+      navigate(quizUrlFor(found.term, found.course, found.quiz, state.activeMode), { replace: true });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.activeMode]);
 
