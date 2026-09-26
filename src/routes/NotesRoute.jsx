@@ -79,21 +79,21 @@ export default function NotesRoute() {
     <div className="notes-page">
       <header className="quiz-header notes-header">
         <div className="header-left">
-          <button type="button" className="notes-back" onClick={() => navigate('/')} aria-label="Back to home">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M10 3L5 8l5 5" />
-            </svg>
-          </button>
+          <img className="header-logo" src={`${import.meta.env.BASE_URL}favicon.svg`} alt="Multi Quiz App" />
           <h1 className="notes-title">{note.title}</h1>
         </div>
-        {headings.length > 0 && (
-          <button type="button" className={`notes-toc-toggle ${tocOpen ? 'notes-toc-toggle--open' : ''}`} onClick={() => setTocOpen((o) => !o)} aria-expanded={tocOpen}>
-            Contents
-            <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M4 6l4 4 4-4" />
-            </svg>
+        <div className="header-right">
+          <button type="button" className="notes-exit" onClick={() => navigate('/')}>
+            Exit
           </button>
-        )}
+          {headings.length > 0 && (
+            <button type="button" className={`notes-toc-toggle ${tocOpen ? 'notes-toc-toggle--open' : ''}`} onClick={() => setTocOpen((o) => !o)} aria-expanded={tocOpen} aria-label="Contents">
+              <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+                <path d="M2.5 4h11M2.5 8h11M2.5 12h11" />
+              </svg>
+            </button>
+          )}
+        </div>
         {tocOpen && <div className="notes-toc-sheet">{toc}</div>}
       </header>
 

@@ -117,7 +117,9 @@ export default function BrowseLayout() {
   return (
     <div className={homeMode.multi ? 'menu--selecting' : ''}>
       <header className="quiz-header">
-        <h1>Multi Quiz App</h1>
+        <h1 className="header-logo-title">
+          <img className="header-logo" src={`${import.meta.env.BASE_URL}favicon.svg`} alt="Multi Quiz App" />
+        </h1>
         <div className="header-right">
           <Dropdown ariaLabel="Settings">
             <div className="dropdown-section-title">App settings</div>
