@@ -16,9 +16,9 @@ const splitRow = (line) =>
   line
     .trim()
     .replace(/^\|/, '')
-    .replace(/\|$/, '')
-    .split('|')
-    .map((c) => c.trim());
+    .replace(/(?<!\\)\|$/, '')
+    .split(/(?<!\\)\|/)
+    .map((c) => c.trim().replace(/\\\|/g, '|'));
 
 // Parses Markdown text into a flat list of block nodes. Blockquotes parse
 // their own contents recursively.

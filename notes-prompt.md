@@ -44,7 +44,7 @@ Match the structure of the existing note (`src/notes/project-management.md`):
 - **One `#` heading for the note title** as the first line (`# IT Project Management (FELEC P): Study Notes`). The viewer drops it from the body, since the header already shows the note's name.
 - **One `#` heading per module/document** (`# Module 3: Stakeholder Management & RTM`), in course order. Sub-modules use the source's own label (e.g. `Module 5a`).
 - **`##` for the sections within a module.** The contents sidebar lists only `#` and `##` headings, so make `##` titles short and scannable. Use `###` and below for detail that shouldn't clutter the sidebar.
-- **Tables** for grading, comparisons, matrices, rubrics, salary/threshold data, anything with rows and columns.
+- **Tables** for grading, comparisons, matrices, rubrics, salary/threshold data, anything with rows and columns. Write a literal pipe inside a cell as `\|`.
 - **Blockquotes** (`> **Key line:** ...`) for the one or two rules per module a student must not forget, such as a golden rule or a grading emphasis. Use them sparingly.
 - **Task lists** (`- [ ] ...`) for self-check or submission checklists. They can be ticked in the viewer for the current visit only, and nothing is saved.
 - **Fenced code** for anything that is literally code, or a fixed-width diagram like a WBS tree.
