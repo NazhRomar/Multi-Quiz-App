@@ -1334,6 +1334,18 @@ body.theme-dark .review-status--partial {
   border-radius: 6px;
 }
 
+/* On phones each chip takes a full row, with its point count pushed to the
+   right edge, so labels don't wrap into ragged half-width pills. */
+@media (max-width: 600px) {
+  .quiz-chip {
+    width: 100%;
+  }
+
+  .quiz-chip-label {
+    flex: 1;
+  }
+}
+
 /* The badges on a quiz's menu entry; a quiz can carry any combination, side
    by side. Provenance stays quiet — violet for the mask, muted for the flask
    — while the warning takes the eye. The verified tick is the one solid

@@ -1,0 +1,930 @@
+{
+  "quizTitle": "Project Management - Application Quiz (Modules 2–5a)",
+  "questions": [
+    {
+      "id": 1,
+      "type": "matching",
+      "text": "Your class is choosing an enterprise case study. Match each client request to the project type it falls under.",
+      "allChoices": [
+        "Enterprise Cloud Migration & Infrastructure Upgrade",
+        "Fintech / Digital Payment Integration",
+        "Campus-Wide Smart Campus / IoT Infrastructure",
+        "Data Platform & Business Intelligence Rollout"
+      ],
+      "pairs": [
+        {
+          "term": "A provincial hospital wants its legacy patient-record system moved to Azure",
+          "match": "Enterprise Cloud Migration & Infrastructure Upgrade"
+        },
+        {
+          "term": "A retail app needs MFA, e-wallet checkout, and fraud detection added",
+          "match": "Fintech / Digital Payment Integration"
+        },
+        {
+          "term": "A university wants automated attendance, turnstiles, and facility sensors",
+          "match": "Campus-Wide Smart Campus / IoT Infrastructure"
+        },
+        {
+          "term": "A logistics firm wants an enterprise data warehouse feeding executive dashboards",
+          "match": "Data Platform & Business Intelligence Rollout"
+        }
+      ],
+      "points": 4,
+      "explanation": "Each request maps to one of the four enterprise scenarios: moving a legacy system to AWS/Azure is Cloud Migration; MFA/e-wallet/fraud detection is Fintech; attendance/turnstiles/facility management is Smart Campus/IoT; and a data warehouse for a logistics firm is Data Platform & BI."
+    },
+    {
+      "id": 2,
+      "type": "matching",
+      "text": "Mid-project, your PMO lead asks who owns each artifact. Match each artifact to the PMO role responsible for it.",
+      "allChoices": [
+        "Project Manager / Integration Lead",
+        "Scope & Requirements Lead",
+        "Schedule & Resource Lead",
+        "Cost & Quality Lead",
+        "Risk & Stakeholder Lead"
+      ],
+      "pairs": [
+        {
+          "term": "Change Requests for a new client feature",
+          "match": "Project Manager / Integration Lead"
+        },
+        {
+          "term": "Requirements Traceability Matrix",
+          "match": "Scope & Requirements Lead"
+        },
+        {
+          "term": "Network Diagram and Gantt Chart",
+          "match": "Schedule & Resource Lead"
+        },
+        {
+          "term": "Fishbone and Pareto analyses of recurring defects",
+          "match": "Cost & Quality Lead"
+        },
+        {
+          "term": "Risk Response Strategy",
+          "match": "Risk & Stakeholder Lead"
+        }
+      ],
+      "points": 5,
+      "explanation": "Per the PMO role table: PM/Integration Lead owns the Business Case, Charter, and Change Control; Scope & Requirements Lead owns the Scope Statement, RTM, and WBS/WBS Dictionary; Schedule & Resource Lead owns the Activity List, Network Diagram, Gantt Chart, and Resource Allocation; Cost & Quality Lead owns Cost Estimates, the Budget Baseline, and QC tools (Fishbone, Pareto); Risk & Stakeholder Lead owns the Stakeholder Register/Plan and the Risk Register, Matrix, and Response Strategy."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "A teammate assigned as <strong>Risk & Stakeholder Lead</strong> starts drafting the WBS Dictionary because \"the stakeholders will read it.\" What is the best correction?",
+      "options": [
+        "Keep going; the WBS Dictionary belongs to whoever interacts most with stakeholders",
+        "Hand it to the Scope & Requirements Lead, who owns the WBS and WBS Dictionary; focus instead on the Stakeholder Register and Risk Register",
+        "Hand it to the Cost & Quality Lead, since the dictionary contains cost estimates",
+        "Hand it to the Schedule & Resource Lead, since the dictionary lists effort hours"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The WBS & WBS Dictionary are listed under the Scope & Requirements Lead. The Risk & Stakeholder Lead's own deliverables are the Stakeholder Register & Plan and the Risk Register, Matrix, and Response Strategy."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "Your team is building a new campus data center. A group of nearby residents, with no contract or role in the project, complains that construction traffic will affect them. How should the PM classify them?",
+      "options": [
+        "Not stakeholders, because they have no contract with the project",
+        "Not stakeholders, because only internal and external customers count",
+        "As stakeholders only if they can formally stop the project",
+        "As stakeholders, because they may be affected by, or perceive themselves to be affected by, the project"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "A stakeholder is any individual, group, or organization that may affect, be affected by, or perceive itself to be affected by a project. The material also lists \"the public\" and \"landowners\" among stakeholders."
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "Another department refuses to release the servers your project was promised, and the issue is beyond the PM's authority to resolve. Who should the PM escalate it to?",
+      "options": [
+        "The Project Sponsor",
+        "The lead developer",
+        "The external customer",
+        "The QA Engineer"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The Project Sponsor is the person responsible for escalating issues that are beyond the PM's control."
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "The development team says the portal is finished, and QA says every test passed. Whose sign-off formally confirms that the project is complete?",
+      "options": [
+        "The lead developer, who built the system",
+        "The QA Engineer, who ran the final tests",
+        "The Project Sponsor, who is the one the PM ultimately has to satisfy",
+        "Any end user who has tried the system"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Per the material, the Project Sponsor signs off that the project is complete. The sponsor is the one the PM has to satisfy."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "On the power/interest grid, the university president has <strong>high power</strong> over your student portal project but <strong>low interest</strong> in its day-to-day details. What is the most appropriate strategy?",
+      "options": [
+        "Manage closely: involve them in every design decision",
+        "Keep informed: send them detailed weekly progress reports",
+        "Keep satisfied: meet their needs without overloading them with detail",
+        "Monitor: minimal effort, since their interest is low"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "In the standard power/interest grid, high power and low interest means keep satisfied; high/high means manage closely; low power/high interest means keep informed; and low/low means monitor. Ignoring a high-power stakeholder is risky even when their interest is low."
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "Students who will use the new portal have <strong>high interest</strong> but <strong>low power</strong> over project decisions. Using the power/interest grid, how should they be handled?",
+      "options": [
+        "Keep informed through regular updates",
+        "Manage closely",
+        "Keep satisfied",
+        "Monitor with minimal effort"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Low power and high interest means keep informed. These stakeholders care a lot, so regular communication keeps them engaged and supportive."
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "A union representative could either support the new attendance system or actively organize staff against it. Which stakeholder management tool is designed to assess this?",
+      "options": [
+        "Requirements Traceability Matrix",
+        "Gantt Chart",
+        "WBS Dictionary",
+        "Cooperation-Threat Matrix"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The Cooperation-Threat Matrix analyzes how likely a stakeholder is to cooperate with or threaten the project, which helps develop better engagement strategies."
+    },
+    {
+      "id": 10,
+      "type": "tf",
+      "text": "A stakeholder sends an unscheduled complaint email that the project did not initiate. Because it was not a planned interaction, it does not need to be recorded in the stakeholder register.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. The stakeholder register records all interactions with each stakeholder or group, whether planned or not and whether initiated by the project or by the stakeholder."
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "In week 10, the Registrar's Office suddenly becomes far more involved because the portal now affects grade submission. What should happen to the stakeholder register?",
+      "options": [
+        "Nothing; the register is finalized during initiation",
+        "Update it; the register is used and updated throughout every phase of the project",
+        "Create a separate new register for the execution phase",
+        "Move the Registrar into the RTM instead"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The stakeholder register is used throughout the project. Information such as interests, involvement, interdependencies, and influence is added and updated as the project progresses."
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "A department head publicly praises your project in meetings but quietly delays approving the data access your team needs. Which concept from the \"politics of projects\" does this illustrate?",
+      "options": [
+        "Forward traceability",
+        "A hidden agenda: goals that are not openly stated",
+        "The 100% Rule",
+        "Scope creep"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The politics of projects note that stakeholders' goals may be openly stated, or they may be hidden agendas. Here the stated support doesn't match the behavior."
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "The PM's schedule estimate turned out to be wrong, and a milestone slipped by a week. Which response best follows the \"Build Respect\" guidance for stakeholder relationships?",
+      "options": [
+        "Attribute the delay to the development team to protect the PM's credibility",
+        "Quietly adjust the dates in the schedule and hope nobody notices",
+        "Reverse several earlier decisions to show flexibility",
+        "Openly acknowledge the error, take accountability, and present the corrected plan"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The Build Respect guidance is: be honest, take ownership, be predictable and reliable, stand by decisions, and take accountability for mistakes."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "Two senior developers are deadlocked over which framework to use, and the argument is stalling progress. Which role of the Project Manager applies most directly?",
+      "options": [
+        "Problem-Solving: addressing challenges and conflicts during the project lifecycle",
+        "Planning: outlining scope, schedule, resources, and budget",
+        "Risk Management: identifying risks to minimize their impact",
+        "Communication: keeping stakeholders updated on progress"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The Problem-Solving role covers addressing challenges and conflicts that arise during the project lifecycle."
+    },
+    {
+      "id": 15,
+      "type": "matching",
+      "text": "Match each situation to the Project Performance Domain it mainly falls under.",
+      "allChoices": [
+        "Development Approach and Life Cycle",
+        "Measurement",
+        "Uncertainty",
+        "Stakeholders",
+        "Team",
+        "Delivery"
+      ],
+      "pairs": [
+        {
+          "term": "The team debates whether to run the project predictively or with Agile sprints",
+          "match": "Development Approach and Life Cycle"
+        },
+        {
+          "term": "The PM tracks KPIs and compares progress against the baseline",
+          "match": "Measurement"
+        },
+        {
+          "term": "The team assesses ambiguity and risks around a new biometric API",
+          "match": "Uncertainty"
+        },
+        {
+          "term": "The PM maps the Registrar, faculty, and students and plans how to engage them",
+          "match": "Stakeholders"
+        }
+      ],
+      "points": 4,
+      "explanation": "Of the 8 performance domains (Stakeholders, Team, Development Approach & Life Cycle, Planning, Project Work, Delivery, Measurement, Uncertainty): choosing a delivery approach is Development Approach & Life Cycle; tracking performance is Measurement; dealing with risk and ambiguity is Uncertainty; and engaging interested parties is Stakeholders."
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "text": "During acceptance testing, QA finds a \"dark mode\" toggle in the build that no documented requirement asks for. Which type of traceability is designed to catch this?",
+      "options": [
+        "Forward traceability",
+        "Horizontal traceability",
+        "Backward traceability",
+        "Budget traceability"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Backward traceability ensures every element in the final product (design elements, code, test cases) can be traced back to an original requirement. A feature with no source requirement fails that check."
+    },
+    {
+      "id": 17,
+      "type": "mc",
+      "text": "The requirement \"Platform must comply with data privacy regulations\" has no design reference and no test case linked to it. Which type of traceability exposes this gap?",
+      "options": [
+        "Backward traceability",
+        "Reverse engineering",
+        "Forward traceability",
+        "Cost traceability"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Forward traceability tracks requirements from their inception to ensure each one is covered by design, development, and test cases. A requirement with nothing downstream fails that check."
+    },
+    {
+      "id": 18,
+      "type": "mc",
+      "text": "The client changes the quiz-grading requirement. The team must find every design doc, module, and test affected, and also check which requirements a changed test module supports. Which traceability type covers both directions?",
+      "options": [
+        "Bi-directional traceability",
+        "Forward traceability only",
+        "Backward traceability only",
+        "Vertical traceability"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Bi-directional traceability combines forward and backward traceability, so changes to requirements can be traced to design, code, and tests, and vice versa."
+    },
+    {
+      "id": 19,
+      "type": "mc",
+      "text": "In the RTM exercise, the \"User Login\" requirement has been implemented in code but has not been tested yet. What status should it have?",
+      "options": [
+        "Completed",
+        "Pending",
+        "Verified",
+        "In Progress"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The exercise says a requirement that is implemented in code but not yet tested should be marked \"In Progress.\" Only \"Pending,\" \"In Progress,\" and \"Completed\" are used."
+    },
+    {
+      "id": 20,
+      "type": "matching",
+      "text": "You are filling in the Requirement Type column of the online learning platform's RTM. Classify each requirement.",
+      "allChoices": [
+        "Functional (F)",
+        "Non-Functional (NF)"
+      ],
+      "pairs": [
+        {
+          "term": "Students can take quizzes with automated grading",
+          "match": "Functional (F)"
+        },
+        {
+          "term": "Instructors can post announcements to enrolled students",
+          "match": "Functional (F)"
+        },
+        {
+          "term": "Course pages must load in under 2 seconds on campus Wi-Fi",
+          "match": "Non-Functional (NF)"
+        },
+        {
+          "term": "Student data must be handled in compliance with data privacy regulations",
+          "match": "Non-Functional (NF)"
+        }
+      ],
+      "points": 4,
+      "explanation": "Functional requirements describe what the system does (take quizzes, post announcements). Non-functional requirements describe qualities or constraints, such as performance and privacy/security compliance."
+    },
+    {
+      "id": 21,
+      "type": "mc",
+      "text": "Which test case best verifies the requirement \"Platform must comply with data privacy regulations, ensuring secure handling of student data\"?",
+      "options": [
+        "Log in with valid and invalid credentials",
+        "Review security protocols and conduct a penetration test",
+        "Navigate to a course page and confirm the materials load",
+        "Complete a quiz and check that the grading is correct"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "In the exercise, TC-04 (review security protocols and conduct a penetration test) verifies data privacy compliance. The other options match TC-01 (login), TC-02 (materials), and TC-03 (quizzes)."
+    },
+    {
+      "id": 22,
+      "type": "mc",
+      "text": "A team plans to create the RTM only after all coding is done, \"so it reflects what we actually built.\" Which RTM best practice does this violate?",
+      "options": [
+        "Automation: use automated tools to reduce manual effort",
+        "Start early: create the RTM at the beginning of the project and update it continuously",
+        "Simplify audits: keep a clear link to deliverables",
+        "Priority: rank each requirement High, Medium, or Low"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The best practice is to start early by creating the RTM at the beginning of the project and updating it continuously. An RTM built after coding cannot guide design or testing."
+    },
+    {
+      "id": 23,
+      "type": "mc",
+      "text": "A large regulated project has over 2,000 requirements tracked by hand in Excel, and copy-paste errors keep appearing. What is the most appropriate fix, per the material?",
+      "options": [
+        "Stop tracking non-functional requirements to shrink the matrix",
+        "Split the RTM into one private spreadsheet per developer",
+        "Update the RTM only once, at the final audit",
+        "Move to a specialized requirements tool with built-in traceability, such as IBM DOORS, JIRA, or HP ALM, to reduce manual errors"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Complexity and manual errors are listed RTM challenges. The recommended answer is automation, and JIRA, HP ALM, and IBM DOORS are named as specialized tools with built-in traceability."
+    },
+    {
+      "id": 24,
+      "type": "tf",
+      "text": "After the platform goes live, the RTM no longer serves a purpose, because every requirement has already been tested.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. The RTM is also used during maintenance and upgrades to manage changes and make sure updates align with the original or updated requirements."
+    },
+    {
+      "id": 25,
+      "type": "msq",
+      "text": "A government regulator will audit your e-learning platform next month. Which RTM benefits directly help your team prepare? (Select all that apply.)",
+      "options": [
+        "It simplifies audits by showing a clear link between requirements and deliverables",
+        "It helps show that customer and regulatory requirements are met",
+        "It replaces the need for a Project Charter",
+        "It eliminates the need for testing"
+      ],
+      "correctAnswer": [
+        0,
+        1
+      ],
+      "points": 1,
+      "explanation": "Simplifies Audits and Requirement Compliance are listed RTM benefits. An RTM does not replace the charter or testing; it links requirements to tests."
+    },
+    {
+      "id": 26,
+      "type": "mc",
+      "text": "A new helpdesk system costs <strong>$120,000</strong> and is expected to save <strong>$40,000 per year</strong>. What is its payback period?",
+      "options": [
+        "3 years",
+        "1.5 years",
+        "4 years",
+        "0.33 years"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Payback Period is the time needed to recover the initial investment: $120,000 / $40,000 per year = 3 years."
+    },
+    {
+      "id": 27,
+      "type": "mc",
+      "text": "A project costs <strong>$50,000</strong> and returns <strong>$70,000</strong> in total benefits. What is its ROI (net profit relative to cost)?",
+      "options": [
+        "140%",
+        "71%",
+        "40%",
+        "20%"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "ROI = net profit / cost = ($70,000 - $50,000) / $50,000 = 40%."
+    },
+    {
+      "id": 28,
+      "type": "mc",
+      "text": "Two projects each return $300,000 in total. Project P earns most of it in year 1; Project Q earns most of it in year 5. Which selection criterion reflects that P's returns are worth more?",
+      "options": [
+        "Payback Period",
+        "Number of deliverables",
+        "Net Present Value (NPV)",
+        "Simple ROI"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "NPV discounts future cash flows to present-day value, so money received sooner is worth more. Simple ROI would rate the two projects the same because their totals are identical."
+    },
+    {
+      "id": 29,
+      "type": "matching",
+      "text": "Each project below was approved even though its ROI was weak. Match each one to the strategic or non-financial driver behind it.",
+      "allChoices": [
+        "Regulatory Compliance",
+        "System Reliability",
+        "Competitive Necessity",
+        "Social Responsibility"
+      ],
+      "pairs": [
+        {
+          "term": "A bank builds anti-money laundering screening because the Central Bank now requires it",
+          "match": "Regulatory Compliance"
+        },
+        {
+          "term": "The enrollment servers crash every peak registration week and must be rebuilt",
+          "match": "System Reliability"
+        },
+        {
+          "term": "Every competing e-wallet already offers QR payments, so the app must add them",
+          "match": "Competitive Necessity"
+        },
+        {
+          "term": "A platform is launched to connect displaced workers with decent jobs (SDG 8)",
+          "match": "Social Responsibility"
+        }
+      ],
+      "points": 4,
+      "explanation": "Regulatory Compliance covers mandatory legal requirements (AML, data privacy). System Reliability covers preventing catastrophic downtime at peak hours. Competitive Necessity covers matching industry baseline capabilities. Social Responsibility covers advancing SDG goals such as decent work and economic growth."
+    },
+    {
+      "id": 30,
+      "type": "mc",
+      "text": "In the EduTech case, the Mobile QR feature has better ROI (35% vs 15%) and faster payback (1.0 vs 2.5 years), yet executives chose the Cloud Migration. What best justifies this?",
+      "options": [
+        "Platform stability during exam weeks is a non-negotiable strategic necessity that outweighs the financial metrics",
+        "Cloud Migration is cheaper upfront",
+        "Cloud Migration carries no risk at all",
+        "The QR feature has a longer payback period"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Option B wins on the financials, but Option A was chosen because system stability and SLA compliance during exams is a strategic necessity. This shows that non-financial drivers can override ROI."
+    },
+    {
+      "id": 31,
+      "type": "mc",
+      "text": "Zenith Bank has just identified the problem: a 40% customer drop-off caused by a 3-day manual account-opening process. According to the Initiating workflow, what comes next?",
+      "options": [
+        "Issue the Project Charter immediately",
+        "Build the WBS Dictionary",
+        "Start coding the OCR module",
+        "Prepare a Business Case, a formal proposal that weighs cost against strategic benefits"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The Initiating workflow runs Business Need → Business Case → Selection Criteria → Project Charter. After the need is identified, the next step is the Business Case."
+    },
+    {
+      "id": 32,
+      "type": "matching",
+      "text": "You are drafting the charter for a hospital records cloud migration. Match each charter statement to the charter element it belongs to.",
+      "allChoices": [
+        "Business Purpose",
+        "Success Criteria",
+        "Key Constraints",
+        "PM Authority Level",
+        "Scope Exclusions"
+      ],
+      "pairs": [
+        {
+          "term": "Eliminate the 6-hour nightly outage of the patient-record system that delays ER admissions",
+          "match": "Business Purpose"
+        },
+        {
+          "term": "Record retrieval under 2 seconds and 99.9% uptime within 30 days of go-live",
+          "match": "Success Criteria"
+        },
+        {
+          "term": "Budget capped at $300,000; go-live must happen before the March 2027 accreditation visit",
+          "match": "Key Constraints"
+        },
+        {
+          "term": "PM may reallocate up to 10% of contingency and approve schedule shifts under 5 days without board review",
+          "match": "PM Authority Level"
+        }
+      ],
+      "points": 4,
+      "explanation": "This follows the Zenith Bank sample: the Business Purpose names the problem being solved; Success Criteria are measurable targets; Key Constraints are fixed budget and deadline limits; and PM Authority defines the PM's decision and financial thresholds."
+    },
+    {
+      "id": 33,
+      "type": "mc",
+      "text": "Which of these is the best-written <strong>SMART</strong> objective for a project charter?",
+      "options": [
+        "Make the records system much faster and more user-friendly",
+        "Reduce average patient-record retrieval time from 8 seconds to under 2 seconds by March 31, 2027",
+        "Use the best available cloud technology for the migration",
+        "Improve system performance as soon as possible"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "SMART objectives are Specific, Measurable, Achievable, Relevant, and Time-bound. Only the correct option has a measurable baseline and target and a deadline."
+    },
+    {
+      "id": 34,
+      "type": "mc",
+      "text": "Your sponsor says: <em>\"Don't bother writing out-of-scope items in the charter; we'll figure out what we don't want as we build.\"</em> What is the strongest professional response?",
+      "options": [
+        "Agree, since exclusions only matter in Agile projects",
+        "Explain that without explicit exclusions the charter works like a blank check that invites scope creep, and that exclusions protect the budget and timeline",
+        "Agree, and put the exclusions in the WBS Dictionary instead",
+        "Agree, since the Project Charter is not a formal document"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "A charter that is too high-level, with no boundaries, acts as a blank check that invites scope creep. Scope boundaries in the charter should list deliverables and explicit exclusions."
+    },
+    {
+      "id": 35,
+      "type": "mc",
+      "text": "An eager PM puts a full five-level WBS with task-level hour estimates inside the Project Charter. Two weeks later, the initial assumptions change. What problem results?",
+      "options": [
+        "Nothing; more detail in the charter always reduces risk",
+        "The charter becomes a blank check that invites scope creep",
+        "The sponsor loses the authority to sign the charter",
+        "The overly detailed charter needs constant formal rework whenever the assumptions change"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The \"overly detailed\" pitfall: writing a WBS inside the charter forces constant formal rework when initial assumptions change. The charter authorizes the WHAT and WHY; the RTM and WBS dictate the HOW."
+    },
+    {
+      "id": 36,
+      "type": "mc",
+      "text": "Zenith Bank's charter lets the PM approve internal schedule adjustments <strong>under 5 days</strong> without board review. The biometric API vendor causes a <strong>7-day</strong> slip. What should the PM do?",
+      "options": [
+        "Escalate the slip for board review, since it exceeds the PM's 5-day authority threshold",
+        "Approve the slip alone, since the PM runs the schedule",
+        "Split it into two 3.5-day adjustments and approve both",
+        "Ignore the slip until the next milestone"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The PM Authority Level sets exact decision thresholds. A 7-day adjustment is above the under-5-day limit, so it needs board review. Splitting it to get around the threshold defeats the purpose of governance."
+    },
+    {
+      "id": 37,
+      "type": "mc",
+      "text": "For Zenith Bank's KYC project, the availability of the third-party biometric API is listed as a pre-charter constraint. Which category does it fall under?",
+      "options": [
+        "Regulatory",
+        "Legacy System",
+        "Dependency",
+        "Social Responsibility"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The pre-charter analysis lists Regulatory (AML laws), Dependencies (third-party biometric API availability), and Legacy Systems (overnight batch processing in core banking)."
+    },
+    {
+      "id": 38,
+      "type": "mc",
+      "text": "Which WBS element is correctly written as a deliverable?",
+      "options": [
+        "1.2 Test the Code",
+        "1.2 Fix Bugs",
+        "1.2 Test Execution Report",
+        "1.2 Write Python Code"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "A WBS should be deliverable-oriented, using nouns rather than verbs. \"Test the Code,\" \"Fix Bugs,\" and \"Write Python Code\" are ongoing actions, which is the Task-List Trap."
+    },
+    {
+      "id": 39,
+      "type": "msq",
+      "text": "Review this WBS draft. Which PMBOK WBS rules does it violate? (Select all that apply.)",
+      "options": [
+        "It uses action verbs (Talk, Design, Write, Perform) instead of deliverable-oriented nouns",
+        "It has no project management/governance branch or deployment deliverable, so it does not cover 100% of the scope",
+        "Its decimal numbering scheme (1.0, 1.1, 1.2) is invalid",
+        "A WBS should never have a single root element"
+      ],
+      "correctAnswer": [
+        0,
+        1
+      ],
+      "points": 1,
+      "explanation": "The draft reads like an activity list (Talk, Design, Write, Perform) instead of deliverables, and it leaves out required work such as project management, deployment, and training, which breaks the 100% Rule. The 1.0/1.1 numbering is correct, and a single root is standard.",
+      "context": "<pre>1.0 Campus Event Management System\n    1.1 Talk to Student Council Representatives\n    1.2 Design Database Schema &amp; ERD\n    1.3 Write Backend Code in Node.js\n    1.4 Perform Integration Testing</pre>"
+    },
+    {
+      "id": 40,
+      "type": "msq",
+      "text": "Using the course's sizing guidance (avoid over-decomposition below 8 hours and under-decomposition above 80 hours), which of these work packages are appropriately sized? (Select all that apply.)",
+      "options": [
+        "1.3.2 Real-time Fund Transfer Engine: 60 hours",
+        "1.2.4 Login Button Label Text: 3 hours",
+        "1.4.1 AWS Production Environment Provisioning: 40 hours",
+        "1.5 Entire Mobile App Frontend: 320 hours"
+      ],
+      "correctAnswer": [
+        0,
+        2
+      ],
+      "points": 1,
+      "explanation": "Work packages between roughly 8 and 80 hours are appropriately sized. 3 hours is over-decomposition (administrative overhead and micro-management), and 320 hours is under-decomposition (it creates blind spots where overruns stay hidden)."
+    },
+    {
+      "id": 41,
+      "type": "mc",
+      "text": "A work package \"1.3 Payment Module\" is estimated at <strong>150 hours</strong>, and its cost overruns were only discovered at the end. What anti-pattern is this, and what is the fix?",
+      "options": [
+        "Under-decomposition; break it into smaller deliverables such as 1.3.1 Payment Gateway API and 1.3.2 Refund Engine",
+        "Over-decomposition; merge it with its parent element",
+        "The Task-List Trap; rename it with a verb",
+        "Nothing is wrong; large packages reduce tracking overhead"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Packages over about 80 hours are under-decomposed and create blind spots where cost overruns and delays stay hidden until too late. The fix is to decompose further into smaller deliverables."
+    },
+    {
+      "id": 42,
+      "type": "mc",
+      "text": "A developer is doing database encryption work, but the WBS has no element for it anywhere. According to the 100% Rule, what is the status of this work?",
+      "options": [
+        "It is in scope, since it is technically necessary",
+        "It is in scope as long as it takes under 8 hours",
+        "It is in scope if the WBS Dictionary mentions encryption anywhere",
+        "It is officially out of scope, so it needs a change request to be added to the baseline, or it should be stopped"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "If a deliverable is not in the WBS, it is officially out of scope. The WBS must include 100% of the scope, no more and no less."
+    },
+    {
+      "id": 43,
+      "type": "tf",
+      "text": "Your team leaves \"Project Charter & Planning Documents\" and \"Stakeholder Communication Reports\" out of the WBS because they are not software. This is correct under the 100% Rule.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. The 100% Rule includes internal, external, and project management work. The course example gives it its own branch: 1.1 Project Management & Governance."
+    },
+    {
+      "id": 44,
+      "type": "mc",
+      "text": "In Week 3 of a Grocery Mobile App project (4-month hard deadline, $120,000 budget), Marketing informally asks for an AI recommendation engine, and the lead developer starts building it. What should the PM do?",
+      "options": [
+        "Let development continue, since Marketing is an important stakeholder",
+        "Check the WBS/scope baseline, freeze the unapproved work, and start a formal Change Request that evaluates the cost and schedule impact",
+        "Quietly add it to the WBS as a new work package",
+        "Cancel the entire project because the scope has changed"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The engine is not in the WBS, and unapproved work is underway, which is classic scope creep. The PM freezes the unapproved development and starts a formal Change Request that assesses the impact ($18k and 3 weeks in the case) before any approval."
+    },
+    {
+      "id": 45,
+      "type": "matching",
+      "text": "Match each piece of information to the WBS Dictionary field it belongs in.",
+      "allChoices": [
+        "WBS Code & Work Package Name",
+        "Deliverable Output",
+        "Acceptance Criteria",
+        "Assigned Role / Owner",
+        "Assumptions & Constraints",
+        "Work Description"
+      ],
+      "pairs": [
+        {
+          "term": "1.2.1 Database Schema Design",
+          "match": "WBS Code & Work Package Name"
+        },
+        {
+          "term": ".sql migration scripts and ERD document",
+          "match": "Deliverable Output"
+        },
+        {
+          "term": "All migrations run on a clean staging database with zero errors",
+          "match": "Acceptance Criteria"
+        },
+        {
+          "term": "Lead Database Engineer",
+          "match": "Assigned Role / Owner"
+        },
+        {
+          "term": "Must run on PostgreSQL 16, the platform's only supported database",
+          "match": "Assumptions & Constraints"
+        }
+      ],
+      "points": 5,
+      "explanation": "These are the six WBS Dictionary fields from the deliverable spec (the sixth, Work Description, is a distractor here): code and name identify the package; Deliverable Output is the tangible artifact; Acceptance Criteria are the objective sign-off conditions; Owner is the responsible role; Assumptions & Constraints hold dependencies and platform limits."
+    },
+    {
+      "id": 46,
+      "type": "mc",
+      "text": "Which acceptance criterion is best suited to a WBS Dictionary entry for a fund transfer engine?",
+      "options": [
+        "The engine should be fast and reliable",
+        "End-to-end processing latency under 1.5 seconds per transaction under peak load",
+        "The team will do its best to meet performance goals",
+        "The engine is complete when the lead developer says it is"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Acceptance criteria must be objective, testable conditions for PM/client sign-off. Only the latency threshold can be clearly passed or failed."
+    },
+    {
+      "id": 47,
+      "type": "matching",
+      "text": "Decide whether each situation calls for a Predictive (Waterfall WBS) or an Adaptive (Agile Backlog) approach to scope.",
+      "allChoices": [
+        "Predictive (Waterfall WBS)",
+        "Adaptive (Agile Backlog)"
+      ],
+      "pairs": [
+        {
+          "term": "A PCI-DSS-regulated banking infrastructure upgrade with fixed scope",
+          "match": "Predictive (Waterfall WBS)"
+        },
+        {
+          "term": "A SaaS mobile app whose features change with weekly user feedback",
+          "match": "Adaptive (Agile Backlog)"
+        },
+        {
+          "term": "Scope changes must go through a Change Control Board",
+          "match": "Predictive (Waterfall WBS)"
+        },
+        {
+          "term": "Scope is adjusted by re-prioritizing the product backlog before each sprint",
+          "match": "Adaptive (Agile Backlog)"
+        }
+      ],
+      "points": 4,
+      "explanation": "Predictive WBS suits fixed-scope, highly regulated, or infrastructure projects and controls scope with formal Change Requests through a CCB. Agile backlogs suit fast-changing digital products and SaaS, and control scope by re-prioritizing the backlog before each sprint."
+    },
+    {
+      "id": 48,
+      "type": "mc",
+      "text": "A team moves from a Waterfall WBS to an Agile backlog. In the hierarchy <em>WBS → Control Account → Work Package</em> vs <em>Epic → Feature → User Story</em>, what is a Work Package closest to?",
+      "options": [
+        "Epic",
+        "Feature",
+        "Sprint Review",
+        "User Story"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Each hierarchy runs from the largest to the smallest unit, so the lowest levels match: Work Package ↔ User Story."
+    },
+    {
+      "id": 49,
+      "type": "mc",
+      "text": "Your team has a complete WBS and a detailed WBS Dictionary but never got the scope statement approved. What is missing from the scope baseline?",
+      "options": [
+        "The Approved Scope Statement",
+        "The Gantt Chart",
+        "The Risk Register",
+        "The Stakeholder Register"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The Scope Baseline has three parts: the Approved Scope Statement, the WBS, and the WBS Dictionary. Without the approved scope statement, the baseline is incomplete."
+    },
+    {
+      "id": 50,
+      "type": "mc",
+      "text": "Under <code>1.3 Core Financial Services</code>, the team already has <code>1.3.1</code> and <code>1.3.2</code>. A teammate numbers a new third child <code>1.2.3</code>. What should it be?",
+      "options": [
+        "1.2.3",
+        "1.4",
+        "1.3.3",
+        "1.3.2.1"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Hierarchical decimal numbering follows the parent: children of 1.3 are 1.3.1, 1.3.2, 1.3.3, and so on. \"1.2.3\" is an incorrect nesting level, which the rubric penalizes under Formatting & Coding."
+    },
+    {
+      "id": 51,
+      "type": "mc",
+      "text": "A group submits its WBS deliverable as a flat, unnumbered list of tasks such as \"meet client\" and \"code backend.\" How would it most likely score on <strong>Structure & Decomposition</strong>?",
+      "options": [
+        "Excellent (5 pts)",
+        "Good / Fair (3 pts)",
+        "Unsatisfactory (1 pt)",
+        "Not graded, since structure isn't a criterion"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Unsatisfactory on Structure & Decomposition means a disorganized, flat list of tasks with no hierarchical decomposition."
+    },
+    {
+      "id": 52,
+      "type": "mc",
+      "text": "A group's WBS matches its charter but leaves out UAT and end-user training. Which rubric criterion takes the hit, and at what level?",
+      "options": [
+        "Scope Alignment, Good / Fair (3 pts)",
+        "Formatting & Coding, Unsatisfactory (1 pt)",
+        "Dictionary Detail, Excellent (5 pts)",
+        "Granularity & 100% Rule, Excellent (5 pts)"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Scope Alignment at Good/Fair is \"aligned with core scope, but omits important technical or administrative deliverables (e.g., UAT, training).\""
+    },
+    {
+      "id": 53,
+      "type": "mc",
+      "text": "With one evening left before the deadline, a group can polish only one area. Based on criterion weights alone, which one carries the most weight?",
+      "options": [
+        "Scope Alignment (25%)",
+        "Granularity & 100% Rule (10%)",
+        "Formatting & Coding (10%)",
+        "Structure & Decomposition (30%)"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The weights are Structure & Decomposition 30%, Scope Alignment 25%, Dictionary Detail 25%, Granularity & 100% Rule 10%, and Formatting & Coding 10%."
+    },
+    {
+      "id": 54,
+      "type": "msq",
+      "text": "Your group is packaging the WBS deliverable for submission. Which artifacts does the spec require? (Select all that apply.)",
+      "options": [
+        "A visual tree diagram of Levels 1 through 3/4",
+        "A structured outline with hierarchical decimal numbering",
+        "A WBS Dictionary table for every lowest-level work package",
+        "A Gantt Chart with activity durations",
+        "A Risk Register with a probability-impact matrix"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "The three required artifacts are the Visual Diagram, the Structured Outline (1.0, 1.1, 1.1.1, ...), and the WBS Dictionary Table. Gantt charts and risk registers belong to other deliverables."
+    },
+    {
+      "id": 55,
+      "type": "mc",
+      "text": "A group writes detailed WBS Dictionary entries only for Level 1 and Level 2 elements such as \"1.0 Smart Campus System\" and \"1.2 IoT Hardware.\" What is wrong?",
+      "options": [
+        "Nothing; the dictionary should cover only the top two levels",
+        "Dictionary entries are required for every lowest-level work package, not for the high-level summary elements",
+        "Dictionary entries are only needed for the root element",
+        "Dictionary entries belong in the Project Charter instead"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The spec says every lowest-level Work Package entry must define the six dictionary fields."
+    }
+  ]
+}
