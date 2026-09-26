@@ -3,6 +3,7 @@
 // task lists, tables, blockquotes, fenced code, rules, and inline bold/
 // italic/code/links — and builds React elements directly (no innerHTML),
 // so nothing in a note can inject markup.
+import { useEffect, useRef, useState } from 'react';
 import { slugify } from './slugify.js';
 
 const HEADING = /^(#{1,6})\s+(.*)$/;
@@ -183,7 +184,7 @@ export function MarkdownBlocks({ blocks }) {
         );
       case 'table':
         return (
-          <div key={key} className="md-table-wrap">
+          <TableScroll key={key}>
             <table>
               <thead>
                 <tr>
@@ -202,7 +203,7 @@ export function MarkdownBlocks({ blocks }) {
                 ))}
               </tbody>
             </table>
-          </div>
+          </TableScroll>
         );
       case 'list': {
         const Tag = block.ordered ? 'ol' : 'ul';
@@ -222,6 +223,47 @@ export function MarkdownBlocks({ blocks }) {
         return null;
     }
   });
+}
+
+// Wide tables scroll sideways inside their box. Touch browsers only show
+// an overlay scrollbar mid-scroll (and iOS ignores ::-webkit-scrollbar
+// styling), so below the box sits a drawn, always-visible track + thumb
+// mirroring the scroll position — rendered only while the table actually
+// overflows. It's a read-out, not a control: swipe the table itself.
+function TableScroll({ children }) {
+  const ref = useRef(null);
+  const [bar, setBar] = useState(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    const update = () => {
+      const { scrollWidth, clientWidth, scrollLeft } = el;
+      if (scrollWidth <= clientWidth + 1) return setBar(null);
+      const size = clientWidth / scrollWidth;
+      setBar({ size, offset: (scrollLeft / (scrollWidth - clientWidth)) * (1 - size) });
+    };
+    update();
+    el.addEventListener('scroll', update, { passive: true });
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => {
+      el.removeEventListener('scroll', update);
+      ro.disconnect();
+    };
+  }, []);
+
+  return (
+    <div className={`md-table ${bar ? 'md-table--overflow' : ''}`}>
+      <div ref={ref} className="md-table-wrap">
+        {children}
+      </div>
+      {bar && (
+        <div className="md-table-bar" aria-hidden="true">
+          <div className="md-table-bar-thumb" style={{ width: `${bar.size * 100}%`, left: `${bar.offset * 100}%` }} />
+        </div>
+      )}
+    </div>
+  );
 }
 
 // Tickable for the current visit only — handy for self-check lists, but

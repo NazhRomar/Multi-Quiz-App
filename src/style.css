@@ -5555,8 +5555,44 @@ body.theme-canvas .q-source-inline {
   border: 1px solid var(--border);
   border-radius: 10px;
   background: var(--surface);
-  scrollbar-width: thin;
-  scrollbar-color: var(--border) transparent;
+}
+
+/* On touch screens the native scrollbar is hidden and TableScroll
+   (utils/markdown.jsx) draws an always-visible one under any table that
+   overflows instead, since touch browsers only flash their overlay bar
+   mid-scroll. Mouse/trackpad devices keep the regular, draggable one. */
+.notes-body .md-table-bar {
+  display: none;
+}
+
+@media (hover: none) {
+  .notes-body .md-table-wrap {
+    scrollbar-width: none;
+  }
+
+  .notes-body .md-table-wrap::-webkit-scrollbar {
+    display: none;
+  }
+
+  .notes-body .md-table-bar {
+    display: block;
+  }
+}
+
+.notes-body .md-table--overflow .md-table-bar {
+  position: relative;
+  height: 5px;
+  margin: 0.4rem 0.5rem 0;
+  border-radius: 999px;
+  background: var(--border);
+}
+
+.notes-body .md-table-bar-thumb {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: var(--accent);
 }
 
 .notes-body table {
