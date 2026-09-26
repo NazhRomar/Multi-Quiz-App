@@ -5,7 +5,10 @@
 // button.
 const loaders = import.meta.glob('./*.md', { query: '?raw', import: 'default' });
 
-export const NOTES = [{ slug: 'project-management', title: 'Project Management', subjectId: 'project-management', file: './project-management.md' }];
+export const NOTES = [
+  { slug: 'project-management', title: 'Project Management', subjectId: 'project-management', file: './project-management.md' },
+  { slug: 'laravel', title: 'Laravel', subjectId: 'laravel', file: './laravel.md' },
+];
 
 export const findNote = (slug) => NOTES.find((n) => n.slug === slug) || null;
 
