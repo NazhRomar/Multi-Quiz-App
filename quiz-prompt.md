@@ -105,13 +105,6 @@ A subject with no natural grouping still needs at least one Section and one Seri
 
 **If it's unclear whether a new quiz belongs under an existing Term/Subject/Section/Series or needs a new one — ask rather than guessing**, same as the title-prefix ambiguity above.
 
-## 5. Verify before calling it done
+## 5. Report the full answer key in chat (only when asked)
 
-Start the dev server (`preview_start` with the `multi-quiz-app` launch config — that's its name in `.claude/launch.json`; there is no config called `dev`) and open the new quiz in the browser preview. Confirm:
-- The question count and point total match what you intended.
-- At least one `mc`/`tf` question and any `msq`/`fitb`/`matching`/`drag-drop` question types you used render correctly.
-- Code blocks in `context` display with correct formatting (no broken escaping).
-
-## 6. Report the full answer key in chat
-
-When you finish ingesting or correcting a quiz, list every question's correct answer in your chat reply (a short numbered list: question number → correct option), not just the ones you changed from the source. This is in addition to, not instead of, calling out corrections per section 2 — keep noting what was wrong and what you fixed. The full list lets the user cross-check the whole quiz at a glance instead of only seeing the diffs.
+Only when the user asks for it, list every question's correct answer in your chat reply (a short numbered list: question number → correct option), not just the ones you changed from the source. Otherwise skip the list. Either way, keep calling out corrections per section 2 — what was wrong and what you fixed.

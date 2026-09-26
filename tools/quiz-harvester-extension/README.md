@@ -78,7 +78,7 @@ normally would; the extension just watches and records.
 ```
 
 `confidence` is one of `site-marked`, `user-marked`, `unresolved`,
-`ambiguous` — see `prompt.md` at the repo root for how a Claude Code
+`ambiguous` — see `quiz-prompt.md` at the repo root for how a Claude Code
 session should treat each of these when importing (short version:
 **every** confidence level still gets fact/code-checked before it's
 trusted — a detected marker or your own click can both still be wrong).

@@ -22,7 +22,7 @@ running `npm run dev` in a shell.
 
 ## Adding a quiz
 
-**Read [`prompt.md`](prompt.md) first — it is the spec for this, and it is detailed.**
+**Read [`quiz-prompt.md`](quiz-prompt.md) first — it is the spec for this, and it is detailed.**
 Quiz JSON is hand-checked content, not just data entry: the answer keys on the sites and
 handouts these come from are wrong often enough that the ingestion process is built
 around verifying every answer (running the code where there is code) rather than
@@ -36,7 +36,7 @@ The short version of the mechanics:
   index or manifest to update.
 - A term or subject folder can optionally carry a `_meta.json` (display name, explicit sort
   order, and — subject-level — explicit `sections`) to override the folder-name defaults.
-  See `src/data/_meta.json.example` and `prompt.md`. Every field is independently optional,
+  See `src/data/_meta.json.example` and `quiz-prompt.md`. Every field is independently optional,
   and a subject with no `_meta.json` at all still works — it just falls back to its folder
   name and today's title-prefix grouping.
 - `quizTitle` drives sub-grouping: quizzes sharing a `"<Series> - <Item>"` prefix collapse
@@ -132,7 +132,7 @@ inert elsewhere.
 `tools/quiz-harvester-extension/` — an unpacked Chrome extension that captures questions
 off a quiz site into a `quiz-capture-*.json` file for ingestion. Its output is an
 *unverified* starting point, with a `confidence` field per question saying how the guess
-was arrived at; `prompt.md` covers how much to trust each level (short answer: not much).
+was arrived at; `quiz-prompt.md` covers how much to trust each level (short answer: not much).
 
 ## Known gaps
 

@@ -1,7 +1,7 @@
 // Loads every quiz JSON under src/data/**/*.json at build time and groups
 // them into a `catalog` tree: term -> subject -> section -> series -> quiz.
 // The folder path is meaningful, not cosmetic — every level requires a
-// `_meta.json` declaring at least an `id` (the URL slug); see prompt.md and
+// `_meta.json` declaring at least an `id` (the URL slug); see quiz-prompt.md and
 // _meta.json.example for the full shape of each level's metadata, including
 // the `badges` default and `showLabel`/`showCount` display toggles a
 // section or series can carry.

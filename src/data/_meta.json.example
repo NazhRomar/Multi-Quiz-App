@@ -1,6 +1,6 @@
 // NOT a real data file (note the .example extension — src/data/catalog.js's
 // glob only picks up "*.json"). This documents the _meta.json every folder
-// level carries. See catalog.js's top-of-file comment and prompt.md for the
+// level carries. See catalog.js's top-of-file comment and quiz-prompt.md for the
 // full field list and fallback rules.
 
 // The hierarchy is fixed and five levels deep, every level a real folder
@@ -49,7 +49,7 @@
   // true): show a quiz count alongside the name.
   "showCount": false,
   // Optional per-tag badge default for every quiz under this section,
-  // overridable per Series below and per quiz (see prompt.md). Each of the
+  // overridable per Series below and per quiz (see quiz-prompt.md). Each of the
   // four badge keys resolves independently: quiz's own "badges" wins if it
   // sets that key, else its series' default, else its section's, else its
   // subject's.
