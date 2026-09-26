@@ -4,6 +4,8 @@
 
 **Basics:** UST CICS, Department of IT, for 4th year IT students. 3.0 units, prerequisite is 3rd year standing.
 
+**Course aim:** build the competencies to manage the complete IT project lifecycle, from initiation to post-implementation review.
+
 ## Course Intended Learning Outcomes (CILOs)
 
 | CILO | Focus | Mapped to |
@@ -17,7 +19,7 @@
 - **Leadership & communication:** the link between developers, clients, and academic advisors
 - **Scope & integration control:** keeps artifacts aligned with requirements, no scope creep
 - **Resource & team functionality:** runs cross-functional teams with ethical standards (IT06, IT09)
-- **Stakeholder alignment:** manages client expectations from charter to final handoff
+- **Contractor & stakeholder alignment:** manages client expectations from initial chartering to final handoff
 
 ## Project Lifecycle Process Groups
 1. **Initiating:** define scope, select projects using financial criteria, create the Project Charter
@@ -56,6 +58,8 @@
 - **Weeks 15 to 18:** Time and cost baselines, project kick-off, Final exams
 
 ## Quality Control Tools You'll Apply
+Students apply 7 Quality Control techniques to make sure system deliverables meet software standards:
+
 - Cause and Effect (Fishbone) diagrams
 - Pareto Analysis (80/20 rule) and histograms
 - Scatter diagrams and flowcharts
@@ -67,10 +71,12 @@
 3. **Schedule & Cost Baseline:** activity sequence diagrams, duration estimates, budget control
 
 ## Class Policies
-- **Attendance** is mandatory. Absences need advance notice and valid documentation (UST Code of Conduct).
-- **Preparation:** do readings before class.
-- **Ethics (IT09):** mutual respect, non-discrimination, professional standards.
-- **CICS Good Grooming Policy:** follow the dress code and uniform rules.
+- **Regular Attendance & Punctuality:** attendance is mandatory. Absences need official advance notice and valid documentation (UST Code of Conduct).
+- **Active Participation & Preparation:** do assigned readings before class so you can contribute to discussions and hybrid activities.
+- **Christian Compassion & Ethics (IT09):** mutual respect, non-discriminatory collaboration, professional computing standards.
+- **CICS Good Grooming Policy:** strict compliance with the CICS dress code and uniform guidelines.
+
+**Questions & consultation:** CICS IT Department, UST Manila, via Canvas / UST Cloud Portal.
 
 ---
 
@@ -79,6 +85,8 @@
 The project is a **simulated, paper-based case study**. Your group acts as the **PMO / Project Steering Committee** for a realistic enterprise IT initiative.
 
 ## Project Type Options
+Teams select or are assigned one of these scenarios, aligned with IT Program Outcomes IT05, IT06, IT07, and IT09:
+
 - **Enterprise Cloud Migration & Infrastructure Upgrade** (e.g., moving a legacy university portal or hospital records to AWS/Azure)
 - **Fintech / Digital Payment Integration** (e.g., adding MFA, e-wallet processing, fraud detection to a retail app)
 - **Smart Campus / IoT Infrastructure** (e.g., automated attendance, turnstiles, facility management)
@@ -126,9 +134,13 @@ Useful for cost estimates.
 Planning (scope, schedule, resources, budget), Execution (leading the team), Communication (updating stakeholders), Risk Management, and Problem-Solving (handling conflicts and challenges).
 
 ## The 8 Project Performance Domains
-Interrelated areas that work together: **Stakeholders, Team, Development Approach & Life Cycle, Planning, Project Work, Delivery, Measurement, Uncertainty.**
+A performance domain is a group of related activities critical for delivering project outcomes. The domains are interactive, interrelated, and interdependent, working in unison to achieve desired outcomes.
+
+The 8 domains are interrelated areas that work together: **Stakeholders, Team, Development Approach & Life Cycle, Planning, Project Work, Delivery, Measurement, Uncertainty.**
 
 ## Stakeholder Performance Domain
+
+The Stakeholder Performance Domain addresses activities and functions associated with stakeholders.
 
 **Desired outcomes:**
 - Productive working relationships with stakeholders throughout
@@ -140,7 +152,7 @@ Interrelated areas that work together: **Stakeholders, Team, Development Approac
 - **Stakeholder Analysis:** systematically gathering info to decide whose interests to consider.
 - **Stakeholder Management:** identify stakeholders, analyze expectations and impact, and plan how to involve them.
 
-**Who they are (inner to outer circle):**
+**Who they are (identified during Project Initiation, inner to outer circle):**
 - Inner: Project Manager, PM Team, Project Team
 - Middle: Governing Bodies, PMOs, Steering Committees
 - Outer: Suppliers, Customers, End Users, Regulatory Bodies
@@ -174,7 +186,9 @@ Questions to ask: Who are they? What are their interests? Will interest change o
 | **Low Cooperation** | Marginal → Monitor | Non-Supportive → Defend |
 | **High Cooperation** | Supportive → Involve | Mixed Blessing → Collaborate |
 
-**Project Sponsor:** responsible for enabling success, usually outside the project, **signs off on completion** (the one the PM must satisfy), escalates issues beyond the PM's control, and helps create the charter and plan.
+**Relationship Building (steps):** Analyze stakeholders → Assess influence → Understand expectations → Define success → Keep stakeholders involved → Keep stakeholders informed.
+
+**Project Sponsor** (source: PMBOK Guide, 5th Edition, p. 32): the person or group responsible for enabling success, may be inside but usually outside the project, **signs off on completion** (the one the PM must satisfy), escalates issues beyond the PM's control, and helps create the charter and plan.
 
 **Politics & relationships:** Supportive stakeholders are essential. Consider the environment, each group's goals (stated and hidden agendas), and power. Build respect by being honest, taking ownership, being reliable, standing by decisions, and owning mistakes. Cultural differences affect communication, negotiation, and decision-making.
 
@@ -197,24 +211,51 @@ A document that tracks every requirement through design, development, and testin
 **Tools:** Excel; JIRA, HP ALM, IBM DOORS; Trello, Confluence with add-ons.
 
 **Challenges:** complexity at scale, frequent updates, manual errors.
+
 **Best practices:** start early, review with stakeholders, automate where possible.
 
 ### RTM Exercise (Online Learning Platform)
+**Learning outcomes.** By completing the exercise, you should be able to:
+- Understand the purpose and structure of an RTM
+- Track requirements across design, development, and testing stages
+- Recognize how RTMs support project quality by linking requirements to deliverables and ensuring accountability
+- Appreciate the role of RTMs in managing changes, tracking progress, and verifying all project requirements
+
 **Scenario:** a university platform for course materials, quizzes, grades, instructor communication, progress tracking, and data privacy compliance.
 
 **Steps:**
 1. **Identify requirements** and split into functional and non-functional (e.g., User Login, Course Material Access, Quiz Functionality, Data Privacy Compliance)
 2. **Create the template** with columns: Requirement ID, Description, Type (F/NF), Design Spec Reference, Development Reference, Testing Procedure, Status (Pending / In Progress / Completed)
-3. **Populate** each row (e.g., RQ-01 Secure login, F, Login Module p.4, Module 1A, TC-01, In Progress)
+3. **Populate** each row using the example table below as a guide
 4. **Develop test cases** (TC-01 valid/invalid login, TC-02 materials load, TC-03 quiz grading correct, TC-04 security review and penetration test)
 5. **Track status** as work progresses (coded but untested = In Progress)
 6. **Analyze gaps** for missing design, dev, or test steps, and adjust for new or changed requirements
 
-**Deliverables:** (1) completed RTM spreadsheet, (2) testing procedure document, (3) 1 to 2 paragraph reflection on how RTMs protect quality and prevent missed requirements or tests.
+**Example RTM (from the slide):**
+
+| Req ID | Description | Type | Design Spec Reference | Development Reference | Testing Procedure | Status |
+|---|---|---|---|---|---|---|
+| RQ-01 | Secure login for all users | F | Login Module, Page 4 | Module 1A | TC-01: Verify login functionality | In Progress |
+| RQ-02 | Access course materials | F | Course Access Module, Page 6 | Module 2B | TC-02: Ensure course materials load | Pending |
+| RQ-03 | Automated quiz grading | F | Quiz Grading, Page 8 | Module 3C | TC-03: Validate automated grading | Pending |
+| RQ-04 | Data privacy compliance | NF | Security Protocol, Page 12 | Module 1A, Module 2B | TC-04: Data security test cases | Pending |
+
+**Deliverables:**
+1. **Completed RTM spreadsheet:** all columns filled; each requirement has a unique ID, complete description, design references, testing steps, and updated status
+2. **Testing procedure document:** brief description of the test cases for each requirement
+3. **Reflection:** 1 to 2 paragraphs on the importance of RTMs in managing project quality, and how an RTM prevents overlooked requirements and missed testing procedures
 
 ---
 
 # Module 4: Project Selection & Chartering
+
+**Audience:** 3rd/4th year IT students, CICS.
+
+## Learning Objectives
+- **Master selection criteria:** evaluate and select projects using financial criteria (Payback Period, ROI, NPV) and strategic drivers (CILO1)
+- **Framework context:** understand the PMBOK Initiating Process Group and how Project Integration Management bridges strategy and execution (CILO3)
+- **Authorize initiatives:** build a professional Project Charter that sets boundaries and officially grants the PM authority
+- **Real-world application:** connect charter goals to real technology architectures like Cloud Migrations and Digital KYC apps
 
 ## Core Idea
 - **Project Selection ("speed dating for ideas"):** IT has limited budget, time, and developers but many ideas. Leadership picks the one with the most business value.
@@ -260,7 +301,7 @@ A document that tracks every requirement through design, development, and testin
 - **Constraints:** AML laws, third-party biometric API dependency, legacy overnight batch processing
 
 **Sample charter:**
-- **Purpose:** cut drop-off from 40% to under 10%
+- **Purpose:** cut drop-off from 40% to under 10% by implementing real-time identity verification and automated data capture
 - **Success criteria:** account creation under 10 minutes; handles 5,000 concurrent verifications
 - **Constraints:** budget capped at $200,000; non-negotiable 6-month go-live before Q4
 - **PM authority:** can reallocate up to 10% of contingency funds and approve schedule changes under 5 days without board review
@@ -270,22 +311,26 @@ A document that tracks every requirement through design, development, and testin
 - ❌ **Too detailed:** putting a WBS in the charter forces constant rework
 - ✅ **Balanced:** high-level goals, clear constraints, defined PM thresholds
 
-> **Key line:** The Charter authorizes **WHAT** and **WHY**. The RTM and WBS define **HOW**.
+> **Key line:** A charter is NOT a project plan. The Charter authorizes **WHAT** and **WHY**. The RTM and WBS define **HOW**.
 
-**Discussion prompt:** A sponsor says to skip listing exclusions. What risks does that create, and how would you explain that out-of-scope items protect the budget?
+**Discussion prompt:** The sponsor says: *"Do not spend time writing explicit exclusions or out-of-scope items in the charter. We will figure out what we don't want as we build the software."*
+- What specific **technical and financial** risks come from following this advice?
+- How would you professionally explain to the sponsor that out-of-scope items protect the budget?
 
-## Charter Assignment Checklist
+## Charter Assignment Checklist (Weeks 4 to 5 Summative Assessment)
 - **Key Personnel:** project title, executive sponsor, designated PM
 - **Strategic Value:** business purpose linked to organizational strategy
 - **Targets:** SMART objectives, quantifiable success criteria
 - **Boundaries:** high-level scope, deliverables, constraints, risks
 - **Empowerment:** PM authority level signed off by the sponsor
 
+**Next topic:** Weeks 6 to 7, Project Stakeholder Management.
+
 ---
 
 # Module 5: WBS & WBS Dictionary
 
-**Why it matters:** Week 8 scope management topic, tested in **Long Test 2**, and required for the final **Project Management Plan**.
+**Why it matters:** Week 8 scope management topic (a required PMBOK core competency for IT projects), tested in **Long Test 2**, and required for the final **Project Management Plan**.
 
 ## Learning Objectives
 - Understand how the WBS sets the baseline for scope control
@@ -294,7 +339,12 @@ A document that tracks every requirement through design, development, and testin
 - Tell apart deliverable-based WBS items from task-based activity lists
 
 ## What a WBS Is
-Without one, engineers work in silos (e.g., login screens built without API specs, separate payment databases, cloud set up with unverified tools), which leads to chaos, duplicated effort, missed requirements, and schedule slips.
+**The unstructured scenario:** imagine telling 5 engineers to "Build a University Student Portal" with no clear decomposition:
+- Engineer A codes login screens without backend API specs
+- Engineer B designs tuition payment databases independently
+- Engineer C configures cloud infrastructure with unverified tools
+
+Result: chaos, overlapping effort, missed requirements, and severe schedule slip.
 
 A **WBS** breaks the project into small, **deliverable-oriented** pieces called **Work Packages**, so everyone knows exactly what's in scope.
 
@@ -322,6 +372,19 @@ A **WBS** breaks the project into small, **deliverable-oriented** pieces called 
     └── 1.4.2 Database Encryption & PCI-DSS Compliance
 ```
 
+**What each node covers (from the diagram slide):**
+
+| Code | Node | Covers |
+|---|---|---|
+| 1.1.1 | Project Charter & Planning Documents | Core scope baseline & charter deliverables |
+| 1.1.2 | Stakeholder Communication Reports | Governance & status reporting cadence |
+| 1.2.1 | MFA Engine | Security token & biometric auth |
+| 1.2.2 | OAuth2 Single Sign-On Integration | Identity provider integration |
+| 1.3.1 | Account Balance API | Real-time balance lookup service |
+| 1.3.2 | Real-time Fund Transfer Engine | Work package (lowest-level deliverable, see dictionary) |
+| 1.4.1 | AWS Production Environment Provisioning | Cloud infrastructure setup |
+| 1.4.2 | Database Encryption & PCI-DSS Compliance | Compliance & data protection |
+
 ## Example Dictionary Entry (1.3.2)
 
 | Field | Detail |
@@ -340,13 +403,13 @@ A **WBS** breaks the project into small, **deliverable-oriented** pieces called 
 - ✅ 1.1 Auth Microservice, 1.2 Test Execution Report, 1.3 Staging Deployment (clear, acceptable outputs)
 
 **2. Wrong sizing**
-- **Over-decomposed (under 8 hours):** admin overhead and micromanagement
-- **Under-decomposed (over 80 hours):** hidden cost overruns and delays
-- Sweet spot: **8 to 80 hours** per work package
+- **Over-decomposed (under 8 hours):** massive admin overhead, micromanagement fatigue, tracking complexity
+- **Under-decomposed (over 80 hours):** creates "blind spots" where cost overruns and schedule delays stay hidden until too late
+- *(Implied, not stated on the slide: aim for work packages between 8 and 80 hours.)*
 
 ## Waterfall vs. Agile Scope
 
-| Factor | Waterfall (WBS) | Agile (Backlog) |
+| Factor | Predictive (Waterfall WBS) | Adaptive (Agile Backlog) |
 |---|---|---|
 | Hierarchy | WBS → Control Account → Work Package | Epic → Feature → User Story |
 | Timing | All upfront before execution | Iterative (backlog refinement) |
@@ -378,7 +441,10 @@ Problem: every item uses an action verb (Talk, Design, Write, Perform). Tasks: i
 
 # Module 5a: WBS & WBS Dictionary Deliverable
 
-**Target outcome:** CILO4. Group summative deliverable.
+**Target outcome:** CILO4, Project Deliverable Decomposition across the 10 PM Knowledge Areas: analyze the project deliverables required, applying the needed knowledge and techniques across the 10 knowledge areas. Builds mastery in Scope Management, Schedule Baseline Integration, and Quality Control.
+
+**Type:** Group Summative Deliverable. **Platform:** Canvas / Messenger submission.
+
 **Submit:** post to **Google Workspace**, then **Canvas**, on or before the **Sep 26 (Sat) class**.
 
 ## What You Must Do
@@ -413,9 +479,11 @@ Problem: every item uses an action verb (Talk, Design, Write, Perform). Tasks: i
 > **80% of the grade** comes from structure, scope alignment, and dictionary detail.
 
 ## Self-Check Before Submitting
+*(Study aid based on the rubric; not part of the original handout.)*
+
 - [ ] All WBS names are nouns (deliverables), not verbs (tasks)
 - [ ] Level 1 includes a Project Management branch plus testing, UAT, training, and deployment
 - [ ] Children of each parent sum to 100% of that parent
-- [ ] Work packages are roughly 8 to 80 hours each
+- [ ] No work package is under 8 hours or over 80 hours
 - [ ] Every lowest-level item has all 6 dictionary fields filled with real content
 - [ ] Visual diagram, numbered outline, and dictionary table are all included
