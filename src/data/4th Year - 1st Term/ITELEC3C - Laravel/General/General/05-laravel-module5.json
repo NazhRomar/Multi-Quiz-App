@@ -1,0 +1,312 @@
+{
+  "quizTitle": "Laravel - Module 5 - Model and Migration",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "Migrations are described as being like what?",
+      "options": [
+        "A backup service for your source code",
+        "Version control for your database",
+        "A template engine for your views",
+        "A router for your database queries"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Migrations are like version control for your database, letting your team define and share the application's database schema."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "Which problem do database migrations solve?",
+      "options": [
+        "Slow page loads caused by uncached routes",
+        "Invalid form input being saved to the database",
+        "Blade templates not compiling",
+        "Having to tell a teammate to manually add a column to their local database after they pull your changes"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "If you've ever had to tell a teammate to manually add a column to their local schema after pulling your changes, that's the problem migrations solve."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "What does the \"Consistency\" benefit of migrations mean?",
+      "options": [
+        "Every developer has the same database schema, avoiding differences between development, staging and production",
+        "Every table uses the same column names",
+        "Every query returns results in the same order",
+        "Every migration runs at the same time each day"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Migrations make sure all developers have the same schema, avoiding discrepancies between development, staging and production databases."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "Which benefit of migrations lets you revert the database to its previous state if a migration introduces an issue?",
+      "options": [
+        "Consistency",
+        "Collaboration",
+        "Rollback Capabilities",
+        "Scalability"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Rollback Capabilities: if a migration introduces an issue, rollback commands revert the database to its previous state."
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "Which two tools does the module have you install before creating a migration?",
+      "options": [
+        "Docker and pgAdmin",
+        "XAMPP and MySQL Workbench",
+        "Node.js and MongoDB Compass",
+        "WAMP and phpMyAdmin"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Step 1 is to install XAMPP and MySQL Workbench, then create a MySQL connection and database."
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "What does the <code>up()</code> method of a migration contain?",
+      "options": [
+        "The code that seeds the table with sample data",
+        "The code that reverses the migration",
+        "The database connection settings",
+        "The changes to apply to the database when the migration runs, such as creating tables, adding columns or creating indexes"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>up()</code> defines the changes applied when the migration runs: creating tables, adding columns, creating indexes, etc."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "What is the purpose of the <code>down()</code> method below?",
+      "context": "<pre>public function down(): void\n{\n    Schema::dropIfExists('personal_access_tokens');\n}</pre>",
+      "options": [
+        "It reverses what <code>up()</code> did, so the database can be rolled back",
+        "It deletes every table in the database",
+        "It runs before <code>up()</code> to prepare the table",
+        "It downloads the table's data as a backup"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>down()</code> reverses the actions in <code>up()</code> and is used during rollbacks. Here, <code>up()</code> created the <code>personal_access_tokens</code> table, so <code>down()</code> drops it."
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "What does <code>$table-&gt;id();</code> create?",
+      "options": [
+        "A VARCHAR column called id",
+        "A UUID column with no primary key",
+        "An auto-incrementing primary key (big integer)",
+        "An index on an existing id column"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>$table-&gt;id()</code> creates an auto-incrementing big integer primary key."
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "<code>$table-&gt;string('name');</code> creates a VARCHAR column with what default length?",
+      "options": [
+        "64 characters",
+        "100 characters",
+        "191 characters",
+        "255 characters"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>string()</code> creates a VARCHAR column with a default length of 255 characters. A different length can be passed as the second argument, e.g. <code>string('token', 64)</code>."
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "What does <code>$table-&gt;float('price', 8, 2);</code> create?",
+      "options": [
+        "A column that stores up to 8 prices",
+        "A floating-point column with 8 digits total and 2 decimal places",
+        "A floating-point column with 8 decimal places and 2 whole digits",
+        "An integer column between 2 and 8"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The second and third arguments are the total digits (8) and decimal places (2)."
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "What does the <code>-&gt;nullable()</code> modifier do?",
+      "options": [
+        "Allows the column to accept NULL values, so it isn't required when inserting data",
+        "Sets the column's value to NULL for every existing row",
+        "Removes the column from the table",
+        "Prevents the column from ever being NULL"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>-&gt;nullable()</code> lets a column accept NULL values, meaning it isn't required when inserting data."
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "If a row is inserted without a name, what is stored in the <code>name</code> column below?",
+      "context": "<pre>$table-&gt;string('name')-&gt;nullable()-&gt;default('Anonymous');</pre>",
+      "options": [
+        "An empty string",
+        "NULL",
+        "Anonymous",
+        "The insert fails with an error"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>-&gt;default()</code> sets the value used when none is provided, so the column gets <code>'Anonymous'</code>. <code>nullable()</code> still allows NULL if you explicitly insert NULL."
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "What does <code>$table-&gt;foreignId('user_id')-&gt;constrained('users');</code> do?",
+      "options": [
+        "Creates a new users table",
+        "Makes user_id unique across all tables",
+        "Copies every user into the current table",
+        "Creates a user_id foreign key column connected to the id column of the users table"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>foreignId()</code> creates a foreign key column, and <code>constrained('users')</code> connects <code>user_id</code> to the <code>id</code> column of the <code>users</code> table."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "Following Laravel's recommended naming convention, which model and table pair is correct?",
+      "options": [
+        "Model <code>Product</code>, table <code>products</code>",
+        "Model <code>Products</code>, table <code>product</code>",
+        "Model <code>product</code>, table <code>Products</code>",
+        "Model <code>ProductModel</code>, table <code>ProductTable</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Model names are singular PascalCase (<code>Product</code>, <code>Student</code>), and table names are plural snake_case (<code>products</code>, <code>students</code>)."
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "What is the <code>$fillable</code> property of a model used for?",
+      "context": "<pre>protected $fillable = ['name', 'email'];</pre>",
+      "options": [
+        "It lists the columns that are hidden from JSON output",
+        "It sets which database the model connects to",
+        "It lists the columns that can be inserted or updated, protecting the app from unwanted data changes",
+        "It fills every column with default values"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>$fillable</code> lists the columns that can be inserted or updated, which helps protect the application from unwanted data changes."
+    },
+    {
+      "id": 16,
+      "type": "fitb",
+      "text": "Complete the Artisan command that creates a migration for a products table:",
+      "code": "php artisan make:___ create_products_table",
+      "correctAnswer": "migration",
+      "points": 1,
+      "explanation": "<code>php artisan make:migration create_products_table</code> creates the migration. (The slide's example is <code>create_product_table</code>; this uses the plural <code>products</code> to follow the module's own table-naming rule.)"
+    },
+    {
+      "id": 17,
+      "type": "fitb",
+      "text": "Complete the Artisan command that creates a model:",
+      "code": "php artisan make:___ Product",
+      "correctAnswer": "model",
+      "points": 1,
+      "explanation": "<code>php artisan make:model Product</code> creates a model. Each model typically corresponds to a table in the database."
+    },
+    {
+      "id": 18,
+      "type": "fitb",
+      "text": "Complete the model property that connects the model to a table whose name doesn't follow Laravel's default naming:",
+      "code": "class Student extends Model\n{\n    protected $___ = 'student_records';\n}",
+      "correctAnswer": "table",
+      "points": 1,
+      "explanation": "<code>$table</code> sets the table a model uses. It's needed here because Laravel would otherwise look for a <code>students</code> table."
+    },
+    {
+      "id": 19,
+      "type": "matching",
+      "text": "Match each Artisan command to what it does.",
+      "allChoices": [
+        "Rolls back all migrations and then re-runs them",
+        "Runs all pending migrations",
+        "Rolls back all migrations",
+        "Rolls back the last batch of migrations"
+      ],
+      "pairs": [
+        {
+          "term": "php artisan migrate",
+          "match": "Runs all pending migrations"
+        },
+        {
+          "term": "php artisan migrate:rollback",
+          "match": "Rolls back the last batch of migrations"
+        },
+        {
+          "term": "php artisan migrate:reset",
+          "match": "Rolls back all migrations"
+        },
+        {
+          "term": "php artisan migrate:refresh",
+          "match": "Rolls back all migrations and then re-runs them"
+        }
+      ],
+      "points": 1,
+      "explanation": "migrate runs pending migrations; migrate:rollback undoes the last batch; migrate:reset undoes all of them; migrate:refresh undoes all and runs them again. (The slide labels <code>migrate:rollback</code> as \"Rollback for a Specific Connection\", but on its own it rolls back the last batch — you'd add <code>--database=</code> to target a specific connection.)"
+    },
+    {
+      "id": 20,
+      "type": "matching",
+      "text": "Match each column method to the column it creates.",
+      "allChoices": [
+        "A DATE column",
+        "A JSON column",
+        "A TEXT column for longer text",
+        "A BOOLEAN (true/false) column",
+        "A TIMESTAMP column"
+      ],
+      "pairs": [
+        {
+          "term": "$table->text('description')",
+          "match": "A TEXT column for longer text"
+        },
+        {
+          "term": "$table->boolean('is_active')",
+          "match": "A BOOLEAN (true/false) column"
+        },
+        {
+          "term": "$table->date('birth_date')",
+          "match": "A DATE column"
+        },
+        {
+          "term": "$table->timestamp('created_at')",
+          "match": "A TIMESTAMP column"
+        },
+        {
+          "term": "$table->json('preferences')",
+          "match": "A JSON column"
+        }
+      ],
+      "points": 1,
+      "explanation": "These are the common column types from the module: text, boolean, date, timestamp and json."
+    }
+  ]
+}

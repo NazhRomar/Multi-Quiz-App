@@ -1,0 +1,294 @@
+{
+  "quizTitle": "Laravel - Module 4 - Validation",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "In Laravel, what does \"validation\" refer to?",
+      "options": [
+        "Encrypting user passwords before they are stored",
+        "Compiling Blade templates into plain PHP",
+        "Checking that user input follows specific rules before it is saved or processed further",
+        "Caching routes for faster load times"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Validation checks that the input data provided by users adheres to specific rules before saving it to the database or processing it further."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "What is the most common way to validate incoming data in Laravel?",
+      "options": [
+        "Calling the <code>validate</code> method available on all incoming HTTP requests",
+        "Writing manual <code>if</code> checks inside the Blade view",
+        "Adding rules to <code>routes/web.php</code>",
+        "Running <code>php artisan validate</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "It is most common to use the <code>validate</code> method available on all incoming HTTP requests."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "The <code>validate</code> method is provided by which object?",
+      "options": [
+        "Illuminate\\Support\\Facades\\Route",
+        "Illuminate\\Database\\Eloquent\\Model",
+        "Illuminate\\View\\View",
+        "Illuminate\\Http\\Request"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The <code>validate</code> method is provided by the <code>Illuminate\\Http\\Request</code> object."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "What happens when the rules passed to <code>$request-&gt;validate()</code> fail?",
+      "options": [
+        "The code keeps executing normally and the invalid data is saved",
+        "An <code>Illuminate\\Validation\\ValidationException</code> is thrown and the proper error response is automatically sent back to the user",
+        "The application crashes with a blank page",
+        "The request is silently discarded and nothing is returned"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "If the rules pass, execution continues normally. If they fail, an <code>Illuminate\\Validation\\ValidationException</code> is thrown and the proper error response is sent back to the user automatically."
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "In the rule string below, what does <code>unique:posts</code> check?",
+      "context": "<pre>'title' =&gt; 'required|unique:posts|max:255',</pre>",
+      "options": [
+        "That the title has no repeated characters",
+        "That only one title field is sent in the request",
+        "That the title does not already exist in the <code>posts</code> database table",
+        "That the title is stored in a separate <code>posts</code> folder"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>unique:posts</code> makes sure the value doesn't already exist in the <code>posts</code> table. (The slides use this rule in their examples without describing it; this is its standard meaning.)"
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "Which of the following is NOT one of the benefits of Laravel validation listed in the module?",
+      "options": [
+        "Prevents invalid data from being processed or saved in the database",
+        "Enhances user experience with detailed, specific error messages",
+        "Keeps code organized by separating validation from business logic",
+        "Automatically encrypts every field before it is saved"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The listed benefits are: preventing invalid data, simplifying validation logic with built-in and customizable rules, better error messages, and separating validation from business logic. Encryption is not a validation feature."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "Besides a single <code>|</code>-delimited string, how else can validation rules be written?",
+      "options": [
+        "As an array of rules, e.g. <code>['required', 'unique:posts', 'max:255']</code>",
+        "As a comma-separated string, e.g. <code>'required, unique:posts, max:255'</code>",
+        "As a JSON file in the <code>config</code> folder",
+        "As HTML attributes on the form input"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Validation rules may be given as arrays of rules instead of a single <code>|</code>-delimited string."
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "What does the <code>required</code> rule ensure?",
+      "options": [
+        "The field is a string",
+        "The field matches another field",
+        "The field is at least 1 character long only if it is present",
+        "The field is present and not empty"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>required</code> ensures the field is present and not empty."
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "What does <code>'phone_number' =&gt; 'required|digits:10'</code> check?",
+      "options": [
+        "The phone number is at most 10 characters long",
+        "The phone number is numeric and exactly 10 digits long",
+        "The phone number is greater than 10",
+        "The phone number has between 1 and 10 digits"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>digits</code> checks that the field is an exact number of digits — here, exactly 10."
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "What does the <code>nullable</code> rule do?",
+      "options": [
+        "Forces the field to always be null",
+        "Removes the field from the request",
+        "Allows the field to be null, but still validates it if a value is provided",
+        "Skips all other rules on the field, even when a value is given"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>nullable</code> allows the field to be null, but it is still validated if a value is provided (e.g. <code>'middle_name' =&gt; 'nullable|string|max:50'</code>)."
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "With <code>'password' =&gt; 'required|confirmed'</code>, which other field must be sent with a matching value?",
+      "options": [
+        "password_confirmation",
+        "confirm_password",
+        "password_repeat",
+        "confirmed_password"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>confirmed</code> checks that a matching <code>{field}_confirmation</code> field exists, so for <code>password</code> it's <code>password_confirmation</code>."
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "Which rule makes sure a checkbox such as \"I agree to the terms of service\" has been ticked?",
+      "options": [
+        "confirmed",
+        "same",
+        "required",
+        "accepted"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>accepted</code> ensures the field is accepted, like for terms of service (e.g. <code>'terms' =&gt; 'required|accepted'</code>). <code>required</code> alone would not reject an unticked value such as \"0\" or \"no\"."
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "What does adding <code>bail</code> to an attribute's rules do?",
+      "context": "<pre>'title' =&gt; 'bail|required|unique:posts|max:255',</pre>",
+      "options": [
+        "Makes the field optional",
+        "Stops running the remaining rules on that attribute after the first validation failure",
+        "Skips validation entirely for that attribute",
+        "Redirects the user to the home page on failure"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>bail</code> stops running validation rules on an attribute after its first failure."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "When validation fails during a normal form submission, what does Laravel do automatically?",
+      "options": [
+        "Shows a 404 page",
+        "Deletes the user's session",
+        "Redirects the user back to their previous location and flashes the errors and request input to the session",
+        "Emails the errors to the developer"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Laravel redirects the user back to the previous location, and all validation errors and request input are flashed to the session."
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "Which variable holding the validation errors is shared with all of your application's views?",
+      "options": [
+        "$errors",
+        "$validation",
+        "$messages",
+        "$failed"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "An <code>$errors</code> variable is shared with all of your application's views."
+    },
+    {
+      "id": 16,
+      "type": "fitb",
+      "text": "Complete the method call that validates the incoming request:",
+      "code": "$validated = $request->___([\n    'title' => 'required|unique:posts|max:255',\n    'body' => 'required',\n]);",
+      "correctAnswer": "validate",
+      "points": 1,
+      "explanation": "<code>$request-&gt;validate([...])</code> runs the given rules against the request data."
+    },
+    {
+      "id": 17,
+      "type": "fitb",
+      "text": "Complete the loop so it lists every validation error message:",
+      "code": "@if ($errors->any())\n    <ul>\n        @foreach ($errors->___() as $error)\n            <li>{{ $error }}</li>\n        @endforeach\n    </ul>\n@endif",
+      "correctAnswer": "all",
+      "points": 1,
+      "explanation": "<code>$errors-&gt;all()</code> returns every error message, while <code>$errors-&gt;any()</code> checks whether there are any errors at all."
+    },
+    {
+      "id": 18,
+      "type": "fitb",
+      "text": "Complete the Blade directive that checks whether the title field has a validation error:",
+      "code": "<input id=\"title\" type=\"text\" name=\"title\">\n\n@___('title')\n    <div class=\"alert alert-danger\">{{ $message }}</div>\n@enderror",
+      "correctAnswer": "error",
+      "points": 1,
+      "explanation": "The <code>@error</code> Blade directive checks whether error messages exist for a given attribute, and is closed with <code>@enderror</code>."
+    },
+    {
+      "id": 19,
+      "type": "fitb",
+      "text": "Complete the variable that displays the error message inside an @error directive:",
+      "code": "@error('title')\n    <div class=\"alert alert-danger\">{{ $___ }}</div>\n@enderror",
+      "correctAnswer": "message",
+      "points": 1,
+      "explanation": "Inside <code>@error</code>, you echo the <code>$message</code> variable to display the error."
+    },
+    {
+      "id": 20,
+      "type": "matching",
+      "text": "Match each validation rule to what it checks.",
+      "allChoices": [
+        "The field's value is different from another field's value",
+        "The field's length falls within a range of digits",
+        "The field is numeric",
+        "The field meets a minimum value or character length",
+        "The field matches a regular expression pattern",
+        "The field has the same value as another field"
+      ],
+      "pairs": [
+        {
+          "term": "min",
+          "match": "The field meets a minimum value or character length"
+        },
+        {
+          "term": "numeric",
+          "match": "The field is numeric"
+        },
+        {
+          "term": "digits_between",
+          "match": "The field's length falls within a range of digits"
+        },
+        {
+          "term": "regex",
+          "match": "The field matches a regular expression pattern"
+        },
+        {
+          "term": "same",
+          "match": "The field has the same value as another field"
+        },
+        {
+          "term": "different",
+          "match": "The field's value is different from another field's value"
+        }
+      ],
+      "points": 1,
+      "explanation": "min: minimum value/length (<code>'password' =&gt; 'required|min:8'</code>). numeric: numeric value (<code>'price'</code>). digits_between: digit count within a range (<code>'code' =&gt; 'digits_between:5,8'</code>). regex: matches a pattern. same: equals another field (<code>same:password_confirmation</code>). different: differs from another field (<code>'new_password' =&gt; 'different:old_password'</code>)."
+    }
+  ]
+}
