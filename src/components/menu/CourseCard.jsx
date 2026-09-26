@@ -1,4 +1,6 @@
+import { useNavigate } from 'react-router-dom';
 import { buildRenderUnits } from '../../data/catalog.js';
+import { notesForSubject } from '../../notes/index.js';
 import QuizSeries from './QuizSeries.jsx';
 import QuizRow from './QuizRow.jsx';
 
@@ -19,6 +21,8 @@ export default function CourseCard({ course, onOpen, selection }) {
   const sections = buildRenderUnits(course);
   const isSelected = selection ? (quiz) => selection.selected.has(quiz.id) : () => undefined;
   const allSelected = selection && quizzes.every((q) => selection.selected.has(q.id));
+  const notes = notesForSubject(course.id);
+  const navigate = useNavigate();
   return (
     <div className="course-card">
       <div className="course-card-header">
@@ -26,6 +30,17 @@ export default function CourseCard({ course, onOpen, selection }) {
         <span className="course-count">
           {quizzes.length} {quizzes.length === 1 ? 'quiz' : 'quizzes'}
         </span>
+        {/* Experimental study notes (src/notes/), if this subject has any. */}
+        {notes.map((note) => (
+          <button key={note.slug} type="button" className="btn-notes" onClick={() => navigate(`/notes/${note.slug}`)}>
+            <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M4 1.75h5.5L12.5 4.75v9.5h-8.5z" />
+              <path d="M6.5 7.5h4M6.5 10h4" />
+            </svg>
+            Notes
+            <span className="btn-notes-beta">Beta</span>
+          </button>
+        ))}
         {/* Always mounted so it can fade in/out with Multi mode (style.css). */}
         <button
           className={`btn-select-all ${selection ? 'btn-select-all--visible' : ''}`}

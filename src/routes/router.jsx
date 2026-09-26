@@ -5,6 +5,7 @@ import HomeScreen from './HomeScreen.jsx';
 import QuizSessionRoute from './QuizSessionRoute.jsx';
 import MultiSessionRoute from './MultiSessionRoute.jsx';
 import DevShowcaseRoute from './DevShowcaseRoute.jsx';
+import NotesRoute from './NotesRoute.jsx';
 
 // Hash-based (createHashRouter, not createBrowserRouter): GitHub Pages (the
 // primary deploy target, see .github/workflows/deploy.yml) has no server
@@ -26,6 +27,7 @@ export const router = createHashRouter([
       { path: '/review/:termSlug/:courseSlug/:quizSlug', element: <QuizSessionRoute mode="review" /> },
       { path: '/multi/quiz', element: <MultiSessionRoute mode="quiz" /> },
       { path: '/multi/review', element: <MultiSessionRoute mode="review" /> },
+      { path: '/notes/:noteSlug', element: <NotesRoute /> },
       { path: '/dev/showcase', element: <DevShowcaseRoute /> },
       { path: '*', element: <Navigate to="/" replace /> },
     ],
