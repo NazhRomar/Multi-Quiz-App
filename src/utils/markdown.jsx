@@ -1,4 +1,4 @@
-// A small Markdown renderer for the experimental notes viewer. Covers the
+// A small Markdown renderer for the study notes viewer. Covers the
 // subset study notes actually use — headings, paragraphs, bullet/numbered/
 // task lists, tables, blockquotes, fenced code, rules, and inline bold/
 // italic/code/links — and builds React elements directly (no innerHTML),

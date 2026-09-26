@@ -1,4 +1,4 @@
-// Experimental study-notes viewer (/notes/:slug, NotesRoute). Each entry is
+// Study-notes viewer (/notes/:slug, NotesRoute). Each entry is
 // a Markdown file in this folder, loaded lazily as raw text so the notes
 // don't ride along in the main bundle. subjectId links a note to a subject
 // (its _meta.json `id`) so that subject's card on Home can show a Notes

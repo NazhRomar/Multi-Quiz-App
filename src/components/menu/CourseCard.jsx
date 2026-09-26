@@ -30,7 +30,7 @@ export default function CourseCard({ course, onOpen, selection }) {
         <span className="course-count">
           {quizzes.length} {quizzes.length === 1 ? 'quiz' : 'quizzes'}
         </span>
-        {/* Experimental study notes (src/notes/), if this subject has any. */}
+        {/* Study notes (src/notes/), if this subject has any. */}
         {notes.map((note) => (
           <button key={note.slug} type="button" className="btn-notes" onClick={() => navigate(`/notes/${note.slug}`)}>
             <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -38,7 +38,6 @@ export default function CourseCard({ course, onOpen, selection }) {
               <path d="M6.5 7.5h4M6.5 10h4" />
             </svg>
             Notes
-            <span className="btn-notes-beta">Beta</span>
           </button>
         ))}
         {/* Always mounted so it can fade in/out with Multi mode (style.css). */}

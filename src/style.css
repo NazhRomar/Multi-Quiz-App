@@ -5224,7 +5224,7 @@ body.theme-canvas .q-source-inline {
 }
 
 /* =========================================================
-   --- STUDY NOTES (experimental, NotesRoute + utils/markdown.jsx) ---
+   --- STUDY NOTES (NotesRoute + utils/markdown.jsx) ---
    Two columns on wide screens (sticky contents sidebar + notes); one
    column below 1024px, where the contents live in a dropdown sheet
    under the header instead.
@@ -5251,20 +5251,6 @@ body.theme-canvas .q-source-inline {
 
 .btn-notes svg {
   cursor: inherit;
-}
-
-.btn-notes-beta,
-.notes-beta {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.58rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 0 0.25rem;
-  line-height: 1.5;
 }
 
 .notes-page {
@@ -5308,10 +5294,6 @@ body.theme-canvas .q-source-inline {
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: 0;
-}
-
-.notes-beta {
-  flex-shrink: 0;
 }
 
 .notes-toc-toggle {
@@ -5644,10 +5626,6 @@ body.theme-canvas .q-source-inline {
 @media (max-width: 600px) {
   .notes-layout {
     padding: 1rem 1rem 3rem;
-  }
-
-  .notes-header .notes-beta {
-    display: none;
   }
 
   .quiz-header .notes-title {

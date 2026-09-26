@@ -3,7 +3,7 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { findNote, loadNote } from '../notes/index.js';
 import { MarkdownBlocks, collectHeadings, parseMarkdown } from '../utils/markdown.jsx';
 
-// Experimental: renders a study-notes Markdown file (src/notes/) with a
+// Renders a study-notes Markdown file (src/notes/) with a
 // table of contents — a sidebar on wide screens, a collapsible "Contents"
 // panel above the notes on narrow ones. TOC entries scroll with
 // scrollIntoView rather than href="#id", since the hash router owns the
@@ -85,7 +85,6 @@ export default function NotesRoute() {
             </svg>
           </button>
           <h1 className="notes-title">{note.title}</h1>
-          <span className="notes-beta">Experimental</span>
         </div>
         {headings.length > 0 && (
           <button type="button" className={`notes-toc-toggle ${tocOpen ? 'notes-toc-toggle--open' : ''}`} onClick={() => setTocOpen((o) => !o)} aria-expanded={tocOpen}>
