@@ -5579,20 +5579,29 @@ body.theme-canvas .q-source-inline {
   }
 }
 
-.notes-body .md-table--overflow .md-table-bar {
+.notes-body .md-table {
   position: relative;
-  height: 5px;
-  margin: 0.4rem 0.5rem 0;
-  border-radius: 999px;
-  background: var(--border);
+}
+
+/* Sits inside the table's box along its bottom edge, like a native
+   scrollbar would — faint, thin, no track. pointer-events off so swipes
+   and taps land on the table beneath. */
+.notes-body .md-table--overflow .md-table-bar {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 3px;
+  height: 3px;
+  pointer-events: none;
 }
 
 .notes-body .md-table-bar-thumb {
   position: absolute;
   top: 0;
   bottom: 0;
-  border-radius: inherit;
-  background: var(--accent);
+  border-radius: 999px;
+  background: var(--text-muted);
+  opacity: 0.4;
 }
 
 .notes-body table {
