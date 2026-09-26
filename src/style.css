@@ -5503,11 +5503,10 @@ body.theme-canvas .q-source-inline {
 .notes-toc-toggle {
   display: none;
   align-items: center;
-  justify-content: center;
+  gap: 0.35rem;
   flex-shrink: 0;
-  width: 36px;
   height: 36px;
-  padding: 0;
+  padding: 0 0.75rem;
   background: transparent;
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -5515,6 +5514,14 @@ body.theme-canvas .q-source-inline {
   font-family: 'Space Mono', monospace;
   font-size: 0.8rem;
   font-weight: 700;
+}
+
+.notes-toc-toggle svg {
+  transition: transform 0.2s ease;
+}
+
+.notes-toc-toggle--open svg {
+  transform: rotate(180deg);
 }
 
 .notes-toc-toggle--open {
