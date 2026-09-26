@@ -5371,7 +5371,6 @@ body.theme-canvas .q-source-inline {
 .notes-toc {
   display: flex;
   flex-direction: column;
-  gap: 1px;
 }
 
 .notes-toc-item {
@@ -5384,17 +5383,20 @@ body.theme-canvas .q-source-inline {
   font-size: 0.82rem;
   line-height: 1.35;
   padding: 0.35rem 0.6rem;
+  /* Square left edge so the items' borders join into one straight rail
+     (the global button rule would otherwise round every corner). */
+  border-radius: 0 6px 6px 0;
   transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
 }
 
 .notes-toc-item--h1 {
   color: var(--text);
   font-weight: 700;
-  margin-top: 0.6rem;
 }
 
-.notes-toc-item--h1:first-child {
-  margin-top: 0;
+/* Each Part starts a fresh rail segment, spaced off the previous one. */
+.notes-toc-item--h1:not(:first-child) {
+  margin-top: 0.6rem;
 }
 
 .notes-toc-item--h2 {

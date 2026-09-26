@@ -1,10 +1,6 @@
 # IT Project Management (FELEC P): Study Notes
 
-> **Heads up:** The **WBS & WBS Dictionary deliverable is due Sat, Sep 26, before class.** Requirements are in Part 6.
-
----
-
-# Part 1: Course Overview (FELEC P: IT Project Management)
+# Module 1: Course Overview
 
 **Basics:** UST CICS, Department of IT, for 4th year IT students. 3.0 units, prerequisite is 3rd year standing.
 
@@ -78,7 +74,7 @@
 
 ---
 
-# Part 2: The Group Project Setup
+# Module 2: Project Types & Scope
 
 The project is a **simulated, paper-based case study**. Your group acts as the **PMO / Project Steering Committee** for a realistic enterprise IT initiative.
 
@@ -113,7 +109,7 @@ Useful for cost estimates.
 
 ---
 
-# Part 3: PM Fundamentals, Stakeholders, and RTM
+# Module 3: Stakeholder Management & RTM
 
 ## Key Definitions
 - **Project:** a *temporary* endeavor with a unique goal and usually a budget.
@@ -218,7 +214,7 @@ A document that tracks every requirement through design, development, and testin
 
 ---
 
-# Part 4: Project Selection & Chartering (Weeks 4 to 5)
+# Module 4: Project Selection & Chartering
 
 ## Core Idea
 - **Project Selection ("speed dating for ideas"):** IT has limited budget, time, and developers but many ideas. Leadership picks the one with the most business value.
@@ -287,7 +283,7 @@ A document that tracks every requirement through design, development, and testin
 
 ---
 
-# Part 5: Module 4B: WBS & WBS Dictionary
+# Module 5: WBS & WBS Dictionary
 
 **Why it matters:** Week 8 scope management topic, tested in **Long Test 2**, and required for the final **Project Management Plan**.
 
@@ -380,7 +376,7 @@ Problem: every item uses an action verb (Talk, Design, Write, Perform). Tasks: i
 
 ---
 
-# Part 6: WBS Deliverable Requirements (Due Sep 26)
+# Module 5a: WBS & WBS Dictionary Deliverable
 
 **Target outcome:** CILO4. Group summative deliverable.
 **Submit:** post to **Google Workspace**, then **Canvas**, on or before the **Sep 26 (Sat) class**.
