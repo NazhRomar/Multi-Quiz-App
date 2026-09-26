@@ -7,7 +7,7 @@
 // installed-app status bar color — the real colors live in style.css.
 export const THEMES = [
   { value: 'default', label: 'Misty Blue', mode: 'light', swatch: { bg: '#f0f5fb', surface: '#ffffff', accent: '#5b9bd5' } },
-  { value: 'canvas', label: 'Canvas', mode: 'light', swatch: { bg: '#ffffff', surface: '#f5f5f5', accent: '#008ee2' } },
+  { value: 'canvas', label: 'Canvas', mode: 'light', swatch: { bg: '#ffffff', surface: '#f5f5f5', accent: '#105f9a' } },
   { value: 'modern', label: 'Modern', mode: 'light', swatch: { bg: '#f2f3f5', surface: '#ffffff', accent: '#3b66f5' } },
   { value: 'pink', label: 'Misty Pink', mode: 'light', family: 'tinted', swatch: { bg: '#fbf1f6', surface: '#fff8fb', accent: '#d06f9f' } },
   { value: 'lavender', label: 'Lavender', mode: 'light', family: 'tinted', swatch: { bg: '#f4f2fb', surface: '#fbfaff', accent: '#8a79d6' } },
