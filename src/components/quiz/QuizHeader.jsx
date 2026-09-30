@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useApp } from '../../state/AppContext.jsx';
 import { useIsMobile } from '../../utils/useIsMobile.js';
 import { totalPointsOf } from '../../utils/quizTotals.js';
@@ -15,6 +16,24 @@ export default function QuizHeader({ score, goHome }) {
   const total = activeQuiz.questions.length;
   const totalPoints = totalPointsOf(activeQuiz.questions);
   const pct = ((currentIndex + 1) / total) * 100;
+  const [shareNote, setShareNote] = useState('');
+
+  const share = async () => {
+    const title = activeQuiz.multi ? 'Multi Quiz' : activeQuiz.quizTitle;
+    const data = { title, text: `Try this quiz: ${title}`, url: window.location.origin + window.location.pathname };
+    try {
+      if (navigator.share) {
+        await navigator.share(data);
+        return;
+      }
+      await navigator.clipboard.writeText(`${data.text} ${data.url}`);
+      setShareNote('Link copied!');
+    } catch (e) {
+      if (e?.name === 'AbortError') return;
+      setShareNote('Could not share');
+    }
+    setTimeout(() => setShareNote(''), 2000);
+  };
 
   return (
     <header className="quiz-header">
@@ -55,6 +74,9 @@ export default function QuizHeader({ score, goHome }) {
               Exit
             </button>
           </div>
+          <button className="dropdown-share" onClick={share}>
+            {shareNote || 'Share quiz'}
+          </button>
           <DropdownTabs
             tabs={[
               { label: 'Quiz options', content: <QuizOptionsFields /> },
