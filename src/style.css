@@ -480,27 +480,6 @@ main.question-card {
   border-color: var(--accent);
 }
 
-.dropdown-share {
-  display: block;
-  width: 100%;
-  margin: 0 0 0.6rem;
-  padding: 0.45rem 0.85rem;
-  background: transparent;
-  border: 1px dashed var(--border);
-  border-radius: 8px;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--accent);
-  text-align: left;
-  cursor: pointer;
-}
-
-.dropdown-share:hover {
-  background: var(--radio-hover);
-  border-color: var(--accent);
-}
-
 .header-right>* {
   height: 36px;
   display: inline-flex;
