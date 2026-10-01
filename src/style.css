@@ -3286,7 +3286,7 @@ body.theme-modern {
 }
 
 /* .question-card and .quiz-header bake in Misty Blue's hex values directly
-   instead of using the theme variables (same reason Dark Purple needs to
+   instead of using the theme variables (same reason dark themes need to
    patch them) — everything else in this theme rides the variables above. */
 body.theme-modern .question-card {
   background: var(--surface);
@@ -3308,7 +3308,7 @@ body.theme-modern .quiz-chip {
 }
 
 /* =========================================================
-   --- TINTED LIGHT THEMES (Misty Pink, Lavender, Sepia) ---
+   --- TINTED LIGHT THEMES (Misty Pink, Sepia) ---
    Misty Blue's soft, airy light look recolored. Every one of these gets
    body.theme-tinted plus its own body.theme-<name> (see utils/themes.js).
    Misty Blue bakes its blue straight into a number of selectors rather
@@ -3340,29 +3340,6 @@ body.theme-pink {
   --header-bg: rgba(253, 244, 249, 0.97);
   --review-card-bg: #fdf7ff;
   --review-card-border: #e7d2f2;
-}
-
-/* Lavender: Dark Purple's daytime counterpart — soft lilac. */
-body.theme-lavender {
-  --bg: #f4f2fb;
-  --surface: #fbfaff;
-  --border: #dcd6f2;
-  --accent: #8a79d6;
-  --accent-hover: #7160c4;
-  --text: #2b2544;
-  --text-muted: #7c75a0;
-  --radio-bg: #f3f1fc;
-  --radio-hover: #e9e5f9;
-  --correct: #4da89a;
-  --shadow: 0 4px 20px rgba(138, 121, 214, 0.13);
-  --review-accent: #b0609a;
-  --accent-rgb: 138, 121, 214;
-  --accent-strong: #5846ad;
-  --accent-2-rgb: 110, 140, 210;
-  --accent-2-strong: #3d5a9c;
-  --header-bg: rgba(247, 245, 253, 0.97);
-  --review-card-bg: #fdf8fc;
-  --review-card-border: #ecd5e6;
 }
 
 /* Sepia: warm paper tones, easy on the eyes for long reading. */
@@ -3465,45 +3442,12 @@ body.theme-tinted .mode-btn-quiz:hover {
 }
 
 /* =========================================================
-   --- DARK THEMES (Dark Purple, Midnight, Forest, Amber) ---
+   --- DARK THEMES (Midnight, Forest, Amber) ---
    Every dark theme gets body.theme-dark plus its own body.theme-<name>
    (see utils/themes.js). A theme-<name> block only sets variables; the
    body.theme-dark rules after them are the shared dark-mode fixes, which
    read --accent-rgb / --accent-soft / --btn-next-* for accent tints.
 ========================================================= */
-
-/* Dark Purple: deep midnight purple with a powder-purple accent. */
-body.theme-dark-purple {
-  /* Core Colors */
-  --bg: #15131c;
-  /* Deep midnight purple */
-  --surface: #1d1a27;
-  /* Slightly lighter card background */
-  --border: #342e43;
-  /* Muted purple-gray border */
-  --accent: #a898ea;
-  /* Powder purple accent */
-  --accent-hover: #8e7cda;
-  --text: #e2ddf0;
-  /* Soft white text */
-  --text-muted: #897d9e;
-  /* Dimmer purple text */
-  --radio-bg: #242032;
-  /* Interactive elements background */
-  --radio-hover: #2d283e;
-  --correct: #5ecaa5;
-  /* Adjusted green for dark mode visibility */
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-
-  /* Used by the shared body.theme-dark fixes below */
-  --accent-rgb: 168, 152, 234;
-  --accent-soft: #d1c8fa;
-  --btn-next-bg: #413564;
-  --btn-next-border: #5d4d8c;
-  --btn-next-hover: #7360ab;
-
-  background-color: var(--bg);
-}
 
 /* Midnight: Misty Blue after dark — deep navy with a soft sky-blue accent. */
 body.theme-midnight {
@@ -4620,7 +4564,7 @@ body .fold-badge .code-theme-badge .q-context-body {
   line-height: 1;
 }
 
-/* !important + body prefix to beat Dark Purple's own !important chip/row
+/* !important + body prefix to beat the dark themes' own !important chip/row
    backgrounds at equal specificity (this rule comes later). */
 body .quiz-chip.quiz-selected,
 body .btn-quiz.quiz-selected {
