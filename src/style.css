@@ -3308,7 +3308,7 @@ body.theme-modern .quiz-chip {
 }
 
 /* =========================================================
-   --- TINTED LIGHT THEMES (Misty Pink, Sepia) ---
+   --- TINTED LIGHT THEMES (Misty Pink, Mint, Peach, Sepia) ---
    Misty Blue's soft, airy light look recolored. Every one of these gets
    body.theme-tinted plus its own body.theme-<name> (see utils/themes.js).
    Misty Blue bakes its blue straight into a number of selectors rather
@@ -3340,6 +3340,52 @@ body.theme-pink {
   --header-bg: rgba(253, 244, 249, 0.97);
   --review-card-bg: #fdf7ff;
   --review-card-border: #e7d2f2;
+}
+
+/* Mint: fresh pale green. */
+body.theme-mint {
+  --bg: #eff8f3;
+  --surface: #f9fdfb;
+  --border: #cfe7da;
+  --accent: #4aa57f;
+  --accent-hover: #388d69;
+  --text: #1f3a2e;
+  --text-muted: #6a9482;
+  --radio-bg: #eaf6ef;
+  --radio-hover: #dcf0e5;
+  --correct: #2f9e6e;
+  --shadow: 0 4px 20px rgba(74, 165, 127, 0.13);
+  --review-accent: #c0794f;
+  --accent-rgb: 74, 165, 127;
+  --accent-strong: #2c7254;
+  --accent-2-rgb: 80, 150, 190;
+  --accent-2-strong: #2f5f82;
+  --header-bg: rgba(243, 250, 246, 0.97);
+  --review-card-bg: #fdf9f5;
+  --review-card-border: #f0dccb;
+}
+
+/* Peach: soft apricot and cream. */
+body.theme-peach {
+  --bg: #fdf3ec;
+  --surface: #fffaf6;
+  --border: #f4d8c3;
+  --accent: #e0805a;
+  --accent-hover: #c9683f;
+  --text: #45291d;
+  --text-muted: #a67f6c;
+  --radio-bg: #fcf0e7;
+  --radio-hover: #f8e3d3;
+  --correct: #4da89a;
+  --shadow: 0 4px 20px rgba(224, 128, 90, 0.13);
+  --review-accent: #3f8fa8;
+  --accent-rgb: 224, 128, 90;
+  --accent-strong: #a8472a;
+  --accent-2-rgb: 200, 150, 90;
+  --accent-2-strong: #7a5421;
+  --header-bg: rgba(254, 247, 241, 0.97);
+  --review-card-bg: #f6fbfd;
+  --review-card-border: #cfe5ee;
 }
 
 /* Sepia: warm paper tones, easy on the eyes for long reading. */
@@ -3442,7 +3488,7 @@ body.theme-tinted .mode-btn-quiz:hover {
 }
 
 /* =========================================================
-   --- DARK THEMES (Midnight, Forest, Amber) ---
+   --- DARK THEMES (Midnight, Forest, Amber, Graphite, Ocean) ---
    Every dark theme gets body.theme-dark plus its own body.theme-<name>
    (see utils/themes.js). A theme-<name> block only sets variables; the
    body.theme-dark rules after them are the shared dark-mode fixes, which
@@ -3513,6 +3559,50 @@ body.theme-amber {
   --btn-next-bg: #4a2f14;
   --btn-next-border: #6b451f;
   --btn-next-hover: #8a5a29;
+
+  background-color: var(--bg);
+}
+
+/* Graphite: neutral charcoal with a cool steel-gray accent — no hue lean. */
+body.theme-graphite {
+  --bg: #141516;
+  --surface: #1c1e20;
+  --border: #33363a;
+  --accent: #9fb0bf;
+  --accent-hover: #8799a9;
+  --text: #e4e7ea;
+  --text-muted: #8a9199;
+  --radio-bg: #222528;
+  --radio-hover: #2b2e32;
+  --correct: #5ecaa5;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  --accent-rgb: 159, 176, 191;
+  --accent-soft: #cfd9e2;
+  --btn-next-bg: #34404b;
+  --btn-next-border: #4b5a68;
+  --btn-next-hover: #5d6f80;
+
+  background-color: var(--bg);
+}
+
+/* Ocean: deep teal-black with an aqua accent. */
+body.theme-ocean {
+  --bg: #0a1618;
+  --surface: #102226;
+  --border: #1f3b40;
+  --accent: #4fc3c7;
+  --accent-hover: #3aaeb2;
+  --text: #dceeee;
+  --text-muted: #76979a;
+  --radio-bg: #142a2e;
+  --radio-hover: #1a353a;
+  --correct: #6bcf8f;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  --accent-rgb: 79, 195, 199;
+  --accent-soft: #a8e4e6;
+  --btn-next-bg: #1b4549;
+  --btn-next-border: #2a6469;
+  --btn-next-hover: #348086;
 
   background-color: var(--bg);
 }
