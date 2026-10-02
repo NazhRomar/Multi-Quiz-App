@@ -13,7 +13,7 @@
       ],
       "correctAnswer": 2,
       "points": 2,
-      "explanation": "Beta wins on every criterion: higher NPV ($180k vs $120k), shorter payback (1.8 vs 3.5 yrs) and higher IRR (22% vs 11%, both above the 8% discount rate). It also fits inside the $500k budget with $200k to spare. Averaging NPVs or merging charters is not a selection method, and a high IRR is a good sign, not a volatility warning."
+      "explanation": "Beta wins on every criterion: higher NPV ($180k vs $120k), shorter payback (1.8 vs 3.5 yrs) and higher IRR (22% vs 11%, both above the 8% discount rate). It also fits inside the $500k budget with $200k to spare. Averaging NPVs or merging charters is not a selection method, and a high IRR is a good sign, not a volatility warning.<br><br><strong>Partly in the slides:</strong> Module 4 covers NPV and Payback Period, but IRR (Internal Rate of Return) is never mentioned."
     },
     {
       "id": 2,
@@ -27,7 +27,7 @@
       ],
       "correctAnswer": 0,
       "points": 2,
-      "explanation": "The Stakeholder Register holds identification and assessment info that is widely shared. Sensitive engagement strategies go in the Stakeholder (Engagement) Management Plan, which has restricted distribution."
+      "explanation": "The Stakeholder Register holds identification and assessment info that is widely shared. Sensitive engagement strategies go in the Stakeholder (Engagement) Management Plan, which has restricted distribution.<br><br><strong>Partly in the slides:</strong> Module 3 covers the Stakeholder Register. The Stakeholder Management Plan and its restricted distribution are not covered."
     },
     {
       "id": 3,
@@ -41,7 +41,7 @@
       ],
       "correctAnswer": 3,
       "points": 2,
-      "explanation": "The signed charter authorizes the project and records its high-level boundaries. The PM can point to its “Out of Scope” list to turn down the request, or send it through change control. (The source's option A ended in a stray “[cite: 1, 3]” artifact, which has been removed.)"
+      "explanation": "The signed charter authorizes the project and records its high-level boundaries. The PM can point to its “Out of Scope” list to turn down the request, or send it through change control. (The source's option A ended in a stray “[cite: 1, 3]” artifact, which has been removed.)<br><br><strong>In the slides:</strong> Module 4: the charter officially authorizes the project and the PM, and sets scope boundaries, including explicit exclusions."
     },
     {
       "id": 4,
@@ -55,7 +55,7 @@
       ],
       "correctAnswer": 2,
       "points": 2,
-      "explanation": "After 2 years, $80,000 has been recovered, leaving $20,000. That is half of Year 3's $40,000 inflow, so payback = 2 + 20,000/40,000 = 2.5 years."
+      "explanation": "After 2 years, $80,000 has been recovered, leaving $20,000. That is half of Year 3's $40,000 inflow, so payback = 2 + 20,000/40,000 = 2.5 years.<br><br><strong>Partly in the slides:</strong> Module 4 only gives Payback = Initial Investment ÷ Annual Net Cash Inflow (even yearly cash flows). Working it out year by year with uneven cash flows is not taught."
     },
     {
       "id": 5,
@@ -69,7 +69,7 @@
       ],
       "correctAnswer": 3,
       "points": 2,
-      "explanation": "Checking a delivered item against the contract terms (here, missing documentation) is done during Control Procurements. Conduct covers selecting sellers, Plan covers writing the procurement approach, and Close covers formal completion."
+      "explanation": "Checking a delivered item against the contract terms (here, missing documentation) is done during Control Procurements. Conduct covers selecting sellers, Plan covers writing the procurement approach, and Close covers formal completion.<br><br><strong>Not in the slides:</strong> procurement processes (Plan, Conduct, Control, Close Procurements) are not covered in Modules 1 to 5a."
     },
     {
       "id": 6,
@@ -83,7 +83,7 @@
       ],
       "correctAnswer": 0,
       "points": 2,
-      "explanation": "Fixed-price contracts need a well-defined scope. With vague, weekly-changing requirements, every change would lead to a dispute. T&M bills for actual labor, so scope can change without renegotiation."
+      "explanation": "Fixed-price contracts need a well-defined scope. With vague, weekly-changing requirements, every change would lead to a dispute. T&M bills for actual labor, so scope can change without renegotiation.<br><br><strong>Not in the slides:</strong> contract types (Time and Materials, Firm Fixed-Price, FPIF, Lump Sum) are not covered in Modules 1 to 5a."
     },
     {
       "id": 7,
@@ -97,7 +97,7 @@
       ],
       "correctAnswer": 3,
       "points": 2,
-      "explanation": "Plotting two variables against each other (X vs Y) makes a scatter diagram. An upward left-to-right trend means a positive correlation: latency rises as RAM usage rises."
+      "explanation": "Plotting two variables against each other (X vs Y) makes a scatter diagram. An upward left-to-right trend means a positive correlation: latency rises as RAM usage rises.<br><br><strong>Partly in the slides:</strong> Module 1 lists scatter diagrams among the Quality Control tools, but never explains how to read one."
     },
     {
       "id": 8,
@@ -111,7 +111,7 @@
       ],
       "correctAnswer": 3,
       "points": 2,
-      "explanation": "The PM integrates and communicates: they keep the team's work tied to approved objectives, which fixes the unapproved features, and keep stakeholders informed, which fixes the sponsor's visibility complaint."
+      "explanation": "The PM integrates and communicates: they keep the team's work tied to approved objectives, which fixes the unapproved features, and keep stakeholders informed, which fixes the sponsor's visibility complaint.<br><br><strong>In the slides:</strong> Module 1 (Role of the IT Project Manager: Leadership & Communication, Scope & Integration Control) and Module 3 (What a PM Does)."
     },
     {
       "id": 9,
@@ -125,7 +125,7 @@
       ],
       "correctAnswer": 1,
       "points": 2,
-      "explanation": "Initiative #3 is a set of interconnected projects coordinated toward one shared outcome (the digital billing ecosystem), which makes it a program. A portfolio groups work by strategic alignment and its components need not be related to each other."
+      "explanation": "Initiative #3 is a set of interconnected projects coordinated toward one shared outcome (the digital billing ecosystem), which makes it a program. A portfolio groups work by strategic alignment and its components need not be related to each other.<br><br><strong>Not in the slides:</strong> programs are never defined. \"Program\" only appears inside the stakeholder definition in Module 3."
     },
     {
       "id": 10,
@@ -139,7 +139,7 @@
       ],
       "correctAnswer": 0,
       "points": 2,
-      "explanation": "A feature that doesn't trace back to any requirement in the RTM is unapproved scope, which is gold plating. Even if it works, it adds cost, security exposure and maintenance burden nobody agreed to."
+      "explanation": "A feature that doesn't trace back to any requirement in the RTM is unapproved scope, which is gold plating. Even if it works, it adds cost, security exposure and maintenance burden nobody agreed to.<br><br><strong>Partly in the slides:</strong> Module 3 covers backward traceability, which leads to the answer, but the term \"gold plating\" is never used."
     },
     {
       "id": 11,
@@ -153,7 +153,7 @@
       ],
       "correctAnswer": 0,
       "points": 2,
-      "explanation": "Total defects = 142 + 98 + 12 + 5 + 3 = 260. The top two categories make up 240 / 260 ≈ 92.3%. Pareto analysis says to focus on those few causes."
+      "explanation": "Total defects = 142 + 98 + 12 + 5 + 3 = 260. The top two categories make up 240 / 260 ≈ 92.3%. Pareto analysis says to focus on those few causes.<br><br><strong>Partly in the slides:</strong> Module 1 lists Pareto Analysis (80/20 Rule) among the Quality Control tools, but never shows how to apply it."
     },
     {
       "id": 12,
@@ -167,7 +167,7 @@
       ],
       "correctAnswer": 2,
       "points": 2,
-      "explanation": "In a strong matrix, the balance of power leans toward the PM, who directs project work and has the main say on performance for that project. Functional managers have the most authority in functional and weak-matrix organizations."
+      "explanation": "In a strong matrix, the balance of power leans toward the PM, who directs project work and has the main say on performance for that project. Functional managers have the most authority in functional and weak-matrix organizations.<br><br><strong>Not in the slides:</strong> organizational structures (functional, weak/strong matrix, projectized) and who holds authority in each are not covered in Modules 1 to 5a."
     },
     {
       "id": 13,
@@ -181,7 +181,7 @@
       ],
       "correctAnswer": 2,
       "points": 2,
-      "explanation": "A higher discount rate shrinks future cash flows more. For Y to still reach $50k NPV at 15%, its cash flows must be stronger than X's. At the same rate, Y would have the higher NPV."
+      "explanation": "A higher discount rate shrinks future cash flows more. For Y to still reach $50k NPV at 15%, its cash flows must be stronger than X's. At the same rate, Y would have the higher NPV.<br><br><strong>Partly in the slides:</strong> Module 4 defines NPV as discounting future cash flows to present value, but comparing NPVs at different discount rates is not covered."
     },
     {
       "id": 14,
@@ -195,7 +195,7 @@
       ],
       "correctAnswer": 3,
       "points": 2,
-      "explanation": "PMBOK defines a project as a temporary endeavor that creates a unique product, service or result. The ERP migration has a set timeframe and a unique outcome. Backups, helpdesk tickets and recurring OS refreshes are ongoing or repeating operations."
+      "explanation": "PMBOK defines a project as a temporary endeavor that creates a unique product, service or result. The ERP migration has a set timeframe and a unique outcome. Backups, helpdesk tickets and recurring OS refreshes are ongoing or repeating operations.<br><br><strong>In the slides:</strong> Module 3: \"A project is a temporary endeavor that has a unique goal and usually a budget.\" The contrast with ongoing operations is not spelled out, but the definition is enough."
     },
     {
       "id": 15,
@@ -209,7 +209,7 @@
       ],
       "correctAnswer": 1,
       "points": 2,
-      "explanation": "Integration Management ties the other knowledge areas together, coordinating processes, plans and deliverables so the project runs as one whole."
+      "explanation": "Integration Management ties the other knowledge areas together, coordinating processes, plans and deliverables so the project runs as one whole.<br><br><strong>Partly in the slides:</strong> Module 4 mentions Project Integration Management once, as bridging strategy and execution, but never explains what it does."
     },
     {
       "id": 16,
@@ -223,7 +223,7 @@
       ],
       "correctAnswer": 3,
       "points": 2,
-      "explanation": "Power/Interest grid: High Power + Low Interest → Keep Satisfied; Low Power + High Interest → Keep Informed. (For reference, the Mayor is High/High → Manage Closely, and Commuters are Low/Low → Monitor.)"
+      "explanation": "Power/Interest grid: High Power + Low Interest → Keep Satisfied; Low Power + High Interest → Keep Informed. (For reference, the Mayor is High/High → Manage Closely, and Commuters are Low/Low → Monitor.)<br><br><strong>In the slides:</strong> Module 3: the Power/Interest grid (Keep Satisfied, Manage Closely, Monitor, Keep Informed)."
     },
     {
       "id": 17,
@@ -237,7 +237,7 @@
       ],
       "correctAnswer": 2,
       "points": 2,
-      "explanation": "The initiatives don't share common deliverables or benefits, so they don't form one program. A portfolio groups projects and programs, related or not, to manage them against strategic goals and to prioritize shared resources."
+      "explanation": "The initiatives don't share common deliverables or benefits, so they don't form one program. A portfolio groups projects and programs, related or not, to manage them against strategic goals and to prioritize shared resources.<br><br><strong>Not in the slides:</strong> IT portfolios are never defined. \"Portfolio\" only appears inside the stakeholder definition in Module 3."
     },
     {
       "id": 18,
@@ -251,7 +251,7 @@
       ],
       "correctAnswer": 1,
       "points": 2,
-      "explanation": "The WBS breaks the scope statement into all its deliverables and work packages (database design, API security, frontend, and so on), and the WBS Dictionary describes each one. Skipping that step is why whole components were left out."
+      "explanation": "The WBS breaks the scope statement into all its deliverables and work packages (database design, API security, frontend, and so on), and the WBS Dictionary describes each one. Skipping that step is why whole components were left out.<br><br><strong>In the slides:</strong> Module 5: the WBS decomposes the scope into deliverable-oriented work packages, and the WBS Dictionary describes each one."
     },
     {
       "id": 19,
@@ -265,7 +265,7 @@
       ],
       "correctAnswer": 3,
       "points": 2,
-      "explanation": "In a functional organization, the functional manager controls resources and the PM has little formal authority. The realistic options are to negotiate for the right people or escalate to the sponsor. A PM can't restructure the company or reprimand a line manager."
+      "explanation": "In a functional organization, the functional manager controls resources and the PM has little formal authority. The realistic options are to negotiate for the right people or escalate to the sponsor. A PM can't restructure the company or reprimand a line manager.<br><br><strong>Not in the slides:</strong> organizational structures and the PM's authority in a functional organization are not covered in Modules 1 to 5a."
     },
     {
       "id": 20,
@@ -279,7 +279,7 @@
       ],
       "correctAnswer": 3,
       "points": 2,
-      "explanation": "The five Process Groups (Initiating, Planning, Executing, Monitoring & Controlling, Closing) describe when work happens. The Knowledge Areas (Scope, Schedule, Cost, Quality, Risk, and so on) describe what subject is being managed. Option A swaps the two definitions."
+      "explanation": "The five Process Groups (Initiating, Planning, Executing, Monitoring & Controlling, Closing) describe when work happens. The Knowledge Areas (Scope, Schedule, Cost, Quality, Risk, and so on) describe what subject is being managed. Option A swaps the two definitions.<br><br><strong>Partly in the slides:</strong> Module 1 mentions PMBOK's 10 Knowledge Areas \"across all 5 project process stages\" and shows the process groups, but never explains the difference between them."
     },
     {
       "id": 21,
@@ -293,7 +293,7 @@
       ],
       "correctAnswer": 0,
       "points": 2,
-      "explanation": "Map each cause to its fishbone category. A training gap is about People, outdated docs are Information/Materials, insufficient RAM is Hardware/Environment (machine), and a missing review step is Process (method). Option D uses category-sounding names but assigns them in the wrong order."
+      "explanation": "Map each cause to its fishbone category. A training gap is about People, outdated docs are Information/Materials, insufficient RAM is Hardware/Environment (machine), and a missing review step is Process (method). Option D uses category-sounding names but assigns them in the wrong order.<br><br><strong>Partly in the slides:</strong> Module 1 lists Cause and Effect (Fishbone) diagrams among the Quality Control tools, but its cause categories (People, Materials, Environment, Process) are not covered."
     },
     {
       "id": 22,
@@ -307,7 +307,7 @@
       ],
       "correctAnswer": 3,
       "points": 2,
-      "explanation": "FFP fixes the price, not the specifications. If the SOW baselines technical standards, the vendor must meet them, and the PM enforces that through Control Procurements with a formal non-conformance notice. Paying extra or terminating unilaterally is not justified."
+      "explanation": "FFP fixes the price, not the specifications. If the SOW baselines technical standards, the vendor must meet them, and the PM enforces that through Control Procurements with a formal non-conformance notice. Paying extra or terminating unilaterally is not justified.<br><br><strong>Not in the slides:</strong> contract types, the Statement of Work and non-conformance notices are not covered in Modules 1 to 5a."
     },
     {
       "id": 23,
@@ -321,7 +321,7 @@
       ],
       "correctAnswer": 0,
       "points": 2,
-      "explanation": "Prevention ($50k) + Appraisal ($30k) = $80k is the Cost of Conformance. Failure costs (Cost of Non-Conformance) were only $12k, with just $2k external. The spending on prevention and appraisal is what kept failure costs low."
+      "explanation": "Prevention ($50k) + Appraisal ($30k) = $80k is the Cost of Conformance. Failure costs (Cost of Non-Conformance) were only $12k, with just $2k external. The spending on prevention and appraisal is what kept failure costs low.<br><br><strong>Not in the slides:</strong> Cost of Quality (prevention, appraisal, conformance vs non-conformance) is not covered in Modules 1 to 5a."
     },
     {
       "id": 24,
@@ -335,7 +335,7 @@
       ],
       "correctAnswer": 1,
       "points": 2,
-      "explanation": "Every change, however small it seems, must go through Integrated Change Control: a formal Change Request, impact analysis, then a CCB decision. Skipping it let an untested change reach production. (The Seven Run Rule is a control-chart rule, not a deployment rule. The source's option C ended in a stray “[cite: 1. 3]” artifact, which has been removed.)"
+      "explanation": "Every change, however small it seems, must go through Integrated Change Control: a formal Change Request, impact analysis, then a CCB decision. Skipping it let an untested change reach production. (The Seven Run Rule is a control-chart rule, not a deployment rule. The source's option C ended in a stray “[cite: 1. 3]” artifact, which has been removed.)<br><br><strong>In the slides:</strong> Module 5: under predictive (Waterfall) scope control, changes go through a formal Change Request to the Change Control Board, as in the QuickMart case. Module 1 also lists processing change requests under Monitoring."
     },
     {
       "id": 25,
@@ -349,7 +349,7 @@
       ],
       "correctAnswer": 1,
       "points": 2,
-      "explanation": "Culture is an enterprise environmental factor. The PM should work with it: understand the norms, get sponsor backing, and use change management and training to move people over, rather than bypass them, force them, or give up."
+      "explanation": "Culture is an enterprise environmental factor. The PM should work with it: understand the norms, get sponsor backing, and use change management and training to move people over, rather than bypass them, force them, or give up.<br><br><strong>Not in the slides:</strong> organizational culture and change management are not covered in Modules 1 to 5a."
     }
   ]
 }
