@@ -272,6 +272,27 @@
       "correctAnswer": 0,
       "points": 1,
       "explanation": "The RTM template's Requirement Type column classifies requirements as Functional (F) or Non-Functional (NF)."
+    },
+    {
+      "id": 27,
+      "type": "matching",
+      "text": "Match each stakeholder management tool to its description.",
+      "allChoices": [
+        "Enhance project management efficiency and foster better relationships with stakeholders",
+        "Develop more effective stakeholder engagement strategies and enhance project success",
+        "Lists of stakeholders and stakeholder groups",
+        "Enhance project management, improve stakeholder relationships, and increase the likelihood of project success",
+        "Crucial for the successful management of projects, ensuring that everyone involved is informed and engaged"
+      ],
+      "pairs": [
+        { "term": "Power-Interest Matrix", "match": "Enhance project management efficiency and foster better relationships with stakeholders" },
+        { "term": "Cooperation-Threat Matrix", "match": "Develop more effective stakeholder engagement strategies and enhance project success" },
+        { "term": "Stakeholder Register", "match": "Lists of stakeholders and stakeholder groups" },
+        { "term": "Stakeholder Analysis Template", "match": "Enhance project management, improve stakeholder relationships, and increase the likelihood of project success" },
+        { "term": "Communication Plan", "match": "Crucial for the successful management of projects, ensuring that everyone involved is informed and engaged" }
+      ],
+      "points": 1,
+      "explanation": "These are the five Stakeholder Management Tools: the Power-Interest Matrix (efficiency and relationships), Cooperation-Threat Matrix (engagement strategies), Stakeholder Register (list of stakeholders and groups), Stakeholder Analysis Template (relationships and project success), and Communication Plan (keeps everyone informed and engaged)."
     }
   ]
 }
