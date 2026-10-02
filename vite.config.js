@@ -86,13 +86,28 @@ function serviceWorker() {
     generateBundle(_, bundle) {
       const urls = [
         './', // the app shell (index.html)
-        ...Object.keys(bundle).filter((file) => !file.endsWith('.html')),
+        ...Object.keys(bundle).filter((file) => !file.endsWith('.html') && file !== 'version.json'),
         ...publicFiles('public'),
       ]
       const source = readFileSync('pwa/service-worker.js', 'utf8')
         .replace('__PRECACHE_URLS__', JSON.stringify(urls))
         .replace('__CACHE_VERSION__', JSON.stringify(buildDate))
       this.emitFile({ type: 'asset', fileName: 'sw.js', source })
+    },
+  }
+}
+
+// version.json: just this build's id, which utils/appUpdate.js fetches on
+// every visit to Home to tell whether a newer deploy is live. It must never be
+// served from the service worker's cache (a cached copy always matches and
+// hides every update), so serviceWorker() leaves it out of the precache list
+// and the worker itself skips it.
+function versionAsset() {
+  return {
+    name: 'multi-quiz-version',
+    apply: 'build',
+    generateBundle() {
+      this.emitFile({ type: 'asset', fileName: 'version.json', source: JSON.stringify({ build: buildDate }) })
     },
   }
 }
@@ -122,7 +137,7 @@ function changelogAsset() {
 
 export default defineConfig({
   base: '/', // Change this back to '/' (or delete the base line entirely)
-  plugins: [react(), changelogAsset(), serviceWorker()],
+  plugins: [react(), changelogAsset(), versionAsset(), serviceWorker()],
   build: {
     // Every quiz JSON is bundled into the main JS (catalog.js eager glob),
     // so it passed Vite's 500 kB warning once the question bank grew.

@@ -5953,3 +5953,30 @@ body.theme-canvas .q-source-inline {
     padding: 0.75rem;
   }
 }
+
+/* --- App updated toast (components/common/UpdateToast.jsx) --- */
+.update-toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  z-index: 1000;
+  max-width: calc(100vw - 2rem);
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  animation: update-toast-in 0.25s ease-out;
+}
+
+@keyframes update-toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 0.75rem);
+  }
+}

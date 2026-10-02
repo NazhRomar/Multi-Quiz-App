@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { catalog, filterCatalog } from '../data/catalog.js';
 import { useQuizOpener } from './useQuizOpener.js';
 import TermSection from '../components/menu/TermSection.jsx';
+import { checkForUpdate } from '../utils/appUpdate.js';
 
 // Every term/subject/quiz, inline, one screen — same shape the app always
 // had. Searching just narrows it down to matches (forcing every term/course
@@ -10,6 +12,12 @@ import TermSection from '../components/menu/TermSection.jsx';
 export default function HomeScreen() {
   const { search, isSearching } = useOutletContext();
   const { openQuiz, selection } = useQuizOpener();
+
+  // Each arrival at Home (including the first load) checks for a newer
+  // deploy and reloads into it if there is one.
+  useEffect(() => {
+    checkForUpdate();
+  }, []);
 
   const terms = isSearching ? filterCatalog(search) : catalog;
 

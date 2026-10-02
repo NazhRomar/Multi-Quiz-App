@@ -39,11 +39,17 @@ self.addEventListener('fetch', (event) => {
 
   // Page loads: network first, so a new deploy shows up as soon as you're
   // online; offline, fall back to the cached app shell (single-page app, so
-  // every route is index.html).
+  // every route is index.html). no-cache revalidates with the server rather
+  // than trusting the browser's HTTP cache, which GitHub Pages lets hold
+  // index.html for 10 minutes — long enough to undo the update reload.
   if (request.mode === 'navigate') {
-    event.respondWith(fetch(request).catch(() => caches.match(APP_SHELL)));
+    event.respondWith(fetch(request, { cache: 'no-cache' }).catch(() => caches.match(APP_SHELL)));
     return;
   }
+
+  // The live build's id (see utils/appUpdate.js): always the network, never
+  // a cached copy, or the update check would only ever see this build.
+  if (url.pathname.endsWith('/version.json')) return;
 
   // Google Fonts (index.html's fonts + any Answer Font picked later): serve
   // the cached copy immediately and refresh it in the background.
