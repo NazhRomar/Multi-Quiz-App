@@ -140,9 +140,10 @@ export default defineConfig({
   plugins: [react(), changelogAsset(), versionAsset(), serviceWorker()],
   build: {
     // Every quiz JSON is bundled into the main JS (catalog.js eager glob),
-    // so it passed Vite's 500 kB warning once the question bank grew.
-    // TODO: load quiz data on demand (code-split the JSON) and drop this.
-    chunkSizeWarningLimit: 1000,
+    // so it's well past Vite's 500 kB default. Kept that way on purpose: the
+    // service worker precaches every quiz for offline use anyway, so
+    // code-splitting would only speed up the very first visit.
+    chunkSizeWarningLimit: 2000,
   },
   define: {
     __BUILD_DATE__: JSON.stringify(buildDate),
