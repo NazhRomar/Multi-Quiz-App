@@ -137,6 +137,8 @@ export function createInitialState() {
     homeMode: loadState('quizApp_homeMode', DEFAULT_HOME_MODE),
     multiSelection: [],
     collapsedTerms: loadState('quizApp_collapsedTerms', {}),
+    // Folded subjects, keyed "<term key>/<subject key>" (persisted).
+    collapsedCourses: loadState('quizApp_collapsedCourses', {}),
   };
 
   // Restore an attempt left over from the last visit, if there is one.
@@ -382,9 +384,17 @@ export function reducer(state, action) {
     }
     case 'SET_MULTI_SELECTION':
       return { ...state, multiSelection: action.payload };
+    // payload.collapsed is the term's new state: an untouched term's current
+    // one comes from its default (older terms start folded), which only the
+    // menu knows.
     case 'TOGGLE_TERM': {
-      const collapsedTerms = { ...state.collapsedTerms, [action.payload.term]: !state.collapsedTerms[action.payload.term] };
+      const collapsedTerms = { ...state.collapsedTerms, [action.payload.term]: action.payload.collapsed };
       return { ...state, collapsedTerms };
+    }
+    case 'TOGGLE_COURSE': {
+      const { course } = action.payload;
+      const collapsedCourses = { ...state.collapsedCourses, [course]: !state.collapsedCourses[course] };
+      return { ...state, collapsedCourses };
     }
 
     default:

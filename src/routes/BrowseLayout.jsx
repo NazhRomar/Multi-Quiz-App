@@ -154,11 +154,14 @@ export default function BrowseLayout() {
         <div className="menu-mode-hint-inner">{lastHint.current}</div>
       </div>
       <main className="menu-container">
-        <BadgeLegend />
         {/* Hidden while searching — a search is about finding something
             else, and the card would sit on top of the results. */}
         {!isSearching && <ResumeCard />}
         <Outlet context={{ search, isSearching }} />
+        {/* After the list, so on narrow screens the fold-away key doesn't
+            push the first quiz down; the wide-screen rail is absolutely
+            positioned and doesn't care where it sits. */}
+        <BadgeLegend />
       </main>
       <footer className="home-footer">
         {/* The showcase shortcut is scoped to the date text rather than the

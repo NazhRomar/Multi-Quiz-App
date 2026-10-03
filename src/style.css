@@ -1171,9 +1171,11 @@ body.theme-dark .review-status--partial {
 .menu-container h2 {
   font-family: 'Space Mono', monospace;
   font-size: 1.1rem;
-  color: var(--text-muted);
+  color: var(--text);
 }
 
+/* The term's name is a tinted band across the top of its card, so it reads
+   as a level above the subject panels inside. */
 .term-header {
   display: flex;
   align-items: center;
@@ -1181,21 +1183,22 @@ body.theme-dark .review-status--partial {
   gap: 0.5rem;
   cursor: pointer;
   user-select: none;
-  margin: -0.5rem -0.5rem 1rem;
-  padding: 0.5rem 0.5rem 1rem;
-  border-bottom: 1px dashed var(--border);
-  border-radius: 8px;
+  margin: -1.5rem -1.5rem 1.25rem;
+  padding: 1rem 1.5rem;
+  background: color-mix(in srgb, var(--accent) 16%, var(--surface));
+  border-bottom: 1px solid var(--border);
+  border-radius: 15px 15px 0 0;
   transition: background-color 0.15s ease;
 }
 
 .term-header:hover {
-  background: var(--radio-bg);
+  background: color-mix(in srgb, var(--accent) 22%, var(--surface));
 }
 
 .term-section.collapsed .term-header {
   border-bottom-color: transparent;
-  margin-bottom: -0.5rem;
-  padding-bottom: 0.5rem;
+  margin-bottom: -1.5rem;
+  border-radius: 15px;
 }
 
 .term-title-text {
@@ -1229,8 +1232,15 @@ body.theme-dark .review-status--partial {
   display: none;
 }
 
+/* Each subject is one panel holding its name and its quizzes, so it's clear
+   where a subject starts and ends; quiz chips sit inside it on their own
+   lighter fill. */
 .course-card {
-  margin-bottom: 1.75rem;
+  margin-bottom: 0.9rem;
+  padding: 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
 }
 
 .course-card:last-child {
@@ -1248,6 +1258,55 @@ body.theme-dark .review-status--partial {
 .menu-container h3 {
   font-size: 1rem;
   color: var(--text);
+}
+
+/* The subject's name + count: a button that folds the subject, styled to
+   read as the heading it sits in (same hover wash as .term-header). */
+.course-toggle {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 0.6rem;
+  row-gap: 0.15rem;
+  margin: -0.3rem -0.4rem;
+  padding: 0.3rem 0.4rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  border-radius: 8px;
+  transition: background-color 0.15s ease;
+}
+
+/* Mouse only: on a phone the wash would stick after a tap. */
+@media (hover: hover) {
+  .course-toggle:hover {
+    background: var(--radio-bg);
+  }
+}
+
+.course-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.course-toggle-icon {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  transition: transform 0.2s ease;
+}
+
+.course-card.collapsed .course-toggle-icon {
+  transform: rotate(-90deg);
+}
+
+.course-card.collapsed .course-card-header {
+  margin-bottom: 0;
+}
+
+.course-card.collapsed .quiz-section {
+  display: none;
 }
 
 .course-count {
@@ -1269,21 +1328,23 @@ body.theme-dark .review-status--partial {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 0.75rem;
+}
+
+/* A named series (Module 1, Python Essentials 1…) hangs off a left rule
+   instead of sitting in its own box. */
+.quiz-series:has(.quiz-series-header) {
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--border);
 }
 
 .quiz-series-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.6rem;
-  margin-bottom: 0.6rem;
-  padding: 0 0.2rem;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
   font-family: 'Space Mono', monospace;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: var(--text);
 }
@@ -1495,6 +1556,11 @@ body.theme-dark {
 @media (max-width: 600px) {
   .menu-container {
     padding: 0 1rem;
+    margin-top: 1.25rem;
+  }
+
+  .menu-search-wrap {
+    margin-top: 1rem;
   }
 
   .menu-container section {
@@ -1502,8 +1568,87 @@ body.theme-dark {
     border-radius: 12px;
   }
 
+  /* Thinner sides on a term card, so its subject panels keep the width. */
+  .menu-container section.term-section {
+    padding: 0.75rem;
+  }
+
+  /* Small enough to fit one line, so the first quiz starts higher up. */
+  .menu-container h2 {
+    font-size: 0.95rem;
+  }
+
+  .term-header {
+    margin: -0.75rem -0.75rem 0.75rem;
+    padding: 0.85rem 1.1rem;
+    border-radius: 11px 11px 0 0;
+  }
+
+  .term-section.collapsed .term-header {
+    margin-bottom: -0.75rem;
+    border-radius: 11px;
+  }
+
+  .course-card {
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
   .term-count {
     font-size: 0.68rem;
+  }
+
+  /* Keep the subject name, count and Notes on one line: Notes shrinks to
+     its icon and moves to the right edge. */
+  .course-card-header {
+    position: relative;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .menu-container h3 {
+    min-width: 0;
+  }
+
+  /* Arrow, name and count stay on one row; a long name wraps within
+     itself instead of dropping below the arrow (Multi mode's Select all
+     takes the room). */
+  .course-toggle {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .course-name {
+    min-width: 0;
+  }
+
+  /* Hidden Select all would otherwise hold its width open at the right
+     edge, keeping Notes from reaching it. */
+  .btn-select-all:not(.btn-select-all--visible) {
+    position: absolute;
+    right: 0;
+  }
+
+  .course-count {
+    white-space: nowrap;
+  }
+
+  .btn-notes {
+    margin-left: auto;
+    padding: 0.3rem;
+  }
+
+  .btn-notes-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .btn-notes + .btn-select-all {
+    margin-left: 0;
   }
 }
 
@@ -3307,6 +3452,16 @@ body.theme-modern .quiz-chip {
   background: var(--surface);
 }
 
+/* Neutral term band, the subject panels' gray: an accent tint clashes with
+   this theme's plain grays (Canvas does the same). */
+body.theme-modern .term-header {
+  background: var(--bg);
+}
+
+body.theme-modern .term-header:hover {
+  background: var(--radio-hover);
+}
+
 /* =========================================================
    --- TINTED LIGHT THEMES (Misty Pink, Mint, Peach, Sepia) ---
    Misty Blue's soft, airy light look recolored. Every one of these gets
@@ -3874,6 +4029,22 @@ body.theme-canvas .question-card--list {
 
 body.theme-canvas .menu-container section {
   margin: 0 0 1.5rem 0 !important;
+}
+
+/* No tint on the term band here: it takes the subject panels' white, and
+   only its bottom rule sets it apart. Canvas pins the card padding to
+   1.5rem at every width, so the band's bleed follows suit. */
+body.theme-canvas .term-header {
+  background: var(--bg);
+  margin: -1.5rem -1.5rem 1.25rem;
+}
+
+body.theme-canvas .term-header:hover {
+  background: var(--bg);
+}
+
+body.theme-canvas .term-section.collapsed .term-header {
+  margin-bottom: -1.5rem;
 }
 
 body.theme-canvas .mode-select-card {

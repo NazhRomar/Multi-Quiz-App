@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useApp } from '../../state/AppContext.jsx';
 import { buildRenderUnits } from '../../data/catalog.js';
 import { notesForSubject } from '../../notes/index.js';
 import QuizSeries from './QuizSeries.jsx';
@@ -15,21 +16,39 @@ function RenderUnits({ units, onOpen, isSelected }) {
 }
 
 // selection: null normally; { selected, toggleQuizzes } while the home menu
-// is in Multi Quiz selection mode.
-export default function CourseCard({ course, onOpen, selection }) {
+// is in Multi Quiz selection mode. A subject folds like a term does
+// (foldKey into state.collapsedCourses), except while searching
+// (forceExpanded), so matches are never hidden.
+export default function CourseCard({ course, foldKey, forceExpanded = false, onOpen, selection }) {
+  const { state, dispatch } = useApp();
   const { quizzes } = course;
   const sections = buildRenderUnits(course);
   const isSelected = selection ? (quiz) => selection.selected.has(quiz.id) : () => undefined;
   const allSelected = selection && quizzes.every((q) => selection.selected.has(q.id));
   const notes = notesForSubject(course.id);
   const navigate = useNavigate();
+  const isCollapsed = !forceExpanded && !!state.collapsedCourses[foldKey];
   return (
-    <div className="course-card">
+    <div className={`course-card ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="course-card-header">
-        <h3>{course.displayName}</h3>
-        <span className="course-count">
-          {quizzes.length} {quizzes.length === 1 ? 'quiz' : 'quizzes'}
-        </span>
+        {/* Only the name and count toggle the fold, so Notes and Select all
+            beside them keep doing just their own thing. */}
+        <h3>
+          <button
+            type="button"
+            className="course-toggle"
+            aria-expanded={!isCollapsed}
+            onClick={() => dispatch({ type: 'TOGGLE_COURSE', payload: { course: foldKey } })}
+          >
+            <span className="course-toggle-icon" aria-hidden="true">
+              ▾
+            </span>
+            <span className="course-name">{course.displayName}</span>
+            <span className="course-count">
+              {quizzes.length} {quizzes.length === 1 ? 'quiz' : 'quizzes'}
+            </span>
+          </button>
+        </h3>
         {/* Study notes (src/notes/), if this subject has any. */}
         {notes.map((note) => (
           <button key={note.slug} type="button" className="btn-notes" onClick={() => navigate(`/notes/${note.slug}`)}>
@@ -37,7 +56,7 @@ export default function CourseCard({ course, onOpen, selection }) {
               <path d="M4 1.75h5.5L12.5 4.75v9.5h-8.5z" />
               <path d="M6.5 7.5h4M6.5 10h4" />
             </svg>
-            Notes
+            <span className="btn-notes-label">Notes</span>
           </button>
         ))}
         {/* Always mounted so it can fade in/out with Multi mode (style.css). */}

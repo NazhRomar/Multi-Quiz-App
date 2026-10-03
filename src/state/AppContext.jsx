@@ -52,6 +52,10 @@ export function AppProvider({ children }) {
     localStorage.setItem('quizApp_collapsedTerms', JSON.stringify(state.collapsedTerms));
   }, [state.collapsedTerms]);
 
+  useEffect(() => {
+    localStorage.setItem('quizApp_collapsedCourses', JSON.stringify(state.collapsedCourses));
+  }, [state.collapsedCourses]);
+
   // The in-progress attempt, so a reload (or the OS dropping the installed
   // app from memory mid quiz) doesn't cost you the attempt. The heavy half
   // — the questions — only gets rewritten when a new attempt starts, which

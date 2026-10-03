@@ -26,6 +26,14 @@ export default function HomeScreen() {
   }
 
   return terms.map((term) => (
-    <TermSection key={term.key} term={term} forceExpanded={isSearching} onOpen={(course, quiz) => openQuiz(term, course, quiz)} selection={selection} />
+    <TermSection
+      key={term.key}
+      term={term}
+      forceExpanded={isSearching}
+      // Only the newest term (the catalog's first) starts open.
+      defaultCollapsed={term.key !== catalog[0].key}
+      onOpen={(course, quiz) => openQuiz(term, course, quiz)}
+      selection={selection}
+    />
   ));
 }
