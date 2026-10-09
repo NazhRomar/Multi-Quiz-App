@@ -99,11 +99,29 @@ export default function ReviewCard({ question, index, reviewOptions, quizOptions
 }
 
 // "Your Answer" block for a wrong answer, above the Correct Answer block.
-function YourAnswer({ label = 'Your Answer', children, html }) {
+function YourAnswer({ label = 'Your Answer', children, html, items }) {
   return (
     <div className="review-answer-block review-answer-block--yours">
       <span className="review-answer-label">{label}</span>
-      {html !== undefined ? <div className="review-answer-value" {...renderHtml(html)} /> : <div className="review-answer-value">{children}</div>}
+      {items !== undefined ? (
+        <AnswerItems items={items} />
+      ) : html !== undefined ? (
+        <div className="review-answer-value" {...renderHtml(html)} />
+      ) : (
+        <div className="review-answer-value">{children}</div>
+      )}
+    </div>
+  );
+}
+
+// Several answers (Multiple Select): one box each instead of a single
+// comma-joined line, where commas inside an option blur where one ends.
+function AnswerItems({ items }) {
+  return (
+    <div className="review-answer-items">
+      {items.map((html, i) => (
+        <div className="review-answer-value review-answer-item" key={i} {...renderHtml(html)} />
+      ))}
     </div>
   );
 }
@@ -216,10 +234,10 @@ function ReviewBody({ question, reviewOptions, userAnswer, markMissed }) {
     }
     return (
       <>
-        {showYours && <YourAnswer label="Your Answers" html={picked.map((i) => question.options[i]).join(', ')} />}
+        {showYours && <YourAnswer label="Your Answers" items={picked.map((i) => question.options[i])} />}
         <div className="review-answer-block">
           <span className="review-answer-label">Correct Answers</span>
-          <div className="review-answer-value" {...renderHtml(question.correctAnswer.map((i) => question.options[i]).join(', '))} />
+          <AnswerItems items={question.correctAnswer.map((i) => question.options[i])} />
         </div>
       </>
     );

@@ -834,6 +834,24 @@ body.theme-canvas .dropdown-tab {
   font-family: 'Space Mono', monospace;
 }
 
+.review-answer-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.review-answer-item {
+  padding: 0.55rem 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--correct) 45%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--correct) 6%, transparent);
+}
+
+.review-answer-block--yours .review-answer-item {
+  border-color: rgba(217, 79, 79, 0.45);
+  background: rgba(217, 79, 79, 0.05);
+}
+
 /* --- Review of a quiz attempt (ReviewCard hasAttempt) --- */
 .review-status {
   font-family: 'Space Mono', monospace;
