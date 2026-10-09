@@ -4,6 +4,7 @@ import { splitCodeBlanks } from '../../utils/codeBlank.js';
 import { fitbExpected, fitbGiven, fitbBlankCorrect, pointsEarned, wasAnswered } from '../../state/grading.js';
 import QuestionContext from '../common/QuestionContext.jsx';
 import QuestionSource from '../common/QuestionSource.jsx';
+import QuestionWarning from '../common/QuestionWarning.jsx';
 
 const TYPE_LABELS = {
   mc: 'Multiple Choice',
@@ -86,6 +87,7 @@ export default function ReviewCard({ question, index, reviewOptions, quizOptions
           markMissed={!!status && status !== 'correct'}
         />
       </div>
+      <QuestionWarning question={question} />
       {question.explanation && !reviewOptions.hideExplanation && (
         <div className="q-explanation">
           <span className="q-explanation-label">Explanation</span>

@@ -1,5 +1,6 @@
 import { isAnswerCorrect, expectedAnswerText } from '../../state/grading.js';
 import { renderHtml } from '../../utils/renderHtml.js';
+import QuestionWarning from '../common/QuestionWarning.jsx';
 
 export default function FeedbackBanner({ question, savedState, quizOptions }) {
   if (question.flagged) {
@@ -33,6 +34,7 @@ export default function FeedbackBanner({ question, savedState, quizOptions }) {
           )}
         </div>
       )}
+      <QuestionWarning question={question} />
       {showExplanation && (
         <div className="q-explanation">
           <span className="q-explanation-label">Explanation</span>

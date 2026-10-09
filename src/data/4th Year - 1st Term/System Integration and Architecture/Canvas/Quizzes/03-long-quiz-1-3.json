@@ -224,6 +224,7 @@
       "correctAnswer": 1,
       "points": 1,
       "explanation": "False. <code>autoremove</code> takes no package name and only removes dependencies that were installed automatically and are no longer needed by anything. To fully remove a specific package and its config, use <code>sudo apt-get purge &lt;package&gt;</code>. Note: the exam-bank answer key marks this True, but only \"per the source\" and with the same caveat, so it's keyed False here. If the course insists on True, raise it with the instructor.",
+      "warning": "Outside Source says <strong>True</strong>. It's keyed False here because <code>autoremove</code> only clears unused dependencies. If the real quiz grades it True, take it up with the instructor.",
       "id": 16
     },
     {
@@ -252,6 +253,7 @@
       "correctAnswer": 4,
       "points": 1,
       "explanation": "Verified by running it: <code>switches</code> is <code>['SW1', 'SW2', 'SW3', 'SW4']</code>. Every name containing <code>R</code> (including <code>RT4</code>) goes to <code>routers</code>. The <code>SW</code> names are appended in list order, and <code>SW4</code> comes last because it sits at the end of the concatenated list. The source only described this code in words, so the snippet was rebuilt from that description.",
+      "warning": "Outside Source only describes this code in words. The snippet shown is a reconstruction, so the real question's code may look slightly different.",
       "id": 18
     },
     {
