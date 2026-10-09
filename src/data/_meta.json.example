@@ -65,6 +65,9 @@
   // "true" wherever showLabel is also true — the default (false) is for a
   // series that wants a name but no count, or none of either.
   "showCount": true,
+  // "tag" (optional, needs showLabel): a short glowing, waving label shown
+  // after the series name, e.g. "Exam Ready" (rendered as "(Exam Ready)").
+  "tag": "Exam Ready",
   "badges": { "unofficial": true }
 }
 

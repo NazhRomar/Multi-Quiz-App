@@ -1,0 +1,364 @@
+{
+  "quizTitle": "Long Quiz 1 (3)",
+  "badges": {
+    "unverified": true
+  },
+  "questions": [
+    {
+      "type": "mc",
+      "text": "A student checks the data type of a variable that holds text (a value written in quotes) by running <code>type(PAGENAME)</code> in the interactive interpreter. What is printed?",
+      "options": [
+        "<code>&lt;class 'str'&gt;</code>",
+        "<code>&lt;class 'type'&gt;</code>",
+        "<code>&lt;class 'int'&gt;</code>",
+        "<code>&lt;class 'dict'&gt;</code>",
+        "<code>&lt;class 'tuple'&gt;</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Verified: any value written in quotes is a string, so <code>type()</code> reports <code>&lt;class 'str'&gt;</code>. <code>&lt;class 'type'&gt;</code> is what you'd get from <code>type(str)</code>, the type of a class itself.",
+      "id": 1
+    },
+    {
+      "type": "mc",
+      "text": "What value results from evaluating <code>10 // 3</code> in Python?",
+      "options": [
+        "3",
+        "3.33",
+        "1",
+        "3.0"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Verified: <code>10 // 3</code> is <code>3</code>. Floor division of two integers gives an integer, dropping the remainder. <code>3.0</code> would need a float operand, <code>3.33</code> is roughly true division, and <code>1</code> is the remainder (<code>10 % 3</code>).",
+      "id": 2
+    },
+    {
+      "type": "mc",
+      "text": "A parts list is stored as <code>sample_list = ['part_1001', 'part_1002', 'part_1003', 'part_1004']</code>. Which code accesses the second item in the list?",
+      "options": [
+        "<code>sample_list[1]</code>",
+        "<code>sample_list[0]</code>",
+        "<code>sample_list[2]</code>",
+        "<code>sample_list[-1]</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Verified: <code>sample_list[1]</code> returns <code>'part_1002'</code>. Indexing starts at 0, so <code>[0]</code> is the first item, <code>[2]</code> the third, and <code>[-1]</code> the last.",
+      "id": 3
+    },
+    {
+      "type": "mc",
+      "text": "A delivery system stores <code>delivery_manifest = [\"part_101\", \"part_240\", \"part_330\", \"part_999\"]</code>. What does <code>delivery_manifest[-1]</code> return?",
+      "options": [
+        "<code>IndexError</code>",
+        "<code>\"part_101\"</code>",
+        "<code>\"part_240\"</code>",
+        "<code>\"part_999\"</code>"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Verified: <code>-1</code> counts back from the end, so it returns the last element, <code>\"part_999\"</code>. Negative indexes are valid on any non-empty list, so there is no <code>IndexError</code>.",
+      "id": 4
+    },
+    {
+      "type": "mc",
+      "text": "A student is learning Python in interactive interpreter mode and issues the commands shown. What is the result of the last line?",
+      "context": "<pre>&gt;&gt;&gt; y=2\n&gt;&gt;&gt; y*3\n6\n&gt;&gt;&gt; 'Test'*y</pre>",
+      "options": [
+        "<code>TypeError</code>",
+        "<code>'TestTest'</code>",
+        "<code>'Test2'</code>",
+        "<code>'Test6'</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Verified: multiplying a string by an integer repeats it, so with <code>y = 2</code> the result is <code>'TestTest'</code>. The <code>y*3</code> line before it only displays 6; it doesn't change <code>y</code>.",
+      "id": 5
+    },
+    {
+      "type": "mc",
+      "text": "A programmer's first condition is not met. Which Python keyword tests another condition and runs a different block if that one is true?",
+      "options": [
+        "<code>elif</code>",
+        "<code>else</code>",
+        "<code>if else</code>",
+        "<code>then</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>elif</code> (\"else if\") tests a new condition after the one above it fails. <code>else</code> takes no condition and just catches everything left over, while <code>if else</code> and <code>then</code> are not Python syntax.",
+      "id": 6
+    },
+    {
+      "type": "mc",
+      "text": "A script needs to import <code>my_module</code>, which is stored in <code>/custom/path</code>, a directory Python doesn't search by default. Which statement makes the module importable?",
+      "options": [
+        "<code>sys.path.append('/custom/path')</code>",
+        "<code>sys.path.add('/custom/path')</code>",
+        "<code>os.path.append('/custom/path')</code>",
+        "<code>path.append('/custom/path')</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Verified: <code>sys.path</code> is a plain list of directories searched on import, so it takes <code>.append()</code>; lists have no <code>.add()</code>. <code>os.path</code> is a module of path-string helpers, not the search list, and a bare <code>path</code> isn't defined.",
+      "id": 7
+    },
+    {
+      "type": "mc",
+      "text": "Which statement about Python's standard streams (<code>sys.stdin</code> / <code>sys.stdout</code>) is correct?",
+      "options": [
+        "Command-line functions are preferred for <code>stdout</code> output.",
+        "<code>open('file.txt', 'r')</code> creates a read-only stream that processes standard input.",
+        "Standard streams are optimal for moving text through a program without loading file operations into memory.",
+        "<code>os.path</code> manages processes like <code>os.popen()</code>.",
+        "<code>open()</code> redirects a line-by-line stream to <code>sys.stdin</code>."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Standard streams pass text through as it arrives, line by line, so a script can filter a pipeline without reading a whole file into memory. <code>open()</code> creates a file object; it has nothing to do with <code>sys.stdin</code>. <code>os.path</code> only manipulates path strings, and process handling is <code>os.popen()</code> / <code>subprocess</code>.",
+      "id": 8
+    },
+    {
+      "type": "tf",
+      "text": "Custom exceptions such as <code>NegativeNumberError</code> are created by inheriting from the base <code>Exception</code> class.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True. Verified: <code>class NegativeNumberError(Exception): pass</code> defines one, and it can be raised and caught like any built-in error, including by <code>except Exception</code>.",
+      "id": 9
+    },
+    {
+      "type": "mc",
+      "text": "A program runs <code>int(\"Two Thousand\")</code>, which raises an error. Which <code>except</code> block catches it?",
+      "options": [
+        "<code>except ValueError:</code>",
+        "<code>except TypeError:</code>",
+        "<code>except ZeroDivisionError:</code>",
+        "<code>except FileNotFoundError:</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Verified: it raises <code>ValueError: invalid literal for int() with base 10</code>. The argument is the right type (a string) but the wrong value. <code>TypeError</code> is for the wrong type, such as <code>int([1])</code>.",
+      "id": 10
+    },
+    {
+      "type": "tf",
+      "text": "An <code>except Exception</code> block catches a <code>ValueError</code>, because <code>Exception</code> sits above almost all runtime errors in the exception hierarchy.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True. Verified: <code>issubclass(ValueError, Exception)</code> is <code>True</code>, and an <code>except</code> clause catches the named class and all of its subclasses.",
+      "id": 11
+    },
+    {
+      "type": "mc",
+      "text": "Which Linux command creates an empty file?",
+      "options": [
+        "<code>touch</code>",
+        "<code>make</code>",
+        "<code>create</code>",
+        "<code>new</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>touch file.txt</code> creates the file if it doesn't exist (and only updates its timestamp if it does). <code>make</code> runs build rules from a Makefile, and <code>create</code> / <code>new</code> are not standard commands.",
+      "id": 12
+    },
+    {
+      "type": "mc",
+      "text": "A user runs <code>mkdir testdir</code>, then <code>cd testdir</code>, then <code>systemctl status cron</code>, then a <code>systemctl set-default</code> command. What is the current working directory afterwards?",
+      "options": [
+        "<code>/root</code>",
+        "<code>/home</code>",
+        "<code>testdir</code>",
+        "<code>/var</code>",
+        "<code>/etc</code>"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Only <code>cd</code> changes the working directory. <code>systemctl</code> talks to systemd and leaves the shell where it was, so the user is still in <code>testdir</code>. The source cut off the <code>set-default</code> target, but it doesn't affect the answer.",
+      "id": 13
+    },
+    {
+      "type": "mc",
+      "text": "What is the purpose of the <code>apt-get upgrade</code> command?",
+      "options": [
+        "Upgrades all installed packages to their latest versions",
+        "Updates the package index lists",
+        "Upgrades only the kernel",
+        "Removes orphan packages"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>upgrade</code> installs newer versions of the packages already on the system. Refreshing the index is <code>apt-get update</code>, and clearing orphaned dependencies is <code>apt-get autoremove</code>.",
+      "id": 14
+    },
+    {
+      "type": "mc",
+      "text": "Which command uninstalls a package and also deletes its configuration files?",
+      "options": [
+        "<code>sudo apt-get purge &lt;package&gt;</code>",
+        "<code>sudo apt-get remove &lt;package&gt;</code>",
+        "<code>sudo apt-get delete &lt;package&gt;</code>",
+        "<code>sudo apt-get uninstall &lt;package&gt;</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>purge</code> removes the package and its config files. <code>remove</code> takes out the program but leaves the config behind, and <code>delete</code> / <code>uninstall</code> are not <code>apt-get</code> commands.",
+      "id": 15
+    },
+    {
+      "type": "tf",
+      "text": "Running <code>sudo apt-get autoremove</code> completely removes an installed package.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. <code>autoremove</code> takes no package name and only removes dependencies that were installed automatically and are no longer needed by anything. To fully remove a specific package and its config, use <code>sudo apt-get purge &lt;package&gt;</code>. Note: the exam-bank answer key marks this True, but only \"per the source\" and with the same caveat, so it's keyed False here. If the course insists on True, raise it with the instructor.",
+      "id": 16
+    },
+    {
+      "type": "tf",
+      "text": "A script defines a global <code>multiplier = 5</code>, and inside <code>multiply_number(num)</code> it assigns a local <code>multiplier = 10</code> before returning <code>num * multiplier</code>. When the function runs, the interpreter prioritizes the global value (5).",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. Verified: <code>multiply_number(10)</code> returns 100, and the global is still 5 afterwards. Name lookup checks the local scope first, so the local <code>multiplier</code> shadows the global inside the function. The global is only used when the function never assigns that name.",
+      "id": 17
+    },
+    {
+      "type": "mc",
+      "text": "A script sorts device names into two lists using the code shown. What is the value of <code>switches</code> after the loop runs?",
+      "context": "<pre>devices = [\"RT1\", \"RT2\", \"RT3\", \"SW1\", \"SW2\", \"SW3\"] + [\"RT4\", \"SW4\"]\nrouters = []\nswitches = []\nfor i in devices:\n    if \"R\" in i:\n        routers.append(i)\n    else:\n        switches.append(i)</pre>",
+      "options": [
+        "<code>['SW1', 'SW2', 'SW3']</code>",
+        "<code>['SW4', 'SW1', 'SW2', 'SW3']</code>",
+        "<code>['SW4']</code>",
+        "<code>['SW4', 'SW3', 'SW2', 'SW1']</code>",
+        "<code>['SW1', 'SW2', 'SW3', 'SW4']</code>"
+      ],
+      "correctAnswer": 4,
+      "points": 1,
+      "explanation": "Verified by running it: <code>switches</code> is <code>['SW1', 'SW2', 'SW3', 'SW4']</code>. Every name containing <code>R</code> (including <code>RT4</code>) goes to <code>routers</code>. The <code>SW</code> names are appended in list order, and <code>SW4</code> comes last because it sits at the end of the concatenated list. The source only described this code in words, so the snippet was rebuilt from that description.",
+      "id": 18
+    },
+    {
+      "type": "tf",
+      "text": "Running <code>pip install requests</code> works because PIP is the standard package manager that connects to the Python Package Index (PyPI).",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True. PIP downloads packages from PyPI, the public repository of third-party Python libraries, and installs them into the current environment.",
+      "id": 19
+    },
+    {
+      "type": "mc",
+      "text": "Which Python feature relies on <code>yield</code> to produce values on the fly using lazy evaluation?",
+      "options": [
+        "Packages",
+        "Exception hierarchies",
+        "Context managers",
+        "Generators"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Verified: a function containing <code>yield</code> returns a generator object, which hands back one value per iteration instead of building the whole sequence in memory.",
+      "id": 20
+    },
+    {
+      "type": "msq",
+      "text": "Which of the following statements about object-oriented programming in Python are correct? (Select all that apply)",
+      "options": [
+        "Redefining a method such as <code>take_damage()</code> in a subclass such as <code>Knight</code> demonstrates polymorphism.",
+        "A class is the blueprint; an object is an instance of that class.",
+        "Procedural programming relies on encapsulating state and methods inside classes rather than step-by-step functions.",
+        "Creating a child class such as <code>Car</code> that inherits from a parent class such as <code>Vehicle</code> demonstrates inheritance.",
+        "An object encapsulates both data (properties) and behavior (methods)."
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "points": 3,
+      "explanation": "The third statement has it backwards: encapsulating state and methods inside classes is what object-oriented programming does, and procedural programming is the step-by-step function style. The rest are accurate. Overriding a method in a subclass is polymorphism, a class is the blueprint for its instances, subclassing is inheritance, and objects bundle data with behavior.",
+      "id": 21
+    },
+    {
+      "type": "tf",
+      "text": "Running <code>grep 'd..m' /etc/passwd</code> works because each dot matches exactly one character, so it finds <code>daem</code> in <code>daemon</code> and <code>dnsm</code> in <code>dnsmasq</code>.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True. Verified: in a regex, <code>.</code> matches any single character, so <code>d..m</code> is a four-character pattern (<code>d</code>, any two characters, <code>m</code>). Running it against <code>daemon</code> and <code>dnsmasq</code> matched <code>daem</code> and <code>dnsm</code>.",
+      "id": 22
+    },
+    {
+      "type": "msq",
+      "text": "Which of the following statements about <code>grep</code> commands and regular-expression behavior are correct? (Select all that apply)",
+      "options": [
+        "<code>grep 'new*' /etc/passwd</code> only matches the exact four-letter word <code>news</code>.",
+        "<code>grep 'd..m' /etc/passwd</code> uses dots as wildcards to match patterns like <code>daem</code> and <code>dnsm</code>.",
+        "<code>grep '^root' /etc/passwd</code> uses <code>^</code> to match <code>root</code> only at the beginning of a line.",
+        "<code>grep 'false$' /etc/passwd</code> uses <code>$</code> to match lines where <code>false</code> is at the end."
+      ],
+      "correctAnswer": [
+        1,
+        2,
+        3
+      ],
+      "points": 3,
+      "explanation": "Verified: <code>new*</code> also matched <code>nonexistent</code>, because <code>*</code> repeats the preceding <code>w</code> zero or more times, so plain <code>ne</code> is enough. That makes the first statement wrong. The dot, <code>^</code> and <code>$</code> statements are all correct.",
+      "id": 23
+    },
+    {
+      "type": "tf",
+      "text": "In vi, pressing <code>a</code> in command mode inserts text at the cursor's current position.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. <code>a</code> appends: insert mode starts just <em>after</em> the cursor. <code>i</code> is the key that inserts at the cursor's current position.",
+      "id": 24
+    },
+    {
+      "type": "msq",
+      "text": "Which of the following statements about package administration on the DEVASC VM are correct? (Select all that apply)",
+      "options": [
+        "<code>apt-cache search speed test</code> searches package descriptions locally without needing administrative privileges.",
+        "<code>sudo apt-get purge speedtest-cli</code> removes the package along with its configuration files.",
+        "Installing a new package requires root access via <code>sudo apt-get install &lt;package_name&gt;</code>.",
+        "<code>sudo apt-get update</code> updates all installed packages to their latest versions."
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2
+      ],
+      "points": 3,
+      "explanation": "<code>update</code> only refreshes the list of available packages; <code>upgrade</code> is the command that installs newer versions, so the last statement is wrong. <code>apt-cache search</code> reads the local package cache and needs no <code>sudo</code>, <code>purge</code> also deletes config files, and installing writes to system directories, so it needs root.",
+      "id": 25
+    }
+  ]
+}

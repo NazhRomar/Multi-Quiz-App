@@ -2,6 +2,7 @@
   "id": "quizzes",
   "order": 2,
   "showCount": true,
+  "tag": "Exam Ready",
   "badges": {
     "unethicallySourced": true
   }

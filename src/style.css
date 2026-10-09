@@ -1349,6 +1349,53 @@ body.theme-dark .review-status--partial {
   color: var(--text);
 }
 
+/* Series "tag" (e.g. "(Exam Ready)"): a glowing label whose letters bob in
+   a staggered wave — each .series-tag-char gets its index as --i. */
+.series-tag {
+  display: inline-flex;
+  color: var(--accent);
+}
+
+.series-tag-char {
+  display: inline-block;
+  animation:
+    series-tag-wave 1.6s ease-in-out infinite,
+    series-tag-glow 1.6s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.08s);
+}
+
+@keyframes series-tag-wave {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+
+  30% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes series-tag-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 2px color-mix(in srgb, var(--accent) 40%, transparent);
+  }
+
+  30% {
+    text-shadow:
+      0 0 4px color-mix(in srgb, var(--accent) 90%, transparent),
+      0 0 10px color-mix(in srgb, var(--accent) 70%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .series-tag-char {
+    animation: none;
+    text-shadow: 0 0 6px color-mix(in srgb, var(--accent) 70%, transparent);
+  }
+}
+
 .quiz-series-count {
   font-size: 0.7rem;
   font-weight: 700;

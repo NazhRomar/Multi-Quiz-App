@@ -9,6 +9,17 @@ export default function QuizSeries({ unit, onOpen, isSelected }) {
       {unit.showLabel && (
         <div className="quiz-series-header">
           <span>{unit.name}</span>
+          {/* Optional series tag (_meta.json "tag"): each character is its own
+              span so the CSS can stagger a wave across the letters. */}
+          {unit.tag && (
+            <span className="series-tag" aria-label={`(${unit.tag})`}>
+              {[...`(${unit.tag})`].map((ch, i) => (
+                <span key={i} className="series-tag-char" style={{ '--i': i }} aria-hidden="true">
+                  {ch === ' ' ? ' ' : ch}
+                </span>
+              ))}
+            </span>
+          )}
           {unit.showCount && <span className="quiz-series-count">{unit.items.length}</span>}
         </div>
       )}

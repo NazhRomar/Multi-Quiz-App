@@ -65,14 +65,14 @@
     {
       "id": 5,
       "type": "tf",
-      "text": "A warehouse management system maintains a delivery list: <code>manifest = [\"part_101\", \"part_240\", \"part_330\"]</code>. To access the first part in the delivery manifest, the system calls <code>manifest</code>.",
+      "text": "A warehouse management system maintains a delivery list: <code>manifest = [\"part_101\", \"part_240\", \"part_330\"]</code>. To access the first part in the delivery manifest, the system calls <code>manifest[0]</code>.",
       "options": [
         "True",
         "False"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 0,
       "points": 1,
-      "explanation": "False. Verified: referencing <code>manifest</code> alone returns the entire list. Reaching the first element needs explicit indexing, <code>manifest[0]</code>."
+      "explanation": "True. Verified: Python lists are zero-indexed, so <code>manifest[0]</code> returns <code>\"part_101\"</code>. The Canvas copy of this question read \"calls <code>manifest</code>\" because the <code>[0]</code> had been stripped out (the same thing happened to <code>text[0] = \"j\"</code> and <code>coordinates[0] = 15.0</code> elsewhere in this sitting). This was previously keyed False; it's been restored and corrected to True, which matches the exam-bank answer key."
     },
     {
       "id": 6,
@@ -89,6 +89,33 @@
     {
       "id": 7,
       "type": "mc",
+      "text": "A student new to Python is working in the interactive interpreter mode. The student issues the command above. Which Python expression can be used to retrieve the IP address of <code>R2</code>?",
+      "context": "<pre>&gt;&gt;&gt; ipAddress = {\"R1\":\"10.1.1.1\",\"R2\":\"10.2.2.1\",\"R3\":\"10.3.3.1\"}</pre>",
+      "options": [
+        "<code>ipAddress[R2]</code>",
+        "<code>ipAddress{\"R2\"}</code>",
+        "<code>ipAddress['R2']</code>",
+        "<code>ipAddress{'R2'}</code>"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Verified: <code>ipAddress['R2']</code> returns <code>'10.2.2.1'</code>. Dictionary lookups use square brackets around the key, and the key is a string, so it has to be quoted. An unquoted <code>R2</code> raises <code>NameError</code> because it's read as a variable, and curly braces only build a dict; they can't index into one (<code>SyntaxError</code>)."
+    },
+    {
+      "id": 8,
+      "type": "tf",
+      "text": "A calculator function divides two figures using <code>a / b</code>. If <code>b = 0</code>, placing the operation inside a <code>try</code> block accompanied by an <code>except ZeroDivisionError:</code> block prevents the application from crashing and allows returning a user-friendly error string.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True. Verified: dividing by zero raises <code>ZeroDivisionError</code>, and a matching <code>except</code> block catches it so the function can return a message instead of the program terminating."
+    },
+    {
+      "id": 9,
+      "type": "mc",
       "text": "A student is learning Python in the interactive interpreter mode. The student issues the command:\n\n<code>&gt;&gt;&gt; type(True)</code>\n\nWhat is the data type reported by Python?",
       "options": [
         "string",
@@ -101,7 +128,7 @@
       "explanation": "Verified: <code>type(True)</code> reports <code>&lt;class 'bool'&gt;</code>, the Boolean type. It's not a string or a float, and while <code>bool</code> is technically a subclass of <code>int</code> under the hood, Python still reports it distinctly as Boolean rather than as a plain integer."
     },
     {
-      "id": 8,
+      "id": 10,
       "type": "mc",
       "text": "An administrator schedules a VM shutdown in one minute using <code>shutdown +1 \"Come back soon!\"</code>. Seconds later, they receive notice that the scheduled maintenance is postponed. Which command cancels the scheduled shutdown?",
       "options": [
@@ -115,7 +142,7 @@
       "explanation": "<code>shutdown -c</code> cancels a pending, delayed shutdown. <code>shutdown now</code> would instead trigger an immediate shutdown; <code>ps -ef | shutdown</code> isn't valid syntax for canceling anything; and <code>shutdown</code> is a core system utility, not something to purge just to stop one scheduled job."
     },
     {
-      "id": 9,
+      "id": 11,
       "type": "tf",
       "text": "A system administrator creates a script named <code>myfile.sh</code> in the <code>/home/devasc/Documents/</code> directory and attempts to run it using <code>./myfile.sh</code>. The terminal returns the error <code>bash: ./myfile.sh: Permission denied</code>. The administrator can grant execution permissions to the script file by running the command <code>chmod +x myfile.sh</code>.",
       "options": [
@@ -127,7 +154,7 @@
       "explanation": "True. <code>chmod +x myfile.sh</code> adds the execute bit for owner, group, and others, which is exactly the missing permission behind the \"Permission denied\" error."
     },
     {
-      "id": 10,
+      "id": 12,
       "type": "mc",
       "text": "A student is learning Python and is reviewing the Python script below. Under which condition will the <code>elif</code> statement be evaluated?",
       "context": "<pre>aclNum = int(input(\"What is the IPv4 ACL number? \"))\nif aclNum &gt;= 1 and aclNum &lt;= 99:\n     print(\"This is a standard IPv4 ACL.\")\nelif aclNum &gt;=100 and aclNum &lt;= 199:\n     print(\"This is an extended IPv4 ACL.\")\nelse:\n     print(\"This is not a standard or extended IPv4 ACL.\")</pre>",
@@ -142,7 +169,7 @@
       "explanation": "An <code>elif</code> branch is only evaluated once its preceding <code>if</code> condition evaluates to False. It has nothing to do with the input being a float or a string — either of those would make <code>int(input(...))</code> raise an exception before any branch runs — and a <code>print</code> call doesn't \"fail\" here."
     },
     {
-      "id": 11,
+      "id": 13,
       "type": "mc",
       "text": "A user in the <code>/home/devasc/Documents</code> directory runs the following sequence of commands. What is the final result after the <code>mv</code> command is successfully executed?",
       "context": "<pre>devasc@labvm:~/Documents$ pwd\n/home/devasc/Documents\ndevasc@labvm:~/Documents$ mv myfile.sh ../Desktop/myfile2.sh</pre>",
@@ -157,7 +184,7 @@
       "explanation": "<code>mv</code> moves rather than copies, and <code>../Desktop</code> resolves to <code>/home/devasc/Desktop</code> from <code>/home/devasc/Documents</code>; the destination filename in the command doubles as the rename. That rules out every \"copied\" option, and there's no existing <code>myfile2.sh</code> to be \"replaced\"."
     },
     {
-      "id": 12,
+      "id": 14,
       "type": "tf",
       "text": "A developer organizes reusable code by creating a directory containing several Python scripts and includes an <code>__init__.py</code> file inside it. In Python, a collection of modules organized in a directory structure marked by an <code>__init__.py</code> file constitutes a package.",
       "options": [
@@ -169,7 +196,21 @@
       "explanation": "True. Restored a transcription error from the source (\"init.py\" had lost its leading and trailing double underscores; it should read <code>__init__.py</code>). A directory containing an <code>__init__.py</code> file is what Python recognizes as a package."
     },
     {
-      "id": 13,
+      "id": 15,
+      "type": "mc",
+      "text": "A network engineer needs to review the status of all network interfaces of a server running a Linux operating system. The engineer enters the command <code>ifconfig -a</code>. What is the result of this command?",
+      "options": [
+        "The ARP table of the computer will be displayed.",
+        "The host routing table will be displayed.",
+        "Both active and inactive interfaces will display information.",
+        "All active interfaces will display information."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>-a</code> means all interfaces, including ones that are down. Plain <code>ifconfig</code> shows only the active ones. The ARP table comes from <code>arp</code> / <code>ip neigh</code> and the routing table from <code>route</code> / <code>ip route</code>."
+    },
+    {
+      "id": 16,
       "type": "mc",
       "text": "A student is practicing basic Python operations and enters the following two lines into the interactive interpreter. What is the numerical output displayed to the student's screen after the second line is executed?",
       "context": "<pre>addition = 22 + 10\nprint(addition)</pre>",
@@ -184,7 +225,7 @@
       "explanation": "<code>22 + 10</code> evaluates to the integer <code>32</code>, and <code>print(addition)</code> writes that value to the screen. There is no syntax error here, and the assignment plus print doesn't silently produce nothing. <code>[22] + [10]</code> describes list concatenation (which would give <code>[22, 10]</code>), not what happens with two plain integers."
     },
     {
-      "id": 14,
+      "id": 17,
       "type": "mc",
       "text": "A script defines a global calculation variable and a function. What is printed when this script runs?",
       "context": "<pre>multiplier = 5 # Global variable\ndef multiply_number(num):\n    return num * multiplier\n\nprint(multiply_number(10))</pre>",
@@ -199,7 +240,7 @@
       "explanation": "Verified: <code>multiply_number</code> has no local <code>multiplier</code>, so it reads the global one (<code>5</code>), returning <code>10 * 5 = 50</code>. It's not a <code>NameError</code> because a function can read a global variable freely — only assigning to a name inside a function creates a shadowing local. <code>10</code> would be the result of multiplying by 1, and <code>15</code> the result of adding instead of multiplying."
     },
     {
-      "id": 15,
+      "id": 18,
       "type": "mc",
       "text": "A Linux administrator attempts to configure the network interface card using a terminal command but immediately receives an error message stating they do not have the necessary permissions to perform the configuration. What is the most common and appropriate action the administrator should take immediately before re-issuing the configuration command?",
       "options": [
@@ -213,7 +254,7 @@
       "explanation": "Network interface configuration requires root privileges, and <code>sudo</code> is the standard, immediate way to elevate for a single command. Switching user accounts is slower and unnecessary; editing permissions on a config file doesn't grant the command itself the capability to reconfigure a NIC; and picking a different interface doesn't address a permissions error at all."
     },
     {
-      "id": 16,
+      "id": 19,
       "type": "mc",
       "text": "A fitness application tracks total workout duration in minutes (<code>total_minutes = 130</code>) and converts it to full hours using floor division (<code>hours = total_minutes // 60</code>). What value is stored in <code>hours</code>?",
       "options": [
@@ -227,7 +268,36 @@
       "explanation": "Floor division (<code>//</code>) discards the fractional part, so <code>130 // 60</code> evaluates to <code>2</code>. The <code>2.17</code> and <code>2.1666666666666665</code> options are what plain division (<code>/</code>) would give instead, and <code>10</code> is the remainder from the separate modulo calculation, not the quotient."
     },
     {
-      "id": 17,
+      "id": 20,
+      "type": "mc",
+      "text": "What command is used to rename a file in a Linux system?",
+      "options": [
+        "<code>cp</code>",
+        "<code>mv</code>",
+        "<code>dd</code>",
+        "<code>rm</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>mv old_name new_name</code> moves a file to a new name, which is how Linux renames files. <code>cp</code> copies, <code>dd</code> does low-level block copying, and <code>rm</code> deletes. The source showed the last option as <code>r m</code>; the stray space has been removed."
+    },
+    {
+      "id": 21,
+      "type": "mc",
+      "text": "A user issues a Linux command and the result is shown above. Which Linux command is used to display the contents of the current directory as shown?",
+      "context": "<pre>total 40\ndrwxr-xr-x 2 devasc devasc 4096 Mar 30 21:25 Desktop\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Documents\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Downloads\ndrwxr-xr-x 5 devasc devasc 4096 Mar 30 21:21 labs\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Music\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Pictures\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Public\ndrwxr-xr-x 5 devasc devasc 4096 Mar 30 21:24 snap\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Templates\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Videos\ndevasc@labvm:~$</pre>",
+      "options": [
+        "<code>ls -l</code>",
+        "<code>ls -lr</code>",
+        "<code>ls</code>",
+        "<code>ls -a</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The <code>total 40</code> header plus permissions, link count, owner, group, size and date make this the long listing, <code>ls -l</code>. Plain <code>ls</code> shows names only, <code>-a</code> would include dotfiles, and <code>-lr</code> would list the names in reverse (Z→A) order."
+    },
+    {
+      "id": 22,
       "type": "mc",
       "text": "A Linux system administrator is auditing user accounts and needs to find any entries in the <code>/etc/passwd</code> file where the username begins with a digit (0-9). Which of the following <code>grep</code> commands should the administrator use to effectively find these specific entries?",
       "options": [
@@ -241,7 +311,7 @@
       "explanation": "The <code>^</code> anchor restricts the match to the start of the line, so <code>grep '^[0-9]'</code> only matches lines where the very first character is a digit. Without <code>^</code>, <code>grep '[0-9]'</code> would match a digit appearing anywhere on the line (e.g. in a UID field), <code>'(0-9}'</code> mismatches its own bracket types and isn't valid grep syntax, and <code>'_[0-9]'</code> looks for an underscore immediately before a digit instead of a line-starting one."
     },
     {
-      "id": 18,
+      "id": 23,
       "type": "tf",
       "text": "A fitness app calculates the remaining workout minutes after extracting full hours using the modulo operator: <code>minutes = total_minutes % 60</code>. Given 130 total minutes, <code>minutes</code> evaluates to <code>10</code>.",
       "options": [
@@ -253,7 +323,7 @@
       "explanation": "True. <code>130 % 60</code> leaves <code>10</code> as the remaining minutes after two full 60-minute hours are extracted."
     },
     {
-      "id": 19,
+      "id": 24,
       "type": "msq",
       "text": "A system administrator is monitoring running processes, pagination, and system power controls on the terminal. Which of the following statements correctly describe Linux administrative utilities? (Select ALL that apply)",
       "options": [
@@ -272,7 +342,7 @@
       "explanation": "All four hold up: <code>ps -ef</code>'s columns include UID, PID and PPID; <code>more</code> advances a full screen on Spacebar and one line on Enter; <code>shutdown -c</code> cancels a pending delayed shutdown; and bare <code>ps</code> with no options defaults to only the processes attached to the current terminal session (add <code>-e</code>/<code>-ef</code> to see every process on the system)."
     },
     {
-      "id": 20,
+      "id": 25,
       "type": "mc",
       "text": "A student is learning Python in the interactive interpreter mode. The student issues the commands below. What is the result?",
       "context": "<pre>&gt;&gt;&gt; devicenames=[\"RT1\", \"RT2\", \"SW1\", \"SW2\"]\n&gt;&gt;&gt; devicenames[-1]</pre>",
@@ -288,7 +358,7 @@
       "explanation": "Verified: negative indices count from the end of the list, so <code>devicenames[-1]</code> retrieves the last element, <code>'SW2'</code>. It doesn't slice a sublist, raise an error (a negative index within range is perfectly valid), or return the first element — those would be <code>devicenames[1:]</code>, nothing invalid at all, and <code>devicenames[0]</code> respectively. Restored the interactive prompts here too, for the same reason as question 4."
     },
     {
-      "id": 21,
+      "id": 26,
       "type": "mc",
       "text": "A software engineer is developing a project and wants to organize multiple related Python scripts inside a directory structure named <code>analytics</code>. They include an <code>__init__.py</code> file inside the directory. What Python construct is created by organizing scripts into a directory marked by an <code>__init__.py</code> file?",
       "options": [
@@ -302,7 +372,7 @@
       "explanation": "Restored the same dropped-underscore transcription error as elsewhere (\"init.py\" to <code>__init__.py</code>). A directory holding an <code>__init__.py</code> file is what Python recognizes as an importable package — not a standalone module (that's a single .py file on its own), an exception handler (a try/except construct), or part of the standard library (code you write yourself isn't bundled with Python)."
     },
     {
-      "id": 22,
+      "id": 27,
       "type": "mc",
       "text": "A Linux system administrator is searching the <code>passwd</code> file for any username that starts with a digit. Which <code>grep</code> command should the administrator use?",
       "options": [
@@ -316,7 +386,7 @@
       "explanation": "Same reasoning as the other <code>^[0-9]</code> question: the caret anchors the match to the start of the line, unlike an unanchored <code>'[0-9]'</code> (matches a digit anywhere), the mismatched-bracket <code>'{0-9}'</code>, or <code>'_[0-9]'</code> (looks for a digit right after an underscore)."
     },
     {
-      "id": 23,
+      "id": 28,
       "type": "mc",
       "text": "A user issues a series of Linux commands as shown. Which directory is the current directory after the <code>cd</code> command is entered?",
       "context": "<pre>(omitted)$ pwd\n/home/devasc/labs/ansible/backups\n(omitted)$ cd ../..</pre>",
@@ -332,7 +402,7 @@
       "explanation": "Starting at <code>/home/devasc/labs/ansible/backups</code>, each <code>..</code> moves up one level: the first reaches <code>.../labs/ansible</code>, and the second reaches <code>.../labs</code>. So <code>cd ../..</code> lands in <code>/home/devasc/labs</code> — not <code>/home/devasc/</code> (only one level up), and not <code>/home</code> or <code>/</code> (too many levels up)."
     },
     {
-      "id": 24,
+      "id": 29,
       "type": "msq",
       "text": "In <code>/home/devasc/Documents/</code>, a user creates a script named <code>myfile.sh</code> using <code>echo \"ls ../Desktop\" > myfile.sh</code>. Upon trying to run <code>./myfile.sh</code>, the shell returns <code>bash: ./myfile.sh: Permission denied</code>. Which of the following statements regarding permissions and ownership for <code>myfile.sh</code> are correct? (Select ALL that apply)",
       "options": [
@@ -350,7 +420,7 @@
       "explanation": "The claim that <code>sudo chown root myfile.sh</code> changes both user and group ownership is the odd one out: without a colon, <code>chown</code> changes only the user owner to root and leaves the group untouched — exactly matching the statement that says ownership ends up as user root, group devasc, so the two can't both be true. The other two are correct: a freshly created file typically gets <code>-rw-rw-r--</code> under the default umask (no execute bits), and <code>chmod +x</code> adds the execute bit for all three permission classes, producing <code>-rwxrwxr-x</code>."
     },
     {
-      "id": 25,
+      "id": 30,
       "type": "msq",
       "text": "A backend developer is writing a data processing script to sanitize text strings and store formatted records in memory. Which of the following statements accurately describe the characteristics and operations of strings and lists in Python? (Select ALL that apply)",
       "options": [
@@ -370,7 +440,7 @@
       "explanation": "The claim that a string's characters can be modified directly via index assignment (e.g., <code>text[0] = \"a\"</code>) is false: Python strings are immutable, so that raises a <code>TypeError</code> rather than modifying the string in place — that's a list operation. The rest are accurate: <code>.split(\",\")</code> returns a list of substrings, both strings and lists support iteration, <code>.join()</code> stitches a list back into a single delimited string, and lists (unlike strings) can be mutated in place."
     },
     {
-      "id": 26,
+      "id": 31,
       "type": "mc",
       "text": "A security analyst needs to filter <code>/etc/passwd</code> to locate account entries where the service shell <code>/bin/false</code> occurs specifically at the end of the line. Which command uses regular expression anchors to return lines ending with <code>false</code>?",
       "options": [
@@ -384,7 +454,7 @@
       "explanation": "The <code>$</code> anchor matches the end of a line, so <code>grep 'false$'</code> only returns lines where <code>false</code> is the last thing on the line. <code>'f..se'</code> matches any 5-character sequence starting with <code>f</code> and ending with <code>se</code> anywhere on the line (too loose); <code>'[false]'</code> is a character class matching any single one of those letters, not the word <code>false</code> at all; and <code>'^false'</code> anchors to the start of the line instead of the end."
     },
     {
-      "id": 27,
+      "id": 32,
       "type": "mc",
       "text": "What Linux command is used to display the contents of the current directory?",
       "options": [
@@ -398,7 +468,7 @@
       "explanation": "<code>ls</code> lists the contents of the current directory. <code>pwd</code> prints the current path (not its contents), <code>cat</code> displays a file's contents (not a directory listing), and <code>ln</code> creates links."
     },
     {
-      "id": 28,
+      "id": 33,
       "type": "mc",
       "text": "A developer attempts to modify a text variable <code>text = \"hello\"</code> by directly reassigning its first character: <code>text[0] = \"j\"</code>. What will happen when this statement runs, and why?",
       "options": [
@@ -412,7 +482,7 @@
       "explanation": "Verified: Python strings are immutable, so item assignment on one raises <code>TypeError: 'str' object does not support item assignment</code>. It doesn't silently convert to a list, produce a new list of characters, or succeed in mutating the string in place — none of those are how Python actually handles this. Corrected a transcription error in the question text (the source read <code>text = \"j\"</code>, a plain reassignment that would run fine; the scenario only makes sense as the indexed assignment <code>text[0] = \"j\"</code>, matching the answer choices)."
     },
     {
-      "id": 29,
+      "id": 34,
       "type": "msq",
       "text": "A software engineer is designing a Python application and wants to structure code into reusable components while incorporating third-party libraries. Which of the following statements regarding modules, packages, and package management in Python are correct? (Select ALL that apply)",
       "options": [
@@ -432,7 +502,7 @@
       "explanation": "The claim that importing a function automatically converts a module file into a directory package is false: importing doesn't restructure anything on disk — a single .py file stays a module regardless of what imports from it. Turning code into a package requires actually creating a directory with an <code>__init__.py</code> file (corrected from \"init.py\" here too). The rest hold: a single file is a module, the aliased import syntax shown is valid, a directory marked with <code>__init__.py</code> is a package, and PIP is indeed the standard installer that pulls from PyPI."
     },
     {
-      "id": 30,
+      "id": 35,
       "type": "tf",
       "text": "A script parses a comma-separated text string <code>\"apple,banana,cherry\"</code> into individual items and then reformats them into a single string separated by <code>\" & \"</code>. Calling <code>.split(\",\")</code> on the string returns a list, and calling <code>\" & \".join(fruits)</code> converts that list back into a single delimited string.",
       "options": [
@@ -444,7 +514,7 @@
       "explanation": "True. Verified: <code>\"apple,banana,cherry\".split(\",\")</code> returns <code>['apple', 'banana', 'cherry']</code>, and <code>\" & \".join(fruits)</code> joins that list back into one string using <code>\" & \"</code> between each element."
     },
     {
-      "id": 31,
+      "id": 36,
       "type": "tf",
       "text": "An IT specialist wants to append the line <code>\"I LOVE Linux!\"</code> to an existing file named <code>linux2.txt</code> without erasing its current contents. Executing the command <code>echo \"I LOVE Linux!\" > linux2.txt</code> will append the text to the bottom of the file without overwriting existing data.",
       "options": [
@@ -456,7 +526,7 @@
       "explanation": "False. A single <code>&gt;</code> always truncates (overwrites) the target file before writing, even though the intent here was to append — that's what <code>&gt;&gt;</code> is for. So this command would replace <code>linux2.txt</code>'s contents with just the new line instead of adding to what was already there."
     },
     {
-      "id": 32,
+      "id": 37,
       "type": "mc",
       "text": "A developer needs to generate random numbers for a game. To keep the namespace clean, they want to import only the <code>randint</code> function from the <code>random</code> module and alias it as <code>random_num</code>. Which line of code correctly performs this specific import with an alias?",
       "options": [
@@ -470,7 +540,7 @@
       "explanation": "<code>from random import randint as random_num</code> is the correct syntax for importing one specific name and aliasing it locally. <code>import random.randint as random_num</code> is invalid because <code>randint</code> is a function, not a submodule, so it can't be dotted into like that; the other two options put the module name, function name, and <code>as</code> alias in the wrong order entirely."
     },
     {
-      "id": 33,
+      "id": 38,
       "type": "mc",
       "text": "An academic grading script executes the following conditional structure for a student score of <code>85</code>. What output is printed?",
       "context": "<pre>score = 85\nif score &gt;= 90:\n    print(\"Grade: A\")\nelif score &gt;= 80:\n    print(\"Grade: B\")\nelif score &gt;= 70:\n    print(\"Grade: C\")\nelse:\n    print(\"Grade: F\")</pre>",
@@ -485,7 +555,7 @@
       "explanation": "<code>score &gt;= 90</code> is False for 85, so control falls to the first <code>elif</code>: <code>score &gt;= 80</code> is True, so <code>Grade: B</code> prints and the remaining branches are skipped. <code>Grade: C</code> or <code>Grade: F</code> would need a lower score, and <code>Grade: A</code> would need <code>score &gt;= 90</code>."
     },
     {
-      "id": 34,
+      "id": 39,
       "type": "mc",
       "text": "Which Python programming function is used to display output?",
       "options": [
@@ -499,7 +569,7 @@
       "explanation": "<code>print()</code> is Python's built-in for writing output to the console. <code>for</code> and <code>while</code> are loop constructs, and <code>if</code> is a conditional keyword — none of them display anything by themselves."
     },
     {
-      "id": 35,
+      "id": 40,
       "type": "tf",
       "text": "A system monitor checks the latest log entry stored in a list using negative indexing: <code>logs[-1]</code>. This operation successfully retrieves the last item in the list.",
       "options": [
@@ -511,7 +581,19 @@
       "explanation": "True. Negative indices count backward from the end of a sequence, so <code>-1</code> always refers to the last element regardless of the list's length."
     },
     {
-      "id": 36,
+      "id": 41,
+      "type": "tf",
+      "text": "A GPS application stores coordinate pairs using a tuple: <code>coordinates = (10.5, 20.0)</code>. During a route update, the application runs <code>coordinates[0] = 15.0</code> to reassign the latitude value without raising an error.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. Verified: it raises <code>TypeError: 'tuple' object does not support item assignment</code>, because tuples are immutable. You would have to build a new tuple instead. The source showed <code>coordinates = 15.0</code> with the <code>[0]</code> stripped out; it's been restored here, matching the exam-bank answer key."
+    },
+    {
+      "id": 42,
       "type": "mc",
       "text": "An engineer executes <code>grep 'new*' /etc/passwd</code> to review user entries. Why does this command match lines containing <code>nonexistent</code> in addition to <code>news</code>?",
       "options": [

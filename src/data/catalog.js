@@ -157,6 +157,7 @@ export const catalog = [...termsByKey.values()]
                   order: sermeta.order ?? null,
                   showLabel: sermeta.showLabel !== false,
                   showCount: !!sermeta.showCount,
+                  tag: sermeta.tag || null,
                   badges: sermeta.badges || null,
                 };
               })
@@ -392,7 +393,7 @@ function buildSeriesUnit(series, quizzes) {
   if (quizzes.length === 1 && !series.showLabel) {
     return { type: 'standalone', quiz: quizzes[0], label: quizzes[0].title };
   }
-  return { type: 'series', key: series.key, name: series.name, showLabel: series.showLabel, showCount: series.showCount, items };
+  return { type: 'series', key: series.key, name: series.name, showLabel: series.showLabel, showCount: series.showCount, tag: series.tag, items };
 }
 
 export function buildRenderUnits(course) {
