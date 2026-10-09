@@ -1,0 +1,187 @@
+{
+  "quizTitle": "Module 2 Exam",
+  "questions": [
+    {
+      "type": "mc",
+      "text": "What is network programmability?",
+      "options": [
+        "the ability to easily monitor network devices using traditional network protocols",
+        "the ability to program network devices using repetitive manual configuration via a terminal and command sets",
+        "the ability to configure, monitor, and react to events in the network in real time",
+        "the ability to configure virtualized networks and deploy virtualized services in real time"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Network programmability means driving the network through APIs so it can be configured, monitored and can react to events in real time. Repetitive manual CLI configuration is exactly what it replaces, and traditional monitoring protocols alone don't make a network programmable.",
+      "id": 1
+    },
+    {
+      "type": "mc",
+      "text": "What is the purpose of Cisco DevNet?",
+      "options": [
+        "to be the central resource for everything about networking at Cisco",
+        "to teach everyone about the different Cisco API offerings and how to use them",
+        "to teach specific coding courses such as advanced Python and implementing REST APIs",
+        "to be the central resource for advanced software developers and the use of Cisco APIs"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "DevNet exists to teach <em>everyone</em> — not just advanced developers — about Cisco's API offerings and how to use them. It does carry general coding material too, but that's in support of the API mission, not its purpose.",
+      "id": 2
+    },
+    {
+      "type": "msq",
+      "text": "What are two benefits of using APIs and integrations between applications? (Choose two.)",
+      "options": [
+        "Integrations are used to verify compatibility between different applications.",
+        "Integrations enable the applications to run a Docker instance using Hyper-V.",
+        "Integrations enable the applications to be installed on any operating system type.",
+        "Integrations are used to provide applications the ability to notify each other when a specific event happens.",
+        "Integrations enable the applications to request actions from each other."
+      ],
+      "correctAnswer": [
+        3,
+        4
+      ],
+      "points": 1,
+      "explanation": "An integration links applications so they can share data, ask each other to perform actions, and notify each other when an event happens. It says nothing about where an app can be installed, what it runs on, or whether two apps are compatible.",
+      "id": 3
+    },
+    {
+      "type": "mc",
+      "text": "What is the contracted response time after a developer opens a case-based ticket with the DevNet support service?",
+      "options": [
+        "one week",
+        "five business days",
+        "one hour",
+        "one business day"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Case-based tickets are DevNet's paid, 1-on-1 support option, and responses are contracted within one business day.",
+      "id": 4
+    },
+    {
+      "type": "mc",
+      "text": "Which Cisco DevNet developer support option provides 1-on-1 support to the members of the Solution Partner program?",
+      "options": [
+        "case-based ticket",
+        "community forum",
+        "knowledge base",
+        "chat with DevNet"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Case-based tickets are the 1-on-1 (paid) support option. The forum, knowledge base and chat are all self-service or community help rather than a dedicated engineer working your case.",
+      "id": 5
+    },
+    {
+      "type": "mc",
+      "text": "Which technology trend enables an industry shift towards automation, applications, and integrations?",
+      "options": [
+        "smaller and faster CPUs",
+        "advanced API capabilities",
+        "increased storage and RAM",
+        "increased internet connection bandwidth"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "APIs are what let software drive other software, which is what replaces repetitive manual tasks with automation and integrations. Faster hardware and bandwidth help everything run better but don't by themselves enable automation.",
+      "id": 6
+    },
+    {
+      "type": "mc",
+      "text": "What resources are available in the Cisco DevNet sandboxes?",
+      "options": [
+        "self-paced tutorials that cover a wide range of automation and integration topics",
+        "support for developer-related issues through the use of forums and live chats",
+        "a repository of sample code written by developers",
+        "production-like development and code testing environments"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Sandboxes are production-like lab environments for developing and testing code against real Cisco platforms. The tutorials are Learning Labs, the sample-code repository is Code Exchange, and forums/chat are DevNet Support.",
+      "id": 7
+    },
+    {
+      "type": "mc",
+      "text": "Which link is used from the Cisco DevNet Learning Labs to access the largest collections of labs?",
+      "options": [
+        "Sections",
+        "Modules",
+        "Bookends",
+        "Tracks"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Learning Labs are organised as tracks, which contain modules, which contain the individual labs — so a track is the largest collection.",
+      "id": 8
+    },
+    {
+      "type": "mc",
+      "text": "Which Cisco DevNet online resource provides use cases for network automation, including listing data and activating policies across domains?",
+      "options": [
+        "Automation Exchange",
+        "DevNet Learning Labs",
+        "DevNet Sandbox",
+        "Code Exchange"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The Automation Exchange collects network automation use cases (listing data, adding configurations, activating policies across domains, users and devices). Code Exchange is the repository of sample code, which is a different thing.",
+      "id": 9
+    },
+    {
+      "type": "msq",
+      "text": "What are two requirements when participating in the DevNet Learning Labs? (Choose two.)",
+      "options": [
+        "The user must successfully log in with a DevNet account.",
+        "The user must have successfully passed the 200-901 DEVASC exam.",
+        "The user must have an active internet connection.",
+        "The user must have purchased the DevNet Learning Labs activation license.",
+        "The user must install a developer environment on a local computer."
+      ],
+      "correctAnswer": [
+        0,
+        2
+      ],
+      "points": 1,
+      "explanation": "Learning Labs are free and run in the browser, so the only requirements are a DevNet account and an internet connection. No exam, licence or local developer setup is needed to start.",
+      "id": 10
+    },
+    {
+      "type": "msq",
+      "text": "What are three major areas that comprise DevNet? (Choose three.)",
+      "options": [
+        "on-line training site for various technology vendors",
+        "interactive and collaborative developer community",
+        "integrated community forums",
+        "automation and programmability standards development area",
+        "providing support for website creation and maintenance",
+        "coordinated developer tools"
+      ],
+      "correctAnswer": [
+        1,
+        2,
+        5
+      ],
+      "points": 1,
+      "explanation": "DevNet is described as an integrated developer program: a website, an interactive developer community, coordinated developer tools, integrated community forums and sandboxes. It isn't a multi-vendor training site or a standards body.",
+      "id": 11
+    },
+    {
+      "type": "mc",
+      "text": "What resources are available in the Cisco DevNet Code Exchange?",
+      "options": [
+        "a repository of sample code written by other developers",
+        "production-like development and code testing environments",
+        "support for developer-related issues using forums and live chats",
+        "self-paced tutorials that cover a wide range of automation and integration topics"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Code Exchange is the shared repository of sample code from other developers. Production-like environments are the Sandbox, tutorials are Learning Labs, and forums/chat are DevNet Support.",
+      "id": 12
+    }
+  ]
+}

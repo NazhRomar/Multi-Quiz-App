@@ -1,0 +1,254 @@
+{
+  "quizTitle": "Module 8 Exam",
+  "questions": [
+    {
+      "type": "mc",
+      "text": "Which underlying technology makes it possible for Cisco Umbrella to prevent a user from accessing a blocked site?",
+      "options": [
+        "DNS",
+        "HTTP and HTTPS",
+        "Cisco Firewall",
+        "DHCP"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Umbrella enforces security at the DNS layer. It inspects each DNS request against its threat intelligence and lets it resolve, blocks it, or sends it to a proxy for closer inspection, so a malicious site is stopped before any connection is made.",
+      "id": 1
+    },
+    {
+      "type": "mc",
+      "text": "Which language is used by the NETCONF protocol to encode both the configuration data and protocol messages?",
+      "options": [
+        "XML",
+        "YAML",
+        "HTML",
+        "JSON"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "NETCONF encodes both its RPC messages and the configuration data in XML. RESTCONF is the one that adds JSON as an option.",
+      "id": 2
+    },
+    {
+      "type": "msq",
+      "text": "What are the three main capabilities provided by Cisco AMP? (Choose three.)",
+      "options": [
+        "annihilation",
+        "detection",
+        "responses and automation",
+        "redirection",
+        "relaying",
+        "prevention"
+      ],
+      "correctAnswer": [
+        1,
+        2,
+        5
+      ],
+      "points": 1,
+      "explanation": "AMP (Advanced Malware Protection) works in three stages: prevention (blocking known threats), detection (continuously recording file activity to catch malware) and response and automation (speeding up investigation and remediating automatically).",
+      "id": 3
+    },
+    {
+      "type": "msq",
+      "text": "Which three functions are provided by Cisco Finesse REST APIs? (Choose three.)",
+      "options": [
+        "They can be used to integrate into existing applications to add contact center functionality.",
+        "They can be used to get termination call detail (TCD) reports.",
+        "They can be used to get the call history of an agent.",
+        "They can be used to build a fully functioning agent desktop.",
+        "They can be used to build custom OpenSocial gadgets.",
+        "They can be used to build a script to automate tasks."
+      ],
+      "correctAnswer": [
+        0,
+        3,
+        5
+      ],
+      "points": 1,
+      "explanation": "The Finesse REST APIs can build a complete agent desktop, add contact-center functions to existing applications, and script automated tasks. Custom gadgets are built with the Finesse <em>JavaScript</em> APIs instead.",
+      "id": 4
+    },
+    {
+      "type": "msq",
+      "text": "Which two benefits are provided by the Python-based Webex Teams SDK? (Choose two.)",
+      "options": [
+        "It integrates with the Webex Devices API.",
+        "It provides error reporting.",
+        "It provides access to more API calls within Webex Teams.",
+        "It manages requests with pagination.",
+        "It is better supported than the Webex Teams APIs."
+      ],
+      "correctAnswer": [
+        1,
+        3
+      ],
+      "points": 1,
+      "explanation": "<code>webexteamssdk</code> handles pagination automatically, simplifies authentication, has built-in error reporting and manages file attachments. It wraps the same REST API, so it doesn't give access to any extra calls.",
+      "id": 5
+    },
+    {
+      "type": "mc",
+      "text": "Refer to the exhibit. Which data format is used to describe the list of interfaces?",
+      "context": "<pre>list interface {\n    key \"name\";\n    leaf name {\n        type string;\n    }\n    leaf speed {\n        type enumeration {\n            enum 10m;\n            enum 100m;\n            enum auto;\n        }\n    }\n    leaf observed-speed {\n        type uint32;\n        config false;\n    }\n}</pre>",
+      "options": [
+        "JSON",
+        "YANG",
+        "XML",
+        "YAML"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>list</code>, <code>key</code>, <code>leaf</code>, <code>type enumeration</code> and <code>config false</code> are YANG statements. This is a data <em>model</em> describing what an interface looks like, not a data encoding like JSON or XML.",
+      "id": 6
+    },
+    {
+      "type": "msq",
+      "text": "Which two statements describe the usage of Cisco Finesse JavaScript APIs? (Choose two.)",
+      "options": [
+        "They can be used to get the call history of an agent.",
+        "They can be used to build custom gadgets to be placed into applications other than Finesse.",
+        "They can be used to embed existing web pages into a custom gadget.",
+        "They can be used to build a custom gadget for the agent state workflow.",
+        "They can be used to build a fully functioning agent desktop."
+      ],
+      "correctAnswer": [
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "The JavaScript APIs build gadgets: embedding an existing web page in a gadget, or a custom gadget for the agent-state workflow. Those gadgets only live inside the Finesse agent and supervisor desktops, and building a whole agent desktop is a job for the REST APIs.",
+      "id": 7
+    },
+    {
+      "type": "mc",
+      "text": "Why does the Meraki dashboard API return a 404 rather than a 403 code in response to a request with an invalid API key?",
+      "options": [
+        "The 404 return code determines whether unauthorized users will try again.",
+        "The 403 return code would indicate that the client definitely has an invalid API key.",
+        "The 404 return code prevents the system from indicating the existence of resources to unauthorized users.",
+        "The 403 return code would indicate that there are no resources at that endpoint but the API key could be correct."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "A 403 would confirm that the resource exists and you just aren't allowed to see it. Answering 404 instead means an unauthorised caller can't even find out which resources exist.",
+      "id": 8
+    },
+    {
+      "type": "mc",
+      "text": "What does Cisco ISE do when it identifies a user or device accessing the network?",
+      "options": [
+        "It logs the access attempt.",
+        "It automatically and securely places the device and user into the right part of the network.",
+        "It processes the originating IP address according to a whitelist.",
+        "It quarantines the device and user until an administrator releases the quarantine."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Once ISE identifies a user or device (wired, wireless or remote), it automatically places them in the right network segment according to policy. No administrator has to release anything by hand.",
+      "id": 9
+    },
+    {
+      "type": "mc",
+      "text": "How are service profiles used by Cisco UCS Manager?",
+      "options": [
+        "Cisco UCS Manager uses an assigned service profile to each instance to define network policy.",
+        "Cisco UCS Manager uses service profiles to assign a unique identity to the server associated with each profile.",
+        "Cisco UCS Manager saves service profiles to recover servers in case of data loss.",
+        "Cisco UCS Manager uses service profiles as templates to provision policies to multiple versions of the same server."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "A service profile gives the server it's associated with its identity (MACs, WWNs, UUID, firmware, boot order and so on). Each server has only one service profile at a time, so moving the profile moves the identity.",
+      "id": 10
+    },
+    {
+      "type": "mc",
+      "text": "Which function does the AXL interface provide for users?",
+      "options": [
+        "provisions and manages objects in the Unified Communication Management Administration Console",
+        "looks up the top ten OWASP vulnerabilities and identifies which endpoints are vulnerable",
+        "updates network device configurations with a rollback mechanism",
+        "provisions Webex Devices and customizes each display"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "AXL (Administrative XML) is CUCM's SOAP/XML interface for adding, reading, updating and removing objects in the Unified CM configuration database, which is everything you could otherwise do in the administration console.",
+      "id": 11
+    },
+    {
+      "type": "msq",
+      "text": "What are three primary YANG sources in Cisco NSO? (Choose three.)",
+      "options": [
+        "mapping model",
+        "data models from devices",
+        "NSO data model",
+        "configuration models",
+        "communication model",
+        "YANG service models"
+      ],
+      "correctAnswer": [
+        1,
+        2,
+        5
+      ],
+      "points": 1,
+      "explanation": "NSO works from three kinds of YANG: its own NSO data model (its built-in functions), data models from devices (native NETCONF YANG, YANG generated from SNMP MIBs, or reverse-engineered from a CLI), and the YANG service models a developer writes for services like a BGP peer or an MPLS VPN.",
+      "id": 12
+    },
+    {
+      "type": "msq",
+      "text": "What are two tasks a network administrator can perform with Cisco UCS Director? (Choose two.)",
+      "options": [
+        "Manage multiple Cisco UCS Manager appliances.",
+        "Deploy and add capacity to converged infrastructures in a consistent and repeatable manner.",
+        "Load-balance data traffic.",
+        "Create, clone, and deploy service profiles and templates for all Cisco UCS servers and compute applications.",
+        "Create a direct line of communication between Cisco and non-Cisco components."
+      ],
+      "correctAnswer": [
+        1,
+        3
+      ],
+      "points": 1,
+      "explanation": "UCS Director automates the whole data-center stack. That includes creating, cloning and deploying service profiles and templates, and adding capacity to converged infrastructure consistently and repeatably. Managing many UCS Manager domains is UCS Central's job, and load balancing isn't part of it.",
+      "id": 13
+    },
+    {
+      "type": "msq",
+      "text": "What are two actions taken by Firepower for traffic control? (Choose two.)",
+      "options": [
+        "using security intelligence data to filter traffic, including IP addresses, address blocks, domain names, and URLs",
+        "controlling which websites are available to the users on the network",
+        "shutting down the network in the event of a DDOS attack",
+        "directing heavy data traffic to free servers",
+        "load balancing during high-traffic time periods"
+      ],
+      "correctAnswer": [
+        0,
+        1
+      ],
+      "points": 1,
+      "explanation": "Firepower filters traffic using security-intelligence lists (IPs, blocks, domains, URLs), controls which websites users can reach, blocks files, rate-limits, and can sinkhole known-bad domains. It's a firewall/IPS, not a load balancer, and it doesn't shut down the network.",
+      "id": 14
+    },
+    {
+      "type": "msq",
+      "text": "What are two types of YANG models? (Choose two.)",
+      "options": [
+        "native model",
+        "vendor model",
+        "private model",
+        "hybrid model",
+        "open model"
+      ],
+      "correctAnswer": [
+        0,
+        4
+      ],
+      "points": 1,
+      "explanation": "Open models (IETF, OpenConfig and others) are vendor-neutral and normalise configuration across platforms. Native models are written by a vendor, such as Cisco, for features specific to its own platform.",
+      "id": 15
+    }
+  ]
+}

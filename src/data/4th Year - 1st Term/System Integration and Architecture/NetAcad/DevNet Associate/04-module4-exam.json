@@ -1,0 +1,262 @@
+{
+  "quizTitle": "Module 4 Exam",
+  "questions": [
+    {
+      "type": "mc",
+      "text": "Refer to the exhibit. A network administrator is using a Python script to test a REST API request. The traceback message indicates that there is an error in the URI. What is a possible issue?",
+      "context": [
+        "<pre>import requests\nurl = \"https://sandboxdnac123.cisco.com/dna/intent/api/v1/network-device\"\nresp = requests.get(url, verify = False)</pre>",
+        "<pre>Traceback message:\n\n....requests.exceptions.ConnectionError:\nHTTPSConnectionPool(host='sandboxdnac123.cisco.com', port=443): Max\nretries exceeded with url</pre>"
+      ],
+      "options": [
+        "The protocol is wrong.",
+        "The query component is missing.",
+        "The destination host address is wrong.",
+        "The SSL certificate is invalid."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "A <code>ConnectionError</code> with \"Max retries exceeded\" means the client never reached the host at all, so the likeliest URI problem is the host (authority) part. A certificate problem would raise an <code>SSLError</code> instead — and <code>verify = False</code> is already switching certificate checks off.",
+      "id": 1
+    },
+    {
+      "type": "matching",
+      "text": "Match the RESTful API method to CRUD function.",
+      "allChoices": [
+        "GET",
+        "POST",
+        "DELETE",
+        "PUT/PATCH"
+      ],
+      "pairs": [
+        {
+          "term": "READ",
+          "match": "GET"
+        },
+        {
+          "term": "CREATE",
+          "match": "POST"
+        },
+        {
+          "term": "DELETE",
+          "match": "DELETE"
+        },
+        {
+          "term": "UPDATE",
+          "match": "PUT/PATCH"
+        }
+      ],
+      "points": 4,
+      "explanation": "CRUD maps onto HTTP methods as Create → POST, Read → GET, Update → PUT (replace) or PATCH (modify part), and Delete → DELETE.",
+      "id": 2
+    },
+    {
+      "type": "mc",
+      "text": "What is an architectural constraint to which a true RESTful API web service must adhere?",
+      "options": [
+        "It operates in a stateless way.",
+        "It uses HTTPS to transport data.",
+        "It must operate along with a DNS server.",
+        "It operates as a cloud service."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Statelessness is one of REST's constraints (alongside client/server, cacheable, uniform interface, layered system and code on demand): the server keeps no client session between requests. HTTPS, DNS and the cloud are common in practice but aren't REST constraints.",
+      "id": 3
+    },
+    {
+      "type": "mc",
+      "text": "Refer to the exhibit. A network administrator is using a Python script to send a REST API request. What is the purpose of the line of code <code>resp = requests.get(url, verify = False)</code>?",
+      "context": "<pre>import requests\nurl = \"https://sandboxdnac123.cisco.com/dna/intent/api/v1/network-device\"\nresp = requests.get(url, verify = False)</pre>",
+      "options": [
+        "It bypasses the certificate validation check.",
+        "It tests the function of the Python requests library.",
+        "It omits the sending URL in the response.",
+        "It skips the URL verification step and tests the resource path."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>verify=False</code> tells <code>requests</code> not to validate the server's TLS certificate — handy against a lab device with a self-signed certificate, but never something to leave on in production.",
+      "id": 4
+    },
+    {
+      "type": "msq",
+      "text": "A client is sending a REST API request to a web server. The request includes the need for data compression. Which three values are acceptable for the Accept-Encoding request header? (Choose three.)",
+      "options": [
+        "*",
+        "xz",
+        "br",
+        "gzip",
+        "tar",
+        "zip"
+      ],
+      "correctAnswer": [
+        0,
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "Valid <code>Accept-Encoding</code> values include <code>gzip</code>, <code>compress</code>, <code>deflate</code>, <code>br</code> (Brotli), <code>identity</code> and the wildcard <code>*</code>. <code>tar</code> is an archive format, and <code>zip</code>/<code>xz</code> aren't HTTP content codings.",
+      "id": 5
+    },
+    {
+      "type": "mc",
+      "text": "What is the meaning of the term flow as it relates to the OAuth 2.0 authorization framework?",
+      "options": [
+        "It is the number of requests contained in the token bucket.",
+        "It is a process for an API request to send authentication credentials to a web service.",
+        "It is a process for an API user to obtain an access token from the authorization server.",
+        "It is the sequence of data exchanged between a REST API request and a response."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "In OAuth 2.0, the user gives their credentials directly to the authorization server, which hands back an access token for the application to use as a Bearer token. That process of obtaining the token is called a flow — the application never sees the user's credentials.",
+      "id": 6
+    },
+    {
+      "type": "mc",
+      "text": "What is a characteristic of a RESTful API?",
+      "options": [
+        "It uses HTTP methods to gather and manipulate data.",
+        "It is a southbound API.",
+        "It facilitates the configuration changes from a network controller to end devices.",
+        "It supports a secure data transmission between a remote user and an enterprise network."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "RESTful APIs use standard HTTP methods to retrieve and manipulate data. In the course they're described as northbound (application ↔ controller); pushing config from a controller down to devices is the southbound side.",
+      "id": 7
+    },
+    {
+      "type": "mc",
+      "text": "Which characteristic of the SOAP architecture specifies communication between all similar and dissimilar application types?",
+      "options": [
+        "independence",
+        "interface uniformity",
+        "neutrality",
+        "extensibility"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "SOAP's three characteristics are independent (any applications can talk, whatever their language or OS), extensible (it's built on XML, so it can be extended) and neutral (it can run over HTTP, SMTP, TCP, UDP or JMS). \"Talks to dissimilar applications\" is independence. Uniform interface is a REST constraint.",
+      "id": 8
+    },
+    {
+      "type": "mc",
+      "text": "In the REST API request URI example <code>http://example.com/update/person?id=42&amp;email=person%40example.com</code>, which term describes the component <code>example.com</code>?",
+      "options": [
+        "query",
+        "path",
+        "scheme",
+        "authority"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "A URI reads scheme (<code>http</code>) → authority, i.e. host and optional port (<code>example.com</code>) → path (<code>/update/person</code>) → query (everything after <code>?</code>).",
+      "id": 9
+    },
+    {
+      "type": "mc",
+      "text": "Which SOAP message root element defines the XML document as a SOAP message?",
+      "options": [
+        "Meta tag",
+        "Body",
+        "Envelope",
+        "Header"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>Envelope</code> is the mandatory root element that marks the XML as a SOAP message. Header (optional) and Body (mandatory) sit inside it.",
+      "id": 10
+    },
+    {
+      "type": "mc",
+      "text": "Which type of credential information is used for the bearer authentication in REST APIs?",
+      "options": [
+        "a username and password set by the client",
+        "a password encoded using Base64",
+        "an MD5 hash string generated by the client application",
+        "a string generated by an authentication server"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "A bearer token is a string issued by an authentication server, sent as <code>Authorization: Bearer &lt;token&gt;</code>. A Base64-encoded username:password is Basic authentication, not Bearer.",
+      "id": 11
+    },
+    {
+      "type": "msq",
+      "text": "What are two purposes for using rate limits on public and unrestricted APIs? (Choose two.)",
+      "options": [
+        "to avoid a server overloading from too many requests at the same time",
+        "to limit the number of authorization requests per API call",
+        "to provide better service and response time to all users",
+        "to ensure a client uses a multifactor authentication mechanism",
+        "to limit the number of passwords that a client can have in making API requests"
+      ],
+      "correctAnswer": [
+        0,
+        2
+      ],
+      "points": 1,
+      "explanation": "Rate limiting caps how many requests a client may make per unit of time. That keeps the server from being overloaded, gives every user better service and response time, and helps protect against DoS. It has nothing to do with authentication.",
+      "id": 12
+    },
+    {
+      "type": "mc",
+      "text": "Which HTTP response status code indicates that the user is not authenticated to access the site?",
+      "options": [
+        "201",
+        "400",
+        "401",
+        "403",
+        "404"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>401 Unauthorized</code> means the client hasn't authenticated. <code>403 Forbidden</code> is the one people mix it up with: the server knows who you are and still refuses.",
+      "id": 13
+    },
+    {
+      "type": "mc",
+      "text": "Which API architectural style uses an XML-based messaging protocol to communicate between applications?",
+      "options": [
+        "SOAP",
+        "REST",
+        "NFS",
+        "XML-RPC"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "SOAP is the XML-based messaging protocol. XML-RPC does use XML too, but it's a remote procedure call style rather than a messaging protocol, and REST isn't tied to XML at all.",
+      "id": 14
+    },
+    {
+      "type": "mc",
+      "text": "A network engineer is learning about REST APIs. When executing a particular API, the server responds with curl. How is this information useful?",
+      "options": [
+        "Curl shows the retrieved information in JSON format.",
+        "Curl shows how to access the content displayed in the response body using curl.",
+        "Curl shows the information the API returned from the server.",
+        "Curl shows the URL used in the API request."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "API documentation consoles often show the equivalent <code>curl</code> command for the request you just made. It's useful because you can copy it and reproduce the same request from a terminal.",
+      "id": 15
+    },
+    {
+      "type": "mc",
+      "text": "In which situation would a synchronous API be used?",
+      "options": [
+        "when a server is not part of the process",
+        "when the original API request or data from the request is delayed",
+        "when data is being retrieved from a database",
+        "when the client is not required to take action"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "A synchronous API answers immediately, which fits when the data is readily available, such as from memory or a database. When the data is delayed, an asynchronous API (callback or notification later) is the better fit.",
+      "id": 16
+    }
+  ]
+}

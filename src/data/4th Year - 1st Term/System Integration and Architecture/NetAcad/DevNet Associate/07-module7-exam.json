@@ -1,0 +1,236 @@
+{
+  "quizTitle": "Module 7 Exam",
+  "questions": [
+    {
+      "type": "mc",
+      "text": "What is the most common cause of IT outages?",
+      "options": [
+        "a threat actor targeting the enterprise equipment",
+        "an experienced engineer implementing a configuration using automation",
+        "an engineer misconfiguring a device or network with manual changes",
+        "an experienced engineer using an open source product"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Most outages come from misconfiguration, usually human error while making manual changes. Reducing that is one of the main arguments for automation.",
+      "id": 1
+    },
+    {
+      "type": "mc",
+      "text": "What is an unopinionated component in a software ecosystem?",
+      "options": [
+        "a component that does not show an increased preference for specific companion components or architectures unless those components or architectures are necessary",
+        "a component that is classified as open source and does not require the implementation of specific vendor products",
+        "a component that may function in a limited ability in order to compensate for the selection of companion components or architectures",
+        "a component that requires a specific companion component in order to provide full stack implementation"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "An unopinionated component doesn't push you towards particular companion components or architectures unless they're genuinely required. Being open source is a separate question, and needing a specific companion is the opposite (opinionated).",
+      "id": 2
+    },
+    {
+      "type": "mc",
+      "text": "In the use of container technologies, what is a function of platform abstraction when considering the deployment of a product in a cloud environment?",
+      "options": [
+        "Traditional complementary software components such as a database server and web server would be implemented as a single containerized application.",
+        "Applications require re-engineering in order to implement scalability and consolidation.",
+        "A containerized app can run on a generically-specified host environment.",
+        "Applications are aware of underlying hardware configurations and are customized to provide increased functionality."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Platform abstraction separates the app from the platform, so a containerized app only needs a generic host rather than particular hardware. Apps that know about the hardware are the opposite of abstraction.",
+      "id": 3
+    },
+    {
+      "type": "mc",
+      "text": "A student is setting up the DEVASC-LAB VM and CSR1000v VM in VirtualBox that is installed on the local computer. Both VMs are imported to the VirtualBox successfully. The student starts both VMs and tries to verify communications to the CSR1000v VM by opening a web browser on the local computer and enters the URL https://192.168.56.101. After a few seconds, an error message displays that \"The connection has timed out\". How can the student verify the IP address assigned by DHCP to the CSR1000v virtual router?",
+      "options": [
+        "Issue the ping 192.168.56.101 command on the local computer.",
+        "Issue the show ip interface brief command in the CSR1000v VM.",
+        "Issue the show running-config command in the CSR1000v VM.",
+        "Issue the ifconfig command in the CSR1000v VM."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>show ip interface brief</code> lists each interface's current address, including one leased by DHCP. <code>show running-config</code> would only show <code>ip address dhcp</code>, not the address actually leased. <code>ifconfig</code> isn't an IOS command, and a failed ping tells you nothing about what the address is.",
+      "id": 4
+    },
+    {
+      "type": "mc",
+      "text": "What is the historical correlation between software developers and IT operations?",
+      "options": [
+        "Developers had the job of creating applications. Operations had the job of verifying that these applications work for users.",
+        "Operations had the job of brainstorming applications. Developers had the job of testing that these applications work for users and the business.",
+        "Operations had the job of testing applications. Developers had the job of implementing these applications for clients.",
+        "Developers had the job of testing applications. Operations had the job of implementing these applications for clients."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Historically, developers built applications and operations made sure they kept working for users and the business. DevOps exists to break down that wall between the two.",
+      "id": 5
+    },
+    {
+      "type": "mc",
+      "text": "How is an error budget calculated in the DevOps/SRE culture?",
+      "options": [
+        "An error budget is the difference between the SLO and the SLI.",
+        "An error budget is the difference between the SLO and 100% availability.",
+        "An error budget is the difference between the SLO and the SLA.",
+        "An error budget is the difference between the SLI and 100% availability."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The error budget is the gap between the SLO and perfection. With a 99.9% availability SLO, for example, the budget is 0.1% of downtime, which the team can \"spend\" on releases and experiments. Once it's used up, releases slow down. The last option is garbled at Outside Source (\"the difference between the and 100% availability\") and has been reconstructed as \"SLI\"; it's still a distractor either way.",
+      "id": 6
+    },
+    {
+      "type": "mc",
+      "text": "In reviewing a formalized agreement between an organization and a customer, what is the purpose of an SLI?",
+      "options": [
+        "An SLI is a specific set of steps for slowing releases as errors occur.",
+        "An SLI is an easy to complete, external agreement that is set between the organization and the customer.",
+        "An SLI is a benchmark metric used to determine and describe SLOs.",
+        "An SLI is an agreed-upon number of errors per unit time."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "A Service Level Indicator is the measured metric (latency, error rate, availability) that SLOs are defined in terms of. The external agreement with the customer is the SLA.",
+      "id": 7
+    },
+    {
+      "type": "mc",
+      "text": "What is the default shell commonly used on macOS and Linux?",
+      "options": [
+        "Bash",
+        "csh",
+        "tcsh",
+        "Bourne"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Bash is the default shell on most Linux distributions and was macOS's long-time default (newer macOS releases have switched to zsh, which isn't one of the options).",
+      "id": 8
+    },
+    {
+      "type": "mc",
+      "text": "Which type of automation includes scripting that may be dangerous if the starting state is not completely known and controlled?",
+      "options": [
+        "stateful",
+        "stateless",
+        "declarative",
+        "procedural"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Procedural (imperative) scripts blindly run their steps in order, so running them against a system that isn't in the expected starting state, or running them twice, can break it. Declarative tools check the current state first.",
+      "id": 9
+    },
+    {
+      "type": "mc",
+      "text": "What is an imperative procedure?",
+      "options": [
+        "An ordered sequence of commands that is used to reach a specific end state.",
+        "A set of commands that require administrator privileges and can only be executed on a local system.",
+        "A set of commands that is piped to a remote host and immediately executed.",
+        "A set of commands that examines a target and only performs the tasks needed to achieve the desired state."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Imperative means spelling out <em>how</em>: an ordered list of commands to get to an end state. Checking the target and doing only what's needed to reach the desired state is the declarative approach.",
+      "id": 10
+    },
+    {
+      "type": "mc",
+      "text": "Which statement describes the declarative static model?",
+      "options": [
+        "A declarative model will examine present circumstances and bring real infrastructure into alignment in order to reach a desired state.",
+        "A declarative model will execute code that is sequentially task-driven instead of focusing on deployment-specific details.",
+        "A declarative model will follow a specific order of sequential steps in order to effect changes on a target system.",
+        "A declarative model will subdivide code into top-down sections and condition-driven handlers."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A declarative model describes the desired end state. The tool compares that with what's actually there and makes only the changes needed to line them up. Sequential, step-by-step execution is the imperative style.",
+      "id": 11
+    },
+    {
+      "type": "msq",
+      "text": "Refer to the exhibit. A user is working on Ansible on the local NMS to manage remote network devices. The user issues the <code>ansible webservers -m ping</code> command to test the communication. However, an error message returns. What are two possible causes for the error? (Choose two.)",
+      "context": "<pre>devasc@labvm:~/labs/ansible/ansible-apache$ ansible webservers -m ping\n\n192.0.2.3 | UNREACHABLE! =&gt; {\n    \"changed\": false,\n    \"msg\": \"Failed to connect to the host via ssh: ssh: connect to host\n192.0.2.3 port 22: Connection refused\",\n    \"unreachable\": true\n}</pre>",
+      "options": [
+        "The SSH credential is wrong.",
+        "The destination host IP address is wrong.",
+        "The switch -m should be -M",
+        "The SSH client is not installed.",
+        "The destination host alias is wrong.",
+        "The SSH service does not start on the host."
+      ],
+      "correctAnswer": [
+        1,
+        5
+      ],
+      "points": 1,
+      "explanation": "\"Connection refused\" on port 22 means nothing answered SSH at that address: either the SSH server isn't running on the target, or the IP in the inventory points at the wrong machine. Wrong credentials would get through the connection and then fail authentication, and a wrong alias would never have resolved to <code>192.0.2.3</code>.",
+      "id": 12
+    },
+    {
+      "type": "mc",
+      "text": "Which component in the pyATS ecology handles bundling and running jobs?",
+      "options": [
+        "EasyPy",
+        "AEtest",
+        "Genie",
+        "Clover"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "EasyPy is pyATS's runtime engine: it bundles one or more test scripts into a job and runs them as a batch. AEtest is the test-script framework and Genie is the parsing/library layer.",
+      "id": 13
+    },
+    {
+      "type": "mc",
+      "text": "An engineer has just created a backup file of a Cisco VIRL network simulation. Which command should be used to compare the most recent .virl file with the previous backup file?",
+      "options": [
+        "diff",
+        "pyats",
+        "knife",
+        "source",
+        "list"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A <code>.virl</code> file is plain text, so ordinary <code>diff</code> shows what changed between two of them, which is a quick way to spot configuration drift.",
+      "id": 14
+    },
+    {
+      "type": "mc",
+      "text": "While working in the Ansible code structure, which type of file contains a sequence of tasks, executed in top-down order?",
+      "options": [
+        ".virl",
+        ".yml",
+        ".py",
+        ".txt"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Ansible playbooks are YAML (<code>.yml</code>) files, and their tasks run top-down in the order written.",
+      "id": 15
+    },
+    {
+      "type": "mc",
+      "text": "What is a standard command to create a Python virtual environment?",
+      "options": [
+        "sudo apt-get install python3-pip",
+        "pip install [options] [package-index-options]...",
+        "python3 -m venv /path/to/new/virtual/environment",
+        "source bin/activate"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>python3 -m venv &lt;dir&gt;</code> creates the environment. <code>source bin/activate</code> only activates one that already exists, and the other two install pip or packages.",
+      "id": 16
+    }
+  ]
+}

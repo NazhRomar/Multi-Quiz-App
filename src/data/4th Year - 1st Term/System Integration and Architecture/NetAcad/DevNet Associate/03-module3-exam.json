@@ -1,0 +1,255 @@
+{
+  "quizTitle": "Module 3 Exam",
+  "questions": [
+    {
+      "type": "mc",
+      "text": "A developer issues the Linux command <code>pip3 freeze</code> in an activated Python 3 virtual environment. What is the function that is provided by the command?",
+      "options": [
+        "to output a list of installed Python packages",
+        "to lock the current virtual environment",
+        "to prepare the environment before installing a Python package",
+        "to deactivate the current virtual environment"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>pip3 freeze</code> prints every package installed in the active environment with its exact version (<code>name==version</code>) — the usual way to produce a <code>requirements.txt</code>. Despite the name it doesn't lock or freeze anything; <code>deactivate</code> is what leaves the environment.",
+      "id": 1
+    },
+    {
+      "type": "msq",
+      "text": "What are two characteristics of the Git version control system? (Choose two.)",
+      "options": [
+        "It is a local VCS.",
+        "It is a centralized VCS.",
+        "It is a distributed VCS.",
+        "It is Microsoft proprietary.",
+        "It is Cisco proprietary.",
+        "It is open source."
+      ],
+      "correctAnswer": [
+        2,
+        5
+      ],
+      "points": 1,
+      "explanation": "Git is an open-source, distributed VCS: every clone holds the full repository history, so there is no single central server the way there is in a centralized system.",
+      "id": 2
+    },
+    {
+      "type": "matching",
+      "text": "Match the Lean term with a description.",
+      "allChoices": [
+        "story",
+        "Scrum team",
+        "sprint",
+        "backlog"
+      ],
+      "pairs": [
+        {
+          "term": "a simple statement of what a user needs and why",
+          "match": "story"
+        },
+        {
+          "term": "uses standup meetings to review progress",
+          "match": "Scrum team"
+        },
+        {
+          "term": "a time-boxed period where working software is developed",
+          "match": "sprint"
+        },
+        {
+          "term": "a prioritized list of all the features for the software being developed",
+          "match": "backlog"
+        }
+      ],
+      "points": 4,
+      "explanation": "A <strong>story</strong> captures one user need and the reason for it; the <strong>backlog</strong> is the prioritised list of all of them; a <strong>sprint</strong> is the time-box in which a slice of working software gets built; and the <strong>Scrum team</strong> is who meets daily at standups to review progress. (These are really Scrum terms, which is how the course presents them.)",
+      "id": 3
+    },
+    {
+      "type": "mc",
+      "text": "What characteristic describes a formal code review?",
+      "options": [
+        "Code is automatically sent for review by source code management systems once it is checked in.",
+        "The entire code base is reviewed in a series of meetings.",
+        "It utilizes a peer code review tool to identify code that needs retesting.",
+        "It provides direct interaction between the review team and the code author."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "A formal review walks the whole codebase line by line across a series of meetings. Automatic review on check-in is a tool-assisted review, and one-on-one interaction with the author is closer to an over-the-shoulder review.",
+      "id": 4
+    },
+    {
+      "type": "mc",
+      "text": "Which fundamental Lean principle forms the basis from which all other Lean principles flow?",
+      "options": [
+        "build integrity in",
+        "eliminate waste",
+        "deliver as fast as possible",
+        "amplify learning"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Lean's seven principles all aim at minimising waste and maximising customer value, and <em>eliminate waste</em> is the one the others derive from.",
+      "id": 5
+    },
+    {
+      "type": "mc",
+      "text": "When a unified <code>.diff</code> file is being reviewed, which symbol is used to indicate that a line has been added?",
+      "options": [
+        "@@",
+        "/dev/null",
+        "+",
+        "-"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "In unified diff format <code>+</code> marks an added line and <code>-</code> a removed one. <code>@@</code> opens a new hunk (with the line ranges), and <code>/dev/null</code> stands in for the other side when a whole file was added or deleted.",
+      "id": 6
+    },
+    {
+      "type": "mc",
+      "text": "What special characters are used to enclose JSON objects?",
+      "options": [
+        "forward slash /",
+        "square brackets []",
+        "curly braces {}",
+        "parentheses ()"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "A JSON object is a set of key/value pairs wrapped in curly braces. Square brackets enclose JSON <em>arrays</em>, not objects.",
+      "id": 7
+    },
+    {
+      "type": "msq",
+      "text": "What are two features of the formal code review? (Choose two.)",
+      "options": [
+        "For a quicker turnaround, it involves only one reviewer.",
+        "It involves the developer going through code with the reviewer line-by-line.",
+        "It promotes discussion among all of the reviewers.",
+        "It allows the developer to make changes on the spot.",
+        "It involves a review of the entire code base in a series of meetings."
+      ],
+      "correctAnswer": [
+        2,
+        4
+      ],
+      "points": 1,
+      "explanation": "A formal review covers the entire codebase across a series of meetings, with discussion among all the reviewers. One reviewer sitting with the developer and changing code on the spot describes an over-the-shoulder review instead.",
+      "id": 8
+    },
+    {
+      "type": "mc",
+      "text": "Which statement describes the Waterfall methodology of software development?",
+      "options": [
+        "Process tasks are broken up into time-boxed iterations called sprints.",
+        "Each step in the process must be completed before the next step starts.",
+        "It emphasizes elimination of wasted effort and maximizes customer value.",
+        "Multiple steps in the process are started simultaneously."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Waterfall is strictly linear: each phase begins only when the previous one is complete. Sprints belong to Agile/Scrum and eliminating waste is Lean.",
+      "id": 9
+    },
+    {
+      "type": "mc",
+      "text": "What is clean code?",
+      "options": [
+        "code that has no reviewer comments",
+        "code that has passed functional testing",
+        "code that is easy to read and understand",
+        "code that performs a discrete task"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Clean code is about readability: neat formatting, intuitive names, appropriate comments, and code that is reusable and easy to unit-test. Passing tests or having no review comments doesn't make code clean.",
+      "id": 10
+    },
+    {
+      "type": "matching",
+      "text": "Match the Git command with its function.",
+      "allChoices": [
+        "git pull",
+        "git init",
+        "git push"
+      ],
+      "pairs": [
+        {
+          "term": "updates the local copy of the Git repository with the content of the remote Git repository",
+          "match": "git pull"
+        },
+        {
+          "term": "creates an empty Git repository or makes an existing folder a Git repository",
+          "match": "git init"
+        },
+        {
+          "term": "updates the remote Git repository with the content changes from the local Git repository",
+          "match": "git push"
+        }
+      ],
+      "points": 3,
+      "explanation": "<code>git init</code> starts a repository in the current folder; <code>git pull</code> brings the remote's changes down into your local copy; <code>git push</code> sends your local commits up to the remote.",
+      "id": 11
+    },
+    {
+      "type": "mc",
+      "text": "What is the role of the view component in the Model-View-Controller (MVC) flow?",
+      "options": [
+        "It accepts selected data and displays the visual representation to the user.",
+        "It accepts the input and applies the required rules to format the data.",
+        "It requests user input and manipulates it to fit the format for the model.",
+        "It manages the data, logic and rules of the application."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The view is the visual representation of the data it is given. Accepting and manipulating input is the controller's job, and managing the data, logic and rules is the model's.",
+      "id": 12
+    },
+    {
+      "type": "mc",
+      "text": "A developer is constructing some functions in Python. When is a function referred to as a module in Python?",
+      "options": [
+        "when the function is declared during the execution of a Python program",
+        "when the function is initiated during the execution of a Python program",
+        "when the function is packaged in a single Python file",
+        "when the function is used for the first time"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "In Python a module is simply a <code>.py</code> file of packaged code (functions, classes, variables) that other code can <code>import</code>.",
+      "id": 13
+    },
+    {
+      "type": "mc",
+      "text": "A student is learning Python using the interactive interpreter mode. The student issues these commands. Which command should the student use to create an object with one attribute being a valid URL?",
+      "context": "<pre>&gt;&gt;&gt; class Url():\n...     def __init__(self, host, prot):\n...         self.host = host\n...         self.prot = prot\n...         self.url = self.prot + \"://\" + self.host\n...\n&gt;&gt;&gt;</pre>",
+      "options": [
+        ">>> url2 = Url(URL, 'http://', 'www.cisco.com')",
+        ">>> url2 = Url('http', '://', 'www.cisco.com')",
+        ">>> url2 = Url('www.cisco.com', 'http')",
+        ">>> url2 = Url('http', 'www.cisco.com')"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "warning": "The live question may show the class as <code>Uri</code> with <code>def_init__</code> — read it as <code>Url</code> with <code>__init__</code>. The answer is still <code>Url('www.cisco.com', 'http')</code>.",
+      "explanation": "<code>__init__</code> takes <code>host</code> first and <code>prot</code> second, then builds <code>prot + \"://\" + host</code>. So <code>Url('www.cisco.com', 'http')</code> gives <code>url2.url == 'http://www.cisco.com'</code>; swapping the arguments produces <code>'www.cisco.com://http'</code>, and the three-argument calls raise a TypeError. Outside Source shows the class as <code>Uri</code> with <code>def_init__</code>; this was fixed to <code>Url</code> / <code>__init__</code> so the options actually match the class, and checked by running it.",
+      "id": 14
+    },
+    {
+      "type": "mc",
+      "text": "A developer issues the Linux command <code>python3 -m venv devenv</code>. What is the developer trying to achieve?",
+      "options": [
+        "to activate the Python 3 virtual environment named devenv",
+        "to enter the Python 3 virtual environment named venv using the devnet tool sets",
+        "to install the devnet tool sets in the Python 3 virtual environment named venv",
+        "to create a Python 3 virtual environment named devenv"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>-m venv</code> runs Python's built-in <code>venv</code> module, and the argument after it is the folder to create — so this creates an environment named <code>devenv</code>. Activating it is a separate step: <code>source devenv/bin/activate</code>.",
+      "id": 15
+    }
+  ]
+}

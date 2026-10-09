@@ -1,0 +1,1849 @@
+{
+  "quizTitle": "Final Exam",
+  "questions": [
+    {
+      "type": "mc",
+      "text": "A pharmaceutical company wants to contract the services of a cloud provider to store employee data and company-specific applications with strict access security. Which type of cloud would be the most appropriate for this scenario?",
+      "options": [
+        "community cloud",
+        "public cloud",
+        "hybrid cloud",
+        "private cloud"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "A private cloud serves one organisation, and it can even be run by an outside provider under strict access security, which fits sensitive employee data and in-house apps. A community cloud is shared by several organisations with common needs.",
+      "id": 1
+    },
+    {
+      "type": "mc",
+      "text": "What is a function provided by an implementation of a read-only automation solution?",
+      "options": [
+        "the ability to reduce risk by implementing security policies across the network infrastructure via automated changes",
+        "the ability to use GET and SET requests to retrieve and send data across the network infrastructure",
+        "the ability to use an automated request to audit configurations and manually deploy changes in order to implement compliance",
+        "the ability to implement network infrastructure that receives a configuration from a specific centralized server"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Read-only automation only <em>reads</em>: it gathers and audits configurations automatically and leaves the fixes to be made separately. Anything that pushes automated changes or SETs data isn't read-only.",
+      "id": 2
+    },
+    {
+      "type": "msq",
+      "text": "Data is being sent from a source PC to a destination server. Which three statements correctly describe the function of TCP or UDP in this situation? (Choose three.)",
+      "options": [
+        "The TCP process running on the PC randomly selects the destination port when establishing a session with the server.",
+        "UDP segments are encapsulated within IP packets for transport across the network.",
+        "The TCP source port number identifies the sending host on the network.",
+        "The UDP destination port number identifies the application or service on the server which will handle the data.",
+        "The source port field identifies the running application or service that will handle data returning to the PC.",
+        "TCP is the preferred protocol when a function requires lower network overhead."
+      ],
+      "correctAnswer": [
+        1,
+        3,
+        4
+      ],
+      "points": 1,
+      "explanation": "Segments ride inside IP packets. The destination port picks the service on the server, and the client's source port (chosen at random) is where replies come back to. The <em>source</em> port is the random one, not the destination. The host is identified by its IP address, not a port, and UDP, not TCP, is the low-overhead choice.",
+      "id": 3
+    },
+    {
+      "type": "mc",
+      "text": "What type of attack targets an SQL database using the input field of a user?",
+      "options": [
+        "buffer overflow",
+        "SQL injection",
+        "Cross site scripting",
+        "XML injection"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "SQL injection slips SQL into a user input field that the application passes unfiltered to the database.",
+      "id": 4
+    },
+    {
+      "type": "mc",
+      "text": "Which command can be used on Linux and MAC hosts to get IP addressing information?",
+      "options": [
+        "ipconfig",
+        "ip address",
+        "ifconfig",
+        "networksetup -getinfo"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>ifconfig</code> works on both Linux and macOS. <code>ipconfig</code> is Windows, <code>ip address</code> is Linux only, and <code>networksetup -getinfo</code> is macOS only, so only <code>ifconfig</code> covers both.",
+      "id": 5
+    },
+    {
+      "type": "msq",
+      "text": "What are two reasons a network administrator would segment a network with a Layer 2 switch? (Choose two.)",
+      "options": [
+        "to create fewer collision domains",
+        "to create more broadcast domains",
+        "to enhance user bandwidth",
+        "to isolate ARP request messages from the rest of the network",
+        "to eliminate virtual circuits",
+        "to isolate traffic between segments"
+      ],
+      "correctAnswer": [
+        2,
+        5
+      ],
+      "points": 1,
+      "explanation": "Each switch port is its own collision domain, with dedicated full-duplex bandwidth, and unicast traffic only goes where it needs to. So switching raises user bandwidth and isolates traffic between segments. A switch creates <em>more</em> collision domains, but on its own it doesn't split broadcast domains, so ARP broadcasts still reach everyone.",
+      "id": 6
+    },
+    {
+      "type": "mc",
+      "text": "Which tool might a developer use as part of a Continuous Integration pipeline in order to build and test source code?",
+      "options": [
+        "SQL",
+        "REST",
+        "Docker",
+        "Jenkins"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Jenkins (like CircleCI or Travis CI) is an automation server that builds and tests code every time changes are merged. Docker often runs inside such pipelines, but it isn't the CI tool.",
+      "id": 7
+    },
+    {
+      "type": "mc",
+      "text": "A packet is received by a server. The packet has a destination port number of 8008. What protocol or service is requested?",
+      "options": [
+        "Telnet over SSH",
+        "RESTCONF",
+        "HTTP",
+        "NETCONF"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "warning": "Outside Source keys this as <strong>RESTCONF</strong>, so that's used here. Be aware that on real Cisco IOS XE, RESTCONF normally runs over HTTPS on 443, and 8008 is often just an alternate HTTP port.",
+      "explanation": "This is a course port-table recall item: of the listed options, port 8008 is keyed to RESTCONF. Plain HTTP is 80 and NETCONF is 830.",
+      "id": 8
+    },
+    {
+      "type": "mc",
+      "text": "A network contains multiple VLANs spanning multiple switches. What happens when a device in VLAN 20 sends a broadcast Ethernet frame?",
+      "options": [
+        "Devices in VLAN 20 and the management VLAN see the frame.",
+        "All devices in all VLANs see the frame.",
+        "Only devices that are connected to the local switch see the frame.",
+        "Only devices in VLAN 20 see the frame."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "A VLAN is its own broadcast domain, even when it spans several switches over trunks. A broadcast in VLAN 20 reaches every VLAN 20 device and nobody else.",
+      "id": 9
+    },
+    {
+      "type": "mc",
+      "text": "Which piece of software is responsible for creating and managing virtual machines, including allocating system resources to each virtual machine as needed?",
+      "options": [
+        "supervisor",
+        "hypervisor",
+        "host operating system",
+        "hosted operating system"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The hypervisor creates and runs VMs and shares out CPU, memory and storage among them.",
+      "id": 10
+    },
+    {
+      "type": "mc",
+      "text": "How is an Ethernet MAC address constructed?",
+      "options": [
+        "The first 3 bytes represent the network upon which the host resides, and the last 3 bytes uniquely identify the host.",
+        "The first 3 bytes represent the vendor OUI, and the last 3 bytes are assigned uniquely by the vendor.",
+        "The first 3 bytes are uniquely assigned by IANA, and the last 3 bytes represent the serial number of the host.",
+        "The first 3 bytes represent the vendor OUI, and the last 3 bytes are assigned randomly by the operating system."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "A 48-bit MAC is a 24-bit OUI identifying the manufacturer (assigned by the IEEE), followed by 24 bits the vendor assigns uniquely to each NIC. MAC addresses have no network portion.",
+      "id": 11
+    },
+    {
+      "type": "mc",
+      "text": "Which Cisco SDK works with ACI?",
+      "options": [
+        "Cobra",
+        "IMC",
+        "UCS",
+        "Instant Connect"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Cobra (<code>acicobra</code>) is the Python SDK for the ACI/APIC object model.",
+      "id": 12
+    },
+    {
+      "type": "mc",
+      "text": "What platforms are provided by DevNet for community members to share solutions, tool kits, and other resources with each other?",
+      "options": [
+        "communities",
+        "forums",
+        "sandboxes",
+        "exchanges"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "DevNet's Exchanges (Code, Automation, Ecosystem) are where members share repositories, use cases and solutions. Sandboxes are lab environments, not a place to share.",
+      "id": 13
+    },
+    {
+      "type": "msq",
+      "text": "Which two data formats can RESTCONF use when requesting data or responding with data? (Choose two.)",
+      "options": [
+        "JSON",
+        "XML",
+        "YAML",
+        "YANG",
+        "HTML"
+      ],
+      "correctAnswer": [
+        0,
+        1
+      ],
+      "points": 1,
+      "explanation": "RESTCONF carries YANG-modelled data encoded as JSON or XML. YANG is the model, not the encoding, and NETCONF is limited to XML.",
+      "id": 14
+    },
+    {
+      "type": "mc",
+      "text": "Which DevNet resource would a developer use to look for a Python library that supports APIs for a specific Cisco product?",
+      "options": [
+        "DevNet Learning Labs",
+        "DevNet Support",
+        "Code Exchange",
+        "DevNet Sandbox"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Code Exchange is the searchable collection of code repositories, including SDKs and libraries for Cisco APIs.",
+      "id": 15
+    },
+    {
+      "type": "mc",
+      "text": "A component was created with the intent of combining the disciplines and skills of Dev and Ops. This component created a new job role and implemented a best-practices playbook for doing Ops with software methods. Which component matches this description?",
+      "options": [
+        "Agile Infrastructure and Operations",
+        "the SRE approach",
+        "automated infrastructure",
+        "shared version control"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Site Reliability Engineering, pioneered at Google, created the hybrid Dev+Ops role of SRE and a playbook for running operations with software methods.",
+      "id": 16
+    },
+    {
+      "type": "matching",
+      "text": "Match the DevNet exchange type with the description.",
+      "allChoices": [
+        "code",
+        "automation exchange",
+        "ecosystem"
+      ],
+      "pairs": [
+        {
+          "term": "uses the GitHub API and human moderators to categorize and display related repositories",
+          "match": "code"
+        },
+        {
+          "term": "a collection of network automation use cases with different solutions and toolkits",
+          "match": "automation exchange"
+        },
+        {
+          "term": "provides solutions across different technologies, industries, and geographies to jump start solution design and development",
+          "match": "ecosystem"
+        }
+      ],
+      "points": 3,
+      "explanation": "Code Exchange curates GitHub repositories (via the GitHub API plus human moderators), the Automation Exchange collects network-automation use cases, and the Ecosystem Exchange lists partner solutions across technologies, industries and regions.",
+      "id": 17
+    },
+    {
+      "type": "mc",
+      "text": "Refer to the exhibit. A user is working on Ansible on the local NMS to manage remote network devices. Which file is the user creating?",
+      "context": "<pre># Enter the devices for Ansible playbooks\nMain-RT ansible_user=classuser ansible_password=class123! ansible_host=172.20.20.250</pre>",
+      "options": [
+        "service",
+        "playbook",
+        "variable",
+        "hosts"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "A device alias followed by <code>ansible_user</code>, <code>ansible_password</code> and <code>ansible_host</code> is an inventory entry, which goes in the <code>hosts</code> file. A playbook is YAML with a list of tasks.",
+      "id": 18
+    },
+    {
+      "type": "mc",
+      "text": "Which DevNet resource would a developer use in order to test custom code in a production-like environment?",
+      "options": [
+        "DevNet Support",
+        "DevNet Learning Labs",
+        "Code Exchange",
+        "DevNet Sandbox"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "DevNet Sandbox provides real Cisco platforms in a production-like environment, so you can test code without touching your own production systems.",
+      "id": 19
+    },
+    {
+      "type": "mc",
+      "text": "In which situation would a company implement a reverse proxy as a security solution?",
+      "options": [
+        "when the company has a database and needs to point to a DNS server that uses different IP addresses for development resources",
+        "when the company wants all responses to clients to look like they came from the same server instead of individual ones",
+        "when a hash is created based on the IP address of the request to a particular protected server",
+        "when responses from servers need to be sent over different paths to ensure quality response time to the client devices making the requests"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "A reverse proxy hides a group of servers behind one face, so every response looks like it came from one server. A forward proxy does the same thing for clients' requests.",
+      "id": 20
+    },
+    {
+      "type": "mc",
+      "text": "A software development company specializes in being able to use whatever software development method their customer wants to use. One customer company wants to use the Agile method. What is a characteristic of this method?",
+      "options": [
+        "a software development process where the highest priority is to satisfy the customer through early and continuous delivery of valuable software",
+        "a process that eliminates anything that does not add value to the project including meetings and documentation",
+        "a software development process that has the results of one phase feed into the next phase",
+        "a more traditional software development process as they have used this process in past projects"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "warning": "Outside Source keys this as \"results of one phase feed into the next phase\", but that describes <strong>Waterfall</strong>. It's keyed here to the Agile Manifesto's first principle: early and continuous delivery of valuable software.",
+      "explanation": "\"Our highest priority is to satisfy the customer through early and continuous delivery of valuable software\" is the first principle of the Agile Manifesto. Each phase feeding the next is Waterfall, eliminating everything that adds no value is Lean, and Agile isn't the traditional method.",
+      "id": 21
+    },
+    {
+      "type": "mc",
+      "text": "A network engineer is creating a Docker container using the <code>docker build</code> command. If the engineer does not specify a tag, which tag will be used by default?",
+      "options": [
+        "tag",
+        "latest",
+        "(a blank space)",
+        "default"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "An image name is <code>repository/name:tag</code>, and if you leave off <code>:tag</code>, Docker uses <code>latest</code>. It's just a default label and doesn't guarantee the newest image.",
+      "id": 22
+    },
+    {
+      "type": "mc",
+      "text": "Which component in the pyATS ecology handles bundling and running jobs?",
+      "options": [
+        "AEtest",
+        "Clover",
+        "Genie",
+        "EasyPy"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "EasyPy is the runtime that bundles pyATS scripts into a job and runs them as a batch. AEtest is the test-script framework and Genie is the parsing/library layer.",
+      "id": 23
+    },
+    {
+      "type": "msq",
+      "text": "Which three avenues are available within DevNet for developers who need help with specific developer scenario questions concerning Cisco products? (Choose three.)",
+      "options": [
+        "logging a ticket",
+        "posting to the DevNet zone",
+        "posting to a news group",
+        "posting to a community forum",
+        "posting to a Webex Teams space",
+        "posting on the Cisco Learning Network"
+      ],
+      "correctAnswer": [
+        0,
+        3,
+        4
+      ],
+      "points": 1,
+      "explanation": "DevNet Support offers case-based tickets, the community forums, and chat through Webex Teams spaces. The Learning Network is Cisco's certification community, not DevNet developer support.",
+      "id": 24
+    },
+    {
+      "type": "mc",
+      "text": "A student who is interested in network programmability approaches an instructor for advice on learning more about the subject. The student is a kinesthetic learner who learns by doing. Which DevNet resource should the instructor consider telling the student about?",
+      "options": [
+        "DevNet Create",
+        "DevNet Learning Labs",
+        "DevNet Express",
+        "DevNet Zone"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Learning Labs are hands-on, step-by-step labs you work through yourself, which suits someone who learns by doing. DevNet Create, Express and Zone are events.",
+      "id": 25
+    },
+    {
+      "type": "mc",
+      "text": "What is the default shell commonly used on macOS and Linux?",
+      "options": [
+        "tcsh",
+        "csh",
+        "Bourne",
+        "Bash"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Bash is the default on most Linux distributions and was macOS's long-standing default (newer macOS uses zsh, which isn't listed).",
+      "id": 26
+    },
+    {
+      "type": "mc",
+      "text": "What is immutable infrastructure in DevOps?",
+      "options": [
+        "infrastructure that is deployed with all component versions locked except for the ability to perform manual configuration changes",
+        "infrastructure that is only deployed and maintained in containers",
+        "infrastructure that is entirely maintained and deployed in code and never subjected to manual changes",
+        "virtualized infrastructure that is deployed as golden images"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Immutable means it's never changed by hand. Any change is made in code and redeployed, so manual changes, even as an exception, break the idea.",
+      "id": 27
+    },
+    {
+      "type": "mc",
+      "text": "What is the most common cause of IT outages?",
+      "options": [
+        "an engineer misconfiguring a device or network with manual changes",
+        "an experienced engineer using an open source product",
+        "an experienced engineer implementing a configuration using automation",
+        "a threat actor targeting the enterprise equipment"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Most outages are caused by misconfiguration from human error during manual changes, which is a big part of why automation is pushed.",
+      "id": 28
+    },
+    {
+      "type": "mc",
+      "text": "Which string of characters is used to identify the beginning of a new separate document when multiple documents are in a single YAML file?",
+      "options": [
+        "three slashes \"///\"",
+        "three dots \"...\"",
+        "three pound signs \"###\"",
+        "three dashes \"---\""
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>---</code> on its own line starts each YAML document. <code>...</code> can mark the <em>end</em> of a document, and <code>#</code> starts a comment.",
+      "id": 29
+    },
+    {
+      "type": "mc",
+      "text": "What is the difference between functions and methods in the Python programming structure?",
+      "options": [
+        "Functions can use global variables whereas methods can only use local variables.",
+        "Functions are called by a referencing object whereas methods are called by the names.",
+        "Functions can pass arguments whereas methods can pass only predefined keywords.",
+        "Functions are standalone code blocks whereas methods are code blocks associated with an object."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "A function stands alone (<code>len(x)</code>), while a method belongs to an object and is called through it (<code>x.append(1)</code>). The second option has it backwards.",
+      "id": 30
+    },
+    {
+      "type": "mc",
+      "text": "Which command is used to create a new Git repository?",
+      "options": [
+        "git init",
+        "git add",
+        "git commit",
+        "git clone"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>git init</code> creates a new, empty repository in the current folder. <code>git clone</code> copies one that already exists.",
+      "id": 31
+    },
+    {
+      "type": "mc",
+      "text": "Which stakeholder determines the useful value of software product features in the Lean process?",
+      "options": [
+        "the customer",
+        "the Scrum master",
+        "the reviewer",
+        "the programmer"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "In Lean, value is defined by the customer. Anything the customer doesn't value counts as waste.",
+      "id": 32
+    },
+    {
+      "type": "matching",
+      "text": "Match the SDLC phase with its description. (Not all options are used.)",
+      "allChoices": [
+        "deployment",
+        "implementation",
+        "requirements & analysis"
+      ],
+      "pairs": [
+        {
+          "term": "software is installed into the production environment",
+          "match": "deployment"
+        },
+        {
+          "term": "code is developed according to low level and high level design documents",
+          "match": "implementation"
+        },
+        {
+          "term": "the product owner and qualified team members gather the requirements for the software to be built",
+          "match": "requirements & analysis"
+        }
+      ],
+      "points": 3,
+      "explanation": "Requirements and analysis gathers what's needed, implementation codes it from the design documents, and deployment installs it into production. The fourth description, code installed into a testing environment to look for bugs, is the testing phase, which wasn't offered as a choice.",
+      "id": 33
+    },
+    {
+      "type": "mc",
+      "text": "What is a principle of the Lean software development model?",
+      "options": [
+        "adding additional product features that the customer did not ask for so that the customer is getting more than expected",
+        "assigning resources to multiple projects so that effort can be divided on more than one task at a time",
+        "making decisions as late as possible in the process so that more facts and details are available",
+        "ordering workers to do tasks they may not want to do to ensure they get done"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "\"Decide as late as possible\" is a Lean principle: keep options open until you have the facts. Extra unrequested features and multitasking are both forms of waste in Lean, and Lean respects people rather than ordering them around.",
+      "id": 34
+    },
+    {
+      "type": "mc",
+      "text": "What character is used to separate the key and value pairs in YAML?",
+      "options": [
+        "colon :",
+        "semicolon ;",
+        "underscore _",
+        "forward slash /"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "YAML mappings are written <code>key: value</code>, with a colon followed by a space.",
+      "id": 35
+    },
+    {
+      "type": "mc",
+      "text": "Which git command is used to compare changes between files?",
+      "options": [
+        "git diff",
+        "git merge",
+        "git checkout",
+        "git status"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>git diff</code> shows the line-by-line differences, for example between the working tree and the index, or between two commits. <code>git status</code> only lists which files changed.",
+      "id": 36
+    },
+    {
+      "type": "matching",
+      "text": "Refer to the exhibit. Match the missing components of the Python script for authenticating to the Cisco Network Services Orchestrator and obtaining a list of network devices using the username of \"superadmin\" and password of \"soverysecure!\". (Not all options are used.)",
+      "context": "<pre>import requests\n\nusername = '_Component1_'\npassword = '_Component2_!'\n\nurl = \"https://devasc-nso-1.cisco.com/restconf/data/tailf-ncs:devices/_Component3_\"\n\nheaders = {\n    'Content-Type': \"application/yang-data+json\"\n    }\n\nresponse = requests._Component4_(url,\n                       auth=(_Component5_, _Component6_),\n                       headers=headers,\n                       verify=False)\n\nprint(response.text)</pre>",
+      "allChoices": [
+        "superadmin",
+        "soverysecure",
+        "device",
+        "get",
+        "username",
+        "password",
+        "list"
+      ],
+      "pairs": [
+        {
+          "term": "Component 1",
+          "match": "superadmin"
+        },
+        {
+          "term": "Component 2",
+          "match": "soverysecure"
+        },
+        {
+          "term": "Component 3",
+          "match": "device"
+        },
+        {
+          "term": "Component 4",
+          "match": "get"
+        },
+        {
+          "term": "Component 5",
+          "match": "username"
+        },
+        {
+          "term": "Component 6",
+          "match": "password"
+        }
+      ],
+      "points": 6,
+      "warning": "Outside Source matches Component 3 to <strong>list</strong> and Component 2 to <strong>soverysecure!</strong>. Here Component 3 is <strong>device</strong>, NSO's actual RESTCONF path (<code>tailf-ncs:devices/device</code>), and Component 2 drops the <code>!</code> because the code already adds one after the blank.",
+      "explanation": "The username and password fill 1 and 2. The script already has a literal <code>!</code> after Component 2, so the blank holds <code>soverysecure</code>. NSO's device list lives at <code>/restconf/data/tailf-ncs:devices/device</code>, because <code>device</code> is the YANG list inside the <code>devices</code> container. Reading data is <code>requests.get</code>, and <code>auth=(username, password)</code> supplies the credentials.",
+      "id": 37
+    },
+    {
+      "type": "mc",
+      "text": "What is an example of a use supported by Cisco UCS Director and UCS Manager?",
+      "options": [
+        "bare metal server provisioning and monitoring of virtual environments",
+        "call center and call management over IP networks",
+        "underlying central system workflow management and migration",
+        "telemetry data collection and analysis"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "UCS Manager and UCS Director handle compute: provisioning bare-metal servers and managing and monitoring the virtual environments on them. Call management is the collaboration products' job (CUCM, Finesse).",
+      "id": 38
+    },
+    {
+      "type": "mc",
+      "text": "How can a Webex Teams administrator retrieve additional details about a user through an API call?",
+      "options": [
+        "by using the value of the organization name in the API call",
+        "by using the value of a Webex Teams registered email address in the API call",
+        "by using the value of the person id key in the API call",
+        "by using the value of orgId in the API call"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>GET /v1/people/{personId}</code> returns the full details for that person. Searching by email (<code>?email=</code>) <em>finds</em> people, but the person ID is the key for retrieving one person's details.",
+      "id": 39
+    },
+    {
+      "type": "mc",
+      "text": "Which library is the most commonly used Python library for connecting NETCONF clients with a NETCONF server?",
+      "options": [
+        "posix",
+        "pyclient",
+        "ncclient",
+        "pypi"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>ncclient</code> is the standard Python NETCONF client library. PyPI is the package index you'd install it from.",
+      "id": 40
+    },
+    {
+      "type": "matching",
+      "text": "Refer to the exhibit. Match the missing components of the Python script for authenticating to the Cisco DNA Center and obtaining an authentication token using the username of \"adminuser\" and password of \"Sup3rC1$c0\". (Not all options are used.)",
+      "context": "<pre>import requests\nimport json\nimport sys\n\ndnacip = \"cisco44-dnacenter-31.cisco.com\"\nusername = \"adminuser\"\npassword = \"Sup3rC1$c0\"\n\ndef get_X_auth_token(_Component1_,username,password):\n\n    post_uri = \"https://\"+dnacip+\"/dna/system/api/v1/auth/token\"\n    print (\"\\nAuthenticate: POST %s\"%(post_uri))\n\n    try:\n        r = requests.post(post_uri, _Component2_=(username, password), verify=False)\n        return r.json()[\"Token\"]\n    except:\n        print (\"Status: %s\"%r.status_code)\n        print (\"Response: %s\"%r.text)\n        sys.exit ()\n\ntoken = get_X_auth_token(dnacip, username, _Component3_)\nprint (\"returned Authentication Token: \", (token))</pre>",
+      "allChoices": [
+        "dnacip",
+        "auth",
+        "password",
+        "adminuser",
+        "post"
+      ],
+      "pairs": [
+        {
+          "term": "Component 1",
+          "match": "dnacip"
+        },
+        {
+          "term": "Component 2",
+          "match": "auth"
+        },
+        {
+          "term": "Component 3",
+          "match": "password"
+        }
+      ],
+      "points": 3,
+      "explanation": "The function signature needs the host parameter, <code>dnacip</code>, and the call at the bottom passes the same three variables in order, so Component 3 is <code>password</code>. <code>requests.post(..., auth=(username, password))</code> is how Basic credentials are sent. <code>adminuser</code> is a value, not a variable name, and <code>post</code> is already in the code.",
+      "id": 41
+    },
+    {
+      "type": "matching",
+      "text": "Refer to the exhibit. Match the missing components to the Python script for authenticating to the Cisco DNA Center and obtaining a token using the username of \"secureuser\" and password of \"C1$c0\". (Not all options are used.)",
+      "context": "<pre>import requests\nimport json\nimport sys\n\ndnacip = \"net12-dnacenter-1.cisco.com\"\nusername = \"secureuser\"\npassword = \"_Component1_\"\n\ndef get_X_auth_token(dnacip,username,password):\n\n    post_uri = \"https://\"+dnacip+\"/dna/system/api/v1/auth/token\"\n    print (\"\\nAuthenticate: POST %s\"%(post_uri))\n\n    try:\n        r = requests.post(post_uri, auth=(username, _Component2_), verify=False)\n        return r.json()[\"Token\"]\n    except:\n        print (\"Status: %s\"%r.status_code)\n        print (\"Response: %s\"%r.text)\n        sys.exit ()\n\ntoken = get_X_auth__Component3_ (dnacip, username, password)\nprint (\"returned Authentication Token: \", (token))</pre>",
+      "allChoices": [
+        "C1$c0",
+        "password",
+        "token",
+        "secureuser",
+        "success",
+        "requests"
+      ],
+      "pairs": [
+        {
+          "term": "Component 1",
+          "match": "C1$c0"
+        },
+        {
+          "term": "Component 2",
+          "match": "password"
+        },
+        {
+          "term": "Component 3",
+          "match": "token"
+        }
+      ],
+      "points": 3,
+      "explanation": "Component 1 is the password string itself, <code>C1$c0</code>. The <code>auth</code> tuple pairs <code>username</code> with the <code>password</code> variable. The function is <code>get_X_auth_token</code>, so the blank after <code>get_X_auth_</code> is <code>token</code>.",
+      "id": 42
+    },
+    {
+      "type": "matching",
+      "text": "Refer to the exhibit. Match the missing components of the Python script for the following tasks: delete all previous demo rooms, create a new demo room, enroll Allan and Jane as members, and post a message to the new room. (Not all options are used.)",
+      "context": "<pre>from webexteamssdk import WebexTeamsAPI\n\napi = WebexTeamsAPI()\n\nall_rooms = api.rooms.list()\ndemo_rooms = [room for room in all_rooms if 'oldtest Demo' in room.title]\n\nfor room in demo_rooms:\n    api.rooms.___Component1___(room.id)\n\ndemo_room = api.rooms.___Component2___('newtest Demo')\n\nemail_addresses = [\"Jane@test.com\", \"Allan@test.com\"]\nfor email in email_addresses:\n    api.___Component3___.create(demo_room.id, personEmail=email)\n\napi.messages.create(demo_room.id, ___Component4___=\"Welcome to the room!\",\n        files=[\"https://www.webex.com/content/dam/wbx/us/images/dg-integ/teams_icon.png\"])</pre>",
+      "allChoices": [
+        "delete",
+        "create",
+        "memberships",
+        "text"
+      ],
+      "pairs": [
+        {
+          "term": "Component 1",
+          "match": "delete"
+        },
+        {
+          "term": "Component 2",
+          "match": "create"
+        },
+        {
+          "term": "Component 3",
+          "match": "memberships"
+        },
+        {
+          "term": "Component 4",
+          "match": "text"
+        }
+      ],
+      "points": 4,
+      "explanation": "In <code>webexteamssdk</code>, each old room is removed with <code>api.rooms.delete(room.id)</code> and the new one made with <code>api.rooms.create(title)</code>. People are added through <code>api.memberships.create(roomId, personEmail=...)</code>, and the message body is the <code>text=</code> argument of <code>api.messages.create</code>.",
+      "id": 43
+    },
+    {
+      "type": "msq",
+      "text": "Which two APIs allow for Cisco Meraki device provisioning and real-time notifications? (Choose two.)",
+      "options": [
+        "Webhook API",
+        "Investigation API",
+        "Dashboard API",
+        "Enforcement API",
+        "Reporting API"
+      ],
+      "correctAnswer": [
+        0,
+        2
+      ],
+      "points": 1,
+      "explanation": "The Dashboard API provisions, manages and monitors devices, and the Webhook API sends real-time alerts. Investigation, Enforcement and Reporting are Umbrella APIs.",
+      "id": 44
+    },
+    {
+      "type": "mc",
+      "text": "A packet is received by a server. The packet has a destination port number of 443. What protocol or service is requested?",
+      "options": [
+        "HTTP",
+        "NTP",
+        "DHCP",
+        "HTTPS"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "443 is HTTPS (HTTP over TLS). HTTP is 80, NTP is 123, and DHCP is 67/68.",
+      "id": 45
+    },
+    {
+      "type": "mc",
+      "text": "When thinking about the functional planes of a network, what is unique about the data plane?",
+      "options": [
+        "It includes protocols used to remotely access network devices.",
+        "It includes the SSH protocol.",
+        "It manipulates data and outputs it in the XML format.",
+        "It is responsible for the switching of packets in hardware."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The data (forwarding) plane moves packets, usually in hardware, using the tables the control plane builds. SSH and remote access belong to the management plane.",
+      "id": 46
+    },
+    {
+      "type": "mc",
+      "text": "Which Docker component defines the steps needed to create an image that can be deployed in a variety of environments?",
+      "options": [
+        "UnionFS",
+        "Dockerfile",
+        "cross-site script",
+        "namespaces"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "A Dockerfile is the recipe of build steps (<code>FROM</code>, <code>RUN</code>, <code>COPY</code>, <code>CMD</code> and so on) that <code>docker build</code> turns into an image. UnionFS layers the image and namespaces isolate running containers.",
+      "id": 47
+    },
+    {
+      "type": "msq",
+      "text": "Which three statements describe characteristics of a virtual machine? (Choose three.)",
+      "options": [
+        "It is created and deployed using the Docker format.",
+        "It includes a guest operating system.",
+        "It runs on top of a hypervisor.",
+        "It shares the operating system of the host computer.",
+        "It is completely self-contained with its own emulated storage, memory, and network interfaces.",
+        "It requires Windows as the host operating system."
+      ],
+      "correctAnswer": [
+        1,
+        2,
+        4
+      ],
+      "points": 1,
+      "explanation": "A VM runs on a hypervisor, carries its own guest OS, and is fully self-contained with emulated hardware. Sharing the host OS and the Docker format describe containers, and any host OS works.",
+      "id": 48
+    },
+    {
+      "type": "matching",
+      "text": "Match the use cases of a load balancer to the description. (Not all options are used.)",
+      "allChoices": [
+        "canary",
+        "blue-green",
+        "round robin"
+      ],
+      "pairs": [
+        {
+          "term": "diverts a small amount of traffic to a new production environment that is changed",
+          "match": "canary"
+        },
+        {
+          "term": "sends traffic to a new environment, but keeps the old environment ready in case of issues",
+          "match": "blue-green"
+        },
+        {
+          "term": "sends requests to the next server on the list",
+          "match": "round robin"
+        }
+      ],
+      "points": 3,
+      "explanation": "Canary sends a small slice of traffic to the changed environment first. Blue-green switches all traffic to the new environment and keeps the old one ready to roll back. Round robin just hands each request to the next server in turn.",
+      "id": 49
+    },
+    {
+      "type": "msq",
+      "text": "What are two characteristics of the staging environment of the four-tier deployment environment structure? (Choose two.)",
+      "options": [
+        "It is the point where code has been tested multiple times and is error free.",
+        "It is structured as close as possible to the actual production environment.",
+        "It is where the code undergoes final acceptance testing in a realistic environment.",
+        "It is where end users will interact with the code.",
+        "It often includes automated testing tools such as Jenkins, CircleCI, or Travis CI."
+      ],
+      "correctAnswer": [
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "Staging mirrors production as closely as possible so final acceptance testing is realistic. Tested, error-free code that end users interact with is production, and the CI tools belong to the testing tier.",
+      "id": 50
+    },
+    {
+      "type": "mc",
+      "text": "Refer to the exhibit. A network engineer has created a Jenkins pipeline. Which menu option would the engineer use to run the pipeline?",
+      "context": "<pre>Jenkins » JobWtihTypo »\n  Back to Dashboard\n  Status\n  Changes\n  Workspace\n  Build Now\n  Configure\n  Ask for renaming\n  Ask for deletion</pre>",
+      "options": [
+        "Configure",
+        "Changes",
+        "Build Now",
+        "Workspace"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<strong>Build Now</strong> starts a run of the job. Configure edits it, Changes shows SCM history, and Workspace browses the job's files.",
+      "id": 51
+    },
+    {
+      "type": "mc",
+      "text": "A network engineer is configuring a Jenkins job and finishing with the following script in order to trigger the build. What is the purpose of the preparation stage?",
+      "context": "<pre>node {\n    stage('Preparation') {\n        catchError(buildResult: 'SUCCESS') {\n            sh 'docker stop samplerunning'\n            sh 'docker rm samplerunning'\n        }\n    }\n    stage('Build') {\n        build 'BuildAppJob'\n    }\n    stage('Results') {\n        build 'TestAppJob'\n    }\n}</pre>",
+      "options": [
+        "It makes sure that any previous instances of a particular Docker container are stopped and removed.",
+        "It catches and removes any errors.",
+        "It runs the SUCCESS Docker container.",
+        "It places a log of any errors in the SUCCESS file."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The Preparation stage stops and removes any leftover <code>samplerunning</code> container. <code>catchError(buildResult: 'SUCCESS')</code> keeps the build marked successful if there was no such container to stop, for example on the very first run. It doesn't run anything called SUCCESS.",
+      "id": 52
+    },
+    {
+      "type": "mc",
+      "text": "Which technique is used to make the output of password hashing nondeterministic?",
+      "options": [
+        "password length and complexity",
+        "multifactor authentication",
+        "password salting",
+        "password strength validation tools"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Hashing alone is deterministic: the same password always gives the same hash. Adding a random salt per password makes each hash unique.",
+      "id": 53
+    },
+    {
+      "type": "mc",
+      "text": "What does self-service refer to in the context of enterprise IT?",
+      "options": [
+        "imaging frequently used server configurations for rapid deployment",
+        "distributing and implementing broad access to public cloud infrastructure-as-a-service services",
+        "mainstreamed processes that promote a lower IT headcount by implementing automation",
+        "automated tools and methods that deliver preconfigured developer platforms on demand"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Self-service, or \"platforms on demand\", means automated tooling hands developers preconfigured environments when they ask, without waiting on tickets.",
+      "id": 54
+    },
+    {
+      "type": "mc",
+      "text": "Which statement describes the term orchestration in IT automation?",
+      "options": [
+        "Orchestration is aimed at managing workload lifecycles and reacting dynamically to changing conditions in order to optimize processes.",
+        "Orchestration is the process of preparing a server through the installation of libraries or daemons.",
+        "Orchestration is the building, arranging, integration, and preparation of multi-component applications across multiple nodes.",
+        "Orchestration is the obtaining and provisioning of compute, storage, and network infrastructure."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Orchestration manages workloads over their lifecycle and reacts to changing conditions, for example by autoscaling or self-healing. The other options are provisioning (getting infrastructure), configuration (preparing a server) and deployment (assembling multi-part apps).",
+      "id": 55
+    },
+    {
+      "type": "mc",
+      "text": "What is an example of a read-only automation solution?",
+      "options": [
+        "streamlining the management of L3 firewall rules in Cisco Meraki networks",
+        "gathering SD-WAN inventory data using Python and recording the values in a database",
+        "simplifying the automation of network device authentication, configuration, and consistency",
+        "gathering the current list of ACL entries on an IOS XE router and enforcing consistency"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Collecting inventory and storing it changes nothing on the network, so it's read-only. Managing firewall rules, pushing configuration or <em>enforcing</em> ACL consistency all write changes.",
+      "id": 56
+    },
+    {
+      "type": "mc",
+      "text": "A student is setting up the CSR1000v VM in VirtualBox that is already installed on the local computer. The VM is imported to the VirtualBox and starts successfully. The student tries to verify communications to the CSR1000v VM by opening the Firefox web browser on the local computer and enters the URL https://192.168.56.101. A security message \"Warning: Potential Security Risk Ahead\" appears. What is the security issue that results in this message?",
+      "options": [
+        "The SSL/TLS certificate uses a public key size of less than 1024 bits.",
+        "The SSL/TLS certificate is self-signed by the router.",
+        "The CA for the SSL/TLS certificate cannot be reached.",
+        "The traffic to the VM is not encrypted."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The router presents a certificate it signed itself, which no trusted CA vouches for, so the browser warns. The traffic is still encrypted. The browser just can't verify who it's talking to.",
+      "id": 57
+    },
+    {
+      "type": "mc",
+      "text": "How do APIs affect traditional IT tasks?",
+      "options": [
+        "They are used to replace network infrastructure and implement network virtualization.",
+        "They are used to eliminate repetitive manual tasks and replace them with automation.",
+        "They are used to increase computer processing speed and lower power consumption.",
+        "They are used to increase hardware speed and lower power consumption."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "APIs let software drive systems directly, which replaces repetitive manual tasks with automation.",
+      "id": 58
+    },
+    {
+      "type": "mc",
+      "text": "Refer to the exhibit. PC1 needs to resolve the host name of the web server into an IP address by using DNS. What destination IP address and destination port number will PC1 assign to the DNS query packet?",
+      "context": "<pre>PC1 192.168.10.2 --- S1 --- (Fa0/0 192.168.10.1) R1 (Fa0/1 192.168.20.1) --- S2\nS2 --- Web server 192.168.20.2\nS2 --- DNS server 192.168.20.3</pre>",
+      "options": [
+        "192.168.20.2 port 80",
+        "192.168.20.3 port 53",
+        "192.168.20.3 port 80",
+        "192.168.10.1 port 53"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The query goes to the DNS server, <code>192.168.20.3</code>, on DNS's port 53. The packet is routed through R1 (<code>192.168.10.1</code>), but the gateway's address is never the destination IP. Port 80 is for the web request that comes afterwards.",
+      "id": 59
+    },
+    {
+      "type": "msq",
+      "text": "Which two statements are true about NTP servers in an enterprise network? (Choose two.)",
+      "options": [
+        "There can only be one NTP server on an enterprise network.",
+        "All NTP servers synchronize directly to a stratum 1 time source.",
+        "NTP servers at stratum 1 are directly connected to an authoritative time source.",
+        "NTP servers ensure an accurate time stamp on logging and debugging information.",
+        "NTP servers control the mean time between failures (MTBF) for key network devices."
+      ],
+      "correctAnswer": [
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "NTP is hierarchical. Stratum 1 servers connect directly to an authoritative clock (stratum 0), and servers further down sync to the stratum above them, so not everyone syncs to stratum 1 directly. The point of it all is consistent timestamps on logs and debugs.",
+      "id": 60
+    },
+    {
+      "type": "matching",
+      "text": "Match the steps with the actions that are involved when an internal host with IP address 192.168.10.10 attempts to send a packet to an external server at the IP address 209.165.200.254 across a router R1 that is running dynamic NAT. (Not all options are used.)",
+      "allChoices": [
+        "Step 1",
+        "Step 2",
+        "Step 3",
+        "Step 4",
+        "Step 5"
+      ],
+      "pairs": [
+        {
+          "term": "The host sends packets that request a connection to the server at the address 209.165.200.254.",
+          "match": "Step 1"
+        },
+        {
+          "term": "R1 checks the NAT configuration to determine if this packet should be translated.",
+          "match": "Step 2"
+        },
+        {
+          "term": "If there is no translation entry for this IP address, R1 determines that the source address 192.168.10.10 must be translated.",
+          "match": "Step 3"
+        },
+        {
+          "term": "R1 selects an available global address from the dynamic address pool.",
+          "match": "Step 4"
+        },
+        {
+          "term": "R1 replaces the address 192.168.10.10 with a translated inside global address.",
+          "match": "Step 5"
+        }
+      ],
+      "points": 5,
+      "explanation": "The packet arrives, R1 checks whether its NAT rules apply, finds no existing entry so a translation is needed, takes a free address from the pool, and rewrites the source. Translating back to <code>192.168.10.10</code> only happens later, when the server's reply returns.",
+      "id": 61
+    },
+    {
+      "type": "mc",
+      "text": "A network administrator can successfully ping the server at www.cisco.com, but cannot ping the company web server located at an ISP in another city. Which tool or command would help identify the specific router where the packet was lost or delayed?",
+      "options": [
+        "traceroute",
+        "ipconfig",
+        "telnet",
+        "netstat"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>traceroute</code> (<code>tracert</code> on Windows) lists every hop on the path with its round-trip time, so you can see where packets stop or slow down.",
+      "id": 62
+    },
+    {
+      "type": "msq",
+      "text": "Which two HTTP functions correspond to the UPDATE function in CRUD? (Choose two.)",
+      "options": [
+        "POST",
+        "DELETE",
+        "PATCH",
+        "PUT",
+        "GET"
+      ],
+      "correctAnswer": [
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "PUT replaces a resource and PATCH modifies part of it, and both are Update. POST is Create, GET is Read, and DELETE is Delete.",
+      "id": 63
+    },
+    {
+      "type": "matching",
+      "text": "Match the term to the REST API request <code>http://example.com/update/person?id=42&amp;email=person%40example.com</code>. (Not all options are used.)",
+      "allChoices": [
+        "http",
+        "update/person",
+        "example.com",
+        "id=42&email=person%40example.com"
+      ],
+      "pairs": [
+        {
+          "term": "scheme",
+          "match": "http"
+        },
+        {
+          "term": "path",
+          "match": "update/person"
+        },
+        {
+          "term": "authority",
+          "match": "example.com"
+        },
+        {
+          "term": "query",
+          "match": "id=42&email=person%40example.com"
+        }
+      ],
+      "points": 4,
+      "explanation": "Left to right: scheme <code>http</code>, then <code>://</code>, authority (host) <code>example.com</code>, path <code>/update/person</code>, and after the <code>?</code> the query, <code>id=42&amp;email=…</code> (<code>%40</code> is an encoded <code>@</code>).",
+      "id": 64
+    },
+    {
+      "type": "mc",
+      "text": "Which HTTP status code category is used in the response to indicate that a REST API request contains an error on the client side?",
+      "options": [
+        "1xx",
+        "2xx",
+        "3xx",
+        "4xx",
+        "5xx"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "4xx means the client got something wrong (bad syntax, no authentication, not found) and has to fix it before retrying. 5xx is a server-side error.",
+      "id": 65
+    },
+    {
+      "type": "mc",
+      "text": "Refer to the exhibit. A network administrator is using a Python script to test a REST API request. The traceback message indicates that there is an error in the URI. What is the error?",
+      "context": [
+        "<pre>import requests\nurl = \"https://sandboxdnac123.cisco.com/dna/intent/api/v1/network-device\"\nresp = requests.get(url)</pre>",
+        "<pre>Traceback message:\n\nrequests.exceptions.SSLError:\nHTTPSConnectionPool(host='sandboxdnac123.cisco.com', port=443):\nMax retries exceeded with url:  /dna/intent/api/v1/network-device</pre>"
+      ],
+      "options": [
+        "The protocol is wrong.",
+        "The resource path is wrong.",
+        "The SSL certificate is invalid.",
+        "The destination web host address is invalid."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>requests.exceptions.SSLError</code> means the TLS handshake failed because the certificate couldn't be validated. The script doesn't set <code>verify=False</code>, so the certificate check is on. A bad host would raise <code>ConnectionError</code> instead.",
+      "id": 66
+    },
+    {
+      "type": "msq",
+      "text": "What are two requirements for an application to communicate with a webhook provider? (Choose two.)",
+      "options": [
+        "The application must support JSON.",
+        "The application must always be running.",
+        "The application must register a URL with the webhook provider.",
+        "The host where the application is running must have an SSH client installed.",
+        "The host where the application is running must have an SSH server running."
+      ],
+      "correctAnswer": [
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "With a webhook, the provider calls you. Your app has to register the URL to be called, and it has to be running all the time to receive the HTTP POSTs. SSH plays no part.",
+      "id": 67
+    },
+    {
+      "type": "mc",
+      "text": "A student is learning network automation by using a REST API. The student sends a request to a network device and receives a response with the status code of 202. What does this status code mean?",
+      "options": [
+        "The request was understood but has been rejected by the server.",
+        "The request was successful and typically includes a payload.",
+        "The request has been accepted for processing, but the processing has not been completed.",
+        "Because of a server error, the request cannot be fulfilled."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>202 Accepted</code> means the request was received and queued but isn't finished yet, which is typical of asynchronous APIs. A successful request with a payload is 200, a rejection is 403, and a server error is 5xx.",
+      "id": 68
+    },
+    {
+      "type": "msq",
+      "text": "What are two characteristics of stateless applications? (Choose two.)",
+      "options": [
+        "They must run on container orchestrators like Kubernetes.",
+        "They can be freely scaled across available capacity without disrupting ongoing customer connections.",
+        "They can be scaled only by redeploying them and destroying the data that users or operators previously needed.",
+        "They maintain the user state within the local user machine so that automation can work non-destructively.",
+        "They can store a user state in an accessible database separate from application servers and other components."
+      ],
+      "correctAnswer": [
+        1,
+        4
+      ],
+      "points": 1,
+      "explanation": "A stateless app keeps any user state outside itself, in a separate database, so any instance can serve any request and you can add or remove instances freely. Kubernetes is common but not required.",
+      "id": 69
+    },
+    {
+      "type": "mc",
+      "text": "What is a characteristic of the continuous integration component of the CI/CD philosophy for software development?",
+      "options": [
+        "Code changes are continually merged with the main branch of the application, so change sets are small.",
+        "Code changes are tested and integrated with the main branch then tested again before they are deployed into production.",
+        "Code is constantly deployed into production where users serve as the final testers.",
+        "Application development is performed in short sprints so that enough code is always in a deployable state."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "CI means merging small changes into main often, so integration problems show up early. Testing again before production is continuous deployment, and staying always deployable is continuous delivery.",
+      "id": 70
+    },
+    {
+      "type": "mc",
+      "text": "A software development company specializes in being able to use whatever software development method their customer wants to use. One customer company wants to use the Waterfall method. What is a characteristic of this method?",
+      "options": [
+        "a process that amplifies learning as well as delivers as quickly as possible",
+        "a software development process where the highest priority is to satisfy the customer through early and continuous delivery of valuable software",
+        "a software development process where a particular phase depends on the results of the previous phase",
+        "a process that eliminates anything that does not add value to the project including meetings and documentation"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Waterfall flows in one direction: each phase depends on the previous one's output and can't start until it finishes. Amplifying learning and eliminating waste are Lean ideas, and early, continuous delivery is Agile.",
+      "id": 71
+    },
+    {
+      "type": "mc",
+      "text": "In which SDLC phase is the software product installed into the production environment to decide if it is ready for release?",
+      "options": [
+        "implementation",
+        "deployment",
+        "design",
+        "testing"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Deployment installs the tested software into production. If that goes cleanly, the team decides whether it's ready to release to customers.",
+      "id": 72
+    },
+    {
+      "type": "mc",
+      "text": "Which convention is used in Python to indicate that methods and variables in a class are private and not to be used outside of the class?",
+      "options": [
+        "by using a single preceding underscore ( _ ) for a method or variable",
+        "by using the command class private classname() : to start the class definition",
+        "by using two preceding hyphens ( -- ) for a method or variable",
+        "by declaring a private method or variable in the beginning of the class definition"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Python has no real private members. A leading underscore (<code>_name</code>) is the agreed signal for \"internal, don't touch\". A double underscore adds name-mangling, but hyphens aren't even valid in names.",
+      "id": 73
+    },
+    {
+      "type": "mc",
+      "text": "A packet is received by a server. The packet has a destination port number of 80. What protocol or service is requested?",
+      "options": [
+        "DHCP",
+        "Telnet over SSH",
+        "HTTP",
+        "RESTCONF"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Port 80 is plain HTTP.",
+      "id": 74
+    },
+    {
+      "type": "msq",
+      "text": "A network administrator is developing an application to control a Webex device through xAPI. Which three protocols can be used to access xAPI? (Choose three.)",
+      "options": [
+        "Telnet",
+        "HTTP",
+        "XML",
+        "RS-232",
+        "FTP",
+        "JSON"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        3
+      ],
+      "points": 1,
+      "explanation": "xAPI can be reached over Telnet/SSH, HTTP(S), and an RS-232 serial connection. XML and JSON are data formats, not access protocols.",
+      "id": 75
+    },
+    {
+      "type": "mc",
+      "text": "Which type of request is used to send a message to a Webex Teams space using Python and the Messages API?",
+      "options": [
+        "PUT",
+        "POST",
+        "GET",
+        "PATCH"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Posting a message creates a new resource, so it's <code>POST /v1/messages</code> with the <code>roomId</code> and <code>text</code>.",
+      "id": 76
+    },
+    {
+      "type": "mc",
+      "text": "A network administrator is assigned the 172.16.0.0/24 block of addresses to use in designing an IP addressing scheme. The administrator submits this design for approval. What should be the response from the senior network engineer regarding this design?",
+      "context": "<pre>172.16.0.0/26\n172.16.0.64/27\n172.16.0.96/26\n172.16.0.128/27</pre>",
+      "options": [
+        "This design is flawed because the 172.16.0.128/27 network number is invalid.",
+        "This design will work for the branch office.",
+        "This design is flawed because no design could have two networks that use a /26 mask and are not consecutive blocks of addresses.",
+        "This design is flawed because the 172.16.0.96/26 network is not a valid block of addresses.",
+        "This design is flawed because the 172.16.0.96/26 network overlaps with other addresses."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "A /26 block holds 64 addresses, so a /26 network address must be a multiple of 64: .0, .64, .128 or .192. <code>.96</code> isn't one, so <code>172.16.0.96/26</code> isn't a valid network number. <code>.96/27</code> would be. <code>.128/27</code> is fine.",
+      "id": 77
+    },
+    {
+      "type": "mc",
+      "text": "Which statement describes a stateful firewall?",
+      "options": [
+        "It can filter packets based on information at Layers 3, 4, 5 and 7 of the OSI reference model.",
+        "It can determine if the connection is in the initiation, data transfer, or termination phase.",
+        "It can only filter packets based on limited Layer 3 and 4 information.",
+        "It can expand the number of IP addresses available and can hide network addressing design."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "A stateful firewall tracks each connection's state (setup, data transfer, teardown), so it can allow return traffic and drop anything unsolicited. Limited Layer 3/4 filtering is a basic packet filter, upper-layer inspection is an application gateway, and expanding addresses is NAT.",
+      "id": 78
+    },
+    {
+      "type": "mc",
+      "text": "A software development company specializes in being able to use whatever software development method their customer wants to use. One customer company wants to use the Lean method. What is a characteristic of this method?",
+      "options": [
+        "a process that eliminates inefficient ways of working like expecting coders to multitask",
+        "a software development process that focuses on frequent delivery of working software as well as collaboration between developers and business employees",
+        "a software development process that has the results of one phase feed into the next phase",
+        "a software development process that can only go forward"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "warning": "Outside Source keys this as \"results of one phase feed into the next phase\", but that describes <strong>Waterfall</strong>. It's keyed here to the Lean answer: eliminating inefficient ways of working such as multitasking.",
+      "explanation": "Lean is built on eliminating waste, and task switching (expecting coders to multitask) is one of the wastes it names. Frequent delivery plus developer/business collaboration is Agile, and phases feeding forward in one direction is Waterfall.",
+      "id": 79
+    },
+    {
+      "type": "matching",
+      "text": "Refer to the exhibit. Match the Python coding information in the authentication request to the Cisco DNA Center to the location in the script. (Not all options are used.)",
+      "context": "<pre>import requests\n\nurl = \"http://myservice/api/v1/resources/house/rooms/id/code_A\"\nresp = requests.get(code_B, code_C, verify = False)\nprint (resp.status_code)\nprint (resp.text)</pre>",
+      "allChoices": [
+        "1001001027331",
+        "url",
+        "auth=(\"person1\",\"super2\")"
+      ],
+      "pairs": [
+        {
+          "term": "code_A",
+          "match": "1001001027331"
+        },
+        {
+          "term": "code_B",
+          "match": "url"
+        },
+        {
+          "term": "code_C",
+          "match": "auth=(\"person1\",\"super2\")"
+        }
+      ],
+      "points": 3,
+      "explanation": "The resource ID completes the path (<code>.../rooms/id/1001001027331</code>). <code>requests.get</code> takes the URL first, then <code>auth=(user, password)</code> for Basic authentication.",
+      "id": 80
+    },
+    {
+      "type": "mc",
+      "text": "A student is learning REST API application. The student constructs an URI to query the MapQuest API for a route from New York, NY to Boston, MA. What is the valid URI format?",
+      "options": [
+        "https://www.mapquestapi.com/directions/v2/route?key=key&amp;from=New+York+NY&amp;to=Boston+MA",
+        "https://www.mapquestapi.com/directions/v2/route?key==key&amp;from==New+York%2C+NY&amp;to==Boston%2C+MA",
+        "https://www.mapquestapi.com/directions/v2/route?key:key&amp;from:New+York%2C+NY&amp;to:Boston%2C+MA",
+        "https://www.mapquestapi.com/directions/v2/route?key=key&amp;from=New+York%2C+NY&amp;to=Boston%2C+MA"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Query parameters are <code>name=value</code> pairs joined with <code>&amp;</code>. Spaces become <code>+</code> and the comma in \"New York, NY\" is URL-encoded as <code>%2C</code>. Doubled <code>==</code> or <code>:</code> aren't valid separators, and the first option drops the comma from the locations. (The keyed option has a stray space after <code>key=</code> at Outside Source; it's removed here.)",
+      "id": 81
+    },
+    {
+      "type": "matching",
+      "text": "Refer to the exhibit. A student constructs a URI to query the MapQuest API for a route from New Orleans, LA to New York, NY. Match the components to the MapQuest URL. (Not all options are used.)",
+      "context": "<pre>https://www.mapquestapi.com/component1?component2&amp;component3&amp;component4</pre>",
+      "allChoices": [
+        "directions/v2/route",
+        "key=get_your_api_key",
+        "from=New+Orleans%2C+LA",
+        "to=New+York%2C+NY",
+        "dest=New+York%2C+NY",
+        "orig=New+Orleans%2C+LA"
+      ],
+      "pairs": [
+        {
+          "term": "component1",
+          "match": "directions/v2/route"
+        },
+        {
+          "term": "component2",
+          "match": "key=get_your_api_key"
+        },
+        {
+          "term": "component3",
+          "match": "from=New+Orleans%2C+LA"
+        },
+        {
+          "term": "component4",
+          "match": "to=New+York%2C+NY"
+        }
+      ],
+      "points": 4,
+      "explanation": "The path is the directions API (<code>directions/v2/route</code>), followed by the query parameters <code>key=</code>, <code>from=</code> (the start, New Orleans) and <code>to=</code> (the destination, New York). MapQuest uses <code>from</code>/<code>to</code>, not <code>orig</code>/<code>dest</code>.",
+      "id": 82
+    },
+    {
+      "type": "matching",
+      "text": "Refer to the exhibit. Match the Python code components to the function. (Not all options are used.)",
+      "context": "<pre>import requests\nimport json\nfrom tabulate import *\nfrom apic_em_functions_sol import *\n\npost_url = 'https://sandboxapicem.cisco.com/api/v1/host'\nticket = get_ticket()\nheaders = {'content-type':'application/json', 'X-Auth-Token':ticket}\n\ntry:\n    resp = requests.get(post_url, headers=headers, params=\"\", verify = False)\n    response_json = resp.json()\n    print ('Status of /host request: ' + str(resp.status_code))\n\nexcept:\n    print ('Something is wrong with GET /host request!')\n    sys.exit()\nhost_list=[]\ni=0\nfor item in response_json['response']:\n    i+=1\n    host_list.append([i,item['hostType'],item['hostIp']])\n\nprint (tabulate(host_list,headers=['Number','Type','IP'],tablefmt='rst'))</pre>",
+      "allChoices": [
+        "sys.exit()",
+        "str(resp.status_code)",
+        "api/v1/host",
+        "verify = False",
+        "'content-type':'application/json'",
+        "'X-Auth-Token':ticket",
+        "tablefmt='rst'"
+      ],
+      "pairs": [
+        {
+          "term": "stops the program execution",
+          "match": "sys.exit()"
+        },
+        {
+          "term": "converts data format",
+          "match": "str(resp.status_code)"
+        },
+        {
+          "term": "identifies API to be called",
+          "match": "api/v1/host"
+        },
+        {
+          "term": "disables SSL handshake",
+          "match": "verify = False"
+        },
+        {
+          "term": "identifies request data format",
+          "match": "'content-type':'application/json'"
+        },
+        {
+          "term": "defines API authentication",
+          "match": "'X-Auth-Token':ticket"
+        }
+      ],
+      "points": 6,
+      "explanation": "<code>sys.exit()</code> ends the script on error, and <code>str()</code> converts the integer status code so it can be concatenated. The URL path <code>api/v1/host</code> names the API, <code>verify = False</code> skips certificate checks, the <code>content-type</code> header declares JSON, and <code>X-Auth-Token</code> carries the service ticket. <code>tablefmt='rst'</code> only formats the printed table.",
+      "id": 83
+    },
+    {
+      "type": "mc",
+      "text": "A packet is received by a server. The packet has a destination port number of 123. What protocol or service is requested?",
+      "options": [
+        "DNS",
+        "SSH",
+        "NTP",
+        "RESTCONF"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "NTP uses UDP 123. DNS is 53 and SSH is 22.",
+      "id": 84
+    },
+    {
+      "type": "mc",
+      "text": "Which scenario exhibits the \"social proof\" principle of human influence?",
+      "options": [
+        "A user receives a phone call from someone claiming to be from the IT department who needs to verify user credentials.",
+        "A user visits a web site offering a free gift if the user provides contact information.",
+        "A user opens an email advertising a free trial on a website that is only available for a few hours.",
+        "A user completes a survey requesting personal information after seeing co-workers completing the survey."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Social proof is doing something because you see others doing it. The other options exploit authority (the fake IT call), reciprocity (the free gift) and urgency or scarcity (the few-hours offer).",
+      "id": 85
+    },
+    {
+      "type": "mc",
+      "text": "Which SQL injection defense method should be used only as a last resort?",
+      "options": [
+        "escaping all user-supplied input",
+        "using a database firewall",
+        "implementing whitelist input validation",
+        "using parameterized queries"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "OWASP ranks escaping all user input as a last resort, because it's fragile and easy to get wrong for a given database. Parameterized queries are the primary defense, with allow-list validation and database firewalls alongside.",
+      "id": 86
+    },
+    {
+      "type": "mc",
+      "text": "Which type of ISE node provides network access, posturing, guest access, client provisioning, and profiling services?",
+      "options": [
+        "monitoring",
+        "administration",
+        "pxGrid",
+        "policy service"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The Policy Service Node (PSN) does the run-time work: network access, posture, guest, client provisioning and profiling. Administration nodes manage the configuration, monitoring nodes collect logs, and pxGrid shares context with other systems.",
+      "id": 87
+    },
+    {
+      "type": "mc",
+      "text": "Which communication protocol does Ansible use to connect to remote devices?",
+      "options": [
+        "Telnet over VPN",
+        "HTTPS",
+        "Secure FTP",
+        "SSH"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Ansible is agentless and connects over SSH (OpenSSH by default) as your current user.",
+      "id": 88
+    },
+    {
+      "type": "matching",
+      "text": "Refer to the exhibit. Router R2 is configured with static NAT. Place in order the steps that occur when the client accesses the web server through the router. (Not all options are used.)",
+      "context": "<pre>Web Server --- SW1 --- R2 --- Internet --- Client</pre>",
+      "allChoices": [
+        "Step 1",
+        "Step 2",
+        "Step 3",
+        "Step 4",
+        "Step 5"
+      ],
+      "pairs": [
+        {
+          "term": "The client uses the inside global address of the web server as the destination address to send a packet to the web server.",
+          "match": "Step 1"
+        },
+        {
+          "term": "R2 receives the packet on its outside interface, then checks and locates the destination address in its NAT table.",
+          "match": "Step 2"
+        },
+        {
+          "term": "R2 replaces the inside global address with the inside local address of the web server and forwards the packet to the web server.",
+          "match": "Step 3"
+        },
+        {
+          "term": "The web server uses the outside global address of the client as the destination address when responding.",
+          "match": "Step 4"
+        },
+        {
+          "term": "R2 receives the packet from the web server. R2 checks the NAT table, then translates the source address of the web server into an inside global address and forwards the packet.",
+          "match": "Step 5"
+        }
+      ],
+      "points": 5,
+      "explanation": "The client only knows the server's public (inside global) address. R2 translates it to the private (inside local) address on the way in. The server replies to the client's real address, and R2 translates the source back to inside global on the way out. The unused option is wrong because the server never knows or uses an \"outside global\" address for itself.",
+      "id": 89
+    },
+    {
+      "type": "mc",
+      "text": "Refer to the exhibit. What is the function of the identified missing information in regards to the parameter and method contained in the request?",
+      "context": "<pre>import requests\n\naccess_token = 'your_token_here'\nurl = 'https://webexapis.com/v1/rooms'\nheaders = {\n    'Authorization': 'Bearer {}'.format(access_token),\n    'Content-Type': 'application/json'\n}\nparams={'title': '__________?________'}\nres = requests.post(url, headers=headers, json=params)\nprint(res.json())</pre>",
+      "options": [
+        "A Webex Teams space will be identified by using a specified title, and additional details will be retrieved.",
+        "It provides the name for a Webex teams space to be deleted.",
+        "A Webex Teams space will be identified and a message will be posted with the title specified.",
+        "It provides the name for a new Webex teams space."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "A <code>POST</code> to <code>/v1/rooms</code> creates a room, and its <code>title</code> parameter is the new space's name. Retrieving would be GET, deleting would be DELETE, and messages go to <code>/v1/messages</code>.",
+      "id": 90
+    },
+    {
+      "type": "mc",
+      "text": "What is an architectural constraint to which a true RESTful API web service must adhere?",
+      "options": [
+        "It must support XML-RPC and JSON-RPC.",
+        "It allows resource caching.",
+        "It should be behind a firewall.",
+        "It operates as a cloud service."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Cacheability is one of the REST constraints (client/server, stateless, cache, uniform interface, layered system, code on demand). XML-RPC and JSON-RPC are a different API style altogether.",
+      "id": 91
+    },
+    {
+      "type": "mc",
+      "text": "A packet is received by a server. The packet has a destination port number of 53. What protocol or service is requested?",
+      "options": [
+        "DNS",
+        "NetBIOS (NetBT)",
+        "POP3",
+        "IMAP"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "DNS uses port 53 (UDP for most queries, TCP for zone transfers and large answers). POP3 is 110, IMAP is 143, and NetBIOS is 137–139.",
+      "id": 92
+    },
+    {
+      "type": "mc",
+      "text": "Which statement accurately describes dynamic NAT?",
+      "options": [
+        "It always maps a private IP address to a public IP address.",
+        "It provides an automated mapping of inside local to inside global IP addresses.",
+        "It provides a mapping of internal host names to IP addresses.",
+        "It dynamically provides IP addressing to internal hosts."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Dynamic NAT maps inside local addresses to inside global addresses from a pool automatically, as traffic needs it. NAT doesn't care whether the addresses are public or private, mapping names is DNS, and handing out addresses is DHCP.",
+      "id": 93
+    },
+    {
+      "type": "mc",
+      "text": "A packet is received by a server. The packet has a destination port number of 830. What protocol or service is requested?",
+      "options": [
+        "NTP",
+        "DHCP",
+        "NETCONF",
+        "HTTPS"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "NETCONF runs over SSH on TCP 830 by default, so you can test it with <code>ssh -p 830 user@device -s netconf</code>.",
+      "id": 94
+    },
+    {
+      "type": "mc",
+      "text": "Which programming language is supported by the Webex xAPI to develop macros for on-device customization?",
+      "options": [
+        "Java",
+        "Python",
+        "JavaScript",
+        "C++"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Webex device macros are written in JavaScript and run on the device itself, using xAPI through the macro framework.",
+      "id": 95
+    },
+    {
+      "type": "mc",
+      "text": "Which Cisco management system is designed as the solution for Software-Defined Networking and runs on Nexus 9000 hardware?",
+      "options": [
+        "Application Centric Infrastructure platform (ACI)",
+        "IOS XE",
+        "Nexus Operating System (NX-OS)",
+        "DNA Center"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "ACI is Cisco's data-center SDN solution, running on Nexus 9000 switches managed by the APIC controller. NX-OS is the switch OS when it isn't running in ACI mode, and DNA Center is the campus/enterprise controller.",
+      "id": 96
+    },
+    {
+      "type": "mc",
+      "text": "A developer issues a Linux command <code>python3 -m venv devenv</code>. What is the developer trying to achieve?",
+      "options": [
+        "to install the devnet tool sets in the Python 3 virtual environment named venv",
+        "to create a Python 3 virtual environment named devenv",
+        "to activate the Python 3 virtual environment named devenv",
+        "to enter the Python 3 virtual environment named venv using the devnet tool sets"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>-m venv</code> runs the <code>venv</code> module, and <code>devenv</code> is the directory it creates. Activating it is a separate step (<code>source devenv/bin/activate</code>).",
+      "id": 97
+    },
+    {
+      "type": "matching",
+      "text": "Refer to the exhibit. Match the missing components of the Python script for the APIC-EM REST API request for the user \"secureuser\". (Not all options are used.)",
+      "context": "<pre>import requests\nimport json\n\nCONTROLLER_IP=\"devnetapi.cisco.com/sandbox/apic_em\"\nGET=\"get\"\nPOST=\"post\"\n\ndef getServiceTicket():\n  ticket=None\n\n  payload = {\"username\":\"___Component1___\",\"password\":\"Cisco123!\"}\n\n  url = \"https://\" + CONTROLLER_IP + \"/api/v1/ticket\"\n\n  header = {\"content-type\": \"application/json\"}\n\n  response= ___Component2___.post(url,data=json.dumps(payload),\n headers=___Component3___, verify=False)\n\n  if(not response):\n      print (\"Data Not Returned!\")\n  else:\n      r_json=response.json()\n      ticket = r_json[\"response\"][\"serviceTicket\"]\n      print (\"ticket: \", ticket)\n  return ticket</pre>",
+      "allChoices": [
+        "secureuser",
+        "requests",
+        "header",
+        "url",
+        "Cisco123!"
+      ],
+      "pairs": [
+        {
+          "term": "Component 1",
+          "match": "secureuser"
+        },
+        {
+          "term": "Component 2",
+          "match": "requests"
+        },
+        {
+          "term": "Component 3",
+          "match": "header"
+        }
+      ],
+      "points": 3,
+      "explanation": "The payload's username is <code>secureuser</code>. The POST is made through the <code>requests</code> library, and the headers argument is the <code>header</code> dict defined just above it. <code>Cisco123!</code> is already filled in as the password, and <code>url</code> is already the first argument.",
+      "id": 98
+    },
+    {
+      "type": "mc",
+      "text": "Two network engineers are discussing the methods used to forward frames through a switch. What is an important concept related to the cut-through method of switching?",
+      "options": [
+        "The fragment-free switching offers the lowest level of latency.",
+        "Fast-forward switching can be viewed as a compromise between store-and-forward switching and fragment-free switching.",
+        "Fragment-free switching is the typical cut-through method of switching.",
+        "Packets can be relayed with errors when fast-forward switching is used."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Fast-forward starts sending as soon as it has read the destination MAC, before the FCS arrives, so frames with errors can get through. Fast-forward is the typical, lowest-latency form of cut-through, and fragment-free (which checks the first 64 bytes) is the compromise. The distractors swap these around.",
+      "id": 99
+    },
+    {
+      "type": "mc",
+      "text": "When thinking about the functional planes of a network, what is unique about the control plane?",
+      "options": [
+        "It forwards data through a network device.",
+        "It manipulates data and outputs it in the XML format.",
+        "It includes the SNMP protocol.",
+        "It includes network traffic being processed by EIGRP or OSPF."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The control plane runs the protocols that build the forwarding tables, such as OSPF, EIGRP and BGP, in software. Forwarding is the data plane, and SNMP belongs to the management plane.",
+      "id": 100
+    },
+    {
+      "type": "msq",
+      "text": "Refer to the exhibit. If PC1 is communicating with a web server on the Internet, which two TCP/IP layers are responsible for encapsulating the message that requests data from that particular server and assigning a source port number? (Choose two.)",
+      "context": "<pre>Internal LANs (PC1) --- core switch --- Firewall --- The Internet --- Web server\n                      |\n                 Server Block</pre>",
+      "options": [
+        "session",
+        "network",
+        "transport",
+        "physical",
+        "application"
+      ],
+      "correctAnswer": [
+        2,
+        4
+      ],
+      "points": 1,
+      "explanation": "The application layer builds the HTTP request itself, and the transport layer wraps it in a TCP segment and picks the source port. \"Session\" is an OSI layer, which doesn't exist in the TCP/IP model, and the network layer deals with IP addresses, not ports.",
+      "id": 101
+    },
+    {
+      "type": "mc",
+      "text": "A network security administrator is evaluating products that automate threat containment through APIs when a threat is detected. Which Cisco product with the desired capability provides a rule-based engine for enabling policy-based network access to users and devices?",
+      "options": [
+        "Identity Services Engine",
+        "Umbrella",
+        "Threat Grid",
+        "Advanced Malware Protection"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "ISE is the rule-based engine for policy-based network access, and its APIs let other tools trigger containment, such as quarantining an endpoint, when a threat is found. Umbrella is DNS-layer security, and Threat Grid and AMP deal with malware.",
+      "id": 102
+    },
+    {
+      "type": "matching",
+      "text": "Match the purpose with its DHCP message type. (Not all options are used.)",
+      "allChoices": [
+        "DHCPDISCOVER",
+        "DHCPOFFER",
+        "DHCPREQUEST",
+        "DHCPACK",
+        "DHCPNAK"
+      ],
+      "pairs": [
+        {
+          "term": "A message that is used to locate any available DHCP server on a network",
+          "match": "DHCPDISCOVER"
+        },
+        {
+          "term": "A message that is used to suggest a lease to a client",
+          "match": "DHCPOFFER"
+        },
+        {
+          "term": "A message that is used to identify the explicit server and lease offer to accept",
+          "match": "DHCPREQUEST"
+        },
+        {
+          "term": "A message that is used to acknowledge that the lease is successful",
+          "match": "DHCPACK"
+        }
+      ],
+      "points": 4,
+      "warning": "Outside Source's matching for this one is scrambled (for example, DHCPREQUEST matched to \"locate any available DHCP server\"). The matches here follow the standard Discover → Offer → Request → Ack order.",
+      "explanation": "DORA: the client broadcasts a <strong>Discover</strong> to find servers, a server replies with an <strong>Offer</strong>, the client sends a <strong>Request</strong> naming the server and offer it's accepting, and the server confirms with an <strong>Ack</strong>. A NAK is a refusal, so it's the unused option.",
+      "id": 103
+    },
+    {
+      "type": "matching",
+      "text": "Refer to the exhibit. Match the missing components to the Meraki API script to complete the following tasks: retrieve the organizations, retrieve the networks and the corresponding id, and retrieve the devices and corresponding device id. (Not all options are used.)",
+      "context": "<pre>import _Component1_\nimport json\n\nmeraki_api_key = \"ac70ec3c4fcd356f60609227a4133c6092b34c1c\"\nurl =  \"https://api.meraki.com/api/v0/organizations\"\nheaders = {\n        \"X-Cisco-Meraki-API-Key\": _Component2_,\n    }\norgs = requests.get(url,headers=headers)\norgs = orgs.json()\nprint(json.dumps(orgs, indent=4))\n\nfor org in orgs:\n    print(org['id'])\n    _Component3_ = \"https://api.meraki.com/api/v0/organizations/\"+org['id']+\"/networks\"\n    networks = requests.get(url,headers=headers)\n    networks = networks.json()\n    print(json.dumps(networks, indent=4))\n    for _Component4_ in networks:\n        print(network['id'])\n        url = \"https://api.meraki.com/api/v0/networks/\"+network['id']+\"/devices\"\n        devices = requests.get(url,headers=headers)\n        devices = devices.json()\n        print(json.dumps(devices, indent=4))\n        for _Component5_ in devices:\n            print(device['serial'])</pre>",
+      "allChoices": [
+        "requests",
+        "meraki_api_key",
+        "url",
+        "network",
+        "device",
+        "serial"
+      ],
+      "pairs": [
+        {
+          "term": "Component 1",
+          "match": "requests"
+        },
+        {
+          "term": "Component 2",
+          "match": "meraki_api_key"
+        },
+        {
+          "term": "Component 3",
+          "match": "url"
+        },
+        {
+          "term": "Component 4",
+          "match": "network"
+        },
+        {
+          "term": "Component 5",
+          "match": "device"
+        }
+      ],
+      "points": 5,
+      "explanation": "The script calls <code>requests.get</code>, so it imports <code>requests</code>. The Meraki key header takes the <code>meraki_api_key</code> variable, and the networks URL is assigned to <code>url</code> (used on the next line). The loop variables match how they're used inside: <code>network['id']</code> and <code>device['serial']</code>. <code>serial</code> is only ever a key, never a variable.",
+      "id": 104
+    },
+    {
+      "type": "mc",
+      "text": "When thinking about the functional planes of a network, what is unique about the management plane?",
+      "options": [
+        "It forwards data based on STP settings.",
+        "It is responsible for the switching of packets in hardware.",
+        "It includes protocols used to monitor network devices.",
+        "It includes applications and protocols used between network devices such as routers."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The management plane handles traffic for managing the device itself, such as SSH and SNMP, including monitoring. Hardware switching is the data plane, and protocols running between routers are the control plane.",
+      "id": 105
+    }
+  ]
+}

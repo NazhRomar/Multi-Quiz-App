@@ -1,0 +1,262 @@
+{
+  "quizTitle": "Module 6 Exam",
+  "questions": [
+    {
+      "type": "mc",
+      "text": "Which technique is used to help mitigate SQL injection attacks?",
+      "options": [
+        "using the same owner or admin account in the web applications to connect to the database",
+        "limiting the read access to specific fields of a table or joins of tables",
+        "using stored procedures with the \"db_owner\" default role",
+        "assigning DBA or admin access rights to the application account"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Least privilege limits the damage a successful injection can do, so restricting read access to just the fields or joins the app needs is a mitigation. The other three options are things the course specifically warns against: a shared owner/admin account, <code>db_owner</code> on stored procedures, and DBA rights for the app account.",
+      "id": 1
+    },
+    {
+      "type": "mc",
+      "text": "Which security device is used to make responses to client requests look like they all come from the same server?",
+      "options": [
+        "stateful firewall",
+        "forward proxy",
+        "reverse proxy",
+        "jump box"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "A reverse proxy sits in front of many servers and makes every response look like it came from one server. A forward proxy is the mirror image: it makes requests from many clients look like they come from one client.",
+      "id": 2
+    },
+    {
+      "type": "mc",
+      "text": "What is a characteristic of a virtual machine running on a PC?",
+      "options": [
+        "A virtual machine needs a physical network adapter to connect to the Internet.",
+        "A virtual machine runs its own operating system.",
+        "The number of virtual machines that can be made available depends on the software resources of the host machine.",
+        "A virtual machine is not susceptible to threats and malicious attacks."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Each VM runs its own guest operating system. It reaches the network through a <em>virtual</em> adapter, how many VMs you can run depends on the host's <em>hardware</em> resources, and VMs are just as exposed to attacks as physical machines.",
+      "id": 3
+    },
+    {
+      "type": "mc",
+      "text": "What is a characteristic of the blue-green upgrade deployment strategy?",
+      "options": [
+        "A new environment is created with the new code in it, while the old environment is held in reserve in case users experience problems.",
+        "The code changes are periodically rolled out in such a way that they do not impact current users.",
+        "The new code is deployed all at once to the old environment. If users experience no issues, it is then moved to the new environment.",
+        "The new code version is first rolled out to a subset of users. Changes can then be rolled back if the users experience any problems."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Blue-green builds a complete new environment with the new code and switches traffic to it, keeping the old one on standby so traffic can be switched back if problems appear. Rolling out to a subset of users first is a canary deployment.",
+      "id": 4
+    },
+    {
+      "type": "matching",
+      "text": "Match the cloud model to its description. (Not all options are used.)",
+      "allChoices": [
+        "edge",
+        "hybrid",
+        "private",
+        "public"
+      ],
+      "pairs": [
+        {
+          "term": "These are clouds that locate computing as close as possible to the user.",
+          "match": "edge"
+        },
+        {
+          "term": "These clouds are made up of two or more clouds. However, each part remains a distinctive and separate object. Both of these are connected using a single architecture.",
+          "match": "hybrid"
+        },
+        {
+          "term": "These are clouds that are intended for a specific organization or entity, such as the government. They can be set up using the private network of an organization.",
+          "match": "private"
+        }
+      ],
+      "points": 3,
+      "explanation": "Edge clouds put compute as close to the user as possible. A hybrid cloud joins two or more clouds that stay separate but are managed through one architecture. A private cloud serves a single organisation. A public cloud, open to anyone, is the unused option.",
+      "id": 5
+    },
+    {
+      "type": "mc",
+      "text": "Which mitigation method is effective against cross-site scripting?",
+      "options": [
+        "requiring multifactor authentication",
+        "consistent hardening of systems and applications",
+        "sanitizing untrusted content",
+        "using only necessary features and secure packages downloaded from official sources and verified with a signature"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "XSS works by getting untrusted content rendered into a page, so the defence is to sanitize or escape that content wherever it's included. MFA and system hardening are good practice but don't stop injected script.",
+      "id": 6
+    },
+    {
+      "type": "matching",
+      "text": "Match the environments in the four-tier development environment structure to the description.",
+      "allChoices": [
+        "production",
+        "testing",
+        "development",
+        "staging"
+      ],
+      "pairs": [
+        {
+          "term": "contains code that has been tested multiple times and is error free",
+          "match": "production"
+        },
+        {
+          "term": "includes automated tools such as Jenkins, CircleCI, or Travis CI, and is often integrated with a version control system",
+          "match": "testing"
+        },
+        {
+          "term": "where coding takes place",
+          "match": "development"
+        },
+        {
+          "term": "structurally as close to the actual production environment as possible",
+          "match": "staging"
+        }
+      ],
+      "points": 4,
+      "explanation": "Code moves development (where it's written) → testing (automated tools like Jenkins, wired to version control) → staging (built to mirror production for final acceptance) → production (tested, error-free code that real users run).",
+      "id": 7
+    },
+    {
+      "type": "mc",
+      "text": "Which attack involves the insertion of malicious code into SQL statements?",
+      "options": [
+        "SQL injection",
+        "cross-site scripting",
+        "brute force",
+        "local file inclusion"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "SQL injection puts malicious SQL into an input that the server-side code then passes to the database without sanitising it. XSS injects script into web pages rather than queries.",
+      "id": 8
+    },
+    {
+      "type": "mc",
+      "text": "In software development, what is the purpose of a jump box?",
+      "options": [
+        "to act as a single trusted machine used to launch connections to sensitive systems",
+        "to make all requests originating from within a network look like they come from the same source IP address",
+        "to filter packets based on Layer 3 and Layer 4 addressing",
+        "to receive incoming requests and forward them to multiple servers"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A jump box is a hardened, trusted host you have to log into first before connecting on to sensitive systems, which gives a single, auditable choke point. The other options describe a forward proxy, a packet filter and a load balancer/reverse proxy.",
+      "id": 9
+    },
+    {
+      "type": "mc",
+      "text": "Which characters are used to separate batched SQL statements?",
+      "options": [
+        "semicolons ;",
+        "colons :",
+        "parentheses ()",
+        "pound signs #"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A batch is two or more SQL statements separated by semicolons. That's also why injected payloads so often contain <code>;</code>, to tack an extra statement onto the end.",
+      "id": 10
+    },
+    {
+      "type": "mc",
+      "text": "What is a philosophy for software deployment used in the field of DevOps?",
+      "options": [
+        "OWASP",
+        "DevNet",
+        "SOAP",
+        "CI/CD"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "CI/CD (continuous integration / continuous delivery or deployment) is the deployment philosophy at the heart of DevOps. OWASP is a security project, SOAP is a messaging protocol, and DevNet is Cisco's developer program.",
+      "id": 11
+    },
+    {
+      "type": "mc",
+      "text": "Which statement is a characteristic of the broken access control threat to web applications?",
+      "options": [
+        "It allows attackers to access, and potentially change, serialized versions of data and objects.",
+        "It allows an attacker to use the dynamic functions of a site to inject malicious content into the page.",
+        "It allows users to circumvent existing authentication requirements.",
+        "It allows attackers to steal sensitive information such as passwords or personal information."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Broken access control lets users get around authentication or authorization checks and reach things they shouldn't. The other options describe insecure deserialization, XSS and sensitive data exposure.",
+      "id": 12
+    },
+    {
+      "type": "mc",
+      "text": "Which technology is used to containerize applications and allows them to run in a variety of environments?",
+      "options": [
+        "Docker",
+        "GitHub",
+        "VirtualBox",
+        "Cisco DNA"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Docker packages an application and everything it needs into a container that runs the same in almost any environment. VirtualBox runs full virtual machines, not containers.",
+      "id": 13
+    },
+    {
+      "type": "matching",
+      "text": "Match the OWASP resource with a description.",
+      "allChoices": [
+        "Cheat Sheet Series",
+        "Dependency Check",
+        "DefectDojo",
+        "ModSecurity Core Rule Set"
+      ],
+      "pairs": [
+        {
+          "term": "explains ways to mitigate command security issues in web applications",
+          "match": "Cheat Sheet Series"
+        },
+        {
+          "term": "looks for known vulnerabilities in code",
+          "match": "Dependency Check"
+        },
+        {
+          "term": "streamlines the code testing process",
+          "match": "DefectDojo"
+        },
+        {
+          "term": "generic attack detection rules used with web application firewalls",
+          "match": "ModSecurity Core Rule Set"
+        }
+      ],
+      "points": 4,
+      "explanation": "OWASP Dependency-Check flags known-vulnerable components, DefectDojo streamlines testing and vulnerability management, the ModSecurity Core Rule Set gives a WAF its generic attack-detection rules, and the Cheat Sheet Series is guidance on mitigating specific issues.",
+      "id": 14
+    },
+    {
+      "type": "mc",
+      "text": "What is used to isolate the different parts of a running container?",
+      "options": [
+        "wrappers",
+        "namespaces",
+        "control groups",
+        "union file systems"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Namespaces give each container its own isolated view of processes, network, mounts and so on. Control groups <em>limit</em> resources (CPU, memory) rather than isolate, and union file systems build the layered image.",
+      "id": 15
+    }
+  ]
+}
