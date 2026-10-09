@@ -60,7 +60,7 @@
       ],
       "correctAnswer": 3,
       "points": 1,
-      "explanation": "Verified by tracing it: concatenation gives <code>['RT1', 'RT2', 'SW1', 'SW2', 'RT3', 'SW3']</code>, and indexing starts at 0, so <code>del hostnames[3]</code> removes the fourth item, <code>'SW2'</code>, leaving <code>['RT1', 'RT2', 'SW1', 'RT3', 'SW3']</code>. Restored the interactive prompts (they had been flattened to a single <code>&gt;</code> per line in the source, likely by the messaging app that carried it)."
+      "explanation": "Verified by tracing it: concatenation gives <code>['RT1', 'RT2', 'SW1', 'SW2', 'RT3', 'SW3']</code>, and indexing starts at 0, so <code>del hostnames[3]</code> removes the fourth item, <code>'SW2'</code>, leaving <code>['RT1', 'RT2', 'SW1', 'RT3', 'SW3']</code>. Restored the interactive prompts (they had been flattened to a single <code>&gt;</code> per line in Outside Source)."
     },
     {
       "id": 5,
@@ -72,7 +72,7 @@
       ],
       "correctAnswer": 0,
       "points": 1,
-      "explanation": "True. Verified: Python lists are zero-indexed, so <code>manifest[0]</code> returns <code>\"part_101\"</code>. The outside source's copy of this question read \"calls <code>manifest</code>\" because the <code>[0]</code> had been stripped out (the same thing happened to <code>text[0] = \"j\"</code> and <code>coordinates[0] = 15.0</code> elsewhere in this sitting). This was previously keyed False; it's been restored and corrected to True, which matches the exam-bank answer key.",
+      "explanation": "True. Verified: Python lists are zero-indexed, so <code>manifest[0]</code> returns <code>\"part_101\"</code>. Outside Source's copy of this question read \"calls <code>manifest</code>\" because the <code>[0]</code> had been stripped out (the same thing happened to <code>text[0] = \"j\"</code> and <code>coordinates[0] = 15.0</code> elsewhere in this sitting). This was previously keyed False; it's been restored and corrected to True, and Outside Source's answer key agrees.",
       "warning": "Outside Source says \"the system calls <code>manifest</code>.\" with the <code>[0]</code> stripped. The real statement is <code>manifest[0]</code>, so the answer is <strong>True</strong>, even though the garbled wording reads like False."
     },
     {
@@ -194,7 +194,7 @@
       ],
       "correctAnswer": 0,
       "points": 1,
-      "explanation": "True. Restored a transcription error from the source (\"init.py\" had lost its leading and trailing double underscores; it should read <code>__init__.py</code>). A directory containing an <code>__init__.py</code> file is what Python recognizes as a package."
+      "explanation": "True. Restored a transcription error from Outside Source (\"init.py\" had lost its leading and trailing double underscores; it should read <code>__init__.py</code>). A directory containing an <code>__init__.py</code> file is what Python recognizes as a package."
     },
     {
       "id": 15,
@@ -280,7 +280,7 @@
       ],
       "correctAnswer": 1,
       "points": 1,
-      "explanation": "<code>mv old_name new_name</code> moves a file to a new name, which is how Linux renames files. <code>cp</code> copies, <code>dd</code> does low-level block copying, and <code>rm</code> deletes. The source showed the last option as <code>r m</code>; the stray space has been removed."
+      "explanation": "<code>mv old_name new_name</code> moves a file to a new name, which is how Linux renames files. <code>cp</code> copies, <code>dd</code> does low-level block copying, and <code>rm</code> deletes. Outside Source showed the last option as <code>r m</code>; the stray space has been removed."
     },
     {
       "id": 21,
@@ -480,7 +480,7 @@
       ],
       "correctAnswer": 1,
       "points": 1,
-      "explanation": "Verified: Python strings are immutable, so item assignment on one raises <code>TypeError: 'str' object does not support item assignment</code>. It doesn't silently convert to a list, produce a new list of characters, or succeed in mutating the string in place — none of those are how Python actually handles this. Corrected a transcription error in the question text (the source read <code>text = \"j\"</code>, a plain reassignment that would run fine; the scenario only makes sense as the indexed assignment <code>text[0] = \"j\"</code>, matching the answer choices).",
+      "explanation": "Verified: Python strings are immutable, so item assignment on one raises <code>TypeError: 'str' object does not support item assignment</code>. It doesn't silently convert to a list, produce a new list of characters, or succeed in mutating the string in place — none of those are how Python actually handles this. Corrected a transcription error in the question text (Outside Source read <code>text = \"j\"</code>, a plain reassignment that would run fine; the scenario only makes sense as the indexed assignment <code>text[0] = \"j\"</code>, matching the answer choices).",
       "warning": "Outside Source says <code>text = \"j\"</code> with the <code>[0]</code> stripped. It's really <code>text[0] = \"j\"</code>, so answer for the immutable-string error."
     },
     {
@@ -592,7 +592,7 @@
       ],
       "correctAnswer": 1,
       "points": 1,
-      "explanation": "False. Verified: it raises <code>TypeError: 'tuple' object does not support item assignment</code>, because tuples are immutable. You would have to build a new tuple instead. The source showed <code>coordinates = 15.0</code> with the <code>[0]</code> stripped out; it's been restored here, matching the exam-bank answer key.",
+      "explanation": "False. Verified: it raises <code>TypeError: 'tuple' object does not support item assignment</code>, because tuples are immutable. You would have to build a new tuple instead. Outside Source showed <code>coordinates = 15.0</code> with the <code>[0]</code> stripped out; it's been restored here, and Outside Source's answer key agrees.",
       "warning": "Outside Source says <code>coordinates = 15.0</code> with the <code>[0]</code> stripped. It's really <code>coordinates[0] = 15.0</code>, so the answer is <strong>False</strong> (tuples can't be changed in place)."
     },
     {
