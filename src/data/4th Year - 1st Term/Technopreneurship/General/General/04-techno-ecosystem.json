@@ -1,0 +1,1225 @@
+{
+  "quizTitle": "Technopreneurship - Module 4: Technopreneurship Ecosystem",
+  "questions": [
+    {
+      "id": 1,
+      "type": "matching",
+      "text": "Match each key component of the technopreneurship ecosystem to what it includes.",
+      "allChoices": [
+        "Researchers and thinkers, developers, marketers, and financiers",
+        "Science parks, incubation centers, universities, R&D centers, and reliable internet access",
+        "IPR offices, technology licensing, and legal services",
+        "Angel investors, venture capitalists, funding agencies, and financial services"
+      ],
+      "pairs": [
+        { "term": "Human Resources (People)", "match": "Researchers and thinkers, developers, marketers, and financiers" },
+        { "term": "Environment (Infrastructure)", "match": "Science parks, incubation centers, universities, R&D centers, and reliable internet access" },
+        { "term": "Laws and Policies (Rules)", "match": "IPR offices, technology licensing, and legal services" },
+        { "term": "Financial Resources (Capital)", "match": "Angel investors, venture capitalists, funding agencies, and financial services" }
+      ],
+      "points": 1,
+      "explanation": "Human Resources are the people (researchers and thinkers who generate ideas, developers who build, marketers who promote, financiers who manage money). Environment is the physical and digital spaces. Laws and Policies protect inventions and guide operations. Financial Resources supply seed money to launch and scale ventures."
+    },
+    {
+      "id": 2,
+      "type": "msq",
+      "text": "Which of the following are listed under the Human Resources (People) component of the ecosystem?",
+      "options": [
+        "Researchers and thinkers who generate new ideas",
+        "Developers who build the technology",
+        "Venture capitalists who fund ventures",
+        "Marketers who promote products",
+        "Financiers who manage money",
+        "Technology licensing offices"
+      ],
+      "correctAnswer": [0, 1, 3, 4],
+      "points": 1,
+      "explanation": "Human Resources includes researchers and thinkers, developers, marketers, and financiers who manage money. Venture capitalists belong to Financial Resources, and technology licensing belongs to Laws and Policies."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "Under which ecosystem component does \"reliable internet access\" fall?",
+      "options": ["Environment (Infrastructure)", "Human Resources (People)", "Laws and Policies (Rules)", "Financial Resources (Capital)"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Environment (Infrastructure) includes physical and digital spaces like science parks, incubation centers, universities, R&D centers, and reliable internet access."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "According to the module, what is the purpose of Support Infrastructures?",
+      "options": [
+        "To replace government regulation of startups",
+        "To buy equity in mature companies",
+        "To help lower entry barriers for early-stage ventures",
+        "To enforce patent and trademark rights in court"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Support Infrastructures help lower entry barriers for early-stage ventures."
+    },
+    {
+      "id": 5,
+      "type": "matching",
+      "text": "Match each support infrastructure to its description.",
+      "allChoices": [
+        "Subsidized office space, shared administrative services, and technical mentorship during early validation stages",
+        "Affordable access to advanced laboratories, industrial testing equipment, and university-grade machinery",
+        "The digital connective tissue of the ecosystem, enabling tracking, matching, and regulatory registration"
+      ],
+      "pairs": [
+        { "term": "Technology Business Incubators (TBIs)", "match": "Subsidized office space, shared administrative services, and technical mentorship during early validation stages" },
+        { "term": "R&D Facilities & Science Parks", "match": "Affordable access to advanced laboratories, industrial testing equipment, and university-grade machinery" },
+        { "term": "Digital Infrastructure Platforms", "match": "The digital connective tissue of the ecosystem, enabling tracking, matching, and regulatory registration" }
+      ],
+      "points": 1,
+      "explanation": "TBIs provide subsidized office space, shared admin services and technical mentorship. R&D Facilities & Science Parks give access to labs, testing equipment and machinery. Digital Infrastructure Platforms serve as the ecosystem's digital connective tissue."
+    },
+    {
+      "id": 6,
+      "type": "msq",
+      "text": "Technology Business Incubators in the Philippines are heavily driven by university partnerships. Which of the following are named as those university partnerships?",
+      "options": ["UST TOMASInno Center", "QBO Innovation Hub", "DLSU Animo Labs", "UP-Enterprise", "Startup Philippines Portal"],
+      "correctAnswer": [0, 2, 3],
+      "points": 1,
+      "explanation": "The university partnerships named are UST TOMASInno Center, DLSU Animo Labs, and UP-Enterprise. QBO Innovation Hub is given as a public-private network, and the Startup Philippines Portal is a digital infrastructure platform."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "The QBO Innovation Hub is given as an example of which kind of incubator network?",
+      "options": ["A university partnership", "A foreign accelerator", "A government grant program", "A public-private network"],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "TBIs are driven by university partnerships alongside public-private networks (QBO Innovation Hub)."
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "R&D Facilities & Science Parks are accelerated through which program's nodes across regional universities?",
+      "options": [
+        "DOST Startup Grant Fund (SGF)",
+        "DOST Science for Change Program (S4CP)",
+        "DTI & DICT Match Funds",
+        "WIPO-IPOPHL Summer School"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "R&D Facilities & Science Parks are accelerated through the DOST Science for Change Program (S4CP) nodes across regional universities."
+    },
+    {
+      "id": 9,
+      "type": "fitb",
+      "text": "The Startup Philippines Portal, a centralized platform where founders, investors, and accelerators register to access national benefits, is found at ___ (web address).",
+      "correctAnswer": "startup.gov.ph",
+      "points": 1,
+      "explanation": "The Startup Philippines Portal is startup.gov.ph, given as the example of a Digital Infrastructure Platform."
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "According to the module, what do Support Programs deliver?",
+      "options": [
+        "Subsidized office space and shared administrative services",
+        "Equity investments in exchange for board seats",
+        "Structured capacity building, non-equity financial runway, and legal framework navigation to scale ventures",
+        "Physical laboratories and industrial testing equipment"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Support Programs deliver structured capacity building, non-equity financial runway, and legal framework navigation to scale ventures."
+    },
+    {
+      "id": 11,
+      "type": "matching",
+      "text": "Match each support program to what it focuses on.",
+      "allChoices": [
+        "Early-stage R&D, prototype enhancement, and solving technical hurdles",
+        "Commercialization, regional market expansion, and business scaling",
+        "Multi-week intensive programs that refine business models and provide investor readiness training",
+        "Focused growth tracks that boost underrepresented founders"
+      ],
+      "pairs": [
+        { "term": "DOST Startup Grant Fund (SGF)", "match": "Early-stage R&D, prototype enhancement, and solving technical hurdles" },
+        { "term": "DTI & DICT Match Funds", "match": "Commercialization, regional market expansion, and business scaling" },
+        { "term": "Structured Mentorship", "match": "Multi-week intensive programs that refine business models and provide investor readiness training" },
+        { "term": "Targeted Inclusivity (e.g., WHWISE)", "match": "Focused growth tracks that boost underrepresented founders" }
+      ],
+      "points": 1,
+      "explanation": "The DOST SGF backs early-stage R&D, prototypes and technical hurdles. DTI & DICT Match Funds focus on commercialization, regional expansion and scaling. Structured Mentorship refines business models, trains for investor readiness and grants access to corporate networks. Targeted Inclusivity tracks like WHWISE boost underrepresented founders."
+    },
+    {
+      "id": 12,
+      "type": "tf",
+      "text": "The DOST Startup Grant Fund and the DTI & DICT Match Funds are forms of equity funding, so the government takes ownership shares in the startup.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "They are listed under Government Grant Programs (Non-Equity Funding)."
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "What does WHWISE stand for?",
+      "options": [
+        "Women Helping Women Innovating Social Enterprises",
+        "Women in High-Tech Working for Innovative Startup Enterprises",
+        "Workforce Hub for Women in Science and Engineering",
+        "Women Helping Women in Startup Ecosystems"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "WHWISE is the Women Helping Women Innovating Social Enterprises program, a Targeted Inclusivity growth track."
+    },
+    {
+      "id": 14,
+      "type": "fitb",
+      "text": "The Innovative Startup Act, the legal foundation providing operational subsidies, travel grants, startup visas, and tax incentives, is Republic Act No. ___.",
+      "correctAnswer": "11337",
+      "points": 1,
+      "explanation": "The Innovative Startup Act is RA 11337."
+    },
+    {
+      "id": 15,
+      "type": "msq",
+      "text": "Which of the following does the Innovative Startup Act (RA 11337) provide, according to the module?",
+      "options": ["Operational subsidies", "Travel grants", "Guaranteed venture capital", "Startup visas", "Tax incentives", "Free office space in every TBI"],
+      "correctAnswer": [0, 1, 3, 4],
+      "points": 1,
+      "explanation": "RA 11337 provides operational subsidies, travel grants, startup visas, and tax incentives."
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "text": "Under Legal & Policy Enablers, what does Intellectual Property (IP) Assistance offer?",
+      "options": [
+        "Free lawyers for every lawsuit",
+        "Automatic copyright certificates for all software",
+        "Exemption from the First-to-File rule",
+        "Fast-tracked patent and trademark filing support to secure core technological assets"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "IP Assistance is fast-tracked patent and trademark filing support to secure core technological assets."
+    },
+    {
+      "id": 17,
+      "type": "matching",
+      "text": "The incubator \"does not just rent out cheap desks.\" Match each quality of a high-value incubator to its description.",
+      "allChoices": [
+        "Direct access to technical experts, alumni founders, IP attorneys, and certified public accountants",
+        "Connections with academic institutions, government agencies, and corporate allies",
+        "A data-driven, agile management team with deep insight into emerging tech trends",
+        "An immersive environment for peer-to-peer learning, cross-disciplinary partnerships, and open innovation"
+      ],
+      "pairs": [
+        { "term": "An Extensive and Elite Mentor Network", "match": "Direct access to technical experts, alumni founders, IP attorneys, and certified public accountants" },
+        { "term": "Deep Institutional and Ecosystem Integration", "match": "Connections with academic institutions, government agencies, and corporate allies" },
+        { "term": "Proactive and Strategic Leadership", "match": "A data-driven, agile management team with deep insight into emerging tech trends" },
+        { "term": "Dynamic and Resource-Rich Culture", "match": "An immersive environment for peer-to-peer learning, cross-disciplinary partnerships, and open innovation" }
+      ],
+      "points": 1,
+      "explanation": "The incubator operates as an active, high-value ecosystem enabler through its mentor network, institutional integration, leadership that goes beyond traditional administrative oversight, and a resource-rich culture."
+    },
+    {
+      "id": 18,
+      "type": "matching",
+      "text": "Under Deep Institutional and Ecosystem Integration, the incubator cultivates connections with three groups. Match each group to what it provides.",
+      "allChoices": ["Research pipelines", "Non-dilutive funding", "Early customer validation"],
+      "pairs": [
+        { "term": "Regional academic institutions", "match": "Research pipelines" },
+        { "term": "Government agencies", "match": "Non-dilutive funding" },
+        { "term": "Corporate allies", "match": "Early customer validation" }
+      ],
+      "points": 1,
+      "explanation": "The incubator connects with regional academic institutions for research pipelines, government agencies for non-dilutive funding, and corporate allies for early customer validation."
+    },
+    {
+      "id": 19,
+      "type": "mc",
+      "text": "According to the module, what dictates the overall success rate of an incubation facility?",
+      "options": [
+        "The size of its office space",
+        "The quality and behavior of the cohort selected for incubation",
+        "The number of government grants it receives",
+        "How many patents its mentors hold"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The quality and behavior of the cohort selected for incubation dictate the overall success rate of the facility."
+    },
+    {
+      "id": 20,
+      "type": "matching",
+      "text": "Match each trait of successful incubatees to its description.",
+      "allChoices": [
+        "Building something people actually want, with clear focus and no administrative busywork",
+        "Testing assumptions rapidly, embracing fast failure, and adjusting the business model from user feedback",
+        "A small, highly adaptive team willing to wear multiple operational hats"
+      ],
+      "pairs": [
+        { "term": "Commitment to Efficient Product Discovery", "match": "Building something people actually want, with clear focus and no administrative busywork" },
+        { "term": "Agility and Openness to Pivoting", "match": "Testing assumptions rapidly, embracing fast failure, and adjusting the business model from user feedback" },
+        { "term": "Hungry, Fully-Dedicated Core Team", "match": "A small, highly adaptive team willing to wear multiple operational hats" }
+      ],
+      "points": 1,
+      "explanation": "Efficient Product Discovery means building something people want while avoiding peripheral distractions. Agility means testing assumptions, embracing fast failure and adjusting from user feedback. A Hungry, Fully-Dedicated Core Team is small, adaptive, and wears multiple hats to push the technology forward."
+    },
+    {
+      "id": 21,
+      "type": "mc",
+      "text": "How large are early startup teams typically, according to the module?",
+      "options": ["1 to 4 people", "5 to 10 people", "10 to 20 people", "At least 25 people"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Early startup teams are small, typically 1 to 4 people."
+    },
+    {
+      "id": 22,
+      "type": "tf",
+      "text": "A successful incubation process requires teams to avoid failure at all costs and keep their original business model unchanged.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Under Agility and Openness to Pivoting, teams must test assumptions rapidly, embrace fast failure, and smoothly adjust their business model based on user feedback."
+    },
+    {
+      "id": 23,
+      "type": "mc",
+      "text": "A successful incubation program tracks clear Key Performance Indicators (KPIs) to monitor its ongoing what?",
+      "options": ["Return on investment (ROI)", "Number of employees", "Social media following", "Patent count"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A successful incubation program tracks clear KPIs to monitor its ongoing return on investment (ROI)."
+    },
+    {
+      "id": 24,
+      "type": "matching",
+      "text": "Match each performance metric to its definition.",
+      "allChoices": [
+        "The predictable, total revenue generated monthly from all active subscriptions",
+        "An annualized projection of current recurring revenue, assuming constant customer volume and pricing",
+        "The proportion of revenue remaining after deducting the direct costs of producing and delivering goods or services",
+        "The total sales and marketing spending required to acquire a single new customer in a period",
+        "The total projected gross profit expected from one customer account over the entire relationship",
+        "Compares the total value derived from a customer against the cost incurred to acquire them"
+      ],
+      "pairs": [
+        { "term": "Monthly Recurring Revenue (MRR)", "match": "The predictable, total revenue generated monthly from all active subscriptions" },
+        { "term": "Annual Run Rate (ARR)", "match": "An annualized projection of current recurring revenue, assuming constant customer volume and pricing" },
+        { "term": "Gross Margin", "match": "The proportion of revenue remaining after deducting the direct costs of producing and delivering goods or services" },
+        { "term": "Customer Acquisition Cost (CAC)", "match": "The total sales and marketing spending required to acquire a single new customer in a period" },
+        { "term": "Customer Lifetime Value (LTV)", "match": "The total projected gross profit expected from one customer account over the entire relationship" },
+        { "term": "LTV to CAC Ratio", "match": "Compares the total value derived from a customer against the cost incurred to acquire them" }
+      ],
+      "points": 2,
+      "explanation": "MRR is monthly revenue from active subscriptions. ARR annualizes recurring revenue. Gross Margin is what remains after COGS. CAC is the sales and marketing cost per new customer. LTV is the projected gross profit over the whole customer relationship. LTV to CAC compares customer value against acquisition cost."
+    },
+    {
+      "id": 25,
+      "type": "matching",
+      "text": "Match each metric to its formula.",
+      "allChoices": [
+        "Total Number of Active Customers × ARPU",
+        "MRR × 12",
+        "[(Total Revenue − COGS) ÷ Total Revenue] × 100",
+        "Total Sales & Marketing Expenses ÷ New Customers Acquired",
+        "ARPU × Customer Lifetime (months) × Gross Margin %",
+        "Total Revenue ÷ Total Active Users"
+      ],
+      "pairs": [
+        { "term": "MRR", "match": "Total Number of Active Customers × ARPU" },
+        { "term": "ARR", "match": "MRR × 12" },
+        { "term": "Gross Margin", "match": "[(Total Revenue − COGS) ÷ Total Revenue] × 100" },
+        { "term": "CAC", "match": "Total Sales & Marketing Expenses ÷ New Customers Acquired" },
+        { "term": "LTV", "match": "ARPU × Customer Lifetime (months) × Gross Margin %" },
+        { "term": "ARPU", "match": "Total Revenue ÷ Total Active Users" }
+      ],
+      "points": 2,
+      "explanation": "These are the formulas as given in the module: MRR = active customers × ARPU, ARR = MRR × 12, Gross Margin = [(Revenue − COGS) ÷ Revenue] × 100, CAC = S&M expenses ÷ new customers, LTV = ARPU × lifetime (months) × Gross Margin %, and ARPU = Total Revenue ÷ Total Active Users."
+    },
+    {
+      "id": 26,
+      "type": "mc",
+      "text": "A startup has 2,000 active customers and an ARPU of ₱500. What is its Monthly Recurring Revenue (MRR)?",
+      "options": ["₱4,000", "₱100,000", "₱1,000,000", "₱12,000,000"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "MRR = Total Number of Active Customers × ARPU = 2,000 × ₱500 = ₱1,000,000."
+    },
+    {
+      "id": 27,
+      "type": "mc",
+      "text": "A startup's MRR is ₱450,000. What is its Annual Run Rate (ARR)?",
+      "options": ["₱37,500", "₱4,500,000", "₱5,400,000", "₱54,000,000"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "ARR = MRR × 12 = ₱450,000 × 12 = ₱5,400,000."
+    },
+    {
+      "id": 28,
+      "type": "mc",
+      "text": "A startup earns ₱800,000 in total revenue, and its cost of goods sold (COGS) is ₱200,000. What is its Gross Margin?",
+      "options": ["25%", "60%", "75%", "400%"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Gross Margin = [(₱800,000 − ₱200,000) ÷ ₱800,000] × 100 = (600,000 ÷ 800,000) × 100 = 75%."
+    },
+    {
+      "id": 29,
+      "type": "mc",
+      "text": "A startup spent ₱600,000 on sales and marketing and acquired 1,500 new customers in the same period. What is its Customer Acquisition Cost (CAC)?",
+      "options": ["₱250", "₱400", "₱2,500", "₱900,000"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "CAC = Total Sales & Marketing Expenses ÷ New Customers Acquired = ₱600,000 ÷ 1,500 = ₱400."
+    },
+    {
+      "id": 30,
+      "type": "mc",
+      "text": "A customer has an ARPU of ₱250 per month, stays for 20 months, and the gross margin is 60%. What is the Customer Lifetime Value (LTV)?",
+      "options": ["₱3,000", "₱5,000", "₱8,333", "₱150"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "LTV = ARPU × Customer Lifetime (months) × Gross Margin % = ₱250 × 20 × 0.60 = ₱3,000."
+    },
+    {
+      "id": 31,
+      "type": "mc",
+      "text": "What is the industry benchmark target for the LTV to CAC ratio?",
+      "options": ["1:1", "2:1", "3:1 or higher", "1:3 or lower"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The industry benchmark is a target ratio of 3:1 or higher."
+    },
+    {
+      "id": 32,
+      "type": "mc",
+      "text": "What does an LTV to CAC ratio of 1:1 signify?",
+      "options": [
+        "The startup is highly profitable",
+        "The startup has reached product-market fit",
+        "Revenue is entirely depleted by acquisition costs",
+        "The startup should cut its gross margin"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "A 1:1 ratio signifies revenue is entirely depleted by acquisition costs."
+    },
+    {
+      "id": 33,
+      "type": "mc",
+      "text": "A startup's LTV is ₱3,000 and its CAC is ₱1,000. How does it compare with the industry benchmark?",
+      "options": [
+        "It falls below the benchmark, at 1:3",
+        "It falls below the benchmark, since only 1:1 is acceptable",
+        "It can't be judged without the ARR",
+        "It meets the benchmark, at exactly 3:1"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "LTV ÷ CAC = ₱3,000 ÷ ₱1,000 = 3:1, which meets the target of 3:1 or higher."
+    },
+    {
+      "id": 34,
+      "type": "mc",
+      "text": "What does ARPU stand for?",
+      "options": [
+        "Annual Revenue Per User",
+        "Average Revenue Per User (Average Revenue Per Unit)",
+        "Average Return Per Upgrade",
+        "Annual Recurring Payment Unit"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "ARPU is Average Revenue Per User (Average Revenue Per Unit), a fundamental unit economics metric for evaluating platform revenue per active customer."
+    },
+    {
+      "id": 35,
+      "type": "msq",
+      "text": "In the BayadPo scenario, what does BayadPo's mobile app allow Sari-Sari stores to do?",
+      "options": [
+        "Order digital inventory",
+        "Accept QR payments",
+        "File their business taxes",
+        "Disburse micro-loans to community members",
+        "Hire delivery riders"
+      ],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "BayadPo is a homegrown tech startup whose app lets Sari-Sari stores across Luzon, Visayas, and Mindanao order digital inventory, accept QR payments, and disburse micro-loans to community members."
+    },
+    {
+      "id": 36,
+      "type": "mc",
+      "text": "In August, BayadPo earned ₱12,500,000 in total revenue from 50,000 monthly active store owners. What is its monthly ARPU?",
+      "options": ["₱25", "₱250", "₱2,500", "₱625,000"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "ARPU = Total Revenue ÷ Total Active Users = ₱12,500,000 ÷ 50,000 = ₱250 / user / month."
+    },
+    {
+      "id": 37,
+      "type": "matching",
+      "text": "Match each reason the ₱250 ARPU is actionable for BayadPo to its point.",
+      "allChoices": [
+        "Philippine tech platforms target sheer volume over high individual prices, so modest per-store revenue still adds up to massive velocity",
+        "Spending more to acquire a store than it returns monthly means the user must stay for months just to pay off ad spend",
+        "New features like micro-insurance or bill payments let current users spend more inside the system"
+      ],
+      "pairs": [
+        { "term": "Validating the Mass-Market Strategy", "match": "Philippine tech platforms target sheer volume over high individual prices, so modest per-store revenue still adds up to massive velocity" },
+        { "term": "Hard Marketing Limits", "match": "Spending more to acquire a store than it returns monthly means the user must stay for months just to pay off ad spend" },
+        { "term": "Cross-Selling Push", "match": "New features like micro-insurance or bill payments let current users spend more inside the system" }
+      ],
+      "points": 1,
+      "explanation": "The mass-market strategy is validated by aggregate scale (₱12.5 Million/month). The ARPU sets hard limits on marketing (CAC). And cross-selling new features raises ARPU without needing millions of new users."
+    },
+    {
+      "id": 38,
+      "type": "mc",
+      "text": "Under \"Hard Marketing Limits,\" why is spending ₱300 to acquire one store dangerous for BayadPo?",
+      "options": [
+        "Because Facebook ads are banned for fintech apps",
+        "Because the store will immediately switch to a competitor",
+        "Because each store only returns ₱250 gross revenue monthly, so the user must stick around for months just to pay off the ad spend",
+        "Because ₱300 is above the legal CAC limit set by RA 11337"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Spending ₱300 to acquire one store is dangerous if they only return ₱250 gross revenue monthly. The user must stick around for months just to pay off ad spend."
+    },
+    {
+      "id": 39,
+      "type": "mc",
+      "text": "Under \"Cross-Selling Push,\" how can BayadPo lift its ARPU from ₱250 to ₱350?",
+      "options": [
+        "By rolling out new features, like integrated micro-insurance or bill payments, so current users spend an extra ₱100/month",
+        "By acquiring millions of new users immediately",
+        "By raising the price of its existing service for all stores",
+        "By cutting its marketing budget to zero"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Management doesn't need millions of new users immediately. Rolling out new features like integrated micro-insurance or bill payments lets current users spend an extra ₱100/month inside the system."
+    },
+    {
+      "id": 40,
+      "type": "matching",
+      "text": "To qualify as a genuine innovation, an idea must satisfy three core pillars. Match each pillar to its requirement.",
+      "allChoices": [
+        "The concept must be new, or applied in a substantially innovative manner within its target context",
+        "The idea must go beyond theory, patents, or preliminary designs to full development, launch, and practical application",
+        "The initiative must generate demonstrable benefits, such as efficiency, lower costs, more revenue, or human well-being"
+      ],
+      "pairs": [
+        { "term": "Novelty", "match": "The concept must be new, or applied in a substantially innovative manner within its target context" },
+        { "term": "Implementation", "match": "The idea must go beyond theory, patents, or preliminary designs to full development, launch, and practical application" },
+        { "term": "Value Creation", "match": "The initiative must generate demonstrable benefits, such as efficiency, lower costs, more revenue, or human well-being" }
+      ],
+      "points": 1,
+      "explanation": "The three core pillars of innovation are Novelty, Implementation, and Value Creation."
+    },
+    {
+      "id": 41,
+      "type": "tf",
+      "text": "An idea that exists only as a patent or a preliminary design already qualifies as a genuine innovation.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Under the Implementation pillar, the idea must transcend theoretical concepts, patents, or preliminary designs, advancing to full development, official launch, and practical application."
+    },
+    {
+      "id": 42,
+      "type": "matching",
+      "text": "Innovation by Business Dimension: match each type to its example.",
+      "allChoices": [
+        "Tesla creating electric vehicles with autonomous driving capabilities",
+        "Amazon using automated Kiva robots in fulfillment centers to pick and pack orders faster",
+        "Spotify shifting music from buying individual albums to an all-you-can-listen monthly subscription"
+      ],
+      "pairs": [
+        { "term": "Product/Service Innovation", "match": "Tesla creating electric vehicles with autonomous driving capabilities" },
+        { "term": "Process Innovation", "match": "Amazon using automated Kiva robots in fulfillment centers to pick and pack orders faster" },
+        { "term": "Business Model Innovation", "match": "Spotify shifting music from buying individual albums to an all-you-can-listen monthly subscription" }
+      ],
+      "points": 1,
+      "explanation": "Product/Service Innovation introduces a new or significantly improved good or service (Tesla). Process Innovation changes how a product is made, delivered, or supported (Amazon's Kiva robots). Business Model Innovation re-engineers how a company creates, delivers, and captures value (Spotify's subscription)."
+    },
+    {
+      "id": 43,
+      "type": "mc",
+      "text": "A company changes its pricing structure and target demographic to change how it creates, delivers, and captures value. Which type of innovation is this?",
+      "options": ["Product/Service Innovation", "Process Innovation", "Incremental Innovation", "Business Model Innovation"],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Business Model Innovation is re-engineering how a company creates, delivers, and captures value, such as changing pricing structure or target demographic."
+    },
+    {
+      "id": 44,
+      "type": "mc",
+      "text": "Who coined the \"By Market Impact\" classification of innovation (Sustaining vs. Disruptive)?",
+      "options": ["Thomas Robertson", "Clayton Christensen", "Rebecca Henderson and Kim Clark", "Peter Drucker"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Innovation by Market Impact was coined by Clayton Christensen, looking at how innovation alters the competitive landscape."
+    },
+    {
+      "id": 45,
+      "type": "mc",
+      "text": "A razor company adds a 5th blade or a lubricating strip to an existing razor line. Which type of innovation is this?",
+      "options": ["Sustaining Innovation", "Disruptive Innovation", "Radical Innovation", "Discontinuous Innovation"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Sustaining Innovation caters to high-end customers in existing markets by making good products better, strictly following the established rules of the industry."
+    },
+    {
+      "id": 46,
+      "type": "mc",
+      "text": "Which statement describes Disruptive Innovation?",
+      "options": [
+        "It makes good products better for high-end customers in existing markets",
+        "It makes minor modifications to existing components while keeping the architecture intact",
+        "It introduces a simpler, more affordable, or convenient alternative, starting with low-end or unserved customers before moving upmarket and displacing industry leaders",
+        "It strictly follows the established rules of the industry"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Disruptive Innovation introduces a simpler, more affordable, or convenient alternative, targeting low-end or unserved customers first. The module's example is digital photography apps and smartphone cameras eliminating consumer film cameras (Kodak)."
+    },
+    {
+      "id": 47,
+      "type": "matching",
+      "text": "Henderson-Clark Model: match each type of innovation to its definition.",
+      "allChoices": [
+        "Minor modifications to existing components while keeping the established architecture intact",
+        "Complete replacement of a core component while preserving the overall system structure",
+        "Reconfigures linkages and relationships among unchanged individual components",
+        "Comprehensive overhaul of both core components and architectural connections"
+      ],
+      "pairs": [
+        { "term": "Incremental Innovation", "match": "Minor modifications to existing components while keeping the established architecture intact" },
+        { "term": "Modular Innovation", "match": "Complete replacement of a core component while preserving the overall system structure" },
+        { "term": "Architectural Innovation", "match": "Reconfigures linkages and relationships among unchanged individual components" },
+        { "term": "Radical Innovation", "match": "Comprehensive overhaul of both core components and architectural connections" }
+      ],
+      "points": 1,
+      "explanation": "The Henderson-Clark Model (By Tech vs. Market Nuance) examines how innovation impacts core components versus the overarching system architecture."
+    },
+    {
+      "id": 48,
+      "type": "matching",
+      "text": "Henderson-Clark Model: match each example to its type of innovation.",
+      "allChoices": ["Incremental Innovation", "Modular Innovation", "Architectural Innovation", "Radical Innovation"],
+      "pairs": [
+        { "term": "Integrating a faster microchip into an existing smartphone model", "match": "Incremental Innovation" },
+        { "term": "Replacing a gas engine with an electric motor inside an existing car frame", "match": "Modular Innovation" },
+        { "term": "Reorganizing standard computing hardware into a cloud server architecture", "match": "Architectural Innovation" },
+        { "term": "The shift from mechanical typewriters to digital word processing systems", "match": "Radical Innovation" }
+      ],
+      "points": 1,
+      "explanation": "Faster microchip: Incremental. Gas engine to electric motor in the same frame: Modular. Standard hardware reorganized into cloud architecture: Architectural. Typewriters to digital word processing: Radical."
+    },
+    {
+      "id": 49,
+      "type": "mc",
+      "text": "The New Products Classification from the Consumer's Viewpoint was proposed by whom?",
+      "options": ["Clayton Christensen", "Henderson and Clark", "Anthony Levandowski", "Thomas Robertson"],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The Consumer's Viewpoint classification (Continuous, Dynamically Continuous, Discontinuous) was proposed by Thomas Robertson."
+    },
+    {
+      "id": 50,
+      "type": "matching",
+      "text": "Robertson's classification: match each type of new product to its level and customer impact.",
+      "allChoices": [
+        "Most common; Zero Behavioral Friction",
+        "Moderate disruption; Low-to-Moderate Learning Curve",
+        "Rarest and high impact; Massive Learning Curve"
+      ],
+      "pairs": [
+        { "term": "Continuous Innovation", "match": "Most common; Zero Behavioral Friction" },
+        { "term": "Dynamically Continuous Innovation", "match": "Moderate disruption; Low-to-Moderate Learning Curve" },
+        { "term": "Discontinuous Innovation", "match": "Rarest and high impact; Massive Learning Curve" }
+      ],
+      "points": 1,
+      "explanation": "Continuous Innovation is the most common, with zero behavioral friction. Dynamically Continuous involves moderate disruption and a low-to-moderate learning curve. Discontinuous is the rarest and highest impact, with a massive learning curve."
+    },
+    {
+      "id": 51,
+      "type": "matching",
+      "text": "Robertson's classification: match each example to its type of new product.",
+      "allChoices": ["Continuous Innovation", "Dynamically Continuous Innovation", "Discontinuous Innovation"],
+      "pairs": [
+        { "term": "The iPhone 17 Pro replacing the iPhone 16 Pro", "match": "Continuous Innovation" },
+        { "term": "A laundry detergent adding a \"lemon fresh\" scent option", "match": "Continuous Innovation" },
+        { "term": "Switching from keys to a smart fingerprint door lock", "match": "Dynamically Continuous Innovation" },
+        { "term": "Migrating from standard cable TV to streaming apps", "match": "Dynamically Continuous Innovation" },
+        { "term": "The personal computer (replacing typewriters)", "match": "Discontinuous Innovation" },
+        { "term": "The birth of commercial internet browsers", "match": "Discontinuous Innovation" }
+      ],
+      "points": 2,
+      "explanation": "Continuous examples: a new soft drink flavor, the iPhone 17 Pro replacing the 16 Pro, a lemon-fresh detergent. Dynamically Continuous: manual to electric sonic toothbrushes, keys to fingerprint locks, cable TV to streaming. Discontinuous: the automobile (replacing horses), the personal computer (replacing typewriters), commercial internet browsers."
+    },
+    {
+      "id": 52,
+      "type": "mc",
+      "text": "Which type of new product requires extensive customer education because it introduces a brand-new concept, technology, and habit?",
+      "options": ["Continuous Innovation", "Discontinuous Innovation", "Dynamically Continuous Innovation", "Sustaining Innovation"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Discontinuous Innovation creates severe disruption, completely overhauls consumer behavior, and requires extensive customer education."
+    },
+    {
+      "id": 53,
+      "type": "tf",
+      "text": "In Dynamically Continuous Innovation, the core utility or purpose stays familiar, but the technology, method, or design forces users to slightly adapt their behavior.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Dynamically Continuous Innovation involves moderate disruption: users must adapt to a new mechanism to achieve a familiar goal."
+    },
+    {
+      "id": 54,
+      "type": "mc",
+      "text": "How does the module define Seed Money (Seed Capital)?",
+      "options": [
+        "The final round of funding before a company goes public",
+        "A government grant that never has to be repaid",
+        "The earliest stage of institutional funding a startup raises to move from a conceptual product to a validated business model",
+        "Personal savings the founders put in before registering the business"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Seed money is the earliest stage of institutional funding that a startup raises to transition from a conceptual product to a validated business model."
+    },
+    {
+      "id": 55,
+      "type": "mc",
+      "text": "What is the average capital raised in a seed round, according to the module?",
+      "options": ["$5,000 to $50,000", "$50,000 to $250,000", "$500,000 to $3,000,000+", "$10,000,000 to $50,000,000"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The average seed capital raised is $500,000 to $3,000,000+. High-technology sectors, such as generative artificial intelligence, may secure substantially larger seed rounds."
+    },
+    {
+      "id": 56,
+      "type": "matching",
+      "text": "Seed capital is commonly structured through investor-friendly instruments. Match each instrument to its description.",
+      "allChoices": [
+        "An investor provides capital in exchange for the right to acquire equity during a later priced financing round",
+        "Short-term debt instruments that automatically convert into equity at the next major financing round"
+      ],
+      "pairs": [
+        { "term": "SAFE (Simple Agreement for Future Equity)", "match": "An investor provides capital in exchange for the right to acquire equity during a later priced financing round" },
+        { "term": "Convertible Notes", "match": "Short-term debt instruments that automatically convert into equity at the next major financing round" }
+      ],
+      "points": 1,
+      "explanation": "A SAFE gives the investor the right to acquire equity in a subsequent priced round. Convertible Notes are short-term debt that converts into equity at the next major financing round."
+    },
+    {
+      "id": 57,
+      "type": "tf",
+      "text": "Seed capital is most commonly distributed as direct cash in exchange for common stock.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Seed capital is infrequently distributed as direct cash for common stock. It is commonly structured through flexible instruments like SAFEs and Convertible Notes."
+    },
+    {
+      "id": 58,
+      "type": "msq",
+      "text": "Capital raised during the seed stage is targeted toward which key milestones?",
+      "options": [
+        "Core Team: establishing a core leadership and engineering team",
+        "Product-Market Fit: achieving validated PMF",
+        "Initial Scaling: scaling engineering and marketing to acquire initial paying customers",
+        "Paying dividends to early investors",
+        "Listing the company on the stock exchange"
+      ],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "The primary usage of seed capital is the Core Team, Product-Market Fit (PMF), and Initial Scaling."
+    },
+    {
+      "id": 59,
+      "type": "matching",
+      "text": "Match each type of intellectual property to what it protects in tech.",
+      "allChoices": [
+        "Functional inventions, hardware designs, novel processes, or software architectures that produce a tangible technical result",
+        "The expression of an idea, not the idea itself",
+        "Brand identity, logos, business names, and distinct phrases",
+        "Confidential business information that provides a competitive edge"
+      ],
+      "pairs": [
+        { "term": "Patents", "match": "Functional inventions, hardware designs, novel processes, or software architectures that produce a tangible technical result" },
+        { "term": "Copyrights", "match": "The expression of an idea, not the idea itself" },
+        { "term": "Trademarks", "match": "Brand identity, logos, business names, and distinct phrases" },
+        { "term": "Trade Secrets", "match": "Confidential business information that provides a competitive edge" }
+      ],
+      "points": 1,
+      "explanation": "Patents protect functional inventions. Copyrights protect the expression of an idea. Trademarks protect brand identity. Trade Secrets protect confidential business information."
+    },
+    {
+      "id": 60,
+      "type": "mc",
+      "text": "According to the module, how do patents apply to software?",
+      "options": [
+        "Software code itself is generally not patentable in most jurisdictions; patents protect the system architecture, logic flow, or data processing method",
+        "Software code itself is always patentable",
+        "Software can only be protected as a trade secret",
+        "Software is protected by trademarks"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Software code itself is generally not patentable in most jurisdictions. Instead, patents protect the system architecture, logic flow, or data processing method."
+    },
+    {
+      "id": 61,
+      "type": "mc",
+      "text": "Which type of IP is the primary legal mechanism protecting your software source code, UI visuals, marketing content, and internal documentation?",
+      "options": ["Patents", "Trademarks", "Utility Models", "Copyrights"],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Copyright is the primary legal mechanism protecting software source code, user interface (UI) visuals, marketing content, and internal documentation."
+    },
+    {
+      "id": 62,
+      "type": "msq",
+      "text": "Which of the following are given as examples of trade secrets?",
+      "options": [
+        "Source code repositories",
+        "Mathematical algorithm weights",
+        "The app's name and logo",
+        "Unpatented backend processes",
+        "Customer databases",
+        "Marketing content"
+      ],
+      "correctAnswer": [0, 1, 3, 4],
+      "points": 1,
+      "explanation": "The trade secret examples are source code repositories, mathematical algorithm weights, unpatented backend processes, and customer databases. The app name and logo are trademarks, and marketing content is covered by copyright."
+    },
+    {
+      "id": 63,
+      "type": "mc",
+      "text": "How are trade secrets protected, according to the module?",
+      "options": [
+        "By registering them with IPOPHL",
+        "Through operational cybersecurity and mandatory legal contracts (NDAs)",
+        "Automatically, the moment they are written down",
+        "By filing a utility model"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Trade secrets are protected through operational cybersecurity and mandatory legal contracts (NDAs)."
+    },
+    {
+      "id": 64,
+      "type": "mc",
+      "text": "Under the Startup Strategy Rule of Thumb, what should the primary IP tools be for a standard application like a regular e-commerce delivery app?",
+      "options": ["Copyright and Trademarks", "Patents and trade secrets", "Utility models only", "No IP protection is needed"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "For standard applications, Copyright and Trademarks are your primary tools to secure your code, custom visuals, and marketplace identity without excessive legal overhead."
+    },
+    {
+      "id": 65,
+      "type": "mc",
+      "text": "Under the Startup Strategy Rule of Thumb, when should a startup take the long, expensive path of patent filing?",
+      "options": [
+        "Always, before launching any app",
+        "Only when protecting a logo or app name",
+        "Only for deep-tech innovations, such as advanced AI model architectures or hardware integrations",
+        "Only after the app reaches 1 million users"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The patent filing path is reserved strictly for deep-tech innovations, such as advanced AI model architectures or hardware integrations, when your software contains highly complex, breakthrough processing mechanics."
+    },
+    {
+      "id": 66,
+      "type": "matching",
+      "text": "Match each crucial IP risk for tech startups to its description.",
+      "allChoices": [
+        "IP rights go to whoever files first, not who invented first, so delaying registration lets competitors claim your architecture",
+        "Showcasing a prototype at a hackathon, pitch competition, or demo day before filing can permanently destroy patent novelty",
+        "Using open-source libraries without checking their licenses can force your entire proprietary suite to become open-source"
+      ],
+      "pairs": [
+        { "term": "The \"First-to-File\" Rule", "match": "IP rights go to whoever files first, not who invented first, so delaying registration lets competitors claim your architecture" },
+        { "term": "Public Disclosure Traps", "match": "Showcasing a prototype at a hackathon, pitch competition, or demo day before filing can permanently destroy patent novelty" },
+        { "term": "Third-Party Code Liability", "match": "Using open-source libraries without checking their licenses can force your entire proprietary suite to become open-source" }
+      ],
+      "points": 1,
+      "explanation": "The three crucial IP risks are the First-to-File Rule, Public Disclosure Traps, and Third-Party Code Liability (e.g., GPL or MIT licenses)."
+    },
+    {
+      "id": 67,
+      "type": "tf",
+      "text": "In the Philippines, patents and trademarks are granted to whoever invented first, regardless of who files first.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "In the Philippines and most international jurisdictions, IP rights (especially patents and trademarks) are granted to the person or entity that files first, not who invented first."
+    },
+    {
+      "id": 68,
+      "type": "mc",
+      "text": "Which office processes all local IP filings, trademark registrations, and patent reviews in the Philippines?",
+      "options": [
+        "Department of Science and Technology (DOST)",
+        "Securities and Exchange Commission (SEC)",
+        "Department of Trade and Industry (DTI)",
+        "Intellectual Property Office of the Philippines (IPOPHL)"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The Central Authority is IPOPHL, the primary regulatory office governing all IP rights, registrations, and enforcement across the country."
+    },
+    {
+      "id": 69,
+      "type": "fitb",
+      "text": "University tech built with public grants (e.g., DOST) is governed by the Philippine Technology Transfer Act of 2009, Republic Act No. ___.",
+      "correctAnswer": "10055",
+      "points": 1,
+      "explanation": "Academic spinoffs built with public grants are governed by the Philippine Tech Transfer Act of 2009 (RA 10055)."
+    },
+    {
+      "id": 70,
+      "type": "mc",
+      "text": "Before raising private VC investment, founders of an academic spinoff must clear ownership with which office?",
+      "options": [
+        "The Securities and Exchange Commission",
+        "The university's Technology Licensing Office (TLO) or Innovation and Technology Support Office (ITSO)",
+        "The university registrar",
+        "The Philippine Dispute Resolution Center (PDRCI)"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Academic spinoffs must clear ownership with the university's TLO or ITSO prior to raising private VC investment."
+    },
+    {
+      "id": 71,
+      "type": "msq",
+      "text": "Which ecosystem programs does the module name for founders to access subsidized education and legal assistance on securing digital assets?",
+      "options": ["WIPO-IPOPHL Summer School", "IP Management Clinic", "DOST Startup Grant Fund", "WHWISE"],
+      "correctAnswer": [0, 1],
+      "points": 1,
+      "explanation": "Founders can leverage programs like the WIPO-IPOPHL Summer School and the IP Management Clinic."
+    },
+    {
+      "id": 72,
+      "type": "matching",
+      "text": "Match each UST IP and innovation unit to its description.",
+      "allChoices": [
+        "The university's localized IP unit and official patent library, established in 2009",
+        "The official Technology Business Incubator (TBI), established in 2019 with DOST-PCIEERD support",
+        "A dedicated facility for deep-tech and large-scale industrial collaborations outside Manila"
+      ],
+      "pairs": [
+        { "term": "UST-ITSO", "match": "The university's localized IP unit and official patent library, established in 2009" },
+        { "term": "TOMASInno Center", "match": "The official Technology Business Incubator (TBI), established in 2019 with DOST-PCIEERD support" },
+        { "term": "UST-TTCIC", "match": "A dedicated facility for deep-tech and large-scale industrial collaborations outside Manila" }
+      ],
+      "points": 1,
+      "explanation": "UST-ITSO is the IP unit and patent library (2009). TOMASInno Center is the official TBI (2019, DOST-PCIEERD). UST-TTCIC handles deep-tech and industrial collaborations at the Santa Rosa campus."
+    },
+    {
+      "id": 73,
+      "type": "mc",
+      "text": "Where is the UST-TTCIC located, and who is it named after?",
+      "options": [
+        "Blessed Pier Giorgio Frassati, O.P. Building along España Blvd.; named after a Dominican priest",
+        "UST Main Building in Manila; named after the university founder",
+        "UST Santa Rosa Campus in Laguna; named after alumnus Dr. Tony Tan Caktiong",
+        "UST Legazpi Campus; named after a DOST secretary"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "UST-TTCIC is at the UST Santa Rosa Campus in Laguna, named after alumnus Dr. Tony Tan Caktiong. The Frassati Building along España Blvd. houses the TOMASInno Center."
+    },
+    {
+      "id": 74,
+      "type": "msq",
+      "text": "Which of the following does the TOMASInno Center provide or host?",
+      "options": [
+        "Coworking spaces",
+        "Prototyping labs",
+        "Pitch coaching",
+        "Events like Hackathom/Innovathom for MVPs",
+        "Official patent drafting and commercial licensing"
+      ],
+      "correctAnswer": [0, 1, 2, 3],
+      "points": 1,
+      "explanation": "TOMASInno Center provides coworking spaces, prototyping labs, pitch coaching, and hosts events like Hackathom/Innovathom for MVPs. Patent drafting, IP evaluation, and commercial licensing are handled by UST-ITSO."
+    },
+    {
+      "id": 75,
+      "type": "mc",
+      "text": "UST-ITSO's commercialization work (patent drafting, IP evaluation, and commercial licensing) is funded by what?",
+      "options": ["The DOST-PCIEERD IMPACT grant", "The DOST Startup Grant Fund", "DTI & DICT Match Funds", "Private venture capital"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "UST-ITSO's commercialization is funded by the DOST-PCIEERD IMPACT grant."
+    },
+    {
+      "id": 76,
+      "type": "matching",
+      "text": "Match each IPR case to the lesson it highlights.",
+      "allChoices": [
+        "The extreme risk of trade secret theft during employee transitions",
+        "Defending proprietary infrastructure against powerful market incumbents",
+        "Employee IP assignment and code locks",
+        "Hardware vulnerability and Utility Model protection in fintech",
+        "Software commercialization, sales liability, and copyright law",
+        "Partner-vs-partner app disputes and the need for early legal clarity"
+      ],
+      "pairs": [
+        { "term": "Waymo vs. Uber & Anthony Levandowski", "match": "The extreme risk of trade secret theft during employee transitions" },
+        { "term": "Centripetal Networks vs. Cisco", "match": "Defending proprietary infrastructure against powerful market incumbents" },
+        { "term": "JGC Philippines vs. Sillano", "match": "Employee IP assignment and code locks" },
+        { "term": "MEPS vs. BTI and ETAP", "match": "Hardware vulnerability and Utility Model protection in fintech" },
+        { "term": "NBI-Microsoft vs. Beltron Computer", "match": "Software commercialization, sales liability, and copyright law" },
+        { "term": "Winklevoss v. Zuckerberg", "match": "Partner-vs-partner app disputes and the need for early legal clarity" }
+      ],
+      "points": 2,
+      "explanation": "Waymo vs. Uber: trade secret theft during employee transitions. Centripetal vs. Cisco: startup vs. legacy giant. JGC vs. Sillano: the software lockout case. MEPS vs. BTI and ETAP: the automated payment machine clone. NBI-Microsoft vs. Beltron: software distribution and copyright. Winklevoss v. Zuckerberg: the Facebook precedent."
+    },
+    {
+      "id": 77,
+      "type": "mc",
+      "text": "In Waymo vs. Uber, what did Anthony Levandowski take before resigning from Google's Waymo?",
+      "options": [
+        "About 100 printed blueprints",
+        "Waymo's customer database",
+        "The source code of Google Maps",
+        "14,000+ confidential design files (10 GB)"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Levandowski downloaded 14,000+ confidential design files (10 GB) before resigning. He launched Otto, which Uber acquired for $680M."
+    },
+    {
+      "id": 78,
+      "type": "matching",
+      "text": "Waymo vs. Uber: match each detail to its figure.",
+      "allChoices": ["$680M", "$245M in equity", "18 months in prison", "10 GB"],
+      "pairs": [
+        { "term": "Price Uber paid to acquire Otto", "match": "$680M" },
+        { "term": "Uber's mid-trial settlement to Waymo (2018)", "match": "$245M in equity" },
+        { "term": "Levandowski's criminal sentence for trade secret theft", "match": "18 months in prison" },
+        { "term": "Size of the trade secrets extracted", "match": "10 GB" }
+      ],
+      "points": 1,
+      "explanation": "Uber acquired Otto for $680M. In 2018 Uber settled mid-trial by transferring $245M in equity and agreeing not to use Waymo's LiDAR tech. Levandowski was sentenced to 18 months in prison (later pardoned) and filed for bankruptcy. He had extracted 10 GB of trade secrets."
+    },
+    {
+      "id": 79,
+      "type": "mc",
+      "text": "In Centripetal Networks vs. Cisco, under what protection did Centripetal pitch its proprietary technology to Cisco?",
+      "options": [
+        "A registered trademark",
+        "A Non-Disclosure Agreement (NDA)",
+        "A SAFE agreement",
+        "An IP Assignment Waiver"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Centripetal pitched its proprietary network threat intelligence systems to Cisco during preliminary partnership meetings under an NDA. Cisco then integrated the exact technical methodology into its own security architectures."
+    },
+    {
+      "id": 80,
+      "type": "mc",
+      "text": "How much did a federal judge initially order Cisco to pay Centripetal Networks?",
+      "options": ["$65 million", "$245 million", "$680 million", "$1.9 billion"],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "A federal judge initially ordered Cisco to pay $1.9 billion in damages, one of the largest patent payouts in history. The case remains in ongoing appeals due to legal technicalities."
+    },
+    {
+      "id": 81,
+      "type": "mc",
+      "text": "In JGC Philippines vs. Sillano (2024), what did the Supreme Court rule?",
+      "options": [
+        "Builders cannot sabotage or lock an enterprise out of code built during employment, so JGC's suspension was upheld",
+        "Sillano owned the software because he wrote it",
+        "JGC had to pay Sillano royalties for the software",
+        "The software became public domain"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The Supreme Court (2024) upheld JGC's suspension. Builders cannot sabotage or lock an enterprise out of code built during employment. A code lockout constitutes illegal sabotage."
+    },
+    {
+      "id": 82,
+      "type": "mc",
+      "text": "What startup action does the JGC Philippines vs. Sillano case recommend?",
+      "options": [
+        "Only hire developers as freelancers",
+        "Register all source code as a trademark",
+        "Implement Day-1 Proprietary Information and Inventions Agreements (PIIAs) for all developers",
+        "Never let developers have admin access"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The startup action is to implement Day-1 Proprietary Information and Inventions Agreements (PIIAs) for all developers."
+    },
+    {
+      "id": 83,
+      "type": "mc",
+      "text": "In MEPS vs. BTI and ETAP, which body ruled in MEPS's favor, and how much was BTI directed to pay?",
+      "options": [
+        "The Supreme Court; ₱245M",
+        "IPOPHL; ₱1.9B",
+        "The Court of Appeals; ₱65M",
+        "The Philippine Dispute Resolution Center (PDRCI); ₱5.3M in damages"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "MEPS, creator of TouchPay kiosks, sued under registered Utility Model rights over BTI's \"Pay&Go\" clones made by ETAP. The Philippine Dispute Resolution Center (PDRCI) ruled in MEPS's favor in a 2022 arbitral award and directed BTI to pay ₱5.3M in damages."
+    },
+    {
+      "id": 84,
+      "type": "mc",
+      "text": "What is the takeaway from MEPS vs. BTI and ETAP for hardware and IoT startups?",
+      "options": [
+        "Hardware can't be protected, so focus on software",
+        "Early registration of Utility Models or Patents provides enforceable market defense against rapid copying",
+        "Keep all hardware designs as trade secrets only",
+        "Rely on copyright alone for physical devices"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Hardware and IoT startups face rapid copying. Early registration of Utility Models or Patents (an IPOPHL filing) provides enforceable market defense."
+    },
+    {
+      "id": 85,
+      "type": "mc",
+      "text": "In NBI-Microsoft Corporation vs. Beltron Computer (G.R. No. 147043), what did the Supreme Court rule?",
+      "options": [
+        "Selling hardware with pre-loaded software is not infringement unless the vendor is caught burning the copies",
+        "Microsoft had no copyright over pre-installed software",
+        "Unauthorized distribution and commercial sale on its own constitutes copyright infringement",
+        "The Court of Appeals' decision was upheld in full"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The Supreme Court reversed the CA, ruling that unauthorized distribution and commercial sale on its own constitutes copyright infringement. There is no need to catch the vendor writing or burning code."
+    },
+    {
+      "id": 86,
+      "type": "mc",
+      "text": "What is the technopreneur takeaway from NBI-Microsoft vs. Beltron Computer for SaaS and app ventures?",
+      "options": [
+        "Your EULA and distribution loops must explicitly set licensing limits to avoid direct liability when bundling software",
+        "Avoid bundling any third-party software",
+        "Only sell software on CD-ROMs",
+        "Copyright only applies to hardware vendors"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "For SaaS and app ventures, your EULA and distribution loops must explicitly set licensing limits, and you must ensure valid commercial authorization (a master license) for third-party tech."
+    },
+    {
+      "id": 87,
+      "type": "mc",
+      "text": "How did Zuckerberg settle the dispute with the Winklevoss twins?",
+      "options": [
+        "By giving them co-founder titles",
+        "By shutting down TheFacebook",
+        "By paying $1.9 billion in damages",
+        "By paying them $65 million in cash and Facebook stock"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Zuckerberg settled by paying the Winklevoss twins $65 million in cash and Facebook stock. Because the original partnership boundaries over HarvardConnection were vague, a massive legal battle ensued."
+    },
+    {
+      "id": 88,
+      "type": "mc",
+      "text": "What is the startup takeaway from Winklevoss v. Zuckerberg?",
+      "options": [
+        "Never partner with classmates",
+        "Define co-founder IP assignment and equity from Day 1",
+        "Always patent social media features",
+        "Launch before your partners do"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The vulnerability was a vague initial agreement and informal partnership terms. The takeaway: define co-founder IP assignment and equity from Day 1."
+    },
+    {
+      "id": 89,
+      "type": "tf",
+      "text": "Under the IPOPHL Intellectual Property Code, copyright on a capstone paper and its source code is automatic the moment it is written or saved, with no official certificate needed to prove authorship.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Copyright protection is automatic the moment your group writes the paper or saves code to a drive. No official certificate is required to prove authorship."
+    },
+    {
+      "id": 90,
+      "type": "mc",
+      "text": "If a capstone group built a physical device or specialized hardware prototype, how is its underlying function protected?",
+      "options": [
+        "It requires a formal patent or utility model filing",
+        "Automatically, through copyright",
+        "Through the university's CHED accreditation",
+        "Automatically, once the capstone is defended"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The underlying function of a physical device, hardware prototype, or advanced process is not automatically protected. It requires a formal patent or utility model filing and is highly vulnerable to replication if disclosed early."
+    },
+    {
+      "id": 91,
+      "type": "matching",
+      "text": "Match each trigger for shifting from an \"academic mindset\" to an \"IPR filing mindset\" to its description.",
+      "allChoices": [
+        "Planning to commercialize after graduation, so you should file before any public showcase",
+        "Presenting at innovation fairs, institutional repositories, or open hackathons, which destroys novelty",
+        "Using major campus labs, which requires IP review through the university's ITSO"
+      ],
+      "pairs": [
+        { "term": "Startup Ambitions", "match": "Planning to commercialize after graduation, so you should file before any public showcase" },
+        { "term": "Public Disclosure", "match": "Presenting at innovation fairs, institutional repositories, or open hackathons, which destroys novelty" },
+        { "term": "University Policy", "match": "Using major campus labs, which requires IP review through the university's ITSO" }
+      ],
+      "points": 1,
+      "explanation": "Startup Ambitions: file the patent prior to public defense, since the Philippines follows a strict First-to-File system. Public Disclosure: review IP status before external events. University Policy: projects using major campus labs go through ITSO review, and schools may sponsor filing fees for high-value tech."
+    },
+    {
+      "id": 92,
+      "type": "matching",
+      "text": "The Co-Ownership Trap: match each capstone situation to who holds the IP.",
+      "allChoices": [
+        "The student group retains commercialization control",
+        "The university legally co-owns the IP",
+        "The rights belong to the sponsoring company"
+      ],
+      "pairs": [
+        { "term": "Idea fully conceptualized by students and built without specialized campus equipment", "match": "The student group retains commercialization control" },
+        { "term": "Built using specialized school labs, proprietary datasets, or university funding", "match": "The university legally co-owns the IP" },
+        { "term": "Solved a problem for an industry sponsor, with an IP Assignment Waiver signed", "match": "The rights belong to the sponsoring company" }
+      ],
+      "points": 1,
+      "explanation": "Independent ideas stay with the student group. Use of university resources makes the university a co-owner, needing joint IP clearance. Sponsored capstones usually involve an IP Assignment Waiver transferring rights to the company."
+    },
+    {
+      "id": 93,
+      "type": "mc",
+      "text": "Before spending money filing an independent application with IPOPHL for a capstone, what should students verify first?",
+      "options": [
+        "Their capstone grade",
+        "Whether the project won a hackathon",
+        "Their university's Student IP Policy",
+        "The number of downloads of their app"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Before you spend money filing an independent application with IPOPHL, verify your university's Student IP Policy."
+    }
+  ]
+}
