@@ -35,6 +35,7 @@ const NAV_POSITION_MAP = {
 // on Previous. onRestart/onExit: wired up to a caret button that appears
 // between Previous and Next on mobile, expanding the row to reveal them
 // (otherwise only reachable via the header's hamburger menu there).
+// restartLabel: the Restart button's text (a fresh review shows "Start").
 export function useNavRow({
   navLocation,
   isFirst,
@@ -47,6 +48,7 @@ export function useNavRow({
   onFinishQuiz,
   onDone,
   onRestart,
+  restartLabel = 'Restart',
   onExit,
   submitReady,
   submitIsEmpty,
@@ -210,7 +212,7 @@ export function useNavRow({
     <div className="nav-expand-panel">
       {onRestart && (
         <button className="btn-restart" onClick={wrapClose(onRestart)}>
-          Restart
+          {restartLabel}
         </button>
       )}
       {onExit && (

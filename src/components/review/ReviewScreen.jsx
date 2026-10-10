@@ -95,8 +95,18 @@ export default function ReviewScreen({ goHome }) {
     }, 95);
   };
 
-  // Back to question 1 and the top of the page, closing any search.
+  // A review started fresh (from Home, nothing answered) has nothing to
+  // restart, so its Restart button is Start instead: it switches to Quiz
+  // mode, same as the dropdown's "Switch to quiz mode". After a quiz
+  // attempt, Restart goes back to question 1 and the top of the page,
+  // closing any search.
+  const startsQuiz = !hasAttempt;
   const restart = () => {
+    if (startsQuiz) {
+      dispatch({ type: 'SWITCH_TO_QUIZ' });
+      window.scrollTo(0, 0);
+      return;
+    }
     dispatch({ type: 'RESTART' });
     setSearchOpen(false);
     setSearchQuery('');
@@ -156,6 +166,7 @@ export default function ReviewScreen({ goHome }) {
     onNext: () => animatedNav('NEXT_Q'),
     onDone: goHome,
     onRestart: restart,
+    restartLabel: startsQuiz ? 'Start' : 'Restart',
     onExit: goHome,
     // List view keeps each card's own in-card source strip instead.
     sourceTag: !isListView && total > 0 && <QuestionSource question={questions[Math.min(currentIndex, total - 1)]} variant="nav" />,
@@ -173,6 +184,7 @@ export default function ReviewScreen({ goHome }) {
         progressPct={progressPct}
         goHome={goHome}
         onRestart={restart}
+        restartLabel={startsQuiz ? 'Start' : 'Restart'}
         searchOpen={searchOpen}
         onToggleSearch={toggleSearch}
       />

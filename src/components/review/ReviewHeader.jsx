@@ -13,10 +13,10 @@ const SEARCH_ICON = (
   </svg>
 );
 
-// onRestart: ReviewScreen's restart (back to question 1, top of the page).
+// onRestart/restartLabel: ReviewScreen's Restart, or Start for a fresh review.
 // searchOpen/onToggleSearch: the search button, which opens ReviewSearchBar
 // under the header — kept visible on mobile, unlike Restart/Exit.
-export default function ReviewHeader({ progressLabel, progressPct, goHome, onRestart, searchOpen, onToggleSearch }) {
+export default function ReviewHeader({ progressLabel, progressPct, goHome, onRestart, restartLabel, searchOpen, onToggleSearch }) {
   const { state, dispatch } = useApp();
   const { activeQuiz } = state;
 
@@ -41,7 +41,7 @@ export default function ReviewHeader({ progressLabel, progressPct, goHome, onRes
           {SEARCH_ICON}
         </button>
         <button className="btn-restart" onClick={onRestart}>
-          Restart
+          {restartLabel}
         </button>
         <button className="btn-exit" onClick={goHome}>
           Exit
@@ -56,7 +56,7 @@ export default function ReviewHeader({ progressLabel, progressPct, goHome, onRes
         >
           <div className="dropdown-mobile-actions">
             <button className="btn-restart" onClick={onRestart}>
-              Restart
+              {restartLabel}
             </button>
             <button className="btn-exit" onClick={goHome}>
               Exit
