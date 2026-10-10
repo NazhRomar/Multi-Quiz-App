@@ -31,7 +31,8 @@ const CODE_PREVIEW ="Route::get('/user/{id}', function ($id) {\n    return view(
 
 // showNavLocation: the home-menu dropdown omits this field — only the
 // quiz/review dropdowns show it — so it's opt-in, not default.
-export default function AppSettingsFields({ showNavLocation = false }) {
+// showSearchOrder: the reverse — home-menu only (it's about home search).
+export default function AppSettingsFields({ showNavLocation = false, showSearchOrder = false }) {
   const { state, dispatch } = useApp();
   const { appSettings } = state;
   const set = (key, value) => dispatch({ type: 'SET_APP_SETTING', payload: { key, value } });
@@ -140,6 +141,14 @@ export default function AppSettingsFields({ showNavLocation = false }) {
               </>
             )}
           </SelectRow>
+        )}
+        {showSearchOrder && (
+          <ToggleRow
+            title="Question matches first"
+            hint="When searching, show matching questions above matching quizzes"
+            checked={appSettings.searchQuestionsFirst}
+            onChange={(v) => set('searchQuestionsFirst', v)}
+          />
         )}
         <ToggleRow
           title="Compact mode"

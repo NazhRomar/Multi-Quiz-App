@@ -1,17 +1,49 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useIsMobile } from '../../utils/useIsMobile.js';
 import { useApp } from '../../state/AppContext.jsx';
 import { useNavRow } from '../quiz/useNavRow.jsx';
 import { useEnterShortcut, usePrevShortcut } from '../quiz/useEnterShortcut.js';
 import { isAnswerCorrect } from '../../state/grading.js';
+import { MIN_SEARCH_LENGTH, questionSearchText } from '../../data/catalog.js';
 import ReviewHeader from './ReviewHeader.jsx';
 import ReviewCard from './ReviewCard.jsx';
+import ReviewSearchBar from './ReviewSearchBar.jsx';
 import QuestionSource from '../common/QuestionSource.jsx';
+
+// Matches of the review search, painted with the CSS Custom Highlight API
+// (style.css ::highlight(review-search)) so the rendered card HTML is left
+// untouched. Browsers without it just don't highlight.
+const HIGHLIGHT = 'review-search';
+
+function highlightMatches(root, term) {
+  if (typeof CSS === 'undefined' || !CSS.highlights) return;
+  if (!root || !term) {
+    CSS.highlights.delete(HIGHLIGHT);
+    return;
+  }
+  const ranges = [];
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+    const lower = node.nodeValue.toLowerCase();
+    for (let at = lower.indexOf(term); at !== -1; at = lower.indexOf(term, at + term.length)) {
+      const range = new Range();
+      range.setStart(node, at);
+      range.setEnd(node, at + term.length);
+      ranges.push(range);
+    }
+  }
+  CSS.highlights.set(HIGHLIGHT, new Highlight(...ranges));
+}
 
 export default function ReviewScreen({ goHome }) {
   const { state, dispatch } = useApp();
   const { activeQuiz, currentIndex, appSettings, reviewOptions, userAnswers } = state;
   const [isCardExiting, setIsCardExiting] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  // Bumped by Restart: remounts the cards so their entrance plays again —
+  // otherwise restarting on question 1, or in list view, shows no change.
+  const [runKey, setRunKey] = useState(0);
   const isMobile = useIsMobile();
   const isListView = reviewOptions.listView;
   // Reviewing right after a quiz attempt (not a fresh review from home):
@@ -20,10 +52,24 @@ export default function ReviewScreen({ goHome }) {
   // filtered would ever be "wrong"), so it's ignored either way; the
   // setting itself is also disabled in Review options (ReviewOptionsFields).
   const hasAttempt = Object.keys(userAnswers).length > 0;
-  const questions =
+  const reviewQuestions =
     reviewOptions.wrongOnly && hasAttempt
       ? activeQuiz.questions.filter((q) => !q.flagged && !isAnswerCorrect(q, userAnswers[q.id]?.value ?? null))
       : activeQuiz.questions;
+
+  // Review search: positions in reviewQuestions whose text, snippet or
+  // correct answer contain the query (from MIN_SEARCH_LENGTH characters).
+  // Card view keeps every question and steps between matches; list view
+  // shows only the matches.
+  const haystacks = useMemo(() => new Map(activeQuiz.questions.map((q) => [q.id, questionSearchText(q).haystack])), [activeQuiz]);
+  const findMatches = (query) => {
+    const term = query.trim().toLowerCase();
+    if (term.length < MIN_SEARCH_LENGTH) return null;
+    return reviewQuestions.flatMap((q, i) => (haystacks.get(q.id).includes(term) ? [i] : []));
+  };
+  const searchTerm = searchOpen && searchQuery.trim().length >= MIN_SEARCH_LENGTH ? searchQuery.trim().toLowerCase() : '';
+  const matchIndexes = (searchTerm && findMatches(searchQuery)) || [];
+  const questions = isListView && searchTerm ? matchIndexes.map((i) => reviewQuestions[i]) : reviewQuestions;
   const total = questions.length;
   // Each card's own number badge (ReviewCard) always names its position in
   // the quiz itself — stable for the session (shuffled once at quiz start,
@@ -33,19 +79,60 @@ export default function ReviewScreen({ goHome }) {
   const quizIndexById = new Map(activeQuiz.questions.map((q, i) => [q.id, i]));
   const answerOf = (q) => userAnswers[q.id]?.value ?? null;
 
-  const animatedNav = (actionType) => {
+  // action: an action type ('NEXT_Q') or a whole action ({ type: 'GO_TO_Q', payload }).
+  const animatedNav = (action) => {
+    const go = () => dispatch(typeof action === 'string' ? { type: action } : action);
     if (appSettings.disableAnimations || isListView) {
-      dispatch({ type: actionType });
+      go();
       window.scrollTo(0, 0);
       return;
     }
     setIsCardExiting(true);
     setTimeout(() => {
       setIsCardExiting(false);
-      dispatch({ type: actionType });
+      go();
       window.scrollTo(0, 0);
     }, 95);
   };
+
+  // Back to question 1 and the top of the page, closing any search.
+  const restart = () => {
+    dispatch({ type: 'RESTART' });
+    setSearchOpen(false);
+    setSearchQuery('');
+    setRunKey((k) => k + 1);
+    window.scrollTo(0, 0);
+  };
+
+  const shownIndex = Math.min(currentIndex, total - 1);
+  const matchPos = matchIndexes.indexOf(shownIndex);
+  // Next/previous match from the current card, wrapping around the ends.
+  const goToMatch = (dir) => {
+    if (matchIndexes.length === 0) return;
+    const target =
+      dir > 0
+        ? (matchIndexes.find((i) => i > shownIndex) ?? matchIndexes[0])
+        : ([...matchIndexes].reverse().find((i) => i < shownIndex) ?? matchIndexes[matchIndexes.length - 1]);
+    if (target !== shownIndex) animatedNav({ type: 'GO_TO_Q', payload: target });
+  };
+  // While typing, card view moves to the first match from the current card
+  // on (wrapping), unless the current card already matches.
+  const onSearchChange = (value) => {
+    setSearchQuery(value);
+    const matches = findMatches(value);
+    if (isListView || !matches?.length || matches.includes(shownIndex)) return;
+    dispatch({ type: 'GO_TO_Q', payload: matches.find((i) => i >= shownIndex) ?? matches[0] });
+    window.scrollTo(0, 0);
+  };
+  const toggleSearch = () => {
+    if (searchOpen) setSearchQuery('');
+    setSearchOpen((open) => !open);
+  };
+
+  useEffect(() => {
+    highlightMatches(document.getElementById('quiz-container'), searchTerm);
+  });
+  useEffect(() => () => highlightMatches(null, ''), []);
 
   const isFirst = currentIndex === 0;
   const isLast = currentIndex === total - 1;
@@ -68,7 +155,7 @@ export default function ReviewScreen({ goHome }) {
     onPrev: () => animatedNav('PREV_Q'),
     onNext: () => animatedNav('NEXT_Q'),
     onDone: goHome,
-    onRestart: () => dispatch({ type: 'RESTART' }),
+    onRestart: restart,
     onExit: goHome,
     // List view keeps each card's own in-card source strip instead.
     sourceTag: !isListView && total > 0 && <QuestionSource question={questions[Math.min(currentIndex, total - 1)]} variant="nav" />,
@@ -81,10 +168,31 @@ export default function ReviewScreen({ goHome }) {
 
   return (
     <>
-      <ReviewHeader progressLabel={progressLabel} progressPct={progressPct} goHome={goHome} />
+      <ReviewHeader
+        progressLabel={progressLabel}
+        progressPct={progressPct}
+        goHome={goHome}
+        onRestart={restart}
+        searchOpen={searchOpen}
+        onToggleSearch={toggleSearch}
+      />
+      {searchOpen && (
+        <ReviewSearchBar
+          query={searchQuery}
+          onQueryChange={onSearchChange}
+          matchCount={matchIndexes.length}
+          matchPos={matchPos}
+          isListView={isListView}
+          onPrev={() => goToMatch(-1)}
+          onNext={() => goToMatch(1)}
+          onClose={toggleSearch}
+        />
+      )}
       {topRow}
-      <main id="quiz-container">
-        {total === 0 ? (
+      <main id="quiz-container" key={runKey}>
+        {total === 0 && searchTerm ? (
+          <div className="menu-search-empty">No questions or answers match &quot;{searchQuery.trim()}&quot;.</div>
+        ) : total === 0 ? (
           <div className="feedback-banner correct" style={{ textAlign: 'center' }}>
             <strong>🎉 No wrong answers to review!</strong>
           </div>

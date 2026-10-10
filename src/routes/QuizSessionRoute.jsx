@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useApp } from '../state/AppContext.jsx';
 import { findQuizBySlug, quizUrlFor } from '../data/catalog.js';
 import { useGoHome } from './useGoHome.js';
@@ -14,9 +14,13 @@ import ResultScreen from '../components/result/ResultScreen.jsx';
 // which case it's left alone rather than restarting and wiping progress.
 export default function QuizSessionRoute({ mode }) {
   const { termSlug, courseSlug, quizSlug } = useParams();
+  const [searchParams] = useSearchParams();
   const { state, dispatch } = useApp();
   const navigate = useNavigate();
   const { goHome, isExiting } = useGoHome();
+  // ?question=N (1-based, review only): a home search result asking to open
+  // the review at that question.
+  const questionParam = mode === 'review' ? searchParams.get('question') : null;
 
   useEffect(() => {
     const found = findQuizBySlug(termSlug, courseSlug, quizSlug);
@@ -25,6 +29,19 @@ export default function QuizSessionRoute({ mode }) {
       return;
     }
     const { term, course, quiz } = found;
+    if (questionParam) {
+      // Always a fresh review, even over this quiz's own active session —
+      // tapping a result is a new start, like tapping a quiz on Home. The
+      // param is then dropped so a reload resumes instead of jumping back.
+      const count = quiz.data.questions?.length || 1;
+      const startIndex = Math.min(Math.max((parseInt(questionParam, 10) || 1) - 1, 0), count - 1);
+      dispatch({
+        type: 'START_REVIEW',
+        payload: { term: term.key, course: course.key, quizData: quiz.data, quizId: quiz.id, fresh: true, startIndex },
+      });
+      navigate(quizUrlFor(term, course, quiz, 'review'), { replace: true });
+      return;
+    }
     const matchesActive = state.activeQuizId === quiz.id && state.activeMode === mode;
     if (matchesActive) {
       // Already this session (e.g. restored on boot, or opened from the
@@ -44,7 +61,7 @@ export default function QuizSessionRoute({ mode }) {
       },
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [termSlug, courseSlug, quizSlug, mode]);
+  }, [termSlug, courseSlug, quizSlug, mode, questionParam]);
 
   // Keeps the address bar honest when the in-session Quiz/Review switch
   // (QuizHeader/ReviewHeader's dropdown) changes activeMode without a

@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { Outlet, useNavigate, useSearchParams } from 'react-router-dom';
 import { useApp } from '../state/AppContext.jsx';
-import { catalog } from '../data/catalog.js';
+import { catalog, MIN_SEARCH_LENGTH } from '../data/catalog.js';
 import Dropdown from '../components/settings/Dropdown.jsx';
 import AppSettingsFields from '../components/settings/AppSettingsFields.jsx';
 import SegmentedToggle from '../components/common/SegmentedToggle.jsx';
@@ -72,8 +72,13 @@ export default function BrowseLayout() {
   const navigate = useNavigate();
   const [showChangelog, setShowChangelog] = useState(false);
 
+  // The box keeps whatever is typed, but search only fires from
+  // MIN_SEARCH_LENGTH characters: it filters the term/course/quiz list by
+  // name and finds matching questions/answers (HomeScreen).
   const search = searchParams.get('q') || '';
-  const isSearching = search.trim().length > 0;
+  const typedLength = search.trim().length;
+  const query = typedLength >= MIN_SEARCH_LENGTH ? search.trim() : '';
+  const isSearching = !!query;
 
   const onSearchChange = (value) => setSearchParams(value ? { q: value } : {}, { replace: true });
 
@@ -99,11 +104,14 @@ export default function BrowseLayout() {
     })
   );
 
-  const hint = homeMode.multi
-    ? `Pick any quizzes, from any subject or term, to combine into one Multi ${homeMode.review ? 'review' : 'quiz'}.`
-    : homeMode.review
-      ? 'Tap a quiz to open it in Review mode.'
-      : null;
+  const hint =
+    typedLength > 0 && typedLength < MIN_SEARCH_LENGTH
+      ? `Keep typing — search starts at ${MIN_SEARCH_LENGTH} characters.`
+      : homeMode.multi
+        ? `Pick any quizzes, from any subject or term, to combine into one Multi ${homeMode.review ? 'review' : 'quiz'}.`
+        : homeMode.review
+          ? 'Tap a quiz to open it in Review mode.'
+          : null;
   // The hint row and selection bar stay mounted and animate in/out (see
   // style.css) rather than popping, so toggling modes doesn't jolt the
   // layout; keep the last text so a collapsing hint doesn't go blank first.
@@ -123,7 +131,7 @@ export default function BrowseLayout() {
         <div className="header-right">
           <Dropdown ariaLabel="Settings">
             <div className="dropdown-section-title">App settings</div>
-            <AppSettingsFields />
+            <AppSettingsFields showSearchOrder />
           </Dropdown>
         </div>
       </header>
@@ -131,7 +139,7 @@ export default function BrowseLayout() {
         <input
           type="search"
           className="menu-search-input"
-          placeholder="Search quizzes, courses, terms..."
+          placeholder="Search quizzes, questions, answers..."
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
         />
@@ -157,7 +165,7 @@ export default function BrowseLayout() {
         {/* Hidden while searching — a search is about finding something
             else, and the card would sit on top of the results. */}
         {!isSearching && <ResumeCard />}
-        <Outlet context={{ search, isSearching }} />
+        <Outlet context={{ search: query, isSearching }} />
         {/* After the list, so on narrow screens the fold-away key doesn't
             push the first quiz down; the wide-screen rail is absolutely
             positioned and doesn't care where it sits. */}

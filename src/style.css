@@ -1224,6 +1224,172 @@ body.theme-dark .review-status--partial {
   min-width: 0;
 }
 
+/* --- Home search: matching questions (QuestionSearchResults.jsx) --- */
+/* Same card/header look as a term section, but the header isn't a toggle. */
+.question-search-header {
+  cursor: default;
+}
+
+.question-search-header:hover {
+  background: none;
+}
+
+.question-search-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.question-search-result {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  text-align: left;
+  font-weight: 400;
+}
+
+.question-search-result:hover {
+  background: var(--radio-bg);
+  border-color: var(--accent);
+}
+
+.question-search-source {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.question-search-text {
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.question-search-answer {
+  font-size: 0.85rem;
+  line-height: 1.35;
+  color: var(--text-muted);
+}
+
+.question-search-answer-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--correct);
+}
+
+.question-search mark {
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 1px;
+}
+
+/* Review search (components/review/ReviewSearchBar.jsx): the header's
+   search button, and the bar it opens under the header. */
+.btn-review-search {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-review-search:hover,
+.btn-review-search--active {
+  border-color: var(--review-accent);
+  color: var(--review-accent);
+}
+
+.review-search {
+  width: 100%;
+  max-width: 850px;
+  margin: 1rem auto 0;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.review-search-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.review-search-status {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  white-space: nowrap;
+  padding: 0 0.25rem;
+}
+
+.review-search-btn {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-search-btn:hover:not(:disabled) {
+  border-color: var(--review-accent);
+  color: var(--review-accent);
+}
+
+.review-search-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+@media (max-width: 600px) {
+  .btn-review-search {
+    width: 32px;
+    height: 32px;
+  }
+
+  .review-search {
+    padding: 0 1rem;
+    flex-wrap: wrap;
+  }
+
+  .review-search-input {
+    flex-basis: 100%;
+  }
+
+  .review-search-status {
+    margin-right: auto;
+  }
+}
+
+::highlight(review-search) {
+  background-color: color-mix(in srgb, var(--review-accent) 35%, transparent);
+  color: inherit;
+}
+
 .term-count {
   font-family: 'Space Mono', monospace;
   font-size: 0.72rem;

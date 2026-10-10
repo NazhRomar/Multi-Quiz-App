@@ -301,14 +301,6 @@ export function quizUrlFor(term, course, quiz, mode = 'quiz') {
 // search box. Returns a catalog-shaped array with non-matching
 // courses/terms dropped entirely, so callers can render it exactly like the
 // full catalog.
-//
-// TODO: also search question text / code / correct answers, shown as a
-// "Matching questions" section (tap → Review at that question), only from
-// 3 characters, with a "Question matches first" order setting. Built in
-// commit cd3814a and reverted for now — `git cherry-pick cd3814a` restores
-// it as a starting point (now needs retargeting at this function's
-// catalog-array shape and HomeScreen/BrowseLayout's `?q=`-based search
-// state, which replaced MenuScreen's local state).
 export function filterCatalog(query) {
   const q = query.trim().toLowerCase();
   if (!q) return catalog;
@@ -325,6 +317,70 @@ export function filterCatalog(query) {
     if (courses.length) result.push({ ...term, courses });
   }
   return result;
+}
+
+// Home menu search only kicks in from this many characters (shorter queries
+// match nearly everything, and question search runs on every keystroke).
+export const MIN_SEARCH_LENGTH = 3;
+
+// Quiz content is HTML (inline <code>, <pre> contexts, entities); search
+// and result previews work on its plain text.
+function plainText(html) {
+  return String(html ?? '')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// A question's correct answer(s) as plain text — searchable, and shown
+// under each question search result.
+function answerText(q) {
+  if (q.type === 'mc' || q.type === 'tf') return plainText(q.options?.[q.correctAnswer]);
+  if (q.type === 'msq') return (q.correctAnswer || []).map((i) => plainText(q.options?.[i])).join(', ');
+  if (q.type === 'fitb') return [].concat(q.correctAnswer).map(plainText).join(', ');
+  if (q.type === 'matching' || q.type === 'drag-drop') {
+    return (q.pairs || []).map((p) => `${plainText(p.term)} → ${plainText(p.match)}`).join(' · ');
+  }
+  return '';
+}
+
+// What question search looks at for one question: its plain text, its
+// correct answer text, and a lowercase haystack of both plus any
+// context/code snippet. Shared by the home search and Review's own search.
+export function questionSearchText(q) {
+  const text = plainText(q.text);
+  const extra = plainText([].concat(q.context || []).join(' ')) + ' ' + (q.code || '');
+  const answer = answerText(q);
+  return { text, answer, haystack: `${text} ${extra} ${answer}`.toLowerCase() };
+}
+
+// Every question of every quiz, flattened once for question search, in
+// catalog (home menu) order.
+const questionIndex = [];
+for (const term of catalog) {
+  for (const course of term.courses) {
+    for (const quiz of course.quizzes) {
+      (quiz.data.questions || []).forEach((q, qIndex) => {
+        questionIndex.push({ key: `${quiz.id}#${qIndex}`, term, course, quiz, qIndex, ...questionSearchText(q) });
+      });
+    }
+  }
+}
+
+// Question search for the home menu: questions whose text, context/code
+// snippet or correct answer contains the query, in home-menu order (the
+// index is built that way). Returns { results (up to limit), total }.
+export function searchQuestions(query, limit = 50) {
+  const q = query.trim().toLowerCase();
+  if (q.length < MIN_SEARCH_LENGTH) return { results: [], total: 0 };
+  const matches = questionIndex.filter((entry) => entry.haystack.includes(q));
+  return { results: matches.slice(0, limit), total: matches.length };
 }
 
 // Combines the selected quizzes (ids from catalog entries) into one quiz

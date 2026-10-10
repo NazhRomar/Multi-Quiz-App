@@ -70,6 +70,7 @@ export const DEFAULT_APP_SETTINGS = {
   appFont: 'default', // see FONTS in utils/fonts.js
   answerFont: 'default', // see FONTS in utils/fonts.js
   compactMode: false,
+  searchQuestionsFirst: false, // home search: matching questions above matching quizzes
 };
 export const DEFAULT_QUIZ_OPTIONS = {
   noSkip: false,
@@ -240,8 +241,9 @@ export function reducer(state, action) {
     // fresh: opened straight from the home menu, not switched to from a quiz
     // attempt — drop any previous attempt's answers so they can't leak into
     // this review (e.g. the Wrong answers only filter; ids repeat across quizzes).
+    // startIndex: open at that question (home menu question search results).
     case 'START_REVIEW': {
-      const { term, course, quizData, quizId, fresh } = action.payload;
+      const { term, course, quizData, quizId, fresh, startIndex = 0 } = action.payload;
       return {
         ...state,
         screen: 'review',
@@ -251,7 +253,7 @@ export function reducer(state, action) {
         activeCourse: course,
         activeQuizId: quizId ?? null, // null for a Multi session
         activeMode: 'review',
-        currentIndex: 0,
+        currentIndex: startIndex,
         result: null,
         ...(fresh ? { userAnswers: {} } : {}),
       };
@@ -321,6 +323,9 @@ export function reducer(state, action) {
       return { ...state, currentIndex: Math.min(state.currentIndex + 1, state.activeQuiz.questions.length - 1) };
     case 'PREV_Q':
       return { ...state, currentIndex: Math.max(state.currentIndex - 1, 0) };
+    // Straight to a question (Review's search jumping between matches).
+    case 'GO_TO_Q':
+      return { ...state, currentIndex: Math.min(Math.max(action.payload, 0), state.activeQuiz.questions.length - 1) };
 
     case 'SAVE_ANSWER': {
       const { qId, value } = action.payload;
