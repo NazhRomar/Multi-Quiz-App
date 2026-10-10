@@ -1,0 +1,524 @@
+{
+  "quizTitle": "Laravel - Code Fill-in",
+  "badges": {
+    "unofficial": true
+  },
+  "questions": [
+    {
+      "id": 1,
+      "type": "fitb",
+      "text": "The book form posts to <code>/books</code>, and <code>BookController</code>'s <code>store</code> method handles it. Fill in <code>routes/web.php</code>.",
+      "code": "<?php\n\nuse App\\Http\\Controllers\\___;\nuse Illuminate\\Support\\Facades\\Route;\n\nRoute::get('/', function () {\n    return view('books.create');\n});\n\nRoute::___('/books', [BookController::class, '___']);",
+      "correctAnswer": [
+        "BookController",
+        "post",
+        "store"
+      ],
+      "points": 3,
+      "explanation": "The controller is imported with <code>use App\\Http\\Controllers\\BookController;</code>, the form submits with POST so the route is <code>Route::post()</code>, and the array's second item is the method name, <code>'store'</code>."
+    },
+    {
+      "id": 2,
+      "type": "fitb",
+      "text": "Going straight to <code>/books</code> in the browser gives <strong>405 Method Not Allowed</strong>, because only a POST route exists for that URL. Add the route that shows the form there too.",
+      "code": "Route::post('/books', [BookController::class, 'store']);\n\nRoute::___('/books', function () {\n    return ___('books.create');\n});",
+      "correctAnswer": [
+        "get",
+        "view"
+      ],
+      "points": 2,
+      "explanation": "Typing a URL into the address bar sends a GET request. With only <code>Route::post</code> on <code>/books</code>, Laravel finds the URL but not the method, so it answers 405. A <code>Route::get</code> returning <code>view('books.create')</code> fixes it."
+    },
+    {
+      "id": 3,
+      "type": "fitb",
+      "text": "Capture the book's id from the URL and give the route the name <code>books.show</code>.",
+      "code": "Route::get('/books/___', [BookController::class, 'show'])->___('books.show');\n\n// in BookController:\n// public function show($id) { ... }",
+      "correctAnswer": [
+        "{id}",
+        "name"
+      ],
+      "points": 2,
+      "explanation": "Route parameters go in curly braces, <code>{id}</code>, and are passed to the method's <code>$id</code> argument. <code>-&gt;name('books.show')</code> names the route so you can link to it with <code>route('books.show', $book)</code>."
+    },
+    {
+      "id": 4,
+      "type": "fitb",
+      "text": "Complete the Artisan command that generates <code>app/Http/Controllers/BookController.php</code>.",
+      "code": "php artisan ___:___ BookController",
+      "correctAnswer": [
+        "make",
+        "controller"
+      ],
+      "points": 2,
+      "explanation": "<code>php artisan make:controller BookController</code> creates the controller class in <code>app/Http/Controllers</code>."
+    },
+    {
+      "id": 5,
+      "type": "fitb",
+      "text": "Fill in the controller's namespace, the Request import and the class declaration.",
+      "code": "<?php\n\nnamespace App\\Http\\___;\n\nuse App\\Models\\Book;\nuse Illuminate\\Http\\___;\n\nclass BookController ___ Controller\n{\n    public function store(Request $request)\n    {\n        //\n    }\n}",
+      "correctAnswer": [
+        "Controllers",
+        "Request",
+        "extends"
+      ],
+      "points": 3,
+      "explanation": "Controllers live in the <code>App\\Http\\Controllers</code> namespace, the request class is <code>Illuminate\\Http\\Request</code>, and every controller <code>extends Controller</code> (the base class in the same folder)."
+    },
+    {
+      "id": 6,
+      "type": "fitb",
+      "text": "Read the submitted <code>title</code> field from the request.",
+      "code": "public function store(Request $request)\n{\n    $title = $request->___('title');\n}",
+      "correctAnswer": "input",
+      "points": 1,
+      "explanation": "<code>$request-&gt;input('title')</code> returns that form field's value. <code>$request-&gt;title</code> works too, but this blank is a method call."
+    },
+    {
+      "id": 7,
+      "type": "fitb",
+      "text": "Run the request through validation. If it fails, Laravel sends the user back to the form with the errors.",
+      "code": "$validated = $request->___([\n    'title' => 'required|string|max:120',\n]);",
+      "correctAnswer": "validate",
+      "points": 1,
+      "explanation": "<code>$request-&gt;validate([...])</code> checks the rules. On failure it redirects back with <code>$errors</code> and the old input. On success it returns only the validated fields."
+    },
+    {
+      "id": 8,
+      "type": "fitb",
+      "text": "The title must be filled in and be 3 to 120 characters long.",
+      "code": "'title' => '___|string|___:3|max:120',",
+      "correctAnswer": [
+        "required",
+        "min"
+      ],
+      "points": 2,
+      "explanation": "<code>required</code> rejects an empty field, and for a string <code>min:3</code> and <code>max:120</code> count characters."
+    },
+    {
+      "id": 9,
+      "type": "fitb",
+      "text": "The subtitle can be left blank. If it is filled in, it must be a string of at most 100 characters.",
+      "code": "'subtitle' => '___|string|max:100',",
+      "correctAnswer": "nullable",
+      "points": 1,
+      "explanation": "<code>nullable</code> allows an empty field, which arrives as <code>null</code>, so <code>string</code> and <code>max</code> only apply when there is a value. Without it, an empty subtitle fails the <code>string</code> rule."
+    },
+    {
+      "id": 10,
+      "type": "fitb",
+      "text": "The author's name may only contain letters and spaces. Fill in the characters that the regex needs around the pattern so PHP's <code>preg_match</code> accepts it.",
+      "code": "'author' => 'required|regex:___^[a-zA-Z ]+$___',",
+      "correctAnswer": [
+        "/",
+        "/"
+      ],
+      "points": 2,
+      "explanation": "PHP regexes need delimiters: the first character opens the pattern and a matching one has to close it. <code>'regex:^[a-zA-Z ]+$'</code> fails with \"No ending delimiter '^' found\". It must be <code>'regex:/^[a-zA-Z ]+$/'</code>."
+    },
+    {
+      "id": 11,
+      "type": "fitb",
+      "text": "An ISBN starts with 978 or 979, followed by 10 more digits. The regex contains <code>|</code>, so the rules can't be one pipe-separated string. Fill in what wraps the rules instead.",
+      "code": "'isbn' => ___'required', 'regex:/^(978|979)\\d{10}$/'___,",
+      "correctAnswer": [
+        "[",
+        "]"
+      ],
+      "points": 2,
+      "explanation": "Laravel splits a rule string on <code>|</code>, which would cut <code>(978|979)</code> in half. In array syntax, <code>['required', 'regex:/^(978|979)\\d{10}$/']</code>, each rule is its own item, so the pipe in the pattern is left alone."
+    },
+    {
+      "id": 12,
+      "type": "fitb",
+      "text": "No two books may share an ISBN. Check the <code>isbn</code> column of the <code>books</code> table.",
+      "code": "'isbn_code' => 'required|___:books,___',",
+      "correctAnswer": [
+        "unique",
+        "isbn"
+      ],
+      "points": 2,
+      "explanation": "<code>unique:table,column</code> fails if the value already exists in that column. The column is named because the form field (<code>isbn_code</code>) has a different name."
+    },
+    {
+      "id": 13,
+      "type": "fitb",
+      "text": "A member's email must have valid RFC syntax and a domain with real DNS records. Name the RFC check first, then the DNS check.",
+      "code": "'email' => 'required|email:___,___|unique:members,email',",
+      "correctAnswer": [
+        "rfc",
+        "dns"
+      ],
+      "points": 2,
+      "explanation": "<code>email:rfc,dns</code> checks the address against RFC syntax and looks up the domain's DNS/MX records. (<code>spoof</code> needs PHP's intl extension, so leave it out unless intl is enabled.)"
+    },
+    {
+      "id": 14,
+      "type": "fitb",
+      "text": "The published date must be a valid date earlier than today.",
+      "code": "'published_on' => 'required|___|___:today',",
+      "correctAnswer": [
+        "date",
+        "before"
+      ],
+      "points": 2,
+      "explanation": "<code>date</code> makes sure the value parses as a date, and <code>before:today</code> rejects today and any later date."
+    },
+    {
+      "id": 15,
+      "type": "fitb",
+      "text": "The number of copies must be a whole number from 1 to 20.",
+      "code": "'copies' => 'required|___|between:1,___',",
+      "correctAnswer": [
+        "integer",
+        "20"
+      ],
+      "points": 2,
+      "explanation": "<code>integer</code> makes <code>between:1,20</code> compare the number itself. Without a numeric rule, between would count the characters of the string."
+    },
+    {
+      "id": 16,
+      "type": "fitb",
+      "text": "The genre comes from a dropdown. Accept only the three listed values.",
+      "code": "'genre' => 'required|___:Fiction,Mystery,Science',",
+      "correctAnswer": "in",
+      "points": 1,
+      "explanation": "<code>in:a,b,c</code> only passes if the value is one of the listed items, which stops someone sending a value that isn't in the dropdown."
+    },
+    {
+      "id": 17,
+      "type": "fitb",
+      "text": "Replace the default message shown when the ISBN fails its regex rule.",
+      "code": "$request->validate([\n    'isbn' => ['required', 'regex:/^(978|979)\\d{10}$/'],\n], [\n    'isbn.___' => 'Enter a 13-digit ISBN starting with 978 or 979.',\n]);",
+      "correctAnswer": "regex",
+      "points": 1,
+      "explanation": "The second argument to <code>validate()</code> holds custom messages, keyed <code>field.rule</code>, so <code>'isbn.regex'</code> only replaces the regex failure message."
+    },
+    {
+      "id": 18,
+      "type": "fitb",
+      "text": "Complete the form tag and add the token Laravel requires on every POST form.",
+      "code": "<form action=\"/books\" method=\"___\">\n    ___\n\n    <!-- fields -->\n</form>",
+      "correctAnswer": [
+        "POST",
+        "@csrf"
+      ],
+      "points": 2,
+      "explanation": "The form method must match <code>Route::post</code>, and <code>@csrf</code> outputs a hidden <code>_token</code> field. Without it, the submission fails with <strong>419 Page Expired</strong>."
+    },
+    {
+      "id": 19,
+      "type": "fitb",
+      "text": "After a failed validation, put the title the user typed back into the input.",
+      "code": "<input type=\"text\" name=\"title\" class=\"form-control\" value=\"{{ ___('title') }}\">",
+      "correctAnswer": "old",
+      "points": 1,
+      "explanation": "<code>old('title')</code> reads the input flashed to the session by the failed validation, so the user doesn't have to retype it."
+    },
+    {
+      "id": 20,
+      "type": "fitb",
+      "text": "Mark the input red and show its error message under it when <code>title</code> fails validation.",
+      "code": "<input type=\"text\" name=\"title\"\n       class=\"form-control ___('title') is-invalid @enderror\">\n\n@error('title')\n    <div class=\"invalid-feedback\">{{ ___ }}</div>\n___",
+      "correctAnswer": [
+        "@error",
+        "$message",
+        "@enderror"
+      ],
+      "points": 3,
+      "explanation": "<code>@error('title') ... @enderror</code> only renders its contents when that field has an error, which adds Bootstrap's <code>is-invalid</code> class. Inside the block, <code>$message</code> is the first error message for that field."
+    },
+    {
+      "id": 21,
+      "type": "fitb",
+      "text": "Show every validation error in a list at the top of the form.",
+      "code": "@if ($errors->___())\n    <div class=\"alert alert-danger\">\n        <ul>\n            @foreach ($errors->___() as $error)\n                <li>{{ $error }}</li>\n            ___\n        </ul>\n    </div>\n@endif",
+      "correctAnswer": [
+        "any",
+        "all",
+        "@endforeach"
+      ],
+      "points": 3,
+      "explanation": "<code>$errors-&gt;any()</code> is true when there's at least one error, <code>$errors-&gt;all()</code> returns every message as an array, and <code>@foreach</code> is closed with <code>@endforeach</code>."
+    },
+    {
+      "id": 22,
+      "type": "fitb",
+      "text": "Keep the user's dropdown choice and radio choice after a failed submission.",
+      "code": "<select name=\"genre\" class=\"form-select\">\n    <option value=\"Mystery\" ___(old('genre') == 'Mystery')>Mystery</option>\n</select>\n\n<input type=\"radio\" name=\"format\" value=\"Hardcover\"\n       ___(old('format') == 'Hardcover')>",
+      "correctAnswer": [
+        "@selected",
+        "@checked"
+      ],
+      "points": 2,
+      "explanation": "<code>@selected(condition)</code> outputs <code>selected</code> on an <code>&lt;option&gt;</code>, and <code>@checked(condition)</code> outputs <code>checked</code> on a radio or checkbox, when the condition is true."
+    },
+    {
+      "id": 23,
+      "type": "fitb",
+      "text": "Load the app's CSS and JS (Bootstrap is imported in them) in the page's <code>&lt;head&gt;</code>.",
+      "code": "<head>\n    <meta charset=\"utf-8\">\n    <title>Add a Book</title>\n    ___(['resources/css/app.css', 'resources/js/app.js'])\n</head>",
+      "correctAnswer": "@vite",
+      "points": 1,
+      "explanation": "<code>@vite([...])</code> includes the Vite-built files, with parentheses rather than square brackets around the list."
+    },
+    {
+      "id": 24,
+      "type": "fitb",
+      "text": "Show the logo stored at <code>public/images/logo.png</code>.",
+      "code": "<img src=\"{{ ___('images/logo.png') }}\" alt=\"Library logo\">",
+      "correctAnswer": "asset",
+      "points": 1,
+      "explanation": "<code>asset('images/logo.png')</code> builds the full URL to a file in <code>public/</code>."
+    },
+    {
+      "id": 25,
+      "type": "fitb",
+      "text": "Add a Blade comment above the author field. It shouldn't show up in the page's HTML source.",
+      "code": "___ Author ___\n<div class=\"mb-3\">\n    ...\n</div>",
+      "correctAnswer": [
+        "{{--",
+        "--}}"
+      ],
+      "points": 2,
+      "explanation": "<code>{{-- ... --}}</code> is a Blade comment and is removed when the template compiles. An HTML <code>&lt;!-- --&gt;</code> comment would still be sent to the browser."
+    },
+    {
+      "id": 26,
+      "type": "fitb",
+      "text": "After saving, send the user back to the form with a one-time success message.",
+      "code": "return redirect()->___()->___('success', 'Book added!');",
+      "correctAnswer": [
+        "back",
+        "with"
+      ],
+      "points": 2,
+      "explanation": "<code>redirect()-&gt;back()</code> returns to the previous page, and <code>-&gt;with('success', ...)</code> flashes the message to the session for the next request only."
+    },
+    {
+      "id": 27,
+      "type": "fitb",
+      "text": "Display the flashed success message on the form page.",
+      "code": "@if (___('success'))\n    <div class=\"alert alert-success\">{{ session('success') }}</div>\n@endif",
+      "correctAnswer": "session",
+      "points": 1,
+      "explanation": "<code>session('success')</code> reads the value flashed by <code>-&gt;with('success', ...)</code>, and it is null when nothing was flashed."
+    },
+    {
+      "id": 28,
+      "type": "fitb",
+      "text": "Pass the <code>$title</code> and <code>$author</code> variables to the result view in one call, using the PHP function that builds an array out of variable names.",
+      "code": "$title = $request->input('title');\n$author = $request->input('author');\n\nreturn view('books.result', ___('title', 'author'));",
+      "correctAnswer": "compact",
+      "points": 1,
+      "explanation": "<code>compact('title', 'author')</code> builds <code>['title' =&gt; $title, 'author' =&gt; $author]</code>, and each key becomes a variable in the view."
+    },
+    {
+      "id": 29,
+      "type": "fitb",
+      "text": "Print the <code>$title</code> variable in the result view, safely escaped.",
+      "code": "<td>___ $title ___</td>",
+      "correctAnswer": [
+        "{{",
+        "}}"
+      ],
+      "points": 2,
+      "explanation": "<code>{{ $title }}</code> echoes the value through <code>htmlspecialchars</code>, so any HTML a user typed is shown as text instead of being run. (<code>{!! !!}</code> skips the escaping.)"
+    },
+    {
+      "id": 30,
+      "type": "fitb",
+      "text": "Generate a migration file on its own, then generate a model together with its migration.",
+      "code": "php artisan make:___ create_members_table\n\nphp artisan make:model Book ___",
+      "correctAnswer": [
+        "migration",
+        "-m"
+      ],
+      "points": 2,
+      "explanation": "<code>make:migration</code> only creates the migration. <code>make:model Book -m</code> creates <code>app/Models/Book.php</code> along with a <code>create_books_table</code> migration."
+    },
+    {
+      "id": 31,
+      "type": "fitb",
+      "text": "Run the pending migrations, then undo the last batch.",
+      "code": "php artisan ___\n\nphp artisan migrate:___",
+      "correctAnswer": [
+        "migrate",
+        "rollback"
+      ],
+      "points": 2,
+      "explanation": "<code>php artisan migrate</code> runs every migration that hasn't run yet, and <code>migrate:rollback</code> runs the <code>down()</code> of the last batch."
+    },
+    {
+      "id": 32,
+      "type": "fitb",
+      "text": "Complete the migration's structure.",
+      "code": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    public function ___(): void\n    {\n        Schema::___('books', function (___ $table) {\n            $table->id();\n            $table->timestamps();\n        });\n    }\n\n    public function ___(): void\n    {\n        Schema::___('books');\n    }\n};",
+      "correctAnswer": [
+        "up",
+        "create",
+        "Blueprint",
+        "down",
+        "dropIfExists"
+      ],
+      "points": 5,
+      "explanation": "<code>up()</code> applies the change and <code>down()</code> reverses it. <code>Schema::create</code> makes a new table and passes a <code>Blueprint $table</code> to define its columns. <code>Schema::dropIfExists('books')</code> drops the table without erroring if it's already gone."
+    },
+    {
+      "id": 33,
+      "type": "fitb",
+      "text": "Define the <code>books</code> columns: a unique ISBN, an optional subtitle, and created/updated timestamps.",
+      "code": "$table->id('book_id');\n$table->___('isbn')->___();\n$table->string('title');\n$table->string('subtitle')->___();\n$table->___();   // created_at and updated_at",
+      "correctAnswer": [
+        "string",
+        "unique",
+        "nullable",
+        "timestamps"
+      ],
+      "points": 4,
+      "explanation": "<code>string()</code> is a VARCHAR column. <code>-&gt;unique()</code> adds a unique index and <code>-&gt;nullable()</code> allows NULL. <code>timestamps()</code> adds <code>created_at</code> and <code>updated_at</code>."
+    },
+    {
+      "id": 34,
+      "type": "fitb",
+      "text": "Pick the right column types: a long summary, a publication date, and a whole-number copy count.",
+      "code": "$table->___('summary')->nullable();\n$table->___('published_on');\n$table->___('copies');",
+      "correctAnswer": [
+        "text",
+        "date",
+        "integer"
+      ],
+      "points": 3,
+      "explanation": "<code>text()</code> holds long text (a string column is limited to 255 characters by default). <code>date()</code> stores a date without a time, and <code>integer()</code> stores whole numbers."
+    },
+    {
+      "id": 35,
+      "type": "fitb",
+      "text": "A new loan's status should be <code>Borrowed</code> unless something else is given.",
+      "code": "$table->string('status')->___('Borrowed');",
+      "correctAnswer": "default",
+      "points": 1,
+      "explanation": "<code>-&gt;default('Borrowed')</code> makes the database fill that value in when an insert leaves the column out."
+    },
+    {
+      "id": 36,
+      "type": "fitb",
+      "text": "The <code>loans</code> table points to <code>books</code>, whose primary key is named <code>book_id</code>. Write the foreign key the long way.",
+      "code": "$table->___('book_id')->references('book_id')->___('books');",
+      "correctAnswer": [
+        "foreignId",
+        "on"
+      ],
+      "points": 2,
+      "explanation": "<code>foreignId()</code> creates an unsigned big integer column. <code>-&gt;references('book_id')-&gt;on('books')</code> ties it to <code>books.book_id</code>, which you need when the primary key isn't the default <code>id</code>."
+    },
+    {
+      "id": 37,
+      "type": "fitb",
+      "text": "The <code>members</code> table uses the default <code>id</code> primary key. Write the <code>member_id</code> foreign key the short way.",
+      "code": "$table->foreignId('member_id')->___();",
+      "correctAnswer": "constrained",
+      "points": 1,
+      "explanation": "<code>constrained()</code> works out the table and column from the name: <code>member_id</code> → <code>members.id</code>. It only works when the names follow that convention."
+    },
+    {
+      "id": 38,
+      "type": "fitb",
+      "text": "Add a <code>phone</code> column to the existing <code>members</code> table, right after <code>email</code>, and remove it again in <code>down()</code>.",
+      "code": "// up()\nSchema::___('members', function (Blueprint $table) {\n    $table->string('phone')->___('email');\n});\n\n// down()\nSchema::table('members', function (Blueprint $table) {\n    $table->___('phone');\n});",
+      "correctAnswer": [
+        "table",
+        "after",
+        "dropColumn"
+      ],
+      "points": 3,
+      "explanation": "<code>Schema::table</code> changes an existing table (<code>Schema::create</code> would try to create it again). <code>-&gt;after('email')</code> sets the column's position (MySQL/MariaDB), and <code>dropColumn('phone')</code> removes it."
+    },
+    {
+      "id": 39,
+      "type": "fitb",
+      "text": "The model has to point to a table that isn't named <code>books</code>, and allow the listed fields to be mass assigned.",
+      "code": "<?php\n\nnamespace App\\___;\n\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass Book extends ___\n{\n    protected $___ = 'library_books';\n\n    protected $___ = [\n        'isbn',\n        'title',\n        'copies',\n    ];\n}",
+      "correctAnswer": [
+        "Models",
+        "Model",
+        "table",
+        "fillable"
+      ],
+      "points": 4,
+      "explanation": "Models live in <code>App\\Models</code> and extend Eloquent's <code>Model</code>. <code>$table</code> overrides the default table name (<code>Book</code> → <code>books</code>), and <code>$fillable</code> lists which fields <code>create()</code> may set."
+    },
+    {
+      "id": 40,
+      "type": "fitb",
+      "text": "The migration used <code>$table-&gt;id('book_id')</code>. Tell the model, so <code>Book::find()</code> searches the right column.",
+      "code": "class Book extends Model\n{\n    protected $___ = 'book_id';\n}",
+      "correctAnswer": "primaryKey",
+      "points": 1,
+      "explanation": "Eloquent assumes the primary key is <code>id</code>. If the column is <code>book_id</code> and <code>$primaryKey</code> isn't set, <code>find()</code>, <code>update()</code> and route model binding all look in a column that doesn't exist."
+    },
+    {
+      "id": 41,
+      "type": "fitb",
+      "text": "Insert a row from the validated input.",
+      "code": "use App\\Models\\Book;\n\n___::___([\n    'isbn' => $validated['isbn'],\n    'title' => $validated['title'],\n    'copies' => $validated['copies'],\n]);",
+      "correctAnswer": [
+        "Book",
+        "create"
+      ],
+      "points": 2,
+      "explanation": "<code>Book::create([...])</code> inserts a row and returns the model. Each key has to be in <code>$fillable</code>, or Laravel throws a <code>MassAssignmentException</code>."
+    },
+    {
+      "id": 42,
+      "type": "fitb",
+      "text": "Get every book, then get one book by id, showing a 404 page if it doesn't exist.",
+      "code": "$books = Book::___();\n\n$book = Book::___($id);",
+      "correctAnswer": [
+        "all",
+        "findOrFail"
+      ],
+      "points": 2,
+      "explanation": "<code>all()</code> returns every row as a collection. <code>findOrFail($id)</code> returns the model or throws <code>ModelNotFoundException</code>, which Laravel shows as a 404. (<code>find()</code> would just return null.)"
+    },
+    {
+      "id": 43,
+      "type": "fitb",
+      "text": "Get only the Mystery books, newest first.",
+      "code": "$books = Book::___('genre', 'Mystery')\n    ->orderBy('created_at', 'desc')\n    ->___();",
+      "correctAnswer": [
+        "where",
+        "get"
+      ],
+      "points": 2,
+      "explanation": "<code>where('genre', 'Mystery')</code> adds the condition, and <code>get()</code> runs the query and returns a collection. Without <code>get()</code> you'd only have a query builder."
+    },
+    {
+      "id": 44,
+      "type": "fitb",
+      "text": "List the books, with a fallback line when there are none.",
+      "code": "<ul>\n    @forelse ($books as $book)\n        <li>{{ $book->title }}</li>\n    @___\n        <li>No books yet.</li>\n    @___\n</ul>",
+      "correctAnswer": [
+        "empty",
+        "endforelse"
+      ],
+      "points": 2,
+      "explanation": "<code>@forelse</code> works like <code>@foreach</code>, but runs its <code>@empty</code> section when the collection has no items. It ends with <code>@endforelse</code>."
+    },
+    {
+      "id": 45,
+      "type": "fitb",
+      "text": "The whole <code>store</code> method: validate, save, then redirect to the named route <code>books.index</code> with a flash message.",
+      "code": "public function store(Request $request)\n{\n    $validated = $request->___([\n        'isbn' => ['required', 'regex:/^(978|979)\\d{10}$/', 'unique:books,isbn'],\n        'title' => 'required|string|max:120',\n        'copies' => 'required|integer|min:1',\n    ]);\n\n    Book::___($validated);\n\n    return ___()->___('books.index')->with('success', 'Book saved!');\n}",
+      "correctAnswer": [
+        "validate",
+        "create",
+        "redirect",
+        "route"
+      ],
+      "points": 4,
+      "explanation": "<code>validate()</code> returns just the validated fields, so <code>Book::create($validated)</code> can save them directly (they're all in <code>$fillable</code>). <code>redirect()-&gt;route('books.index')</code> goes to a named route, and <code>-&gt;with()</code> flashes the message."
+    }
+  ]
+}
