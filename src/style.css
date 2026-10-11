@@ -1465,10 +1465,8 @@ body.theme-dark .review-status--partial {
 }
 
 .course-card-actions {
-  position: relative;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
   flex-shrink: 0;
 }
 
@@ -5090,10 +5088,22 @@ body .fold-badge .code-theme-badge .q-context-body {
   padding: 0.2rem 0.5rem;
   border-radius: 6px;
   white-space: nowrap;
-  transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.15s ease;
+  max-width: 7rem;
+  overflow: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.15s ease, max-width 0.2s ease,
+    padding 0.2s ease, margin 0.2s ease;
 }
 
+.btn-notes + .btn-select-all {
+  margin-left: 0.4rem;
+}
+
+/* Outside Multi mode it folds to nothing, so Notes sits at the right edge
+   and only slides over to make room once Select all appears. */
 .btn-select-all:not(.btn-select-all--visible) {
+  max-width: 0;
+  padding-inline: 0;
+  margin-left: 0;
   opacity: 0;
   transform: translateX(6px);
   pointer-events: none;
@@ -5101,58 +5111,6 @@ body .fold-badge .code-theme-badge .q-context-body {
 
 .btn-select-all:hover {
   background: var(--radio-bg);
-}
-
-/* Checkbox-style indicator on chips/rows: zero-width outside selection
-   mode, grows in when the item becomes selectable. */
-.quiz-select-check {
-  width: 0;
-  height: 16px;
-  flex-shrink: 0;
-  border: 0 solid var(--border);
-  border-radius: 4px;
-  background: var(--surface);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  vertical-align: -2px;
-  margin-right: 0;
-  opacity: 0;
-  transform: scale(0.5);
-  overflow: hidden;
-  transition: width 0.2s ease, margin 0.2s ease, border-width 0.2s ease, opacity 0.2s ease, transform 0.2s ease,
-    background-color 0.15s ease, border-color 0.15s ease;
-}
-
-.quiz-selectable .quiz-select-check {
-  width: 16px;
-  border-width: 2px;
-  margin-right: 0.5rem;
-  opacity: 1;
-  transform: none;
-}
-
-/* Chips space children with a flex gap — cancel it while the check is
-   collapsed so chips don't carry an empty gap in Single mode. */
-.quiz-chip .quiz-select-check {
-  margin-right: -0.45rem;
-}
-
-.quiz-chip.quiz-selectable .quiz-select-check {
-  margin-right: 0;
-}
-
-.quiz-selected .quiz-select-check {
-  background: var(--accent);
-  border-color: var(--accent);
-}
-
-.quiz-selected .quiz-select-check::after {
-  content: '✓';
-  color: #ffffff;
-  font-size: 0.7rem;
-  font-weight: 900;
-  line-height: 1;
 }
 
 /* !important + body prefix to beat the dark themes' own !important chip/row

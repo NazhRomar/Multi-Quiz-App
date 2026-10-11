@@ -9,14 +9,12 @@ export default function QuizRow({ quiz, label, onOpen, selected }) {
   const isNew = useIsNewQuiz(quiz);
   return (
     <button
-      className={`btn-quiz ${selectable ? 'quiz-selectable' : ''} ${selected ? 'quiz-selected' : ''}`}
+      className={`btn-quiz ${selected ? 'quiz-selected' : ''}`}
       onClick={onOpen}
       aria-pressed={selectable ? selected : undefined}
     >
       {isNew && <span className="quiz-new-corner" role="img" aria-label="Newly added" title="Newly added" />}
       <span className="quiz-btn-title">
-        {/* Always mounted (collapsed to zero width outside selection mode) so it can grow in. */}
-        <span className="quiz-select-check" aria-hidden="true" />
         {label}
         <QuizBadges badges={quiz.badges} />
       </span>
