@@ -2,6 +2,7 @@ import { useApp } from '../../state/AppContext.jsx';
 import { useIsMobile } from '../../utils/useIsMobile.js';
 import { FONTS, fontLabel } from '../../utils/fonts.js';
 import { THEMES } from '../../utils/themes.js';
+import { PRESENCE_AVAILABLE } from '../../utils/presence.js';
 import ThemePicker, { ThemeModeIcon, themeSwatchStyle } from './ThemePicker.jsx';
 import FoldSection from './FoldSection.jsx';
 import SettingsGroup from './SettingsGroup.jsx';
@@ -163,6 +164,17 @@ export default function AppSettingsFields({ showNavLocation = false, showSearchO
           onChange={(v) => set('disableAnimations', v)}
         />
       </SettingsGroup>
+
+      {PRESENCE_AVAILABLE && (
+        <SettingsGroup label="Online">
+          <ToggleRow
+            title="Live reviewer count"
+            hint="Show how many have the app open, and be counted. Off: neither."
+            checked={appSettings.liveCount}
+            onChange={(v) => set('liveCount', v)}
+          />
+        </SettingsGroup>
+      )}
     </>
   );
 }

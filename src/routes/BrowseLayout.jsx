@@ -8,6 +8,7 @@ import SegmentedToggle from '../components/common/SegmentedToggle.jsx';
 import BadgeLegend from '../components/menu/BadgeLegend.jsx';
 import ResumeCard from '../components/menu/ResumeCard.jsx';
 import ChangelogModal from '../components/menu/ChangelogModal.jsx';
+import LiveCount from '../components/common/LiveCount.jsx';
 import { useOverload } from '../components/menu/overload/useOverload.js';
 import OverloadCount from '../components/menu/overload/OverloadCount.jsx';
 import { formatBuildDate } from '../utils/formatBuildDate.js';
@@ -142,6 +143,7 @@ export default function BrowseLayout() {
           <img className="header-logo" src={`${import.meta.env.BASE_URL}favicon.svg`} alt="Multi Quiz App" />
         </h1>
         <div className="header-right">
+          <LiveCount />
           {/* Only while some quiz still shows its "new" corner. */}
           {unseenCount > 0 && (
             <button

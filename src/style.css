@@ -1759,6 +1759,42 @@ body {
   transition: all 0.2s ease;
 }
 
+/* Home header's "● N reviewing now" (LiveCount.jsx). Bordered like the
+   buttons beside it but flat — it's a readout, not a control. */
+.live-count {
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0 0.7rem;
+  border-radius: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  gap: 0.4rem;
+  white-space: nowrap;
+  cursor: default;
+}
+
+.live-count-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--correct);
+  animation: live-count-pulse 2s ease-in-out infinite;
+}
+
+@keyframes live-count-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* Phones: just the dot and the number; the tooltip says what it counts. */
+@media (max-width: 480px) {
+  .live-count-label {
+    display: none;
+  }
+}
+
 .btn-mark-seen * {
   cursor: pointer;
 }

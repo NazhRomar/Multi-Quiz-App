@@ -71,6 +71,7 @@ export const DEFAULT_APP_SETTINGS = {
   answerFont: 'default', // see FONTS in utils/fonts.js
   compactMode: false,
   searchQuestionsFirst: false, // home search: matching questions above matching quizzes
+  liveCount: true, // join, and show, the home header's "N reviewing now" (utils/presence.js)
 };
 export const DEFAULT_QUIZ_OPTIONS = {
   noSkip: false,
