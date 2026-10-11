@@ -1,0 +1,726 @@
+{
+  "quizTitle": "Laravel - 1-5 Comprehensive (Harder)",
+  "addedOn": "2026-10-11",
+  "badges": {
+    "unofficial": true
+  },
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "What is the primary purpose of the Model in the MVC architecture?",
+      "options": [
+        "Render the user interface",
+        "Handle user input",
+        "Direct the flow of control in the application",
+        "Manage the application's data and business logic"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "warning": "The notes call the <strong>Controller</strong> the part that \"contains all the business logic\". This question still wants the Model, since it's the only option about data.",
+      "explanation": "The Model interacts with the database and represents the application's data. Rendering the UI is the View's job; handling input and directing the flow is the Controller's."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "Which of the following is <strong>not</strong> one of the advantages of MVC listed in the notes?",
+      "options": [
+        "A change in one part won't affect the other parts of the code",
+        "It helps Asynchronous Method Invocation",
+        "It helps a faster development process",
+        "It removes the need for a database"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The listed advantages are: organizing large projects, easier modification, changes in one part not affecting others, faster development, and helping Asynchronous Method Invocation. MVC still uses a database; the Model is the part that talks to it."
+    },
+    {
+      "id": 3,
+      "type": "msq",
+      "text": "Which of these are prerequisites for a Laravel development environment? Select all that apply.",
+      "options": [
+        "PHP 8.1 or higher",
+        "Composer",
+        "Node, to compile the frontend assets",
+        "Java JDK",
+        "Python 3",
+        "MySQL or any supported database"
+      ],
+      "correctAnswer": [0, 1, 2, 5],
+      "points": 2,
+      "explanation": "The prerequisites are PHP &gt;= 8.1, Composer, MySQL (or another supported DB), a web server or Laravel Sail, an IDE, and Node for compiling frontend assets. Java and Python aren't needed."
+    },
+    {
+      "id": 4,
+      "type": "fitb",
+      "text": "___ is a dependency manager for PHP.",
+      "correctAnswer": "Composer",
+      "points": 2,
+      "explanation": "Composer installs and updates Laravel and brings in external dependencies, which it puts in the <code>vendor</code> folder."
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "You open a terminal in <code>/home/ana/sites</code> and run the command below. Where does the new project end up?",
+      "context": "<pre>composer create-project laravel/laravel blog</pre>",
+      "options": [
+        "Directly in <code>/home/ana/sites</code>, mixed in with whatever is already there",
+        "In <code>/home/ana/sites/blog</code>",
+        "In <code>/home/ana/sites/laravel/blog</code>",
+        "In Composer's global <code>vendor</code> folder"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>create-project</code> makes a subdirectory of the current directory named after the project, here <code>blog</code>. <code>laravel/laravel</code> is the package (skeleton) to build it from, not a folder."
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "You run <code>laravel new blog</code> and the terminal says the <code>laravel</code> command isn't recognized. Which step was most likely skipped?",
+      "options": [
+        "<code>composer global require \"laravel/installer\"</code>",
+        "<code>php artisan serve</code>",
+        "<code>npm install</code>",
+        "<code>php artisan migrate</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The <code>laravel new</code> command comes from the Laravel Installer, which you first install globally with <code>composer global require \"laravel/installer\"</code>. The other commands run inside a project that already exists."
+    },
+    {
+      "id": 7,
+      "type": "fitb",
+      "text": "In Laravel, the primary configuration file is named ___.",
+      "correctAnswer": ".env",
+      "points": 1,
+      "explanation": "<code>.env</code> in the project root holds the environment-specific settings (app name, <code>APP_KEY</code>, database credentials). The files in <code>config/</code> read their values from it. <code>app.blade.php</code> is a layout view, not configuration."
+    },
+    {
+      "id": 8,
+      "type": "matching",
+      "text": "Match each description to the directory that holds it.",
+      "allChoices": ["config", "database", "public", "storage", "tests", "vendor"],
+      "pairs": [
+        { "term": "Compiled Blade templates, logs and file-based sessions", "match": "storage" },
+        { "term": "<code>index.php</code>, the entry point for every request", "match": "public" },
+        { "term": "Your Composer dependencies", "match": "vendor" },
+        { "term": "Migrations, model factories and seeds", "match": "database" },
+        { "term": "All of the configuration files", "match": "config" },
+        { "term": "Pest or PHPUnit unit and feature tests", "match": "tests" }
+      ],
+      "points": 6,
+      "explanation": "The trap is the first one: the Blade <em>source</em> files live in <code>resources/views</code>, but the <em>compiled</em> versions go in <code>storage</code>, along with logs, file sessions and file caches. <code>public</code> holds <code>index.php</code> plus images, JS and CSS."
+    },
+    {
+      "id": 9,
+      "type": "fitb",
+      "text": "The ___ directory contains the Blade views for your application.",
+      "correctAnswer": "resources/views",
+      "points": 2,
+      "explanation": "Views are stored in <code>resources/views</code>. Controllers live in <code>app/Http/Controllers</code>."
+    },
+    {
+      "id": 10,
+      "type": "fitb",
+      "text": "The ___ directory holds the database migrations for your application.",
+      "correctAnswer": "database/migrations",
+      "points": 2,
+      "explanation": "Migrations go in <code>database/migrations</code>. The <code>database</code> folder as a whole also holds model factories and seeds, so the full path is the answer."
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "Where would you place your application's middleware?",
+      "options": [
+        "<code>resources/middleware/</code>",
+        "<code>app/Http/Controllers/</code>",
+        "<code>config/middleware/</code>",
+        "<code>app/Http/Middleware/</code>"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Middleware classes go in <code>app/Http/Middleware/</code>, next to <code>app/Http/Controllers/</code>. (Since Laravel 11 that folder isn't created until you make your first middleware with <code>php artisan make:middleware</code>, but that's still where it goes.)"
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "Which of the following occurs last in the request lifecycle?",
+      "options": [
+        "Middleware Execution",
+        "Route Matching",
+        "Service Providers Registration",
+        "Response Creation"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "A request enters through <code>public/index.php</code>, service providers are registered, the router matches a route, middleware runs, the controller or closure runs, and finally a response is created and sent back. Response creation is the last step."
+    },
+    {
+      "id": 13,
+      "type": "fitb",
+      "text": "Eloquent ORM: ORM means ___. (Spell it with the hyphen.)",
+      "correctAnswer": "Object-Relational Mapping",
+      "points": 2,
+      "explanation": "ORM stands for Object-Relational Mapping. Eloquent lets you write database queries in PHP syntax instead of SQL, with each table mapped to a model class."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "How can you define a route that accepts a parameter in Laravel?",
+      "options": [
+        "<code>Route::get('/user?id={id}', [UserController::class, 'show'])</code>",
+        "<code>Route::get('/user/?id={id}', [UserController::class, 'show'])</code>",
+        "<code>Route::get('/user/{id}', [UserController::class, 'show'])</code>",
+        "<code>Route::get('/user/:id', [UserController::class, 'show'])</code>"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Route parameters go in curly braces in the path: <code>/user/{id}</code>. Query strings (<code>?id=</code>) aren't part of a route path, and <code>:id</code> is Express.js syntax, not Laravel's."
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "What happens when someone visits <code>/user</code> with this route?",
+      "context": "<pre>Route::get('/user/{name?}', function ($name) {\n    return 'User '.$name;\n});</pre>",
+      "options": [
+        "It shows <code>User </code> with nothing after it",
+        "It shows <code>User Guest</code>",
+        "It throws an error, because <code>$name</code> has no default value",
+        "It returns 404 Not Found"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The <code>?</code> makes <code>/user</code> match the route, so it's not a 404. But Laravel then calls the closure with no argument, and since <code>$name</code> has no default PHP throws an <code>ArgumentCountError</code> (\"Too few arguments\"). An optional parameter needs both the <code>?</code> and a default, e.g. <code>function ($name = 'Guest')</code>. Verified by running the closure with no argument in PHP 8.2."
+    },
+    {
+      "id": 16,
+      "type": "msq",
+      "text": "Which URLs match this route? Select all that apply.",
+      "context": "<pre>Route::get('/user/{name}', function (string $name) {\n    // ...\n})-&gt;where('name', '[A-Za-z]+');</pre>",
+      "options": [
+        "<code>/user/john</code>",
+        "<code>/user/John</code>",
+        "<code>/user/john123</code>",
+        "<code>/user/john-doe</code>"
+      ],
+      "correctAnswer": [0, 1],
+      "points": 2,
+      "explanation": "<code>[A-Za-z]+</code> allows only upper- and lowercase letters, one or more of them. Digits and hyphens aren't in the class, so <code>john123</code> and <code>john-doe</code> get a 404. Checked with <code>preg_match</code> in PHP."
+    },
+    {
+      "id": 17,
+      "type": "mc",
+      "text": "The route below is later changed from <code>'/profile'</code> to <code>'/my-profile'</code>, but its name stays the same. What happens to the <code>route('profile')</code> calls spread across your views?",
+      "context": "<pre>Route::get('/profile', [UserController::class, 'show'])-&gt;name('profile');</pre>",
+      "options": [
+        "They now generate <code>/my-profile</code>, with nothing else to change",
+        "Each one has to be edited to <code>route('my-profile')</code>",
+        "They still generate <code>/profile</code>, which now returns 404",
+        "Laravel throws an error because the name no longer matches the path"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "That is the point of named routes: <code>route('profile')</code> looks up the URL by name each time, so changing the path in one place updates every link and redirect."
+    },
+    {
+      "id": 18,
+      "type": "mc",
+      "text": "To create a route group that applies middleware to all routes within the group, which method should be used?",
+      "options": [
+        "<code>Route::group()</code>",
+        "<code>Route::middleware()</code>",
+        "<code>Route::namespace()</code>",
+        "<code>Route::prefix()</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "warning": "In real code the two go together: <code>Route::middleware('auth')-&gt;group(function () { ... });</code>. <code>middleware()</code> names the middleware, but <code>group()</code> is the method that creates the group, so that's the answer.",
+      "explanation": "<code>group()</code> wraps a set of routes so they share attributes such as middleware, a URL prefix or a name prefix. <code>middleware()</code>, <code>prefix()</code> and <code>namespace()</code> set those attributes; on their own they don't group anything."
+    },
+    {
+      "id": 19,
+      "type": "mc",
+      "text": "What does this fallback route send back?",
+      "context": "<pre>Route::fallback(function () {\n    return response()-&gt;view('errors.404', [], 404);\n});</pre>",
+      "options": [
+        "The view <code>resources/views/errors/404.blade.php</code>, with no data, and HTTP status 404",
+        "A redirect to the <code>/errors/404</code> URL",
+        "The view <code>errors.404</code>, given the data array <code>[404]</code>",
+        "HTTP status 200, with <code>errors.404</code> as the page title"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>response()-&gt;view()</code> takes the view name, the data array, and the status code. <code>errors.404</code> uses dot notation for <code>resources/views/errors/404.blade.php</code>, <code>[]</code> passes no data, and <code>404</code> sets the status so the browser knows the page wasn't found."
+    },
+    {
+      "id": 20,
+      "type": "fitb",
+      "text": "The Artisan command \"php artisan ___\" shows a list of all routes defined in your application.",
+      "correctAnswer": "route:list",
+      "points": 2,
+      "explanation": "<code>php artisan route:list</code> prints every registered route with its method, URI, name and action."
+    },
+    {
+      "id": 21,
+      "type": "fitb",
+      "text": "You ran <code>php artisan route:cache</code> on the production server, then added a new route, but it still returns 404. Fill in the command that clears the route cache: <code>php artisan ___</code>",
+      "correctAnswer": "route:clear",
+      "points": 1,
+      "explanation": "While routes are cached, Laravel serves the cached copy and ignores changes to <code>web.php</code>. <code>php artisan route:clear</code> removes the cache (run <code>route:cache</code> again afterwards if you want it cached in production)."
+    },
+    {
+      "id": 22,
+      "type": "matching",
+      "text": "Match the following HTTP verbs.",
+      "allChoices": ["GET", "POST", "PUT", "PATCH", "DELETE"],
+      "pairs": [
+        { "term": "Request a resource", "match": "GET" },
+        { "term": "Overwrite a resource.", "match": "PUT" },
+        { "term": "Modify a resource", "match": "PATCH" }
+      ],
+      "points": 3,
+      "explanation": "GET requests a resource. PUT overwrites (replaces) the whole resource, while PATCH modifies part of it. POST creates a resource and DELETE removes it."
+    },
+    {
+      "id": 23,
+      "type": "mc",
+      "text": "Which directive is used to display data in a Blade view while escaping HTML?",
+      "options": [
+        "<code>{{ $variable }}</code>",
+        "<code>{!! $variable !!}</code>",
+        "<code>@{{ $variable }}</code>",
+        "<code>@echo($variable)</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>{{ }}</code> runs the value through <code>htmlspecialchars</code> before printing it. <code>{!! !!}</code> prints it unescaped, and <code>@{{ }}</code> tells Blade to leave the braces alone (for JavaScript frameworks). <code>@echo</code> isn't a Blade directive."
+    },
+    {
+      "id": 24,
+      "type": "mc",
+      "text": "The route passes <code>['name' =&gt; '&lt;b&gt;Hi&lt;/b&gt;']</code> to a view containing <code>Hello, {{ $name }}.</code> What does the visitor see?",
+      "options": [
+        "Hello, <b>Hi</b>. (with Hi in bold)",
+        "Hello, &lt;b&gt;Hi&lt;/b&gt;. (the tags shown as plain text)",
+        "Hello, . (Blade strips the HTML out)",
+        "An error, because echoes can't contain HTML"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>{{ }}</code> escapes the value, so <code>&lt;b&gt;</code> becomes <code>&amp;lt;b&amp;gt;</code> and the browser shows the tags as text instead of making the word bold. Checked with <code>htmlspecialchars</code> in PHP."
+    },
+    {
+      "id": 25,
+      "type": "mc",
+      "text": "A Blade view contains both comments below. Which ones can a visitor find with View Page Source?",
+      "context": "<pre>&lt;!-- note A --&gt;\n{{-- note B --}}</pre>",
+      "options": [
+        "Both",
+        "Only note A",
+        "Only note B",
+        "Neither"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>&lt;!-- --&gt;</code> is a normal HTML comment, so it's sent to the browser and shows in the source. Blade comments <code>{{-- --}}</code> are removed when the template compiles and never reach the HTML."
+    },
+    {
+      "id": 26,
+      "type": "mc",
+      "text": "What does this output when <code>$i</code> is <code>2</code>?",
+      "context": "<pre>@switch($i)\n    @case(1)\n        First\n        @break\n    @case(2)\n        Second\n    @case(3)\n        Third\n        @break\n    @default\n        Default\n@endswitch</pre>",
+      "options": [
+        "Second",
+        "Second Third",
+        "Second Third Default",
+        "Default"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>@case(2)</code> has no <code>@break</code>, so it falls through into <code>@case(3)</code>, prints Third, and stops at that <code>@break</code>. Blade compiles <code>@switch</code> into a plain PHP <code>switch</code>; ran the equivalent PHP and got <code>Second Third</code>."
+    },
+    {
+      "id": 27,
+      "type": "mc",
+      "text": "What does this output when <code>$records</code> holds 3 items?",
+      "context": "<pre>@if (count($records) &gt;= 1)\n    I have one record!\n@elseif (count($records) &gt; 1)\n    I have multiple records!\n@else\n    I don't have any records!\n@endif</pre>",
+      "options": [
+        "I have one record!",
+        "I have multiple records!",
+        "I have one record! I have multiple records!",
+        "I don't have any records!"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Only the first true branch runs. <code>3 &gt;= 1</code> is true, so the <code>@elseif</code> is never checked, even though it's also true. (The notes' version uses <code>=== 1</code>, which avoids this.)"
+    },
+    {
+      "id": 28,
+      "type": "mc",
+      "text": "This form updates a user. Why is it <code>method=\"POST\"</code> instead of <code>method=\"PUT\"</code>?",
+      "context": "<pre>&lt;form action=\"/users/5\" method=\"POST\"&gt;\n    @csrf\n    @method('PUT')\n    ...\n&lt;/form&gt;</pre>",
+      "options": [
+        "HTML forms can only send GET or POST, so Laravel reads the hidden <code>_method</code> field from the POST and treats it as PUT",
+        "Laravel rejects PUT requests that come from browsers",
+        "<code>@method</code> only works when CSRF protection is turned off",
+        "POST requests are faster than PUT requests"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "HTML forms can't send PUT, PATCH or DELETE. <code>@method('PUT')</code> adds a hidden <code>_method</code> field, and Laravel uses it to send the POST to a <code>Route::put</code> route. <code>@csrf</code> is still needed."
+    },
+    {
+      "id": 29,
+      "type": "fitb",
+      "text": "Fill in the edit form so it reaches the <code>update</code> route below.",
+      "code": "// routes/web.php\nRoute::put('/users/{id}', [UserController::class, 'update']);\n\n<!-- resources/views/users/edit.blade.php -->\n<form action=\"/users/{{ $user->id }}\" method=\"___\">\n    @___\n    @method('___')\n    <input type=\"text\" name=\"name\" value=\"{{ $user->name }}\">\n    <button type=\"submit\">Save</button>\n</form>",
+      "correctAnswer": ["POST", "csrf", "PUT"],
+      "points": 3,
+      "explanation": "<ol><li><code>POST</code>: forms can only send GET or POST.</li><li><code>csrf</code>: every POST form needs <code>@csrf</code> for the hidden token.</li><li><code>PUT</code>: the route is <code>Route::put</code>, so the form spoofs PUT.</li></ol>"
+    },
+    {
+      "id": 30,
+      "type": "fitb",
+      "text": "To create a new controller, you can use the command ___.",
+      "correctAnswer": "php artisan make:controller",
+      "points": 2,
+      "explanation": "<code>php artisan make:controller UserController</code> creates <code>app/Http/Controllers/UserController.php</code>. There's no space after the colon and no parentheses."
+    },
+    {
+      "id": 31,
+      "type": "mc",
+      "text": "Which controller method is responsible for displaying a list of resources?",
+      "options": [
+        "<code>all()</code>",
+        "<code>list()</code>",
+        "<code>index()</code>",
+        "<code>show()</code>"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>index()</code> lists the resources. <code>show()</code> displays a single one. <code>all()</code> is an Eloquent method (<code>User::all()</code>) you'd call <em>inside</em> <code>index()</code>."
+    },
+    {
+      "id": 32,
+      "type": "mc",
+      "text": "Which of the following is not a default resourceful method in a controller?",
+      "options": [
+        "<code>create()</code>",
+        "<code>store()</code>",
+        "<code>submit()</code>",
+        "<code>edit()</code>"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The seven resource methods are <code>index</code>, <code>create</code>, <code>store</code>, <code>show</code>, <code>edit</code>, <code>update</code> and <code>destroy</code>. <code>submit()</code> isn't one of them."
+    },
+    {
+      "id": 33,
+      "type": "mc",
+      "text": "Which method is used to handle the deletion of a resource in a resource controller?",
+      "options": [
+        "<code>remove()</code>",
+        "<code>delete()</code>",
+        "<code>erase()</code>",
+        "<code>destroy()</code>"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The controller method is <code>destroy()</code>. Inside it you call the model's <code>delete()</code> (<code>$user-&gt;delete()</code>), which is why <code>delete()</code> is the tempting wrong answer."
+    },
+    {
+      "id": 34,
+      "type": "matching",
+      "text": "Match each job to the resource controller method that does it.",
+      "allChoices": ["index", "create", "store", "show", "edit", "update", "destroy"],
+      "pairs": [
+        { "term": "Show the form for adding a new user", "match": "create" },
+        { "term": "Validate and save the submitted new user", "match": "store" },
+        { "term": "Show the form for changing an existing user", "match": "edit" },
+        { "term": "Validate and save the changes to an existing user", "match": "update" },
+        { "term": "Display one user", "match": "show" },
+        { "term": "List all users", "match": "index" },
+        { "term": "Delete a user", "match": "destroy" }
+      ],
+      "points": 7,
+      "explanation": "The form methods (<code>create</code>, <code>edit</code>) only <em>show</em> a form. The methods that receive it (<code>store</code>, <code>update</code>) validate and save."
+    },
+    {
+      "id": 35,
+      "type": "mc",
+      "text": "Which file does this line render?",
+      "context": "<pre>return view('users.index', compact('users'));</pre>",
+      "options": [
+        "<code>resources/views/users.index.blade.php</code>",
+        "<code>resources/views/users/index.blade.php</code>",
+        "<code>resources/views/index/users.blade.php</code>",
+        "<code>app/Http/Controllers/users/index.php</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Dots in a view name mean folders, so <code>users.index</code> is <code>resources/views/users/index.blade.php</code>. <code>compact('users')</code> builds <code>['users' =&gt; $users]</code>, so the view gets <code>$users</code>."
+    },
+    {
+      "id": 36,
+      "type": "mc",
+      "text": "With the controller below, what happens when someone visits <code>/user/999</code> and no user has that id?",
+      "context": "<pre>public function show(string $id): View\n{\n    return view('user.profile', [\n        'user' =&gt; User::findOrFail($id)\n    ]);\n}</pre>",
+      "options": [
+        "The view renders with <code>$user</code> set to <code>null</code>",
+        "A 404 Not Found response",
+        "A 500 error saying the view is missing",
+        "Laravel creates a new user with id 999"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>findOrFail</code> throws a <code>ModelNotFoundException</code> when nothing matches, and Laravel turns that into a 404 response. Plain <code>find()</code> would return <code>null</code> instead."
+    },
+    {
+      "id": 37,
+      "type": "mc",
+      "text": "In a normal form submission, what happens when <code>$request-&gt;validate([...])</code> fails?",
+      "options": [
+        "A <code>ValidationException</code> is thrown, and Laravel redirects back with the errors and old input flashed to the session",
+        "<code>validate()</code> returns <code>false</code> and the method keeps running",
+        "The record is saved anyway and the errors are written to <code>storage/logs</code>",
+        "The user sees a 500 Internal Server Error page"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "On failure an <code>Illuminate\\Validation\\ValidationException</code> is thrown. Laravel redirects the user back, flashes the errors and input to the session, and shares <code>$errors</code> with the views. The code after <code>validate()</code> never runs."
+    },
+    {
+      "id": 38,
+      "type": "msq",
+      "text": "Which of these correctly say that <code>username</code> is required and at most 50 characters? Select all that apply.",
+      "options": [
+        "<code>'username' =&gt; 'required|max:50'</code>",
+        "<code>'username' =&gt; ['required', 'max:50']</code>",
+        "<code>'username' =&gt; 'required,max:50'</code>",
+        "<code>'username' =&gt; 'required|max=50'</code>"
+      ],
+      "correctAnswer": [0, 1],
+      "points": 2,
+      "explanation": "Rules can be one string separated by <code>|</code> or an array of rules. The commas in <code>required,max:50</code> don't separate rules, and rule parameters use a colon (<code>max:50</code>), not <code>=</code>."
+    },
+    {
+      "id": 39,
+      "type": "mc",
+      "text": "Which input passes this rule?",
+      "context": "<pre>'code' =&gt; 'required|digits_between:5,8'</pre>",
+      "options": [
+        "<code>1234</code>",
+        "<code>12345678</code>",
+        "<code>123456789</code>",
+        "<code>12a45</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>digits_between:5,8</code> needs only digits, 5 to 8 of them, and both ends count. <code>1234</code> is too short, <code>123456789</code> is too long, and <code>12a45</code> has a letter."
+    },
+    {
+      "id": 40,
+      "type": "mc",
+      "text": "The password field uses the rule below. What else must the form send for it to pass?",
+      "context": "<pre>'password' =&gt; 'required|confirmed'</pre>",
+      "options": [
+        "A <code>password_confirmation</code> field with the same value",
+        "A <code>confirm</code> checkbox that is ticked",
+        "A <code>password_2</code> field with the same value",
+        "Nothing; <code>confirmed</code> just checks the password isn't empty"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>confirmed</code> looks for a field named after the original plus <code>_confirmation</code>, so <code>password</code> needs <code>password_confirmation</code> with the same value."
+    },
+    {
+      "id": 41,
+      "type": "mc",
+      "text": "A user types <code>abc</code> into the age field. Which errors come back?",
+      "context": "<pre>'age' =&gt; 'bail|numeric|min:18'</pre>",
+      "options": [
+        "Only the <code>numeric</code> error, because <code>bail</code> stops checking <code>age</code> after the first failure",
+        "Both the <code>numeric</code> and the <code>min:18</code> errors",
+        "Only the <code>min:18</code> error",
+        "No errors, because <code>bail</code> skips validation"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Without <code>bail</code> Laravel would keep checking and report <code>min:18</code> as well. With <code>bail</code> it stops at the first failed rule for that attribute, so only the <code>numeric</code> error is reported."
+    },
+    {
+      "id": 42,
+      "type": "mc",
+      "text": "The old password is <code>secret123</code> and the user enters <code>secret123</code> as the new one. What happens?",
+      "context": "<pre>'new_password' =&gt; 'required|different:old_password'</pre>",
+      "options": [
+        "It passes, because the field isn't empty",
+        "It fails, because <code>new_password</code> must not equal <code>old_password</code>",
+        "It fails, because there's no <code>new_password_confirmation</code> field",
+        "It passes, because <code>different</code> only compares lengths"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>different:old_password</code> requires the value to differ from the <code>old_password</code> field. <code>same</code> is the opposite rule, and <code>_confirmation</code> fields belong to <code>confirmed</code>."
+    },
+    {
+      "id": 43,
+      "type": "mc",
+      "text": "Which input <strong>fails</strong> this rule?",
+      "context": "<pre>'middle_name' =&gt; 'nullable|string|max:50'</pre>",
+      "options": [
+        "Leaving the field blank",
+        "<code>Marie</code>",
+        "A middle name 51 characters long",
+        "<code>De la Cruz</code>"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>nullable</code> allows an empty value, but a value that <em>is</em> given still has to pass the other rules. A 51-character string breaks <code>max:50</code>. Spaces are fine for <code>string</code>."
+    },
+    {
+      "id": 44,
+      "type": "fitb",
+      "text": "Fill in the blanks to show the email field's first error message under the input.",
+      "code": "<input type=\"email\" name=\"email\" value=\"{{ old('email') }}\">\n@___('email')\n    <span class=\"text-danger\">{{ $___ }}</span>\n@enderror",
+      "correctAnswer": ["error", "message"],
+      "points": 2,
+      "explanation": "<code>@error('email')</code> runs its block only when <code>email</code> has errors, and inside it <code>$message</code> holds that field's message. <code>$errors</code> is the bag with every field's errors."
+    },
+    {
+      "id": 45,
+      "type": "fitb",
+      "text": "The main database migration command is ___.",
+      "correctAnswer": "php artisan migrate",
+      "points": 2,
+      "explanation": "<code>php artisan migrate</code> runs all pending migrations and creates or updates the tables. It's a command, so no <code>()</code> at the end."
+    },
+    {
+      "id": 46,
+      "type": "tf",
+      "text": "Running <code>php artisan make:migration create_product_table</code> creates the <code>product</code> table in the database right away.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>make:migration</code> only writes the migration file into <code>database/migrations</code>. The table is created when you run <code>php artisan migrate</code>."
+    },
+    {
+      "id": 47,
+      "type": "mc",
+      "text": "A migration's <code>up()</code> method runs <code>Schema::create('products', ...)</code>. What should its <code>down()</code> method do?",
+      "options": [
+        "<code>Schema::dropIfExists('products');</code>",
+        "<code>Schema::create('products');</code>",
+        "<code>$table-&gt;delete('products');</code>",
+        "Nothing; <code>down()</code> is optional and Laravel undoes <code>up()</code> automatically"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>down()</code> must reverse what <code>up()</code> did so rollbacks work. <code>up()</code> created the table, so <code>down()</code> drops it."
+    },
+    {
+      "id": 48,
+      "type": "matching",
+      "text": "Match each migration command to what it does.",
+      "allChoices": ["php artisan migrate", "php artisan migrate:rollback", "php artisan migrate:reset", "php artisan migrate:refresh"],
+      "pairs": [
+        { "term": "Run every pending migration", "match": "php artisan migrate" },
+        { "term": "Roll back the most recent migrations (you can also name the connection)", "match": "php artisan migrate:rollback" },
+        { "term": "Roll back every migration, not just the last batch", "match": "php artisan migrate:reset" },
+        { "term": "Roll back every migration, then run them all again", "match": "php artisan migrate:refresh" }
+      ],
+      "points": 4,
+      "explanation": "<code>rollback</code> undoes the last batch only. <code>reset</code> undoes all of them and stops there. <code>refresh</code> does a reset and then migrates again, so you end up with freshly built tables."
+    },
+    {
+      "id": 49,
+      "type": "fitb",
+      "text": "To create a new model, you can use the command \"php artisan ___\".",
+      "correctAnswer": "make:model",
+      "points": 2,
+      "explanation": "<code>php artisan make:model Product</code> creates <code>app/Models/Product.php</code>. <code>make</code> alone isn't a command; it always needs a type after the colon."
+    },
+    {
+      "id": 50,
+      "type": "mc",
+      "text": "Without any extra settings, which table does a model named <code>StudentRecord</code> use?",
+      "options": [
+        "<code>StudentRecord</code>",
+        "<code>student_record</code>",
+        "<code>student_records</code>",
+        "<code>studentrecords</code>"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Models are singular PascalCase, and Laravel assumes the table is the plural in snake_case: <code>StudentRecord</code> uses <code>student_records</code>."
+    },
+    {
+      "id": 51,
+      "type": "mc",
+      "text": "The <code>StudentRecord</code> model has to use an existing table named <code>tbl_students</code>. What do you add to the model?",
+      "options": [
+        "<code>protected $table = 'tbl_students';</code>",
+        "<code>protected $fillable = ['tbl_students'];</code>",
+        "<code>protected $model = 'tbl_students';</code>",
+        "Nothing; Laravel finds the table automatically"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>$table</code> sets the model's table when it doesn't follow the naming convention. <code>$fillable</code> lists the columns that can be mass-assigned, and <code>$model</code> isn't a model property."
+    },
+    {
+      "id": 52,
+      "type": "mc",
+      "text": "The <code>User</code> model has <code>protected $fillable = ['name', 'email'];</code>. What happens with this call?",
+      "context": "<pre>User::create([\n    'name' =&gt; 'Ana',\n    'email' =&gt; 'ana@example.com',\n    'is_admin' =&gt; true,\n]);</pre>",
+      "options": [
+        "All three values are saved",
+        "<code>name</code> and <code>email</code> are saved; <code>is_admin</code> is ignored",
+        "<code>create()</code> fails and nothing is saved",
+        "Only <code>is_admin</code> is saved"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>$fillable</code> lists which columns can be mass-assigned. By default Laravel silently drops anything not in it, which is how it stops a user from sneaking in <code>is_admin</code>."
+    },
+    {
+      "id": 53,
+      "type": "mc",
+      "text": "Going by the notes' description of <code>$table-&gt;float('price', 8, 2);</code>, what is the largest value <code>price</code> can hold?",
+      "options": [
+        "<code>99999999.99</code>",
+        "<code>999999.99</code>",
+        "<code>99.99</code>",
+        "<code>8.2</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "warning": "Since Laravel 11, <code>float()</code> takes only one precision argument, so the 8-total, 2-decimal form now belongs to <code>$table-&gt;decimal('price', 8, 2)</code>. Answer with the notes' meaning.",
+      "explanation": "8 is the total number of digits and 2 of them come after the decimal point, so 6 are left before it: <code>999999.99</code>."
+    },
+    {
+      "id": 54,
+      "type": "mc",
+      "text": "What does this line do in a migration for an <code>orders</code> table?",
+      "context": "<pre>$table-&gt;foreignId('user_id')-&gt;constrained('users');</pre>",
+      "options": [
+        "Adds a <code>user_id</code> column whose values must match an existing <code>id</code> in the <code>users</code> table",
+        "Copies every column of <code>users</code> into <code>orders</code>",
+        "Makes <code>user_id</code> the primary key of <code>orders</code>",
+        "Creates the <code>users</code> table if it doesn't exist yet"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>foreignId</code> creates the column (an unsigned big integer, matching <code>$table-&gt;id()</code>), and <code>constrained('users')</code> adds a foreign key to <code>users.id</code>. The <code>users</code> table has to exist already."
+    },
+    {
+      "id": 55,
+      "type": "fitb",
+      "text": "Fill in the migration so that <code>id</code> is an auto-incrementing primary key, no two students can share an <code>email</code>, <code>is_active</code> is <code>true</code> unless a value is given, and <code>bio</code> can be left empty.",
+      "code": "public function up(): void\n{\n    Schema::create('students', function (Blueprint $table) {\n        $table->___();\n        $table->string('email')->___();\n        $table->boolean('is_active')->___(true);\n        $table->text('bio')->___();\n        $table->timestamps();\n    });\n}",
+      "correctAnswer": ["id", "unique", "default", "nullable"],
+      "points": 4,
+      "explanation": "<ol><li><code>id</code>: <code>$table-&gt;id()</code> is the auto-incrementing big-integer primary key.</li><li><code>unique</code>: no two rows can share a value.</li><li><code>default</code>: <code>-&gt;default(true)</code> fills it in when none is given.</li><li><code>nullable</code>: the column accepts NULL, so it can be left out.</li></ol>"
+    }
+  ]
+}
