@@ -22,7 +22,34 @@ const QUIZ_DATA = /^src\/data\/.*\.json$/
 const REC = '\x1e' // between commits
 const FIELD = '\x1f' // between fields
 
+// Hosts like Vercel and Netlify build from a shallow clone holding only the
+// last commit or few, which would cut the changelog down to just those. Fetch
+// the rest first. Vercel's clone may have no usable origin, so fall back to
+// the public GitHub repo its env vars name.
+function unshallow() {
+  const run = (cmd) => execSync(cmd, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim()
+  try {
+    if (run('git rev-parse --is-shallow-repository') !== 'true') return
+  } catch (e) {
+    return
+  }
+  try {
+    run('git fetch --unshallow --quiet')
+    return
+  } catch (e) {
+    // fall through to the explicit URL
+  }
+  const { VERCEL_GIT_PROVIDER, VERCEL_GIT_REPO_OWNER, VERCEL_GIT_REPO_SLUG } = process.env
+  if (VERCEL_GIT_PROVIDER !== 'github' || !VERCEL_GIT_REPO_OWNER || !VERCEL_GIT_REPO_SLUG) return
+  try {
+    run(`git fetch --unshallow --quiet https://github.com/${VERCEL_GIT_REPO_OWNER}/${VERCEL_GIT_REPO_SLUG}.git HEAD`)
+  } catch (e) {
+    // Still shallow: the changelog just lists what's there.
+  }
+}
+
 function readChangelog() {
+  unshallow()
   try {
     const raw = execSync('git log --date=short --format=%x1e%H%x1f%ad%x1f%s%x1f%b%x1f --name-only', {
       encoding: 'utf8',
