@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { findNote, loadNote } from '../notes/index.js';
+import { findNote, loadNote, notesForSubject } from '../notes/index.js';
 import Dropdown from '../components/settings/Dropdown.jsx';
+import SegmentedToggle from '../components/common/SegmentedToggle.jsx';
 import AppSettingsFields from '../components/settings/AppSettingsFields.jsx';
 import { MarkdownBlocks, collectHeadings, parseMarkdown } from '../utils/markdown.jsx';
 
@@ -57,6 +58,10 @@ export default function NotesRoute() {
 
   if (!note) return <Navigate to="/" replace />;
 
+  // Sibling notes of the same subject (e.g. several courses under one
+  // subject) get a switcher above the notes.
+  const siblings = notesForSubject(note.subjectId);
+
   const jumpTo = (id) => {
     setTocOpen(false);
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -104,7 +109,18 @@ export default function NotesRoute() {
         {tocOpen && <div className="notes-toc-sheet">{toc}</div>}
       </header>
 
-      <div className="notes-layout">
+      {siblings.length > 1 && (
+        <div className="notes-switcher">
+          <SegmentedToggle
+            label="Notes"
+            options={siblings.map((n) => ({ value: n.slug, label: n.tab || n.title }))}
+            value={note.slug}
+            onChange={(slug) => slug !== note.slug && navigate(`/notes/${slug}`, { replace: true })}
+          />
+        </div>
+      )}
+
+      <div className={`notes-layout ${siblings.length > 1 ? 'notes-layout--switched' : ''}`}>
         {headings.length > 0 && <aside className="notes-sidebar">{toc}</aside>}
         <article className="notes-body">{source == null ? <p className="notes-loading">Loading notes…</p> : <MarkdownBlocks blocks={blocks} />}</article>
       </div>

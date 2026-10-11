@@ -6049,6 +6049,18 @@ body.theme-canvas .q-source-inline {
   align-items: start;
 }
 
+/* Switcher between a subject's notes (NotesRoute), above the layout. */
+.notes-switcher {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem 0;
+}
+
+.notes-layout--switched {
+  padding-top: 1.25rem;
+}
+
 .notes-sidebar {
   position: sticky;
   top: 76px;
@@ -6353,6 +6365,10 @@ body.theme-canvas .q-source-inline {
     display: none;
   }
 
+  .notes-switcher {
+    max-width: 860px;
+  }
+
   .notes-toc-toggle {
     display: inline-flex;
   }
@@ -6380,6 +6396,14 @@ body.theme-canvas .q-source-inline {
 @media (max-width: 600px) {
   .notes-layout {
     padding: 1rem 1rem 3rem;
+  }
+
+  .notes-switcher {
+    padding: 1rem 1rem 0;
+  }
+
+  .notes-switcher .segmented {
+    width: 100%;
   }
 
   .quiz-header .notes-title {

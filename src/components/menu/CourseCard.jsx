@@ -49,16 +49,17 @@ export default function CourseCard({ course, foldKey, forceExpanded = false, onO
             </span>
           </button>
         </h3>
-        {/* Study notes (src/notes/), if this subject has any. */}
-        {notes.map((note) => (
-          <button key={note.slug} type="button" className="btn-notes" onClick={() => navigate(`/notes/${note.slug}`)}>
+        {/* Study notes (src/notes/), if this subject has any. Several notes
+            share one button; the viewer switches between them. */}
+        {notes.length > 0 && (
+          <button type="button" className="btn-notes" onClick={() => navigate(`/notes/${notes[0].slug}`)}>
             <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M4 1.75h5.5L12.5 4.75v9.5h-8.5z" />
               <path d="M6.5 7.5h4M6.5 10h4" />
             </svg>
             <span className="btn-notes-label">Notes</span>
           </button>
-        ))}
+        )}
         {/* Always mounted so it can fade in/out with Multi mode (style.css). */}
         <button
           className={`btn-select-all ${selection ? 'btn-select-all--visible' : ''}`}
