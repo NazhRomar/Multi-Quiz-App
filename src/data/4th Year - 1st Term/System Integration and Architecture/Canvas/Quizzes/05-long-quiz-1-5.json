@@ -1,0 +1,122 @@
+{
+  "quizTitle": "Long Quiz 1 (5)",
+  "addedOn": "2026-10-11",
+  "badges": { "unverified": true },
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "A system administrator of a Linux server is searching the passwd file for the username taylor that appears at the beginning of the line. Which <strong>grep</strong> command should the administrator use?",
+      "options": [
+        "<code>grep '[taylor]' /etc/passwd</code>",
+        "<code>grep '.taylor' /etc/passwd</code>",
+        "<code>grep '^taylor' /etc/passwd</code>",
+        "<code>grep taylor /etc/passwd</code>"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>^</code> anchors the match to the start of the line, so <code>'^taylor'</code> only matches lines that begin with taylor. <code>'[taylor]'</code> matches any line containing any one of the letters t, a, y, l, o or r. <code>'.taylor'</code> requires a character <em>before</em> taylor, so it misses the line that starts with it. Plain <code>taylor</code> also matches it mid-line (e.g. mtaylor). Checked by running each pattern against a sample file."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "A user has a script file named myfile.sh stored inside /home/devasc/Documents/. They want to rename it to myfile_renamed.sh without moving it out of the folder. Which command renames the file inside the current directory?",
+      "options": [
+        "mv myfile.sh myfile_renamed.sh",
+        "cp myfile.sh myfile_renamed.sh",
+        "chmod myfile.sh myfile_renamed.sh",
+        "echo myfile.sh &gt; myfile_renamed.sh"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>mv</code> with a new name in the same directory is how Linux renames a file. <code>cp</code> leaves the original behind, <code>chmod</code> changes permissions, and <code>echo myfile.sh &gt; myfile_renamed.sh</code> just writes the text \"myfile.sh\" into a new file."
+    },
+    {
+      "id": 3,
+      "type": "tf",
+      "text": "A technician schedules a system shutdown in one minute using <code>shutdown +1 \"Come back soon!\"</code> but realizes they need to cancel the operation. The technician can abort the scheduled shutdown before the timer expires by entering <code>shutdown -c</code>.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>shutdown -c</code> cancels a pending scheduled shutdown."
+    },
+    {
+      "id": 4,
+      "type": "tf",
+      "text": "A system administrator needs to monitor system processes and view full details, including user IDs (UID), Process IDs (PID), and Parent Process IDs (PPID). Executing <code>ps -ef</code> lists all running processes on the computer with full-format detail.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>-e</code> selects every process and <code>-f</code> gives the full-format listing (UID, PID, PPID, start time, command). Plain <code>ps</code> shows only the current terminal's processes."
+    },
+    {
+      "id": 5,
+      "type": "tf",
+      "text": "A grocery inventory program holds a fruit list: <code>fruits = [\"apple\", \"banana\", \"cherry\", \"date\", \"elderberry\"]</code>. Executing the slice operation <code>fruits[1:4]</code> returns a list containing <code>[\"banana\", \"cherry\", \"date\"]</code>.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A slice starts at index 1 (\"banana\") and stops <em>before</em> index 4, so it returns indexes 1, 2 and 3: <code>['banana', 'cherry', 'date']</code> (verified by running it)."
+    },
+    {
+      "id": 6,
+      "type": "msq",
+      "text": "An automated HR directory and financial calculator service handles employee key lookups and numerical division operations. Developers implement try-except blocks to maintain application stability under invalid runtime conditions. Which of the following error-handling configurations will correctly prevent program crashes? (Select ALL that apply)",
+      "options": [
+        "Intercepting division operations with an except ZeroDivisionError: block prevents application crash when dividing numbers by zero.",
+        "Catching TypeError inside a try-except structure handles invalid input types passed to mathematical calculations.",
+        "Querying a missing key directly via employees[\"9999\"] without try-except returns None automatically without raising an error.",
+        "Wrapping a dictionary key query inside a try block paired with an except KeyError: block catches missing record lookup errors gracefully."
+      ],
+      "correctAnswer": [0, 1, 3],
+      "points": 1,
+      "explanation": "Dividing by zero raises <code>ZeroDivisionError</code>, a wrong operand type like <code>10 / \"2\"</code> raises <code>TypeError</code>, and a missing dict key raises <code>KeyError</code>. Catching each one keeps the program running (all verified by running them). Indexing a dict with a missing key never returns <code>None</code>; only <code>employees.get(\"9999\")</code> does that."
+    },
+    {
+      "id": 7,
+      "type": "tf",
+      "text": "A security auditor wants to filter /etc/passwd specifically for lines where the account name root appears at the very beginning of the line. Running the command <code>grep '^root' /etc/passwd</code> uses the <code>^</code> anchor to match lines starting with root.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>^</code> anchors the pattern to the start of the line, so <code>'^root'</code> matches the root account's line but not lines where root appears later (e.g. as a home directory or group)."
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "An administrator opens linux2.txt using <code>vi linux2.txt</code>. In command mode, they want to copy (yank) a line of text and paste (put) it below the current cursor position. Which key sequence in vi command mode executes copy and paste?",
+      "options": [
+        "Press d to copy and p to paste",
+        "Press i to copy and a to paste",
+        "Press :w to copy and :q to paste",
+        "Press y to copy and p to paste"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "In vi, <code>y</code> yanks (copies), e.g. <code>yy</code> for the whole line, and <code>p</code> puts it below the cursor. <code>d</code> deletes (cuts), <code>i</code>/<code>a</code> enter insert mode, and <code>:w</code>/<code>:q</code> save and quit."
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "A user issues the <strong>apt-get upgrade</strong> command to update system files in a Ubuntu Linux system and receives an error message of \"permission denied.\" What should the user do to complete the task?",
+      "options": [
+        "Issue the <strong>allow apt-get upgrade</strong> command.",
+        "Issue the <strong>sudo apt-get upgrade</strong> command.",
+        "Issue the <strong>sudo apt-get install</strong> command.",
+        "Issue the <strong>apt-get install --allow</strong> command."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Installing or upgrading packages needs root privileges, so rerun the same command with <code>sudo</code>. <code>apt-get install</code> installs a named package rather than upgrading, and <code>allow</code> / <code>--allow</code> aren't real options."
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "A programmer is using the Python interpreter to combine two existing lists: <code>[1, 2, 4, 5]</code> and <code>[3, 6]</code>. The programmer enters the expression <code>[1, 2, 4, 5] + [3, 6]</code>. What is the output or resulting value of this list addition operation?",
+      "options": ["[1, 2, 3, 4, 5, 6]", "[1, 2, 4, 5, 3, 6]", "[12] + [9]", "[21]"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>+</code> on lists concatenates them in order without sorting or summing: <code>[1, 2, 4, 5, 3, 6]</code> (verified by running it)."
+    }
+  ]
+}
