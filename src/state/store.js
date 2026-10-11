@@ -140,6 +140,9 @@ export function createInitialState() {
     collapsedTerms: loadState('quizApp_collapsedTerms', {}),
     // Folded subjects, keyed "<term key>/<subject key>" (persisted).
     collapsedCourses: loadState('quizApp_collapsedCourses', {}),
+    // Recently added quizzes whose "new" corner was cleared, keyed by
+    // catalog quiz id (persisted; see utils/newQuizzes.js).
+    seenNewQuizzes: loadState('quizApp_seenNewQuizzes', {}),
   };
 
   // Restore an attempt left over from the last visit, if there is one.
@@ -400,6 +403,11 @@ export function reducer(state, action) {
       const { course } = action.payload;
       const collapsedCourses = { ...state.collapsedCourses, [course]: !state.collapsedCourses[course] };
       return { ...state, collapsedCourses };
+    }
+    case 'MARK_QUIZZES_SEEN': {
+      const seenNewQuizzes = { ...state.seenNewQuizzes };
+      for (const id of action.payload) seenNewQuizzes[id] = true;
+      return { ...state, seenNewQuizzes };
     }
 
     default:

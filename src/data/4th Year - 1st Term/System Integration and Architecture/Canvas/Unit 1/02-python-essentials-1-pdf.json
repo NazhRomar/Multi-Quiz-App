@@ -1,0 +1,628 @@
+{
+  "quizTitle": "Python Essentials 1 PDF",
+  "addedOn": "2026-10-11",
+  "questions": [
+    {
+      "type": "mc",
+      "text": "According to “The Intelligence Gap”, what does a computer actually understand?",
+      "options": [
+        "Concepts like distance and speed, as long as the hardware is fast enough",
+        "Plain natural language, given enough processing power",
+        "An Instruction List (IL) — extremely fundamental operations executed at blistering speeds",
+        "High-level Python code, which it runs directly on the CPU"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Slide “The Intelligence Gap”: computers lack innate intelligence and do not understand distance or speed. They only understand an Instruction List (IL) of extremely fundamental operations, and humans must provide the IL.",
+      "id": 1
+    },
+    {
+      "type": "tf",
+      "text": "Computers have innate intelligence, so they can work out what to do without anyone giving them an Instruction List.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “The Intelligence Gap”: computers lack innate intelligence — humans must provide the IL. Without a program, even the most powerful computer is just a space heater.",
+      "id": 2
+    },
+    {
+      "type": "mc",
+      "text": "In the slide's analogy, a computer without a program is like…",
+      "options": [
+        "A piano without a player — just a wooden box",
+        "A player without a piano — all skill, nothing to play on",
+        "Sheet music without notes",
+        "A translator without a dictionary"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “The Intelligence Gap”: “Without a player, a piano is just a wooden box. Without a program, the most powerful computer is just a space heater.” The piano is the hardware (object); the sheet music is the program (instruction list).",
+      "id": 3
+    },
+    {
+      "type": "drag-drop",
+      "text": "Match each layer of the funnel in “Distilling Thought into Execution” to its description.",
+      "allChoices": [
+        "Evolving, complex, intuitive",
+        "The bridge — uses symbols and human-readable conventions (source code)",
+        "The CPU's mother tongue — rudimentary (machine code)"
+      ],
+      "pairs": [
+        {
+          "term": "Natural Language",
+          "match": "Evolving, complex, intuitive"
+        },
+        {
+          "term": "High-Level Language (Python)",
+          "match": "The bridge — uses symbols and human-readable conventions (source code)"
+        },
+        {
+          "term": "Machine Language",
+          "match": "The CPU's mother tongue — rudimentary (machine code)"
+        }
+      ],
+      "points": 3,
+      "explanation": "Slide “Distilling Thought into Execution”: natural language at the top, a high-level language like Python as the bridge in the middle, and machine language — the CPU's mother tongue — at the bottom.",
+      "id": 4
+    },
+    {
+      "type": "mc",
+      "text": "Why do we need a high-level programming language at all?",
+      "options": [
+        "Because machines already understand natural language, but too slowly",
+        "Because we can't speak directly to machines and they can't learn our natural languages, so we need a bridge",
+        "Because machine code is too fast for the CPU to keep up with",
+        "Because high-level languages skip translation and run on the hardware directly"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Distilling Thought into Execution”: we cannot speak directly to machines, nor can they learn our natural languages. A high-level language acts as a bridge, distilling abstract human goals into concrete machine instructions.",
+      "id": 5
+    },
+    {
+      "type": "fitb",
+      "text": "Human-readable code written in a high-level language like Python is called ___ code.",
+      "correctAnswer": "source",
+      "points": 1,
+      "explanation": "Slide “Distilling Thought into Execution”: the high-level language layer is labelled “Source Code”; the bottom layer is machine code.",
+      "id": 6
+    },
+    {
+      "type": "msq",
+      "text": "According to “The Translation Matrix”, which of these describe an <strong>interpreter</strong> like Python? (Select all that apply.)",
+      "options": [
+        "Translates line-by-line in real time",
+        "Stops immediately at the broken line",
+        "Highly portable across platforms",
+        "Faster, because the code is pre-translated",
+        "Hardware-specific",
+        "Requires a full compilation before errors are found"
+      ],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "Slide “The Translation Matrix”: the interpreter translates line-by-line in real time, is slower (translating on the fly), stops immediately at the broken line and is highly portable. Pre-translated speed, hardware-specific output and full compilation before errors are found are the compiler's column.",
+      "id": 7
+    },
+    {
+      "type": "mc",
+      "text": "Which is the compiler's advantage over an interpreter in “The Translation Matrix”?",
+      "options": [
+        "It is highly portable across platforms",
+        "It stops immediately at the broken line",
+        "It executes faster, because the code is already pre-translated",
+        "It translates line-by-line as the program runs"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Slide “The Translation Matrix”: a compiler translates all at once, so execution is faster (pre-translated). The interpreter is slower because it translates on the fly.",
+      "id": 8
+    },
+    {
+      "type": "tf",
+      "text": "A compiler's output is highly portable across platforms, while an interpreter is hardware-specific.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "It's the other way round. Slide “The Translation Matrix”: compiler — hardware-specific; interpreter (Python) — highly portable across platforms.",
+      "id": 9
+    },
+    {
+      "type": "mc",
+      "text": "What is an IDE, as described in the slides?",
+      "options": [
+        "An Integrated Development Environment — your digital workbench for writing source files",
+        "An Interpreted Data Engine that turns Python into machine code ahead of time",
+        "An Instruction Definition Editor used only for machine code",
+        "An Internal Debugging Extension built into the CPU"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “The Translation Matrix”: “You write source files in an IDE (Integrated Development Environment — your digital workbench), and Python translates them line-by-line as the program runs.”",
+      "id": 10
+    },
+    {
+      "type": "mc",
+      "text": "What does the interpreter do with line 2 of this program?",
+      "context": "<pre># Coffee Shop ASCII Logo\n# This is a comment. The interpreter ignores it.\n\nprint('  (  )  (  )')\nprint('   ) (   ) (')\nprint(' ..........')\nprint(' |        |]')\n\nprint('Welcome to Bean Cafe!')</pre>",
+      "options": [
+        "Prints it to the console before the logo",
+        "Ignores it — comments are for humans, code is for machines",
+        "Raises a SyntaxError because it isn't inside <code>print()</code>",
+        "Saves it as the program's title"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Speaking to the Console”: a line starting with <code>#</code> is a comment, and the interpreter ignores it. “Comments are for humans. Code is for machines.”",
+      "id": 11
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the character that turns this line into a comment.",
+      "code": "___ Coffee Shop ASCII Logo\nprint('Welcome to Bean Cafe!')",
+      "correctAnswer": "#",
+      "points": 1,
+      "explanation": "Slide “Speaking to the Console”: in Python, everything after a <code>#</code> on a line is a comment.",
+      "id": 12
+    },
+    {
+      "type": "mc",
+      "text": "In “Speaking to the Console” (Scenario 2: System Boot-up Greeting), what is the program's goal?",
+      "options": [
+        "Ask the barista for their name and store it in a variable",
+        "Print a textual ASCII logo when the POS terminal turns on, so the barista knows the system is ready",
+        "Calculate the day's sales total and print a receipt",
+        "Shut the POS terminal down safely at closing time"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Speaking to the Console”: “Goal: Print a textual ASCII logo when the POS terminal turns on so the barista knows the system is ready.” It's done entirely with <code>print()</code> calls.",
+      "id": 13
+    },
+    {
+      "type": "matching",
+      "text": "Match each value from “The Memory Box Model” to its kind of literal.",
+      "context": "<pre>age = 25\nheight = 5.9\nname = 'Alex'</pre>",
+      "allChoices": [
+        "Integer literal (whole numbers)",
+        "Float literal (decimal numbers)",
+        "String literal (text characters)"
+      ],
+      "pairs": [
+        {
+          "term": "25",
+          "match": "Integer literal (whole numbers)"
+        },
+        {
+          "term": "5.9",
+          "match": "Float literal (decimal numbers)"
+        },
+        {
+          "term": "'Alex'",
+          "match": "String literal (text characters)"
+        }
+      ],
+      "points": 3,
+      "explanation": "Slide “The Memory Box Model”: 25 is an integer literal, 5.9 a float literal and <code>'Alex'</code> a string literal.",
+      "id": 14
+    },
+    {
+      "type": "mc",
+      "text": "In <code>age = 25</code>, what are <code>age</code> and <code>25</code>?",
+      "options": [
+        "<code>age</code> is a literal; <code>25</code> is a variable",
+        "<code>age</code> is a variable (the container); <code>25</code> is a literal (the raw data put in it)",
+        "Both are variables",
+        "Both are literals"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “The Memory Box Model”: to remember anything, we tell the computer to create a specific container (a <strong>variable</strong>) and fill it with a specific type of raw data (a <strong>literal</strong>).",
+      "id": 15
+    },
+    {
+      "type": "mc",
+      "text": "The user types <code>50</code> at the prompt. What does this program print?",
+      "context": "<pre># Tax Calculator\n\nbase_price = float(input('Enter base price: '))\ntax_rate = 0.08\n\ntotal = base_price + (base_price * tax_rate)\nprint('Total Due: $', total)</pre>",
+      "options": [
+        "<code>Total Due: $ 54.0</code>",
+        "<code>Total Due: $54</code>",
+        "<code>Total Due: $ 4.0</code>",
+        "<code>Total Due: $ 50.08</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Computation and Ingestion”: 50 + (50 × 0.08) = 54.0 — a float, because <code>base_price</code> was converted with <code>float()</code>. <code>print()</code> puts a space between its comma-separated arguments, hence <code>$ 54.0</code>. Verified by running it.",
+      "id": 16
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>input()</code> do?",
+      "options": [
+        "Prints a value to the console",
+        "Pauses the program to ingest data from the human",
+        "Converts text into a decimal number",
+        "Reads the next line from a file on disk"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Computation and Ingestion”: “<code>input()</code> pauses the program to ingest data from the human.” What it hands back is always a string, which is why the tax calculator wraps it in <code>float()</code> before doing arithmetic.",
+      "id": 17
+    },
+    {
+      "type": "mc",
+      "text": "What does this print?",
+      "context": "<pre>print(17 // 5, 17 % 5)</pre>",
+      "options": [
+        "<code>3.4 2</code>",
+        "<code>3 2</code>",
+        "<code>2 3</code>",
+        "<code>3 0.4</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Computation and Ingestion”: <code>//</code> is floor division, which drops the remainder (17 // 5 = 3), and <code>%</code> is modulo, which keeps only the remainder (17 % 5 = 2). Verified by running it.",
+      "id": 18
+    },
+    {
+      "type": "matching",
+      "text": "Match each arithmetic operator to what it does.",
+      "allChoices": [
+        "Divide",
+        "Floor division — drops the remainder",
+        "Modulo — keeps ONLY the remainder",
+        "Multiply"
+      ],
+      "pairs": [
+        {
+          "term": "/",
+          "match": "Divide"
+        },
+        {
+          "term": "//",
+          "match": "Floor division — drops the remainder"
+        },
+        {
+          "term": "%",
+          "match": "Modulo — keeps ONLY the remainder"
+        },
+        {
+          "term": "*",
+          "match": "Multiply"
+        }
+      ],
+      "points": 4,
+      "explanation": "Slide “Computation and Ingestion”, Python Arithmetic Operators panel: + add, - subtract, * multiply, / divide, // floor division (drops remainder), % modulo (keeps only the remainder).",
+      "id": 19
+    },
+    {
+      "type": "mc",
+      "text": "What does this print?",
+      "context": "<pre>score = 85\n\nif score >= 90:\n    print('Grade: A')\nelif score >= 80:\n    print('Grade: B')\nelif score >= 70:\n    print('Grade: C')\nelse:\n    print('Grade: F')</pre>",
+      "options": [
+        "<code>Grade: A</code>",
+        "<code>Grade: B</code>",
+        "<code>Grade: B</code> then <code>Grade: C</code>",
+        "<code>Grade: F</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Routing Logic with Conditionals”: <code>score >= 90</code> is False, <code>score >= 80</code> is True, so <code>Grade: B</code> prints. Even though <code>score >= 70</code> is also true, Python takes only the first True branch and ignores the rest entirely. Verified by running it.",
+      "id": 20
+    },
+    {
+      "type": "tf",
+      "text": "Relational operators like <code>>=</code> evaluate to boolean values (True or False), which Python uses to decide which block of code to run.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Routing Logic with Conditionals”: relational operators evaluate to booleans, and Python uses them like switches on a train track, deciding which block to execute and which to ignore.",
+      "id": 21
+    },
+    {
+      "type": "matching",
+      "text": "Match each description from “The Loop Decision Engine” to the loop it describes.",
+      "allChoices": [
+        "for loop",
+        "while loop"
+      ],
+      "pairs": [
+        {
+          "term": "Sequence-based — iterates through a known range",
+          "match": "for loop"
+        },
+        {
+          "term": "Condition-based — loops as long as a boolean is True",
+          "match": "while loop"
+        },
+        {
+          "term": "Fixed / definite iteration count",
+          "match": "for loop"
+        },
+        {
+          "term": "Indefinite / unknown iteration count",
+          "match": "while loop"
+        }
+      ],
+      "points": 4,
+      "explanation": "Slide “The Loop Decision Engine”: <code>for</code> is sequence-based with a fixed count; <code>while</code> is condition-based with an indefinite count.",
+      "id": 22
+    },
+    {
+      "type": "mc",
+      "text": "A program has to keep reading a sensor until the temperature drops below 30°C — nobody knows how many readings that will take. Which loop fits?",
+      "options": [
+        "A <code>for</code> loop, because it is sequence-based",
+        "A <code>while</code> loop, because you're waiting for a condition to change",
+        "Neither — this needs an <code>if</code>/<code>elif</code> chain",
+        "A <code>for</code> loop over <code>range(30)</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “The Loop Decision Engine” takeaway: use <code>for</code> when you know exactly how many items to process; use <code>while</code> when you are waiting for a specific condition to change.",
+      "id": 23
+    },
+    {
+      "type": "mc",
+      "text": "What does this print?",
+      "context": "<pre>for i in range(3):\n    print(i)</pre>",
+      "options": [
+        "<code>1</code>, <code>2</code>, <code>3</code> (one per line)",
+        "<code>0</code>, <code>1</code>, <code>2</code> (one per line)",
+        "<code>0</code>, <code>1</code>, <code>2</code>, <code>3</code> (one per line)",
+        "<code>3</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “The Loop Decision Engine”: <code>range(3)</code> produces 0, 1 and 2. It starts at zero and stops before 3. Verified by running it.",
+      "id": 24
+    },
+    {
+      "type": "mc",
+      "text": "What does this print?",
+      "context": "<pre>count = 0\nwhile count < 3:\n    count += 1\nprint(count)</pre>",
+      "options": [
+        "<code>2</code>",
+        "<code>3</code>",
+        "<code>4</code>",
+        "Nothing — it loops forever"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The <code>while</code> example from “The Loop Decision Engine”, with <code>count = 0</code> added so it runs. It loops while <code>count < 3</code>: 0→1, 1→2, 2→3, then <code>3 < 3</code> is False and the loop ends, so 3 prints. Verified by running it.",
+      "id": 25
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>manifest[1:3]</code> give you?",
+      "context": "<pre>manifest = ['part_101', 'part_240', 'part_330', 'part_999']</pre>",
+      "options": [
+        "<code>['part_101', 'part_240', 'part_330']</code>",
+        "<code>['part_240', 'part_330', 'part_999']</code>",
+        "<code>['part_240', 'part_330']</code>",
+        "<code>['part_101', 'part_240']</code>"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Slide “The Indexing Train (Lists)”: the slice starts at index 1 (<code>part_240</code>) and stops <em>before</em> index 3, so it takes indexes 1 and 2. Verified by running it.",
+      "id": 26
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the reverse index that reaches the last car of the train, however long the list is.",
+      "code": "manifest = ['part_101', 'part_240', 'part_330', 'part_999']\nlast = manifest[___]",
+      "correctAnswer": "-1",
+      "points": 1,
+      "explanation": "Slide “The Indexing Train (Lists)”: <code>part_999</code> sits at Index [3] / Reverse Index [-1]. Negative indexes count back from the end, so <code>-1</code> is always the last item.",
+      "id": 27
+    },
+    {
+      "type": "tf",
+      "text": "Python lists start counting at one, so <code>manifest[1]</code> is the first item.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “The Indexing Train (Lists)”: “Lists are dynamic arrays. They always start counting at <strong>zero</strong>.” <code>manifest[0]</code> is the first item.",
+      "id": 28
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>'part_240' in manifest</code> do in this code?",
+      "context": "<pre>manifest = ['part_101', 'part_240', 'part_330', 'part_999']\nif 'part_240' in manifest:\n    print('Part is in today\\'s delivery.')</pre>",
+      "options": [
+        "Adds <code>'part_240'</code> to the list",
+        "Returns the index where <code>'part_240'</code> sits",
+        "Checks whether <code>'part_240'</code> is one of the list's items, giving True or False",
+        "Removes <code>'part_240'</code> from the list"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Slide “The Indexing Train (Lists)”: <code>in</code> tests membership and evaluates to a boolean. Here it's True, so <code>Part is in today's delivery.</code> prints. Verified by running it.",
+      "id": 29
+    },
+    {
+      "type": "matching",
+      "text": "Match each data structure to how it is written.",
+      "allChoices": [
+        "[Square brackets]",
+        "(Parentheses)",
+        "{Curly braces}"
+      ],
+      "pairs": [
+        {
+          "term": "List",
+          "match": "[Square brackets]"
+        },
+        {
+          "term": "Tuple",
+          "match": "(Parentheses)"
+        },
+        {
+          "term": "Dictionary",
+          "match": "{Curly braces}"
+        }
+      ],
+      "points": 3,
+      "explanation": "Slide “The Data Structure Selector”, Syntax Definition row.",
+      "id": 30
+    },
+    {
+      "type": "matching",
+      "text": "Match each use case to the data structure “The Data Structure Selector” recommends for it.",
+      "allChoices": [
+        "List",
+        "Tuple",
+        "Dictionary"
+      ],
+      "pairs": [
+        {
+          "term": "A queue of changing items",
+          "match": "List"
+        },
+        {
+          "term": "Fixed geographic coordinates",
+          "match": "Tuple"
+        },
+        {
+          "term": "Looking up an employee ID to find their department",
+          "match": "Dictionary"
+        }
+      ],
+      "points": 3,
+      "explanation": "Slide “The Data Structure Selector”, Ideal Use Case row: lists for changing items, tuples for fixed data that should never change, dictionaries for key lookups.",
+      "id": 31
+    },
+    {
+      "type": "msq",
+      "text": "Which of these data structures are mutable (can be changed after they're created)? (Select all that apply.)",
+      "options": [
+        "Lists",
+        "Tuples",
+        "Dictionaries"
+      ],
+      "correctAnswer": [0, 2],
+      "points": 1,
+      "explanation": "Slide “The Data Structure Selector”, Mutability row: lists — yes (dynamic); tuples — no (immutable); dictionaries — yes (dynamic). Trying <code>t[0] = 1</code> on a tuple raises <code>TypeError: 'tuple' object does not support item assignment</code> (verified by running it).",
+      "id": 32
+    },
+    {
+      "type": "mc",
+      "text": "How are values in a dictionary accessed?",
+      "options": [
+        "By numerical index, starting at zero",
+        "By key lookup",
+        "Only by looping over every value in order",
+        "By their position counted from the end"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “The Data Structure Selector”, Access Method row: lists and tuples are accessed by numerical index; dictionaries by key lookup.",
+      "id": 33
+    },
+    {
+      "type": "mc",
+      "text": "What does this print?",
+      "context": "<pre>multiplier = 5\n\ndef multiply_number(num):\n    return num * multiplier\n\nprint(multiply_number(10))</pre>",
+      "options": [
+        "<code>15</code>",
+        "<code>50</code>",
+        "<code>10</code>",
+        "<code>NameError</code> — the function can't see <code>multiplier</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Functions and The Walled Garden”: code inside a function can see out and use global variables, so 10 × 5 = 50. Verified by running it.",
+      "id": 34
+    },
+    {
+      "type": "mc",
+      "text": "After calling the function, the main program tries <code>print(num)</code>. What happens?",
+      "context": "<pre>multiplier = 5\n\ndef multiply_number(num):\n    return num * multiplier\n\nmultiply_number(10)\nprint(num)</pre>",
+      "options": [
+        "It prints <code>10</code>",
+        "It prints <code>50</code>",
+        "It raises <code>NameError</code>, because <code>num</code> is local to the function",
+        "It prints <code>None</code>"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Slide “Functions and The Walled Garden”: variables created inside a function (local) belong only to that walled garden. The function can see out, but the global program can't see in, so <code>print(num)</code> raises <code>NameError: name 'num' is not defined</code>. Verified by running it.",
+      "id": 35
+    },
+    {
+      "type": "mc",
+      "text": "What do <code>safe_divide(10, 4)</code> and <code>safe_divide(10, 0)</code> return?",
+      "context": "<pre>def safe_divide(a, b):\n    try:\n        return a / b\n    except ZeroDivisionError:\n        return 'Error: Cannot divide by zero!'</pre>",
+      "options": [
+        "<code>2</code> and a crash with <code>ZeroDivisionError</code>",
+        "<code>2.5</code> and <code>'Error: Cannot divide by zero!'</code>",
+        "<code>2.5</code> and <code>0</code>",
+        "<code>'Error: Cannot divide by zero!'</code> both times"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “The Broken Rail (Exception Handling)”: 10 / 4 = 2.5 (<code>/</code> always gives a float). Dividing by zero raises <code>ZeroDivisionError</code>, which the try-except block catches and reroutes to the safe track instead of crashing. Verified by running it.",
+      "id": 36
+    },
+    {
+      "type": "drag-drop",
+      "text": "Match each part of the program in “Anatomy of a Robust Program” to the role it plays.",
+      "context": "<pre>employees = {'1001': 'Eng', '1002': 'Sales'}\n\ndef lookup_employee(emp_id):\n    try:\n        dept = employees[emp_id]\n        print('Employee in', dept)\n    except KeyError:\n        print('ID not found.')\n\nsearch_id = input('Enter ID: ')\nlookup_employee(search_id)</pre>",
+      "allChoices": [
+        "Data Structures — storing the state",
+        "Functions — modularizing the action",
+        "Exception Handling — protecting the flow",
+        "I/O — bridging to the human"
+      ],
+      "pairs": [
+        {
+          "term": "employees = {...}",
+          "match": "Data Structures — storing the state"
+        },
+        {
+          "term": "def lookup_employee(emp_id):",
+          "match": "Functions — modularizing the action"
+        },
+        {
+          "term": "try: ... except KeyError:",
+          "match": "Exception Handling — protecting the flow"
+        },
+        {
+          "term": "search_id = input('Enter ID: ')",
+          "match": "I/O — bridging to the human"
+        }
+      ],
+      "points": 4,
+      "explanation": "Slide “Anatomy of a Robust Program” labels each block: the dictionary stores the state, the function modularizes the action, try/except protects the flow and <code>input()</code> bridges to the human.",
+      "id": 37
+    },
+    {
+      "type": "mc",
+      "text": "Using the same program, the user types <code>1003</code>. What is printed?",
+      "context": "<pre>employees = {'1001': 'Eng', '1002': 'Sales'}\n\ndef lookup_employee(emp_id):\n    try:\n        dept = employees[emp_id]\n        print('Employee in', dept)\n    except KeyError:\n        print('ID not found.')\n\nsearch_id = input('Enter ID: ')\nlookup_employee(search_id)</pre>",
+      "options": [
+        "<code>Employee in Sales</code>",
+        "<code>ID not found.</code>",
+        "Nothing — the program crashes with <code>KeyError</code>",
+        "<code>Employee in None</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Anatomy of a Robust Program”: <code>'1003'</code> isn't a key, so <code>employees[emp_id]</code> raises <code>KeyError</code>, which the except block catches. Typing <code>1001</code> would print <code>Employee in Eng</code> — the keys are strings, which matches what <code>input()</code> returns. Verified by running it.",
+      "id": 38
+    },
+    {
+      "type": "mc",
+      "text": "According to “From Object to Engine”, what turns a lifeless machine into an intelligent engine?",
+      "options": [
+        "Memorising a long list of Python vocabulary words",
+        "Buying faster hardware",
+        "Combining variables, loops, conditional logic and robust exception handling",
+        "Switching from an interpreter to a compiler"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Slide “From Object to Engine”: you haven't just learned vocabulary — you've learned to build a complete sentence. Combining variables, loops, conditional logic and robust exception handling gives you the tools to transform a lifeless machine into an intelligent engine.",
+      "id": 39
+    }
+  ]
+}

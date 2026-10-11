@@ -1,6 +1,6 @@
 {
-  "id": "module1",
-  "order": 1,
+  "id": "unit1",
+  "order": 2,
   "showCount": true,
   "badges": {
     "unofficial": true

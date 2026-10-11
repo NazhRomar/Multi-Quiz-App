@@ -12,6 +12,7 @@ import { useOverload } from '../components/menu/overload/useOverload.js';
 import OverloadCount from '../components/menu/overload/OverloadCount.jsx';
 import { formatBuildDate } from '../utils/formatBuildDate.js';
 import { estimateSeconds, formatDuration } from '../utils/estimateTime.js';
+import { useNewQuizzes } from '../utils/newQuizzes.js';
 
 const icon = (children) => (
   <svg className="segmented-icon" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -71,6 +72,7 @@ export default function BrowseLayout() {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const [showChangelog, setShowChangelog] = useState(false);
+  const { unseenCount, markAllSeen } = useNewQuizzes();
 
   // The box keeps whatever is typed, but search only fires from
   // MIN_SEARCH_LENGTH characters: it filters the term/course/quiz list by
@@ -129,6 +131,18 @@ export default function BrowseLayout() {
           <img className="header-logo" src={`${import.meta.env.BASE_URL}favicon.svg`} alt="Multi Quiz App" />
         </h1>
         <div className="header-right">
+          {/* Only while some quiz still shows its "new" corner. */}
+          {unseenCount > 0 && (
+            <button
+              type="button"
+              className="btn-mark-seen"
+              onClick={markAllSeen}
+              title={`Remove the "new" corner from ${unseenCount} newly added ${unseenCount === 1 ? 'quiz' : 'quizzes'}`}
+            >
+              <span className="mark-seen-corner" aria-hidden="true" />
+              Mark all as seen
+            </button>
+          )}
           <Dropdown ariaLabel="Settings">
             <div className="dropdown-section-title">App settings</div>
             <AppSettingsFields showSearchOrder />

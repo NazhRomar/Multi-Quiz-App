@@ -1,0 +1,770 @@
+{
+  "quizTitle": "Mod01_Act03 Activity",
+  "addedOn": "2026-10-11",
+  "questions": [
+    {
+      "type": "fitb",
+      "text": "Fill in the option that prints the installed Python version.",
+      "code": "devasc@labvm:~$ python3 ___\nPython 3.8.2",
+      "correctAnswer": "-V",
+      "points": 1,
+      "explanation": "Part 2, Step 1a: <code>python3 -V</code> (capital V) reports the version — useful when you've installed Python on a different computer and need to check what's there.",
+      "id": 1
+    },
+    {
+      "type": "tf",
+      "text": "Python 2 is still supported in this lab and course, as long as you use <code>python2 -V</code> to check its version.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 2, Step 1a note: as of January 1, 2020, Python 2 is no longer supported, so it isn't supported in this lab or this course. The labs are based on Python 3.8.2.",
+      "id": 2
+    },
+    {
+      "type": "mc",
+      "text": "After typing <code>python3</code>, what tells you that you're inside Python's interactive interpreter?",
+      "options": [
+        "The prompt changes to <code>$</code>",
+        "The three angle brackets <code>>>></code>",
+        "The prompt changes to <code>#</code>",
+        "A <code>python@labvm</code> prompt appears"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 2, Step 1b: “The three angle brackets (>>>) indicate that you are in Python's interactive interpreter.”",
+      "id": 3
+    },
+    {
+      "type": "mc",
+      "text": "How do you leave the interactive interpreter and get back to the Linux prompt?",
+      "options": [
+        "<code>exit</code>",
+        "<code>quit()</code>",
+        "<code>close()</code>",
+        "Press <code>q</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 2, Step 3c: enter <code>quit()</code> to exit the interactive interpreter and return to <code>devasc@labvm:~$</code>.",
+      "id": 4
+    },
+    {
+      "type": "matching",
+      "text": "Match each math operation to its Python syntax.",
+      "allChoices": [
+        "a+b",
+        "a-b",
+        "a*b",
+        "a/b",
+        "a**b"
+      ],
+      "pairs": [
+        {
+          "term": "Addition",
+          "match": "a+b"
+        },
+        {
+          "term": "Subtraction",
+          "match": "a-b"
+        },
+        {
+          "term": "Multiplication (a × b)",
+          "match": "a*b"
+        },
+        {
+          "term": "Division (a ÷ b)",
+          "match": "a/b"
+        },
+        {
+          "term": "Exponents (a^b)",
+          "match": "a**b"
+        }
+      ],
+      "points": 5,
+      "explanation": "Part 2, Step 2a, the operations table. Note that exponents use <code>**</code>, not <code>^</code>.",
+      "id": 5
+    },
+    {
+      "type": "mc",
+      "text": "What does the interpreter show for <code>20/5</code>?",
+      "context": "<pre>>>> 20/5</pre>",
+      "options": [
+        "<code>4</code>",
+        "<code>4.0</code>",
+        "<code>4.00</code>",
+        "<code>'4'</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 2, Step 2a: <code>20/5</code> gives <code>4.0</code>. The <code>/</code> operator always produces a float, even when the division is exact. Verified by running it.",
+      "id": 6
+    },
+    {
+      "type": "mc",
+      "text": "Following PEMDAS, what is the result of <code>2+3*4**2</code>?",
+      "context": "<pre>>>> 2+3*4**2</pre>",
+      "options": [
+        "<code>50</code>",
+        "<code>146</code>",
+        "<code>400</code>",
+        "<code>98</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2, Step 2b: Python evaluates Parentheses, then Exponents, then Multiplication/Division, then Addition/Subtraction. So 4**2 = 16, then 3*16 = 48, then 2+48 = 50. Verified by running it.",
+      "id": 7
+    },
+    {
+      "type": "mc",
+      "text": "What does the interactive interpreter display for each of these lines?",
+      "context": "<pre>>>> 'Hello World!'\n>>> print(\"Hello World!\")</pre>",
+      "options": [
+        "<code>'Hello World!'</code> then <code>Hello World!</code>",
+        "<code>Hello World!</code> both times",
+        "<code>'Hello World!'</code> both times",
+        "Nothing for the first line, <code>Hello World!</code> for the second"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2, Step 3: typing a bare string makes the interpreter echo it back in quotes (<code>'Hello World!'</code>), whichever quotes you used. <code>print()</code> outputs the text itself, without quotes.",
+      "id": 8
+    },
+    {
+      "type": "msq",
+      "text": "Which of these run the saved <code>hello-world.py</code> script? (Select all that apply.)",
+      "options": [
+        "In VS Code, click <strong>Run > Run Without Debugging</strong>",
+        "<code>python3 hello-world.py</code> from inside <code>~/labs/devnet-src/python</code>",
+        "<code>python3 ~/labs/devnet-src/python/hello-world.py</code> from any terminal",
+        "<code>run hello-world.py</code> from inside the <code>>>></code> interpreter"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "Part 2, Step 4e-g: VS Code's Run Without Debugging; <code>python3 hello-world.py</code> in VS Code's terminal; or <code>python3</code> with the full path from a terminal outside VS Code. There is no <code>run</code> command in the interpreter.",
+      "id": 9
+    },
+    {
+      "type": "matching",
+      "text": "Match each value to the data type name <code>type()</code> reports for it.",
+      "allChoices": [
+        "int",
+        "float",
+        "str",
+        "bool"
+      ],
+      "pairs": [
+        {
+          "term": "98",
+          "match": "int"
+        },
+        {
+          "term": "98.6",
+          "match": "float"
+        },
+        {
+          "term": "\"Hi!\"",
+          "match": "str"
+        },
+        {
+          "term": "True",
+          "match": "bool"
+        }
+      ],
+      "points": 4,
+      "explanation": "Part 3, Step 1: <code>type(98)</code> shows <code>&lt;class 'int'&gt;</code>, <code>type(98.6)</code> <code>&lt;class 'float'&gt;</code>, <code>type(\"Hi!\")</code> <code>&lt;class 'str'&gt;</code> and <code>type(True)</code> <code>&lt;class 'bool'&gt;</code>. Integers are whole numbers, floats need a decimal value, strings are any sequence of characters, and Booleans are True or False.",
+      "id": 10
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>type(3.75)</code> return?",
+      "context": "<pre>>>> type(3.75)</pre>",
+      "options": [
+        "<code>&lt;class 'int'&gt;</code> — Python drops the decimal and treats it as 3",
+        "<code>&lt;class 'float'&gt;</code>",
+        "<code>&lt;class 'str'&gt;</code>",
+        "<code>&lt;class 'decimal'&gt;</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "warning": "Upon double checking, a number with a decimal is <strong>not</strong> treated as an integer: <code>3.75</code> is a float. Only <code>int(3.75)</code> truncates it to <code>3</code>.",
+      "explanation": "Any number written with a decimal point is a float, so <code>type(3.75)</code> is <code>&lt;class 'float'&gt;</code>. Python never silently drops the decimal. You only get 3 if you explicitly cast it with <code>int(3.75)</code>, which truncates. Verified by running both.",
+      "id": 11
+    },
+    {
+      "type": "matching",
+      "text": "Match each Boolean operator to its meaning.",
+      "allChoices": [
+        "Greater than",
+        "Less than",
+        "Equal to",
+        "Not equal to",
+        "Greater than or equal to",
+        "Less than or equal to"
+      ],
+      "pairs": [
+        {
+          "term": "<code>&gt;</code>",
+          "match": "Greater than"
+        },
+        {
+          "term": "<code>&lt;</code>",
+          "match": "Less than"
+        },
+        {
+          "term": "<code>==</code>",
+          "match": "Equal to"
+        },
+        {
+          "term": "<code>!=</code>",
+          "match": "Not equal to"
+        },
+        {
+          "term": "<code>&gt;=</code>",
+          "match": "Greater than or equal to"
+        },
+        {
+          "term": "<code>&lt;=</code>",
+          "match": "Less than or equal to"
+        }
+      ],
+      "points": 6,
+      "explanation": "Part 3, Step 2, the Boolean operators table.",
+      "id": 12
+    },
+    {
+      "type": "mc",
+      "text": "Which of these evaluates to <code>False</code>?",
+      "options": [
+        "<code>1&lt;2</code>",
+        "<code>1&lt;1</code>",
+        "<code>1&gt;=1</code>",
+        "<code>1&lt;=1</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 3, Step 2: <code>1&lt;1</code> is False, because 1 isn't less than itself. <code>1&gt;=1</code> and <code>1&lt;=1</code> are True because the “or equal to” part matches. Verified by running them.",
+      "id": 13
+    },
+    {
+      "type": "mc",
+      "text": "What's the difference between <code>=</code> and <code>==</code>?",
+      "options": [
+        "They're interchangeable",
+        "<code>=</code> assigns a value to a variable; <code>==</code> checks whether two values are equal",
+        "<code>=</code> checks equality; <code>==</code> assigns a value",
+        "<code>==</code> only works on strings"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 3, Step 3: “The Boolean operator for determining whether two values are equal is the double equal sign (==). A single equal sign (=) is used to assign a value to a variable.”",
+      "id": 14
+    },
+    {
+      "type": "mc",
+      "text": "What does the interpreter show for the last line?",
+      "context": "<pre>>>> x=3\n>>> \"Cisco\"*x</pre>",
+      "options": [
+        "<code>'Cisco3'</code>",
+        "<code>'CiscoCiscoCisco'</code>",
+        "<code>'Cisco Cisco Cisco'</code>",
+        "<code>TypeError</code> — you can't multiply a string"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 3, Step 3: multiplying a string by an integer repeats it that many times, with no spaces added. Verified by running it.",
+      "id": 15
+    },
+    {
+      "type": "mc",
+      "text": "Which line prints <code>CiscoNetworkingAcademy</code> — with no spaces?",
+      "context": "<pre>str1=\"Cisco\"\nstr2=\"Networking\"\nstr3=\"Academy\"\nspace=\" \"</pre>",
+      "options": [
+        "<code>print(str1+space+str2+space+str3)</code>",
+        "<code>print(str1,str2,str3)</code>",
+        "<code>print(str1+str2+str3)</code>",
+        "<code>print(str1,space,str2,space,str3)</code>"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Part 3, Step 4: concatenating with <code>+</code> adds nothing between the strings. Separating them with commas makes <code>print()</code> insert a space between arguments. That's why both of the lab's versions print <code>Cisco Networking Academy</code>. Verified by running all of them.",
+      "id": 16
+    },
+    {
+      "type": "mc",
+      "text": "What happens when this runs?",
+      "context": "<pre>>>> x=3\n>>> print(\"The value of x is \" + x)</pre>",
+      "options": [
+        "It prints <code>The value of x is 3</code>",
+        "It prints <code>The value of x is x</code>",
+        "It raises <code>TypeError: can only concatenate str (not \"int\") to str</code>",
+        "It converts <code>x</code> to a string automatically and prints it"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Part 3, Step 5a: concatenation doesn't work when joining different data types, so Python raises a <code>TypeError</code> instead of guessing. Verified by running it.",
+      "id": 17
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the function that casts <code>x</code> so the concatenation works.",
+      "code": "x=3\nprint(\"The value of x is \" + ___(x))",
+      "correctAnswer": "str",
+      "points": 1,
+      "explanation": "Part 3, Step 5b: <code>str(x)</code> converts the integer to a string, printing <code>The value of x is 3</code>. Converting between data types is called type casting.",
+      "id": 18
+    },
+    {
+      "type": "mc",
+      "text": "After running <code>print(\"The value of x is \" + str(x))</code>, what does <code>type(x)</code> return?",
+      "context": "<pre>>>> x=3\n>>> print(\"The value of x is \" + str(x))\nThe value of x is 3\n>>> type(x)</pre>",
+      "options": [
+        "<code>&lt;class 'int'&gt;</code>",
+        "<code>&lt;class 'str'&gt;</code>",
+        "<code>&lt;class 'float'&gt;</code>",
+        "<code>&lt;class 'bool'&gt;</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 5b-c: <code>str(x)</code> only produced a string copy for that one <code>print()</code>. <code>x</code> is still an integer. To change it, you must reassign it: <code>x=str(x)</code>. Verified by running it.",
+      "id": 19
+    },
+    {
+      "type": "mc",
+      "text": "What is stored in <code>pi</code>?",
+      "context": "<pre>>>> num = 22/7\n>>> pi = \"{:.2f}\".format(num)</pre>",
+      "options": [
+        "The float <code>3.14</code>",
+        "The string <code>'3.14'</code>",
+        "The float <code>3.142857142857143</code>",
+        "The string <code>'3.142857142857143'</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 3, Step 5d: <code>\"{:.2f}\".format(num)</code> formats the number to 2 decimal places. <code>format()</code> returns text, so <code>pi</code> is the string <code>'3.14'</code>, which the f-string then prints as <code>The value of pi is 3.14.</code> Verified by running it.",
+      "id": 20
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>len(hostnames)</code> return?",
+      "context": "<pre>>>> hostnames=[\"R1\",\"R2\",\"R3\",\"S1\",\"S2\"]</pre>",
+      "options": [
+        "<code>4</code>",
+        "<code>5</code>",
+        "<code>10</code>",
+        "<code>'S2'</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 4, Step 1a: <code>len()</code> returns the number of items in a list — five hostnames.",
+      "id": 21
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>hostnames</code> contain at the end?",
+      "context": "<pre>>>> hostnames=[\"R1\",\"R2\",\"R3\",\"S1\",\"S2\"]\n>>> hostnames[0]=\"RTR1\"\n>>> del hostnames[3]</pre>",
+      "options": [
+        "<code>['RTR1', 'R2', 'R3', 'S2']</code>",
+        "<code>['RTR1', 'R2', 'S1', 'S2']</code>",
+        "<code>['R1', 'R2', 'R3', 'S2']</code>",
+        "<code>['RTR1', 'R2', 'R3', 'S1']</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step 1b: index 0 (<code>R1</code>) is replaced with <code>RTR1</code>, then <code>del hostnames[3]</code> removes the fourth item, <code>S1</code>. Indexes start at zero. Verified by running it.",
+      "id": 22
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the index that returns the last item, <code>'S2'</code>.",
+      "code": ">>> hostnames=[\"R1\",\"R2\",\"R3\",\"S1\",\"S2\"]\n>>> hostnames[___]\n'S2'",
+      "correctAnswer": "-1",
+      "points": 1,
+      "explanation": "Part 4, Step 1b: “The last item can be referenced with index [-1].”",
+      "id": 23
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the command that removes an item from a list by its index.",
+      "code": ">>> ___ hostnames[3]",
+      "correctAnswer": "del",
+      "points": 1,
+      "explanation": "Part 4, Step 1b: “Use the del command to remove an item from a list.”",
+      "id": 24
+    },
+    {
+      "type": "msq",
+      "text": "Which statements about creating a dictionary are correct? (Select all that apply.)",
+      "options": [
+        "It is created with braces <code>{ }</code>",
+        "Each entry is a key/value pair, with a colon between the key and its value",
+        "It is created with square brackets <code>[ ]</code>",
+        "String keys and values need quotes",
+        "Entries are referenced by their sequence number, like a list"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        3
+      ],
+      "points": 1,
+      "explanation": "Part 4, Step 2a-b: braces, key/value pairs separated by a colon, quotes around strings. Unlike lists, dictionary objects are referenced by key, not by sequence number.",
+      "id": 25
+    },
+    {
+      "type": "mc",
+      "text": "How do you get R1's IP address out of this dictionary?",
+      "context": "<pre>>>> ipAddress={\"R1\":\"10.1.1.1\",\"R2\":\"10.2.2.1\",\"R3\":\"10.3.3.1\"}</pre>",
+      "options": [
+        "<code>ipAddress[0]</code>",
+        "<code>ipAddress['R1']</code>",
+        "<code>ipAddress.R1</code>",
+        "<code>ipAddress(R1)</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 4, Step 2b: reference a dictionary object by its key, in brackets. <code>ipAddress['R1']</code> returns <code>'10.1.1.1'</code>. <code>ipAddress[0]</code> raises <code>KeyError: 0</code>, since 0 isn't a key (verified by running it).",
+      "id": 26
+    },
+    {
+      "type": "mc",
+      "text": "What does this line do?",
+      "context": "<pre>>>> ipAddress[\"S1\"]=\"10.1.1.10\"</pre>",
+      "options": [
+        "Raises <code>KeyError</code>, because <code>S1</code> doesn't exist yet",
+        "Adds a new key/value pair, <code>'S1': '10.1.1.10'</code>",
+        "Replaces <code>R1</code>'s address with <code>10.1.1.10</code>",
+        "Checks whether <code>S1</code> equals <code>10.1.1.10</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 4, Step 2b: “Add a key/value pair by setting the new key equal to a value.” Assigning to a key that doesn't exist creates it. Reading a missing key is what raises <code>KeyError</code>.",
+      "id": 27
+    },
+    {
+      "type": "tf",
+      "text": "A dictionary value can be another data type such as a list, e.g. giving R3 three IP addresses.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step 2c: values can be any data type, including lists and dictionaries. <code>ipAddress[\"R3\"]=[\"10.3.3.1\",\"10.3.3.2\",\"10.3.3.3\"]</code> gives R3 a list of addresses, and <code>ipAddress[\"R3\"][1]</code> would return <code>'10.3.3.2'</code> (verified by running it).",
+      "id": 28
+    },
+    {
+      "type": "mc",
+      "text": "After these steps, what does Python 3.8 actually display for <code>ipAddress</code>?",
+      "context": "<pre>>>> ipAddress={\"R1\":\"10.1.1.1\",\"R2\":\"10.2.2.1\",\"R3\":\"10.3.3.1\"}\n>>> ipAddress[\"S1\"]=\"10.1.1.10\"\n>>> ipAddress[\"R3\"]=[\"10.3.3.1\",\"10.3.3.2\",\"10.3.3.3\"]\n>>> ipAddress</pre>",
+      "options": [
+        "<code>{'S1': '10.1.1.10', 'R2': '10.2.2.1', 'R1': '10.1.1.1', 'R3': ['10.3.3.1', '10.3.3.2', '10.3.3.3']}</code>",
+        "<code>{'R1': '10.1.1.1', 'R2': '10.2.2.1', 'R3': ['10.3.3.1', '10.3.3.2', '10.3.3.3'], 'S1': '10.1.1.10'}</code>",
+        "<code>{'R1': '10.1.1.1', 'R2': '10.2.2.1', 'S1': '10.1.1.10', 'R3': ['10.3.3.1', '10.3.3.2', '10.3.3.3']}</code>",
+        "<code>{'R1': '10.1.1.1', 'R2': '10.2.2.1', 'R3': '10.3.3.1', 'S1': '10.1.1.10'}</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "warning": "Upon double checking, the keys don't come out shuffled (e.g. <code>S1</code>, <code>R2</code>, <code>R1</code>, <code>R3</code>). Since Python 3.7, dictionaries keep insertion order, so the real output is R1, R2, R3, S1.",
+      "explanation": "Dictionaries remember the order keys were first added (guaranteed since Python 3.7, so it holds on the lab's 3.8.2). Replacing R3's value keeps R3 in its original slot, and the new key S1 goes at the end. Verified by running it.",
+      "id": 29
+    },
+    {
+      "type": "mc",
+      "text": "What happens when a program reaches <code>input()</code>?",
+      "options": [
+        "It skips the line if no keyboard is connected",
+        "It stops until the user types something and hits Enter",
+        "It reads the next line of a file",
+        "It waits 10 seconds, then continues with an empty string"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 5, Step 1: “If the input function is called, the program will stop until the user provides input and hits the Enter key.” The optional parameter is the prompt string shown to the user.",
+      "id": 30
+    },
+    {
+      "type": "mc",
+      "text": "The user types <code>36</code>. What type is <code>age</code>?",
+      "context": "<pre>age = input(\"What is your age? \")</pre>",
+      "options": [
+        "<code>int</code>",
+        "<code>float</code>",
+        "<code>str</code>",
+        "<code>bool</code>"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Part 6, Step 2 note: the data type for the input function is a string by default, so you must cast it, e.g. <code>int(input(...))</code>, before comparing it with numbers. Comparing <code>\"10\" > 5</code> raises <code>TypeError</code> (verified by running it).",
+      "id": 31
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>if-vlan.py</code> print as written?",
+      "context": "<pre>nativeVLAN = 1\ndataVLAN = 100\nif nativeVLAN == dataVLAN:\n    print(\"The native VLAN and the data VLAN are the same.\")\nelse:\n    print(\"The native VLAN and the data VLAN are different.\")</pre>",
+      "options": [
+        "<code>The native VLAN and the data VLAN are the same.</code>",
+        "<code>The native VLAN and the data VLAN are different.</code>",
+        "Both lines",
+        "Nothing — a <code>SyntaxError</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 6, Step 1b: 1 is not equal to 100, so the <code>if</code> condition is False and the <code>else</code> block runs. Step 1c then gives both variables the same value to get the “same” message.",
+      "id": 32
+    },
+    {
+      "type": "mc",
+      "text": "How many spaces does the lab say to use for each level of indentation in Python?",
+      "options": [
+        "Two",
+        "Four",
+        "Eight",
+        "One tab, never spaces"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 6, Step 1a note: “In Python, use four spaces to indent.” VS Code does it automatically when you save. A nested block, like the <code>print()</code> inside an <code>if</code> inside a <code>for</code>, gets eight.",
+      "id": 33
+    },
+    {
+      "type": "matching",
+      "text": "Match each ACL number entered into <code>if-acl.py</code> to what it prints.",
+      "context": "<pre>aclNum = int(input(\"What is the IPv4 ACL number? \"))\nif aclNum >= 1 and aclNum <= 99:\n    print(\"This is a standard IPv4 ACL.\")\nelif aclNum >=100 and aclNum <= 199:\n    print(\"This is an extended IPv4 ACL.\")\nelse:\n    print(\"This is not a standard or extended IPv4 ACL.\")</pre>",
+      "allChoices": [
+        "This is a standard IPv4 ACL.",
+        "This is an extended IPv4 ACL.",
+        "This is not a standard or extended IPv4 ACL."
+      ],
+      "pairs": [
+        {
+          "term": "10",
+          "match": "This is a standard IPv4 ACL."
+        },
+        {
+          "term": "99",
+          "match": "This is a standard IPv4 ACL."
+        },
+        {
+          "term": "100",
+          "match": "This is an extended IPv4 ACL."
+        },
+        {
+          "term": "200",
+          "match": "This is not a standard or extended IPv4 ACL."
+        },
+        {
+          "term": "0",
+          "match": "This is not a standard or extended IPv4 ACL."
+        }
+      ],
+      "points": 5,
+      "explanation": "Part 6, Step 2: standard is 1-99, extended is 100-199, anything else falls to <code>else</code>. The boundaries 99 and 100 land in different ranges because of <code>&lt;=</code> and <code>&gt;=</code>. Verified by running each value.",
+      "id": 34
+    },
+    {
+      "type": "tf",
+      "text": "In an if/elif/else chain, once one <code>elif</code> matches, Python still checks the remaining <code>elif</code> statements in case another also matches.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 6, Step 2: “the first one matched will be executed and none of the remaining elif statements will be checked. Nor will the else statement.”",
+      "id": 35
+    },
+    {
+      "type": "mc",
+      "text": "What does this print?",
+      "context": "<pre>devices=[\"R1\",\"R2\",\"R3\",\"S1\",\"S2\"]\nfor item in devices:\n    if \"R\" in item:\n        print(item)</pre>",
+      "options": [
+        "<code>R1</code>, <code>R2</code>, <code>R3</code> (one per line)",
+        "<code>S1</code>, <code>S2</code> (one per line)",
+        "All five devices",
+        "<code>True</code>, <code>True</code>, <code>True</code>, <code>False</code>, <code>False</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 6, Step 3b: an <code>if</code> embedded in the <code>for</code> loop prints only the items containing the letter R. Verified by running it.",
+      "id": 36
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the list method that builds the new <code>switches</code> list.",
+      "code": "switches=[]\nfor item in devices:\n    if \"S\" in item:\n        switches.___(item)",
+      "correctAnswer": "append",
+      "points": 1,
+      "explanation": "Part 6, Step 3c: <code>append()</code> adds each matching item to the end of the list, leaving <code>switches</code> as <code>['S1', 'S2']</code>.",
+      "id": 37
+    },
+    {
+      "type": "tf",
+      "text": "The variable name <code>item</code> in <code>for item in devices:</code> is required — Python won't accept any other name there.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 6, Step 3a: “The variable name item is arbitrary and can be anything the programmer chooses. Often, programmers will shorten this to just the letter i.”",
+      "id": 38
+    },
+    {
+      "type": "mc",
+      "text": "When does a <code>while</code> loop stop?",
+      "options": [
+        "After it has run exactly once",
+        "Only when its Boolean expression evaluates as False, or a <code>break</code> runs",
+        "Automatically after 100 iterations",
+        "When the list it is iterating through runs out of items"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 6, Step 4: a while loop keeps executing as long as its Boolean expression remains true. It won't stop until that evaluates as false, which can make a program run endlessly if nothing ever makes it false. Steps 4c and 5 use <code>break</code> to leave the loop.",
+      "id": 39
+    },
+    {
+      "type": "mc",
+      "text": "The user enters <code>3</code>. What does this script print?",
+      "context": "<pre>x=input(\"Enter a number to count to: \")\nx=int(x)\ny=1\nwhile y<=x:\n    print(y)\n    y=y+1</pre>",
+      "options": [
+        "<code>0</code>, <code>1</code>, <code>2</code>",
+        "<code>1</code>, <code>2</code>, <code>3</code>",
+        "<code>1</code>, <code>2</code>",
+        "<code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 6, Step 4a-b: <code>y</code> starts at 1 and is printed then incremented while <code>y&lt;=x</code>. Once <code>y</code> reaches 4 the condition is False. Verified by running it.",
+      "id": 40
+    },
+    {
+      "type": "mc",
+      "text": "The lab says these two versions give the same output. For which input do they <em>differ</em>?",
+      "context": [
+        "<pre># Version A\nx=int(input(\"Enter a number to count to: \"))\ny=1\nwhile y<=x:\n    print(y)\n    y=y+1</pre>",
+        "<pre># Version B\nx=int(input(\"Enter a number to count to: \"))\ny=1\nwhile True:\n    print(y)\n    y=y+1\n    if y>x:\n        break</pre>"
+      ],
+      "options": [
+        "<code>10</code>",
+        "<code>1</code>",
+        "<code>0</code>",
+        "They never differ"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Part 6, Step 4c-d. Version A checks before printing, so for 0 it prints nothing. Version B prints first and checks afterwards, so it always prints at least <code>1</code>. For 1 and 10 they match, as the lab says. Verified by running both with 0.",
+      "id": 41
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blanks so the outer loop ends when the user types <code>q</code> or <code>quit</code>.",
+      "code": "while True:\n    x=input(\"Enter a number to count to: \")\n    if x == 'q' ___ x == 'quit':\n        ___",
+      "correctAnswer": [
+        "or",
+        "break"
+      ],
+      "points": 2,
+      "explanation": "Part 6, Step 5a: <code>or</code> makes the condition True if either word was typed, and <code>break</code> leaves the outer <code>while True:</code> loop, ending the program.",
+      "id": 42
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>open()</code> mode to what it does.",
+      "allChoices": [
+        "Read the file (the default if the mode is omitted)",
+        "Write over the file, replacing its content",
+        "Append to the end of the file"
+      ],
+      "pairs": [
+        {
+          "term": "r",
+          "match": "Read the file (the default if the mode is omitted)"
+        },
+        {
+          "term": "w",
+          "match": "Write over the file, replacing its content"
+        },
+        {
+          "term": "a",
+          "match": "Append to the end of the file"
+        }
+      ],
+      "points": 3,
+      "explanation": "Part 7, Step 1: the three mode parameters for <code>open(name, [mode])</code>. Verified that <code>w</code> really wipes the old content and <code>a</code> keeps it.",
+      "id": 43
+    },
+    {
+      "type": "mc",
+      "text": "Why does this print a blank line after every device?",
+      "context": "<pre>file=open(\"devices.txt\",\"r\")\nfor item in file:\n    print(item)\nfile.close()</pre>",
+      "options": [
+        "Because <code>devices.txt</code> has an empty line between devices",
+        "Because each line read from the file still ends in a newline, and <code>print()</code> adds its own newline on top",
+        "Because <code>open()</code> in read mode doubles every newline",
+        "Because <code>file.close()</code> prints an empty line for each item"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 7, Step 1c-2: each <code>item</code> is e.g. <code>'Cisco 819 Router\\n'</code>, so the line's own newline plus <code>print()</code>'s newline makes a blank line. Verified by printing <code>repr(item)</code>.",
+      "id": 44
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the method that removes the trailing newline so the output has no blank lines.",
+      "code": "file=open(\"devices.txt\",\"r\")\nfor item in file:\n    item=item.___()\n    print(item)\nfile.close()",
+      "correctAnswer": "strip",
+      "points": 1,
+      "explanation": "Part 7, Step 2: <code>strip()</code> removes whitespace, including the newline, from both ends of each line.",
+      "id": 45
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>file.close()</code> do in these scripts?",
+      "options": [
+        "Deletes <code>devices.txt</code> from the disk",
+        "Releases the file from the computer's memory once you're done with it",
+        "Saves a backup copy of the file",
+        "Clears the <code>devices</code> list"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 7, Step 1b and Step 4: after you're done with the file, <code>close()</code> removes it from the computer's memory. The file on disk is untouched.",
+      "id": 46
+    },
+    {
+      "type": "mc",
+      "text": "Why copy a file's content into a list such as <code>devices</code>?",
+      "options": [
+        "Because Python can't print a file directly",
+        "So the content can be referenced and manipulated locally without impacting the original resource",
+        "Because lists are written back to the file automatically",
+        "Because <code>open()</code> only works when there is an empty list"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 7, Step 3: programmers usually copy external content into a local variable that can be referenced and manipulated without impacting the original resource.",
+      "id": 47
+    },
+    {
+      "type": "fitb",
+      "text": "Complete the Step 4 challenge script <code>file-access-input.py</code>.",
+      "code": "file=open(\"devices.txt\",\"___\")\nwhile True:\n    newItem=input(\"Enter device name: \")\n    if newItem == \"exit\":\n        print(\"All done!\")\n        ___\n    file.___(newItem + \"\\n\")\nfile.close()",
+      "correctAnswer": [
+        "a",
+        "break",
+        "write"
+      ],
+      "points": 3,
+      "explanation": "Part 7, Step 4: open in append mode <code>a</code> so existing devices are kept, <code>break</code> out of the <code>while True:</code> loop when the user types <code>exit</code>, and add each new device with <code>file.write(newItem + \"\\n\")</code>. The <code>\\n</code> keeps each device on its own line. Verified by running it.",
+      "id": 48
+    }
+  ]
+}

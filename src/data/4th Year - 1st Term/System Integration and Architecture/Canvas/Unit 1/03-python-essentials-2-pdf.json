@@ -1,0 +1,634 @@
+{
+  "quizTitle": "Python Essentials 2 PDF",
+  "addedOn": "2026-10-11",
+  "questions": [
+    {
+      "type": "matching",
+      "text": "Moving from linear scripts to engineered systems takes four structural pillars. Match each pillar to the topics it covers.",
+      "allChoices": [
+        "Modules & Packages",
+        "Exceptions & Mutability",
+        "Object-Oriented Design",
+        "Generators & File I/O"
+      ],
+      "pairs": [
+        {
+          "term": "Foundation",
+          "match": "Modules & Packages"
+        },
+        {
+          "term": "Structural Integrity",
+          "match": "Exceptions & Mutability"
+        },
+        {
+          "term": "Architecture",
+          "match": "Object-Oriented Design"
+        },
+        {
+          "term": "Utilities",
+          "match": "Generators & File I/O"
+        }
+      ],
+      "points": 4,
+      "explanation": "Slide “Moving from linear scripts to engineered systems requires four structural pillars”: Foundation (modules & packages), Structural Integrity (exceptions & mutability), Architecture (object-oriented design) and Utilities (generators & file I/O).",
+      "id": 1
+    },
+    {
+      "type": "drag-drop",
+      "text": "Match each pillar to the job it does.",
+      "allChoices": [
+        "Organizing materials",
+        "Preventing system collapse",
+        "Creating scalable blueprints",
+        "Interacting with the outside world"
+      ],
+      "pairs": [
+        {
+          "term": "Foundation",
+          "match": "Organizing materials"
+        },
+        {
+          "term": "Structural Integrity",
+          "match": "Preventing system collapse"
+        },
+        {
+          "term": "Architecture",
+          "match": "Creating scalable blueprints"
+        },
+        {
+          "term": "Utilities",
+          "match": "Interacting with the outside world"
+        }
+      ],
+      "points": 4,
+      "explanation": "Slide “Moving from linear scripts to engineered systems requires four structural pillars”: each pillar's caption — organizing materials, preventing system collapse, creating scalable blueprints, interacting with the outside world.",
+      "id": 2
+    },
+    {
+      "type": "mc",
+      "text": "What do modules do, according to the slides?",
+      "options": [
+        "Merge all of a program's code into one large file",
+        "Separate monolithic code into specialized, reusable toolboxes",
+        "Translate Python into machine code ahead of time",
+        "Stop a program from crashing when an error occurs"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Modules separate monolithic code into specialized, reusable toolboxes”.",
+      "id": 3
+    },
+    {
+      "type": "mc",
+      "text": "What does this print?",
+      "context": "<pre>import math\nprint(math.sqrt(25))</pre>",
+      "options": [
+        "<code>5</code>",
+        "<code>5.0</code>",
+        "<code>625</code>",
+        "<code>NameError</code> — <code>sqrt</code> isn't defined"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Modules separate monolithic code…” (Broad Import): <code>import math</code> brings in the whole toolbox, and you reach a tool through the module name. <code>math.sqrt()</code> always returns a float, so it prints <code>5.0</code>. Verified by running it.",
+      "id": 4
+    },
+    {
+      "type": "tf",
+      "text": "After <code>import math</code>, you can call <code>sqrt(25)</code> directly, without the <code>math.</code> prefix.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "A broad import only brings in the module name, so its tools must be reached as <code>math.sqrt(25)</code>. Plain <code>sqrt(25)</code> raises <code>NameError: name 'sqrt' is not defined</code> (verified by running it). To call it bare you'd need <code>from math import sqrt</code>.",
+      "id": 5
+    },
+    {
+      "type": "mc",
+      "text": "After this import, how do you call the function?",
+      "context": "<pre>from random import randint as random_num</pre>",
+      "options": [
+        "<code>randint(1, 100)</code>",
+        "<code>random.randint(1, 100)</code>",
+        "<code>random_num(1, 100)</code>",
+        "<code>random.random_num(1, 100)</code>"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Slide “Modules separate monolithic code…” (Specific Import): <code>from … import … as …</code> takes just that one tool and gives it a new name, so you call <code>random_num(1, 100)</code>. The name <code>random</code> itself is never imported, so <code>random.randint</code> raises <code>NameError</code> (verified by running it).",
+      "id": 6
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the keyword that renames the imported function.",
+      "code": "from random import randint ___ random_num\nrandom_num(1, 100)",
+      "correctAnswer": "as",
+      "points": 1,
+      "explanation": "Slide “Modules separate monolithic code…”: <code>from random import randint as random_num</code> — <code>as</code> gives the imported name an alias.",
+      "id": 7
+    },
+    {
+      "type": "mc",
+      "text": "Which file transforms a standard folder into a Python package?",
+      "options": [
+        "<code>main.py</code>",
+        "<code>__init__.py</code>",
+        "<code>setup.txt</code>",
+        "<code>requirements.txt</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Packages scale local modules, while PIP connects you to the global ecosystem”: <code>__init__.py</code> “transforms standard folder into a Package”.",
+      "id": 8
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the tool that downloads the <code>requests</code> package from PyPI.",
+      "code": "> ___ install requests",
+      "correctAnswer": "pip",
+      "points": 1,
+      "explanation": "Slide “Packages scale local modules, while PIP connects you to the global ecosystem”: <code>pip install requests</code> pulls the package from PyPI over the PIP network, after which <code>import requests</code> works.",
+      "id": 9
+    },
+    {
+      "type": "mc",
+      "text": "What is PyPI?",
+      "options": [
+        "The Python interpreter's built-in debugger",
+        "The global Python Package Index that pip downloads packages from",
+        "A file that turns a folder into a package",
+        "Python's standard library module for networking"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Packages scale local modules, while PIP connects you to the global ecosystem”: PyPI is the Global Python Package Index; PIP connects your project to it.",
+      "id": 10
+    },
+    {
+      "type": "mc",
+      "text": "What does this print?",
+      "context": "<pre>nums = [1, 2, 3]\nnums[0] = 99\nprint(nums)</pre>",
+      "options": [
+        "<code>[1, 2, 3]</code>",
+        "<code>[99, 2, 3]</code>",
+        "<code>[99, 1, 2, 3]</code>",
+        "<code>TypeError</code> — lists can't be changed"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Understanding memory architecture: Mutability dictates how data is manipulated”: lists are mutable, so the item at index 0 is replaced in place. Verified by running it.",
+      "id": 11
+    },
+    {
+      "type": "mc",
+      "text": "What does this print?",
+      "context": "<pre>text = 'hello'\ntext.replace('h', 'j')\nprint(text)</pre>",
+      "options": [
+        "<code>jello</code>",
+        "<code>hello</code>",
+        "<code>None</code>",
+        "<code>TypeError</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Understanding memory architecture…”: strings are immutable. <code>replace()</code> doesn't change <code>text</code> — it builds and returns a <em>new</em> string (<code>'jello'</code>), which this code throws away. You'd need <code>text = text.replace('h', 'j')</code>. Verified by running it.",
+      "id": 12
+    },
+    {
+      "type": "mc",
+      "text": "What happens when this runs?",
+      "context": "<pre>text = 'hello'\ntext[0] = 'j'</pre>",
+      "options": [
+        "<code>text</code> becomes <code>'jello'</code>",
+        "<code>text</code> becomes <code>'jhello'</code>",
+        "It raises <code>TypeError</code>, because strings are immutable",
+        "Nothing — the line is silently ignored"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Slide “Understanding memory architecture…”: unlike lists, strings can't be changed in place. Item assignment raises <code>TypeError: 'str' object does not support item assignment</code>. Verified by running it.",
+      "id": 13
+    },
+    {
+      "type": "matching",
+      "text": "Match each method from the slide to the type it belongs to.",
+      "allChoices": [
+        "List (mutable)",
+        "String (immutable)"
+      ],
+      "pairs": [
+        {
+          "term": "append()",
+          "match": "List (mutable)"
+        },
+        {
+          "term": "extend()",
+          "match": "List (mutable)"
+        },
+        {
+          "term": "upper()",
+          "match": "String (immutable)"
+        },
+        {
+          "term": "split(',')",
+          "match": "String (immutable)"
+        }
+      ],
+      "points": 4,
+      "explanation": "Slide “Understanding memory architecture…”: list methods <code>append()</code> and <code>extend()</code>; string methods <code>upper()</code>, <code>split(',')</code> and <code>' & '.join(fruits)</code>.",
+      "id": 14
+    },
+    {
+      "type": "mc",
+      "text": "What does this print?",
+      "context": "<pre>fruits = ['apple', 'banana', 'cherry']\nprint(' & '.join(fruits))</pre>",
+      "options": [
+        "<code>['apple', 'banana', 'cherry']</code>",
+        "<code>apple & banana & cherry</code>",
+        "<code>apple & banana & cherry &</code>",
+        "<code>apple&banana&cherry</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Understanding memory architecture…”: <code>join()</code> is called on the separator string and glues the list's items together with it, only <em>between</em> items. Verified by running it.",
+      "id": 15
+    },
+    {
+      "type": "mc",
+      "text": "What does this print?",
+      "context": "<pre>a = [1, 2]\na.append([3, 4])\nb = [1, 2]\nb.extend([3, 4])\nprint(a, b)</pre>",
+      "options": [
+        "<code>[1, 2, 3, 4] [1, 2, 3, 4]</code>",
+        "<code>[1, 2, [3, 4]] [1, 2, 3, 4]</code>",
+        "<code>[1, 2, 3, 4] [1, 2, [3, 4]]</code>",
+        "<code>[1, 2, [3, 4]] [1, 2, [3, 4]]</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Both are list methods from “Understanding memory architecture…”. <code>append()</code> adds its argument as one single item (here a nested list); <code>extend()</code> adds each element of the argument separately. Verified by running it.",
+      "id": 16
+    },
+    {
+      "type": "matching",
+      "text": "Match each line to the runtime error it raises.",
+      "allChoices": [
+        "ZeroDivisionError: division by zero",
+        "ValueError: invalid literal for int()"
+      ],
+      "pairs": [
+        {
+          "term": "10 / 0",
+          "match": "ZeroDivisionError: division by zero"
+        },
+        {
+          "term": "int('Two Thousand')",
+          "match": "ValueError: invalid literal for int()"
+        }
+      ],
+      "points": 2,
+      "explanation": "Slide “Unhandled runtime errors act as concrete roadblocks in execution timelines” shows both errors. Verified by running each one.",
+      "id": 17
+    },
+    {
+      "type": "tf",
+      "text": "Without structural safeguards, a single unexpected input (like typing “Two Thousand” instead of “2000”) can bring the entire program down instantly.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Unhandled runtime errors act as concrete roadblocks…”: without safeguards, one unexpected input acts as a fatal collision, bringing the entire system down instantly.",
+      "id": 18
+    },
+    {
+      "type": "drag-drop",
+      "text": "Match each block of the exception-handling flow to when it runs.",
+      "allChoices": [
+        "The main execution — the code that might fail",
+        "Only when a failure is caught (e.g. ValueError)",
+        "Only when the try block succeeded",
+        "Always, whether it succeeded or failed — execution complete"
+      ],
+      "pairs": [
+        {
+          "term": "try",
+          "match": "The main execution — the code that might fail"
+        },
+        {
+          "term": "except",
+          "match": "Only when a failure is caught (e.g. ValueError)"
+        },
+        {
+          "term": "else",
+          "match": "Only when the try block succeeded"
+        },
+        {
+          "term": "finally",
+          "match": "Always, whether it succeeded or failed — execution complete"
+        }
+      ],
+      "points": 4,
+      "explanation": "Slide “Structural safeguards elegantly reroute failures to prevent system collapse”: main execution enters TRY. On success it takes the ELSE path, on a caught failure the EXCEPT path, and both paths meet at FINALLY.",
+      "id": 19
+    },
+    {
+      "type": "mc",
+      "text": "What does this print when <code>raw = 'abc'</code>?",
+      "context": "<pre>try:\n    n = int(raw)\nexcept ValueError:\n    print('Bad input')\nelse:\n    print('Got', n)\nfinally:\n    print('Done')</pre>",
+      "options": [
+        "<code>Bad input</code>",
+        "<code>Bad input</code> then <code>Done</code>",
+        "<code>Got abc</code> then <code>Done</code>",
+        "<code>Bad input</code>, <code>Got abc</code>, then <code>Done</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Structural safeguards elegantly reroute failures…”: <code>int('abc')</code> raises <code>ValueError</code>, so the EXCEPT path runs and ELSE is skipped. FINALLY always runs. With <code>raw = '42'</code> it would print <code>Got 42</code> then <code>Done</code>. Verified by running both.",
+      "id": 20
+    },
+    {
+      "type": "drag-drop",
+      "text": "Match each level of the exception hierarchy to how it's described.",
+      "allChoices": [
+        "Broadest scope — catches almost everything, but obscures the root cause",
+        "Narrowing the scope",
+        "Highly specific failure point"
+      ],
+      "pairs": [
+        {
+          "term": "Exception",
+          "match": "Broadest scope — catches almost everything, but obscures the root cause"
+        },
+        {
+          "term": "ArithmeticError",
+          "match": "Narrowing the scope"
+        },
+        {
+          "term": "ZeroDivisionError",
+          "match": "Highly specific failure point"
+        }
+      ],
+      "points": 3,
+      "explanation": "Slide “Exceptions are structurally hierarchical, requiring targeted precision”: <code>ZeroDivisionError</code> is a kind of <code>ArithmeticError</code>, which is a kind of <code>Exception</code>.",
+      "id": 21
+    },
+    {
+      "type": "mc",
+      "text": "What does this print?",
+      "context": "<pre>try:\n    1 / 0\nexcept ArithmeticError:\n    print('A')\nexcept ZeroDivisionError:\n    print('Z')</pre>",
+      "options": [
+        "<code>A</code>",
+        "<code>Z</code>",
+        "<code>A</code> then <code>Z</code>",
+        "Nothing — it crashes with <code>ZeroDivisionError</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Exceptions are structurally hierarchical…”: <code>ZeroDivisionError</code> is a subclass of <code>ArithmeticError</code>, so the first handler matches. Python runs only the first matching except block, so the more specific one below it never gets a chance. That's why specific handlers go first. Verified by running it.",
+      "id": 22
+    },
+    {
+      "type": "mc",
+      "text": "Why do engineered systems avoid catching a generic <code>Exception</code> everywhere?",
+      "options": [
+        "Because catching <code>Exception</code> is a syntax error",
+        "Because it catches almost everything but obscures the root cause — specific failures should be anticipated instead",
+        "Because <code>Exception</code> only catches <code>ZeroDivisionError</code>",
+        "Because generic handlers make the program run slower"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Exceptions are structurally hierarchical…”: <code>Exception</code> has the broadest scope and catches almost everything, but obscures the root cause. “Engineered systems anticipate specific failures rather than deploying generic catch-alls.”",
+      "id": 23
+    },
+    {
+      "type": "matching",
+      "text": "Match each programming style to how the slides describe it.",
+      "allChoices": [
+        "Step-by-step instructions with decoupled data and logic",
+        "Encapsulated state and behavior acting as a single unit"
+      ],
+      "pairs": [
+        {
+          "term": "Procedural (the script)",
+          "match": "Step-by-step instructions with decoupled data and logic"
+        },
+        {
+          "term": "Object-Oriented (the system)",
+          "match": "Encapsulated state and behavior acting as a single unit"
+        }
+      ],
+      "points": 2,
+      "explanation": "Slide “Object-Oriented Programming merges isolated data and behaviors into self-contained entities”.",
+      "id": 24
+    },
+    {
+      "type": "mc",
+      "text": "In the blueprint analogy, what is <code>shirt</code>?",
+      "context": "<pre>shirt = Item('T-Shirt', 20.00)\nshirt.apply_discount(10)</pre>",
+      "options": [
+        "The class — the blueprint",
+        "An object (instance) built from the <code>Item</code> class",
+        "A module imported from the standard library",
+        "A method of the <code>Item</code> class"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Classes provide the blueprint; Objects represent the physical construction”: <code>Item</code> is the blueprint, and the T-Shirt, Hat and Shoes are the buildings made from it. <code>shirt</code> is one of those objects.",
+      "id": 25
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the special method that runs automatically when <code>Item('T-Shirt', 20.00)</code> creates a new object.",
+      "code": "class Item:\n    def ___(self, name, price):\n        self.name = name\n        self.price = price",
+      "correctAnswer": "__init__",
+      "points": 1,
+      "explanation": "Slide “Classes provide the blueprint…”: the blueprint lists <code>__init__(self, name, price)</code>, the constructor that sets up each new object's data.",
+      "id": 26
+    },
+    {
+      "type": "mc",
+      "text": "What does this print?",
+      "context": "<pre>class Item:\n    def __init__(self, name, price):\n        self.name = name\n        self.price = price\n\n    def apply_discount(self, percent):\n        self.price = self.price * (1 - percent / 100)\n\nshirt = Item('T-Shirt', 20.00)\nshirt.apply_discount(10)\nprint(shirt.price)</pre>",
+      "options": [
+        "<code>20.0</code>",
+        "<code>10.0</code>",
+        "<code>18.0</code>",
+        "<code>2.0</code>"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The slide only shows <code>apply_discount(self, percent)</code>'s signature; this body is a straightforward version of it. 10% off 20.00 is 20 × 0.9 = 18.0, and because it updates <code>self.price</code>, the object itself changes. Verified by running it.",
+      "id": 27
+    },
+    {
+      "type": "mc",
+      "text": "What does this print?",
+      "context": "<pre>class Character:\n    def __init__(self, hp):\n        self.hp = hp\n\n    def take_damage(self, amount):\n        self.hp -= amount\n\nclass Knight(Character):\n    def take_damage(self, amount):\n        self.hp -= max(0, amount - 5)\n\nk = Knight(100)\nk.take_damage(3)\nk.take_damage(20)\nprint(k.hp)</pre>",
+      "options": [
+        "<code>77</code>",
+        "<code>85</code>",
+        "<code>82</code>",
+        "<code>80</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Inheritance scales architecture by eliminating redundant blueprints”: <code>Knight</code> inherits <code>hp</code> from <code>Character</code> but overrides <code>take_damage</code> with <code>max(0, amount - 5)</code>. A 3-damage hit becomes <code>max(0, -2) = 0</code>; a 20-damage hit becomes 15. 100 − 0 − 15 = 85. A plain <code>Character</code> would end at 77. Verified by running it.",
+      "id": 28
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the parent class so that <code>Knight</code> inherits from <code>Character</code>.",
+      "code": "class Knight(___):\n    def take_damage(self, amount):\n        self.hp -= max(0, amount - 5)",
+      "correctAnswer": "Character",
+      "points": 1,
+      "explanation": "Slide “Inheritance scales architecture…”: the parent class goes in the parentheses after the class name, so <code>Knight</code> inherits everything <code>Character</code> has.",
+      "id": 29
+    },
+    {
+      "type": "fitb",
+      "text": "Custom exceptions use the same inheritance model. Fill in the base class.",
+      "code": "class NegativeNumberError(___):\n    pass",
+      "correctAnswer": "Exception",
+      "points": 1,
+      "explanation": "Slide “Inheritance scales architecture…”, Note: custom exceptions like <code>NegativeNumberError</code> branch off Python's base <code>Exception</code> class. Verified that it can then be raised and caught like any built-in exception.",
+      "id": 30
+    },
+    {
+      "type": "mc",
+      "text": "What does the <code>with</code> statement guarantee here?",
+      "context": "<pre>with open('config.txt', 'r') as file:\n    ...</pre>",
+      "options": [
+        "The file is opened for writing and erased first",
+        "The file is closed automatically when the block ends, even if the code inside crashes",
+        "The file is copied into memory and the original is deleted",
+        "The program never raises an error while the file is open"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Context managers operate as secure airlocks for external system interactions”: 1. open access, 2. secure processing, 3. auto-seal (close). It automatically and safely closes the file to prevent resource leaks, regardless of internal crashes.",
+      "id": 31
+    },
+    {
+      "type": "tf",
+      "text": "Inside a <code>with open(...) as file:</code> block, you still have to call <code>file.close()</code> yourself to avoid resource leaks.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Context managers operate as secure airlocks…”: the auto-seal step closes the file for you when the block ends, even after a crash. No manual <code>close()</code> needed.",
+      "id": 32
+    },
+    {
+      "type": "mc",
+      "text": "What does this print?",
+      "context": "<pre>def count_up(n):\n    i = 0\n    while i < n:\n        yield i\n        i += 1\n\ng = count_up(3)\nprint(next(g), next(g))</pre>",
+      "options": [
+        "<code>0 1</code>",
+        "<code>[0, 1, 2]</code>",
+        "<code>0 0</code>",
+        "<code>1 2</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Generators utilize lazy evaluation to process infinite data at scale”: <code>yield</code> makes this a generator, which processes one item at a time, on demand. Each <code>next()</code> resumes it just long enough to produce the next value: 0, then 1. Verified by running it.",
+      "id": 33
+    },
+    {
+      "type": "mc",
+      "text": "You need to process 1,000,000 records. Why would a generator beat a normal function that builds and returns a list?",
+      "options": [
+        "A generator stores all 1,000,000 items at once, so lookups are faster",
+        "A generator uses lazy evaluation, producing one item at a time instead of holding every item in memory",
+        "A generator automatically runs on multiple CPU cores",
+        "A generator converts the records into a tuple so they can't be changed"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Generators utilize lazy evaluation…”: a normal function returning a list is eager — memory overload from storing 1,000,000 items simultaneously. A generator (<code>yield</code>) is lazy and processes one item at a time, on demand.",
+      "id": 34
+    },
+    {
+      "type": "matching",
+      "text": "Match each standard-library module to what it's for.",
+      "allChoices": [
+        "Navigate and manipulate the operating system filesystem",
+        "Create, parse, and format highly precise timestamps",
+        "Calculate and manipulate dates in structured formats"
+      ],
+      "pairs": [
+        {
+          "term": "os",
+          "match": "Navigate and manipulate the operating system filesystem"
+        },
+        {
+          "term": "datetime",
+          "match": "Create, parse, and format highly precise timestamps"
+        },
+        {
+          "term": "calendar",
+          "match": "Calculate and manipulate dates in structured formats"
+        }
+      ],
+      "points": 3,
+      "explanation": "Slide “The Standard Library provides pre-engineered utilities for immediate deployment”: <code>os</code> (e.g. <code>os.getcwd()</code>), <code>datetime</code> (e.g. <code>datetime.now()</code>) and <code>calendar</code>.",
+      "id": 35
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>os.getcwd()</code> return?",
+      "options": [
+        "The current date and time",
+        "The path of the current working directory, as a string",
+        "A list of every file on the computer",
+        "The name of the operating system"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “The Standard Library provides pre-engineered utilities…”: <code>os</code> navigates the filesystem, and <code>getcwd()</code> means “get current working directory”. It returns that path as a string (verified by running it).",
+      "id": 36
+    },
+    {
+      "type": "mc",
+      "text": "The slide writes <code>datetime.now()</code>. Which import makes that line work exactly as written?",
+      "options": [
+        "<code>import datetime</code>",
+        "<code>from datetime import datetime</code>",
+        "<code>import now from datetime</code>",
+        "<code>from os import datetime</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "warning": "<code>datetime.now()</code> on its own hides which import it needs. After a plain <code>import datetime</code> it fails — you'd need <code>datetime.datetime.now()</code>.",
+      "explanation": "The <code>datetime</code> <em>module</em> contains a <code>datetime</code> <em>class</em>, and <code>now()</code> belongs to the class. <code>from datetime import datetime</code> brings in the class, so <code>datetime.now()</code> works. After a plain <code>import datetime</code>, <code>datetime.now()</code> raises <code>AttributeError: module 'datetime' has no attribute 'now'</code>. Verified by running both.",
+      "id": 37
+    },
+    {
+      "type": "drag-drop",
+      "text": "Match each stage of “The Anatomy of a Python Application” to the code that represents it.",
+      "allChoices": [
+        "import requests (PyPI)",
+        "class DataProcessor",
+        "Try/Except wrapped around the processing",
+        "yield data -> with open()"
+      ],
+      "pairs": [
+        {
+          "term": "1. Input (Package)",
+          "match": "import requests (PyPI)"
+        },
+        {
+          "term": "2. Processing (OOP)",
+          "match": "class DataProcessor"
+        },
+        {
+          "term": "3. Resilience",
+          "match": "Try/Except wrapped around the processing"
+        },
+        {
+          "term": "4. Output (Generators & I/O)",
+          "match": "yield data -> with open()"
+        }
+      ],
+      "points": 4,
+      "explanation": "Slide “The Anatomy of a Python Application”: a package brings data in, an OOP class processes it inside a try/except shield, and generators plus file I/O send it out. “Scripts execute lines. Systems orchestrate data.”",
+      "id": 38
+    }
+  ]
+}

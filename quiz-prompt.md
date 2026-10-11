@@ -46,10 +46,13 @@ Match the structure already used throughout `src/data/**/*.json` (see any existi
 ```json
 {
   "quizTitle": "STRING — e.g. 'Module 3'",
+  "addedOn": "YYYY-MM-DD",
   "badges": { "unofficial": true },
   "questions": [ ... ]
 }
 ```
+
+`"addedOn"` is **required on every new quiz**: today's date, right after `"quizTitle"`. It puts a colored “new” corner on the quiz on the home menu until the viewer presses **Mark all as seen** in the header (remembered per device), and the corner lapses on its own `NEW_FOR_DAYS` (30) days after that date — see `src/utils/newQuizzes.js`. Leave an existing quiz's `"addedOn"` alone when you edit or rename it; only set it to today for a quiz that's genuinely new (or substantially re-done and worth re-announcing).
 
 `"badges"` is optional and only needs the keys that *differ* from what the quiz already inherits — see "Badges" below. A quiz that inherits everything it needs omits `"badges"` entirely.
 
@@ -64,7 +67,12 @@ Each badge's hover tooltip (the `title` attribute, from the `*_TITLE` constants 
 - `"unofficial": true` puts a flask icon next to the quiz on the home menu; the legend blurb says the questions were written here, not given by the course. Set it on anything you authored — a comprehensive/master quiz built from slides, notes or a study plan (e.g. `General/General/06-laravel-comprehensive.json`) — and leave it off for quizzes transcribed from a real module quiz, exam or reviewer, however much you had to correct them. It is independent of `unverified`: a quiz you wrote *and* haven't hand-checked carries both badges, rendered side by side.
 - `"unethicallySourced": true` puts a mask icon next to the quiz on the home menu — the codename for a quiz whose questions were lifted from a sitting of the real thing (a capture off a quiz site, a screenshot of someone's attempt) rather than from material the course handed out. It is about where the questions came from rather than who wrote them, and in practice it rules `unofficial` out: the questions really are the course's, they just were not given to you. Its tooltip stays `???`, and the legend entry is deliberately unhelpful in spirit (currently a cheeky song-reference blurb) rather than a plain explanation — the flag name is the codename, and the badge isn't meant to explain itself straightforwardly on screen. Keep that spirit if you touch it.
 - `"flagged": true` (on a single question, not a top-level badge) takes that question out of scoring entirely — it shows "Not Scored" instead of its points and is skipped by the score, the totals and the unanswered count. This is the escape hatch for a question the source got so wrong that no listed option can be correct (see `NetAcad/Python Essentials 1/05-final-exam.json` question 1: the real output has 9 elements and every choice has 8). Pair it with `"correctAnswer": null` and an `"explanation"` that says what's broken and that it's worth reporting to the instructor. Don't use it to dodge a question you merely found hard to verify.
-- `"warning": "<HTML string>"` (on a single question) is the lighter option: the question stays scored, but an amber "⚠ Warning" banner shows this text once it's answered and in review. Use it whenever you corrected something that would trip someone up on the real thing — the live quiz shows the question garbled (e.g. `[0]` stripped, so `manifest[0]` reads as `manifest`), the source's answer key disagrees with the answer used here, or you had to reconstruct missing code. Never name where it came from (Canvas, a site, a PDF), here or in that question's `"explanation"`: attribute it as "Outside Source says …" (e.g. `Outside Source says <strong>True</strong>. It's keyed False here because …`). Keep it short and practical (what they'll see vs. what's actually right); the full reasoning still goes in `"explanation"`.
+- `"warning": "<HTML string>"` (on a single question) is the lighter option: the question stays scored, but an amber "⚠ Warning" banner shows this text once it's answered and in review. Use it whenever you corrected something that would trip someone up on the real thing — the live quiz shows the question garbled (e.g. `[0]` stripped, so `manifest[0]` reads as `manifest`), the source's answer key disagrees with the answer used here, or you had to reconstruct missing code. Never name where it came from (Canvas, a site, a PDF), here or in that question's `"explanation"`. How to word it depends on the situation:
+  - **The source keyed or stated a different answer** — a captured/third-party quiz or answer key (the `unethicallySourced`/`verified` kind) whose marked answer you're overriding: attribute it as "Outside Source says …" (e.g. `Outside Source says <strong>True</strong>. It's keyed False here because …`).
+  - **You caught it yourself while verifying course material** — a lab, slide deck or reviewer PDF that states something wrong, shows impossible output, or leaves out code you had to reconstruct, and you confirmed the fix by running it or checking the fact: don't say "Outside Source". Open generically with "Upon double checking, …" (e.g. `Upon double checking, <code>3.75</code> is a float, not an integer. …`).
+  - **Nothing in the source is wrong, it just hides a gotcha** (e.g. a snippet that needs an import it doesn't show): no attribution at all, just state the trap plainly.
+
+  Keep it short and practical (what they'll see vs. what's actually right); the full reasoning still goes in `"explanation"`.
 
 ### `quizTitle` and item labels
 
@@ -94,7 +102,7 @@ Supported `type` values (verified against the current renderers in `src/componen
 
 ## 4. Where to save it
 
-The folder path is meaningful, not cosmetic, and now five levels deep: `src/data/<Term>/<Subject>/<Section>/<Series>/<quiz file>.json`. `src/data/catalog.js` reads `path.split('/')` on every file under `src/data/**/*.json` and uses that position — term, subject, section, series — to build the menu; a quiz's Section/Series membership is exactly whichever folder it sits in, nothing else decides it (e.g. `src/data/4th Year - 1st Term/System Integration and Architecture/Canvas/Module 1/…` → term "4th Year - 1st Term", subject "System Integration and Architecture", section "Canvas", series "Module 1").
+The folder path is meaningful, not cosmetic, and now five levels deep: `src/data/<Term>/<Subject>/<Section>/<Series>/<quiz file>.json`. `src/data/catalog.js` reads `path.split('/')` on every file under `src/data/**/*.json` and uses that position — term, subject, section, series — to build the menu; a quiz's Section/Series membership is exactly whichever folder it sits in, nothing else decides it (e.g. `src/data/4th Year - 1st Term/System Integration and Architecture/Canvas/Unit 1/…` → term "4th Year - 1st Term", subject "System Integration and Architecture", section "Canvas", series "Unit 1").
 
 **Every folder at every level requires a `_meta.json`** — at minimum `{ "id": "<url-slug>" }`. See `src/data/_meta.json.example` for the full field list (`displayName`, `order`, `archived`, `showLabel`/`showCount` for Section/Series, and the `"badges"` default a Subject/Section/Series can declare — see "Badges" above for how those cascade).
 

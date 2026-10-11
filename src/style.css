@@ -1677,6 +1677,75 @@ body.theme-dark {
   --badge-warn: #e8a33d;
   --badge-shady: #f0625e;
   --badge-verified: #4db5f5;
+  --new-dot: #f47067;
+}
+
+/* --- Colored "new" corner on recently added quizzes (utils/newQuizzes.js) ---
+   A small triangle filling the entry's top-right corner, like a folded-down
+   page corner: it marks the quiz without sitting on its title or badges.
+   It lives inside the border, so its rounding is the entry's radius minus
+   the 1px border. */
+:root {
+  --new-dot: #e5534b;
+}
+
+.quiz-chip,
+.btn-quiz {
+  position: relative;
+}
+
+.quiz-new-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 11px;
+  height: 11px;
+  background: linear-gradient(to bottom left, var(--new-dot) 50%, transparent 50%);
+  border-top-right-radius: 7px;
+  pointer-events: none;
+}
+
+.btn-quiz .quiz-new-corner {
+  width: 13px;
+  height: 13px;
+  border-top-right-radius: 9px;
+}
+
+/* The header button that clears every corner at once. Bordered like the
+   Settings button beside it so it reads as a button; its icon is a tiny
+   copy of the corner. How many quizzes it clears is in its tooltip. */
+.btn-mark-seen {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0 0.7rem;
+  border-radius: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  gap: 0.45rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.btn-mark-seen * {
+  cursor: pointer;
+}
+
+.btn-mark-seen:hover {
+  border-color: var(--accent);
+  background: var(--radio-bg);
+  color: var(--accent);
+}
+
+.mark-seen-corner {
+  width: 10px;
+  height: 10px;
+  border: 1px solid currentColor;
+  border-radius: 2px 3px 2px 2px;
+  background: linear-gradient(to bottom left, var(--new-dot) 45%, transparent 45%);
+  flex-shrink: 0;
 }
 
 /* --- Icon legend (components/menu/BadgeLegend.jsx) ---

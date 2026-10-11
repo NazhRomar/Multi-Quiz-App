@@ -50,8 +50,8 @@ function getSeries(section, key) {
 }
 
 // path is relative to this file (src/data/), e.g.
-// "./4th Year - 1st Term/System Integration and Architecture/Canvas/Module 1/01-module1.json"
-// or ".../Canvas/Module 1/_meta.json" (series-level metadata).
+// "./4th Year - 1st Term/System Integration and Architecture/Canvas/Unit 1/01-module1.json"
+// or ".../Canvas/Unit 1/_meta.json" (series-level metadata).
 for (const path in modules) {
   const parts = path.split('/');
   const termKey = parts[1];
@@ -96,6 +96,9 @@ for (const path in modules) {
     id: path,
     slug: slugify(filename.replace(/\.json$/, '')),
     title: quizData.quizTitle || 'Untitled Quiz',
+    // "YYYY-MM-DD" the quiz was added, or null — drives the colored "new" corner
+    // on the home menu (see utils/newQuizzes.js).
+    addedOn: quizData.addedOn || null,
     // sectionKey/seriesKey: which folders this quiz sits in, so
     // buildRenderUnits can regroup it later straight off course.quizzes
     // (which filterCatalog may have narrowed down) instead of a separately
