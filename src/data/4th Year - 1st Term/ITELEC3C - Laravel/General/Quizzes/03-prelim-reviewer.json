@@ -1,0 +1,1180 @@
+{
+  "quizTitle": "Prelim Reviewer - Module 1 to 5",
+  "addedOn": "2026-10-11",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "What validation rule ensures the field password is present and not empty?",
+      "options": [
+        "'password' =&gt; 'required'",
+        "'password' =&gt; 'confirm'",
+        "'password' =&gt; 'notnull'",
+        "'password' =&gt; 'alpha'"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>required</code> fails if the field is missing, null or an empty string. The real rule for matching a confirmation field is <code>confirmed</code> (not <code>confirm</code>), and <code>notnull</code> doesn't exist."
+    },
+    {
+      "id": 2,
+      "type": "fitb",
+      "text": "You are tasked with creating a form in Laravel that submits customer suggestions to a controller, processes the input, validates it, and then displays the suggestions on another page. Analyze the snippet and choose from the table to fill in the blanks with the correct code snippets in the provided sections: Route, Controller, View (Form), and View (Display).",
+      "code": "// Route (web.php)\nRoute::post('/submitSuggestion', [SuggestionController::class, '___'])->name('suggestion.submit');\n\n// Controller (SuggestionController.php)\npublic function submit(Request $request) {\n    // Validation rules\n    $request->___([\n        'customer_name' => 'required|max:255',\n        'suggestion' => 'required|max:1000',\n    ]);\n    // Retrieving input after validation\n    $customerName = $request->input('customer_name');\n    $suggestion = $request->input('suggestion');\n\n    return ___('suggestions.display', [\n        'name' => $customerName,\n        'suggest' => $suggestion,\n    ]);\n}\n\n<!-- View (Form - form.blade.php) -->\n<form action=\"{{ route('___') }}\" method=\"POST\">\n    @___\n    <label for=\"customer_name\">Enter Your Name:</label>\n    <input type=\"text\" id=\"customer_name\" name=\"customer_name\" value=\"{{ old('customer_name') }}\">\n    <label for=\"suggestion\">Your Suggestion:</label>\n    <textarea id=\"suggestion\" name=\"suggestion\">{{ old('suggestion') }}</textarea>\n    <button type=\"submit\"> Submit Suggestion </button>\n\n    <!-- Displaying validation errors in one place -->\n    @if ($errors->any())\n        <div class=\"alert alert-danger\">\n            <ul>\n                @foreach ($errors->all() as $err)\n                    <li>{{ $___ }}</li>\n                @endforeach\n            </ul>\n        </div>\n    @endif\n</form>\n\n<!-- View (Display - display.blade.php) -->\n<h1>Customer Suggestions</h1>\n<p><strong>Customer Name:</strong> {{ $name }}</p>\n<p><strong>Suggestion:</strong> {{ $___ }}</p>",
+      "correctAnswer": [
+        "submit",
+        "validate",
+        "view",
+        "suggestion.submit",
+        "csrf",
+        "err",
+        "suggest"
+      ],
+      "points": 7,
+      "explanation": "<ol><li><code>submit</code>: the route points at the controller method, which is named <code>submit</code>.</li><li><code>validate</code>: <code>$request-&gt;validate([...])</code> checks the input and redirects back with errors if it fails.</li><li><code>view</code>: <code>view('suggestions.display', [...])</code> renders the display page with the data.</li><li><code>suggestion.submit</code>: <code>route()</code> takes the route's <em>name</em>, set by <code>-&gt;name('suggestion.submit')</code>.</li><li><code>csrf</code>: <code>@csrf</code> adds the hidden token every POST form needs.</li><li><code>err</code>: the loop variable is <code>$err</code> (<code>as $err</code>), so each message is <code>{{ $err }}</code>.</li><li><code>suggest</code>: the controller passed the suggestion under the key <code>'suggest'</code>, so the view sees <code>$suggest</code>, not <code>$suggestion</code>.</li></ol>"
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "Which method contains the database changes that should be applied when a migration runs?",
+      "options": [
+        "start()",
+        "up()",
+        "run()",
+        "create()"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>php artisan migrate</code> runs each migration's <code>up()</code> method; <code>down()</code> reverses it on rollback."
+    },
+    {
+      "id": 4,
+      "type": "tf",
+      "text": "Laravel uses CSRF tokens in the form of hidden fields for GET <code>_token</code> requests to prevent unauthorized access and to secure each user submission.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "warning": "Outside Source says <strong>True</strong>. It's keyed False here because Laravel doesn't check CSRF tokens on GET requests, only on POST, PUT, PATCH and DELETE.",
+      "explanation": "Laravel does put the CSRF token in a hidden <code>_token</code> field (via <code>@csrf</code>), but its CSRF middleware skips read-only requests (GET, HEAD, OPTIONS) and verifies the token only on state-changing ones like POST, PUT, PATCH and DELETE. The \"GET\" makes the statement false as written. If the quiz meant \"POST\", it would be true."
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "Which input satisfies the following rule?",
+      "context": "<pre>'code' =&gt; 'required|digits_between:5,8'</pre>",
+      "options": [
+        "178656789",
+        "567887667",
+        "113466",
+        "5855"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>digits_between:5,8</code> requires a numeric value with 5 to 8 digits. <code>113466</code> has 6. <code>178656789</code> and <code>567887667</code> have 9, and <code>5855</code> has only 4."
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "What variable holds the default error message from <code>@error</code> directives?",
+      "options": [
+        "$message",
+        "$validate",
+        "$errors",
+        "$error"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Inside an <code>@error('field') ... @enderror</code> block, Blade provides <code>$message</code>, the first error message for that field. <code>$errors</code> is the bag holding <em>all</em> validation errors, available in every view."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "What is the main purpose of the <code>down()</code> method in a migration?",
+      "options": [
+        "To drop the table created",
+        "To delete the migration file",
+        "To reverse the changes made by up()",
+        "To connect MYSQL to Laravel project"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>down()</code> undoes whatever <code>up()</code> did, and it runs on rollback. Dropping the table is only what it does when <code>up()</code> created one. If <code>up()</code> added a column, <code>down()</code> removes that column instead."
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "Which command rolls back all migrations?",
+      "options": [
+        "php artisan migrate:rollback",
+        "php artisan migrate:drop",
+        "php artisan migrate:clear",
+        "php artisan migrate:reset"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>migrate:reset</code> rolls back every migration. <code>migrate:rollback</code> only undoes the last batch (or <code>--step=N</code>), and <code>migrate:drop</code> / <code>migrate:clear</code> don't exist."
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "Which command creates a migration for a products table?",
+      "options": [
+        "php artisan create:migration products_table",
+        "php artisan migrate:products_table",
+        "php artisan make:migration create_products_table",
+        "php artisan migration:create products_table"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>php artisan make:migration create_products_table</code> creates a timestamped migration file in <code>database/migrations</code>. The <code>create_..._table</code> name also tells Laravel to pre-fill a <code>Schema::create('products', ...)</code> stub."
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "Which modifier allows a column to store NULL or optional value?",
+      "options": [
+        "-&gt;null()",
+        "-&gt;empty()",
+        "-&gt;optional()",
+        "-&gt;nullable()"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>-&gt;nullable()</code> lets the column hold <code>NULL</code>, e.g. <code>$table-&gt;string('middle_name')-&gt;nullable();</code>."
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "Which statement creates a VARCHAR-style column?",
+      "options": [
+        "$table-&gt;varchar('name');",
+        "$table-&gt;char('name');",
+        "$table-&gt;string('name');",
+        "$table-&gt;text('name');"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>string()</code> creates a <code>VARCHAR</code> column (255 by default). <code>char()</code> is fixed-length <code>CHAR</code>, <code>text()</code> is a <code>TEXT</code> column, and there's no <code>varchar()</code> method."
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "What does the following code allow?",
+      "context": "<pre>protected $fillable = [\n    'name',\n    'email'\n];</pre>",
+      "options": [
+        "It prevents name and email from being changed after saving.",
+        "It makes name and email required fields in the database",
+        "It allows name and email to be assigned when saving model data.",
+        "It makes name and email automatically unique."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>$fillable</code> whitelists the attributes that can be mass-assigned, e.g. through <code>Model::create($request-&gt;all())</code>. It says nothing about required, unique or read-only columns."
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "How do you validate a request inside a controller?",
+      "options": [
+        "$request-&gt;assert([ 'field' =&gt; 'rules' ]);",
+        "validate($request, ['field' =&gt; 'rules']);",
+        "$request-&gt;validate([ 'field' =&gt; 'rules' ]);",
+        "$request-&gt;validateRequest([ 'field' =&gt; 'rules' ]);"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>$request-&gt;validate([...])</code> runs the rules and, if any fail, redirects back with <code>$errors</code> and the old input. The other three aren't Laravel methods."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "Which of the following is not a directive used in Laravel Blade for switch?",
+      "options": [
+        "@switch",
+        "@default",
+        "@case",
+        "@endswitch"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "warning": "Outside Source says <strong>@endswitch</strong>, and it's keyed that way here, even though <code>@endswitch</code> does exist in Blade.",
+      "explanation": "It's keyed <code>@endswitch</code> to match the exam. In real Blade it does exist: a switch is written <code>@switch</code> ... <code>@case</code> ... <code>@break</code> ... <code>@default</code> ... <code>@endswitch</code>, and <code>@endswitch</code> closes every switch block. The question probably meant a fake directive like <code>@enddefault</code>, as in question 41."
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "What is created by this statement?",
+      "context": "<pre>$table-&gt;timestamp();</pre>",
+      "options": [
+        "created_at and updated_at columns",
+        "current_date column",
+        "date_today column",
+        "timestamp column"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "warning": "The quiz writes <code>timestamp()</code> but means <code>timestamps()</code> (plural). The singular <code>timestamp('name')</code> creates one TIMESTAMP column and needs a column name.",
+      "explanation": "<code>$table-&gt;timestamps();</code> adds the nullable <code>created_at</code> and <code>updated_at</code> columns that Eloquent fills in automatically."
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "text": "What variable holds the error messages from all of the validation errors in a Laravel Blade template?",
+      "options": [
+        "$errors",
+        "$formErrors",
+        "$message",
+        "$validate"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>$errors</code> is a <code>MessageBag</code> shared with every view; use <code>$errors-&gt;all()</code> or <code>$errors-&gt;any()</code>. <code>$message</code> only exists inside an <code>@error</code> block and holds one field's message."
+    },
+    {
+      "id": 17,
+      "type": "mc",
+      "text": "What will be the display output if <code>$temperature</code> is 15?",
+      "context": "<pre>@if ($temperature &lt; 0)\n    &lt;h2 class=\"temperature-status\"&gt;It's freezing cold!&lt;/h2&gt;\n@elseif ($temperature &gt; 0 &amp;&amp; $temperature &lt; 15)\n    &lt;h2 class=\"temperature-status\"&gt;It's quite chilly.&lt;/h2&gt;\n@elseif ($temperature &gt; 15 &amp;&amp; $temperature &lt; 25)\n    &lt;h2 class=\"temperature-status\"&gt;The weather is pleasant.&lt;/h2&gt;\n@else\n    &lt;h2 class=\"temperature-status\"&gt;It's hot outside!&lt;/h2&gt;\n@endif</pre>",
+      "options": [
+        "The weather is pleasant.",
+        "It's freezing cold!",
+        "It's hot outside!",
+        "It's quite chilly."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "All the comparisons are strict. 15 isn't <code>&lt; 15</code> (so not chilly) and isn't <code>&gt; 15</code> (so not pleasant). No branch matches, so it falls through to <code>@else</code>: \"It's hot outside!\""
+    },
+    {
+      "id": 18,
+      "type": "mc",
+      "text": "Which modifier assigns a value automatically when no value is supplied?",
+      "options": [
+        "-&gt;auto()",
+        "-&gt;preset()",
+        "-&gt;default()",
+        "-&gt;ifempty()"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>-&gt;default($value)</code> sets the column's default, e.g. <code>$table-&gt;boolean('active')-&gt;default(true);</code>."
+    },
+    {
+      "id": 19,
+      "type": "mc",
+      "text": "Which character is used to separate multiple validation rules for a single field?",
+      "options": [
+        "|",
+        ",",
+        "/",
+        "[]"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Rules in a string are separated by a pipe: <code>'email' =&gt; 'required|email|max:255'</code>. (You can also pass them as an array, <code>['required', 'email']</code>, but the separator character is <code>|</code>.)"
+    },
+    {
+      "id": 20,
+      "type": "mc",
+      "text": "It controls the data shown to the user. When a user interacts with the site/app, it will retrieve the relevant data from the model and then display it to the user using the view component.",
+      "options": [
+        "Controller",
+        "Model",
+        "Resources",
+        "View"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The Controller handles the request, pulls data from the Model, and passes it to the View for display."
+    },
+    {
+      "id": 21,
+      "type": "mc",
+      "text": "Where are Laravel views stored by default?",
+      "options": [
+        "public/views",
+        "app/views",
+        "resources/views",
+        "storage/views"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Blade templates live in <code>resources/views</code>. Compiled versions are cached in <code>storage/framework/views</code>, but that's not where you write them."
+    },
+    {
+      "id": 22,
+      "type": "msq",
+      "text": "Which are the correct ways to pass data from a controller to a view in Laravel?",
+      "options": [
+        "return view('post', 'key' = $input);",
+        "return view('post', ['key' =&gt; $input]);",
+        "return view('post', var('input'));",
+        "return view('post', all('input'));",
+        "return view('post', array('input'));",
+        "return view('post', compact('input'));",
+        "return view('post', '$input');"
+      ],
+      "correctAnswer": [
+        1,
+        5
+      ],
+      "points": 2,
+      "explanation": "<code>view()</code> takes an associative array of data: <code>['key' =&gt; $input]</code> makes <code>$key</code> available in the view, and <code>compact('input')</code> builds <code>['input' =&gt; $input]</code> from the variable's name. <code>array('input')</code> is just <code>[0 =&gt; 'input']</code> with no usable key, and <code>'$input'</code> is a plain string, not an array."
+    },
+    {
+      "id": 23,
+      "type": "mc",
+      "text": "This directory/folder contains the main application code, including controllers, models, and middleware.",
+      "options": [
+        "app",
+        "routes",
+        "config",
+        "public"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The <code>app</code> directory holds the core code: <code>app/Http/Controllers</code>, <code>app/Models</code>, middleware and so on."
+    },
+    {
+      "id": 24,
+      "type": "mc",
+      "text": "How do you iterate over an array or collection in a Blade template?",
+      "options": [
+        "@iterate($items as $item)",
+        "@loop($items as $item)",
+        "@foreach($items as $item)",
+        "@for($items as $item)"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>@foreach($items as $item) ... @endforeach</code> mirrors PHP's <code>foreach</code>. <code>@for</code> exists but takes a counter-style loop (<code>@for($i = 0; $i &lt; 10; $i++)</code>), not <code>as</code> syntax."
+    },
+    {
+      "id": 25,
+      "type": "mc",
+      "text": "Who is the creator of Laravel?",
+      "options": [
+        "David Heinemeier Hansson",
+        "Rasmus Lerdorf",
+        "Fabien Potencier",
+        "Taylor Otwell"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Taylor Otwell created Laravel. David Heinemeier Hansson created Ruby on Rails, Rasmus Lerdorf created PHP, and Fabien Potencier created Symfony."
+    },
+    {
+      "id": 26,
+      "type": "mc",
+      "text": "This is the visual representation of the data, or in other words the UI (user interface). This bit will be mostly handled by HTML/CSS. Examples of UI elements may include drop-downs, charts, text boxes and tables.",
+      "options": [
+        "Resources",
+        "View",
+        "Model",
+        "Controller"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "In MVC, the View is the presentation layer the user sees. The Model handles data and the Controller connects the two."
+    },
+    {
+      "id": 27,
+      "type": "mc",
+      "text": "Which architectural pattern does Laravel follow?",
+      "options": [
+        "MMVA",
+        "MVC",
+        "MVA",
+        "MVP"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Laravel follows MVC (Model-View-Controller)."
+    },
+    {
+      "id": 28,
+      "type": "mc",
+      "text": "Complete the missing syntax to redirect users to specific routes in the simplest form.",
+      "context": "<pre>Route::get('/admin/user/create', function () {\n    return view('create-user');\n})-&gt;________(\"add-user\");</pre>",
+      "options": [
+        "where",
+        "redirect",
+        "route",
+        "name"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>-&gt;name(\"add-user\")</code> gives the route a name, so you can later redirect or link to it with <code>route('add-user')</code> or <code>redirect()-&gt;route('add-user')</code> instead of the full path. <code>where</code> adds parameter constraints."
+    },
+    {
+      "id": 29,
+      "type": "mc",
+      "text": "In Laravel, what function is used to get the URL of a file like images, external CSS and JS located in the <code>public</code> directory?",
+      "options": [
+        "url()",
+        "file()",
+        "asset()",
+        "public()"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>asset('css/app.css')</code> generates a full URL to a file in <code>public</code>, e.g. <code>&lt;link href=\"{{ asset('css/app.css') }}\"&gt;</code>."
+    },
+    {
+      "id": 30,
+      "type": "msq",
+      "text": "Which of the following are advantages of using Laravel?",
+      "options": [
+        "Advanced Image Manipulation Tools",
+        "Route Handling",
+        "Eloquent ORM",
+        "Built-in Modules",
+        "Native Mobile App Support",
+        "Integrated Analytics Dashboard",
+        "Cross-platform Compilation",
+        "Drag-and-Drop UI Builder"
+      ],
+      "correctAnswer": [
+        1,
+        2,
+        3
+      ],
+      "points": 3,
+      "explanation": "Laravel's advantages include its expressive routing, the Eloquent ORM for working with the database, and built-in modules (authentication, validation, caching, queues, etc.). It doesn't ship image manipulation, native mobile apps, analytics dashboards, cross-platform compilation or a drag-and-drop UI builder."
+    },
+    {
+      "id": 31,
+      "type": "msq",
+      "text": "Select all the correct ways to call a Laravel route:",
+      "options": [
+        "Route::post()",
+        "href()",
+        "redirect()",
+        "get()",
+        "url()",
+        "route()",
+        "Route::to()"
+      ],
+      "correctAnswer": [
+        4,
+        5
+      ],
+      "points": 2,
+      "explanation": "<code>url('/path')</code> builds a URL from a path and <code>route('name')</code> builds one from a named route. <code>Route::post()</code> <em>defines</em> a route rather than calling one; <code>href()</code>, <code>get()</code> and <code>Route::to()</code> aren't Laravel helpers for this."
+    },
+    {
+      "id": 32,
+      "type": "mc",
+      "text": "What will be the right syntax to call a named route?",
+      "context": "<pre>Route::get('/product/create', function () {\n    return view('create-product');\n})-&gt;name(\"create\");</pre>",
+      "options": [
+        "url('create')",
+        "url('create-product')",
+        "route('create')",
+        "route('/product/create')"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Named routes are called with <code>route()</code> and the route's name: <code>route('create')</code>. <code>url()</code> takes a path, not a name, and <code>'create-product'</code> is the view name."
+    },
+    {
+      "id": 33,
+      "type": "mc",
+      "text": "Given the following constraint, which URL is invalid?",
+      "context": "<pre>-&gt;where('username', '[A-Za-z0-9_]+');</pre>",
+      "options": [
+        "/user/BEN2027",
+        "/user/ben-gandeza",
+        "/user/ben_gandeza",
+        "/user/benjamin123"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The pattern allows letters, digits and underscores only. <code>ben-gandeza</code> contains a hyphen, which isn't in the character class, so it fails. <code>ben_gandeza</code> is fine because <code>_</code> is allowed."
+    },
+    {
+      "id": 34,
+      "type": "fitb",
+      "text": "___ is a tool used to install Laravel, update Laravel, and bring in external dependencies.",
+      "correctAnswer": "Composer",
+      "points": 1,
+      "explanation": "Composer is PHP's dependency manager. It installs Laravel and its packages and keeps them updated."
+    },
+    {
+      "id": 35,
+      "type": "mc",
+      "text": "What route is placed at the end of your route definitions to ensure it catches any requests/errors that haven't been handled by previous routes?",
+      "options": [
+        "Route::error();",
+        "Route::fallback();",
+        "Route::catch();",
+        "Route::error('404');"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>Route::fallback()</code> registers a route that runs when no other route matches, and it should be the last route registered. <code>Route::error()</code> and <code>Route::catch()</code> don't exist."
+    },
+    {
+      "id": 36,
+      "type": "mc",
+      "text": "Laravel folder where all of the route definitions live, both for HTTP routes and \"console routes,\" or Artisan commands.",
+      "options": [
+        "Http",
+        "public",
+        "routes",
+        "artisan"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The <code>routes</code> folder holds <code>web.php</code>, <code>api.php</code> and <code>console.php</code> (Artisan command definitions)."
+    },
+    {
+      "id": 37,
+      "type": "mc",
+      "text": "This directory houses your assets such as images, external JavaScript, and external CSS.",
+      "options": [
+        "public",
+        "resources",
+        "vendor",
+        "storage"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>public</code> is the web root. It holds <code>index.php</code> and publicly served assets like images, CSS and JS."
+    },
+    {
+      "id": 38,
+      "type": "mc",
+      "text": "If you want to display a variable in a blade file, what will be the symbol used as a replacement for the opening and closing of PHP tags? (<code>&lt;?php ?&gt;</code>)",
+      "options": [
+        "$",
+        "[]",
+        "URL::to()",
+        "{{}}"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>{{ $variable }}</code> echoes a value in Blade, escaped with <code>htmlspecialchars</code>. It replaces <code>&lt;?php echo $variable; ?&gt;</code>."
+    },
+    {
+      "id": 39,
+      "type": "mc",
+      "text": "What artisan command would you use to create a new controller?",
+      "options": [
+        "php artisan make:controller UserController",
+        "php artisan new:controller UserController",
+        "php artisan controller UserController",
+        "php artisan create:controller UserController"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>php artisan make:controller UserController</code> creates <code>app/Http/Controllers/UserController.php</code>. Artisan generators use the <code>make:</code> prefix."
+    },
+    {
+      "id": 40,
+      "type": "matching",
+      "text": "Match each HTTP verb with its description.",
+      "allChoices": [
+        "DELETE",
+        "GET",
+        "POST",
+        "PUT/PATCH"
+      ],
+      "pairs": [
+        {
+          "term": "Delete data",
+          "match": "DELETE"
+        },
+        {
+          "term": "Request and retrieve data",
+          "match": "GET"
+        },
+        {
+          "term": "Create and submit data",
+          "match": "POST"
+        },
+        {
+          "term": "Update data",
+          "match": "PUT/PATCH"
+        }
+      ],
+      "points": 4,
+      "explanation": "GET reads data, POST creates/submits it, PUT/PATCH updates it (PUT replaces, PATCH changes part), and DELETE removes it."
+    },
+    {
+      "id": 41,
+      "type": "mc",
+      "text": "Which of the following is not a directive used in Laravel Blade for switch?",
+      "options": [
+        "@break",
+        "@case",
+        "@enddefault",
+        "@default"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Blade's switch uses <code>@switch</code>, <code>@case</code>, <code>@break</code>, <code>@default</code> and <code>@endswitch</code>. There is no <code>@enddefault</code>."
+    },
+    {
+      "id": 42,
+      "type": "mc",
+      "text": "After installing the Laravel Installer, which command can be used to create a new Laravel project?",
+      "options": [
+        "php laravel projectName",
+        "artisan create projectName",
+        "laravel new projectName",
+        "composer project projectName"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The installer provides the <code>laravel new projectName</code> command. Without the installer you'd use <code>composer create-project laravel/laravel projectName</code>; <code>composer project</code> isn't a command."
+    },
+    {
+      "id": 43,
+      "type": "mc",
+      "text": "What is the file extension for a Laravel View file?",
+      "options": [
+        ".view.php",
+        ".php",
+        ".blade.php",
+        ".laravel.php"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Laravel views use the Blade templating engine, so view files end in <code>.blade.php</code> (e.g. <code>resources/views/welcome.blade.php</code>)."
+    },
+    {
+      "id": 44,
+      "type": "mc",
+      "text": "What is the main purpose of named routes?",
+      "options": [
+        "To refer to long or complex URL paths using a simpler route name",
+        "To organize route files based on the name",
+        "To limit access to routes based on the user access",
+        "To automatically shorten the URL shown in the browser"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A named route (<code>-&gt;name('...')</code>) lets you generate its URL or redirect to it by name with <code>route('name')</code>, so you don't hard-code the path. It doesn't change the URL the browser shows or restrict access."
+    },
+    {
+      "id": 45,
+      "type": "mc",
+      "text": "This protection helps make sure that a form request actually came from your application and not from another malicious website. It generates the hidden security token used by Laravel to validate each form submission.",
+      "options": [
+        "@csrf",
+        "@method",
+        "@form",
+        "@token"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>@csrf</code> outputs a hidden <code>_token</code> input holding the session's CSRF token, which Laravel checks on every POST/PUT/PATCH/DELETE request. <code>@method</code> spoofs the HTTP verb; <code>@form</code> and <code>@token</code> aren't Blade directives."
+    },
+    {
+      "id": 46,
+      "type": "mc",
+      "text": "Where can you find Laravel's route definitions for web routes?",
+      "options": [
+        "routes/api.php",
+        "routes/api_routes.php",
+        "config/api.php",
+        "routes/web.php"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Browser-facing routes (with sessions, cookies and CSRF protection) live in <code>routes/web.php</code>. <code>routes/api.php</code> is for stateless API routes."
+    },
+    {
+      "id": 47,
+      "type": "mc",
+      "text": "Which command installs the Laravel Installer globally using Composer?",
+      "options": [
+        "composer install laravel global",
+        "composer global require laravel/installer",
+        "php require laravel/installer",
+        "laravel install composer"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>composer global require laravel/installer</code> installs the <code>laravel</code> command into Composer's global bin directory, after which <code>laravel new</code> is available."
+    },
+    {
+      "id": 48,
+      "type": "mc",
+      "text": "What will be displayed when <code>/user</code> is accessed using this route?",
+      "context": "<pre>Route::get('/user/{name?}', function ($name = 'Guest') {\n    return 'User '.$name;\n});</pre>",
+      "options": [
+        "Error 404",
+        "User Guest",
+        "User ?",
+        "User"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>{name?}</code> is an optional parameter. When it's missing, the closure's default value <code>'Guest'</code> is used, so the response is <code>User Guest</code>."
+    },
+    {
+      "id": 49,
+      "type": "mc",
+      "text": "What does the regular expression constraint specify about the <code>{code}</code> parameter?",
+      "context": "<pre>Route::get('/user/{code}', function ($code) {\n    return $code;\n})-&gt;where('id', '[0-9\\+]+');</pre>",
+      "options": [
+        "The parameter can contain numeric values only.",
+        "The parameter can contain one or more digits and a plus sign symbol.",
+        "The parameter must be in between 0 and 9 digits long.",
+        "The parameter must be exactly 9 digits long."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "warning": "The snippet constrains <code>'id'</code>, but the route parameter is <code>{code}</code>. In real Laravel this <code>where()</code> wouldn't apply to <code>{code}</code> at all. The question means it to, so answer as if it said <code>where('code', ...)</code>.",
+      "explanation": "<code>[0-9\\+]</code> is a character class matching a single digit or a literal <code>+</code> (the backslash escapes the plus), and the trailing <code>+</code> means one or more of them. So the value may contain digits and plus signs, e.g. <code>123</code> or <code>+63</code>. <code>[0-9]</code> describes which characters are allowed, not how many digits long the value is."
+    },
+    {
+      "id": 50,
+      "type": "mc",
+      "text": "When was Laravel first released?",
+      "options": [
+        "2012",
+        "2008",
+        "2009",
+        "2011"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Taylor Otwell released the first version of Laravel in June 2011."
+    },
+    {
+      "id": 51,
+      "type": "mc",
+      "text": "What is the right way to define a comment in a blade file?",
+      "options": [
+        "/* */",
+        "//",
+        "{{-- --}}",
+        "&lt;!-- --&gt;"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Blade comments are written <code>{{-- comment --}}</code> and are stripped out entirely, so they never reach the browser. An HTML comment <code>&lt;!-- --&gt;</code> still shows up in the page source, and Blade expressions inside it still run."
+    },
+    {
+      "id": 52,
+      "type": "mc",
+      "text": "Which Artisan command creates a view named greeting?",
+      "options": [
+        "php artisan create:blade greeting",
+        "php artisan make:view greeting",
+        "php artisan make:blade greeting",
+        "php artisan new view greeting"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>php artisan make:view greeting</code> creates <code>resources/views/greeting.blade.php</code>. Artisan generators all use the <code>make:</code> prefix."
+    },
+    {
+      "type": "fitb",
+      "text": "___ is the default templating engine in Laravel.",
+      "correctAnswer": "Blade",
+      "points": 1,
+      "explanation": "Blade is Laravel's templating engine, which is why view files end in <code>.blade.php</code>. Artisan is the command-line tool, not the templating engine.",
+      "id": 53
+    },
+    {
+      "type": "mc",
+      "text": "What is the purpose of the <code>Auth::user()</code> method in Laravel?",
+      "options": [
+        "Retrieve the authenticated user",
+        "Log out the user",
+        "Log in a user",
+        "Check if a user is logged in"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>Auth::user()</code> returns the currently logged-in user (or <code>null</code> if nobody is). <code>Auth::check()</code> tells you whether someone is logged in, <code>Auth::login()</code> logs a user in and <code>Auth::logout()</code> logs them out.",
+      "id": 54
+    },
+    {
+      "id": 55,
+      "type": "mc",
+      "text": "Which of the following occurs last in the request lifecycle?",
+      "options": [
+        "Middleware Execution",
+        "Route Matching",
+        "Service Providers Registration",
+        "Response Creation"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "A request enters through <code>public/index.php</code>, service providers are registered, the router matches a route, middleware runs, the controller or closure runs, and finally a response is created and sent back. Response creation is the last step."
+    },
+    {
+      "id": 56,
+      "type": "fitb",
+      "text": "In Laravel, the primary configuration file is named ___.",
+      "correctAnswer": ".env",
+      "points": 1,
+      "explanation": "<code>.env</code> in the project root holds the environment-specific settings (app name, <code>APP_KEY</code>, database credentials). The files in <code>config/</code> read their values from it. <code>app.blade.php</code> is a layout view, not configuration."
+    },
+    {
+      "id": 57,
+      "type": "fitb",
+      "text": "To create a new model, you can use the command \"php artisan ___\".",
+      "correctAnswer": "make:model",
+      "points": 2,
+      "explanation": "<code>php artisan make:model Product</code> creates <code>app/Models/Product.php</code>. <code>make</code> alone isn't a command; it always needs a type after the colon."
+    },
+    {
+      "type": "mc",
+      "text": "To create a route group that applies middleware to all routes within the group, which method should be used?",
+      "options": [
+        "<code>Route::group()</code>",
+        "<code>Route::middleware()</code>",
+        "<code>Route::namespace()</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "warning": "Outside Source says <strong>Route::group()</strong>, and it's keyed that way here. In real code the two go together: <code>Route::middleware('auth')-&gt;group(function () { ... });</code>. <code>middleware()</code> names the middleware, but <code>group()</code> is the method that creates the group.",
+      "explanation": "<code>group()</code> wraps a set of routes so they share attributes such as middleware, a URL prefix or a name prefix. <code>middleware()</code> and <code>namespace()</code> set those attributes; on their own they don't group anything.",
+      "id": 58
+    },
+    {
+      "type": "mc",
+      "text": "What happens after route matching but before the controller action is executed?",
+      "options": [
+        "Event Dispatching",
+        "Middleware Execution",
+        "View rendering",
+        "Response Creation"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "warning": "Outside Source says <strong>View rendering</strong>. It's keyed Middleware Execution here because the route's middleware runs once the route is matched and before the controller, while the view is only rendered when the controller returns it.",
+      "explanation": "The router first matches the route, then sends the request through that route's middleware (auth, throttling and so on), and only then calls the controller action. The controller usually returns <code>view(...)</code>, so view rendering and response creation come <em>after</em> the action.",
+      "id": 59
+    },
+    {
+      "type": "mc",
+      "text": "How do you create a middleware that only applies to specific routes?",
+      "options": [
+        "By applying it directly to those routes using the <code>middleware()</code> method",
+        "By setting it in the <code>bootstrap/app.php</code> file",
+        "By defining route-specific middleware in <code>config/middleware.php</code>",
+        "By registering it in the global middleware list"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Chain it onto the routes that need it, e.g. <code>Route::get('/dashboard', ...)-&gt;middleware('auth');</code>, or wrap several in <code>Route::middleware('auth')-&gt;group(...)</code>. Registering it as global middleware runs it on every request, and <code>config/middleware.php</code> isn't a Laravel file.",
+      "id": 60
+    },
+    {
+      "type": "mc",
+      "text": "What is the purpose of the <code>ThrottleRequests</code> middleware?",
+      "options": [
+        "To throttle response times for better performance",
+        "To handle request throttling for specific routes",
+        "To limit the number of requests a user can make in a given time period",
+        "To manage request priorities"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>ThrottleRequests</code> is Laravel's rate limiter: it caps how many requests a user or IP can make in a period, e.g. <code>-&gt;middleware('throttle:60,1')</code> for 60 per minute, and answers <code>429 Too Many Requests</code> past that. It doesn't slow responses down.",
+      "id": 61
+    },
+    {
+      "id": 62,
+      "type": "mc",
+      "text": "What is the primary purpose of the Model in the MVC architecture?",
+      "options": [
+        "Render the user interface",
+        "Handle user input",
+        "Direct the flow of control in the application",
+        "Manage the application's data and business logic"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "warning": "Outside Source says the Model manages the data <strong>and business logic</strong>, and it's keyed that way here. The notes give the business logic to the <strong>Controller</strong> instead, but the Model is the only option about data.",
+      "explanation": "The Model interacts with the database and represents the application's data. Rendering the UI is the View's job; handling input and directing the flow is the Controller's."
+    },
+    {
+      "id": 63,
+      "type": "fitb",
+      "text": "Eloquent ORM: ORM means ___. (Spell it with the hyphen.)",
+      "correctAnswer": "Object-Relational Mapping",
+      "points": 2,
+      "explanation": "ORM stands for Object-Relational Mapping. Eloquent lets you write database queries in PHP syntax instead of SQL, with each table mapped to a model class."
+    },
+    {
+      "id": 64,
+      "type": "matching",
+      "text": "Match the following HTTP verbs.",
+      "allChoices": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ],
+      "pairs": [
+        {
+          "term": "Request a resource",
+          "match": "GET"
+        },
+        {
+          "term": "Overwrite a resource.",
+          "match": "PUT"
+        },
+        {
+          "term": "Modify a resource",
+          "match": "PATCH"
+        },
+        {
+          "term": "Create a resource",
+          "match": "POST"
+        },
+        {
+          "term": "Delete a resource",
+          "match": "DELETE"
+        }
+      ],
+      "points": 5,
+      "explanation": "GET requests a resource and POST creates one. PUT overwrites (replaces) the whole resource, while PATCH modifies part of it. DELETE removes it."
+    },
+    {
+      "type": "mc",
+      "text": "How can you specify route parameters to be optional?",
+      "options": [
+        "<code>Route::get('/user/[id]', [UserController::class, 'show'])</code>",
+        "<code>Route::get('/user/{id?}', [UserController::class, 'show'])</code>",
+        "<code>Route::get('/user/{id|}', [UserController::class, 'show'])</code>",
+        "<code>Route::get('/user/{id}', [UserController::class, 'show'])-&gt;optional()</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Put a <code>?</code> after the parameter name, <code>{id?}</code>, and give the matching argument a default (<code>$id = null</code>). Square brackets and <code>{id|}</code> aren't route syntax, and routes have no <code>optional()</code> method.",
+      "id": 65
+    },
+    {
+      "type": "mc",
+      "text": "Which method in a middleware class is executed for each request?",
+      "options": [
+        "<code>handle()</code>",
+        "<code>execute()</code>",
+        "<code>run()</code>",
+        "<code>process()</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Every middleware has <code>handle(Request $request, Closure $next)</code>. It runs for each request passing through, and calls <code>$next($request)</code> to hand the request on to the next layer.",
+      "id": 66
+    },
+    {
+      "id": 67,
+      "type": "mc",
+      "text": "Which controller method is responsible for displaying a list of resources?",
+      "options": [
+        "<code>all()</code>",
+        "<code>list()</code>",
+        "<code>index()</code>",
+        "<code>show()</code>"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>index()</code> lists the resources. <code>show()</code> displays a single one. <code>all()</code> is an Eloquent method (<code>User::all()</code>) you'd call <em>inside</em> <code>index()</code>."
+    },
+    {
+      "id": 68,
+      "type": "fitb",
+      "text": "The Artisan command \"php artisan ___\" shows a list of all routes defined in your application.",
+      "correctAnswer": "route:list",
+      "points": 2,
+      "explanation": "<code>php artisan route:list</code> prints every registered route with its method, URI, name and action."
+    },
+    {
+      "id": 69,
+      "type": "mc",
+      "text": "Which of the following is not a default resourceful method in a controller?",
+      "options": [
+        "<code>create()</code>",
+        "<code>store()</code>",
+        "<code>submit()</code>",
+        "<code>edit()</code>"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The seven resource methods are <code>index</code>, <code>create</code>, <code>store</code>, <code>show</code>, <code>edit</code>, <code>update</code> and <code>destroy</code>. <code>submit()</code> isn't one of them."
+    },
+    {
+      "type": "mc",
+      "text": "How can you return a view from a controller method?",
+      "options": [
+        "<code>return view('welcome');</code>",
+        "<code>return redirect('welcome');</code>",
+        "<code>return 'welcome';</code>",
+        "<code>return view['welcome'];</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>view('welcome')</code> renders <code>resources/views/welcome.blade.php</code>. <code>redirect('welcome')</code> sends the browser to the <code>/welcome</code> URL instead, a plain string is returned as text, and <code>view['welcome']</code> isn't valid.",
+      "id": 70
+    },
+    {
+      "type": "mc",
+      "text": "What is the correct way to name a route in Laravel?",
+      "options": [
+        "<code>Route::get('home')-&gt;name('home', [UserController::class, 'index'])</code>",
+        "<code>Route::name('home', [UserController::class, 'index'])</code>",
+        "<code>Route::name('home')-&gt;get('home', [UserController::class, 'index'])</code>",
+        "<code>Route::get('home', [UserController::class, 'index'])-&gt;name('home')</code>"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Define the route with its URL and action first, then chain <code>-&gt;name('home')</code> onto it. <code>name()</code> takes only the name, so the first two options are wrong. Calling <code>Route::name()</code> first is normally used to give a whole group a name prefix.",
+      "warning": "<code>Route::name('home')-&gt;get(...)</code> also works in real Laravel, since <code>name()</code> can come first. The expected answer is the usual form, with <code>-&gt;name()</code> chained after the route.",
+      "id": 71
+    },
+    {
+      "type": "mc",
+      "text": "Which part of the MVC architecture is responsible for handling user interactions and updating the model accordingly?",
+      "options": [
+        "Model",
+        "View",
+        "Routes",
+        "Controller"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The Controller receives the user's request, updates or reads the Model, and picks the View to return. Routes only decide <em>which</em> controller method gets the request.",
+      "id": 72
+    },
+    {
+      "id": 73,
+      "type": "mc",
+      "text": "Which method is used to handle the deletion of a resource in a resource controller?",
+      "options": [
+        "<code>remove()</code>",
+        "<code>delete()</code>",
+        "<code>erase()</code>",
+        "<code>destroy()</code>"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The controller method is <code>destroy()</code>. Inside it you call the model's <code>delete()</code> (<code>$user-&gt;delete()</code>), which is why <code>delete()</code> is the tempting wrong answer."
+    },
+    {
+      "id": 74,
+      "type": "fitb",
+      "text": "The main database migration command is ___.",
+      "correctAnswer": "php artisan migrate",
+      "points": 2,
+      "explanation": "<code>php artisan migrate</code> runs all pending migrations and creates or updates the tables. It's a command, so no <code>()</code> at the end."
+    },
+    {
+      "id": 75,
+      "type": "mc",
+      "text": "Where would you place your application's middleware?",
+      "options": [
+        "<code>resources/middleware/</code>",
+        "<code>app/Http/Controllers/</code>",
+        "<code>config/middleware/</code>",
+        "<code>app/Http/Middleware/</code>"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Middleware classes go in <code>app/Http/Middleware/</code>, next to <code>app/Http/Controllers/</code>. (Since Laravel 11 that folder isn't created until you make your first middleware with <code>php artisan make:middleware</code>, but that's still where it goes.)"
+    },
+    {
+      "type": "mc",
+      "text": "Which directive is used to display data in a Blade view while escaping HTML?",
+      "options": [
+        "<code>{{ $variable }}</code>",
+        "<code>@escape($variable)</code>",
+        "<code>@html($variable)</code>",
+        "<code>{!! $variable !!}</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>{{ }}</code> runs the value through <code>htmlspecialchars</code>, so HTML in it shows as text. <code>{!! !!}</code> prints it raw and unescaped. <code>@escape</code> and <code>@html</code> aren't Blade directives.",
+      "id": 76
+    },
+    {
+      "type": "mc",
+      "text": "What is the purpose of the \"routes\" in the context of Laravel MVC?",
+      "options": [
+        "Define the database schema",
+        "Handle HTTP requests and direct them to the appropriate controller",
+        "Define the relationships between models",
+        "Render the user interface"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Routes map an incoming request (its URL and HTTP verb) to the controller method or closure that handles it. The schema belongs to migrations, relationships to models, and the UI to views.",
+      "id": 77
+    },
+    {
+      "type": "mc",
+      "text": "In Laravel, what is responsible for rendering the user interface and presenting data?",
+      "options": [
+        "Eloquent",
+        "View",
+        "Controller",
+        "Model"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Views (Blade templates in <code>resources/views</code>) render the UI and present the data the controller passes them. Eloquent is the ORM the models use.",
+      "id": 78
+    },
+    {
+      "type": "fitb",
+      "text": "Complete the code to add a route in <code>web.php</code> that connects to the <code>index</code> method of <code>ProductController</code>.",
+      "code": "Route::___('/products', [ProductController::class, '___']);",
+      "correctAnswer": [
+        "get",
+        "index"
+      ],
+      "points": 2,
+      "explanation": "<ol><li><code>get</code>: listing products is a GET request.</li><li><code>index</code>: the action array names the controller method as a string.</li></ol>",
+      "id": 79
+    },
+    {
+      "type": "mc",
+      "text": "Which method is used to handle form submissions in a controller?",
+      "options": [
+        "<code>submit()</code>",
+        "<code>store()</code>",
+        "<code>save()</code>",
+        "<code>create()</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "In a resource controller, the form for a new record POSTs to <code>store()</code>, which validates and saves it. <code>create()</code> only <em>shows</em> that form, <code>save()</code> is a model method you might call inside <code>store()</code>, and <code>submit()</code> isn't a resource method.",
+      "id": 80
+    },
+    {
+      "id": 81,
+      "type": "mc",
+      "text": "How can you define a route that accepts a parameter in Laravel?",
+      "options": [
+        "<code>Route::get('/user?id={id}', [UserController::class, 'show'])</code>",
+        "<code>Route::get('/user/?id={id}', [UserController::class, 'show'])</code>",
+        "<code>Route::get('/user/{id}', [UserController::class, 'show'])</code>",
+        "<code>Route::get('/user/:id', [UserController::class, 'show'])</code>"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Route parameters go in curly braces in the path: <code>/user/{id}</code>. Query strings (<code>?id=</code>) aren't part of a route path, and <code>:id</code> is Express.js syntax, not Laravel's."
+    },
+    {
+      "id": 82,
+      "type": "fitb",
+      "text": "The ___ directory holds the database migrations for your application.",
+      "correctAnswer": "database/migrations",
+      "points": 2,
+      "explanation": "Migrations go in <code>database/migrations</code>. The <code>database</code> folder as a whole also holds model factories and seeds, so the full path is the answer."
+    }
+  ]
+}

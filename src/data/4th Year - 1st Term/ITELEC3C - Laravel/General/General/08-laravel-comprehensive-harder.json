@@ -432,6 +432,15 @@
     },
     {
       "id": 34,
+      "type": "mc",
+      "text": "Which method is used to handle form submissions in a controller?",
+      "options": ["<code>submit()</code>", "<code>store()</code>", "<code>save()</code>", "<code>create()</code>"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "In a resource controller, the form for a new record POSTs to <code>store()</code>, which validates and saves it. <code>create()</code> only <em>shows</em> that form, <code>save()</code> is a model method you might call inside <code>store()</code>, and <code>submit()</code> isn't a resource method."
+    },
+    {
+      "id": 35,
       "type": "matching",
       "text": "Match each job to the resource controller method that does it.",
       "allChoices": ["index", "create", "store", "show", "edit", "update", "destroy"],
@@ -448,7 +457,7 @@
       "explanation": "The form methods (<code>create</code>, <code>edit</code>) only <em>show</em> a form. The methods that receive it (<code>store</code>, <code>update</code>) validate and save."
     },
     {
-      "id": 35,
+      "id": 36,
       "type": "mc",
       "text": "Which file does this line render?",
       "context": "<pre>return view('users.index', compact('users'));</pre>",
@@ -463,7 +472,7 @@
       "explanation": "Dots in a view name mean folders, so <code>users.index</code> is <code>resources/views/users/index.blade.php</code>. <code>compact('users')</code> builds <code>['users' =&gt; $users]</code>, so the view gets <code>$users</code>."
     },
     {
-      "id": 36,
+      "id": 37,
       "type": "mc",
       "text": "With the controller below, what happens when someone visits <code>/user/999</code> and no user has that id?",
       "context": "<pre>public function show(string $id): View\n{\n    return view('user.profile', [\n        'user' =&gt; User::findOrFail($id)\n    ]);\n}</pre>",
@@ -478,7 +487,7 @@
       "explanation": "<code>findOrFail</code> throws a <code>ModelNotFoundException</code> when nothing matches, and Laravel turns that into a 404 response. Plain <code>find()</code> would return <code>null</code> instead."
     },
     {
-      "id": 37,
+      "id": 38,
       "type": "mc",
       "text": "In a normal form submission, what happens when <code>$request-&gt;validate([...])</code> fails?",
       "options": [
@@ -492,7 +501,7 @@
       "explanation": "On failure an <code>Illuminate\\Validation\\ValidationException</code> is thrown. Laravel redirects the user back, flashes the errors and input to the session, and shares <code>$errors</code> with the views. The code after <code>validate()</code> never runs."
     },
     {
-      "id": 38,
+      "id": 39,
       "type": "msq",
       "text": "Which of these correctly say that <code>username</code> is required and at most 50 characters? Select all that apply.",
       "options": [
@@ -506,7 +515,7 @@
       "explanation": "Rules can be one string separated by <code>|</code> or an array of rules. The commas in <code>required,max:50</code> don't separate rules, and rule parameters use a colon (<code>max:50</code>), not <code>=</code>."
     },
     {
-      "id": 39,
+      "id": 40,
       "type": "mc",
       "text": "Which input passes this rule?",
       "context": "<pre>'code' =&gt; 'required|digits_between:5,8'</pre>",
@@ -521,7 +530,7 @@
       "explanation": "<code>digits_between:5,8</code> needs only digits, 5 to 8 of them, and both ends count. <code>1234</code> is too short, <code>123456789</code> is too long, and <code>12a45</code> has a letter."
     },
     {
-      "id": 40,
+      "id": 41,
       "type": "mc",
       "text": "The password field uses the rule below. What else must the form send for it to pass?",
       "context": "<pre>'password' =&gt; 'required|confirmed'</pre>",
@@ -536,7 +545,7 @@
       "explanation": "<code>confirmed</code> looks for a field named after the original plus <code>_confirmation</code>, so <code>password</code> needs <code>password_confirmation</code> with the same value."
     },
     {
-      "id": 41,
+      "id": 42,
       "type": "mc",
       "text": "A user types <code>abc</code> into the age field. Which errors come back?",
       "context": "<pre>'age' =&gt; 'bail|numeric|min:18'</pre>",
@@ -551,7 +560,7 @@
       "explanation": "Without <code>bail</code> Laravel would keep checking and report <code>min:18</code> as well. With <code>bail</code> it stops at the first failed rule for that attribute, so only the <code>numeric</code> error is reported."
     },
     {
-      "id": 42,
+      "id": 43,
       "type": "mc",
       "text": "The old password is <code>secret123</code> and the user enters <code>secret123</code> as the new one. What happens?",
       "context": "<pre>'new_password' =&gt; 'required|different:old_password'</pre>",
@@ -566,7 +575,7 @@
       "explanation": "<code>different:old_password</code> requires the value to differ from the <code>old_password</code> field. <code>same</code> is the opposite rule, and <code>_confirmation</code> fields belong to <code>confirmed</code>."
     },
     {
-      "id": 43,
+      "id": 44,
       "type": "mc",
       "text": "Which input <strong>fails</strong> this rule?",
       "context": "<pre>'middle_name' =&gt; 'nullable|string|max:50'</pre>",
@@ -581,7 +590,7 @@
       "explanation": "<code>nullable</code> allows an empty value, but a value that <em>is</em> given still has to pass the other rules. A 51-character string breaks <code>max:50</code>. Spaces are fine for <code>string</code>."
     },
     {
-      "id": 44,
+      "id": 45,
       "type": "fitb",
       "text": "Fill in the blanks to show the email field's first error message under the input.",
       "code": "<input type=\"email\" name=\"email\" value=\"{{ old('email') }}\">\n@___('email')\n    <span class=\"text-danger\">{{ $___ }}</span>\n@enderror",
@@ -590,7 +599,7 @@
       "explanation": "<code>@error('email')</code> runs its block only when <code>email</code> has errors, and inside it <code>$message</code> holds that field's message. <code>$errors</code> is the bag with every field's errors."
     },
     {
-      "id": 45,
+      "id": 46,
       "type": "fitb",
       "text": "The main database migration command is ___.",
       "correctAnswer": "php artisan migrate",
@@ -598,7 +607,7 @@
       "explanation": "<code>php artisan migrate</code> runs all pending migrations and creates or updates the tables. It's a command, so no <code>()</code> at the end."
     },
     {
-      "id": 46,
+      "id": 47,
       "type": "tf",
       "text": "Running <code>php artisan make:migration create_product_table</code> creates the <code>product</code> table in the database right away.",
       "options": ["True", "False"],
@@ -607,7 +616,7 @@
       "explanation": "<code>make:migration</code> only writes the migration file into <code>database/migrations</code>. The table is created when you run <code>php artisan migrate</code>."
     },
     {
-      "id": 47,
+      "id": 48,
       "type": "mc",
       "text": "A migration's <code>up()</code> method runs <code>Schema::create('products', ...)</code>. What should its <code>down()</code> method do?",
       "options": [
@@ -621,7 +630,7 @@
       "explanation": "<code>down()</code> must reverse what <code>up()</code> did so rollbacks work. <code>up()</code> created the table, so <code>down()</code> drops it."
     },
     {
-      "id": 48,
+      "id": 49,
       "type": "matching",
       "text": "Match each migration command to what it does.",
       "allChoices": ["php artisan migrate", "php artisan migrate:rollback", "php artisan migrate:reset", "php artisan migrate:refresh"],
@@ -635,7 +644,7 @@
       "explanation": "<code>rollback</code> undoes the last batch only. <code>reset</code> undoes all of them and stops there. <code>refresh</code> does a reset and then migrates again, so you end up with freshly built tables."
     },
     {
-      "id": 49,
+      "id": 50,
       "type": "fitb",
       "text": "To create a new model, you can use the command \"php artisan ___\".",
       "correctAnswer": "make:model",
@@ -643,7 +652,7 @@
       "explanation": "<code>php artisan make:model Product</code> creates <code>app/Models/Product.php</code>. <code>make</code> alone isn't a command; it always needs a type after the colon."
     },
     {
-      "id": 50,
+      "id": 51,
       "type": "mc",
       "text": "Without any extra settings, which table does a model named <code>StudentRecord</code> use?",
       "options": [
@@ -657,7 +666,7 @@
       "explanation": "Models are singular PascalCase, and Laravel assumes the table is the plural in snake_case: <code>StudentRecord</code> uses <code>student_records</code>."
     },
     {
-      "id": 51,
+      "id": 52,
       "type": "mc",
       "text": "The <code>StudentRecord</code> model has to use an existing table named <code>tbl_students</code>. What do you add to the model?",
       "options": [
@@ -671,7 +680,7 @@
       "explanation": "<code>$table</code> sets the model's table when it doesn't follow the naming convention. <code>$fillable</code> lists the columns that can be mass-assigned, and <code>$model</code> isn't a model property."
     },
     {
-      "id": 52,
+      "id": 53,
       "type": "mc",
       "text": "The <code>User</code> model has <code>protected $fillable = ['name', 'email'];</code>. What happens with this call?",
       "context": "<pre>User::create([\n    'name' =&gt; 'Ana',\n    'email' =&gt; 'ana@example.com',\n    'is_admin' =&gt; true,\n]);</pre>",
@@ -686,7 +695,7 @@
       "explanation": "<code>$fillable</code> lists which columns can be mass-assigned. By default Laravel silently drops anything not in it, which is how it stops a user from sneaking in <code>is_admin</code>."
     },
     {
-      "id": 53,
+      "id": 54,
       "type": "mc",
       "text": "Going by the notes' description of <code>$table-&gt;float('price', 8, 2);</code>, what is the largest value <code>price</code> can hold?",
       "options": [
@@ -701,7 +710,7 @@
       "explanation": "8 is the total number of digits and 2 of them come after the decimal point, so 6 are left before it: <code>999999.99</code>."
     },
     {
-      "id": 54,
+      "id": 55,
       "type": "mc",
       "text": "What does this line do in a migration for an <code>orders</code> table?",
       "context": "<pre>$table-&gt;foreignId('user_id')-&gt;constrained('users');</pre>",
@@ -716,7 +725,7 @@
       "explanation": "<code>foreignId</code> creates the column (an unsigned big integer, matching <code>$table-&gt;id()</code>), and <code>constrained('users')</code> adds a foreign key to <code>users.id</code>. The <code>users</code> table has to exist already."
     },
     {
-      "id": 55,
+      "id": 56,
       "type": "fitb",
       "text": "Fill in the migration so that <code>id</code> is an auto-incrementing primary key, no two students can share an <code>email</code>, <code>is_active</code> is <code>true</code> unless a value is given, and <code>bio</code> can be left empty.",
       "code": "public function up(): void\n{\n    Schema::create('students', function (Blueprint $table) {\n        $table->___();\n        $table->string('email')->___();\n        $table->boolean('is_active')->___(true);\n        $table->text('bio')->___();\n        $table->timestamps();\n    });\n}",
