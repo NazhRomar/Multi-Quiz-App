@@ -4,18 +4,11 @@
 // (its _meta.json `id`) so that subject's card on Home can show a Notes
 // button. A subject with several notes gets one Notes button (opening its
 // first note) and a switcher in the viewer, labelled by each note's `tab`.
-// A note can also be a whole self-contained .html page (e.g. a reviewer
-// someone else made), shown as-is in a sandboxed frame instead of rendered
-// as Markdown.
-const loaders = {
-  ...import.meta.glob('./*.md', { query: '?raw', import: 'default' }),
-  ...import.meta.glob('./*.html', { query: '?raw', import: 'default' }),
-};
+const loaders = import.meta.glob('./*.md', { query: '?raw', import: 'default' });
 
 export const NOTES = [
   { slug: 'project-management', title: 'Project Management', subjectId: 'project-management', file: './project-management.md' },
-  { slug: 'laravel', title: 'Laravel', tab: 'PDF', subjectId: 'laravel', file: './laravel.md' },
-  { slug: 'laravel-reviewer', title: 'Laravel', tab: 'Reviewer', subjectId: 'laravel', file: './laravel-reviewer.html' },
+  { slug: 'laravel', title: 'Laravel', subjectId: 'laravel', file: './laravel.md' },
   { slug: 'technopreneurship', title: 'Technopreneurship', subjectId: 'technopreneurship', file: './technopreneurship.md' },
   { slug: 'devnet', title: 'DevNet Associate', tab: 'DevNet', subjectId: 'sia', file: './devnet.md' },
   { slug: 'python-essentials-1', title: 'Python Essentials 1', tab: 'PE 1', subjectId: 'sia', file: './python-essentials-1.md' },
@@ -27,5 +20,3 @@ export const findNote = (slug) => NOTES.find((n) => n.slug === slug) || null;
 export const notesForSubject = (subjectId) => NOTES.filter((n) => n.subjectId === subjectId);
 
 export const loadNote = (note) => loaders[note.file]();
-
-export const isHtmlNote = (note) => note.file.endsWith('.html');

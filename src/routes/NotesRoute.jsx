@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { findNote, isHtmlNote, loadNote, notesForSubject } from '../notes/index.js';
+import { findNote, loadNote, notesForSubject } from '../notes/index.js';
 import Dropdown from '../components/settings/Dropdown.jsx';
 import SegmentedToggle from '../components/common/SegmentedToggle.jsx';
 import AppSettingsFields from '../components/settings/AppSettingsFields.jsx';
@@ -10,13 +10,11 @@ import { MarkdownBlocks, collectHeadings, parseMarkdown } from '../utils/markdow
 // table of contents — a sidebar on wide screens, a collapsible "Contents"
 // panel above the notes on narrow ones. TOC entries scroll with
 // scrollIntoView rather than href="#id", since the hash router owns the
-// URL fragment. An .html note is a whole page of its own, shown in a
-// sandboxed frame that fills the rest of the screen, with no contents.
+// URL fragment.
 export default function NotesRoute() {
   const { noteSlug } = useParams();
   const navigate = useNavigate();
   const note = findNote(noteSlug);
-  const html = note ? isHtmlNote(note) : false;
   const [source, setSource] = useState(null);
   const [activeId, setActiveId] = useState(null);
   const [tocOpen, setTocOpen] = useState(false);
@@ -33,13 +31,13 @@ export default function NotesRoute() {
   }, [note]);
 
   const { blocks, headings } = useMemo(() => {
-    if (source == null || html) return { blocks: [], headings: [] };
+    if (source == null) return { blocks: [], headings: [] };
     const blocks = parseMarkdown(source);
     // A leading h1 is the document's own title — the header already shows
     // the note's name, so it's dropped from the body and the contents.
     if (blocks[0]?.type === 'heading' && blocks[0].level === 1) blocks.shift();
     return { blocks, headings: collectHeadings(blocks).filter((h) => h.level <= 2) };
-  }, [source, html]);
+  }, [source]);
 
   // Highlights the section currently at the top of the viewport.
   useEffect(() => {
@@ -94,7 +92,7 @@ export default function NotesRoute() {
   );
 
   return (
-    <div className={`notes-page ${html ? 'notes-page--embed' : ''}`}>
+    <div className="notes-page">
       <header className="quiz-header notes-header">
         <div className="header-left">
           <img className="header-logo" src={`${import.meta.env.BASE_URL}favicon.svg`} alt="Multi Quiz App" />
@@ -127,22 +125,10 @@ export default function NotesRoute() {
 
       {switcher && <div className="notes-switcher">{switcher}</div>}
 
-      {html ? (
-        <div className="notes-embed">
-          {source == null ? (
-            <p className="notes-loading">Loading notes…</p>
-          ) : (
-            // allow-scripts without allow-same-origin: the page runs, but in
-            // an opaque origin, cut off from the app's storage and DOM.
-            <iframe className="notes-frame" title={note.tab || note.title} srcDoc={source} sandbox="allow-scripts" />
-          )}
-        </div>
-      ) : (
-        <div className={`notes-layout ${switcher ? 'notes-layout--switched' : ''}`}>
-          {headings.length > 0 && <aside className="notes-sidebar">{toc}</aside>}
-          <article className="notes-body">{source == null ? <p className="notes-loading">Loading notes…</p> : <MarkdownBlocks blocks={blocks} />}</article>
-        </div>
-      )}
+      <div className={`notes-layout ${switcher ? 'notes-layout--switched' : ''}`}>
+        {headings.length > 0 && <aside className="notes-sidebar">{toc}</aside>}
+        <article className="notes-body">{source == null ? <p className="notes-loading">Loading notes…</p> : <MarkdownBlocks blocks={blocks} />}</article>
+      </div>
     </div>
   );
 }
