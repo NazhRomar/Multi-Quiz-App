@@ -8,6 +8,12 @@
       "port": 5183
     },
     {
+      "name": "multi-quiz-app-alt",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "--port", "5184", "--strictPort"],
+      "port": 5184
+    },
+    {
       "name": "multi-quiz-app-preview",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "preview", "--", "--port", "4183", "--strictPort"],
