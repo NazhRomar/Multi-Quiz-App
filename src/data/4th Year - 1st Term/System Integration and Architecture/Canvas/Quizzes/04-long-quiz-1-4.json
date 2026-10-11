@@ -1,0 +1,167 @@
+{
+  "quizTitle": "Long Quiz 1 (4)",
+  "addedOn": "2026-10-11",
+  "badges": { "unverified": true },
+  "questions": [
+    {
+      "id": 1,
+      "type": "tf",
+      "text": "A programmer attempts to modify an existing string <code>text = \"hello\"</code> in place by assigning a new character directly to an index position, such as <code>text[0] = \"j\"</code>. Direct character reassignment works because strings and lists share identical in-place mutability in Python.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Strings are <strong>immutable</strong>; only lists are mutable. Running <code>text[0] = \"j\"</code> raises <code>TypeError: 'str' object does not support item assignment</code> (verified by running it). To get \"jello\" you build a new string, e.g. <code>text = \"j\" + text[1:]</code>."
+    },
+    {
+      "id": 2,
+      "type": "msq",
+      "text": "A developer is writing a checkout script that processes product prices entered by cashiers and calculates applicable taxes and workout/time metrics for store analytics. Which of the following statements correctly describe how Python handles user inputs and arithmetic in this environment? (Select ALL that apply)",
+      "options": [
+        "Executing floor division (//) computes integer quotients and discards the fractional remainder.",
+        "Passing input() strings through float() or int() is required before performing numeric calculations.",
+        "The built-in input() function returns user console entries as string literals.",
+        "Multiplying a raw input() result directly by a decimal numeral automatically casts the string to a floating-point number."
+      ],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "<code>130 // 60</code> gives <code>2</code>, dropping the remainder. (With a float operand the result is a whole-number float, e.g. <code>7.5 // 2</code> is <code>3.0</code>.) <code>input()</code> always returns a <code>str</code>, so you must convert it with <code>int()</code>/<code>float()</code> before doing math. Python never casts a string automatically: <code>\"5\" * 1.08</code> raises <code>TypeError: can't multiply sequence by non-int of type 'float'</code> (verified by running it)."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "An RPG game defines a base <code>Character</code> class with a <code>take_damage(amount)</code> method. A subclass <code>Knight</code> inherits from <code>Character</code> and redefines <code>take_damage(amount)</code> to subtract 5 points of damage due to armor. Which object-oriented programming principles are directly demonstrated by this design?",
+      "options": [
+        "Namespace Aliasing and Package Construction",
+        "Lazy Evaluation and File Processing",
+        "Procedural Abstraction and Encapsulation",
+        "Inheritance and Polymorphism"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>Knight</code> inheriting from <code>Character</code> is <strong>inheritance</strong>. <code>Knight</code> redefining (overriding) <code>take_damage()</code> so the same method name behaves differently is <strong>polymorphism</strong>."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "An administrator creates a shell script using <code>echo \"ls ../Desktop\" &gt; myfile.sh</code> in the /home/devasc/Documents folder. When attempting to run the script using <code>./myfile.sh</code>, the terminal displays the error <code>bash: ./myfile.sh: Permission denied</code>. Which command must be executed to grant the current user execution privileges for myfile.sh?",
+      "options": ["chown root myfile.sh", "cat myfile.sh &gt; execute", "mv myfile.sh ./run", "chmod +x myfile.sh"],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Files created with <code>echo ... &gt;</code> start as <code>-rw-rw-r--</code>, with no execute bit. <code>chmod +x myfile.sh</code> adds it. <code>chown</code> changes the owner, not the permissions."
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "A user wants to verify the specific permissions of a script file named <strong>myfile.sh</strong> and issues the command <code>ls -l myfile.sh</code>, which yields the following output. Which Linux command was used to display the detailed file information shown above (including permissions, owner, size, and date)?",
+      "context": "<pre>devasc@labvm:~/Documents$ ls -l myfile.sh\n-rwxr-xr-- 1 self test 15 Mar 30 21:24 myfile.sh</pre>",
+      "options": ["ls -a", "ls", "ls -lr", "ls -l"],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>ls -l</code> is the long listing format: permissions, link count, owner, group, size, date and name. The prompt in the output even shows the command. <code>-a</code> adds hidden files, and <code>-r</code> reverses the sort order."
+    },
+    {
+      "id": 6,
+      "type": "msq",
+      "text": "A data engineering system needs to read external configuration files and process massive numeric sequences without depleting system RAM. Which of the following statements accurately describe file handling, generators, and standard library tools in Python? (Select ALL that apply)",
+      "options": [
+        "The os standard library module provides functions for navigating and manipulating the operating system filesystem.",
+        "Calling open(\"file.txt\", \"r\") automatically creates a generator object that yields lines without needing file reading methods.",
+        "Generator functions use the yield statement to produce values on-the-fly using lazy evaluation.",
+        "Using a generator prevents system memory from holding large lists all at once.",
+        "The with context manager ensures that opened files are properly closed even if an error occurs during reading."
+      ],
+      "correctAnswer": [0, 2, 3, 4],
+      "points": 1,
+      "explanation": "<code>os</code> handles paths, directories and files. Generators use <code>yield</code> to produce one value at a time, so a huge sequence never sits in memory all at once. <code>with open(...)</code> closes the file even if an exception is raised. <code>open()</code> returns a <em>file object</em>, not a generator. You can loop over it line by line, but it isn't a generator object (checked: <code>isinstance(f, types.GeneratorType)</code> is <code>False</code>)."
+    },
+    {
+      "id": 7,
+      "type": "msq",
+      "text": "An engineering team is evaluating Python's runtime characteristics to understand how high-level commands transition to hardware operations. Which of the following statements accurately reflect Python's execution model and core programming language concepts? (Select ALL that apply)",
+      "options": [
+        "A computer CPU executes high-level Python source files directly without requiring any translation layer.",
+        "Compilers translate an entire high-level source code program into machine code all at once prior to execution.",
+        "Python is an interpreted language, meaning its interpreter translates and executes source code line-by-line at runtime.",
+        "A machine language relies on an Instruction List (IL), which serves as its primary set of primitive commands."
+      ],
+      "correctAnswer": [1, 2, 3],
+      "points": 1,
+      "explanation": "A CPU only understands machine code, so high-level source always needs translating. A <strong>compiler</strong> translates the whole program ahead of time, while an <strong>interpreter</strong> (like Python's) translates and runs it line by line at runtime. Python Essentials 1 calls a machine's complete set of known primitive commands its <strong>Instruction List (IL)</strong>."
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "An HR directory stores data in a dictionary: <code>employees = {\"1001\": \"Engineering\", \"1002\": \"Marketing\"}</code>. If a function attempts to look up <code>employees[\"9999\"]</code> without validation, what occurs, and how should it be secured?",
+      "options": [
+        "It returns None; secure it using an if-else check.",
+        "It raises a ValueError; secure it with a try-except ValueError: block.",
+        "It raises a KeyError; secure it with a try-except KeyError: block.",
+        "It converts employees into a list automatically."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Indexing a dict with a missing key raises <code>KeyError: '9999'</code> (verified by running it). Wrap it in <code>try ... except KeyError:</code>. Alternatively, <code>employees.get(\"9999\")</code> returns <code>None</code> instead of raising, but plain indexing never does."
+    },
+    {
+      "id": 9,
+      "type": "tf",
+      "text": "A game contains a base class <code>Character</code> with a <code>take_damage(amount)</code> method and a subclass <code>Knight</code> that redefines <code>take_damage(amount)</code> to reduce incoming damage by 5 due to armor. This implementation demonstrates inheritance and polymorphism by allowing a child class to inherit properties from a parent class while executing different behavior for the shared method name.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>Knight</code> inherits from <code>Character</code> (inheritance) and overrides <code>take_damage()</code>, so the same method name behaves differently depending on the object's class (polymorphism)."
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "A technician wants to log new output into linux2.txt without deleting the existing line \"Linux is AWESOME!\" stored inside the file. Which command appends \"I LOVE Linux!\" to linux2.txt without overwriting the existing data?",
+      "options": [
+        "echo \"I LOVE Linux!\" &gt;&gt; linux2.txt",
+        "echo \"I LOVE Linux!\" &gt; linux2.txt",
+        "cat \"I LOVE Linux!\" &gt; linux2.txt",
+        "vi linux2.txt &gt; \"I LOVE Linux!\""
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>&gt;&gt;</code> appends to the end of the file, while a single <code>&gt;</code> truncates and overwrites it. <code>cat \"I LOVE Linux!\"</code> would try to read a file with that name rather than output the text."
+    },
+    {
+      "id": 11,
+      "type": "msq",
+      "text": "An application prompts a user for input and processes numbers, but needs robust error handling to prevent program crashes during runtime. Which of the following statements regarding exception handling and exception structures in Python are correct? (Select ALL that apply)",
+      "options": [
+        "All exceptions in Python are represented as objects.",
+        "Custom exception classes are created in Python by inheriting from the base Exception class.",
+        "The code inside a finally block executes upon completion regardless of whether an exception occurred or was handled.",
+        "Executing int() on a non-numeric string like \"Two Thousand\" raises a ValueError.",
+        "Catching ZeroDivisionError automatically catches FileNotFoundError because all standard exceptions belong to a single flat list without a hierarchy."
+      ],
+      "correctAnswer": [0, 1, 2, 3],
+      "points": 1,
+      "explanation": "Exceptions are class instances (objects), custom ones subclass <code>Exception</code>, and <code>finally</code> always runs. <code>int(\"Two Thousand\")</code> raises <code>ValueError</code> (verified by running it). Exceptions form a <strong>hierarchy</strong>, not a flat list: <code>FileNotFoundError</code> is an <code>OSError</code> and isn't related to <code>ZeroDivisionError</code>, so <code>except ZeroDivisionError</code> doesn't catch it."
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "An IT team wants to remove speedtest-cli from a server completely, ensuring that both the installed software package and all associated configuration files are deleted. Which command completely removes the software and its configuration files?",
+      "options": [
+        "sudo apt-get purge speedtest-cli",
+        "rm speedtest-cli",
+        "sudo apt-get update speedtest-cli",
+        "mv speedtest-cli /dev/null"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>apt-get purge</code> uninstalls the package <em>and</em> deletes its configuration files (<code>apt-get remove</code> leaves the config behind). <code>rm</code> and <code>mv</code> only touch a file in the current directory, and <code>apt-get update</code> just refreshes the package lists."
+    },
+    {
+      "id": 13,
+      "type": "tf",
+      "text": "A fitness app converts total workout minutes into hours using floor division: <code>hours = total_minutes // 60</code>. If a user completes a 130-minute workout, the variable hours evaluates to 2.1666666666666665.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Floor division drops the fractional part: <code>130 // 60</code> is <code>2</code> (verified by running it). <code>2.1666666666666665</code> is what true division <code>130 / 60</code> gives."
+    }
+  ]
+}
