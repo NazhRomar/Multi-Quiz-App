@@ -1,0 +1,83 @@
+{
+  "quizTitle": "Module 1 Python Review Quiz",
+  "addedOn": "2026-10-11",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "A student is learning Python using the interactive interpreter mode. The student issues the commands shown. What is the result?",
+      "context": "<pre>&gt;&gt;&gt; routers=[]\n&gt;&gt;&gt; switches=[]\n&gt;&gt;&gt; devices=[\"RT1\", \"RT2\", \"RT3\", \"SW1\", \"SW2\", \"SW3\"]\n&gt;&gt;&gt; devices=devices + [\"RT4\", \"SW4\"]\n&gt;&gt;&gt; for i in devices:\n      if \"R\" in i:\n        routers.append(i)\n      else: switches.append(i)\n&gt;&gt;&gt; switches</pre>",
+      "warning": "The live quiz shows the quotes in this code as <code>\\\"RT1\\\"</code> (with backslashes). They're ordinary quotes; the code runs as shown here.",
+      "options": [
+        "['SW4']",
+        "['SW1', 'SW2', 'SW3']",
+        "['SW1', 'SW2', 'SW3', 'SW4']",
+        "['SW4', 'SW3', 'SW2', 'SW1']",
+        "['SW4', 'SW1', 'SW2', 'SW3']"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>+</code> joins the two lists, so <code>devices</code> holds all eight names with RT4 and SW4 at the end. The loop appends every name without an \"R\" to <code>switches</code> in order, giving SW1, SW2, SW3, SW4. Verified by running the code."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "A student is learning Python in the interactive interpreter mode. The student issues the commands shown. What is the result?",
+      "context": "<pre>&gt;&gt;&gt; devicenames=[\"RT1\", \"RT2\", \"SW1\", \"SW2\"]\n&gt;&gt;&gt; devicenames[-1]</pre>",
+      "warning": "The live quiz shows the quotes in this code as <code>\\\"RT1\\\"</code> (with backslashes). They're ordinary quotes; the code runs as shown here.",
+      "options": [
+        "RT1",
+        "['RT2', 'SW1', 'SW2']",
+        "SW1",
+        "SW2",
+        "An error message"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Index <code>-1</code> refers to the last item in a list, which is <code>\"SW2\"</code>. (Index 0 is the first item, RT1.)"
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "A developer needs to check the version of the running Python package. Which command should the developer use?",
+      "options": [
+        "<code>python3 -i</code>",
+        "<code>python3 -q</code>",
+        "<code>python3 --v</code>",
+        "<code>python3 -V</code>"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>-V</code> (capital V, or <code>--version</code>) prints the version and exits. <code>-i</code> enters interactive mode after running a script, <code>-q</code> hides the startup banner, and <code>--v</code> isn't a valid option (lowercase <code>-v</code> turns on verbose import tracing)."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "A student is learning Python in the interactive interpreter mode. The student issues the command shown. What is the data type reported by Python?",
+      "context": "<pre>&gt;&gt;&gt; type(True)</pre>",
+      "options": [
+        "Float",
+        "String",
+        "Integer",
+        "Boolean"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>True</code> and <code>False</code> are the two Boolean values. Python reports <code>&lt;class 'bool'&gt;</code>."
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "Which Python programming function is used to display output?",
+      "options": [
+        "<code>print</code>",
+        "<code>while</code>",
+        "<code>if</code>",
+        "<code>for</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>print()</code> sends output to the console. <code>while</code>, <code>if</code>, and <code>for</code> are keywords for loops and conditions, not functions."
+    }
+  ]
+}

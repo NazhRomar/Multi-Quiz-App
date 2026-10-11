@@ -1,0 +1,150 @@
+{
+  "quizTitle": "Module 2 Quiz",
+  "addedOn": "2026-10-11",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "What type of learner should take the DevNet Associate course?",
+      "options": [
+        "Only new software developers",
+        "Only new network engineers",
+        "Anyone that does not like working in teams and is a software developer",
+        "Anyone interested in network automation and programmability"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The course is aimed at anyone interested in networking, software development, or the combination of the two: network automation and programmability."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "What is contained within a DevNet Sandbox?",
+      "options": [
+        "A collection of self-paced tutorials using REST APIs",
+        "A collection of Cisco developer API documentation",
+        "A preconfigured environment already installed with Cisco platforms",
+        "Instructor-led videos focusing on hands-on exercises"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "A Sandbox is a pre-configured, production-like test bed with Cisco platforms already installed. Self-paced tutorials are Learning Labs, the API docs are developer documentation, and instructor-led videos are the video courses."
+    },
+    {
+      "id": 3,
+      "type": "msq",
+      "text": "Which two DevNet resources are available online? (Choose two.)",
+      "options": [
+        "Code Exchange",
+        "DevNet Zone",
+        "Python Exchange",
+        "Automation Exchange",
+        "API Tokens"
+      ],
+      "correctAnswer": [
+        0,
+        3
+      ],
+      "points": 1,
+      "explanation": "Code Exchange and Automation Exchange are both online DevNet Exchanges. The DevNet Zone is an in-person area at Cisco Live, and there is no Python Exchange."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "Which DevNet resource would a developer use if the developer is using a Cisco API and needs help understanding the error message received?",
+      "options": [
+        "DevNet Sandbox",
+        "Code Exchange",
+        "DevNet Support",
+        "DevNet Learning Labs"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "DevNet Support helps troubleshoot integrations and API connections through tickets, community forums, Webex Teams spaces, and a knowledge base."
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "What is Cisco DevNet?",
+      "options": [
+        "A developer program",
+        "A Cisco-proprietary virtual network",
+        "A vendor-neutral type of virtual networking",
+        "A way to create networks using software alone"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "DevNet is a developer program: a website, developer community, tools, forums, Learning Labs, and Sandboxes. It isn't a kind of network."
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "What is required in order to ensure that clients are able to talk to applications that are outside a local system?",
+      "options": [
+        "An API",
+        "A network",
+        "A script",
+        "An application"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Without a network, clients can't reach applications outside the local system. APIs and scripts run over the network; they don't replace it."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "What is the purpose of the Cisco DevNet Learning Labs?",
+      "options": [
+        "They provide self-paced tutorials including coding.",
+        "They allow participants to add their own Python labs.",
+        "They allow participants to add their own labs as long as the labs relate to any type of coding.",
+        "They provide a space for game development, interaction, and learning based on coding."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Learning Labs are self-paced tutorials covering coding, REST APIs, model-driven programmability, and Cisco platforms. Participants don't add their own labs."
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "What is a requirement when creating a Cisco DevNet account for accessing educational resources, such as Learning Labs and the DevNet Sandbox?",
+      "options": [
+        "The account must be registered using a Cisco email address.",
+        "The account must contain a purchased license.",
+        "The account holder must share personally created code before access is allowed.",
+        "The account must be created using an existing online identity or via a new Cisco account."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "A DevNet account is free and can be created with an existing online identity or a new Cisco account. No Cisco email, license, or shared code is needed."
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "Which DevNet event is provided by Cisco partners and Cisco offices?",
+      "options": [
+        "DevNet Learn In",
+        "DevNet Hackathon",
+        "DevNet Express",
+        "DevNet Codearama"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "DevNet Express events are organized by local Cisco partners and Cisco offices. (DevNet Create is a conference, and the DevNet Zone is part of Cisco Live.)"
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "Which website provides the entry point for Cisco DevNet?",
+      "options": [
+        "cisco.com",
+        "devnet.com",
+        "developer.cisco.com",
+        "talosintelligence.com"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<strong>developer.cisco.com</strong> is the DevNet starting page and the central place for Cisco developer tools and documentation."
+    }
+  ]
+}

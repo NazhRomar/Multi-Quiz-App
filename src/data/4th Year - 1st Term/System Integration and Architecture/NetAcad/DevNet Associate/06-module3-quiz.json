@@ -1,0 +1,157 @@
+{
+  "quizTitle": "Module 3 Quiz",
+  "addedOn": "2026-10-11",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "Which software development methodology prescribes that developers follow a strict process order by completing one step in the SDLC process before proceeding to the next step?",
+      "options": [
+        "Waterfall",
+        "Agile",
+        "Scrum",
+        "Lean"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Waterfall flows in one direction: each phase must be finished before the next starts, and it never goes back. Agile, Scrum, and Lean all work in short, adaptive iterations."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "Which SDLC development methodology employs many quick iterations known as sprints?",
+      "options": [
+        "Agile",
+        "Waterfall",
+        "Lean",
+        "Extreme Programming"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Agile runs the SDLC as many quick iterations called sprints, usually two to four weeks each, instead of one long pass like Waterfall."
+    },
+    {
+      "id": 3,
+      "type": "msq",
+      "text": "Which two programming components are defined as blocks of code that perform tasks when executed? (Choose two.)",
+      "options": [
+        "Functions",
+        "Methods",
+        "Arguments",
+        "Parameters",
+        "Objects"
+      ],
+      "correctAnswer": [
+        0,
+        1
+      ],
+      "points": 1,
+      "explanation": "Functions and methods are both blocks of code that perform tasks when executed. Functions stand alone; methods belong to an object. Arguments and parameters are the values passed in, not blocks of code."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "A developer wants to find the location of the Python 3 executable file. Which command should the developer use?",
+      "options": [
+        "<code>find python3</code>",
+        "<code>which python3</code>",
+        "<code>where python3</code>",
+        "<code>locate python3</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>which</code> searches the directories in the <code>PATH</code> variable and prints where the command that would run lives (e.g. <code>/usr/bin/python3</code>). <code>find python3</code> only looks in the current directory, <code>where</code> isn't a Linux command, and <code>locate</code> matches every file with that name in its database."
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "Which SDLC phase concludes with functional code that satisfies customer requirements and is ready to be tested?",
+      "options": [
+        "Implementation",
+        "Deployment",
+        "Testing",
+        "Maintenance"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Implementation (coding) ends with functional code that implements all of the customer's requirements, ready for the Testing phase."
+    },
+    {
+      "id": 6,
+      "type": "msq",
+      "text": "What are the three states of a Git file? (Choose three.)",
+      "options": [
+        "Committed",
+        "Modified",
+        "Staged",
+        "Locked",
+        "Secured",
+        "Deleted"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "A Git file is <strong>committed</strong> (saved in the repository), <strong>modified</strong> (changed but not staged or committed), or <strong>staged</strong> (ready to be committed). Git doesn't lock files."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "Which term is used to describe the first line of an XML document?",
+      "options": [
+        "Prologue",
+        "Preamble",
+        "Introduction",
+        "Opening"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The XML prologue is the first line, bracketed by <code>&lt;?</code> and <code>?&gt;</code>, e.g. <code>&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?&gt;</code>."
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "How does an application use a module in Python?",
+      "options": [
+        "Through the <code>import</code> statement",
+        "Through the <code>include</code> statement",
+        "By calling the module name",
+        "By using an assignment statement with a variable"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Python brings a module's functions into an application with <code>import</code> (e.g. <code>from circleModule import Circle</code>). <code>include</code> is from other languages such as C and PHP."
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "What is the role of the controller component in the Model-View-Controller (MVC) flow?",
+      "warning": "Upon double checking, the module's own description of the controller says it formats input \"for the model or view\", which matches the last option word for word. The quiz keys the first option, following the MVC flow where the controller only hands data to the model.",
+      "options": [
+        "It takes user input and manipulates it to the proper format for the model.",
+        "It accepts selected data and displays it to the user.",
+        "It provides visual representations and presentations of the data.",
+        "It takes in user input and manipulates it to fit the format for the model or view."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "In the MVC flow, the controller accepts the user's input, manipulates the data, and sends it to the <strong>model</strong>. The model then passes the data on to the view. Displaying data is the view's job."
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "Which code review method involves the developer going through the code line-by-line with the reviewer, allowing the developer to make changes on the spot?",
+      "options": [
+        "Over-the-shoulder",
+        "Email pass-around",
+        "Formal",
+        "Change-based"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "In an over-the-shoulder review, the author walks the reviewer through the changes line by line and can fix simple issues on the spot. Its downside is usually having only one reviewer."
+    }
+  ]
+}

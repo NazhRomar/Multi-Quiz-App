@@ -1,0 +1,77 @@
+{
+  "quizTitle": "Module 1 Linux Review Quiz",
+  "addedOn": "2026-10-11",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "What Linux command is used to display the contents of the current directory?",
+      "options": [
+        "<code>ln</code>",
+        "<code>ls</code>",
+        "<code>cat</code>",
+        "<code>pwd</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>ls</code> with no options lists the files and subdirectories in the current directory. <code>pwd</code> prints the directory's <em>path</em>, <code>cat</code> prints a file's contents, and <code>ln</code> creates links."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "What command is used to rename a file in a Linux system?",
+      "options": [
+        "<code>cp</code>",
+        "<code>dd</code>",
+        "<code>rm</code>",
+        "<code>mv</code>"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>mv</code> moves a file, and moving it to a new name in the same directory is how Linux renames. <code>cp</code> and <code>dd</code> make copies, and <code>rm</code> deletes."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "A user issues a Linux command and the result is shown. Which Linux command is used to display the contents of the current directory as shown?",
+      "context": "<pre>total 40\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Videos\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Templates\ndrwxr-xr-x 5 devasc devasc 4096 Mar 30 21:24 snap\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Public\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Pictures\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Music\ndrwxr-xr-x 5 devasc devasc 4096 Mar 30 21:21 labs\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Downloads\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Documents\ndrwxr-xr-x 2 devasc devasc 4096 Mar 30 21:25 Desktop\ndevasc@labvm:~$</pre>",
+      "options": [
+        "<code>ln</code>",
+        "<code>ls -l</code>",
+        "<code>ls -a</code>",
+        "<code>ls -lr</code>"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The output is a long listing (permissions, owner, size, date), which is <code>-l</code>, and the names run in <em>reverse</em> alphabetical order (Videos first, Desktop last), which is <code>-r</code>. Plain <code>ls -l</code> would list them A to Z."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "A system administrator of a Linux server is searching the <code>passwd</code> file for the username <code>taylor</code> that appears at the beginning of the line. Which <code>grep</code> command should the administrator use?",
+      "options": [
+        "<code>grep taylor /etc/passwd</code>",
+        "<code>grep '^taylor' /etc/passwd</code>",
+        "<code>grep '.taylor' /etc/passwd</code>",
+        "<code>grep '[taylor]' /etc/passwd</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>^</code> anchors the pattern to the start of the line, so <code>'^taylor'</code> only matches lines that begin with taylor. Without it, taylor could match anywhere on the line; <code>.</code> means any single character, and <code>[taylor]</code> matches any one of those letters."
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "A user issues the <code>apt-get upgrade</code> command to update system files in an Ubuntu Linux system and receives an error message of \"permission denied.\" What should the user do to complete the task?",
+      "options": [
+        "Issue the <code>sudo apt-get install</code> command.",
+        "Issue the <code>sudo apt-get upgrade</code> command.",
+        "Issue the <code>apt-get install --allow</code> command.",
+        "Issue the <code>allow apt-get upgrade</code> command."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Upgrading packages changes system files, so it needs administrative rights. Prefixing the same command with <code>sudo</code> runs it with those rights. The other options either change the command or aren't real commands."
+    }
+  ]
+}
