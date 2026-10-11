@@ -17,7 +17,7 @@
       ],
       "correctAnswer": 3,
       "points": 1,
-      "warning": "The notes call the <strong>Controller</strong> the part that \"contains all the business logic\". This question still wants the Model, since it's the only option about data.",
+      "warning": "Outside Source says the Model manages the data <strong>and business logic</strong>, and it's keyed that way here. The notes give the business logic to the <strong>Controller</strong> instead, but the Model is the only option about data.",
       "explanation": "The Model interacts with the database and represents the application's data. Rendering the UI is the View's job; handling input and directing the flow is the Controller's."
     },
     {
@@ -234,7 +234,7 @@
       ],
       "correctAnswer": 0,
       "points": 1,
-      "warning": "In real code the two go together: <code>Route::middleware('auth')-&gt;group(function () { ... });</code>. <code>middleware()</code> names the middleware, but <code>group()</code> is the method that creates the group, so that's the answer.",
+      "warning": "Outside Source says <strong>Route::group()</strong>, and it's keyed that way here. In real code the two go together: <code>Route::middleware('auth')-&gt;group(function () { ... });</code>. <code>middleware()</code> names the middleware, but <code>group()</code> is the method that creates the group.",
       "explanation": "<code>group()</code> wraps a set of routes so they share attributes such as middleware, a URL prefix or a name prefix. <code>middleware()</code>, <code>prefix()</code> and <code>namespace()</code> set those attributes; on their own they don't group anything."
     },
     {
