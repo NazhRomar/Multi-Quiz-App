@@ -1,0 +1,398 @@
+{
+  "quizTitle": "Mod03_Act01 (05)",
+  "addedOn": "2026-10-11",
+  "questions": [
+    {
+      "type": "mc",
+      "text": "What does parsing mean?",
+      "options": [
+        "Analyzing a message, breaking it into its component parts, and understanding the purpose of each part in context",
+        "Encrypting a message before it's sent",
+        "Compressing data so it travels faster",
+        "Converting a program into machine code"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Background / Scenario: that's the lab's definition of parsing.",
+      "id": 1
+    },
+    {
+      "type": "mc",
+      "text": "When messages travel between computers, what are they, effectively, before they're parsed?",
+      "options": [
+        "A string — a stream of characters",
+        "A Python dictionary",
+        "A list of integers",
+        "An object with methods"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Background / Scenario: messages travel as a stream of characters, effectively a string. It has to be parsed into an equivalent data structure of recognized types (integers, floats, strings, Booleans) before it can be acted on.",
+      "id": 2
+    },
+    {
+      "type": "msq",
+      "text": "Which data formats does the lab parse with Python? (Choose all that apply.)",
+      "options": [
+        "XML",
+        "JSON",
+        "YAML",
+        "CSV",
+        "HTML"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "Objectives: Part 2 parses XML, Part 3 JSON, and Part 4 YAML.",
+      "id": 3
+    },
+    {
+      "type": "mc",
+      "text": "Why can XML be tricky to parse?",
+      "options": [
+        "Its all-text tagged fields don't map unambiguously to Python's data types, and it isn't always obvious how to represent attribute values",
+        "XML files can't contain numbers",
+        "Python has no built-in XML library",
+        "XML has to be converted to JSON before Python can read it"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2 intro: because XML is so flexible, its all-text tagged data fields do not map unambiguously to default data types, and it is not always obvious how attribute values should be represented. (Python ships <code>xml.etree.ElementTree</code>, used in this lab.)",
+      "id": 4
+    },
+    {
+      "type": "mc",
+      "text": "Which Cisco tool validates and consumes XML relevant to data modeling?",
+      "options": [
+        "YANG-CLI",
+        "DNA Center",
+        "Packet Tracer",
+        "Webex Teams"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2 intro: Cisco provides tools such as YANG-CLI, which validates and consumes XML relevant to data modeling. <code>myfile.xml</code> is the sort of file YANG-CLI manages.",
+      "id": 5
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blanks to import the modules <code>parsexml.py</code> uses: ElementTree for the parsing, and the regular expression engine.",
+      "code": "import xml.etree.___ as ET\nimport ___",
+      "correctAnswer": [
+        "ElementTree",
+        "re"
+      ],
+      "points": 2,
+      "explanation": "Part 2, Step 1b: <code>import xml.etree.ElementTree as ET</code> does the parsing, and <code>import re</code> is used to search for specific data.",
+      "id": 6
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blanks to parse <code>myfile.xml</code> and get its root element.",
+      "code": "xml = ET.___(\"myfile.xml\")\nroot = xml.___()",
+      "correctAnswer": [
+        "parse",
+        "getroot"
+      ],
+      "points": 2,
+      "explanation": "Part 2, Step 1c: <code>ET.parse()</code> parses the file, and <code>getroot()</code> returns the root element — here, <code>&lt;rpc&gt;</code>.",
+      "id": 7
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>ns</code> hold after this line?",
+      "context": "<pre>ns = re.match('{.*}', root.tag).group(0)</pre>",
+      "options": [
+        "<code>{urn:ietf:params:xml:ns:netconf:base:1.0}</code>",
+        "<code>rpc</code>",
+        "<code>{urn:ietf:params:xml:ns:netconf:base:1.0}rpc</code>",
+        "<code>urn:ietf:params:xml:ns:netconf:base:1.0</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "ElementTree stores a namespaced tag as <code>{namespace}name</code>, so <code>root.tag</code> is <code>{urn:ietf:params:xml:ns:netconf:base:1.0}rpc</code>. The regex <code>{.*}</code> matches the namespace in braces, braces included. Verified by running it.",
+      "id": 8
+    },
+    {
+      "type": "mc",
+      "text": "Why does the script add <code>ns</code> in front of each tag name in <code>find()</code>?",
+      "context": "<pre>editconf = root.find(\"{}edit-config\".format(ns))</pre>",
+      "options": [
+        "The elements are in the <code>&lt;rpc&gt;</code>'s XML namespace, so <code>find(\"edit-config\")</code> without it finds nothing",
+        "<code>find()</code> needs braces around every tag name",
+        "It turns the tag name into a regular expression",
+        "It's only for readability; it doesn't change the result"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2, Step 1d. The <code>xmlns</code> on <code>&lt;rpc&gt;</code> applies to its children, so their real tag is <code>{urn:...}edit-config</code>. Running <code>root.find(\"edit-config\")</code> returns <code>None</code> (verified).",
+      "id": 9
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>parsexml.py</code> print?",
+      "options": [
+        "<pre>The default-operation contains: merge\nThe test-option contains: set</pre>",
+        "<pre>The default-operation contains: create\nThe test-option contains: 9</pre>",
+        "<pre>The default-operation contains: candidate\nThe test-option contains: merge</pre>",
+        "<pre>The default-operation contains: None\nThe test-option contains: None</pre>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2, Step 2: <code>&lt;default-operation&gt;merge&lt;/default-operation&gt;</code> and <code>&lt;test-option&gt;set&lt;/test-option&gt;</code>; <code>.text</code> reads the content between the tags. Verified by running it.",
+      "id": 10
+    },
+    {
+      "type": "mc",
+      "text": "To print the value inside an element such as <code>&lt;default-operation&gt;merge&lt;/default-operation&gt;</code>, which attribute do you use?",
+      "options": [
+        "<code>defop.text</code>",
+        "<code>defop.tag</code>",
+        "<code>defop.value</code>",
+        "<code>defop.attrib</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2, Step 1e: <code>defop.text</code> is the text content. <code>.tag</code> is the element's name (with namespace), and <code>.attrib</code> is its attributes, like <code>{'message-id': '1'}</code> on <code>&lt;rpc&gt;</code>.",
+      "id": 11
+    },
+    {
+      "type": "mc",
+      "text": "Which step comes first in the usual REST API workflow the lab describes?",
+      "options": [
+        "Authenticate with a user/password to get a token that expires after a set time",
+        "Execute a POST to change the resource's state",
+        "Modify the returned JSON",
+        "Execute a GET to retrieve the resource's state"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3 intro, in order: 1) authenticate to retrieve a token, 2) GET the resource's state as JSON, 3) modify the returned JSON, 4) POST (or PUT) to change the resource's state.",
+      "id": 12
+    },
+    {
+      "type": "mc",
+      "text": "In the token response, <code>\"expires_in\":1209600</code> is in seconds. How long is that?",
+      "options": [
+        "14 days",
+        "1 day",
+        "90 days",
+        "12 hours"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "1,209,600 ÷ 86,400 seconds per day = 14 days. (<code>refreshtokenexpires_in</code>, 7,776,000 seconds, is 90 days.)",
+      "id": 13
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blanks to open <code>myfile.json</code> and parse it.",
+      "code": "import json\nimport yaml\n\n___ open('myfile.json','r') as json_file:\n    ourjson = json.___(json_file)",
+      "correctAnswer": [
+        "with",
+        "load"
+      ],
+      "points": 2,
+      "explanation": "Part 3, Step 1c: the <code>with</code> statement opens the file, and <code>json.load()</code> parses the open file. You don't need to close the file yourself; <code>with</code> handles opening and closing it.",
+      "id": 14
+    },
+    {
+      "type": "mc",
+      "text": "What's the difference between <code>json.load()</code> and <code>json.loads()</code>?",
+      "options": [
+        "<code>load()</code> reads from a file object; <code>loads()</code> parses a string",
+        "<code>load()</code> parses a string; <code>loads()</code> reads from a file object",
+        "<code>loads()</code> loads several files at once",
+        "There's no difference"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The “s” stands for string. The script passes the open file to <code>json.load(json_file)</code>; passing a file to <code>json.loads()</code> raises <code>TypeError: the JSON object must be str, bytes or bytearray, not TextIOWrapper</code> (verified). Part 3's intro mentions <code>loads()</code>, but the code uses <code>load()</code>.",
+      "warning": "Upon double checking, the script uses <code>json.load()</code> (from a file), not <code>loads()</code> as Part 3's intro says.",
+      "id": 15
+    },
+    {
+      "type": "mc",
+      "text": "After <code>ourjson = json.load(json_file)</code>, what type is <code>ourjson</code>?",
+      "options": [
+        "<code>dict</code>",
+        "<code>str</code>",
+        "<code>list</code>",
+        "<code>json</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 1d: printing <code>ourjson</code> shows it is now a Python dictionary — <code>{'access_token': '...', 'expires_in': 1209600, ...}</code>. Step 1c says it loads into a string, but the result is a <code>dict</code> (checked with <code>type()</code>).",
+      "warning": "Upon double checking, <code>json.load()</code> gives you a <code>dict</code>, not a string — Step 1c's wording is off.",
+      "id": 16
+    },
+    {
+      "type": "mc",
+      "text": "How does the script read the access token out of <code>ourjson</code>?",
+      "options": [
+        "<code>ourjson['access_token']</code>",
+        "<code>ourjson.access_token</code>",
+        "<code>ourjson.get_token()</code>",
+        "<code>ourjson[0]</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 2b: once parsed, the data is accessed with normal Python dictionary references, like <code>ourjson['access_token']</code> and <code>ourjson['expires_in']</code>.",
+      "id": 17
+    },
+    {
+      "type": "mc",
+      "text": "What do these two lines print?",
+      "context": "<pre>print(\"The access token is: {}\".format(ourjson['access_token']))\nprint(\"The token expires in {} seconds.\".format(ourjson['expires_in']))</pre>",
+      "options": [
+        "<pre>The access token is: ZDI3MGEyYzQtNmFlNS00NDNhLWFlNzAtZGVjNjE0MGU1OGZmZWNmZDEwN2ItYTU3\nThe token expires in 1209600 seconds.</pre>",
+        "<pre>1209600\nThe access token is ZDI3MGEyYzQtNmFlNS00NDNhLWFlNzAtZGVjNjE0MGU1OGZmZWNmZDEwN2ItYTU3\nThe token expires in 1209600 seconds</pre>",
+        "<pre>The access token is: {}\nThe token expires in {} seconds.</pre>",
+        "<pre>The access token is: access_token\nThe token expires in expires_in seconds.</pre>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>.format()</code> fills each <code>{}</code> with the value. Verified by running it: the output keeps the colon after “is” and the period after “seconds”, with no stray <code>1209600</code> line.",
+      "warning": "Upon double checking, Part 3, Step 2c's sample output doesn't match the code: it shows an extra <code>1209600</code> line and drops the colon and the final period.",
+      "id": 18
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blank to output <code>ourjson</code> as YAML.",
+      "code": "print(\"\\n\\n---\")\nprint(yaml.___(ourjson))",
+      "correctAnswer": "dump",
+      "points": 1,
+      "explanation": "Part 3, Step 3a: <code>yaml.dump()</code> serializes the Python data back out as YAML.",
+      "id": 19
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>print(\"\\n\\n---\")</code> produce?",
+      "options": [
+        "Two blank lines, then <code>---</code>, the start-of-document marker for YAML",
+        "The literal text <code>\\n\\n---</code>",
+        "A horizontal line in the terminal",
+        "A YAML comment"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 3a: the two <code>\\n</code> add two lines after the previous output, and <code>---</code> is the three dashes that begin a YAML document.",
+      "id": 20
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>yaml.dump(ourjson)</code> output?",
+      "options": [
+        "<pre>access_token: ZDI3MGEyYzQtNmFlNS00NDNhLWFlNzAtZGVjNjE0MGU1OGZmZWNmZDEwN2ItYTU3\nexpires_in: 1209600\nrefresh_token: MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTEyMzQ1Njc4\nrefreshtokenexpires_in: 7776000</pre>",
+        "<pre>{\"access_token\": \"ZDI3...\", \"expires_in\": 1209600, ...}</pre>",
+        "<pre>- access_token\n- expires_in\n- refresh_token\n- refreshtokenexpires_in</pre>",
+        "<pre>&lt;access_token&gt;ZDI3...&lt;/access_token&gt;</pre>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 3b: YAML writes each key as <code>key: value</code> on its own line, with no braces or quotes. Verified by running it. (By default <code>yaml.dump()</code> sorts keys alphabetically; these four already are.)",
+      "id": 21
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blank to parse <code>myfile.yaml</code> with PyYAML's safe loader.",
+      "code": "with open('myfile.yaml','r') as yaml_file:\n    ouryaml = yaml.___(yaml_file)",
+      "correctAnswer": "safe_load",
+      "points": 1,
+      "explanation": "Part 4, Step 1c: <code>yaml.safe_load()</code> parses the file stream into a Python data structure — a <code>dict</code> here.",
+      "id": 22
+    },
+    {
+      "type": "tf",
+      "text": "Parsing <code>myfile.yaml</code> with <code>yaml.safe_load()</code> gives the same Python dictionary as parsing <code>myfile.json</code> with <code>json.load()</code>.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step 2a prints exactly the same dictionary as Part 3 — the YAML file is the one output in Part 3. Both are just text formats for the same data. Verified by running both scripts.",
+      "id": 23
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blanks to print <code>ouryaml</code> as pretty-printed JSON.",
+      "code": "print(json.___(ouryaml, ___=4))",
+      "correctAnswer": [
+        "dumps",
+        "indent"
+      ],
+      "points": 2,
+      "explanation": "Part 4, Step 3a: <code>json.dumps()</code> serializes the data to a JSON string, and the <code>indent</code> parameter prettifies it.",
+      "id": 24
+    },
+    {
+      "type": "mc",
+      "text": "With <code>json.dumps(ouryaml, indent=4)</code>, how many spaces are each key indented by?",
+      "options": [
+        "4",
+        "2",
+        "0 — everything is on one line",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>indent=4</code> puts each key on its own line, indented 4 spaces. Without <code>indent</code>, <code>json.dumps()</code> prints everything on one line. Verified by running both.",
+      "warning": "Upon double checking, Part 4, Step 3b's sample shows 2-space indentation, but <code>indent=4</code> really indents 4 spaces.",
+      "id": 25
+    },
+    {
+      "type": "matching",
+      "text": "Match each function to what it does.",
+      "allChoices": [
+        "Parses JSON from an open file into Python data",
+        "Parses a JSON string into Python data",
+        "Serializes Python data to a JSON string",
+        "Parses YAML into Python data",
+        "Serializes Python data to YAML"
+      ],
+      "pairs": [
+        {
+          "term": "<code>json.load()</code>",
+          "match": "Parses JSON from an open file into Python data"
+        },
+        {
+          "term": "<code>json.loads()</code>",
+          "match": "Parses a JSON string into Python data"
+        },
+        {
+          "term": "<code>json.dumps()</code>",
+          "match": "Serializes Python data to a JSON string"
+        },
+        {
+          "term": "<code>yaml.safe_load()</code>",
+          "match": "Parses YAML into Python data"
+        },
+        {
+          "term": "<code>yaml.dump()</code>",
+          "match": "Serializes Python data to YAML"
+        }
+      ],
+      "points": 5,
+      "explanation": "Parts 3–4: <em>load</em> functions parse text into Python data; <em>dump</em> functions serialize Python data back out. The trailing “s” in <code>loads</code>/<code>dumps</code> means string.",
+      "id": 26
+    },
+    {
+      "type": "mc",
+      "text": "What's the advantage of opening files with the <code>with</code> statement?",
+      "options": [
+        "The file is closed automatically when the block ends",
+        "The file is opened in read-only mode automatically",
+        "The file is parsed automatically",
+        "The file is created if it doesn't exist"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 1c note: “There is no need to explicitly close the file as the with statement ensures proper opening and closing of the file.”",
+      "id": 27
+    }
+  ]
+}

@@ -1,0 +1,460 @@
+{
+  "quizTitle": "Mod03_Act01 (04)",
+  "addedOn": "2026-10-11",
+  "questions": [
+    {
+      "type": "mc",
+      "text": "What do unit tests examine?",
+      "options": [
+        "Independent units of code, like functions, classes, modules and libraries",
+        "The whole application running end to end",
+        "Only the user interface",
+        "Network connectivity between devices"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Background / Scenario: “Unit tests examine independent units of code, like functions, classes, modules, and libraries.”",
+      "id": 1
+    },
+    {
+      "type": "mc",
+      "text": "If a unit test exposes a bug in isolated code, what do you know about where the problem is?",
+      "options": [
+        "It's in the function or other unit under test, not in the larger application that calls it",
+        "It's somewhere in the larger application that calls the function",
+        "It's in the test framework",
+        "Nothing — unit tests can't narrow it down"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Background / Scenario: finding an issue in isolated code by deliberate testing tells you the problem is in the unit under test, and you know exactly what triggered it because you wrote the test that exposed it.",
+      "id": 2
+    },
+    {
+      "type": "msq",
+      "text": "Which are guidelines the lab gives for writing unit tests? (Choose all that apply.)",
+      "options": [
+        "The test should be simple and easy to implement",
+        "Test results should be consistent",
+        "Test code should work independently of the code being tested",
+        "When a test fails, results should clearly point out what's expected and where the issue is",
+        "Tests should change program state and leave it changed",
+        "Tests should always be run manually"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "Background / Scenario list. If a test needs to change program state, it should capture the state first and change it back afterwards. Unit tests should typically be automated; manual runs are only fine when the code is small.",
+      "id": 3
+    },
+    {
+      "type": "tf",
+      "text": "<code>unittest</code> is a third-party package you install with <code>pip3</code>.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 2 intro: Python provides the Unit Testing Framework, <code>unittest</code>, as part of the Python standard library. Just <code>import unittest</code>.",
+      "id": 4
+    },
+    {
+      "type": "fitb",
+      "text": "Which <code>unittest</code> class do you subclass to create an individual unit of testing?",
+      "code": "class json_search_test(unittest.___):",
+      "correctAnswer": "TestCase",
+      "points": 1,
+      "explanation": "Part 2 question: <code>unittest.TestCase</code>. In Part 3, Step 2d, <code>json_search_test</code> subclasses it.",
+      "id": 5
+    },
+    {
+      "type": "mc",
+      "text": "What is a test runner?",
+      "options": [
+        "The component that executes tests and gives you the results",
+        "A method that every test must call first",
+        "The file that holds the test data",
+        "The function being tested"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2: “A test runner is responsible for executing tests and providing you with results.” It can be graphical, but the lab uses the command line.",
+      "id": 6
+    },
+    {
+      "type": "mc",
+      "text": "How does the test runner know which methods are tests?",
+      "options": [
+        "Their names start with <code>test</code>",
+        "They have a docstring",
+        "They're marked with <code>@test</code>",
+        "They return <code>True</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2 question, and Part 3, Step 2d: “each test method begins with test_, enabling the unittest framework to discover them automatically.”",
+      "id": 7
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the option that lists all of the command-line options for <code>unittest</code>.",
+      "code": "devasc@labvm:~/labs/devnet-src$ python3 -m unittest ___",
+      "correctAnswer": "-h",
+      "points": 1,
+      "explanation": "Part 2 question: <code>python3 -m unittest -h</code> (or <code>--help</code>) prints the usage, the options and the examples shown in the lab.",
+      "id": 8
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>unittest</code> command-line option to what it does.",
+      "allChoices": [
+        "Verbose output",
+        "Quiet output",
+        "Stop on first fail or error",
+        "Show local variables in tracebacks",
+        "Only run tests which match the given substring"
+      ],
+      "pairs": [
+        {
+          "term": "<code>-v</code>",
+          "match": "Verbose output"
+        },
+        {
+          "term": "<code>-q</code>",
+          "match": "Quiet output"
+        },
+        {
+          "term": "<code>-f</code>",
+          "match": "Stop on first fail or error"
+        },
+        {
+          "term": "<code>--locals</code>",
+          "match": "Show local variables in tracebacks"
+        },
+        {
+          "term": "<code>-k</code>",
+          "match": "Only run tests which match the given substring"
+        }
+      ],
+      "points": 5,
+      "explanation": "Part 2, the <code>unittest -h</code> output. Also listed: <code>-c</code> catches Ctrl-C and displays results so far, and <code>-b</code> buffers stdout and stderr during tests.",
+      "id": 9
+    },
+    {
+      "type": "matching",
+      "text": "Match each file to its role in Part 3.",
+      "allChoices": [
+        "Contains the json_search() function being tested",
+        "The JSON data json_search() searches",
+        "The unit tests for json_search()"
+      ],
+      "pairs": [
+        {
+          "term": "<code>recursive_json_search.py</code>",
+          "match": "Contains the json_search() function being tested"
+        },
+        {
+          "term": "<code>test_data.py</code>",
+          "match": "The JSON data json_search() searches"
+        },
+        {
+          "term": "<code>test_json_search.py</code>",
+          "match": "The unit tests for json_search()"
+        }
+      ],
+      "points": 3,
+      "explanation": "Part 3, the file table.",
+      "id": 10
+    },
+    {
+      "type": "mc",
+      "text": "What kind of API returns data like what's in <code>test_data.py</code>?",
+      "options": [
+        "Cisco's DNA Center API",
+        "The GitHub API",
+        "The Webex API",
+        "The Python Package Index API"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 1: the JSON data is typical of data returned by a call to Cisco's DNA Center API, and is complex enough to be a good test — dict and list types interleaved.",
+      "id": 11
+    },
+    {
+      "type": "mc",
+      "text": "What is <code>json_search(key, input_object)</code> supposed to return?",
+      "options": [
+        "A list of the matched key/value pairs, e.g. <code>[{'issueSummary': '...'}]</code>",
+        "<code>True</code> if the key exists, otherwise <code>False</code>",
+        "The number of times the key appears",
+        "Only the first matching value, as a string"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 2: the function takes a key and a JSON object and returns a list of matched key/value pairs. Each match is appended as a one-item dict <code>{k: v}</code>.",
+      "id": 12
+    },
+    {
+      "type": "mc",
+      "text": "Why does <code>json_search()</code> call itself when a value is a <code>dict</code> or a <code>list</code>?",
+      "options": [
+        "To search nested dictionaries and lists at any depth — it's a recursive search",
+        "To retry if the first search failed",
+        "To sort the results",
+        "To convert the JSON into a string"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3 intro: the function performs a recursive search of a JSON object. When a value is another dict or a list of non-string, non-integer items, it searches inside it too — <code>issueSummary</code> is nested several levels deep.",
+      "id": 13
+    },
+    {
+      "type": "mc",
+      "text": "What does the original <code>recursive_json_search.py</code> print when run?",
+      "options": [
+        "<code>[]</code>",
+        "<code>[{'issueSummary': 'Network Device 10.10.20.82 Is Unreachable From Controller'}]</code>",
+        "<code>None</code>",
+        "A <code>RecursionError</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 2c: no errors, just an empty list. If the function were correct, that would mean there's no <code>issueSummary</code> — but the key really is in the data (Step 2d), so the function is wrong. Reproduced with the lab's code.",
+      "id": 14
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blanks to import the testing library and the function under test.",
+      "code": "import ___\nfrom ___ import *\nfrom test_data import *",
+      "correctAnswer": [
+        "unittest",
+        "recursive_json_search"
+      ],
+      "points": 2,
+      "explanation": "Part 3, Steps 3b–c: import <code>unittest</code>, then the function you're testing (<code>from recursive_json_search import *</code>) and the JSON test data it uses.",
+      "id": 15
+    },
+    {
+      "type": "matching",
+      "text": "Match each test method to what it checks.",
+      "allChoices": [
+        "An existing key is found, so the list isn't empty",
+        "A non-existent key returns an empty list",
+        "The function always returns a list"
+      ],
+      "pairs": [
+        {
+          "term": "<code>test_search_found</code>",
+          "match": "An existing key is found, so the list isn't empty"
+        },
+        {
+          "term": "<code>test_search_not_found</code>",
+          "match": "A non-existent key returns an empty list"
+        },
+        {
+          "term": "<code>test_is_a_list</code>",
+          "match": "The function always returns a list"
+        }
+      ],
+      "points": 3,
+      "explanation": "Part 3, Step 3d: the three methods test an existing key (<code>key1</code>), a non-existent key (<code>key2</code>), and that the return value is a list.",
+      "id": 16
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the assert methods: the first checks that a condition is true, the second that a value is a <code>list</code>.",
+      "code": "def test_search_found(self):\n    '''key should be found, return list should not be empty'''\n    self.___([]!=json_search(key1,data))\n\ndef test_is_a_list(self):\n    '''Should return a list'''\n    self.___(json_search(key1,data),list)",
+      "correctAnswer": [
+        "assertTrue",
+        "assertIsInstance"
+      ],
+      "points": 2,
+      "explanation": "Part 3, Step 3d: <code>assertTrue(x)</code> checks that a condition is true, and <code>assertIsInstance(a, b)</code> checks that <code>a</code> is an instance of type <code>b</code> — here, <code>list</code>.",
+      "id": 17
+    },
+    {
+      "type": "mc",
+      "text": "What lets a failing test print a description like <code>key should be found, return list should not be empty</code>?",
+      "options": [
+        "A docstring (triple-quoted string) as the first line of the test method",
+        "A <code>#</code> comment above the test method",
+        "A <code>print()</code> call inside the test method",
+        "The <code>-k</code> option"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 3d: the description comes from the method's docstring; a <code>#</code> comment would not be printed. Triple double quotes work just as well — the lab's <code>'''</code> is a style choice. Verified by running a test with a <code>\"\"\"</code> docstring: its description still printed.",
+      "warning": "Upon double checking, triple <em>single</em> quotes aren't required — <code>\"\"\"docstring\"\"\"</code> prints the description too. What matters is that it's a docstring, not a <code>#</code> comment.",
+      "id": 18
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>if __name__ == '__main__':</code> before <code>unittest.main()</code> do?",
+      "options": [
+        "Runs <code>unittest.main()</code> only when the script is run directly, not when it's imported",
+        "Makes the tests run in alphabetical order",
+        "Stops the tests on the first failure",
+        "Hides the output of <code>print()</code> during tests"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 3e: it makes sure <code>unittest.main()</code> runs only if the script is run directly; if it's imported into another program (e.g. a different test runner), it won't run.",
+      "id": 19
+    },
+    {
+      "type": "mc",
+      "text": "In <code>unittest</code>'s summary line, what do <code>.</code> and <code>F</code> mean?",
+      "context": "<pre>.F.</pre>",
+      "options": [
+        "<code>.</code> = a test passed; <code>F</code> = a test failed",
+        "<code>.</code> = a test was skipped; <code>F</code> = a test finished",
+        "<code>.</code> = a test failed; <code>F</code> = a test passed",
+        "<code>.</code> = a file was loaded; <code>F</code> = a function was found"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 4a: “A period (.) means a test passed and an F means a test failed.”",
+      "id": 20
+    },
+    {
+      "type": "mc",
+      "text": "In what order does <code>unittest</code> run the test methods?",
+      "options": [
+        "Alphabetical order of the test method names",
+        "The order they're written in the class",
+        "Random order",
+        "Fastest test first"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 4b note: tests run in alphabetical order by method name — <code>test_is_a_list</code>, then <code>test_search_found</code>, then <code>test_search_not_found</code>, even though <code>test_is_a_list</code> is written last.",
+      "id": 21
+    },
+    {
+      "type": "mc",
+      "text": "On the first run, the output is <code>.F.</code>. Which test failed?",
+      "options": [
+        "<code>test_search_found</code>",
+        "<code>test_search_not_found</code>",
+        "<code>test_is_a_list</code>",
+        "All three"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 4: in alphabetical order the second test is <code>test_search_found</code>, which fails with <code>AssertionError: False is not true</code> because the function returned <code>[]</code>. Reproduced with the lab's code.",
+      "id": 22
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the option that lists each test and its result.",
+      "code": "devasc@labvm:~/labs/devnet-src/unittest$ python3 -m unittest ___ test_json_search",
+      "correctAnswer": "-v",
+      "points": 1,
+      "explanation": "Part 3, Step 4b: the verbose (<code>-v</code>) option. You leave off the <code>.py</code> extension when running a module with <code>-m unittest</code>.",
+      "id": 23
+    },
+    {
+      "type": "mc",
+      "text": "Why does the original <code>json_search()</code> return an empty list even though the key exists?",
+      "context": "<pre>def json_search(key,input_object):\n    ret_val=[]\n    ...\n                json_search(key,v)\n    ...\n    return ret_val</pre>",
+      "options": [
+        "<code>ret_val=[]</code> runs on every recursive call, so each call starts a fresh list and the matches found deeper are lost",
+        "The key comparison <code>k == key</code> is case-insensitive",
+        "<code>isinstance()</code> can't detect dictionaries",
+        "The function never reaches the <code>return</code> statement"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 5: <code>ret_val=[ ]</code> is executed each time the function is called, losing the results accumulated by <code>ret_val.append(temp)</code>. <code>issueSummary</code> is nested, so it's appended to a deeper call's list, and the recursive call's return value is ignored.",
+      "id": 24
+    },
+    {
+      "type": "mc",
+      "text": "The first fix moves <code>ret_val=[]</code> outside the function, making it a global variable. Afterwards, <code>python3 -m unittest test_json_search</code> shows <code>..F</code>. Which test fails now, and why?",
+      "options": [
+        "<code>test_search_not_found</code> — the global list keeps matches from earlier calls, so searching for <code>key2</code> returns a non-empty list",
+        "<code>test_search_found</code> — the key still isn't found",
+        "<code>test_is_a_list</code> — the function now returns a dict",
+        "<code>test_search_not_found</code> — <code>key2</code> really is in the data"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Steps 6–7: a global <code>ret_val</code> is preserved across calls, so after <code>key1</code> is found, every later call — including <code>json_search(key2, data)</code> — returns the accumulated <code>issueSummary</code> match. <code>key2</code> only appears where it's defined, not in <code>data</code>. Reproduced with the lab's code.",
+      "id": 25
+    },
+    {
+      "type": "tf",
+      "text": "The lab uses the global <code>ret_val</code> bug as an example of why using global variables within functions is bad practice.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 7a: the global's value is preserved across multiple invocations of <code>json_search()</code>. “This is a good example of why it's bad practice to use global variables within functions.”",
+      "id": 26
+    },
+    {
+      "type": "mc",
+      "text": "How does the final version of <code>json_search()</code> fix both bugs?",
+      "context": "<pre>def json_search(key,input_object):\n    ret_val=[]\n    def inner_function(key,input_object):\n        ...\n                ret_val.append(temp)\n        ...\n                inner_function(key,v)\n    inner_function(key,input_object)\n    return ret_val</pre>",
+      "options": [
+        "The outer function creates one fresh list per call, and the recursive <code>inner_function()</code> appends to that same list",
+        "It makes <code>ret_val</code> a global and clears it with <code>ret_val.clear()</code>",
+        "It removes the recursion and only searches the top level",
+        "It returns a string instead of a list"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 7b: wrapping the search in an outer function means <code>ret_val=[]</code> runs once per <code>json_search()</code> call (no leftovers between calls), while every recursive <code>inner_function()</code> call shares it (no lost matches). All three tests pass — reproduced with the lab's code.",
+      "id": 27
+    },
+    {
+      "type": "mc",
+      "text": "How does <code>python3 -m unittest</code>, with no file name, know what to run?",
+      "options": [
+        "Test Discovery runs local files whose names begin with <code>test</code>",
+        "It runs every <code>.py</code> file in the directory",
+        "It runs the most recently edited file",
+        "It reads a <code>tests.txt</code> list"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 7c: “the unittest Test Discovery feature will run any local file it finds whose name begins with test.” That picks up <code>test_json_search.py</code>.",
+      "id": 28
+    },
+    {
+      "type": "mc",
+      "text": "After the final fix, what does <code>python3 -m unittest</code> report?",
+      "options": [
+        "<code>...</code>, <code>Ran 3 tests</code>, <code>OK</code>",
+        "<code>..F</code>, <code>FAILED (failures=1)</code>",
+        "<code>.F.</code>, <code>FAILED (failures=1)</code>",
+        "<code>Ran 0 tests</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 7c: all three tests pass. The <code>issueSummary</code> list still prints first because of the <code>print()</code> left in <code>recursive_json_search.py</code>, which runs on import. Reproduced with the lab's code.",
+      "id": 29
+    },
+    {
+      "type": "mc",
+      "text": "Why does the <code>issueSummary</code> list print at the top of every test run?",
+      "options": [
+        "<code>recursive_json_search.py</code> ends with a <code>print()</code> call, which runs when the test file imports it",
+        "<code>unittest</code> prints each function's return value",
+        "The <code>-v</code> option prints it",
+        "<code>assertTrue()</code> prints the list it checks"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Steps 6a and 7c: the list keeps printing because of the <code>print()</code> at the bottom of <code>recursive_json_search.py</code>. You can safely delete it; it wouldn't normally be used when this test is aggregated with others.",
+      "id": 30
+    }
+  ]
+}

@@ -1,0 +1,692 @@
+{
+  "quizTitle": "Mod03_Act01 (02)",
+  "addedOn": "2026-10-11",
+  "questions": [
+    {
+      "type": "mc",
+      "text": "What kind of version control system is Git?",
+      "options": [
+        "Distributed",
+        "Centralized",
+        "Cloud-only",
+        "File-locking"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Background / Scenario: the lab explores “the fundamentals of the distributed version control system Git.” Each person has a full copy of the repository locally.",
+      "id": 1
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blanks to set the name and email Git attaches to your commits.",
+      "code": "devasc@labvm:~$ git config ___ user.name \"SampleUser\"\ndevasc@labvm:~$ git config ___ user.email sample@example.com",
+      "correctAnswer": [
+        "--global",
+        "--global"
+      ],
+      "points": 2,
+      "explanation": "Part 2, Step 2b: <code>git config --global user.name \"SampleUser\"</code> and <code>git config --global user.email sample@example.com</code>. <code>--global</code> applies them to every repository for this user.",
+      "id": 2
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the option that lists your Git settings at any time.",
+      "code": "devasc@labvm:~$ git config ___\nuser.name=SampleUser\nuser.email=sample@example.com",
+      "correctAnswer": "--list",
+      "points": 1,
+      "explanation": "Part 2, Step 2c: <code>git config --list</code> reviews the settings.",
+      "id": 3
+    },
+    {
+      "type": "tf",
+      "text": "In Part 2, the name and email you configure can be anything, but in Part 7 you reset them to match your GitHub account.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2, Step 2b note: the settings can be anything at this point, but when you reset these global values in Part 7, you use your GitHub username. (Part 7, Step 7c: change them if they don't match your GitHub credentials.)",
+      "id": 4
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the command that turns the current directory (<code>git-intro</code>) into a Git repository.",
+      "code": "devasc@labvm:~/labs/devnet-src/git-intro$ git ___\nInitialized empty Git repository in /home/devasc/labs/devnet-src/git-intro/.git/",
+      "correctAnswer": "init",
+      "points": 1,
+      "explanation": "Part 2, Step 2f: <code>git init</code> initializes the current directory as a Git repository.",
+      "id": 5
+    },
+    {
+      "type": "mc",
+      "text": "After <code>git init</code>, where is the repository's change history kept?",
+      "options": [
+        "In the hidden <code>.git</code> directory inside the project",
+        "In <code>~/.gitconfig</code>",
+        "On GitHub, automatically",
+        "In a file called <code>history.txt</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2, Step 2f: the local repository lives in the hidden directory <code>.git</code> — “This is where all of your change history is located.”",
+      "id": 6
+    },
+    {
+      "type": "mc",
+      "text": "Why doesn't a plain <code>ls</code> show the <code>.git</code> directory, and what does the lab use instead?",
+      "options": [
+        "Names starting with a dot are hidden; <code>ls -a</code> shows them",
+        "It's a system file; <code>sudo ls</code> shows it",
+        "It's only created on the first commit; <code>git log</code> shows it",
+        "It's compressed; <code>ls -z</code> shows it"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2, Step 2f: <code>.git</code> is hidden, and you can see it with <code>ls -a</code>, which lists <code>.  ..  .git</code>.",
+      "id": 7
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>git status</code> show in a brand-new, empty repository?",
+      "context": "<pre>devasc@labvm:~/labs/devnet-src/git-intro$ git status</pre>",
+      "options": [
+        "<code>On branch master</code>, <code>No commits yet</code>, and nothing to commit",
+        "<code>fatal: not a git repository</code>",
+        "A list of every file in the home directory as untracked",
+        "<code>Your branch is up to date with 'origin/master'</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2, Step 2g: you're on branch <code>master</code>, there are no commits yet, and there's nothing to commit — “create/copy files and use \"git add\" to track”. Checked by running <code>git init</code> and <code>git status</code>.",
+      "id": 8
+    },
+    {
+      "type": "mc",
+      "text": "You create <code>DEVASC.txt</code> but haven't run <code>git add</code>. How does <code>git status</code> list it?",
+      "options": [
+        "Under <code>Untracked files</code>",
+        "Under <code>Changes to be committed</code> as <code>new file</code>",
+        "Under <code>Changes not staged for commit</code> as <code>modified</code>",
+        "It doesn't list it until you commit"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 2: Git finds the new file but knows it isn't tracked, listing it under “Untracked files” with the hint to use <code>git add &lt;file&gt;</code>.",
+      "id": 9
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the command that stages <code>DEVASC.txt</code>.",
+      "code": "devasc@labvm:~/labs/devnet-src/git-intro$ git ___ DEVASC.txt",
+      "correctAnswer": "add",
+      "points": 1,
+      "explanation": "Part 3, Step 3a: <code>git add DEVASC.txt</code> stages the file.",
+      "id": 10
+    },
+    {
+      "type": "mc",
+      "text": "What is staging?",
+      "options": [
+        "An intermediate phase before committing that snapshots the file's contents at the time of <code>git add</code>",
+        "Uploading the file to GitHub",
+        "Permanently saving the file into the repository's history",
+        "Creating a new branch for the file"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 3a: staging is an intermediate phase prior to committing with <code>git commit</code>. It snapshots the file's contents when <code>git add</code> runs.",
+      "id": 11
+    },
+    {
+      "type": "tf",
+      "text": "After running <code>git add</code>, any further edits to the file are automatically included in the next commit.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 3, Step 3a: <code>git add</code> snapshots the contents at that moment, so “any changes to the file require another git add command prior to committing the file.”",
+      "id": 12
+    },
+    {
+      "type": "mc",
+      "text": "Once <code>DEVASC.txt</code> is staged (before the first commit), how does <code>git status</code> show it?",
+      "options": [
+        "<code>new file:   DEVASC.txt</code> under <code>Changes to be committed</code>",
+        "<code>modified:   DEVASC.txt</code> under <code>Changes not staged for commit</code>",
+        "<code>DEVASC.txt</code> under <code>Untracked files</code>",
+        "<code>nothing to commit, working tree clean</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 3b: the staged change is displayed as “new file: DEVASC.txt” under “Changes to be committed”, with the hint <code>git rm --cached &lt;file&gt;</code> to unstage.",
+      "id": 13
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blanks to commit the staged file with a message.",
+      "code": "devasc@labvm:~/labs/devnet-src/git-intro$ git ___ ___ \"Committing DEVASC.txt to begin tracking changes\"",
+      "correctAnswer": [
+        "commit",
+        "-m"
+      ],
+      "points": 2,
+      "explanation": "Part 3, Step 4: <code>git commit -m \"...\"</code>. The <code>-m</code> switch adds a message explaining the changes you've made.",
+      "id": 14
+    },
+    {
+      "type": "mc",
+      "text": "In <code>[master (root-commit) b510f8e]</code>, what is <code>b510f8e</code>?",
+      "options": [
+        "The commit ID — the first 7 characters of the commit's SHA1 hash",
+        "The file's size in hex",
+        "The branch's ID",
+        "A random number that changes every time you run <code>git log</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 4: every commit is identified by a unique SHA1 hash, and the commit ID is the first 7 characters of it. Your commit ID will differ from the lab's.",
+      "id": 15
+    },
+    {
+      "type": "mc",
+      "text": "Which command shows all commits in the current branch's history, with each commit's hash, author, date and message?",
+      "options": [
+        "<code>git log</code>",
+        "<code>git status</code>",
+        "<code>git history</code>",
+        "<code>git show-all</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 5: <code>git log</code> shows the commit hash, then the author's name and email, the date and the commit message.",
+      "id": 16
+    },
+    {
+      "type": "mc",
+      "text": "Which <code>echo</code> command adds a line to the end of <code>DEVASC.txt</code> without erasing what's already there?",
+      "options": [
+        "<code>echo \"I am beginning to understand Git!\" &gt;&gt; DEVASC.txt</code>",
+        "<code>echo \"I am beginning to understand Git!\" &gt; DEVASC.txt</code>",
+        "<code>echo \"I am beginning to understand Git!\" | DEVASC.txt</code>",
+        "<code>echo \"I am beginning to understand Git!\" &lt; DEVASC.txt</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step 1a: use <code>&gt;&gt;</code> to append to the existing file. A single <code>&gt;</code> overwrites it.",
+      "id": 17
+    },
+    {
+      "type": "mc",
+      "text": "After appending a line to the already-committed <code>DEVASC.txt</code>, how does <code>git status</code> describe it?",
+      "options": [
+        "<code>modified:   DEVASC.txt</code> under <code>Changes not staged for commit</code>",
+        "<code>new file:   DEVASC.txt</code> under <code>Changes to be committed</code>",
+        "<code>DEVASC.txt</code> under <code>Untracked files</code>",
+        "<code>nothing to commit, working tree clean</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step 2: Git already tracks the file, so the change shows as “modified” under “Changes not staged for commit”. It has to be staged again with <code>git add</code> (Step 3) before committing.",
+      "id": 18
+    },
+    {
+      "type": "tf",
+      "text": "In <code>git log</code>, the oldest commit is listed first.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 4, Step 5a: “The latest commit is shown first.” <code>9f5c4c5</code> (“Added additional line to file”) is above <code>b510f8e</code>.",
+      "id": 19
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the command that compares the original commit with the latest one.",
+      "code": "devasc@labvm:~/labs/devnet-src/git-intro$ git ___ b510f8e 9f5c4c5",
+      "correctAnswer": "diff",
+      "points": 1,
+      "explanation": "Part 4, Step 5b: <code>git diff &lt;commit ID original&gt; &lt;commit ID latest&gt;</code>.",
+      "id": 20
+    },
+    {
+      "type": "mc",
+      "text": "In the <code>git diff</code> output, what does the line starting with <code>+</code> mean?",
+      "context": "<pre>@@ -1 +1,2 @@\n I am on my way to passing the Cisco DEVASC exam\n+I am beginning to understand Git!</pre>",
+      "options": [
+        "That line was added to the file in the later commit",
+        "That line was removed in the later commit",
+        "That line was changed but not committed",
+        "That line has a merge conflict"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step 5b: the <code>+</code> sign followed by the text indicates the content that was appended to the file.",
+      "id": 21
+    },
+    {
+      "type": "mc",
+      "text": "Why does the lab recommend working on a branch instead of updating <code>master</code> directly?",
+      "options": [
+        "So changes happen in another area without affecting <code>master</code>, preventing accidental updates that overwrite existing code",
+        "Because Git won't let you commit to <code>master</code>",
+        "Because branches are pushed to GitHub automatically",
+        "Because commits on branches don't need messages"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 5 intro: branching lets you make changes in another area without affecting the master branch, which helps prevent accidental updates that might overwrite existing code.",
+      "id": 22
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blanks to create a branch named <code>feature</code> and then switch to it.",
+      "code": "devasc@labvm:~/labs/devnet-src/git-intro$ git ___ feature\ndevasc@labvm:~/labs/devnet-src/git-intro$ git ___ feature",
+      "correctAnswer": [
+        "branch",
+        "checkout"
+      ],
+      "points": 2,
+      "explanation": "Part 5, Steps 1 and 3: <code>git branch feature</code> creates the branch; <code>git checkout feature</code> switches to it.",
+      "id": 23
+    },
+    {
+      "type": "mc",
+      "text": "In this <code>git branch</code> output, what does the <code>*</code> mean?",
+      "context": "<pre>  feature\n* master</pre>",
+      "options": [
+        "<code>master</code> is the current, checked-out branch",
+        "<code>master</code> has uncommitted changes",
+        "<code>master</code> is the newest branch",
+        "<code>master</code> is protected from changes"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 5, Step 2: the <code>*</code> next to <code>master</code> indicates the current branch — the one that is “checked out”. Creating <code>feature</code> doesn't switch to it.",
+      "id": 24
+    },
+    {
+      "type": "mc",
+      "text": "Right after committing on <code>feature</code>, <code>git log</code> shows these labels. What do they tell you?",
+      "context": "<pre>commit cd828a7... (HEAD -&gt; feature)\n    Added a third line in feature branch\ncommit 9f5c4c5... (master)\n    Added additional line to file</pre>",
+      "options": [
+        "<code>feature</code> is checked out and one commit ahead; <code>master</code> still points at the previous commit",
+        "Both branches now contain the third line",
+        "<code>master</code> was deleted",
+        "The two commits conflict"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 5, Step 6b: <code>HEAD -&gt; feature</code> marks the working branch and its new commit; “The prior commit was done within the master branch”, which hasn't moved.",
+      "id": 25
+    },
+    {
+      "type": "fitb",
+      "text": "You're on <code>master</code>. Fill in the command that pulls the <code>feature</code> branch's history into it.",
+      "code": "devasc@labvm:~/labs/devnet-src/git-intro$ git ___ feature\nUpdating 9f5c4c5..cd828a7\nFast-forward",
+      "correctAnswer": "merge",
+      "points": 1,
+      "explanation": "Part 5, Step 8b: <code>git merge &lt;branch-name&gt;</code> — the branch name is the branch whose history is pulled into the current branch.",
+      "id": 26
+    },
+    {
+      "type": "mc",
+      "text": "Why did merging <code>feature</code> into <code>master</code> say <code>Fast-forward</code>?",
+      "options": [
+        "<code>master</code> had no new commits since <code>feature</code> branched off, so Git just moved <code>master</code> forward to <code>feature</code>'s commit",
+        "Git skipped the merge because nothing changed",
+        "The merge was done without checking for conflicts",
+        "<code>--fast</code> is Git's default merge option"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 5, Step 8b output. <code>master</code> was still at <code>9f5c4c5</code>, the commit <code>feature</code> started from, so Git simply moved it up to <code>cd828a7</code> with no merge commit. Checked by replaying the lab's commands.",
+      "id": 27
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the option that deletes the merged <code>feature</code> branch.",
+      "code": "devasc@labvm:~/labs/devnet-src/git-intro$ git branch ___ feature\nDeleted branch feature (was cd828a7).",
+      "correctAnswer": "-d",
+      "points": 1,
+      "explanation": "Part 5, Step 9b: <code>git branch -d &lt;branch-name&gt;</code>. Afterwards <code>git branch</code> lists only <code>* master</code>.",
+      "id": 28
+    },
+    {
+      "type": "mc",
+      "text": "When does a merge conflict happen?",
+      "options": [
+        "When overlapping changes were made to a file and Git can't merge them automatically",
+        "Whenever two branches have different commit IDs",
+        "Whenever you merge into <code>master</code>",
+        "When the branch being merged has been deleted"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 6 intro: a merge conflict is when you have made overlapping changes to a file and Git cannot automatically merge them. Here, both branches changed the word “Cisco” on the same line.",
+      "id": 29
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>sed -i 's/Cisco/NetAcad/' DEVASC.txt</code> do?",
+      "options": [
+        "Replaces “Cisco” with “NetAcad” directly in the file",
+        "Prints the file with “Cisco” replaced, leaving the file unchanged",
+        "Searches the file for “Cisco” and “NetAcad”",
+        "Inserts “NetAcad” after every “Cisco”"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 6, Step 4: <code>sed</code> changes the word “Cisco” to “NetAcad”. <code>s/old/new/</code> substitutes, and <code>-i</code> edits the file in place, so <code>cat</code> then shows “NetAcad”.",
+      "id": 30
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the option that stages every modified tracked file and commits it in one command.",
+      "code": "devasc@labvm:~/labs/devnet-src/git-intro$ git commit ___ -m \"Change Cisco to NetAcad\"",
+      "correctAnswer": "-a",
+      "points": 1,
+      "explanation": "Part 6, Step 6: <code>git commit -a -m \"...\"</code> stages and commits in a single command.",
+      "id": 31
+    },
+    {
+      "type": "tf",
+      "text": "<code>git commit -a</code> also stages and commits brand-new files you haven't added yet.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 6, Step 6: “The -a option only affects files that have been modified and deleted. It does not affect new files.” Confirmed by creating a new file before <code>git commit -a</code>: it stayed untracked.",
+      "id": 32
+    },
+    {
+      "type": "mc",
+      "text": "<code>test</code> changed “Cisco” to “NetAcad” and <code>master</code> changed it to “DevNet”, both committed. What happens on <code>git merge test</code> from <code>master</code>?",
+      "options": [
+        "<code>CONFLICT (content): Merge conflict in DEVASC.txt</code> — the automatic merge fails",
+        "Fast-forward to the <code>test</code> commit",
+        "The line becomes “DevNet NetAcad”",
+        "<code>master</code>'s version wins automatically"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 6, Step 11: “Auto-merging DEVASC.txt / CONFLICT (content): Merge conflict in DEVASC.txt / Automatic merge failed; fix conflicts and then commit the result.” Reproduced by replaying the lab's commands.",
+      "id": 33
+    },
+    {
+      "type": "matching",
+      "text": "Match each conflict marker in <code>DEVASC.txt</code> to what it means.",
+      "context": "<pre>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nI am on my way to passing the DevNet DEVASC exam\n=======\nI am on my way to passing the NetAcad DEVASC exam\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; test\nI am beginning to understand Git!\nThis text was added originally while in the feature branch</pre>",
+      "allChoices": [
+        "Start of the current branch's (master's) version",
+        "Divider between the two versions",
+        "End of the incoming test branch's version"
+      ],
+      "pairs": [
+        {
+          "term": "<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>",
+          "match": "Start of the current branch's (master's) version"
+        },
+        {
+          "term": "<code>=======</code>",
+          "match": "Divider between the two versions"
+        },
+        {
+          "term": "<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; test</code>",
+          "match": "End of the incoming test branch's version"
+        }
+      ],
+      "points": 3,
+      "explanation": "Part 6, Step 12b: the HEAD version (master, “DevNet”) sits between <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>=======</code>; the test branch's version (“NetAcad”) sits between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; test</code>. Step 12a's <code>git log</code> shows HEAD is master.",
+      "id": 34
+    },
+    {
+      "type": "msq",
+      "text": "To resolve the conflict and keep master's “DevNet” line, which lines does the lab delete with <code>dd</code> in vim? (Choose all that apply.)",
+      "options": [
+        "<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>",
+        "<code>I am on my way to passing the DevNet DEVASC exam</code>",
+        "<code>=======</code>",
+        "<code>I am on my way to passing the NetAcad DEVASC exam</code>",
+        "<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; test</code>",
+        "<code>I am beginning to understand Git!</code>"
+      ],
+      "correctAnswer": [
+        0,
+        2,
+        3,
+        4
+      ],
+      "points": 1,
+      "explanation": "Part 6, Steps 13–14: deleting the three marker lines and the NetAcad line leaves “I am on my way to passing the DevNet DEVASC exam”, “I am beginning to understand Git!” and the feature-branch line — exactly what <code>cat</code> shows afterwards.",
+      "id": 35
+    },
+    {
+      "type": "mc",
+      "text": "How do you save your changes and quit in vim?",
+      "options": [
+        "Press <code>ESC</code>, type <code>:wq</code>, press Enter",
+        "Press <code>Ctrl+S</code>, then <code>Ctrl+Q</code>",
+        "Type <code>dd</code>, then Enter",
+        "Press <code>ESC</code>, type <code>:q!</code>, press Enter"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 6, Step 13c: press ESC, then type <code>:</code> followed by <code>wq</code> (write and quit) and press Enter. <code>:q!</code> quits <em>without</em> saving; <code>dd</code> deletes a line.",
+      "id": 36
+    },
+    {
+      "type": "mc",
+      "text": "After you fix the conflict and commit, <code>git log</code> shows a <code>Merge:</code> line on the new commit. What does it list?",
+      "context": "<pre>commit 22d3da41e00549ce69dc145a84884af6a1697734 (HEAD -&gt; master)\nMerge: 72996c0 b6130a6</pre>",
+      "options": [
+        "The two parent commits that were merged — master's and test's",
+        "The two files that conflicted",
+        "The commits that were deleted",
+        "The two branches that are still checked out"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 6, Step 16: <code>72996c0</code> is master's “Changed Cisco to DevNet” commit and <code>b6130a6</code> is test's “Change Cisco to NetAcad” commit; the merge commit has both as parents. (Its message in the lab's log, “manually merged from branch test”, doesn't match the “Manually merged from test branch” typed in Step 15.)",
+      "id": 37
+    },
+    {
+      "type": "tf",
+      "text": "Git requires a central server or cloud service like GitHub to work.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 7 intro: “Git runs locally and does not require any central file server or cloud-based hosting service.” GitHub helps when working within a team, as a central repository everyone updates.",
+      "id": 38
+    },
+    {
+      "type": "msq",
+      "text": "Which Git hosting services does the lab name? (Choose all that apply.)",
+      "options": [
+        "GitHub",
+        "Stash from Atlassian",
+        "GitLab",
+        "DevNet Sandbox",
+        "PyPI"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "Part 7 intro: popular Git services include GitHub, Stash from Atlassian, and GitLab. The lab uses GitHub because it's readily accessible.",
+      "id": 39
+    },
+    {
+      "type": "mc",
+      "text": "In <code>cp ../DEVASC.txt .</code>, what do <code>..</code> and the final <code>.</code> mean?",
+      "options": [
+        "<code>..</code> is the parent directory; <code>.</code> is the current directory, keeping the same file name",
+        "<code>..</code> is the home directory; <code>.</code> is the root directory",
+        "<code>..</code> copies hidden files; <code>.</code> ends the command",
+        "<code>..</code> is the current directory; <code>.</code> is the parent directory"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 7, Step 6a: “The two periods and a slash prior the file name indicates the parent directory. The space and period following the file name indicates to copy file in the current directory with the same file name.”",
+      "id": 40
+    },
+    {
+      "type": "tf",
+      "text": "The local <code>devasc-study-team</code> directory must have the same name as the GitHub repository.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 7, Step 4b: “The directory does not have to match the name as the repository.” The link is made by <code>git remote add</code>, not the folder name.",
+      "id": 41
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blanks to add the GitHub repository as a remote named <code>origin</code>.",
+      "code": "devasc@labvm:~/labs/devnet-src/git-intro/devasc-study-team$ git ___ add ___ https://github.com/github-username/devasc-study-team.git",
+      "correctAnswer": [
+        "remote",
+        "origin"
+      ],
+      "points": 2,
+      "explanation": "Part 7, Step 8a: <code>git remote add origin &lt;URL&gt;</code> adds the Git URL as a remote alias; “origin” points to the new GitHub repository. The username in the URL is case-sensitive.",
+      "id": 42
+    },
+    {
+      "type": "mc",
+      "text": "Which command verifies the remote, listing its fetch and push URLs?",
+      "options": [
+        "<code>git remote --verbose</code>",
+        "<code>git config --list</code>",
+        "<code>git status</code>",
+        "<code>git log</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 7, Step 8b: <code>git remote --verbose</code> shows <code>origin</code> with its URL twice — once for <code>(fetch)</code> and once for <code>(push)</code>.",
+      "id": 43
+    },
+    {
+      "type": "mc",
+      "text": "In the new <code>devasc-study-team</code> repository, before any commit, what does <code>git log</code> print?",
+      "options": [
+        "<code>fatal: your current branch 'master' does not have any commits yet</code>",
+        "An empty line",
+        "The commits copied from <code>git-intro</code>",
+        "<code>nothing to commit, working tree clean</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 7, Step 8c: the error indicates there are no commits. Copying <code>DEVASC.txt</code> copies only the file, not <code>git-intro</code>'s history.",
+      "id": 44
+    },
+    {
+      "type": "mc",
+      "text": "What does “working tree clean” mean in <code>git status</code>?",
+      "options": [
+        "Nothing has changed since the last commit — there's nothing new to report",
+        "All files have been deleted",
+        "The repository has been pushed to GitHub",
+        "There are no branches besides <code>master</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 7, Step 10b: Git has compared your file listing to what you've told Git, and “it's a clean slate with nothing new to report.”",
+      "id": 45
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blanks to send the <code>master</code> branch to the GitHub remote.",
+      "code": "devasc@labvm:~/labs/devnet-src/git-intro/devasc-study-team$ git ___ origin ___",
+      "correctAnswer": [
+        "push",
+        "master"
+      ],
+      "points": 2,
+      "explanation": "Part 7, Step 11: <code>git push origin master</code> sends the commits to GitHub; the output ends with <code>* [new branch]      master -&gt; master</code>.",
+      "id": 46
+    },
+    {
+      "type": "mc",
+      "text": "When <code>git push</code> asks for your GitHub password, what do you enter?",
+      "options": [
+        "A Personal Access Token with the “repo” scope",
+        "Your GitHub account password",
+        "Your DEVASC VM password",
+        "The commit ID"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 7, Step 11: GitHub needs a Personal Access Token instead of your account password, generated at your profile's token settings page with full “repo” scope.",
+      "id": 47
+    },
+    {
+      "type": "mc",
+      "text": "If <code>git push</code> fails with “repository not found” because you typed the wrong URL, which command removes the bad remote so you can add it again?",
+      "options": [
+        "<code>git remote rm origin</code>",
+        "<code>git branch -d origin</code>",
+        "<code>git reset origin</code>",
+        "<code>git init</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 7, Step 11 note: you most likely submitted an incorrect URL, and you reverse the <code>git remote add</code> with <code>git remote rm origin</code>.",
+      "id": 48
+    },
+    {
+      "type": "matching",
+      "text": "Match each command to what it does.",
+      "allChoices": [
+        "Stages a file for the next commit",
+        "Records the staged changes with a message",
+        "Shows which files are untracked, modified or staged",
+        "Lists the branches and marks the current one",
+        "Switches to another branch",
+        "Pulls another branch's history into the current one"
+      ],
+      "pairs": [
+        {
+          "term": "<code>git add</code>",
+          "match": "Stages a file for the next commit"
+        },
+        {
+          "term": "<code>git commit -m</code>",
+          "match": "Records the staged changes with a message"
+        },
+        {
+          "term": "<code>git status</code>",
+          "match": "Shows which files are untracked, modified or staged"
+        },
+        {
+          "term": "<code>git branch</code>",
+          "match": "Lists the branches and marks the current one"
+        },
+        {
+          "term": "<code>git checkout</code>",
+          "match": "Switches to another branch"
+        },
+        {
+          "term": "<code>git merge</code>",
+          "match": "Pulls another branch's history into the current one"
+        }
+      ],
+      "points": 6,
+      "explanation": "Parts 3–6: <code>git add</code> stages, <code>git commit -m</code> commits with a message, <code>git status</code> reports file states, <code>git branch</code> lists branches with <code>*</code> on the current one, <code>git checkout</code> switches, and <code>git merge</code> pulls a branch's history into the current branch.",
+      "id": 49
+    }
+  ]
+}

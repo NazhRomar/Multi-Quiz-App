@@ -1,0 +1,2331 @@
+{
+  "quizTitle": "Module 3: Software Development and Design PDF",
+  "addedOn": "2026-10-11",
+  "questions": [
+    {
+      "type": "mc",
+      "text": "What is the module objective of Module 3: Software Development and Design?",
+      "options": [
+        "Use software development and design best practices",
+        "Implement a development environment using DevNet resources",
+        "Configure network devices using model-driven programmability",
+        "Build and deploy a web application to production"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Module Objectives”: the module objective is to use software development and design best practices. Implementing a development environment using DevNet resources was Module 2's objective.",
+      "id": 1
+    },
+    {
+      "type": "drag-drop",
+      "text": "Match each Module 3 topic to its topic objective.",
+      "allChoices": [
+        "Compare software development methodologies.",
+        "Describe the benefits of various software design patterns.",
+        "Implement software version control using GIT.",
+        "Explain coding best practices.",
+        "Use Python Unit Test to evaluate code.",
+        "Use Python to parse different messaging and data formats."
+      ],
+      "pairs": [
+        {
+          "term": "Software Development",
+          "match": "Compare software development methodologies."
+        },
+        {
+          "term": "Software Design Patterns",
+          "match": "Describe the benefits of various software design patterns."
+        },
+        {
+          "term": "Version Control Systems",
+          "match": "Implement software version control using GIT."
+        },
+        {
+          "term": "Coding Basics",
+          "match": "Explain coding best practices."
+        },
+        {
+          "term": "Code Review and Testing",
+          "match": "Use Python Unit Test to evaluate code."
+        },
+        {
+          "term": "Understanding Data Formats",
+          "match": "Use Python to parse different messaging and data formats."
+        }
+      ],
+      "points": 6,
+      "explanation": "Slide “Module Objectives” pairs each topic with its objective: Software Development — compare methodologies; Software Design Patterns — describe their benefits; Version Control Systems — implement version control using Git; Coding Basics — explain coding best practices; Code Review and Testing — use Python Unit Test; Understanding Data Formats — use Python to parse messaging and data formats.",
+      "id": 2
+    },
+    {
+      "type": "mc",
+      "text": "The software development process is also known as the…",
+      "options": [
+        "Software Requirement Specification (SRS)",
+        "Software development life cycle (SDLC)",
+        "Software Development Kit (SDK)",
+        "Test-Driven Development (TDD)"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Introduction” (3.1): the software development process is also known as the software development life cycle (SDLC).",
+      "id": 3
+    },
+    {
+      "type": "msq",
+      "text": "SDLC is more than just coding. Which of these does it also include? (Select all that apply.)",
+      "options": [
+        "Gathering requirements",
+        "Creating a proof of concept",
+        "Testing",
+        "Fixing bugs",
+        "Choosing the company's office location",
+        "Negotiating employee salaries"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "Slide “Introduction” (3.1): SDLC is more than just coding and also includes gathering requirements, creating a proof of concept, testing, and fixing bugs.",
+      "id": 4
+    },
+    {
+      "type": "tf",
+      "text": "SDLC consists of six phases, and each phase takes input from the results of the previous phase.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Software Development Life Cycle (SDLC)”: SDLC is the process of developing software, starting from an idea and ending with delivery. It consists of six phases, and each phase takes input from the results of the previous phase.",
+      "id": 5
+    },
+    {
+      "type": "drag-drop",
+      "text": "Put the six phases of the SDLC in order.",
+      "allChoices": [
+        "Requirements & Analysis",
+        "Design",
+        "Implementation",
+        "Testing",
+        "Deployment",
+        "Maintenance"
+      ],
+      "pairs": [
+        {
+          "term": "Phase 1",
+          "match": "Requirements & Analysis"
+        },
+        {
+          "term": "Phase 2",
+          "match": "Design"
+        },
+        {
+          "term": "Phase 3",
+          "match": "Implementation"
+        },
+        {
+          "term": "Phase 4",
+          "match": "Testing"
+        },
+        {
+          "term": "Phase 5",
+          "match": "Deployment"
+        },
+        {
+          "term": "Phase 6",
+          "match": "Maintenance"
+        }
+      ],
+      "points": 6,
+      "explanation": "Summary slide: the six phases of SDLC are Requirements & Analysis, Design, Implementation, Testing, Deployment and Maintenance.",
+      "id": 6
+    },
+    {
+      "type": "mc",
+      "text": "Although the waterfall method is still widely used, it's gradually being superseded by more adaptive, flexible methods that produce better software, faster, with less pain. These methods are collectively known as…",
+      "options": [
+        "Lean Manufacturing",
+        "Agile development",
+        "Extreme Waterfall",
+        "Model-driven development"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Software Development Life Cycle (SDLC)”: the more adaptive, flexible methods that are superseding waterfall are collectively known as “Agile development.”",
+      "id": 7
+    },
+    {
+      "type": "mc",
+      "text": "Which phase involves exploring the stakeholders' current situation, needs and constraints, present infrastructure, and so on, and determining the problem to be solved by the software?",
+      "options": [
+        "Design",
+        "Implementation",
+        "Requirements and analysis",
+        "Maintenance"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Slide “Requirements and Analysis Phase”: this phase involves exploring the stakeholders' current situation, needs and constraints, present infrastructure, and so on, and determining the problem to be solved by the software.",
+      "id": 8
+    },
+    {
+      "type": "msq",
+      "text": "After gathering the requirements, what does the team analyze the results to determine? (Select all that apply.)",
+      "options": [
+        "Is it possible to develop the software according to these requirements, and can it be done on-budget?",
+        "Are there any risks to the development schedule, and if so, what are they?",
+        "How will the software be tested?",
+        "When and how will the software be delivered?",
+        "Which developer will get promoted after release?",
+        "What color scheme should the company website use?"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "Slide “Requirements and Analysis Phase”: the team analyzes whether the software can be developed according to the requirements and on-budget, what risks there are to the schedule, how it will be tested, and when and how it will be delivered.",
+      "id": 9
+    },
+    {
+      "type": "mc",
+      "text": "At the conclusion of the requirements and analysis phase, the classic waterfall method suggests creating which document?",
+      "options": [
+        "High-Level Design (HLD)",
+        "Low-Level Design (LLD)",
+        "Software Requirement Specification (SRS)",
+        "User Acceptance Report (UAR)"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Slide “Requirements and Analysis Phase”: the classic waterfall method suggests creating a Software Requirement Specification (SRS) document, which states the software requirements and scope, and confirms this meticulously with stakeholders.",
+      "id": 10
+    },
+    {
+      "type": "mc",
+      "text": "During the Design phase, software architects and developers design the software based on the SRS. Which documents does the team create at the end of the phase?",
+      "options": [
+        "High-Level Design (HLD) and Low-Level Design (LLD) documents",
+        "Only the Software Requirement Specification (SRS)",
+        "The release notes and user manual",
+        "The test plan and bug report"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Design and Implementation Phases”: at the end of the Design phase, the team creates High-Level Design (HLD) and Low-Level Design (LLD) documents.",
+      "id": 11
+    },
+    {
+      "type": "mc",
+      "text": "Which is the <strong>longest</strong> phase of the software development life cycle?",
+      "options": [
+        "Requirements and analysis",
+        "Design",
+        "Implementation",
+        "Deployment"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Slide “Design and Implementation Phases”: as all the components and modules are built during the implementation phase, it is the longest phase of the life cycle.",
+      "id": 12
+    },
+    {
+      "type": "fitb",
+      "text": "The implementation phase is also called the coding or ___ phase.",
+      "correctAnswer": "development",
+      "points": 1,
+      "explanation": "Slide “Design and Implementation Phases”: the implementation phase is also called the coding or development phase. At its end, functional code implementing all the customer's requirements is ready to be tested.",
+      "id": 13
+    },
+    {
+      "type": "msq",
+      "text": "Which kinds of testing are performed in the Testing phase? (Select all that apply.)",
+      "options": [
+        "Functional testing",
+        "Integration testing",
+        "Performance testing",
+        "Security testing",
+        "Marketing testing"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "Slide “Testing, Deployment, and Maintenance Phases”: in the Testing phase the code is installed in the test environment, and functional, integration, performance and security testing is performed until the code is bug free and passes all the tests.",
+      "id": 14
+    },
+    {
+      "type": "mc",
+      "text": "What happens during the Deployment phase?",
+      "options": [
+        "The code is installed in the test environment",
+        "The software is installed into the production environment, and the product manager releases it to end users",
+        "The team gathers new requests from the customer",
+        "Architects create the HLD and LLD documents"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Testing, Deployment, and Maintenance Phases”: during Deployment the software is installed into the production environment, and at the end the product manager releases the final piece of software to end users. The test environment belongs to Testing, and gathering new requests belongs to Maintenance.",
+      "id": 15
+    },
+    {
+      "type": "msq",
+      "text": "What does the team do during the Maintenance phase? (Select all that apply.)",
+      "options": [
+        "Provides support to customers",
+        "Fixes bugs found in production",
+        "Works on software improvements",
+        "Gathers new requests from the customer",
+        "Writes the Software Requirement Specification for the first time"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "Slide “Testing, Deployment, and Maintenance Phases”: in Maintenance the team provides support to customers, fixes bugs found in production, works on software improvements and gathers new requests. At the end, it works on the next iteration and version of the software. The SRS is written back in Requirements & Analysis.",
+      "id": 16
+    },
+    {
+      "type": "msq",
+      "text": "A software development methodology is also known as a Software Development Life Cycle model. Which are the three most popular methodologies? (Select all that apply.)",
+      "options": [
+        "Waterfall",
+        "Agile",
+        "Lean",
+        "Spiral",
+        "V-Model"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "Slide “Software Development Methodologies”: the three most popular methodologies are Waterfall, Agile and Lean.",
+      "id": 17
+    },
+    {
+      "type": "msq",
+      "text": "The type of methodology to be used depends on the… (Select all that apply.)",
+      "options": [
+        "Type of the project",
+        "Length of the project",
+        "Size of the team",
+        "Programming language used",
+        "Location of the office"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "Slide “Software Development Methodologies”: the methodology depends on the type of the project, the length of the project and the size of the team.",
+      "id": 18
+    },
+    {
+      "type": "mc",
+      "text": "Who created the original waterfall model?",
+      "options": [
+        "Erich Gamma",
+        "Winston W. Royce",
+        "Linus Torvalds",
+        "Kent Beck"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Waterfall Software Development”: the original waterfall model was created by Winston W. Royce. (Erich Gamma is one of the Gang of Four, and Linus Torvalds created Git.)",
+      "id": 19
+    },
+    {
+      "type": "mc",
+      "text": "How many phases did Winston W. Royce's original waterfall model consist of?",
+      "options": [
+        "Five",
+        "Six",
+        "Seven",
+        "Twelve"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Slide “Waterfall Software Development”: his original model consisted of seven phases. Don't mix it up with the six phases of SDLC.",
+      "id": 20
+    },
+    {
+      "type": "mc",
+      "text": "Which describes the Agile method?",
+      "options": [
+        "Rigid and document-focused",
+        "Flexible and customer-focused",
+        "Sequential, with no going back to earlier phases",
+        "Focused only on manufacturing hardware"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Agile Software Development”: the Agile method is flexible and customer-focused.",
+      "id": 21
+    },
+    {
+      "type": "mc",
+      "text": "The Manifesto for Agile Software Development (the Agile Manifesto) was written by…",
+      "options": [
+        "4 software developers in 1994",
+        "17 software developers in 2001",
+        "12 software developers in 2005",
+        "Winston W. Royce alone in 1970"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Agile Software Development”: a group of 17 software developers came up with the Agile Manifesto in 2001. (1994 is the year the Gang of Four — four authors — published Design Patterns.)",
+      "id": 22
+    },
+    {
+      "type": "matching",
+      "text": "Complete each Agile Manifesto value: what is valued <strong>over</strong> what?",
+      "allChoices": [
+        "Processes and tools",
+        "Comprehensive documentation",
+        "Contract negotiation",
+        "Following a plan"
+      ],
+      "pairs": [
+        {
+          "term": "Individuals and interactions over…",
+          "match": "Processes and tools"
+        },
+        {
+          "term": "Working software over…",
+          "match": "Comprehensive documentation"
+        },
+        {
+          "term": "Customer collaboration over…",
+          "match": "Contract negotiation"
+        },
+        {
+          "term": "Responding to change over…",
+          "match": "Following a plan"
+        }
+      ],
+      "points": 4,
+      "explanation": "Slide “Agile Software Development”: individuals and interactions over processes and tools; working software over comprehensive documentation; customer collaboration over contract negotiation; responding to change over following a plan.",
+      "id": 23
+    },
+    {
+      "type": "mc",
+      "text": "How many different principles does the Agile Manifesto list?",
+      "options": [
+        "4",
+        "7",
+        "12",
+        "23"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Slide “Agile Software Development”: the Agile Manifesto lists 12 different principles (customer focus, collaboration, working software, simplicity, and so on). It has 4 values; Lean has 7 principles; the Gang of Four listed 23 design patterns.",
+      "id": 24
+    },
+    {
+      "type": "msq",
+      "text": "Which of these are among the Agile Manifesto principles shown on the slide? (Select all that apply.)",
+      "options": [
+        "Customer focus",
+        "Embrace change and adapt",
+        "Frequent delivery of working software",
+        "Self-organizing teams",
+        "Work at a sustainable pace",
+        "Face-to-face conversations",
+        "Comprehensive documentation before coding",
+        "Fixed, unchangeable requirements"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "points": 1,
+      "explanation": "Slide “Agile Manifesto Principles”: customer focus, collaboration, working software, simplicity, embrace change and adapt, motivated teams, work at a sustainable pace, self-organizing teams, frequent delivery of working software, face-to-face conversations, Agile environment, and continuous improvement. Up-front documentation and fixed requirements go against Agile.",
+      "id": 25
+    },
+    {
+      "type": "drag-drop",
+      "text": "Match each popular Agile method to its description.",
+      "allChoices": [
+        "Focuses on small, self-organizing teams that meet daily for short periods and work in iterative sprints",
+        "Emphasizes elimination of wasted effort in planning and execution, and reduction of programmer cognitive load",
+        "Deliberately addresses the specific kinds of quality-of-life issues faced by software development teams",
+        "Development proceeds in terms of an overall model, broken out, planned, designed, and built feature-by-feature"
+      ],
+      "pairs": [
+        {
+          "term": "Agile Scrum",
+          "match": "Focuses on small, self-organizing teams that meet daily for short periods and work in iterative sprints"
+        },
+        {
+          "term": "Lean",
+          "match": "Emphasizes elimination of wasted effort in planning and execution, and reduction of programmer cognitive load"
+        },
+        {
+          "term": "Extreme Programming (XP)",
+          "match": "Deliberately addresses the specific kinds of quality-of-life issues faced by software development teams"
+        },
+        {
+          "term": "Feature-Driven Development (FDD)",
+          "match": "Development proceeds in terms of an overall model, broken out, planned, designed, and built feature-by-feature"
+        }
+      ],
+      "points": 4,
+      "explanation": "Slide “Agile Methods”: Scrum — small, self-organizing teams meeting daily and working in sprints; Lean — eliminating wasted effort and reducing programmer cognitive load; XP — quality-of-life issues faced by development teams; FDD — an overall model built feature-by-feature.",
+      "id": 26
+    },
+    {
+      "type": "mc",
+      "text": "A sprint is a specific period of time during which each team takes on as many tasks as they feel they can accomplish. How long is a sprint usually?",
+      "options": [
+        "1–2 days",
+        "2–4 weeks",
+        "3–6 months",
+        "1 year"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Agile Methods (Contd.)”: a sprint is usually between 2–4 weeks. When the sprint is over, the software should be working and deliverable.",
+      "id": 27
+    },
+    {
+      "type": "tf",
+      "text": "The duration of a sprint is determined before the process begins and should rarely change.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Agile Methods (Contd.)”: the duration of the sprint is determined before the process begins and should rarely change.",
+      "id": 28
+    },
+    {
+      "type": "fitb",
+      "text": "In a sprint, the tasks each team takes on are also known as user ___.",
+      "correctAnswer": "stories",
+      "points": 1,
+      "explanation": "Slide “Agile Methods (Contd.)”: each team takes on as many tasks (also known as user stories) as they feel they can accomplish.",
+      "id": 29
+    },
+    {
+      "type": "mc",
+      "text": "In Agile, what is the <strong>backlog</strong>?",
+      "options": [
+        "A list of bugs found in production",
+        "All the features of the software, in a prioritized list",
+        "The meeting notes from the daily stand-up",
+        "The tasks left unfinished when a sprint ends, which are deleted"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Agile Methods (Contd.)”: the backlog consists of all the features of the software, in a prioritized list.",
+      "id": 30
+    },
+    {
+      "type": "mc",
+      "text": "Which user story follows the suggested template?",
+      "options": [
+        "As a network admin, I would like to export device configs, so that I can back them up nightly",
+        "The system shall export device configs every night",
+        "Export device configs — high priority — due Friday",
+        "I want backups because configs get lost"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Agile Methods (Contd.)”: the suggested template is “As a &lt;user|role&gt;, I would like to &lt;action&gt;, so that &lt;value|benefit&gt;”. A user story is a simple statement of what a user (or role) needs, and why.",
+      "id": 31
+    },
+    {
+      "type": "tf",
+      "text": "Each user story should be small enough that a single team can finish it within a single sprint.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Agile Methods (Contd.)”: each user story should be small enough that a single team can finish it within a single sprint.",
+      "id": 32
+    },
+    {
+      "type": "msq",
+      "text": "How are Scrum teams described? (Select all that apply.)",
+      "options": [
+        "Cross-functional",
+        "Collaborative",
+        "Self-managed",
+        "Self-empowered",
+        "Led by a manager who assigns every task",
+        "Made up of at least 20 people"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "Slide “Agile Methods (Contd.) — Scrum Teams”: Scrum teams are cross-functional, collaborative, self-managed and self-empowered, and should not be larger than 10 individuals.",
+      "id": 33
+    },
+    {
+      "type": "mc",
+      "text": "Scrum teams should not be larger than how many individuals?",
+      "options": [
+        "5",
+        "10",
+        "17",
+        "25"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Agile Methods (Contd.) — Scrum Teams”: the scrum teams should not be larger than 10 individuals.",
+      "id": 34
+    },
+    {
+      "type": "mc",
+      "text": "The scrum master should have a daily stand-up meeting with the team at a fixed time every day. How long should it last at most?",
+      "options": [
+        "5 minutes",
+        "15 minutes",
+        "30 minutes",
+        "1 hour"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Agile Methods (Contd.) — Scrum Teams”: the daily stand-up is held at a fixed time every day for not more than 15 minutes. The goal is to go over important tasks that have been finished, are in progress, or are about to be started.",
+      "id": 35
+    },
+    {
+      "type": "mc",
+      "text": "Lean software development is based on Lean Manufacturing principles, which are focused on…",
+      "options": [
+        "Minimizing waste and maximizing value to the customer",
+        "Maximizing documentation and minimizing change",
+        "Adding as many features as possible",
+        "Building the hardware before the software"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Lean Software Development”: Lean software development is based on Lean Manufacturing principles, which are focused on minimizing waste and maximizing value to the customer.",
+      "id": 36
+    },
+    {
+      "type": "msq",
+      "text": "Which are the seven principles of lean from the book “Lean Software Development: An Agile Toolkit”? (Select all that apply.)",
+      "options": [
+        "Eliminate waste",
+        "Amplify learning",
+        "Decide as late as possible",
+        "Deliver as fast as possible",
+        "Empower the team",
+        "Build integrity in",
+        "Optimize the whole",
+        "Decide as early as possible",
+        "Add extra features"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "points": 1,
+      "explanation": "Slide “Lean Software Development”: eliminate waste, amplify learning, decide as late as possible, deliver as fast as possible, empower the team, build integrity in, and optimize the whole. Deciding early and adding extra features are the opposite — extra features are one of the seven wastes.",
+      "id": 37
+    },
+    {
+      "type": "mc",
+      "text": "Which is the most fundamental lean principle?",
+      "options": [
+        "Amplify learning",
+        "Eliminate waste",
+        "Empower the team",
+        "Optimize the whole"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Lean Software Development (Contd.) — Eliminate waste”: it is the most fundamental lean principle.",
+      "id": 38
+    },
+    {
+      "type": "msq",
+      "text": "Which of these are among the seven wastes of software development? (Select all that apply.)",
+      "options": [
+        "Partially done work",
+        "Extra processes",
+        "Extra features",
+        "Task switching",
+        "Waiting",
+        "Motion",
+        "Defects",
+        "Unit testing",
+        "Code review"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "points": 1,
+      "explanation": "Slide “Lean Software Development (Contd.) — Eliminate waste”: the seven wastes are partially done work, extra processes, extra features, task switching, waiting, motion, and defects.",
+      "id": 39
+    },
+    {
+      "type": "msq",
+      "text": "Having frequent short iterations of working software (“Amplify Learning with Short Sprints”) enables which of the following? (Select all that apply.)",
+      "options": [
+        "Developers learn faster",
+        "Customers can give feedback sooner",
+        "Features can be adjusted so that they bring customers more value",
+        "Requirements never have to change",
+        "Testing can be skipped"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "Slide “Lean Software Development (Contd.) — Amplify Learning with Short Sprints”: developers learn faster, customers can give feedback sooner, and features can be adjusted so that they bring customers more value.",
+      "id": 40
+    },
+    {
+      "type": "mc",
+      "text": "Why does Lean say to “decide as late as possible” when there is uncertainty?",
+      "options": [
+        "Because it is better to base decisions on facts rather than opinions or speculations",
+        "Because late decisions are cheaper to document",
+        "Because customers prefer not to be asked",
+        "Because the team should wait until the software is deployed"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Lean Software Development (Contd.) — Decide as Late as Possible”: when there is uncertainty, it is best to delay the decision-making as late as possible, because it is better to base decisions on facts rather than opinions or speculations.",
+      "id": 41
+    },
+    {
+      "type": "msq",
+      "text": "Which of these are listed as reasons to “Deliver As Fast as Possible”? (Select all that apply.)",
+      "options": [
+        "Enables customers to provide feedback",
+        "Enables developers to amplify learning",
+        "Provides customers the required features",
+        "Doesn't allow customers to change their mind",
+        "Makes everyone take decisions faster",
+        "Produces less waste"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "points": 1,
+      "explanation": "Slide “Deliver As Fast as Possible” lists all six: it enables customers to provide feedback, enables developers to amplify learning, provides customers the required features, doesn't allow customers to change their mind, makes everyone take decisions faster, and produces less waste.",
+      "id": 42
+    },
+    {
+      "type": "matching",
+      "text": "Match each Lean principle to what it means.",
+      "allChoices": [
+        "Each person must be allowed to make decisions in the area of their own expertise",
+        "The software addresses the customer's needs as well as maintains the usefulness for the customer",
+        "The software must be built cohesively, with each expert considering the ramifications of their decisions on the rest of the software"
+      ],
+      "pairs": [
+        {
+          "term": "Empower the Team",
+          "match": "Each person must be allowed to make decisions in the area of their own expertise"
+        },
+        {
+          "term": "Build Integrity In",
+          "match": "The software addresses the customer's needs as well as maintains the usefulness for the customer"
+        },
+        {
+          "term": "Optimize the Whole",
+          "match": "The software must be built cohesively, with each expert considering the ramifications of their decisions on the rest of the software"
+        }
+      ],
+      "points": 3,
+      "explanation": "Slide “Lean Software Development (Contd.)”: Empower the Team — each person decides in their own area of expertise; Build Integrity In — the software addresses the customer's needs and stays useful to them; Optimize the Whole — the software must be built cohesively, since its value suffers if each expert only focuses on their own expertise.",
+      "id": 43
+    },
+    {
+      "type": "msq",
+      "text": "Which objectives are part of the lab “Explore Python Development Tools”? (Select all that apply.)",
+      "options": [
+        "Launch the DEVASC VM",
+        "Review the Python Installation",
+        "PIP and Python Virtual Environments",
+        "Sharing Your Virtual Environment",
+        "Handling Merge Conflicts"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "Slide “Lab - Explore Python Development Tools”: Part 1: Launch the DEVASC VM; Part 2: Review the Python Installation; Part 3: PIP and Python Virtual Environments; Part 4: Sharing Your Virtual Environment. Handling Merge Conflicts is part of the Git lab.",
+      "id": 44
+    },
+    {
+      "type": "tf",
+      "text": "Software design patterns are best practice solutions for solving common problems in software development, and they are language-specific — a pattern only works in the language it was written for.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Introduction” (3.2): design patterns are best practice solutions for common problems in software development, but they are <strong>language-independent</strong>. Because they have already been proven successful, using them can speed up development.",
+      "id": 45
+    },
+    {
+      "type": "mc",
+      "text": "In 1994, Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides published “Design Patterns - Elements of Reusable Object-Oriented Software”. What are these four authors known as?",
+      "options": [
+        "The Agile Four",
+        "The Gang of Four (GoF)",
+        "The Lean Toolkit",
+        "The Founders of Git"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Introduction” (3.2): the four authors are known as the Gang of Four (GoF).",
+      "id": 46
+    },
+    {
+      "type": "msq",
+      "text": "Which principles did the Gang of Four identify? (Select all that apply.)",
+      "options": [
+        "Program to an interface, not an implementation",
+        "Favor object composition over class inheritance",
+        "Program to an implementation, not an interface",
+        "Favor class inheritance over object composition"
+      ],
+      "correctAnswer": [
+        0,
+        1
+      ],
+      "points": 1,
+      "explanation": "Slide “Introduction” (3.2): program to an interface, not an implementation; and favor object composition over class inheritance. The other two options are those principles reversed.",
+      "id": 47
+    },
+    {
+      "type": "msq",
+      "text": "Into which three main categories did the Gang of Four divide design patterns? (Select all that apply.)",
+      "options": [
+        "Creational",
+        "Structural",
+        "Behavioral",
+        "Functional",
+        "Relational"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "Slide “The Original Design Patterns”: the three main categories are Creational, Structural and Behavioral.",
+      "id": 48
+    },
+    {
+      "type": "mc",
+      "text": "How many design patterns did the Gang of Four list?",
+      "options": [
+        "3",
+        "12",
+        "17",
+        "23"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Slide “The Original Design Patterns”: they listed 23 design patterns.",
+      "id": 49
+    },
+    {
+      "type": "mc",
+      "text": "The Observer design pattern belongs to which category?",
+      "options": [
+        "Creational",
+        "Structural",
+        "Behavioral",
+        "Architectural"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Slide “The Original Design Patterns”: two of the most commonly used design patterns are the Observer design pattern (a Behavioral design pattern) and the Model-View-Controller (MVC).",
+      "id": 50
+    },
+    {
+      "type": "mc",
+      "text": "What is the Observer design pattern?",
+      "options": [
+        "A subscription notification design that lets objects receive events when there are changes to an object they are observing",
+        "A pattern that splits an application into model, view and controller",
+        "A pattern for creating exactly one instance of a class",
+        "A logging tool that watches the program for errors"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Observer Design Pattern”: the observer design pattern is a subscription notification design that lets objects receive events when there are changes to an object they are observing.",
+      "id": 51
+    },
+    {
+      "type": "msq",
+      "text": "To implement the Observer subscription mechanism, what must the subject have? (Select all that apply.)",
+      "options": [
+        "The ability to store a list of all of its observers",
+        "Methods to add and remove observers",
+        "A timer that polls each observer every second",
+        "A graphical user interface"
+      ],
+      "correctAnswer": [
+        0,
+        1
+      ],
+      "points": 1,
+      "explanation": "Slide “Observer Design Pattern”: the subject must be able to store a list of all of its observers and must have methods to add and remove observers. Polling is what the subscription mechanism replaces.",
+      "id": 52
+    },
+    {
+      "type": "mc",
+      "text": "What is the benefit of the Observer design pattern?",
+      "options": [
+        "Each component can be built in parallel",
+        "Observers can get real time data from the subject when a change occurs",
+        "The subject never needs to know who its observers are or keep any list of them",
+        "It removes the need for classes"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Observer Design Pattern”: observers can get real time data from the subject when a change occurs, and subscription mechanisms provide better performance than other options such as polling. “Built in parallel” is the benefit of MVC.",
+      "id": 53
+    },
+    {
+      "type": "mc",
+      "text": "The Model-View-Controller (MVC) design pattern aims to simplify development of…",
+      "options": [
+        "Applications that depend on graphic user interfaces",
+        "Command-line scripts with no user input",
+        "Database storage engines",
+        "Network routing protocols"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Model-View-Controller (MVC)” (and the summary): MVC simplifies development of applications that depend on graphic user interfaces.",
+      "id": 54
+    },
+    {
+      "type": "drag-drop",
+      "text": "Match each MVC component to its responsibility.",
+      "allChoices": [
+        "The application's data structure; manages the data, logic and rules of the application and gets input from the controller",
+        "The visual representation of the data",
+        "The middleman; takes in user input and manipulates it to fit the format for the model or view"
+      ],
+      "pairs": [
+        {
+          "term": "Model",
+          "match": "The application's data structure; manages the data, logic and rules of the application and gets input from the controller"
+        },
+        {
+          "term": "View",
+          "match": "The visual representation of the data"
+        },
+        {
+          "term": "Controller",
+          "match": "The middleman; takes in user input and manipulates it to fit the format for the model or view"
+        }
+      ],
+      "points": 3,
+      "explanation": "Slide “Model-View-Controller (MVC)”: the Model is the application's data structure, managing data, logic and rules, with input from the controller; the View is the visual representation of the data; the Controller is the middleman between the model and view.",
+      "id": 55
+    },
+    {
+      "type": "mc",
+      "text": "What is the benefit of MVC?",
+      "options": [
+        "Each component can be built in parallel",
+        "Observers get real time data without polling",
+        "It removes the need for a user interface",
+        "It stores files as snapshots instead of deltas"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Model-View-Controller (MVC)”: the benefit of MVC is that each component can be built in parallel.",
+      "id": 56
+    },
+    {
+      "type": "msq",
+      "text": "Version control is a way to manage changes to a set of files in order to keep a history of those changes. What else is it called? (Select all that apply.)",
+      "options": [
+        "Version control systems",
+        "Revision control",
+        "Source control",
+        "Change suppression",
+        "File compression"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "Slide “Types of Version Control Systems”: version control is also called version control systems, revision control or source control.",
+      "id": 57
+    },
+    {
+      "type": "msq",
+      "text": "Which are benefits of version control? (Select all that apply.)",
+      "options": [
+        "Enables collaboration",
+        "Accountability and visibility",
+        "Work in isolation",
+        "Safety",
+        "Work anywhere",
+        "Automatically fixes bugs",
+        "Makes code run faster"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "points": 1,
+      "explanation": "Slide “Types of Version Control Systems”: the benefits are enables collaboration, accountability and visibility, work in isolation, safety, and work anywhere.",
+      "id": 58
+    },
+    {
+      "type": "drag-drop",
+      "text": "Match each type of version control system to its description.",
+      "allChoices": [
+        "Uses a simple database to keep track of changes to the file, usually storing the delta between two versions",
+        "Uses a server-client model; only one individual can work on a particular file at a time",
+        "Uses a peer-to-peer model; every individual can work on any file at the same time, so locking is not required"
+      ],
+      "pairs": [
+        {
+          "term": "Local (LVCS)",
+          "match": "Uses a simple database to keep track of changes to the file, usually storing the delta between two versions"
+        },
+        {
+          "term": "Centralized (CVCS)",
+          "match": "Uses a server-client model; only one individual can work on a particular file at a time"
+        },
+        {
+          "term": "Distributed (DVCS)",
+          "match": "Uses a peer-to-peer model; every individual can work on any file at the same time, so locking is not required"
+        }
+      ],
+      "points": 3,
+      "explanation": "Slides “Types of Version Control Systems (Contd.)”: LVCS keeps changes in a simple database, usually as deltas; CVCS is server-client, and only one person can work on a file at a time; DVCS is peer-to-peer, and everyone can work on any file at once because they modify their local working copy.",
+      "id": 59
+    },
+    {
+      "type": "mc",
+      "text": "In a Local Version Control System, how does the user revert to an earlier version of a file?",
+      "options": [
+        "The delta is reversed to get to the requested version",
+        "The file is downloaded again from a central server",
+        "A full snapshot of every version is restored",
+        "The file is checked out and locked from a peer"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Local Version Control System (LVCS)”: in most cases the system stores the delta between the two versions of the file, and when the user wants to revert, the delta is reversed to get to the requested version.",
+      "id": 60
+    },
+    {
+      "type": "mc",
+      "text": "In a Centralized Version Control System, what must an individual do to change a file?",
+      "options": [
+        "Push the file to a peer and wait for conflict detection",
+        "Check out the file to lock it, make the required changes, and check in once done",
+        "Create a new branch and fast-forward merge it",
+        "Nothing — anyone can edit any file at any time"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Centralized Version Control System (CVCS)”: the repository is stored on a server, only one individual can work on a particular file at a time, and they must check out the file to lock it, make the changes, and check in once done.",
+      "id": 61
+    },
+    {
+      "type": "tf",
+      "text": "In a Distributed Version Control System, after making changes the individual pushes the file to the main repository in the repository hosting service, and the version control system detects any conflicts between file changes.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Distributed Version Control System (DVCS)”: when the individual has made the changes, they push the file to the main repository in the repository hosting service, and the version control system detects any conflicts. The repository can be stored on a client system but is usually stored in a hosting service.",
+      "id": 62
+    },
+    {
+      "type": "mc",
+      "text": "What is one key difference between Git and other version control systems?",
+      "options": [
+        "Git stores data as snapshots instead of differences (deltas)",
+        "Git only runs on Linux",
+        "Git requires files to be locked before editing",
+        "Git is a closed-source, paid product"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Git”: Git is an open source implementation of a DVCS, and one key difference is that it stores data as snapshots instead of differences (the delta between the current file and the previous version). The Git client is available for MacOS, Windows and Linux/Unix.",
+      "id": 63
+    },
+    {
+      "type": "tf",
+      "text": "If a file does not change, Git takes a new and identical snapshot of it anyway.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Git”: if the file does not change, Git uses a reference link to the last snapshot in the system instead of taking a new and identical snapshot.",
+      "id": 64
+    },
+    {
+      "type": "matching",
+      "text": "Git is organized by 3s — three stages and three states. Label each one as a <strong>stage</strong> or a <strong>state</strong>.",
+      "allChoices": [
+        "Stage",
+        "State"
+      ],
+      "pairs": [
+        {
+          "term": "Repository (the .git directory)",
+          "match": "Stage"
+        },
+        {
+          "term": "Working directory",
+          "match": "Stage"
+        },
+        {
+          "term": "Staging area",
+          "match": "Stage"
+        },
+        {
+          "term": "Committed",
+          "match": "State"
+        },
+        {
+          "term": "Modified",
+          "match": "State"
+        },
+        {
+          "term": "Staged",
+          "match": "State"
+        }
+      ],
+      "points": 6,
+      "explanation": "Slide “Git (Contd.)”: the three stages are the repository (the .git directory), the working directory and the staging area. The three states are committed, modified and staged. Careful: the staging <em>area</em> is a stage, while <em>staged</em> is a state.",
+      "id": 65
+    },
+    {
+      "type": "mc",
+      "text": "What is a <strong>remote</strong> repository in Git?",
+      "options": [
+        "A repository stored on the file system of the client machine where the git commands are run",
+        "A repository stored somewhere other than the client machine, usually a server or repository hosting service",
+        "A backup copy that only contains the latest commit, with no history",
+        "A repository that must be locked before anyone can clone it"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Local vs. Remote Repositories”: a local repository is stored on the client machine's file system; a remote repository is stored somewhere other than the client machine, usually a server or repository hosting service. It contains the full repository, including code and file history.",
+      "id": 66
+    },
+    {
+      "type": "tf",
+      "text": "Using a remote repository makes Git a centralized version control system, because clients must lock the repository when they clone it.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Local vs. Remote Repositories”: a remote repository with Git continues to be a DVCS, because the remote contains the full repository (code and file history). When a client clones it, it gets the full repository without requiring a lock, as in a CVCS.",
+      "id": 67
+    },
+    {
+      "type": "tf",
+      "text": "After a local repository is cloned from a remote repository, the two stay automatically in sync.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Local vs. Remote Repositories”: after cloning, the two repositories are independent of each other until content changes are applied to the other branch through a manual Git command execution.",
+      "id": 68
+    },
+    {
+      "type": "mc",
+      "text": "According to “What is Branching?”, when a repository is created, the code is automatically put on a branch called…",
+      "options": [
+        "Origin",
+        "Master",
+        "Head",
+        "Trunk"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "warning": "Upon double checking, newer Git setups and GitHub often name the first branch <code>main</code> instead. For this course, the answer is <strong>Master</strong>.",
+      "explanation": "Slide “What is Branching?”: branching enables users to work on code independently without affecting the main code, and when a repository is created the code is automatically put on a branch called Master. (The default name is configurable in Git, and many newer setups use main.)",
+      "id": 69
+    },
+    {
+      "type": "tf",
+      "text": "When a user switches from one branch to another, the code in their working directory and the files in the staging area change accordingly, and the repository (.git) directory changes too.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “What is Branching?”: the working directory and staging area change accordingly, but the repository (.git) directories remain unchanged. Git's branch creation is lightweight, and switching between branches is almost instantaneous.",
+      "id": 70
+    },
+    {
+      "type": "mc",
+      "text": "Which statement about Git and GitHub is correct?",
+      "options": [
+        "Git and GitHub are the same thing",
+        "Git is an implementation of distributed version control with a command line interface; GitHub is a service provided by Microsoft that implements a repository hosting service with Git",
+        "GitHub is the command line tool, and Git is the website",
+        "GitHub is a centralized version control system that replaces Git"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “GitHub and Other Providers”: Git and GitHub are not the same. Git is an implementation of distributed version control and provides a command line interface; GitHub is a service provided by Microsoft that implements a repository hosting service with Git.",
+      "id": 71
+    },
+    {
+      "type": "msq",
+      "text": "Besides Git's version control and source code management, which additional features does GitHub provide? (Select all that apply.)",
+      "options": [
+        "Code review",
+        "Documentation",
+        "Project management",
+        "Bug tracking",
+        "Feature requests",
+        "Domain name registration"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "points": 1,
+      "explanation": "Slide “GitHub and Other Providers”: GitHub adds code review, documentation, project management, bug tracking and feature requests.",
+      "id": 72
+    },
+    {
+      "type": "fitb",
+      "text": "GitHub introduced the concept of the ___ request: a way of formalizing a request by a contributor to review changes in their branch for inclusion in the project's main or other curated branches.",
+      "correctAnswer": "pull",
+      "points": 1,
+      "explanation": "Slide “GitHub and Other Providers”: GitHub introduced the concept of the “pull request”.",
+      "id": 73
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the option used to set Git's initial global settings.",
+      "code": "$ git config ___ key value",
+      "correctAnswer": "--global",
+      "points": 1,
+      "explanation": "Slide “Setting up Git”: to configure Git, use the --global option to set the initial global settings: git config --global key value.",
+      "id": 74
+    },
+    {
+      "type": "mc",
+      "text": "When a new or existing project becomes a Git repository with <code>git init</code>, what is created in the project folder?",
+      "options": [
+        "A visible folder called repository",
+        "A hidden .git directory",
+        "A file called README.md",
+        "A remote repository on GitHub"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Create a New Git Repository”: git init creates an empty Git repository or makes an existing folder a Git repository; a hidden .git directory is created in the project folder. For a new repository, the directory in the given path is created first.",
+      "id": 75
+    },
+    {
+      "type": "msq",
+      "text": "What metadata does the .git directory hold? (Select all that apply.)",
+      "options": [
+        "The compressed files",
+        "The commit history",
+        "The staging area",
+        "Your GitHub password",
+        "A compiled copy of the program"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "Slide “Create a New Git Repository”: the .git directory is the repository that holds metadata such as the compressed files, the commit history and the staging area. Git also creates the master branch.",
+      "id": 76
+    },
+    {
+      "type": "msq",
+      "text": "Git supports four major transport protocols for accessing the &lt;repository&gt; in <code>git clone &lt;repository&gt; [target directory]</code>. Which are they? (Select all that apply.)",
+      "options": [
+        "Local",
+        "Secure Shell (SSH)",
+        "Git",
+        "HTTP",
+        "FTP",
+        "SMTP"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "Slide “Get an Existing Git Repository”: Git supports four major transport protocols for accessing the repository: Local, Secure Shell (SSH), Git, and HTTP.",
+      "id": 77
+    },
+    {
+      "type": "mc",
+      "text": "Which command gets a list of files that have differences between the working directory and the parent branch?",
+      "options": [
+        "git diff",
+        "git status",
+        "git log",
+        "git branch"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “View the Modified Files in the Working Directory”: git status gets a list of files that have differences between the working directory and the parent branch. git diff is the generic file comparison tool.",
+      "id": 78
+    },
+    {
+      "type": "tf",
+      "text": "When using the <code>git diff</code> command, the file must be a Git tracked file.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Compare Changes Between Files”: git diff is essentially a generic file comparison tool, and the file does not need to be a Git tracked file.",
+      "id": 79
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blank to add <strong>all</strong> the changed files to the staging area.",
+      "code": "$ git add ___",
+      "correctAnswer": ".",
+      "points": 1,
+      "warning": "Upon double checking, the slide prints this as <code>git add.</code> with no space. The real command needs a space: <code>git add .</code>",
+      "explanation": "Slide “Adding Files to the Staging Area”: to add all changed files, use git add . (a dot for the current directory). git add can be used more than once before committing, and only the files specified are added to the staging area.",
+      "id": 80
+    },
+    {
+      "type": "mc",
+      "text": "Which command removes a file from the staging area (so it will be removed from the Git repository) <strong>without</strong> removing the file itself from the working directory?",
+      "options": [
+        "git rm &lt;file path&gt;",
+        "git rm --cached &lt;file path&gt;",
+        "rm &lt;file path&gt; then git add &lt;file path&gt;",
+        "git commit -m \"remove\""
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Adding and Removing Files (Contd.)”: git rm --cached &lt;file path&gt; adds the removal to the staging area without removing the file from the working directory. Plain git rm, and the two-step rm + git add, both delete the file from the working directory.",
+      "id": 81
+    },
+    {
+      "type": "tf",
+      "text": "The two-step removal process (the regular filesystem <code>rm</code> command, then <code>git add</code>) preserves the file in the working directory.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Adding and Removing Files (Contd.)”: the two-step process is equivalent to git rm &lt;file path&gt;, and using this option does not allow the file to be preserved in the working directory.",
+      "id": 82
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the option that commits the changes from the staging area <strong>with a message</strong>.",
+      "code": "$ git commit ___ \"<message>\"",
+      "correctAnswer": "-m",
+      "points": 1,
+      "explanation": "Slide “Updating Repositories”: git commit combines all the content changes in the staging area into a single commit and updates the local repository; git commit -m \"&lt;message&gt;\" does it with a message.",
+      "id": 83
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blank to update the master branch of the remote repository with the contents of the local repository.",
+      "code": "$ git push ___ master",
+      "correctAnswer": "origin",
+      "points": 1,
+      "explanation": "Slide “Updating Repositories (Contd.) — Updating the Remote Repository”: git push origin &lt;branch name&gt; updates a particular branch in the remote, so git push origin master updates its master branch.",
+      "id": 84
+    },
+    {
+      "type": "mc",
+      "text": "When will <code>git push</code> <strong>not</strong> execute successfully?",
+      "options": [
+        "When there is a conflict with adding the changes from the local repository to the remote repository",
+        "When the commit has a message",
+        "Whenever the remote repository is on GitHub",
+        "When the working directory has no untracked files"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Updating Repositories (Contd.)”: git push will not execute successfully if there is a conflict with adding the changes from the local Git repository to the remote Git repository.",
+      "id": 85
+    },
+    {
+      "type": "tf",
+      "text": "Local copies of a Git repository are automatically updated whenever another contributor updates the remote repository.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Updating Your Local Copy of the Repository”: local copies do not automatically get updated; updating them is a manual step using git pull.",
+      "id": 86
+    },
+    {
+      "type": "mc",
+      "text": "Which command updates the local copy of the Git repository from a <strong>specific branch</strong>?",
+      "options": [
+        "git pull origin &lt;branch&gt;",
+        "git push origin &lt;branch&gt;",
+        "git clone &lt;branch&gt;",
+        "git status &lt;branch&gt;"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Updating Repositories (Contd.)”: git pull (or git pull origin) updates from the parent branch, and git pull origin &lt;branch&gt; updates from a specific branch. git pull updates the local .git repository with the latest commits and file history from the remote, then updates the working directory.",
+      "id": 87
+    },
+    {
+      "type": "mc",
+      "text": "You are on <code>master</code>. Which command creates a new branch named <code>feature</code> starting from <code>master</code>?",
+      "options": [
+        "git branch feature master",
+        "git branch master feature",
+        "git branch -d feature",
+        "git merge feature master"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "warning": "Upon double checking, the slide writes the syntax as <code>git branch &lt;parent branch&gt; &lt;branch name&gt;</code>, which is backwards. Git takes the new branch name first: <code>git branch &lt;branch name&gt; [&lt;parent branch&gt;]</code>. Typing <code>git branch master feature</code> fails with “a branch named 'master' already exists.” The same goes for <code>git checkout -b &lt;branch name&gt; [&lt;parent branch&gt;]</code>.",
+      "explanation": "Slide “Creating and Deleting a Branch”: git branch lists, creates or deletes a branch, and git checkout -b creates a branch and switches to it. The slide puts the parent branch first, but running both orders in a test repository showed that git branch feature master creates feature from master, while git branch master feature errors out. git branch -d deletes a branch, and git merge joins branches.",
+      "id": 88
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the option that deletes a branch.",
+      "code": "$ git branch ___ <branch name>",
+      "correctAnswer": "-d",
+      "points": 1,
+      "explanation": "Slide “Creating and Deleting a Branch”: to delete a branch, use git branch -d &lt;branch name&gt;.",
+      "id": 89
+    },
+    {
+      "type": "msq",
+      "text": "Which commands get a list of all the local branches? (Select all that apply.)",
+      "options": [
+        "git branch",
+        "git branch --list",
+        "git status",
+        "git branch -d"
+      ],
+      "correctAnswer": [
+        0,
+        1
+      ],
+      "points": 1,
+      "explanation": "Slide “Get a List of all Branches”: git branch or git branch --list lists all the local branches. git branch -d deletes one.",
+      "id": 90
+    },
+    {
+      "type": "tf",
+      "text": "During a merge, Git applies the source branch's changes to the target branch, and both the source and target branches are modified.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Merging Branches”: during a merge, only the target branch is modified. The source branch is untouched and remains the same.",
+      "id": 91
+    },
+    {
+      "type": "matching",
+      "text": "Match each merge outcome to its description, as defined in the module.",
+      "allChoices": [
+        "Git applies the changes/commits from the source branch(es) to the target branch automatically and without any conflicts",
+        "Git can't perform a fast-forward merge because it doesn't know how to automatically apply the changes from the branches together for the file(s)"
+      ],
+      "pairs": [
+        {
+          "term": "Fast-forward merge",
+          "match": "Git applies the changes/commits from the source branch(es) to the target branch automatically and without any conflicts"
+        },
+        {
+          "term": "Merge conflict",
+          "match": "Git can't perform a fast-forward merge because it doesn't know how to automatically apply the changes from the branches together for the file(s)"
+        }
+      ],
+      "points": 2,
+      "warning": "Upon double checking, in real Git a fast-forward merge specifically means the target branch has no new commits of its own, so Git just moves its pointer forward. A merge without conflicts can still be a regular merge commit. For this course, use the module's definitions.",
+      "explanation": "Slide “Fast-Forward Merge / Merge Conflicts”: a fast-forward merge is when Git applies the source branch changes to the target automatically and without conflicts; a merge conflict is when Git can't, because it doesn't know how to combine the changes for the file(s).",
+      "id": 92
+    },
+    {
+      "type": "fitb",
+      "text": "You are on some other branch. Fill in the commands that merge the <code>feature</code> branch into the <code>master</code> branch.",
+      "code": "$ git ___ master\n$ git ___ feature",
+      "correctAnswer": [
+        "checkout",
+        "merge"
+      ],
+      "points": 2,
+      "explanation": "Slide “Performing the Merge”: to merge into a branch that isn't the current one, first switch to the target with git checkout &lt;target branch name&gt;, then run git merge &lt;source branch name&gt;. git merge &lt;branch name 1&gt;...&lt;branch name n&gt; merges several branches into the current one.",
+      "id": 93
+    },
+    {
+      "type": "matching",
+      "text": "Match each symbol in a unified .diff file to its meaning.",
+      "allChoices": [
+        "The line has been added",
+        "The line has been removed",
+        "A file has been added or removed",
+        "Context lines around changed lines",
+        "The next block of information is starting",
+        "The commits compared"
+      ],
+      "pairs": [
+        {
+          "term": "+",
+          "match": "The line has been added"
+        },
+        {
+          "term": "-",
+          "match": "The line has been removed"
+        },
+        {
+          "term": "/dev/null",
+          "match": "A file has been added or removed"
+        },
+        {
+          "term": "\" \" (blank)",
+          "match": "Context lines around changed lines"
+        },
+        {
+          "term": "@@",
+          "match": "The next block of information is starting"
+        },
+        {
+          "term": "index",
+          "match": "The commits compared"
+        }
+      ],
+      "points": 6,
+      "explanation": "Slide “.diff Files”: + added line; - removed line; /dev/null a file added or removed; blank — context lines; @@ — the next block of information is starting (there may be several per file); index — the commits compared.",
+      "id": 94
+    },
+    {
+      "type": "mc",
+      "text": "In this unified diff of <code>f.txt</code>, which line was <strong>removed</strong>?",
+      "context": "<pre>diff --git a/f.txt b/f.txt\nindex de98044..7be73ce 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,3 +1,3 @@\n a\n-b\n+B\n c</pre>",
+      "options": [
+        "a",
+        "b",
+        "B",
+        "c"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "A - prefix marks a removed line and + an added one, so b was removed and B added; a and c (prefixed with a blank) are context lines. This diff was generated by running git diff after changing b to B in a test repository.",
+      "id": 95
+    },
+    {
+      "type": "msq",
+      "text": "Which objectives are part of the lab “Software Version Control with Git”? (Select all that apply.)",
+      "options": [
+        "Initializing Git",
+        "Staging and Committing a File in the Git Repository",
+        "Branches and Merging",
+        "Handling Merge Conflicts",
+        "Integrating Git with GitHub",
+        "Parse YAML in Python"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "points": 1,
+      "explanation": "Slide “Lab - Software Version Control with Git”: Launch the DEVASC VM, Initializing Git, Staging and Committing a File, Managing the File and Tracking Changes, Branches and Merging, Handling Merge Conflicts, and Integrating Git with GitHub. Parsing YAML belongs to the data formats lab.",
+      "id": 96
+    },
+    {
+      "type": "mc",
+      "text": "What is clean code?",
+      "options": [
+        "Code with no comments at all",
+        "The result of developers trying to make their code easy to read and understand for other developers",
+        "Code that has been compressed to the fewest possible lines",
+        "Code that has never been changed since it was first written"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Clean Code”: clean code is the result of developers trying to make their code easy to read and understand for other developers. It emphasizes standardization, proper organization, modularity and inline comments that help make code self-documenting.",
+      "id": 97
+    },
+    {
+      "type": "msq",
+      "text": "Why do developers want to write clean code? (Select all that apply.)",
+      "options": [
+        "It is easier to understand, more compact, and better-organized",
+        "Being modular, it tends to be easier to test using automated methods such as unit testing frameworks",
+        "Being standardized, it is easier to scan and check using automated tools",
+        "It simply looks nicer",
+        "It removes the need for code reviews"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "Slide “Clean Code”: clean code is easier to understand, more compact and better-organized; easier to test with automated methods because it's modular; easier to scan and check with automated tools because it's standardized; and it simply looks nicer.",
+      "id": 98
+    },
+    {
+      "type": "msq",
+      "text": "Which are standard best practices for deciding whether a piece of code should be encapsulated in a method or function? (Select all that apply.)",
+      "options": [
+        "Code that performs a discrete task, even if it happens only once, may be a candidate for encapsulation",
+        "Task code that is used more than once should probably be encapsulated",
+        "Only code longer than 100 lines should be encapsulated",
+        "Code should never be encapsulated if it runs only once"
+      ],
+      "correctAnswer": [
+        0,
+        1
+      ],
+      "points": 1,
+      "explanation": "Slide “Methods and Functions”: code that performs a discrete task, even once, may be a candidate for encapsulation, and task code used more than once should probably be encapsulated. Used correctly, methods and functions simplify the code and reduce the potential for bugs.",
+      "id": 99
+    },
+    {
+      "type": "tf",
+      "text": "When a return statement is executed, its value is returned, and any code below it in the function still runs before control returns to the caller.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Return Statements”: a return statement ends the execution of a function and returns control to the calling function; any code below it gets skipped.",
+      "id": 100
+    },
+    {
+      "type": "matching",
+      "text": "Match each term to its description.",
+      "allChoices": [
+        "Code blocks associated with an object, typically for object-oriented programming",
+        "Standalone code blocks"
+      ],
+      "pairs": [
+        {
+          "term": "Methods",
+          "match": "Code blocks associated with an object, typically for object-oriented programming"
+        },
+        {
+          "term": "Functions",
+          "match": "Standalone code blocks"
+        }
+      ],
+      "points": 2,
+      "explanation": "Slide “Methods vs. Functions”: methods are code blocks associated with an object, typically for object-oriented programming; functions are standalone code blocks.",
+      "id": 101
+    },
+    {
+      "type": "mc",
+      "text": "Which statement about modules is correct?",
+      "options": [
+        "A module is spread across many files and only works together with other modules",
+        "A module consists of a set of functions, typically contains an interface for other modules to integrate with, and is packaged as a single file expected to work independently",
+        "A module is the same thing as a class instance",
+        "Modules make a large project harder to read"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Modules”: developers use modules to divide a large project into smaller parts so it's easier to read and understand. A module consists of a set of functions, typically contains an interface for other modules, and is packaged as a single file expected to work independently (e.g. circleClass.py).",
+      "id": 102
+    },
+    {
+      "type": "msq",
+      "text": "Which statements about classes in Python are correct, according to the module? (Select all that apply.)",
+      "options": [
+        "Classes are a means of bundling data and functionality, and each class declaration defines a new object type",
+        "Classes may have class variables and object variables",
+        "New classes may be defined based on existing classes, inheriting their properties, data members and methods",
+        "A class may be instantiated multiple times, each with its own object-specific data attribute values",
+        "A class can only be instantiated once"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "Slide “Classes”: classes bundle data and functionality, and each declaration defines a new object type; they may have class and object variables; new classes may inherit from existing ones; and a class may be instantiated multiple times, each with its own data.",
+      "id": 103
+    },
+    {
+      "type": "mc",
+      "text": "Python has no means of creating truly “private” class variables or internal methods. By convention, how are methods and variables marked as private?",
+      "options": [
+        "With the private keyword",
+        "With a single preceding underscore ( _ )",
+        "By writing them in all capital letters",
+        "By placing them in a separate module"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Classes” (Note): unlike other OOP languages, Python has no means of creating 'private' class variables or internal methods, but by convention, methods and variables with a single preceding underscore ( _ ) are considered private and not to be used outside the class.",
+      "id": 104
+    },
+    {
+      "type": "msq",
+      "text": "Which objectives are part of the lab “Python Classes Review”? (Select all that apply.)",
+      "options": [
+        "Review Functions, Methods, and Classes",
+        "Define a Function",
+        "Define a Class with Methods",
+        "Review the circleClass.py Script",
+        "Test a Python Function with unittest"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "Slide “Lab - Python Classes Review”: Launch the DEVASC VM, Review Functions, Methods, and Classes, Define a Function, Define a Class with Methods, and Review the circleClass.py Script. Testing with unittest is part of the unit test lab.",
+      "id": 105
+    },
+    {
+      "type": "mc",
+      "text": "According to the module, when does the code review process happen?",
+      "options": [
+        "Before any code is written",
+        "Only after the code changes are complete and tested",
+        "Only after the software is deployed to production",
+        "During the requirements and analysis phase"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “What is a Code Review and Why Should You Do This?”: a code review is when developers (reviewers) look over the codebase, a subset of code, or specific changes and provide feedback, and it only happens after the code changes are complete and tested.",
+      "id": 106
+    },
+    {
+      "type": "msq",
+      "text": "The goal of code reviews is to make sure that the final code… (Select all that apply.)",
+      "options": [
+        "Is easy to read",
+        "Is easy to understand",
+        "Follows coding best practices",
+        "Uses correct formatting",
+        "Is free of bugs",
+        "Has proper comments and documentation",
+        "Is clean",
+        "Is as short as possible, even if unreadable"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "points": 1,
+      "explanation": "Slide “What is a Code Review and Why Should You Do This?”: the final code should be easy to read, easy to understand, follow coding best practices, use correct formatting, be free of bugs, have proper comments and documentation, and be clean.",
+      "id": 107
+    },
+    {
+      "type": "drag-drop",
+      "text": "Match each type of code review to its description.",
+      "allChoices": [
+        "Developers have a series of meetings to review the whole codebase",
+        "Reviews code that was changed as a result of a bug, user story, feature, commit, and so on",
+        "A reviewer looks over the shoulder of the developer who wrote the code and provides feedback",
+        "Can occur following the automatic emails sent by the source code management system when a checkin is made"
+      ],
+      "pairs": [
+        {
+          "term": "Formal code review",
+          "match": "Developers have a series of meetings to review the whole codebase"
+        },
+        {
+          "term": "Change-based code review",
+          "match": "Reviews code that was changed as a result of a bug, user story, feature, commit, and so on"
+        },
+        {
+          "term": "Over-the-shoulder code review",
+          "match": "A reviewer looks over the shoulder of the developer who wrote the code and provides feedback"
+        },
+        {
+          "term": "Email pass-around",
+          "match": "Can occur following the automatic emails sent by the source code management system when a checkin is made"
+        }
+      ],
+      "points": 4,
+      "explanation": "Slide “Types of Code Reviews”: formal — a series of meetings reviewing the whole codebase; change-based (tool-assisted) — reviews code changed because of a bug, user story, feature or commit; over-the-shoulder — the reviewer looks over the developer's shoulder; email pass-around — follows the automatic emails sent on a checkin.",
+      "id": 108
+    },
+    {
+      "type": "fitb",
+      "text": "A change-based code review is also known as a ___ code review.",
+      "correctAnswer": "tool-assisted",
+      "points": 1,
+      "explanation": "Slide “Types of Code Reviews”: change-based code review is also known as a tool-assisted code review.",
+      "id": 109
+    },
+    {
+      "type": "matching",
+      "text": "Software testing is classically subdivided into two general categories. Which category does each item belong to?",
+      "allChoices": [
+        "Functional testing",
+        "Non-functional testing"
+      ],
+      "pairs": [
+        {
+          "term": "Determines whether the software works correctly — does it behave as intended in a logical sense?",
+          "match": "Functional testing"
+        },
+        {
+          "term": "Unit Testing",
+          "match": "Functional testing"
+        },
+        {
+          "term": "Integration Testing",
+          "match": "Functional testing"
+        },
+        {
+          "term": "Usability",
+          "match": "Non-functional testing"
+        },
+        {
+          "term": "Performance",
+          "match": "Non-functional testing"
+        },
+        {
+          "term": "Security",
+          "match": "Non-functional testing"
+        }
+      ],
+      "points": 6,
+      "explanation": "Slide “Testing”: functional testing determines whether the software works correctly, from the low-level detail of Unit Testing to the higher complexity of Integration Testing. Non-functional testing examines usability, performance, security, resiliency, compliance, localization and more, to find out if the software is fit for its purpose.",
+      "id": 110
+    },
+    {
+      "type": "mc",
+      "text": "Detailed functional testing of small pieces of code (lines, blocks, functions, classes, and other components in isolation) is called…",
+      "options": [
+        "Integration testing",
+        "Unit testing",
+        "Performance testing",
+        "Code review"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Unit Testing”: detailed functional testing of small pieces of code in isolation is called Unit Testing. Test frameworks let you make assertions about testable conditions and determine whether they are valid at a point in execution.",
+      "id": 111
+    },
+    {
+      "type": "mc",
+      "text": "Which scripts does PyTest automatically execute?",
+      "options": [
+        "Any scripts that start with test_ or end with _test.py",
+        "Only scripts named main.py",
+        "Any script that subclasses TestCase, regardless of its name",
+        "Only scripts passed with the --all flag"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Unit Testing”: PyTest automatically executes any scripts that start with test_ or end with _test.py, and within them automatically executes any functions beginning with 'test_' or 'tests_'.",
+      "id": 112
+    },
+    {
+      "type": "mc",
+      "text": "How do you write tests with Python's <strong>unittest</strong> framework?",
+      "options": [
+        "Just write functions starting with test_ — no classes needed",
+        "Subclass the built-in TestCase class and test by overriding its built-in methods or adding new methods whose names begin with 'test_'",
+        "Write the tests in a YAML file",
+        "Add comments starting with # test above each function"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Unit Testing”: the unittest framework demands a different syntax than PyTest — you subclass the built-in TestCase class and override its built-in methods or add new methods whose names begin with 'test_'.",
+      "id": 113
+    },
+    {
+      "type": "mc",
+      "text": "What does integration testing ensure?",
+      "options": [
+        "That each line of code works in isolation",
+        "That all the individual units fit together properly to make a complete application",
+        "That the code follows formatting rules",
+        "That customers like the user interface"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Integration Testing”: integration testing ensures that all the individual units fit together properly to make a complete application.",
+      "id": 114
+    },
+    {
+      "type": "mc",
+      "text": "In Test-Driven Development (TDD), what do developers write first?",
+      "options": [
+        "The application code",
+        "The testing code, which captures the design requirements",
+        "The deployment scripts",
+        "The user manual"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slides “Testing” and “Test-Driven Development (TDD)”: developers capture design requirements as tests and then write software to pass those tests. You write the testing code before the application code.",
+      "id": 115
+    },
+    {
+      "type": "drag-drop",
+      "text": "Put the five-step, repeating TDD process in order.",
+      "allChoices": [
+        "Create a new test.",
+        "Run tests to see if any fail for unexpected reasons.",
+        "Write application code to pass the new test.",
+        "Run tests to see if any fail.",
+        "Refactor and improve application code."
+      ],
+      "pairs": [
+        {
+          "term": "Step 1",
+          "match": "Create a new test."
+        },
+        {
+          "term": "Step 2",
+          "match": "Run tests to see if any fail for unexpected reasons."
+        },
+        {
+          "term": "Step 3",
+          "match": "Write application code to pass the new test."
+        },
+        {
+          "term": "Step 4",
+          "match": "Run tests to see if any fail."
+        },
+        {
+          "term": "Step 5",
+          "match": "Refactor and improve application code."
+        }
+      ],
+      "points": 5,
+      "explanation": "Slide “Test-Driven Development (TDD)”: create a new test; run tests to see if any fail for unexpected reasons; write application code to pass the new test; run tests to see if any fail; refactor and improve application code.",
+      "id": 116
+    },
+    {
+      "type": "msq",
+      "text": "Which objectives are part of the lab “Create a Python Unit Test”? (Select all that apply.)",
+      "options": [
+        "Launch the DEVASC VM",
+        "Explore Options in the unittest Framework",
+        "Test a Python Function with unittest",
+        "Integrating Git with GitHub"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "Slide “Lab - Create a Python Unit Test”: Part 1: Launch the DEVASC VM; Part 2: Explore Options in the unittest Framework; Part 3: Test a Python Function with unittest.",
+      "id": 117
+    },
+    {
+      "type": "msq",
+      "text": "Which are the three most popular standard formats for exchanging information with remote APIs? (Select all that apply.)",
+      "options": [
+        "XML",
+        "JSON",
+        "YAML",
+        "CSV",
+        "HTML"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "Slide “Data Formats”: the three most popular standard formats for exchanging information with remote APIs are XML, JSON, and YAML.",
+      "id": 118
+    },
+    {
+      "type": "drag-drop",
+      "text": "Put the steps of the oft-encountered REST API pattern in order.",
+      "allChoices": [
+        "Authenticate, usually by POSTing a user/password combination and retrieving an expiring token",
+        "Execute a GET request to an endpoint to retrieve the state of a resource",
+        "Modify the returned XML, JSON, or YAML",
+        "Execute a POST (or PUT) to the same endpoint to change the state of the resource"
+      ],
+      "pairs": [
+        {
+          "term": "Step 1",
+          "match": "Authenticate, usually by POSTing a user/password combination and retrieving an expiring token"
+        },
+        {
+          "term": "Step 2",
+          "match": "Execute a GET request to an endpoint to retrieve the state of a resource"
+        },
+        {
+          "term": "Step 3",
+          "match": "Modify the returned XML, JSON, or YAML"
+        },
+        {
+          "term": "Step 4",
+          "match": "Execute a POST (or PUT) to the same endpoint to change the state of the resource"
+        }
+      ],
+      "points": 4,
+      "explanation": "Slide “Data Formats”: authenticate (POST a user/password, get an expiring token); GET the resource's state, requesting XML, JSON or YAML; modify the returned data; then POST (or PUT) to the same endpoint to change the state, interpreting the response to see whether it succeeded.",
+      "id": 119
+    },
+    {
+      "type": "mc",
+      "text": "Extensible Markup Language (XML) is a derivative of which language, and the parent of which?",
+      "options": [
+        "A derivative of HTML, and the parent of SGML",
+        "A derivative of SGML (Structured, Generalized Markup Language), and the parent of HTML",
+        "A derivative of JSON, and the parent of YAML",
+        "A derivative of YAML, and the parent of JSON"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “XML”: XML is a generic methodology for wrapping textual data in symmetrical tags to indicate semantics. It is a derivative of Structured, Generalized Markup Language (SGML), and also the parent of HyperText Markup Language (HTML). XML filenames typically end in .xml.",
+      "id": 120
+    },
+    {
+      "type": "drag-drop",
+      "text": "Match each XML feature to its description.",
+      "allChoices": [
+        "The first line in an XML file",
+        "Everything except the first two lines of the document",
+        "Picked by you; should clearly express the meaning of data elements, their relationships, and hierarchy",
+        "Use the same commenting convention as HTML documents",
+        "Embedded within tags to convey additional information"
+      ],
+      "pairs": [
+        {
+          "term": "XML Prologue",
+          "match": "The first line in an XML file"
+        },
+        {
+          "term": "XML Document Body",
+          "match": "Everything except the first two lines of the document"
+        },
+        {
+          "term": "User-Defined Tag Names",
+          "match": "Picked by you; should clearly express the meaning of data elements, their relationships, and hierarchy"
+        },
+        {
+          "term": "Comments in XML",
+          "match": "Use the same commenting convention as HTML documents"
+        },
+        {
+          "term": "XML Attributes",
+          "match": "Embedded within tags to convey additional information"
+        }
+      ],
+      "points": 5,
+      "explanation": "Slide “XML (Contd.)”: the prologue is the first line; the body is everything except the first two lines; tag names are user-defined; comments use HTML's convention; and attributes are embedded within tags to convey additional information.",
+      "id": 121
+    },
+    {
+      "type": "mc",
+      "text": "In the module's XML Namespaces example, the namespace is defined as the value of which attribute, to say the content should be interpreted according to the legacy NETCONF 1.0 standard?",
+      "options": [
+        "xmlns",
+        "xsd",
+        "href",
+        "schema"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “XML (Contd.) — XML Namespaces”: the example uses a namespace, defined as the value of an xmlns attribute, to assert that the content of an XML remote procedure call should be interpreted according to the legacy NETCONF 1.0 standard.",
+      "id": 122
+    },
+    {
+      "type": "mc",
+      "text": "JSON, or JavaScript Object Notation, is a data format derived from…",
+      "options": [
+        "The way complex object literals are written in JavaScript",
+        "SGML tags",
+        "Python dictionaries",
+        "YAML indentation rules"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “JSON”: JSON is a data format derived from the way complex object literals are written in JavaScript. JSON filenames typically end in .json.",
+      "id": 123
+    },
+    {
+      "type": "msq",
+      "text": "Which are JSON basic data types? (Select all that apply.)",
+      "options": [
+        "Numbers",
+        "Strings",
+        "Booleans",
+        "Nulls",
+        "Dates",
+        "Comments"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "Slide “JSON (Contd.)”: JSON basic data types include numbers, strings, Booleans, or nulls. YAML's basic data types are the same four.",
+      "id": 124
+    },
+    {
+      "type": "mc",
+      "text": "Which of the three data formats does <strong>not</strong> support any kind of standard method for including unparsed comments?",
+      "options": [
+        "XML",
+        "JSON",
+        "YAML",
+        "All three support comments"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “JSON (Contd.)”: unlike XML and YAML, JSON does not support any kind of standard method for including unparsed comments in code.",
+      "id": 125
+    },
+    {
+      "type": "tf",
+      "text": "Whitespace in JSON is significant, so files must be indented with spaces, never tabs.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “JSON (Contd.)”: whitespace in JSON is not significant, and files can be indented using tabs or spaces as preferred, or not at all. (It's YAML that uses indentation to show hierarchy.)",
+      "id": 126
+    },
+    {
+      "type": "mc",
+      "text": "What does YAML stand for?",
+      "options": [
+        "Yet Another Markup Language",
+        "YAML Ain't Markup Language",
+        "Your Application Markup Language",
+        "Yielded Array Markup Language"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “YAML”: YAML Ain't Markup Language (YAML) is a superset of JSON designed for even easier human readability.",
+      "id": 127
+    },
+    {
+      "type": "tf",
+      "text": "Because YAML is a superset of JSON, YAML parsers can generally parse JSON documents, and JSON parsers can generally parse YAML documents too.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “YAML”: as a superset of JSON, YAML parsers can generally parse JSON documents, but not vice-versa. YAML can also embed JSON directly (including quotes) in YAML files.",
+      "id": 128
+    },
+    {
+      "type": "mc",
+      "text": "How do YAML files conventionally open and end?",
+      "options": [
+        "Open with &lt;?yaml?&gt; and end with &lt;/yaml&gt;",
+        "Open with three dashes ( --- ) alone on a line and end with three dots ( ... )",
+        "Open with { and end with }",
+        "Open with # and end with #"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “YAML (Contd.) — YAML File Structure”: YAML files conventionally open with three dashes (--- alone on a line) and end with three dots (... likewise).",
+      "id": 129
+    },
+    {
+      "type": "mc",
+      "text": "How does YAML indicate its hierarchy?",
+      "options": [
+        "Using symmetrical tags",
+        "Using curly braces only",
+        "Using indentation",
+        "Using semicolons"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Slide “YAML (Contd.)”: YAML indicates its hierarchy using indentation.",
+      "id": 130
+    },
+    {
+      "type": "mc",
+      "text": "In YAML, how are list (array) members represented?",
+      "options": [
+        "Optionally-indented members preceded by a single dash and space",
+        "Members wrapped in &lt;item&gt; tags",
+        "Members separated by semicolons on one line",
+        "Members preceded by the hash sign and a space"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “YAML (Contd.)”: lists are represented with optionally-indented members preceded by a single dash and space. Maps begin with a label key and a colon, with members indented on later lines. Both can also use a “flow syntax” that looks like JavaScript or Python. A hash and a space start a comment.",
+      "id": 131
+    },
+    {
+      "type": "mc",
+      "text": "How are long strings represented in YAML's “folding” syntax?",
+      "options": [
+        "Linebreaks are presumed to be replaced by spaces when the file is parsed",
+        "Each line must end with a backslash",
+        "The string must be wrapped in triple quotes",
+        "Long strings aren't allowed in YAML"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “YAML (Contd.) — Long Strings”: long strings use a 'folding' syntax, where linebreaks are presumed to be replaced by spaces when the file is parsed/consumed, or a non-folding syntax.",
+      "id": 132
+    },
+    {
+      "type": "tf",
+      "text": "Comments in YAML can be inserted anywhere, including inside a long string literal.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “YAML (Contd.) — Comments”: comments in YAML can be inserted anywhere <strong>except</strong> in a long string literal, and are preceded by the hash sign and a space.",
+      "id": 133
+    },
+    {
+      "type": "fitb",
+      "text": "In YAML 1.2, which tag from the “Failsafe” schema forces a number to be interpreted as a string?",
+      "code": "zip_code: ___ 01234",
+      "correctAnswer": "!!str",
+      "points": 1,
+      "explanation": "Slide “YAML (Contd.) — More YAML Features”: YAML 1.2 supports schemas and tags to disambiguate values. To force a number to be interpreted as a string, use !!str, part of the YAML “Failsafe” schema.",
+      "id": 134
+    },
+    {
+      "type": "matching",
+      "text": "Match each term to its meaning.",
+      "allChoices": [
+        "Analyzing a message, breaking it into its component parts, and understanding their purposes in context",
+        "Turning internal data structures into semantically-equivalent messages formatted as character strings"
+      ],
+      "pairs": [
+        {
+          "term": "Parsing",
+          "match": "Analyzing a message, breaking it into its component parts, and understanding their purposes in context"
+        },
+        {
+          "term": "Serializing",
+          "match": "Turning internal data structures into semantically-equivalent messages formatted as character strings"
+        }
+      ],
+      "points": 2,
+      "explanation": "Slide “Parsing and Serializing”: parsing means analyzing a message, breaking it into its component parts and understanding their purposes in context; serializing is roughly the opposite — on the outbound side, serializers turn internal data structures into semantically-equivalent messages formatted as character strings.",
+      "id": 135
+    },
+    {
+      "type": "msq",
+      "text": "Which objectives are part of the lab “Parse Different Data Types with Python”? (Select all that apply.)",
+      "options": [
+        "Parse XML in Python",
+        "Parse JSON in Python",
+        "Parse YAML in Python",
+        "Parse CSV in Python",
+        "Parse HTML in Python"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "Slide “Lab - Parse Different Data Types with Python”: Part 1: Launch the DEVASC VM; Part 2: Parse XML in Python; Part 3: Parse JSON in Python; Part 4: Parse YAML in Python.",
+      "id": 136
+    }
+  ]
+}

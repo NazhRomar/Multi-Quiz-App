@@ -1,0 +1,504 @@
+{
+  "quizTitle": "Mod03_Act01 (03)",
+  "addedOn": "2026-10-11",
+  "questions": [
+    {
+      "type": "mc",
+      "text": "What is a function?",
+      "options": [
+        "An independently defined block of code that is called by name",
+        "A block of code that can only be called through an object",
+        "A variable that stores a class",
+        "A copy of a class with its own values"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2, Step 1: a function is an independently defined block of code that is called by name. It isn't encapsulated in any other code.",
+      "id": 1
+    },
+    {
+      "type": "mc",
+      "text": "How is a method different from a function?",
+      "options": [
+        "A method can't be called by itself; it depends on the object it's defined in",
+        "A method can't take arguments",
+        "A method is defined with <code>method</code> instead of <code>def</code>",
+        "A method runs automatically when the script starts"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2, Step 2: “A method, however, cannot be called by itself. It is dependent on the object in which it is defined.” You call it through the instance, e.g. <code>myClass.method1Name()</code>. Both are defined with <code>def</code>.",
+      "id": 2
+    },
+    {
+      "type": "mc",
+      "text": "Which line correctly defines a function named <code>functionName</code> that takes no arguments?",
+      "options": [
+        "<code>def functionName():</code>",
+        "<code>def functionName:</code>",
+        "<code>function functionName():</code>",
+        "<code>def functionName()</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A <code>def</code> needs parentheses (even when empty) and a colon. Part 2, Step 1's pseudo-code writes <code>def functionName:</code>, which Python rejects with <code>SyntaxError: expected '('</code> — checked by running it.",
+      "warning": "Upon double checking, the lab's pseudo-code <code>def functionName:</code> isn't valid Python — it's missing the <code>()</code>.",
+      "id": 3
+    },
+    {
+      "type": "mc",
+      "text": "In the lab's method pseudo-code, how are the methods called?",
+      "context": "<pre>myClass = className()\nmyClass.method1Name()\nmyClass.method2Name()\nmyClass.method3Name()</pre>",
+      "options": [
+        "Through the instance, with a dot: <code>myClass.method1Name()</code>",
+        "By name alone: <code>method1Name()</code>",
+        "Through the class keyword: <code>class.method1Name()</code>",
+        "They run automatically when the class is instantiated"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 2, Step 2: the class is instantiated as <code>myClass</code>, then each method is called on it with <code>myClass.methodName()</code>. Calling <code>myLocation()</code> by itself in this lab's script gives <code>NameError: name 'myLocation' is not defined</code>.",
+      "id": 4
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blanks to complete the <code>myCity</code> function so it prints <code>I live in Austin.</code>",
+      "code": "___ myCity(city):\n     print(\"I live in \" + ___ + \".\")\n\nmyCity(\"Austin\")",
+      "correctAnswer": [
+        "def",
+        "city"
+      ],
+      "points": 2,
+      "explanation": "Part 3, Step b: <code>def myCity(city):</code> defines the function with the argument <code>city</code>, and the print joins it into the sentence.",
+      "id": 5
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>myCity.py</code> print?",
+      "context": "<pre>def myCity(city):\n     print(\"I live in \" + city + \".\")\n\nmyCity(\"Austin\")\nmyCity(\"Tokyo\")\nmyCity(\"Salzburg\")</pre>",
+      "options": [
+        "<pre>I live in Austin.\nI live in Tokyo.\nI live in Salzburg.</pre>",
+        "<pre>I live in city.\nI live in city.\nI live in city.</pre>",
+        "<pre>I live in Salzburg.</pre>",
+        "<pre>I live in AustinTokyoSalzburg.</pre>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step d: each call passes a different value for <code>city</code>, so the sentence prints three times with each city name. Verified by running it.",
+      "id": 6
+    },
+    {
+      "type": "mc",
+      "text": "What is a Python class used for?",
+      "options": [
+        "To create objects that have properties and methods",
+        "To group several scripts into one file",
+        "To install packages into a virtual environment",
+        "To run code only once when the script starts"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step 1: “A Python class is used to create objects that have properties and methods.”",
+      "id": 7
+    },
+    {
+      "type": "mc",
+      "text": "When does a class's <code>__init__()</code> method run?",
+      "options": [
+        "Every time the class is instantiated",
+        "Only when you call <code>obj.__init__()</code> yourself",
+        "Once, when the class is defined",
+        "When the script ends"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step 1: “The __init__() function is always initiated when a class is instantiated.” <code>Location(\"Tomas\", \"Portugal\")</code> runs it with those values.",
+      "id": 8
+    },
+    {
+      "type": "tf",
+      "text": "Every Python class must explicitly define an <code>__init__()</code> method.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 4, Step 1: classes typically include an explicitly defined <code>__init__()</code>, “although you can create a class without defining one.”",
+      "id": 9
+    },
+    {
+      "type": "mc",
+      "text": "The lab sometimes calls it the <code>__init__()</code> “function”. Why is it technically a method?",
+      "options": [
+        "Because it's defined inside, and depends on, the class",
+        "Because its name starts with underscores",
+        "Because it takes no arguments",
+        "Because it returns a value"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step 1 note: “Although it is sometimes called the __init__() function, it is dependent on the class. Therefore, it is technically a method.”",
+      "id": 10
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blanks to complete the <code>Location</code> class's constructor.",
+      "code": "class Location:\n    def ___(self, name, country):\n        ___.name = name\n        self.country = country",
+      "correctAnswer": [
+        "__init__",
+        "self"
+      ],
+      "points": 2,
+      "explanation": "Part 4, Step 1c: <code>def __init__(self, name, country):</code>, then each value is stored on the instance with <code>self.name = name</code> and <code>self.country = country</code>.",
+      "id": 11
+    },
+    {
+      "type": "mc",
+      "text": "What does the <code>self</code> parameter refer to?",
+      "options": [
+        "The current instance of the class",
+        "The Python interpreter",
+        "The file the class is saved in",
+        "The method being called"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step 1c: “The self parameter is a reference to the current instance of the class itself.” By convention it's the first parameter. Through it, <code>self.name</code> and <code>self.country</code> are stored on that particular object, so <code>loc1</code> and <code>loc2</code> each keep their own values.",
+      "id": 12
+    },
+    {
+      "type": "tf",
+      "text": "The first parameter of a method has to be spelled <code>self</code>, or Python raises an error.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 4, Step 1c: “By convention, the first parameter is called self.” It's a convention, not a keyword — any name works, but everyone uses <code>self</code>.",
+      "id": 13
+    },
+    {
+      "type": "mc",
+      "text": "Which line creates a <code>Location</code> object called <code>loc</code>?",
+      "options": [
+        "<code>loc = Location(\"Your_Name\", \"Your_Country\")</code>",
+        "<code>loc = new Location(\"Your_Name\", \"Your_Country\")</code>",
+        "<code>Location loc = (\"Your_Name\", \"Your_Country\")</code>",
+        "<code>loc = Location.__init__(\"Your_Name\", \"Your_Country\")</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step 1d: you instantiate by calling the class with the values its <code>__init__()</code> needs. Python has no <code>new</code> keyword, and you don't pass <code>self</code> yourself.",
+      "id": 14
+    },
+    {
+      "type": "mc",
+      "text": "What happens if you instantiate <code>Location</code> with only one value?",
+      "context": "<pre>loc = Location(\"Tomas\")</pre>",
+      "options": [
+        "A <code>TypeError</code> — <code>__init__()</code> is missing the required argument <code>country</code>",
+        "<code>country</code> is set to <code>None</code>",
+        "<code>country</code> is set to an empty string",
+        "<code>\"Tomas\"</code> is used for both <code>name</code> and <code>country</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>name</code> and <code>country</code> are required class variables (Part 4, Step 1d), so leaving one out raises <code>TypeError: ... __init__() missing 1 required positional argument: 'country'</code>. Verified by running it.",
+      "id": 15
+    },
+    {
+      "type": "mc",
+      "text": "After <code>loc = Location(\"Your_Name\", \"Your_Country\")</code>, what does this print?",
+      "context": "<pre>print(loc.name)\nprint(loc.country)</pre>",
+      "options": [
+        "<pre>Your_Name\nYour_Country</pre>",
+        "<pre>name\ncountry</pre>",
+        "<pre>self.name\nself.country</pre>",
+        "An <code>AttributeError</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Steps 1e and 1g: the dot reads the values <code>__init__()</code> stored on the instance. Verified by running it.",
+      "id": 16
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>print(type(loc))</code> output in <code>myLocation.py</code>?",
+      "options": [
+        "<code>&lt;class '__main__.Location'&gt;</code>",
+        "<code>&lt;class 'type'&gt;</code>",
+        "<code>&lt;class 'object'&gt;</code>",
+        "<code>Location</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step 1g: <code>&lt;class '__main__.Location'&gt;</code> — <code>loc</code>'s type is the <code>Location</code> class, defined in the script being run (<code>__main__</code>). Verified by running it.",
+      "id": 17
+    },
+    {
+      "type": "tf",
+      "text": "<code>print(type(loc))</code> showing <code>&lt;class '__main__.Location'&gt;</code> means <code>loc</code> is itself a class.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>type()</code> tells you what class an object belongs to, so the output means <code>loc</code> is an <em>instance</em> (object) of <code>Location</code>. A class itself has type <code>type</code>: <code>print(type(Location))</code> gives <code>&lt;class 'type'&gt;</code>, and <code>isinstance(loc, Location)</code> is <code>True</code> — both checked by running them.",
+      "warning": "Upon double checking, Part 4, Step 1f's wording (“verify the loc is indeed a class”) is loose: <code>loc</code> is an instance of the <code>Location</code> class, not a class.",
+      "id": 18
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blanks to define the <code>myLocation</code> method so it can read the values set in <code>__init__()</code>.",
+      "code": "class Location:\n    def __init__(self, name, country):\n        self.name = name\n        self.country = country\n\n    def myLocation(___):\n        print(\"Hi, my name is \" + ___.name + \" and I live in \" + self.country + \".\")",
+      "correctAnswer": [
+        "self",
+        "self"
+      ],
+      "points": 2,
+      "explanation": "Part 4, Step 2c: the method is given the <code>self</code> parameter “so that the new method can access the variables defined in the __init__() function”, through <code>self.name</code> and <code>self.country</code>.",
+      "id": 19
+    },
+    {
+      "type": "tf",
+      "text": "After adding the <code>myLocation</code> method (with no instantiation code yet), running the script prints nothing.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step 2e: “You will not get any output yet.” Defining a class and its methods doesn't run them; nothing prints until you create an instance and call the method.",
+      "id": 20
+    },
+    {
+      "type": "mc",
+      "text": "What does this print?",
+      "context": "<pre>loc1 = Location(\"Tomas\", \"Portugal\")\nloc1.myLocation()</pre>",
+      "options": [
+        "<code>Hi, my name is Tomas and I live in Portugal.</code>",
+        "<code>Hi, my name is self.name and I live in self.country.</code>",
+        "<code>Tomas Portugal</code>",
+        "Nothing — <code>myLocation()</code> has to be wrapped in <code>print()</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step 3b. The method does the printing itself, so calling it is enough. Verified by running it.",
+      "id": 21
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>print(loc1.myLocation())</code> output?",
+      "options": [
+        "<pre>Hi, my name is Tomas and I live in Portugal.\nNone</pre>",
+        "<pre>Hi, my name is Tomas and I live in Portugal.</pre>",
+        "<pre>Hi, my name is Tomas and I live in Portugal.\nHi, my name is Tomas and I live in Portugal.</pre>",
+        "<pre>None</pre>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>myLocation()</code> prints its sentence but has no <code>return</code>, so it returns <code>None</code> — which the outer <code>print()</code> then prints. Verified by running it. That's why the lab just calls <code>loc1.myLocation()</code>.",
+      "id": 22
+    },
+    {
+      "type": "mc",
+      "text": "The full <code>myLocation.py</code> runs to the end. What is its <strong>third</strong> line of output?",
+      "context": "<pre>loc1 = Location(\"Tomas\", \"Portugal\")\nloc1.myLocation()\nloc2 = Location(\"Ying\", \"China\")\nloc3 = Location(\"Amare\", \"Kenya\")\nloc2.myLocation()\nloc3.myLocation()\nyour_loc = Location(\"Your_Name\", \"Your_Country\")\nyour_loc.myLocation()</pre>",
+      "options": [
+        "<code>Hi, my name is Amare and I live in Kenya.</code>",
+        "<code>Hi, my name is Ying and I live in China.</code>",
+        "<code>Hi, my name is Your_Name and I live in Your_Country.</code>",
+        "<code>Hi, my name is Tomas and I live in Portugal.</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step 3d: output follows the order of the method <em>calls</em>: Tomas, Ying, Amare, then Your_Name. Instantiating <code>loc2</code> and <code>loc3</code> prints nothing by itself. Verified by running it.",
+      "id": 23
+    },
+    {
+      "type": "tf",
+      "text": "A class can be instantiated as many times as you like, with different values for its variables each time.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step 3: “Now that you have a class, you can instantiate it as many times as you like providing different values for the class variables each time.” <code>loc1</code>, <code>loc2</code>, <code>loc3</code> and <code>your_loc</code> each keep their own name and country.",
+      "id": 24
+    },
+    {
+      "type": "mc",
+      "text": "How many methods does the <code>Circle</code> class have, counting <code>__init__()</code>?",
+      "context": "<pre>class Circle:\n    def __init__(self, radius):\n        self.radius = radius\n    def circumference(self):\n      pi = 3.14\n      circumferenceValue = pi * self.radius * 2\n      return circumferenceValue\n    def printCircumference(self):\n      myCircumference = self.circumference()\n      print (\"Circumference of a circle with a radius of \" + str(self.radius) + \" is \" + str(myCircumference))</pre>",
+      "options": [
+        "3",
+        "2",
+        "4",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 5: “The class includes three methods including the __init__() function” — <code>__init__()</code>, <code>circumference()</code> and <code>printCircumference()</code>.",
+      "id": 25
+    },
+    {
+      "type": "matching",
+      "text": "Match each <code>Circle</code> method to its job.",
+      "allChoices": [
+        "Stores the radius value for the instance",
+        "Calculates the circumference and returns it",
+        "Builds and prints the result sentence"
+      ],
+      "pairs": [
+        {
+          "term": "<code>__init__()</code>",
+          "match": "Stores the radius value for the instance"
+        },
+        {
+          "term": "<code>circumference()</code>",
+          "match": "Calculates the circumference and returns it"
+        },
+        {
+          "term": "<code>printCircumference()</code>",
+          "match": "Builds and prints the result sentence"
+        }
+      ],
+      "points": 3,
+      "explanation": "Part 5 notes: <code>__init__()</code> provides a method for entering the radius; <code>circumference</code> calculates the value and returns it (stored in <code>circumferenceValue</code>); <code>printCircumference</code> prints a string using it.",
+      "id": 26
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blanks so <code>circumference()</code> hands its result back, and <code>printCircumference()</code> calls it on the same instance.",
+      "code": "def circumference(self):\n  pi = 3.14\n  circumferenceValue = pi * self.radius * 2\n  ___ circumferenceValue\n\ndef printCircumference(self):\n  myCircumference = ___.circumference()",
+      "correctAnswer": [
+        "return",
+        "self"
+      ],
+      "points": 2,
+      "explanation": "Part 5: <code>circumference</code> <em>returns</em> the value, and <code>printCircumference</code> calls it as <code>self.circumference()</code> — one method calling another on the same object.",
+      "id": 27
+    },
+    {
+      "type": "mc",
+      "text": "Why does <code>printCircumference()</code> wrap <code>self.radius</code> and <code>myCircumference</code> in <code>str()</code>?",
+      "options": [
+        "They're numbers, and joining a number to a string with <code>+</code> raises an error",
+        "To round them to two decimal places",
+        "Because <code>print()</code> only accepts one argument",
+        "To convert them to integers"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 5: “Otherwise, the print statement would throw an error because self.radius and myCircumference are not strings.” Without it you get <code>TypeError: can only concatenate str (not \"int\") to str</code> — checked by running it.",
+      "id": 28
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>circle1.printCircumference()</code> print for <code>circle1 = Circle(2)</code>?",
+      "options": [
+        "<code>Circumference of a circle with a radius of 2 is 12.56</code>",
+        "<code>Circumference of a circle with a radius of 2 is 6.28</code>",
+        "<code>Circumference of a circle with a radius of 2 is 12.566370614359172</code>",
+        "<code>Circumference of a circle with a radius of 2 is 4</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>3.14 * 2 * 2 = 12.56</code>. The class uses <code>pi = 3.14</code>, not <code>math.pi</code>. Verified by running it.",
+      "id": 29
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>circle2.printCircumference()</code> print for <code>circle2 = Circle(5)</code>?",
+      "options": [
+        "<code>Circumference of a circle with a radius of 5 is 31.400000000000002</code>",
+        "<code>Circumference of a circle with a radius of 5 is 31.4</code>",
+        "<code>Circumference of a circle with a radius of 5 is 31.40</code>",
+        "<code>Circumference of a circle with a radius of 5 is 15.7</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>3.14 * 5 * 2</code> is <code>31.400000000000002</code> in Python. <code>3.14</code> can't be stored exactly in binary, and the tiny error shows up here (not for radius 2 or 7). Verified by running the script; <code>round(..., 2)</code> would give <code>31.4</code>.",
+      "warning": "The real output is <code>31.400000000000002</code>, not <code>31.4</code> — floating-point rounding error.",
+      "id": 30
+    },
+    {
+      "type": "mc",
+      "text": "What does <code>circle3.printCircumference()</code> print for <code>circle3 = Circle(7)</code>?",
+      "options": [
+        "<code>Circumference of a circle with a radius of 7 is 43.96</code>",
+        "<code>Circumference of a circle with a radius of 7 is 21.98</code>",
+        "<code>Circumference of a circle with a radius of 7 is 43.982297150257104</code>",
+        "<code>Circumference of a circle with a radius of 7 is 153.86</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>3.14 * 7 * 2 = 43.96</code>. 153.86 would be the area (π × 7²), not the circumference. Verified by running it.",
+      "id": 31
+    },
+    {
+      "type": "tf",
+      "text": "The <code>Circle</code> class's comment says <code>c = pi * 2 * radius</code>, but the code computes <code>pi * self.radius * 2</code>, so the code gives a different answer than the formula.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Multiplication order doesn't change the value: both are 2πr, the circumference formula (the script's header comment and Part 5's second note).",
+      "id": 32
+    },
+    {
+      "type": "tf",
+      "text": "The <code>Circle</code> class won't run because its method bodies are indented 6 spaces instead of 4.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Python only requires each block to be indented consistently, not by exactly 4 spaces. The script runs as written (verified). Four spaces is just the style convention.",
+      "id": 33
+    },
+    {
+      "type": "matching",
+      "text": "Match each term to its meaning.",
+      "allChoices": [
+        "An independent, named block of code",
+        "A function that belongs to a class and is called through an object",
+        "A blueprint for creating objects with properties and methods",
+        "Creating an object from a class",
+        "The method that runs when an object is created"
+      ],
+      "pairs": [
+        {
+          "term": "Function",
+          "match": "An independent, named block of code"
+        },
+        {
+          "term": "Method",
+          "match": "A function that belongs to a class and is called through an object"
+        },
+        {
+          "term": "Class",
+          "match": "A blueprint for creating objects with properties and methods"
+        },
+        {
+          "term": "Instantiation",
+          "match": "Creating an object from a class"
+        },
+        {
+          "term": "<code>__init__()</code>",
+          "match": "The method that runs when an object is created"
+        }
+      ],
+      "points": 5,
+      "explanation": "Parts 2 and 4: a function is independently defined and called by name; a method depends on the object it's defined in; a class creates objects with properties and methods; instantiating creates one; <code>__init__()</code> is always initiated on instantiation.",
+      "id": 34
+    }
+  ]
+}

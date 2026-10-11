@@ -1,0 +1,477 @@
+{
+  "quizTitle": "Module 2: The DevNet Developer Environment PDF",
+  "addedOn": "2026-10-11",
+  "questions": [
+    {
+      "type": "mc",
+      "text": "What is the module objective of Module 2: The DevNet Developer Environment?",
+      "options": [
+        "Implement a development environment using DevNet resources",
+        "Build a REST API from scratch using Python",
+        "Configure Cisco routers and switches from the command line",
+        "Pass the DevNet Associate certification exam"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “Module Objectives”: the module objective is to implement a development environment using DevNet resources.",
+      "id": 1
+    },
+    {
+      "type": "matching",
+      "text": "Match each topic of Module 2 to its topic objective.",
+      "allChoices": [
+        "Explain how DevNet encourages communities of network programmers.",
+        "Investigate DevNet online resources."
+      ],
+      "pairs": [
+        {
+          "term": "DevNet Overview",
+          "match": "Explain how DevNet encourages communities of network programmers."
+        },
+        {
+          "term": "Exploring DevNet Online Resources",
+          "match": "Investigate DevNet online resources."
+        }
+      ],
+      "points": 2,
+      "explanation": "Slide “Module Objectives”: DevNet Overview — explain how DevNet encourages communities of network programmers. Exploring DevNet Online Resources — investigate DevNet online resources.",
+      "id": 2
+    },
+    {
+      "type": "mc",
+      "text": "According to “What is DevNet?”, DevNet is best described as…",
+      "options": [
+        "A Cisco router operating system for programmable networks",
+        "A fully-integrated developer program comprising a website, an interactive developer community, coordinated developer tools, integrated discussion forums, and sandboxes",
+        "A paid certification exam for network engineers",
+        "A single code editor that Cisco ships with its devices"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “What is DevNet?”: DevNet is a fully-integrated developer program comprising a website, an interactive developer community, coordinated developer tools, integrated discussion forums, and sandboxes.",
+      "id": 3
+    },
+    {
+      "type": "drag-drop",
+      "text": "Match each DevNet feature listed in “What is DevNet?” to its description.",
+      "allChoices": [
+        "Self-paced tutorials that cover topics from basic coding to using REST APIs with various technologies",
+        "Production-like development and testing environments for a host of technologies",
+        "A repository of sample code written by other developers",
+        "Support for developer related issues through tickets, live chats, and forums",
+        "A central location for all of the product developer API documentation"
+      ],
+      "pairs": [
+        {
+          "term": "Learning Labs",
+          "match": "Self-paced tutorials that cover topics from basic coding to using REST APIs with various technologies"
+        },
+        {
+          "term": "Sandboxes",
+          "match": "Production-like development and testing environments for a host of technologies"
+        },
+        {
+          "term": "Code Exchange",
+          "match": "A repository of sample code written by other developers"
+        },
+        {
+          "term": "Developer support",
+          "match": "Support for developer related issues through tickets, live chats, and forums"
+        },
+        {
+          "term": "Developer documentation",
+          "match": "A central location for all of the product developer API documentation"
+        }
+      ],
+      "points": 5,
+      "explanation": "Slide “What is DevNet?” lists the five features: Learning Labs (self-paced tutorials), Sandboxes (production-like dev/test environments), Code Exchange (sample code by other developers), Developer support (tickets, live chats, forums) and Developer documentation (central location for all product developer API docs).",
+      "id": 4
+    },
+    {
+      "type": "tf",
+      "text": "DevNet Learning Labs are live, instructor-led classes that run on a fixed schedule.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “What is DevNet?”: Learning Labs are <strong>self-paced</strong> tutorials covering topics from basic coding to using REST APIs with various technologies.",
+      "id": 5
+    },
+    {
+      "type": "mc",
+      "text": "Which DevNet feature gives you <strong>production-like</strong> development and testing environments for a host of technologies?",
+      "options": [
+        "Code Exchange",
+        "Developer documentation",
+        "Sandboxes",
+        "Learning Labs"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Slide “What is DevNet?”: Sandboxes are production-like development and testing environments for a host of technologies.",
+      "id": 6
+    },
+    {
+      "type": "msq",
+      "text": "According to “What is DevNet?”, through which channels does DevNet's developer support handle developer related issues? (Select all that apply.)",
+      "options": [
+        "Tickets",
+        "Live chats",
+        "Forums",
+        "On-site technician visits",
+        "Postal mail"
+      ],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "Slide “What is DevNet?”: Developer support provides support for developer related issues through tickets, live chats, and forums.",
+      "id": 7
+    },
+    {
+      "type": "fitb",
+      "text": "To get an overview of DevNet, visit the DevNet Home page at ___ (write the address without https://).",
+      "correctAnswer": "developer.cisco.com",
+      "points": 1,
+      "explanation": "Slide “Getting Started with DevNet Resources”: to get an overview of DevNet, visit the DevNet Home page at developer.cisco.com.",
+      "id": 8
+    },
+    {
+      "type": "mc",
+      "text": "According to “Getting Started with DevNet Resources”, DevNet provides developers a starting point for…",
+      "options": [
+        "Only Cisco's networking hardware manuals",
+        "All Cisco APIs, including API documentation, education, and developer support",
+        "Third-party cloud providers' billing APIs",
+        "Python and JavaScript language downloads"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Getting Started with DevNet Resources”: DevNet provides developers a starting point for all Cisco APIs, including API documentation, education, and developer support. The summary slide repeats it: DevNet provides developers with a starting point for all Cisco APIs.",
+      "id": 9
+    },
+    {
+      "type": "msq",
+      "text": "Which of these does the DevNet Home page offer, according to “Getting Started with DevNet Resources”? (Select all that apply.)",
+      "options": [
+        "Start Now",
+        "Learning Tracks",
+        "Video Course",
+        "Sandbox",
+        "Code Exchange",
+        "Ecosystem Exchange",
+        "Hardware Store",
+        "Job Board"
+      ],
+      "correctAnswer": [0, 1, 2, 3, 4, 5],
+      "points": 1,
+      "explanation": "Slide “Getting Started with DevNet Resources”: the site offers Start Now, Learning Tracks, Video Course, Sandbox, Code Exchange and Ecosystem Exchange. A hardware store and a job board aren't on the list.",
+      "id": 10
+    },
+    {
+      "type": "msq",
+      "text": "According to “DevNet Learning Labs”, the tutorials cover engineering technologies, programming languages, and concepts such as… (Select all that apply.)",
+      "options": [
+        "Model-driven programmability",
+        "REST APIs",
+        "Python",
+        "JavaScript",
+        "Hardware soldering",
+        "Spreadsheet macros"
+      ],
+      "correctAnswer": [0, 1, 2, 3],
+      "points": 1,
+      "explanation": "Slide “DevNet Learning Labs”: tutorials cover engineering technologies, programming languages, and concepts such as model-driven programmability, REST APIs, Python, and JavaScript.",
+      "id": 11
+    },
+    {
+      "type": "mc",
+      "text": "In “DevNet Learning Labs”, a DevNet Sandbox is described as…",
+      "options": [
+        "A pre-configured environment that is already installed with Cisco platforms",
+        "An empty virtual machine you must install Cisco software on yourself",
+        "A discussion forum for posting code snippets",
+        "A downloadable PDF of the API documentation"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “DevNet Learning Labs”: Learning Labs provide a walk-through for using a DevNet Sandbox — a pre-configured environment that is already installed with Cisco platforms.",
+      "id": 12
+    },
+    {
+      "type": "msq",
+      "text": "Besides tutorials and Sandbox walk-throughs, what else do DevNet Learning Labs enable you to do? (Select all that apply.)",
+      "options": [
+        "Set up a development environment for practicing tasks on a local computer",
+        "Mimic the overall DevNet site using tutorials on coding, collaboration, IoT, data centre, mobility, and networking",
+        "Log a one-on-one support case with a one business day response time",
+        "Browse over 1,500 solutions across industries and geographies"
+      ],
+      "correctAnswer": [0, 1],
+      "points": 1,
+      "explanation": "Slide “DevNet Learning Labs”: Learning Labs also enable you to set up a development environment (for practicing tasks on a local computer) and mimic the overall DevNet site (tutorials on coding, collaboration, IoT, data centre, mobility and networking). Support cases belong to Developer Support, and the 1,500+ solutions are the Ecosystem Exchange.",
+      "id": 13
+    },
+    {
+      "type": "mc",
+      "text": "In the Learning Labs tutorial areas (coding, collaboration, IoT, data centre, mobility, networking), what does <strong>mobility</strong> refer to?",
+      "options": [
+        "Moving workloads between data centres",
+        "Mobile and wireless",
+        "Portable laptops only",
+        "Migrating code between programming languages"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “DevNet Learning Labs”: the tutorial areas include “mobility (mobile and wireless)”.",
+      "id": 14
+    },
+    {
+      "type": "mc",
+      "text": "According to “DevNet Sandbox”, what do DevNet's sandboxes enable?",
+      "options": [
+        "Hands-on exploration of software and APIs",
+        "Purchasing Cisco hardware at a discount",
+        "Hosting a production website for free",
+        "Taking the certification exam online"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “DevNet Sandbox”: DevNet offers a host of sandboxes that enable hands-on exploration of software and APIs.",
+      "id": 15
+    },
+    {
+      "type": "fitb",
+      "text": "The multiple ways DevNet provides for community members to share with each other are called ___.",
+      "correctAnswer": "Exchanges",
+      "points": 1,
+      "explanation": "Slide “DevNet Exchanges”: DevNet provides multiple ways for community members to share with each other. These are called Exchanges.",
+      "id": 16
+    },
+    {
+      "type": "drag-drop",
+      "text": "Match each DevNet Exchange to what it provides.",
+      "allChoices": [
+        "A collection of network automation use cases with different solutions and toolkits",
+        "A repository of source code or tools, categorized using the GitHub API and human moderators",
+        "Over 1,500 solutions across different technologies, industries, and geographies to begin solution design and development"
+      ],
+      "pairs": [
+        {
+          "term": "Automation Exchange",
+          "match": "A collection of network automation use cases with different solutions and toolkits"
+        },
+        {
+          "term": "Code Exchange",
+          "match": "A repository of source code or tools, categorized using the GitHub API and human moderators"
+        },
+        {
+          "term": "Ecosystem Exchange",
+          "match": "Over 1,500 solutions across different technologies, industries, and geographies to begin solution design and development"
+        }
+      ],
+      "points": 3,
+      "explanation": "Slide “DevNet Exchanges”: Automation Exchange — network automation use cases with different solutions and toolkits. Code Exchange — repository of source code or tools, using the GitHub API and human moderators to categorize and display hundreds of related repositories. Ecosystem Exchange — over 1,500 solutions across different technologies, industries, and geographies.",
+      "id": 17
+    },
+    {
+      "type": "mc",
+      "text": "Code Exchange categorizes and displays hundreds of related repositories using human moderators and…",
+      "options": [
+        "The Webex API",
+        "The GitHub API",
+        "The Ansible API",
+        "Machine learning only, with no human review"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “DevNet Exchanges”: Code Exchange uses the GitHub API, as well as human moderators, to categorize and display hundreds of related repositories.",
+      "id": 18
+    },
+    {
+      "type": "mc",
+      "text": "How many solutions can you find in the Ecosystem Exchange?",
+      "options": [
+        "Over 150",
+        "Over 500",
+        "Over 1,500",
+        "Over 15,000"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Slide “DevNet Exchanges”: in the Ecosystem Exchange, one can find over 1,500 solutions across different technologies, industries, and geographies.",
+      "id": 19
+    },
+    {
+      "type": "msq",
+      "text": "According to “Find a Use Case in Automation Exchange”, which network automation use cases does the Automation Exchange provide? (Select all that apply.)",
+      "options": [
+        "Listing of data",
+        "Adding configurations",
+        "Activating policies across domains, users, or devices",
+        "Replacing failed hardware",
+        "Billing and licensing"
+      ],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "Slide “Find a Use Case in Automation Exchange”: the use cases include listing of data, adding configurations, and activating policies across domains, users, or devices.",
+      "id": 20
+    },
+    {
+      "type": "mc",
+      "text": "The Automation Exchange listings are for different tool sets, such as…",
+      "options": [
+        "Photoshop or Illustrator",
+        "Ansible or Puppet",
+        "Excel or Access",
+        "Word or PowerPoint"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “Find a Use Case in Automation Exchange”: the listings are for different tool sets such as Ansible or Puppet.",
+      "id": 21
+    },
+    {
+      "type": "msq",
+      "text": "Which infrastructure scenarios are the Automation Exchange listings organized for? (Select all that apply.)",
+      "options": [
+        "Campus or Branch",
+        "Data Centre",
+        "Service Provider",
+        "Home Gaming",
+        "Retail Point-of-Sale"
+      ],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "Slide “Find a Use Case in Automation Exchange”: the infrastructure scenarios are Campus or Branch, Data Centre, and Service Provider.",
+      "id": 22
+    },
+    {
+      "type": "mc",
+      "text": "According to “DevNet Developer Support”, what can DevNet developer support help troubleshoot?",
+      "options": [
+        "Integrations, API connections, and other specialty questions about developer use cases on Cisco products",
+        "Only physical cabling problems",
+        "Personal laptop repairs",
+        "Questions about any vendor's products, not just Cisco's"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “DevNet Developer Support”: DevNet offers developer support and can help troubleshoot integrations, API connections, and other specialty questions about developer use cases on Cisco products.",
+      "id": 23
+    },
+    {
+      "type": "fitb",
+      "text": "For more information on DevNet developer support, visit developer.cisco.com/___.",
+      "correctAnswer": "support",
+      "points": 1,
+      "explanation": "Slide “DevNet Developer Support”: visit the website developer.cisco.com/support for more information.",
+      "id": 24
+    },
+    {
+      "type": "msq",
+      "text": "According to “DevNet Developer Support”, one can get support by… (Select all that apply.)",
+      "options": [
+        "Logging a ticket",
+        "Posting to a community forum",
+        "Accessing a WebEx Teams space",
+        "Calling a local Cisco store",
+        "Emailing the course instructor"
+      ],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "Slide “DevNet Developer Support”: one can get support by logging a ticket, posting to a community forum, or accessing a WebEx Teams space.",
+      "id": 25
+    },
+    {
+      "type": "matching",
+      "text": "Match each DevNet Developer Support resource to its description.",
+      "allChoices": [
+        "Consists of troubleshooting articles for reference",
+        "A case-based ticket used for one-on-one support with a response time of one business day",
+        "Community forums, viewed at https://devnetsupport.cisco.com by clicking Community"
+      ],
+      "pairs": [
+        {
+          "term": "Knowledge Base",
+          "match": "Consists of troubleshooting articles for reference"
+        },
+        {
+          "term": "Support Case",
+          "match": "A case-based ticket used for one-on-one support with a response time of one business day"
+        },
+        {
+          "term": "Forums in the Cisco Developer Community",
+          "match": "Community forums, viewed at https://devnetsupport.cisco.com by clicking Community"
+        }
+      ],
+      "points": 3,
+      "explanation": "Slide “DevNet Developer Support (Contd.)”: Knowledge Base — troubleshooting articles for reference. Support Case — case-based ticket for one-on-one support, response time of one business day. Forums in the Cisco Developer Community — visit https://devnetsupport.cisco.com and click Community.",
+      "id": 26
+    },
+    {
+      "type": "mc",
+      "text": "What is the response time of a DevNet <strong>Support Case</strong>?",
+      "options": [
+        "One hour",
+        "One business day",
+        "One week",
+        "There is no response — it's a self-help article"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “DevNet Developer Support (Contd.)”: a Support Case is a case-based ticket used for one-on-one support with a response time of one business day.",
+      "id": 27
+    },
+    {
+      "type": "tf",
+      "text": "The DevNet Knowledge Base is a case-based ticket used for one-on-one support.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Slide “DevNet Developer Support (Contd.)”: the Knowledge Base consists of troubleshooting articles for reference. The one-on-one, case-based ticket is the Support Case.",
+      "id": 28
+    },
+    {
+      "type": "mc",
+      "text": "To view the community forums in the Cisco Developer Community, which site do you visit before clicking <strong>Community</strong>?",
+      "options": [
+        "https://devnetsupport.cisco.com",
+        "https://github.com/cisco",
+        "https://community.webex.com",
+        "https://netacad.com/forums"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Slide “DevNet Developer Support (Contd.)”: to view community forums, visit https://devnetsupport.cisco.com and click Community.",
+      "id": 29
+    },
+    {
+      "type": "msq",
+      "text": "Which objectives are part of the lab “Explore DevNet Resources”? (Select all that apply.)",
+      "options": [
+        "Part 1: Find and Navigate a Learning Lab",
+        "Part 2: Explore More Resources",
+        "Part 3: Build a REST API in Python",
+        "Part 4: Configure a Cisco Router"
+      ],
+      "correctAnswer": [0, 1],
+      "points": 1,
+      "explanation": "Slide “Lab – Explore DevNet Resources”: the lab has two parts — Part 1: Find and Navigate a Learning Lab, and Part 2: Explore More Resources.",
+      "id": 30
+    },
+    {
+      "type": "msq",
+      "text": "According to the module summary, DevNet's online resources include… (Select all that apply.)",
+      "options": [
+        "DevNet Learning Labs",
+        "DevNet video courses",
+        "DevNet Sandbox",
+        "DevNet Exchanges",
+        "Extensive DevNet Support",
+        "A DevNet hardware rental program"
+      ],
+      "correctAnswer": [0, 1, 2, 3, 4],
+      "points": 1,
+      "explanation": "Slide “DevNet Developer Environment Summary”: online resources include DevNet Learning Labs, DevNet video courses, DevNet Sandbox, DevNet Exchanges, and extensive DevNet Support.",
+      "id": 31
+    }
+  ]
+}

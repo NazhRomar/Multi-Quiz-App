@@ -1,0 +1,472 @@
+{
+  "quizTitle": "Mod03_Act01 (01)",
+  "addedOn": "2026-10-11",
+  "questions": [
+    {
+      "type": "fitb",
+      "text": "Fill in the option that checks which version of Python is installed in the DEVASC VM.",
+      "code": "devasc@labvm:~$ python3 ___\nPython 3.8.2",
+      "correctAnswer": "-V",
+      "points": 1,
+      "explanation": "Part 2, Step a: <code>python3 -V</code> (capital V) prints the installed version — Python 3.8.2 in the DEVASC VM.",
+      "id": 1
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the command that shows where the local Python environment lives.",
+      "code": "devasc@labvm:~$ ___ python3\n/usr/bin/python3",
+      "correctAnswer": "which",
+      "points": 1,
+      "explanation": "Part 2, Step b: <code>which python3</code> shows the path of the <code>python3</code> the shell runs — <code>/usr/bin/python3</code>.",
+      "id": 2
+    },
+    {
+      "type": "mc",
+      "text": "What does PIP stand for?",
+      "options": [
+        "Python Installer Program",
+        "Pip Installs Packages",
+        "Package Index for Python",
+        "Python Integrated Packager"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 3 intro: “PIP stands for Pip Installs Packages” — a recursive acronym.",
+      "id": 3
+    },
+    {
+      "type": "mc",
+      "text": "Why is running <code>pip3 install</code> on the system-wide Python installation discouraged?",
+      "options": [
+        "System-wide installs need an internet connection every time Python starts",
+        "It can introduce competing dependencies that you may not want for every Python project",
+        "<code>pip3</code> only works inside a virtual environment",
+        "Packages installed system-wide are deleted when you log out"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 3 intro: installing on the system might introduce competing dependencies that you may or may not want for all Python projects. The best practice is a virtual environment per project, with only the packages that project needs.",
+      "id": 4
+    },
+    {
+      "type": "msq",
+      "text": "According to the lab, which are benefits of working inside a Python virtual environment? (Choose all that apply.)",
+      "options": [
+        "You know exactly which packages are installed in a given setting",
+        "You can switch package dependencies easily by switching to another virtual environment",
+        "You avoid breaking things with competing versions of software",
+        "Packages install faster because the virtual environment skips downloading them",
+        "Python itself is upgraded to the newest version inside the environment"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "Part 3 intro: in a virtual environment you know exactly which packages are installed, you can switch dependencies easily when switching to a new virtual environment, and you don't break things through competing versions. A venv doesn't skip downloads or upgrade Python — it uses the Python it was created with.",
+      "id": 5
+    },
+    {
+      "type": "mc",
+      "text": "Which Python 3 tool does the lab use to create a virtual environment?",
+      "options": [
+        "<code>virtualenvwrapper</code>",
+        "<code>conda</code>",
+        "<code>venv</code>",
+        "<code>pipenv</code>"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Part 3 intro: “use the venv tool in Python 3 and then activate the virtual environment.” <code>venv</code> ships with Python 3; the others are separate tools.",
+      "id": 6
+    },
+    {
+      "type": "mc",
+      "text": "Before creating the virtual environment, which directory does the lab move into?",
+      "options": [
+        "<code>~/labs/devnet-src/python</code>",
+        "<code>/usr/bin/python3</code>",
+        "<code>~/python/venv</code>",
+        "<code>~/labs/devnet-src/venv</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 1a: <code>cd labs/devnet-src/python/</code>, which changes the prompt to <code>devasc@labvm:~/labs/devnet-src/python$</code>.",
+      "id": 7
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blanks to create a Python 3 virtual environment named <code>devfun</code>.",
+      "code": "devasc@labvm:~/labs/devnet-src/python$ python3 ___ ___ devfun",
+      "correctAnswer": [
+        "-m",
+        "venv"
+      ],
+      "points": 2,
+      "explanation": "Part 3, Step 1b: <code>python3 -m venv devfun</code>. The <code>-m</code> switch tells Python to run the <code>venv</code> module.",
+      "id": 8
+    },
+    {
+      "type": "mc",
+      "text": "In <code>python3 -m venv devfun</code>, what does the <code>-m</code> switch do?",
+      "options": [
+        "Makes a new directory called <code>devfun</code>",
+        "Tells Python to run the <code>venv</code> module",
+        "Marks the environment as the default for every project",
+        "Runs Python in minimal mode with no packages"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 3, Step 1b: “The -m switch tells Python to run the venv module.”",
+      "id": 9
+    },
+    {
+      "type": "tf",
+      "text": "The virtual environment has to be named <code>devfun</code> for <code>venv</code> to work.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 3, Step 1b: “The name is chosen by the programmer.” Later in the lab you make a second one called <code>devnew</code>.",
+      "id": 10
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blanks to activate the <code>devfun</code> virtual environment.",
+      "code": "devasc@labvm:~/labs/devnet-src/python$ ___ devfun/bin/___\n(devfun) devasc@labvm:~/labs/devnet-src/python$",
+      "correctAnswer": [
+        "source",
+        "activate"
+      ],
+      "points": 2,
+      "explanation": "Part 3, Step 2a: <code>source devfun/bin/activate</code> runs the environment's <code>activate</code> script in the current shell.",
+      "id": 11
+    },
+    {
+      "type": "mc",
+      "text": "After activating the virtual environment, how can you tell which environment you're working in?",
+      "options": [
+        "The prompt starts with the environment's name in parentheses, e.g. <code>(devfun)</code>",
+        "The prompt changes to <code>&gt;&gt;&gt;</code>",
+        "A message saying <code>Environment activated</code> is printed",
+        "The terminal title bar changes to <code>venv</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 2a: “The prompt changes to indicate the name of the environment you are currently working in” — <code>(devfun) devasc@labvm:~/labs/devnet-src/python$</code>. <code>&gt;&gt;&gt;</code> is the Python interpreter's prompt, not a venv's.",
+      "id": 12
+    },
+    {
+      "type": "tf",
+      "text": "While <code>devfun</code> is active, <code>pip3 install</code> only installs packages into the active virtual environment.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 2a: once activated, “when you use the pip3 install command from here, the system will only install packages for the active virtual environment.”",
+      "id": 13
+    },
+    {
+      "type": "mc",
+      "text": "Right after activating the brand-new <code>devfun</code> environment, what does <code>pip3 freeze</code> show in the lab?",
+      "context": "<pre>(devfun) devasc@labvm:~/labs/devnet-src/python$ pip3 freeze</pre>",
+      "options": [
+        "Every package installed system-wide, like <code>ansible</code> and <code>xmltodict</code>",
+        "Nothing — no additional packages are installed yet",
+        "Only <code>requests</code>",
+        "An error, because <code>freeze</code> needs a file name"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 3, Step 2b: <code>pip3 freeze</code> verifies there are no additional Python packages in <code>devfun</code> — the prompt just comes back with no output. A fresh venv doesn't see the system's packages.",
+      "id": 14
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blank to install the <code>requests</code> package into the <code>devfun</code> environment.",
+      "code": "(devfun) devasc@labvm:~/labs/devnet-src/python$ pip3 ___ requests",
+      "correctAnswer": "install",
+      "points": 1,
+      "explanation": "Part 3, Step 2c: <code>pip3 install requests</code>.",
+      "id": 15
+    },
+    {
+      "type": "msq",
+      "text": "Installing <code>requests</code> also pulled in its dependencies. Which packages did <code>pip3</code> install along with it? (Choose all that apply.)",
+      "options": [
+        "<code>urllib3</code>",
+        "<code>idna</code>",
+        "<code>certifi</code>",
+        "<code>chardet</code>",
+        "<code>ansible</code>",
+        "<code>xmltodict</code>"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "Part 3, Step 2c output: “Installing collected packages: urllib3, idna, certifi, chardet, requests.” <code>ansible</code> and <code>xmltodict</code> only show up in the system environment's freeze in Step 3.",
+      "id": 16
+    },
+    {
+      "type": "mc",
+      "text": "What format does <code>pip3 freeze</code> list each installed package in?",
+      "options": [
+        "<code>certifi==2020.4.5.1</code>",
+        "<code>certifi: 2020.4.5.1</code>",
+        "<code>certifi (2020.4.5.1)</code>",
+        "<code>certifi-2020.4.5.1.whl</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 2d: each line is <code>package==version</code>. Part 4 explains that this exact format is what lets the list be reused as a requirements file.",
+      "id": 17
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the command that leaves the virtual environment and goes back to the system.",
+      "code": "(devfun) devasc@labvm:~/labs/devnet-src/python$ ___\ndevasc@labvm:~/labs/devnet-src/python$",
+      "correctAnswer": "deactivate",
+      "points": 1,
+      "explanation": "Part 3, Step 2e: <code>deactivate</code>. The <code>(devfun)</code> prefix disappears from the prompt.",
+      "id": 18
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blank to list the packages installed in the <strong>system</strong> environment.",
+      "code": "devasc@labvm:~/labs/devnet-src/python$ python3 -m ___ freeze",
+      "correctAnswer": "pip",
+      "points": 1,
+      "explanation": "Part 3, Step 3a: <code>python3 -m pip freeze</code>, run after deactivating, lists the system-wide packages.",
+      "id": 19
+    },
+    {
+      "type": "mc",
+      "text": "Why does <code>python3 -m pip freeze</code> use <code>pip</code> rather than <code>pip3</code>?",
+      "options": [
+        "<code>pip3</code> only exists inside virtual environments",
+        "Python 3 is already invoked by the command, so its module is just <code>pip</code>",
+        "<code>pip</code> is the newer name for <code>pip3</code>",
+        "<code>freeze</code> isn't supported by <code>pip3</code>"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Part 3, Step 3a note: “Because Python 3 is invoked with the following command, you only use pip instead of pip3.” <code>-m pip</code> runs the <code>pip</code> module of whichever Python you called.",
+      "id": 20
+    },
+    {
+      "type": "mc",
+      "text": "Which of these appears in the <strong>system</strong> environment's <code>python3 -m pip freeze</code> output, but not in <code>devfun</code>'s?",
+      "options": [
+        "<code>ansible==2.9.4</code>",
+        "<code>urllib3==1.25.9</code>",
+        "<code>chardet==3.0.4</code>",
+        "<code>idna==2.9</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 3a: the system list starts with <code>ansible==2.9.4</code>, <code>apache-libcloud==2.8.0</code>, <code>appdirs==1.4.3</code>… The other three were installed into <code>devfun</code> as dependencies of <code>requests</code>.",
+      "id": 21
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the symbol that sends the freeze output to <code>grep</code> to find the <code>requests</code> version.",
+      "code": "devasc@labvm:~/labs/devnet-src/python$ python3 -m pip freeze ___ grep requests",
+      "correctAnswer": "|",
+      "points": 1,
+      "explanation": "Part 3, Step 3b: pipe (<code>|</code>) the output to <code>grep</code> to quickly find a package's version.",
+      "id": 22
+    },
+    {
+      "type": "mc",
+      "text": "<code>python3 -m pip freeze | grep requests</code> prints five lines, not one. Why?",
+      "context": "<pre>requests==2.22.0\nrequests-kerberos==0.12.0\nrequests-ntlm==1.1.0\nrequests-toolbelt==0.9.1\nrequests-unixsocket==0.2.0</pre>",
+      "options": [
+        "<code>grep</code> prints every line that contains <code>requests</code> anywhere, including other packages whose names start with it",
+        "Five different versions of <code>requests</code> are installed at the same time",
+        "<code>pip freeze</code> repeats a package once per dependency",
+        "<code>grep</code> always prints the matching line plus the next four"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 3b: <code>grep requests</code> matches any line containing the text, so <code>requests-kerberos</code>, <code>requests-ntlm</code>, <code>requests-toolbelt</code> and <code>requests-unixsocket</code> show up too. Only <code>requests==2.22.0</code> is the <code>requests</code> package itself (checked by running the same <code>grep</code> on those five lines).",
+      "id": 23
+    },
+    {
+      "type": "mc",
+      "text": "What version of <code>requests</code> is installed in the <strong>system</strong> environment?",
+      "options": [
+        "2.22.0",
+        "2.23.0",
+        "0.12.0",
+        "It isn't installed system-wide"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 3, Step 3b: <code>requests==2.22.0</code>. <code>devfun</code> got <code>requests-2.23.0</code> in Step 2c, and the two don't interfere — that's the point of a virtual environment. <code>0.12.0</code> is <code>requests-kerberos</code>.",
+      "id": 24
+    },
+    {
+      "type": "mc",
+      "text": "Why is the output of <code>pip3 freeze</code> in a specific format?",
+      "options": [
+        "So other people working on the same project can recreate the same environment from it",
+        "So <code>grep</code> can read it",
+        "So Python can import it as a module",
+        "So the packages can be uninstalled in one command"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4 intro: “You can use all the dependencies listed so that other people who want to work on the same project as you can get the same environment as yours.”",
+      "id": 25
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the symbol that saves the freeze output to a file called <code>requirements.txt</code>.",
+      "code": "(devfun) devasc@labvm:~/labs/devnet-src/python$ pip3 freeze ___ requirements.txt",
+      "correctAnswer": ">",
+      "points": 1,
+      "explanation": "Part 4, Step b: <code>pip3 freeze &gt; requirements.txt</code>. The <code>&gt;</code> redirects the command's output into the file instead of the screen.",
+      "id": 26
+    },
+    {
+      "type": "mc",
+      "text": "Which environment must be active when you run <code>pip3 freeze &gt; requirements.txt</code> to capture <code>devfun</code>'s packages?",
+      "options": [
+        "<code>devfun</code> — so the freeze lists its packages",
+        "None — deactivate first so the system packages are included",
+        "<code>devnew</code>",
+        "It doesn't matter; <code>pip3 freeze</code> always lists every environment"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Steps a–b: re-activate <code>devfun</code> with <code>source devfun/bin/activate</code>, then freeze. Without it, you'd capture the system's packages instead.",
+      "id": 27
+    },
+    {
+      "type": "mc",
+      "text": "After deactivating <code>devfun</code>, where does <code>ls</code> show <code>requirements.txt</code>?",
+      "options": [
+        "In the <code>~/labs/devnet-src/python</code> directory, alongside <code>devfun</code>",
+        "Inside <code>devfun/bin</code>",
+        "In <code>/usr/bin</code>",
+        "Nowhere — the file is deleted on <code>deactivate</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step c: <code>ls</code> in the python directory lists <code>requirements.txt</code> next to <code>devfun</code>, <code>devices.txt</code>, <code>hello-world.py</code> and the other files. The redirect writes to the current directory; deactivating doesn't touch it. (The lab's listing also shows <code>devnew</code>, which isn't created until the next step.)",
+      "id": 28
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the blanks to create and then activate a new virtual environment called <code>devnew</code>.",
+      "code": "devasc@labvm:~/labs/devnet-src/python$ python3 -m venv ___\ndevasc@labvm:~/labs/devnet-src/python$ ___ devnew/bin/activate\n(devnew) devasc@labvm:~/labs/devnet-src/python$",
+      "correctAnswer": [
+        "devnew",
+        "source"
+      ],
+      "points": 2,
+      "explanation": "Part 4, Step d: <code>python3 -m venv devnew</code>, then <code>source devnew/bin/activate</code>. Same two steps as for <code>devfun</code>, just a different name.",
+      "id": 29
+    },
+    {
+      "type": "fitb",
+      "text": "Fill in the option that installs every package listed in <code>requirements.txt</code>.",
+      "code": "(devnew) devasc@labvm:~/labs/devnet-src/python$ pip3 install ___ requirements.txt",
+      "correctAnswer": "-r",
+      "points": 1,
+      "explanation": "Part 4, Step e: <code>pip3 install -r requirements.txt</code> installs the same packages <code>devfun</code> has. <code>-r</code> means “read requirements from this file”.",
+      "id": 30
+    },
+    {
+      "type": "mc",
+      "text": "When installing from <code>requirements.txt</code> into <code>devnew</code>, pip printed <code>Using cached certifi-2020.4.5.1-…whl</code> instead of <code>Downloading</code>. Why?",
+      "options": [
+        "Those same package files were already downloaded for <code>devfun</code>, so pip reused them from its cache",
+        "<code>devnew</code> shares its packages with <code>devfun</code>",
+        "The packages were copied from the system environment",
+        "<code>-r</code> installs packages without downloading anything"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step e output: the exact same versions were downloaded in Part 3, Step 2c, and pip keeps downloaded wheels in a cache. Each venv still gets its own installed copy — <code>devnew</code> and <code>devfun</code> don't share packages.",
+      "id": 31
+    },
+    {
+      "type": "mc",
+      "text": "During <code>pip3 install -r requirements.txt</code> in <code>devnew</code>, which requirement was reported as <strong>already satisfied</strong> instead of being collected?",
+      "options": [
+        "<code>pkg-resources==0.0.0</code>",
+        "<code>requests==2.23.0</code>",
+        "<code>urllib3==1.25.9</code>",
+        "<code>certifi==2020.4.5.1</code>"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step e: “Requirement already satisfied: pkg-resources==0.0.0 in ./devnew/lib/python3.8/site-packages (from -r requirements.txt (line 4))”. Ubuntu's Python puts this placeholder in every new venv, so <code>devnew</code> already had it, and <code>pip3 freeze</code> lists it (Step f). It being on line 4 of <code>requirements.txt</code> means <code>devfun</code>'s freeze had it too.",
+      "warning": "Upon double checking, <code>devfun</code>'s <code>pip3 freeze</code> in Part 3 would also list <code>pkg-resources==0.0.0</code> — the lab's screenshots there leave it out, but <code>requirements.txt</code> (made from that freeze) has it on line 4.",
+      "id": 32
+    },
+    {
+      "type": "tf",
+      "text": "After <code>pip3 install -r requirements.txt</code>, running <code>pip3 freeze</code> in <code>devnew</code> shows the same packages and versions as <code>devfun</code>.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Part 4, Step f: <code>devnew</code> lists <code>certifi==2020.4.5.1</code>, <code>chardet==3.0.4</code>, <code>idna==2.9</code>, <code>pkg-resources==0.0.0</code>, <code>requests==2.23.0</code> and <code>urllib3==1.25.9</code> — exactly what was in <code>requirements.txt</code>. That's how the environment is shared.",
+      "id": 33
+    },
+    {
+      "type": "matching",
+      "text": "Match each command to what it does in the lab.",
+      "allChoices": [
+        "Creates a virtual environment named devfun",
+        "Activates the devfun virtual environment",
+        "Lists the packages installed in the active environment",
+        "Leaves the virtual environment",
+        "Saves the package list to a file",
+        "Installs every package listed in a file"
+      ],
+      "pairs": [
+        {
+          "term": "<code>python3 -m venv devfun</code>",
+          "match": "Creates a virtual environment named devfun"
+        },
+        {
+          "term": "<code>source devfun/bin/activate</code>",
+          "match": "Activates the devfun virtual environment"
+        },
+        {
+          "term": "<code>pip3 freeze</code>",
+          "match": "Lists the packages installed in the active environment"
+        },
+        {
+          "term": "<code>deactivate</code>",
+          "match": "Leaves the virtual environment"
+        },
+        {
+          "term": "<code>pip3 freeze &gt; requirements.txt</code>",
+          "match": "Saves the package list to a file"
+        },
+        {
+          "term": "<code>pip3 install -r requirements.txt</code>",
+          "match": "Installs every package listed in a file"
+        }
+      ],
+      "points": 6,
+      "explanation": "Parts 3 and 4: create with <code>python3 -m venv</code>, activate with <code>source …/bin/activate</code>, list with <code>pip3 freeze</code>, leave with <code>deactivate</code>, save with <code>pip3 freeze &gt; requirements.txt</code>, and rebuild elsewhere with <code>pip3 install -r requirements.txt</code>.",
+      "id": 34
+    }
+  ]
+}
