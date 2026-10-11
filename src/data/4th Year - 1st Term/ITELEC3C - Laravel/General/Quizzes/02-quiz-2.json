@@ -179,7 +179,7 @@
       "correctAnswer": 3,
       "points": 1,
       "warning": "<strong>@endswitch</strong> does exist in Blade, but the quiz keys it as the answer.",
-      "explanation": "Keyed <code>@endswitch</code> to match the quiz, even though a Blade switch is written <code>@switch</code> ... <code>@case</code> ... <code>@break</code> ... <code>@default</code> ... <code>@endswitch</code>, so every listed option is a real directive and <code>@endswitch</code> closes every switch block. The question probably meant to include a fake directive like <code>@enddefault</code>, as in Quiz 1."
+      "explanation": "The quiz says <code>@endswitch</code> does not exist, so it's keyed as the answer here. In real Blade it does exist: a switch is written <code>@switch</code> ... <code>@case</code> ... <code>@break</code> ... <code>@default</code> ... <code>@endswitch</code>, and <code>@endswitch</code> closes every switch block. The question probably meant to include a fake directive like <code>@enddefault</code>, as in Quiz 1."
     },
     {
       "id": 17,
