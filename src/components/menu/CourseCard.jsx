@@ -43,31 +43,35 @@ export default function CourseCard({ course, foldKey, forceExpanded = false, onO
             <span className="course-toggle-icon" aria-hidden="true">
               ▾
             </span>
-            <span className="course-name">{course.displayName}</span>
-            <span className="course-count">
-              {quizzes.length} {quizzes.length === 1 ? 'quiz' : 'quizzes'}
+            <span className="course-title">
+              <span className="course-name">{course.displayName}</span>
+              <span className="course-count">
+                {quizzes.length} {quizzes.length === 1 ? 'quiz' : 'quizzes'}
+              </span>
             </span>
           </button>
         </h3>
-        {/* Study notes (src/notes/), if this subject has any. Several notes
-            share one button; the viewer switches between them. */}
-        {notes.length > 0 && (
-          <button type="button" className="btn-notes" onClick={() => navigate(`/notes/${notes[0].slug}`)}>
-            <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M4 1.75h5.5L12.5 4.75v9.5h-8.5z" />
-              <path d="M6.5 7.5h4M6.5 10h4" />
-            </svg>
-            <span className="btn-notes-label">Notes</span>
+        <div className="course-card-actions">
+          {/* Study notes (src/notes/), if this subject has any. Several notes
+              share one button; the viewer switches between them. */}
+          {notes.length > 0 && (
+            <button type="button" className="btn-notes" onClick={() => navigate(`/notes/${notes[0].slug}`)}>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M4 1.75h5.5L12.5 4.75v9.5h-8.5z" />
+                <path d="M6.5 7.5h4M6.5 10h4" />
+              </svg>
+              Notes
+            </button>
+          )}
+          {/* Always mounted so it can fade in/out with Multi mode (style.css). */}
+          <button
+            className={`btn-select-all ${selection ? 'btn-select-all--visible' : ''}`}
+            onClick={() => selection?.toggleQuizzes(quizzes)}
+            inert={!selection}
+          >
+            {allSelected ? 'Deselect all' : 'Select all'}
           </button>
-        )}
-        {/* Always mounted so it can fade in/out with Multi mode (style.css). */}
-        <button
-          className={`btn-select-all ${selection ? 'btn-select-all--visible' : ''}`}
-          onClick={() => selection?.toggleQuizzes(quizzes)}
-          inert={!selection}
-        >
-          {allSelected ? 'Deselect all' : 'Select all'}
-        </button>
+        </div>
       </div>
       {sections.map((section) => (
         <div className="quiz-section" key={section.key}>

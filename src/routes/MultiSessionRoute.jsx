@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useApp } from '../state/AppContext.jsx';
 import { buildMultiQuiz } from '../data/catalog.js';
 import { useGoHome } from './useGoHome.js';
+import { newQuizIdsAmong } from '../utils/newQuizzes.js';
 import QuizScreen from '../components/quiz/QuizScreen.jsx';
 import ReviewScreen from '../components/review/ReviewScreen.jsx';
 import ResultScreen from '../components/result/ResultScreen.jsx';
@@ -30,6 +31,9 @@ export default function MultiSessionRoute({ mode }) {
       goHome();
       return;
     }
+    // Starting a Multi Quiz counts as opening each quiz in it, clearing
+    // their "new" corners on the home menu.
+    dispatch({ type: 'MARK_QUIZZES_SEEN', payload: newQuizIdsAmong(state.multiSelection) });
     dispatch({
       type: mode === 'review' ? 'START_REVIEW' : 'START_QUIZ',
       payload: {

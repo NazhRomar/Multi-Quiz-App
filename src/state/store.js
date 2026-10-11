@@ -405,6 +405,9 @@ export function reducer(state, action) {
       return { ...state, collapsedCourses };
     }
     case 'MARK_QUIZZES_SEEN': {
+      // Also dispatched on every quiz open, so skip the copy (and the
+      // localStorage write it would trigger) when nothing changes.
+      if (action.payload.every((id) => state.seenNewQuizzes[id])) return state;
       const seenNewQuizzes = { ...state.seenNewQuizzes };
       for (const id of action.payload) seenNewQuizzes[id] = true;
       return { ...state, seenNewQuizzes };

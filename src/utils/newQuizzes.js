@@ -2,8 +2,9 @@ import { catalog } from '../data/catalog.js';
 import { useApp } from '../state/AppContext.jsx';
 
 // A quiz whose JSON has an "addedOn" date shows a colored corner on the home menu
-// until the viewer clears it with the header's "Mark all as seen" button
-// (remembered per device in state.seenNewQuizzes). The corner also lapses on
+// until the viewer opens it (alone or in a Multi Quiz) or clears them all with
+// the header's "Mark all as seen" button (remembered per device in
+// state.seenNewQuizzes). The corner also lapses on
 // its own after this many days, so a first-time visitor months from now
 // doesn't see every quiz flagged as new.
 export const NEW_FOR_DAYS = 30;
@@ -22,6 +23,12 @@ const recentQuizIds = catalog
   .flatMap((course) => course.quizzes)
   .filter(isRecentlyAdded)
   .map((quiz) => quiz.id);
+
+// The quizzes among ids that are inside the "new" window — what opening them
+// should mark seen, so ordinary quiz ids don't pile up in localStorage.
+export function newQuizIdsAmong(ids) {
+  return ids.filter((id) => recentQuizIds.includes(id));
+}
 
 export function useIsNewQuiz(quiz) {
   const { state } = useApp();

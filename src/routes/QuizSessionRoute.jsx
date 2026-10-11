@@ -3,6 +3,7 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useApp } from '../state/AppContext.jsx';
 import { findQuizBySlug, quizUrlFor } from '../data/catalog.js';
 import { useGoHome } from './useGoHome.js';
+import { newQuizIdsAmong } from '../utils/newQuizzes.js';
 import QuizScreen from '../components/quiz/QuizScreen.jsx';
 import ReviewScreen from '../components/review/ReviewScreen.jsx';
 import ResultScreen from '../components/result/ResultScreen.jsx';
@@ -29,6 +30,8 @@ export default function QuizSessionRoute({ mode }) {
       return;
     }
     const { term, course, quiz } = found;
+    // Opening a quiz clears its "new" corner on the home menu.
+    dispatch({ type: 'MARK_QUIZZES_SEEN', payload: newQuizIdsAmong([quiz.id]) });
     if (questionParam) {
       // Always a fresh review, even over this quiz's own active session —
       // tapping a result is a new start, like tapping a quiz on Home. The

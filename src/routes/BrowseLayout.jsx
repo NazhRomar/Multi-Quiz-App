@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { Outlet, useNavigate, useSearchParams } from 'react-router-dom';
 import { useApp } from '../state/AppContext.jsx';
 import { catalog, MIN_SEARCH_LENGTH } from '../data/catalog.js';
@@ -124,9 +124,20 @@ export default function BrowseLayout() {
   // covering every question type, including drag-drop.
   const openShowcase = () => navigate('/dev/showcase');
 
+  // The sticky search bar sits just under the sticky header, whose height
+  // changes as it wraps (and as "Mark all as seen" comes and goes).
+  const headerRef = useRef(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
+  useLayoutEffect(() => {
+    const header = headerRef.current;
+    const ro = new ResizeObserver(() => setHeaderHeight(header.offsetHeight));
+    ro.observe(header);
+    return () => ro.disconnect();
+  }, []);
+
   return (
-    <div className={homeMode.multi ? 'menu--selecting' : ''}>
-      <header className="quiz-header">
+    <div className={homeMode.multi ? 'menu--selecting' : ''} style={{ '--home-header-h': `${headerHeight}px` }}>
+      <header className="quiz-header" ref={headerRef}>
         <h1 className="header-logo-title">
           <img className="header-logo" src={`${import.meta.env.BASE_URL}favicon.svg`} alt="Multi Quiz App" />
         </h1>
