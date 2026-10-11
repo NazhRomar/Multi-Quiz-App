@@ -1,0 +1,55 @@
+{
+  "quizTitle": "Long Quiz 1 (7)",
+  "addedOn": "2026-10-11",
+  "badges": { "unverified": true },
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "A user issues a Linux command and the result is shown. Which Linux command is used to display the contents of the current directory as shown?",
+      "context": "<pre>total 40\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Videos\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Templates\ndrwxr-xr-x 5 devasc devasc 4096 Mar 30 21:24 snap\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Public\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Pictures\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Music\ndrwxr-xr-x 5 devasc devasc 4096 Mar 30 21:21 labs\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Downloads\ndrwxr-xr-x 2 devasc devasc 4096 Apr 15 19:09 Documents\ndrwxr-xr-x 2 devasc devasc 4096 Mar 30 21:25 Desktop\ndevasc@labvm:~$</pre>",
+      "options": ["ls -a", "ls -l", "ls -lr", "ln"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The long format (permissions, owner, size, date) means <code>-l</code>, and the names run in <strong>reverse</strong> alphabetical order (Videos first, Desktop last), which is <code>-r</code>. So it's <code>ls -lr</code>. Plain <code>ls -l</code> would list Desktop first. <code>-a</code> would also show hidden dotfiles, and <code>ln</code> creates links rather than listing anything."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "A program executes a division operation inside a try block that triggers a ZeroDivisionError. The exception is caught by an <code>except ZeroDivisionError:</code> block, followed by a <code>finally:</code> block. Under what condition does the code inside the <code>finally:</code> block execute?",
+      "options": [
+        "Only if no exception occurs in the try block.",
+        "Only if the exception is caught by an except block.",
+        "Only when the program exits without errors.",
+        "Regardless of whether an exception occurred or was handled."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>finally</code> always runs once the <code>try</code>/<code>except</code> finishes: with or without an exception, and whether or not it was caught. That's why it's used for cleanup."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "A system administrator is preparing a Linux server for maintenance and decides to execute the <strong>apt-get upgrade</strong> command in the terminal. What is the specific action that the <strong>apt-get upgrade</strong> command performs in this scenario?",
+      "options": [
+        "Operating system updates are downloaded and will be installed.",
+        "Operating system updates are downloaded and will be installed.",
+        "Every application installed on the system will update itself to the latest version.",
+        "The remote repository of applications and dependencies will be updated to the latest version."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "warning": "The quiz lists the right answer twice, word for word. Either copy is correct on the real quiz, but only the first one is accepted here.",
+      "explanation": "<code>apt-get upgrade</code> downloads and installs newer versions of the installed packages, including OS packages. Refreshing the repository package lists is <code>apt-get update</code>, and apps don't run their own updaters."
+    },
+    {
+      "id": 4,
+      "type": "tf",
+      "text": "A script reads data line-by-line from a text file using <code>with open(\"config.txt\", \"r\") as file:</code>. Using the with context manager guarantees that the file is automatically closed upon exiting the block, even if an error occurs while reading.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Leaving a <code>with</code> block always calls the file's close, whether the block ends normally or because an exception was raised, so you don't need an explicit <code>file.close()</code>."
+    }
+  ]
+}
