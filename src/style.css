@@ -260,6 +260,18 @@ main.question-card {
   white-space: nowrap;
 }
 
+/* "Q" before the question number and "Score" before the points, so the two
+   monospace fractions in the quiz header don't read as the same thing. */
+.header-stat-tag {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.8;
+  margin-right: 0.35em;
+}
+
 .progress-bar-track {
   width: 80px;
   height: 6px;

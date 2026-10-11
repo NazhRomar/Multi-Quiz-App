@@ -1,10 +1,9 @@
 import QuizBadges from './QuizBadges.jsx';
-import { totalPointsOf } from '../../utils/quizTotals.js';
 import { useIsNewQuiz } from '../../utils/newQuizzes.js';
 
 // selected: undefined outside Multi Quiz selection mode, else true/false.
 export default function QuizChip({ quiz, label, onOpen, selected }) {
-  const totalPoints = totalPointsOf(quiz.data.questions);
+  const totalItems = quiz.data.questions ? quiz.data.questions.length : 0;
   const selectable = selected !== undefined;
   const isNew = useIsNewQuiz(quiz);
   return (
@@ -18,8 +17,8 @@ export default function QuizChip({ quiz, label, onOpen, selected }) {
         {label}
         <QuizBadges badges={quiz.badges} />
       </span>
-      <span className="quiz-chip-count" title={`${totalPoints} points`}>
-        {totalPoints}
+      <span className="quiz-chip-count" title={`${totalItems} questions`}>
+        {totalItems}
       </span>
     </button>
   );

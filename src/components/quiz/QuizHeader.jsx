@@ -21,7 +21,8 @@ export default function QuizHeader({ score, goHome }) {
       <HeaderTitle mode="quiz" />
       <div className="header-right">
         <div className="progress-wrap">
-          <span className="progress-label">
+          <span className="progress-label" title="Question number, out of every question in this quiz">
+            <span className="header-stat-tag">Q</span>
             {currentIndex + 1}/{total}
           </span>
           <div className="progress-bar-track">
@@ -29,9 +30,9 @@ export default function QuizHeader({ score, goHome }) {
           </div>
         </div>
         <span className="score-badge" title="Points scored so far, out of every point in this quiz">
-          {/* Phones: no room for the trailing word next to the progress bar. */}
+          {/* Phones: no room for the full word next to the progress bar. */}
+          <span className="header-stat-tag">{isMobile ? 'Pts' : 'Score'}</span>
           {score} / {totalPoints}
-          {!isMobile && ' total'}
         </span>
         <button className="btn-restart" onClick={() => dispatch({ type: 'RESTART' })}>
           Restart
