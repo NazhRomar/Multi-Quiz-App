@@ -1,0 +1,69 @@
+{
+  "quizTitle": "Long Quiz 1 (8)",
+  "addedOn": "2026-10-11",
+  "badges": {
+    "unverified": true
+  },
+  "questions": [
+    {
+      "id": 1,
+      "type": "tf",
+      "text": "A developer updates an enterprise script written in Python. To execute the updated program, the system translates and runs the source code line-by-line at runtime rather than translating all code at once via a compiler.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Python is an interpreted language: the interpreter translates and executes the source as the program runs, rather than compiling the whole program to machine code ahead of time."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "Following the definition of the ipAddress dictionary, the student now needs to retrieve the IP address for the device named R2. Which Python expression should the student use to successfully retrieve the IP address <code>\"10.2.2.1\"</code>?",
+      "context": "<pre>&gt;&gt;&gt; ipAddress = {\"R1\":\"10.1.1.1\",\"R2\":\"10.2.2.1\",\"R3\":\"10.3.3.1\"}</pre>",
+      "options": [
+        "ipAddress[R2]",
+        "ipAddress['R2']",
+        "ipAddress['R2\"]",
+        "ipAddress('R2')"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Dictionary values are looked up by key in square brackets, and the key is the string <code>'R2'</code>, so <code>ipAddress['R2']</code> returns <code>'10.2.2.1'</code>. <code>ipAddress[R2]</code> looks for a variable named <code>R2</code> (NameError), <code>['R2\"]</code> mixes quote types (SyntaxError), and <code>ipAddress('R2')</code> tries to call the dict (TypeError). All verified by running them."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "A software engineer wants to create a custom runtime exception named NegativeNumberError to flag invalid negative inputs in a financial calculation. How should the custom exception class be defined in Python?",
+      "options": [
+        "class NegativeNumberError(Exception): pass",
+        "def NegativeNumberError(Exception):",
+        "class NegativeNumberError(object): pass",
+        "class NegativeNumberError"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A custom exception is a <code>class</code> that inherits from <code>Exception</code>. Inheriting from <code>object</code> gives a class you can't <code>raise</code> (<code>TypeError: exceptions must derive from BaseException</code>). <code>def</code> defines a function, not a class, and <code>class NegativeNumberError</code> without a colon and body is a SyntaxError. All verified by running them."
+    },
+    {
+      "id": 4,
+      "type": "msq",
+      "text": "A warehouse application tracks incoming delivery stock using a list. A developer needs to extract sub-collections and verify item availability. Which of the following operations will execute successfully as described? (Select ALL that apply)",
+      "context": "<pre>delivery_manifest = [\"part_101\", \"part_240\", \"part_330\", \"part_999\"]</pre>",
+      "options": [
+        "List slicing with delivery_manifest[1:3] returns [\"part_240\", \"part_330\"].",
+        "The membership operation \"part_240\" in delivery_manifest evaluates to True.",
+        "delivery_manifest[0] retrieves \"part_101\" because Python list indexing begins at zero.",
+        "Querying delivery_manifest[-1] raises an IndexError because negative indices are prohibited."
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "<code>[1:3]</code> takes indexes 1 and 2 (<code>['part_240', 'part_330']</code>), <code>in</code> checks membership (<code>True</code>), and indexing starts at 0 (<code>'part_101'</code>). Negative indexes are allowed and count from the end, so <code>delivery_manifest[-1]</code> returns <code>'part_999'</code> rather than raising. All verified by running them."
+    }
+  ]
+}
