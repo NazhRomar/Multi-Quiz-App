@@ -1,0 +1,215 @@
+{
+  "quizTitle": "Quiz 2 - Module 4 and 5",
+  "addedOn": "2026-10-11",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "What variable holds the default error message from <code>@error</code> directives?",
+      "options": ["$message", "$validate", "$errors", "$error"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Inside an <code>@error('field') ... @enderror</code> block, Blade provides <code>$message</code>, the first error message for that field. <code>$errors</code> is the bag holding <em>all</em> validation errors, available in every view."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "What does the following code allow?",
+      "context": "<pre>protected $fillable = [\n    'name',\n    'email'\n];</pre>",
+      "options": [
+        "It prevents name and email from being changed after saving.",
+        "It makes name and email required fields in the database",
+        "It allows name and email to be assigned when saving model data.",
+        "It makes name and email automatically unique."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>$fillable</code> whitelists the attributes that can be mass-assigned, e.g. through <code>Model::create($request-&gt;all())</code>. It says nothing about required, unique or read-only columns."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "Which command creates a migration for a products table?",
+      "options": [
+        "php artisan create:migration products_table",
+        "php artisan migrate:products_table",
+        "php artisan make:migration create_products_table",
+        "php artisan migration:create products_table"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>php artisan make:migration create_products_table</code> creates a timestamped migration file in <code>database/migrations</code>. The <code>create_..._table</code> name also tells Laravel to pre-fill a <code>Schema::create('products', ...)</code> stub."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "Which modifier allows a column to store NULL or optional value?",
+      "options": ["-&gt;null()", "-&gt;empty()", "-&gt;optional()", "-&gt;nullable()"],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>-&gt;nullable()</code> lets the column hold <code>NULL</code>, e.g. <code>$table-&gt;string('middle_name')-&gt;nullable();</code>."
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "What is created by this statement?",
+      "context": "<pre>$table-&gt;timestamp();</pre>",
+      "options": ["created_at and updated_at columns", "current_date column", "date_today column", "timestamp column"],
+      "correctAnswer": 0,
+      "points": 1,
+      "warning": "The quiz writes <code>timestamp()</code> but means <code>timestamps()</code> (plural). The singular <code>timestamp('name')</code> creates one TIMESTAMP column and needs a column name.",
+      "explanation": "<code>$table-&gt;timestamps();</code> adds the nullable <code>created_at</code> and <code>updated_at</code> columns that Eloquent fills in automatically."
+    },
+    {
+      "id": 6,
+      "type": "fitb",
+      "text": "You are tasked with creating a form in Laravel that submits customer suggestions to a controller, processes the input, validates it, and then displays the suggestions on another page. Analyze the snippet and choose from the table to fill in the blanks with the correct code snippets in the provided sections: Route, Controller, View (Form), and View (Display).",
+      "code": "// Route (web.php)\nRoute::post('/submitSuggestion', [SuggestionController::class, '___'])->name('suggestion.submit');\n\n// Controller (SuggestionController.php)\npublic function submit(Request $request) {\n    // Validation rules\n    $request->___([\n        'customer_name' => 'required|max:255',\n        'suggestion' => 'required|max:1000',\n    ]);\n    // Retrieving input after validation\n    $customerName = $request->input('customer_name');\n    $suggestion = $request->input('suggestion');\n\n    return ___('suggestions.display', [\n        'name' => $customerName,\n        'suggest' => $suggestion,\n    ]);\n}\n\n<!-- View (Form - form.blade.php) -->\n<form action=\"{{ route('___') }}\" method=\"POST\">\n    @___\n    <label for=\"customer_name\">Enter Your Name:</label>\n    <input type=\"text\" id=\"customer_name\" name=\"customer_name\" value=\"{{ old('customer_name') }}\">\n    <label for=\"suggestion\">Your Suggestion:</label>\n    <textarea id=\"suggestion\" name=\"suggestion\">{{ old('suggestion') }}</textarea>\n    <button type=\"submit\"> Submit Suggestion </button>\n\n    <!-- Displaying validation errors in one place -->\n    @if ($errors->any())\n        <div class=\"alert alert-danger\">\n            <ul>\n                @foreach ($errors->all() as $err)\n                    <li>{{ $___ }}</li>\n                @endforeach\n            </ul>\n        </div>\n    @endif\n</form>\n\n<!-- View (Display - display.blade.php) -->\n<h1>Customer Suggestions</h1>\n<p><strong>Customer Name:</strong> {{ $name }}</p>\n<p><strong>Suggestion:</strong> {{ $___ }}</p>",
+      "correctAnswer": ["submit", "validate", "view", "suggestion.submit", "csrf", "err", "suggest"],
+      "points": 7,
+      "explanation": "<ol><li><code>submit</code>: the route points at the controller method, which is named <code>submit</code>.</li><li><code>validate</code>: <code>$request-&gt;validate([...])</code> checks the input and redirects back with errors if it fails.</li><li><code>view</code>: <code>view('suggestions.display', [...])</code> renders the display page with the data.</li><li><code>suggestion.submit</code>: <code>route()</code> takes the route's <em>name</em>, set by <code>-&gt;name('suggestion.submit')</code>.</li><li><code>csrf</code>: <code>@csrf</code> adds the hidden token every POST form needs.</li><li><code>err</code>: the loop variable is <code>$err</code> (<code>as $err</code>), so each message is <code>{{ $err }}</code>.</li><li><code>suggest</code>: the controller passed the suggestion under the key <code>'suggest'</code>, so the view sees <code>$suggest</code>, not <code>$suggestion</code>.</li></ol>"
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "Which character is used to separate multiple validation rules for a single field?",
+      "options": ["|", ",", "/", "[]"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Rules in a string are separated by a pipe: <code>'email' =&gt; 'required|email|max:255'</code>. (You can also pass them as an array, <code>['required', 'email']</code>, but the separator character is <code>|</code>.)"
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "What is the main purpose of the <code>down()</code> method in a migration?",
+      "options": [
+        "To drop the table created",
+        "To delete the migration file",
+        "To reverse the changes made by up()",
+        "To connect MYSQL to Laravel project"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>down()</code> undoes whatever <code>up()</code> did, and it runs on rollback. Dropping the table is only what it does when <code>up()</code> created one. If <code>up()</code> added a column, <code>down()</code> removes that column instead."
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "Which statement creates a VARCHAR-style column?",
+      "options": ["$table-&gt;varchar('name');", "$table-&gt;char('name');", "$table-&gt;string('name');", "$table-&gt;text('name');"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>string()</code> creates a <code>VARCHAR</code> column (255 by default). <code>char()</code> is fixed-length <code>CHAR</code>, <code>text()</code> is a <code>TEXT</code> column, and there's no <code>varchar()</code> method."
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "How do you validate a request inside a controller?",
+      "options": [
+        "$request-&gt;assert([ 'field' =&gt; 'rules' ]);",
+        "validate($request, ['field' =&gt; 'rules']);",
+        "$request-&gt;validate([ 'field' =&gt; 'rules' ]);",
+        "$request-&gt;validateRequest([ 'field' =&gt; 'rules' ]);"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>$request-&gt;validate([...])</code> runs the rules and, if any fail, redirects back with <code>$errors</code> and the old input. The other three aren't Laravel methods."
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "What validation rule ensures the field password is present and not empty?",
+      "options": [
+        "'password' =&gt; 'required'",
+        "'password' =&gt; 'confirm'",
+        "'password' =&gt; 'notnull'",
+        "'password' =&gt; 'alpha'"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>required</code> fails if the field is missing, null or an empty string. The real rule for matching a confirmation field is <code>confirmed</code> (not <code>confirm</code>), and <code>notnull</code> doesn't exist."
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "What will be the display output if <code>$temperature</code> is 15?",
+      "context": "<pre>@if ($temperature &lt; 0)\n    &lt;h2 class=\"temperature-status\"&gt;It's freezing cold!&lt;/h2&gt;\n@elseif ($temperature &gt; 0 &amp;&amp; $temperature &lt; 15)\n    &lt;h2 class=\"temperature-status\"&gt;It's quite chilly.&lt;/h2&gt;\n@elseif ($temperature &gt; 15 &amp;&amp; $temperature &lt; 25)\n    &lt;h2 class=\"temperature-status\"&gt;The weather is pleasant.&lt;/h2&gt;\n@else\n    &lt;h2 class=\"temperature-status\"&gt;It's hot outside!&lt;/h2&gt;\n@endif</pre>",
+      "options": ["The weather is pleasant.", "It's freezing cold!", "It's hot outside!", "It's quite chilly."],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "All the comparisons are strict. 15 isn't <code>&lt; 15</code> (so not chilly) and isn't <code>&gt; 15</code> (so not pleasant). No branch matches, so it falls through to <code>@else</code>: \"It's hot outside!\""
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "Which method contains the database changes that should be applied when a migration runs?",
+      "options": ["start()", "up()", "run()", "create()"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>php artisan migrate</code> runs each migration's <code>up()</code> method; <code>down()</code> reverses it on rollback."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "Which modifier assigns a value automatically when no value is supplied?",
+      "options": ["-&gt;auto()", "-&gt;preset()", "-&gt;default()", "-&gt;ifempty()"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>-&gt;default($value)</code> sets the column's default, e.g. <code>$table-&gt;boolean('active')-&gt;default(true);</code>."
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "Which command rolls back all migrations?",
+      "options": [
+        "php artisan migrate:rollback",
+        "php artisan migrate:drop",
+        "php artisan migrate:clear",
+        "php artisan migrate:reset"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>migrate:reset</code> rolls back every migration. <code>migrate:rollback</code> only undoes the last batch (or <code>--step=N</code>), and <code>migrate:drop</code> / <code>migrate:clear</code> don't exist."
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "flagged": true,
+      "text": "Which of the following is not a directive used in Laravel Blade for switch?",
+      "options": ["@switch", "@default", "@case", "@endswitch"],
+      "correctAnswer": null,
+      "points": 1,
+      "warning": "Outside Source says <strong>@endswitch</strong>, but all four options are real Blade switch directives, so there's no right answer here.",
+      "explanation": "FLAGGED AS A BROKEN QUESTION. A Blade switch is written <code>@switch</code> ... <code>@case</code> ... <code>@break</code> ... <code>@default</code> ... <code>@endswitch</code>, so every listed option is a valid directive. <code>@endswitch</code> closes every switch block. The question probably meant to include a fake directive like <code>@enddefault</code>, as in Quiz 1. Worth reporting to the instructor."
+    },
+    {
+      "id": 17,
+      "type": "mc",
+      "text": "Which input satisfies the following rule?",
+      "context": "<pre>'code' =&gt; 'required|digits_between:5,8'</pre>",
+      "options": ["178656789", "567887667", "113466", "5855"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>digits_between:5,8</code> requires a numeric value with 5 to 8 digits. <code>113466</code> has 6. <code>178656789</code> and <code>567887667</code> have 9, and <code>5855</code> has only 4."
+    },
+    {
+      "id": 18,
+      "type": "mc",
+      "text": "What variable holds the error messages from all of the validation errors in a Laravel Blade template?",
+      "options": ["$errors", "$formErrors", "$message", "$validate"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>$errors</code> is a <code>MessageBag</code> shared with every view; use <code>$errors-&gt;all()</code> or <code>$errors-&gt;any()</code>. <code>$message</code> only exists inside an <code>@error</code> block and holds one field's message."
+    },
+    {
+      "id": 19,
+      "type": "tf",
+      "text": "Laravel uses CSRF tokens in the form of hidden fields for GET <code>_token</code> requests to prevent unauthorized access and to secure each user submission.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "warning": "Outside Source says <strong>True</strong>. It's keyed False here because Laravel doesn't check CSRF tokens on GET requests, only on POST, PUT, PATCH and DELETE.",
+      "explanation": "Laravel does put the CSRF token in a hidden <code>_token</code> field (via <code>@csrf</code>), but its CSRF middleware skips read-only requests (GET, HEAD, OPTIONS) and verifies the token only on state-changing ones like POST, PUT, PATCH and DELETE. The \"GET\" makes the statement false as written. If the quiz meant \"POST\", it would be true."
+    }
+  ]
+}
