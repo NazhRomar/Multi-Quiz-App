@@ -1,5 +1,6 @@
 {
   "id": "general",
+  "order": 1,
   "showLabel": false,
   "badges": {
     "unofficial": true

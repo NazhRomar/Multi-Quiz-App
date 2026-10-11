@@ -1,0 +1,297 @@
+{
+  "quizTitle": "P. Quiz",
+  "questions": [
+    {
+      "id": 1,
+      "type": "tf",
+      "text": "Large businesses have sufficient skills in marketing, planning, and doing market studies.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Module 1 lists \"lacks skills in marketing planning and doing market studies\" as the first <strong>disadvantage of a small business</strong>. The contrast is with large businesses, which do have these skills (and the budget for promotion and media advertising that small ones hardly undertake)."
+    },
+    {
+      "id": 2,
+      "type": "tf",
+      "text": "In a limited partnership, all partners do not contribute financially and share profits in the organization or business.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Module 2: in a <strong>Limited Partnership</strong>, <em>all partners contribute financially and share in profits</em>, but the limited partner(s) cannot actively participate in management. What they give up is management, not their share of the money or profits."
+    },
+    {
+      "id": 3,
+      "type": "tf",
+      "text": "Entrepreneurship can be defined as the practice of converting good ideas into something profitable.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "This is the Module 1 definition word for word: <strong>Entrepreneurship</strong> is \"the practice of converting good ideas to something profitable.\""
+    },
+    {
+      "id": 4,
+      "type": "matching",
+      "text": "Generating, evaluating, and presenting scalable business ideas. Match each item to its description.",
+      "allChoices": [
+        "What you know",
+        "The cost of entering the business",
+        "Capitalize on available resources",
+        "Going an 'extra mile' by giving your clients some convenience",
+        "Taking a franchise",
+        "You may know a lot about the business but do not have enough experience."
+      ],
+      "pairs": [
+        { "term": "Looking Within", "match": "What you know" },
+        { "term": "Ease of Entry", "match": "The cost of entering the business" },
+        { "term": "Looking Outside", "match": "Capitalize on available resources" },
+        { "term": "Uniqueness", "match": "Going an 'extra mile' by giving your clients some convenience" },
+        { "term": "Options in Business", "match": "Taking a franchise" }
+      ],
+      "points": 5,
+      "explanation": "All from Module 3. <strong>Looking Within</strong> is who you are, <em>what you know</em>, and what you have. <strong>Looking Outside</strong> includes step 4, <em>capitalize on available resources</em> (raw materials, local skills, technology, and so on). In the Selection Checklist, <strong>Ease of Entry</strong> is the costs of entering the business and the blocks that might exist, and <strong>Uniqueness</strong> includes going the \"extra mile\" by giving clients some convenience. The two <strong>Options in Business</strong> are buying a business and <em>taking a franchise</em>. The leftover choice (\"know a lot but not enough experience\") describes the checklist's <strong>Experience in the field</strong> criterion, which isn't one of the terms here."
+    },
+    {
+      "id": 5,
+      "type": "tf",
+      "text": "In the country, MSMEs account for 99.5% of the number of establishments.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Module 2, Economic Contribution of MSMEs (PSA 2015): MSMEs make up <strong>99.5%</strong> of the total number of establishments, employ 61.6% of the labor force, contribute 36.7% of total value added, and are 59% of all exporters."
+    },
+    {
+      "id": 6,
+      "type": "tf",
+      "text": "The Go Negosyo Act helped establish a Start-up Fund for MSMEs.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Module 2, MSME Laws: <strong>R.A. 10644 (Go Negosyo Act)</strong> provides for the establishment of Negosyo Centers, a <strong>Start-Up Fund for MSMEs</strong>, unified and simplified business registration, and the reconstitution of the MSMED Council."
+    },
+    {
+      "id": 7,
+      "type": "tf",
+      "text": "One barrier to MSMEs' growth and development in the country is the lack of access to finance.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Module 2, Barriers to MSME Growth and Development: the barriers are split into non-financial ones (poor business environment, lack of access to market, and so on) and the <strong>financial barrier: lack of access to finance</strong>."
+    },
+    {
+      "id": 8,
+      "type": "tf",
+      "text": "Sole proprietorships have a possible tax advantage over corporations.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Module 2 lists <strong>possible tax advantages</strong> among the advantages of a Sole Proprietorship, while corporations carry the disadvantage of <strong>double taxation</strong> (taxed at the corporate level, then again on dividends)."
+    },
+    {
+      "id": 9,
+      "type": "tf",
+      "text": "Employees generally have a greater sense of personal satisfaction over business owners.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "It's the other way around. In Module 1's Employee or Business Owner table, <strong>greater sense of personal satisfaction</strong> is a pro of the <strong>business owner</strong> (with flexible hours and diverse learning). The employee's pros are a guaranteed paycheck, better work-life balance and skills enhancement."
+    },
+    {
+      "id": 10,
+      "type": "tf",
+      "text": "A standard Partnership requires at least five people to register and legally establish the business.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "A partnership needs only <strong>two or more</strong> partners (\"Two heads can be better than one,\" Module 2). It is registered with the SEC through Articles of Partnership, and nothing in its requirements calls for five people. The \"5 to 15\" figure in the notes appears under <strong>Corporation</strong> requirements, not Partnership."
+    },
+    {
+      "id": 11,
+      "type": "tf",
+      "text": "A traditional brick-and-mortar retail business that adopts a standard, third-party digital payment terminal to process credit cards qualifies as a technopreneurship venture.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Module 1 defines <strong>technopreneurship</strong> as entrepreneurship in a technology-intensive context: <em>combining technological innovation with entrepreneurial skills</em> to create new businesses or transform existing ones. Buying an off-the-shelf payment terminal is just using a tool; the business itself is still conventional retail and doesn't innovate with technology."
+    },
+    {
+      "id": 12,
+      "type": "tf",
+      "text": "It is possible for a business to be highly innovative in its manual operational processes but still be classified as traditional entrepreneurship if it lacks the exponential scalability driven by technology.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Innovation alone doesn't make a venture technopreneurial. Module 1 describes technopreneurship as <em>merging technology</em> with entrepreneurial skills, so a business that innovates only in manual processes, without technology driving its growth, stays traditional entrepreneurship."
+    },
+    {
+      "id": 13,
+      "type": "tf",
+      "text": "A technopreneur starts out with nothing but an idea.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Module 1, Entrepreneurship vs Technopreneurship: \"A technopreneur starts out with <strong>nothing but an 'idea'</strong>, defies existing practices and systems, and thinks of doing things differently.\""
+    },
+    {
+      "id": 14,
+      "type": "tf",
+      "text": "Business owners generally have more secure jobs than employees.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Module 1's cons for a <strong>business owner</strong>: <em>it is risky, not enough funding, it can be stressful</em>. Among the Rewards and Risks, the first risk is <strong>the risk of failure</strong>. An employee has a guaranteed paycheck, so owners are not the more secure ones. (The slide also puts \"job security\" under the employee's cons, meaning an employee depends on the company keeping them. Don't read that as owners being safer.)"
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "A company creates a subscription-based cloud platform that automates tax filings for small businesses globally, allowing them to serve clients in 40 countries simultaneously without needing physical local offices in each market. Which business classification does this enterprise best represent?",
+      "options": ["entrepreneurship", "technopreneurship", "franchise business", "none of the choices"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The product itself is technology (a cloud platform), and that technology is what lets it scale to 40 countries without physical offices. That is <strong>technopreneurship</strong>: combining technological innovation with entrepreneurial skills (Module 1). It's not a franchise, since no franchisee is using a franchisor's brand and practices."
+    },
+    {
+      "id": 16,
+      "type": "tf",
+      "text": "Large businesses can easily modify product to address market demand and preferences.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Module 1 lists \"<strong>can easily modify the product</strong> to address market demand and preferences\" as an <strong>advantage of a small business</strong>, along with faster communication and easily adjusting production in a crisis. Large businesses are slower to change."
+    },
+    {
+      "id": 17,
+      "type": "tf",
+      "text": "A horizontal merger is a combination of unrelated companies.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Module 2, Corporate Restructuring: a <strong>horizontal</strong> merger combines firms in the <em>same industry</em> (e.g. AT&amp;T and SBC). A combination of <em>unrelated</em> companies is a <strong>conglomerate</strong> merger (e.g. GE acquiring RCA)."
+    },
+    {
+      "id": 18,
+      "type": "tf",
+      "text": "Technopreneurship begins with the customer experience and works backward to arrive at the technology to provide that customer experience.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Module 1, Nature of Technopreneurship: \"More often than not, technopreneurship <strong>begins with the customer experience and works backward</strong> to arrive at the technology that provides it.\""
+    },
+    {
+      "id": 19,
+      "type": "tf",
+      "text": "The objective of a vertical merger is to provide a tighter integration and increase control of the business.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Module 2: a <strong>vertical</strong> merger combines companies with a buyer-seller relationship, with the objective to <strong>provide tighter integration and increase control</strong> (e.g. Time Warner and Turner Broadcasting)."
+    },
+    {
+      "id": 20,
+      "type": "tf",
+      "text": "A corporation is a legal entity that is not separate and distinct from its owners.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Module 2: \"A corporation is a legal entity, <strong>separate and distinct from its owners</strong>.\" The \"not\" makes the statement false. That separation is why corporations have limited liability."
+    },
+    {
+      "id": 21,
+      "type": "tf",
+      "text": "Because a franchisee invests their own capital to open a location, they have complete legal autonomy to alter the brand's logo, modify the core menu or product offerings, and change the uniform designs to fit their personal preferences.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Module 2 and Module 3 list the franchisee's cons: <strong>lack of control</strong>, <strong>limited creativity and flexibility</strong>, and being <strong>locked into operation by contract</strong>. The franchisee pays to use the franchisor's brand name, trademark and practices as they are. They can't change them."
+    },
+    {
+      "id": 22,
+      "type": "tf",
+      "text": "A franchisor uses the brand name, trademark, and practices of the franchisee.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The roles are reversed. Module 2: \"The <strong>franchisee</strong> uses the brand name, trademark, and practices of the <strong>franchisor</strong>.\" The franchisor owns the brand, and the franchisee pays to use it."
+    },
+    {
+      "id": 23,
+      "type": "mc",
+      "text": "A regional chain of specialized coffee shops introduces an improved mobile loyalty punch-card app to boost customer retention while continuing traditional in-store coffee brewing, seating operations, and personal barista services. How should this business model be classified?",
+      "options": ["a. Technopreneurship", "b. Conventional services", "c. Entrepreneurship", "a or c"],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The core business (brewing, seating, barista service) is traditional <strong>entrepreneurship</strong>, but the chain also built an improved app of its own to transform part of the business, which Module 1's definition of <strong>technopreneurship</strong> covers (\"create new businesses or transform existing ones\"). Since it can be read either way, the key is <strong>a or c</strong>; picking only Technopreneurship was marked wrong. Compare question 11, where buying a standard third-party terminal involves no technology of the business's own and so isn't technopreneurship."
+    },
+    {
+      "id": 24,
+      "type": "tf",
+      "text": "Under the Revised Corporation Code of the Philippines (R.A. 11232) law, an entrepreneur can establish a One Person Corporation (OPC) to gain a separate legal personality and limited liability, completely distinct from their personal assets.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "R.A. 11232 (2019) introduced the <strong>One Person Corporation</strong>: a corporation with a single stockholder. Like any corporation it is a legal entity separate and distinct from its owner, so the owner gets <strong>limited liability</strong>, unlike a sole proprietorship's unlimited liability. (OPCs aren't in the notes; this comes from the law itself.)"
+    },
+    {
+      "id": 25,
+      "type": "tf",
+      "text": "Double Taxation means that a corporation's profits are taxed once at the corporate level and then taxed again as personal income when distributed to shareholders as dividends.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "That's what double taxation means, and Module 2 lists <strong>double taxation</strong> among a corporation's disadvantages. Pass-through forms like the LLC (\"tax pass-through\") and S Corp (\"IRS does not tax earnings separately\") avoid it."
+    },
+    {
+      "id": 26,
+      "type": "tf",
+      "text": "A tech founder looking to establish a Sole Proprietorship must register their business entity primarily with the Securities and Exchange Commission (SEC).",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Module 2, Business Registration in the Philippines: a <strong>Sole Proprietorship registers with the DTI</strong> (Business Name Registration System) and gets a DTI certificate. The <strong>SEC</strong> is for <strong>Partnerships and Corporations</strong>."
+    },
+    {
+      "id": 27,
+      "type": "tf",
+      "text": "Sole proprietorships have pooled financial resources.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<strong>Pooled financial resources</strong> is an advantage of a <strong>Partnership</strong>, since several partners contribute. A Sole Proprietorship has the opposite: <strong>limited financial resources</strong> is its first listed disadvantage (Module 2)."
+    },
+    {
+      "id": 28,
+      "type": "tf",
+      "text": "A moonlighting person is a person who provides capital to a business in exchange for the expectation of future gains and profits.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "That describes an <strong>investor</strong>, who provides capital in exchange for the expectation of future gains and profits (Module 1). <strong>Moonlighting</strong> is holding down two or more jobs at the same time, usually a primary job plus a side gig or freelance work."
+    },
+    {
+      "id": 29,
+      "type": "tf",
+      "text": "Technology came from the English word techne and logos.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Module 1: technology comes from two <strong>Greek</strong> words, <strong>techne</strong> (art, skill, craft) and <strong>logos</strong> (word, expression). They aren't English words, so the statement is false."
+    },
+    {
+      "id": 30,
+      "type": "tf",
+      "text": "A technopreneurial venture can focus on incremental or sustaining innovations that make existing software more efficient, rather than always creating disruptive or radical innovations.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Module 4's innovation types include <strong>sustaining innovation</strong> (making good products better, Christensen) and <strong>incremental innovation</strong> (minor modifications to existing components, Henderson-Clark). Both are valid innovation. Module 1 also notes the idea \"doesn't need to be a global blockbuster.\""
+    },
+    {
+      "id": 31,
+      "type": "tf",
+      "text": "Many entrepreneurs do not know how to generate funds.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Module 1, Disadvantages of a Small Business, item 7: \"<strong>Many entrepreneurs do not know how to generate funds.</strong>\" It sits next to item 6, many fail for lack of a workable and realistic financial plan."
+    }
+  ]
+}
