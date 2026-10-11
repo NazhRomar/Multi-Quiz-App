@@ -8,7 +8,8 @@ const loaders = import.meta.glob('./*.md', { query: '?raw', import: 'default' })
 
 export const NOTES = [
   { slug: 'project-management', title: 'Project Management', subjectId: 'project-management', file: './project-management.md' },
-  { slug: 'laravel', title: 'Laravel', subjectId: 'laravel', file: './laravel.md' },
+  { slug: 'laravel', title: 'Laravel', tab: 'PDF', subjectId: 'laravel', file: './laravel.md' },
+  { slug: 'laravel-reviewer', title: 'Laravel', tab: 'Reviewer', subjectId: 'laravel', file: './laravel-reviewer.md' },
   { slug: 'technopreneurship', title: 'Technopreneurship', subjectId: 'technopreneurship', file: './technopreneurship.md' },
   { slug: 'devnet', title: 'DevNet Associate', tab: 'DevNet', subjectId: 'sia', file: './devnet.md' },
   { slug: 'python-essentials-1', title: 'Python Essentials 1', tab: 'PE 1', subjectId: 'sia', file: './python-essentials-1.md' },
