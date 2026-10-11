@@ -186,10 +186,20 @@ export const catalog = [...termsByKey.values()]
             const rawSeries = subject.sectionsByKey.get(sec.key).seriesByKey.get(ser.key);
             return rawSeries.quizzes.map((q) => ({
               ...q,
+              seriesId: ser.id,
               badges: resolveBadges(q.badges, ser.badges, sec.badges, smeta.badges),
             }));
           })
         );
+        // Filenames repeat across series (e.g. every NetAcad course has an
+        // "01-module1.json"), and findQuizBySlug returns the first match —
+        // so a filename slug shared within the subject gets its series id
+        // prefixed ("py1-01-module1"). Unique slugs keep their plain URL.
+        const slugCounts = new Map();
+        quizzes.forEach((q) => slugCounts.set(q.slug, (slugCounts.get(q.slug) || 0) + 1));
+        quizzes.forEach((q) => {
+          if (slugCounts.get(q.slug) > 1) q.slug = `${q.seriesId}-${q.slug}`;
+        });
         return {
           key: subject.key,
           id: smeta.id || slugify(subject.key),
