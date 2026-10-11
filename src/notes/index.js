@@ -11,6 +11,7 @@ export const NOTES = [
   { slug: 'laravel', title: 'Laravel', subjectId: 'laravel', file: './laravel.md' },
   { slug: 'technopreneurship', title: 'Technopreneurship', subjectId: 'technopreneurship', file: './technopreneurship.md' },
   { slug: 'devnet', title: 'DevNet Associate', tab: 'DevNet', subjectId: 'sia', file: './devnet.md' },
+  { slug: 'python-essentials-1', title: 'Python Essentials 1', tab: 'PE 1', subjectId: 'sia', file: './python-essentials-1.md' },
   { slug: 'python-essentials-2', title: 'Python Essentials 2', tab: 'PE 2', subjectId: 'sia', file: './python-essentials-2.md' },
 ];
 

@@ -59,8 +59,17 @@ export default function NotesRoute() {
   if (!note) return <Navigate to="/" replace />;
 
   // Sibling notes of the same subject (e.g. several courses under one
-  // subject) get a switcher above the notes.
+  // subject) get a switcher above the notes, repeated at the top of the
+  // Contents sheet so it's reachable without scrolling back up.
   const siblings = notesForSubject(note.subjectId);
+  const switcher = siblings.length > 1 && (
+    <SegmentedToggle
+      label="Notes"
+      options={siblings.map((n) => ({ value: n.slug, label: n.tab || n.title }))}
+      value={note.slug}
+      onChange={(slug) => slug !== note.slug && navigate(`/notes/${slug}`, { replace: true })}
+    />
+  );
 
   const jumpTo = (id) => {
     setTocOpen(false);
@@ -106,21 +115,17 @@ export default function NotesRoute() {
             <AppSettingsFields />
           </Dropdown>
         </div>
-        {tocOpen && <div className="notes-toc-sheet">{toc}</div>}
+        {tocOpen && (
+          <div className="notes-toc-sheet">
+            {switcher && <div className="notes-toc-switcher">{switcher}</div>}
+            {toc}
+          </div>
+        )}
       </header>
 
-      {siblings.length > 1 && (
-        <div className="notes-switcher">
-          <SegmentedToggle
-            label="Notes"
-            options={siblings.map((n) => ({ value: n.slug, label: n.tab || n.title }))}
-            value={note.slug}
-            onChange={(slug) => slug !== note.slug && navigate(`/notes/${slug}`, { replace: true })}
-          />
-        </div>
-      )}
+      {switcher && <div className="notes-switcher">{switcher}</div>}
 
-      <div className={`notes-layout ${siblings.length > 1 ? 'notes-layout--switched' : ''}`}>
+      <div className={`notes-layout ${switcher ? 'notes-layout--switched' : ''}`}>
         {headings.length > 0 && <aside className="notes-sidebar">{toc}</aside>}
         <article className="notes-body">{source == null ? <p className="notes-loading">Loading notes…</p> : <MarkdownBlocks blocks={blocks} />}</article>
       </div>
