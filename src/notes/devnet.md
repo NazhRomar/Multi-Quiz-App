@@ -57,13 +57,199 @@ Course goals (what learners should be able to do):
 
 Linux runs on servers, IoT devices, networking equipment, and smartphones. All the coding labs in this course run on the Linux-based DEVASC VM.
 
-**Lab: Linux Review**
+The **Lab: Linux Review** covers four areas: command navigation, file management, regular expressions, and system administration.
 
-1. Launch the DEVASC VM
-2. Review Command Syntax Navigation
-3. Review File Management
-4. Review Regular Expressions
-5. Review System Administration
+### Navigation and help
+
+Commands are **case-sensitive**. Press **Tab** to auto-complete a file or directory name.
+
+| Command | What it does |
+|---|---|
+| `ls` | List the current directory. |
+| `ls labs` | List a given directory (here, `labs`). |
+| `ls -l` | Long listing: permissions, owner, group, size, date. |
+| `ls -r` | Reverse alphabetical order. |
+| `ls -lr` | Options can be combined: long listing in reverse order. |
+| `man ls` | Full manual page. Space bar moves to the next screen, `q` quits. |
+| `ls --help` | Shorter summary of a command's options. |
+| `pwd` | Print the current working directory (e.g. `/home/devasc`). |
+| `cd Documents` | Change to a directory relative to where you are. |
+| `cd /` | Go to the root directory. |
+| `cd /home/devasc/Documents/` | Go straight to an absolute path. |
+| `cd ..` | Move up one directory. |
+| `sudo <command>` | Run one command as the root user (no new terminal is opened). |
+
+```
+devasc@labvm:~$ sudo apt-get update
+```
+
+`~` in the prompt is the user's home directory. `apt-get update` fails without `sudo` because it needs root rights.
+
+### File permissions
+
+```
+-rwxr-xr-x 1 devasc devasc 1095 Mar 30 21:24 code.desktop
+```
+
+| Part | Meaning |
+|---|---|
+| First character `-` | File type: `-` is a regular file, `d` is a directory. |
+| Characters 2 to 4 `rwx` | Permissions of the **owner** (user). |
+| Characters 5 to 7 `r-x` | Permissions of the **group**. |
+| Characters 8 to 10 `r-x` | Permissions of **others** (everyone else). |
+| First `devasc` | The file's **owner** (user). |
+| Second `devasc` | The file's **group**. |
+
+| Letter | On a file | On a directory |
+|---|---|---|
+| `r` | Read the contents. | List the contents. |
+| `w` | Change (write) the contents. | Create, rename, or delete files inside. |
+| `x` | Run it as a program or script. | Enter it with `cd`. |
+| `-` | That permission is not granted. | |
+
+### Changing permissions and ownership
+
+```
+devasc@labvm:~/Documents$ echo "ls ../Desktop" > myfile.sh
+devasc@labvm:~/Documents$ ./myfile.sh
+bash: ./myfile.sh: Permission denied
+devasc@labvm:~/Documents$ ls -l myfile.sh
+-rw-rw-r-- 1 devasc devasc 14 Apr 16 12:46 myfile.sh
+devasc@labvm:~/Documents$ chmod +x myfile.sh
+devasc@labvm:~/Documents$ ./myfile.sh
+(lists the Desktop folder)
+devasc@labvm:~/Documents$ sudo chown root myfile.sh
+devasc@labvm:~/Documents$ ls -l
+-rwxrwxr-x 1 root devasc 14 Apr 16 21:28 myfile.sh
+```
+
+- A new file has no `x`, so running it gives **Permission denied**.
+- `chmod +x file` adds the execute permission.
+- `./file` runs a script in the current directory.
+- `sudo chown root file` makes `root` the owner. It needs `sudo`; the group stays `devasc`.
+
+### Moving, copying, removing
+
+| Command | What it does |
+|---|---|
+| `mv myfile.sh /home/devasc/Desktop/` | Move a file to another directory. |
+| `mv ../Desktop/myfile.sh myfile.sh` | Move it back. |
+| `mv myfile.sh myfile_renamed.sh` | `mv` within the same directory **renames**. |
+| `cp myfile_renamed.sh myfile_renamed_and_copied.sh` | Copy a file. |
+| `rm myfile_renamed_and_copied.sh` | Remove (delete) a file. |
+| `cat file` | Print a file's contents. |
+
+### Output redirection
+
+| Symbol | What it does |
+|---|---|
+| `>` | Send output to a file, **overwriting** it (creates it if missing). |
+| `>>` | Send output to a file, **appending** to the end. |
+
+```
+devasc@labvm:~$ echo "Linux is AWESOME!" > linux.txt
+devasc@labvm:~$ cat linux.txt > linux2.txt
+devasc@labvm:~$ echo "I LOVE Linux!" >> linux2.txt
+devasc@labvm:~$ cat linux2.txt
+Linux is AWESOME!
+I LOVE Linux!
+devasc@labvm:~$ echo "Linux is POWERFUL!" > linux.txt
+devasc@labvm:~$ cat linux.txt
+Linux is POWERFUL!
+```
+
+### The vi editor
+
+`vi linux2.txt` opens a file. vi has modes:
+
+| Key | What it does |
+|---|---|
+| `i` | Insert mode, inserting **at** the cursor. |
+| `a` | Insert mode, appending **after** the cursor. |
+| `Esc` | Back to command mode (move around, run commands). |
+| `dd` | Delete (cut) the current line. |
+| `yy` | Yank (copy) the current line. |
+| `p` | Put (paste). |
+| `:` | From command mode, enter ex mode for commands like the ones below. |
+| `:w linux3.txt` | Write (save) to a file, here a new one. |
+| `:q` | Quit. |
+
+### Regular expressions with grep
+
+`grep pattern file` prints the lines that match. It is **case-sensitive** (`devasc` does not match `DEVASC`). The lab searches `/etc/passwd`.
+
+| Pattern | Matches | Example |
+|---|---|---|
+| `devasc` | Lines containing the text. | `grep devasc /etc/passwd` |
+| `^root` | `^` anchors to the **start** of the line. | `root:x:0:0:...` only matches at the front. |
+| `false$` | `$` anchors to the **end** of the line. | Lines ending in `/bin/false`. |
+| `d..m` | `.` is **any one character**. | `daem`(on) and `dnsm`(asq). |
+| `[8-9]` | One character from the set or range. | Lines containing an 8 or a 9. |
+| `[,]` | A literal character inside brackets. | Lines containing a comma. |
+| `new*` | `*` is **zero or more** of the character before it. | `ne`, `new`, `neww` (so `nobody:...:/nonexistent` matches too). |
+
+Quote patterns (`'^root'`) so the shell doesn't interpret the special characters.
+
+### System administration
+
+**Shutdown**
+
+| Command | What it does |
+|---|---|
+| `shutdown now` | Shut down immediately. |
+| `shutdown hh:mm` | Shut down at a time of day. |
+| `shutdown +1 "Come back soon!"` | Shut down in 1 minute and show a message. |
+| `shutdown -c` | Cancel a scheduled shutdown. |
+| `date` | Show the system date and time. |
+
+**Network**
+
+| Command | What it does |
+|---|---|
+| `ip address` | Show the interfaces and their addresses (`lo` is loopback `127.0.0.1`). |
+| `ping -c 4 192.168.1.1` | Send 4 pings to an address. Without `-c`, Linux pings until Ctrl+C. |
+| `ping -c 4 www.cisco.com` | Ping a name; DNS resolves it to an IP first (not shown in the output). |
+
+**Processes**
+
+| Command | What it does |
+|---|---|
+| `ps` | Processes in the current terminal. |
+| `ps -e` | Every process on the system. |
+| `ps -ef` | Every process, full detail (UID, PID, parent PID, start time, command). |
+| `command \| more` | Page long output: Enter for one line, space bar for one screen, Ctrl+C to exit. |
+
+**Packages** (all need `sudo` except searching)
+
+| Command | What it does |
+|---|---|
+| `sudo apt-get update` | Refresh the list of available packages. |
+| `apt-cache search speed test` | Search for a package. |
+| `sudo apt-get install speedtest-cli` | Install a package. |
+| `sudo apt-get upgrade` | Upgrade all installed packages and dependencies. |
+| `sudo apt-get purge speedtest-cli` | Remove a package completely (including its configuration files). |
+
+**Passwords**
+
+| Command | What it does |
+|---|---|
+| `passwd` | Change your password (asks for the current one, then the new one twice). |
+| `passwd -S` | Show password status. |
+
+```
+devasc@labvm:~$ passwd -S
+devasc P 04/17/2020 0 99999 7 -1
+```
+
+| Field | Value | Meaning |
+|---|---|---|
+| 1 | `devasc` | Login name. |
+| 2 | `P` | Status: `P` usable password, `L` locked, `NP` no password. |
+| 3 | `04/17/2020` | Date of the last password change. |
+| 4 | `0` | Minimum days before the password can be changed again (0 means any time). |
+| 5 | `99999` | Maximum days the password stays valid (effectively never expires). |
+| 6 | `7` | Days of warning before it expires. |
+| 7 | `-1` | Inactivity period: days the account stays active after the password expires. `-1` means no limit is set. |
 
 ## Python
 
@@ -74,15 +260,356 @@ Why Python (from the Python Essentials course):
 - **Easy to obtain, install and deploy:** free, open and multiplatform.
 - **Good first language:** a solid foundation that makes C++, Java, or C easier to learn later.
 
-**Lab: Python Programming Review**
+The **Lab: Python Programming Review** covers the interpreter, data types and variables, lists and dictionaries, input, `if`/`for`/`while`, and file access. The course uses **Python 3** (the lab was written on 3.8.2); Python 2 has been unsupported since January 1, 2020.
 
-1. Launch the DEVASC VM
-2. Start Python and VS Code
-3. Review Data Types and Variables
-4. Review Lists and Dictionaries
-5. Review the Input Function
-6. Review If, For, and While Functions
-7. Review Methods for File Access
+### Running Python
+
+| Command | What it does |
+|---|---|
+| `python3 -V` | Show the installed Python version. |
+| `python3` | Start the interactive interpreter (the `>>>` prompt). |
+| `quit()` | Leave the interpreter. |
+| `python3 hello-world.py` | Run a script in the current directory. |
+| `python3 ~/labs/devnet-src/python/hello-world.py` | Run a script from anywhere, with its path. |
+
+The labs write scripts in **VS Code** and save them with the `.py` extension in `~/labs/devnet-src/python`. **Run > Run Without Debugging** runs the script in VS Code's built-in terminal.
+
+The interpreter echoes the value of whatever you type. A string shows with quotes; `print()` shows it without them:
+
+```python
+>>> "Hello World!"
+'Hello World!'
+>>> print("Hello World!")
+Hello World!
+```
+
+### Math operators
+
+| Operation | Syntax | Example |
+|---|---|---|
+| Addition | `a+b` | `2+3` gives `5` |
+| Subtraction | `a-b` | `10-4` gives `6` |
+| Multiplication | `a*b` | `2*4` gives `8` |
+| Division | `a/b` | `20/5` gives `4.0` (always a float) |
+| Exponent | `a**b` | `3**2` gives `9` |
+
+Order of operations is **PEMDAS**: Parentheses, Exponents, Multiplication and Division, Addition and Subtraction.
+
+### Data types
+
+| Type | `type()` shows | Holds | Example |
+|---|---|---|---|
+| Integer | `<class 'int'>` | Whole numbers. | `98` |
+| Float | `<class 'float'>` | Numbers with a decimal part. | `98.6` |
+| String | `<class 'str'>` | Any sequence of characters, in single or double quotes. | `"Hi!"` |
+| Boolean | `<class 'bool'>` | `True` or `False`. | `True` |
+
+A number written with a decimal point, like `3.75`, is a float. `int(3.75)` converts it to an integer by dropping the decimal part, giving `3`.
+
+### Comparison operators
+
+These give a Boolean result.
+
+| Operator | Meaning | Example |
+|---|---|---|
+| `>` | Greater than | |
+| `<` | Less than | `1<2` is `True`, `1<1` is `False` |
+| `==` | Equal to | `1==1` is `True` |
+| `!=` | Not equal to | |
+| `>=` | Greater than or equal to | `1>=1` is `True` |
+| `<=` | Less than or equal to | `1<=1` is `True` |
+
+`==` compares; a single `=` **assigns** a value to a variable.
+
+### Variables and strings
+
+```python
+>>> x=3
+>>> x*5
+15
+>>> "Cisco"*x          # a string times an int repeats it
+'CiscoCiscoCisco'
+```
+
+**Concatenation** joins strings with `+`. Commas in `print()` add a space between items for you:
+
+```python
+>>> str1="Cisco"
+>>> str2="Networking"
+>>> str3="Academy"
+>>> space=" "
+>>> print(str1+space+str2+space+str3)
+Cisco Networking Academy
+>>> print(str1,str2,str3)
+Cisco Networking Academy
+```
+
+### Type casting
+
+**Type casting** converts between types. `+` cannot join a string and an integer:
+
+```python
+>>> x=3
+>>> print("The value of x is " + x)
+TypeError: can only concatenate str (not "int") to str
+>>> print("The value of x is " + str(x))
+The value of x is 3
+>>> type(x)
+<class 'int'>
+>>> x=str(x)          # reassign to actually change the variable's type
+>>> type(x)
+<class 'str'>
+```
+
+`str(x)` returns a new value; `x` stays an `int` until you reassign it.
+
+To format a float to a set number of decimals, use `format()` or an **f-string**:
+
+```python
+>>> num = 22/7
+>>> f"The value of num is {num}"
+'The value of num is 3.142857142857143'
+>>> pi = "{:.2f}".format(num)
+>>> f"The value of pi is {pi}."
+'The value of pi is 3.14.'
+```
+
+`:.2f` means a float with 2 decimal places. The same works inside an f-string: `f"{num:.2f}"`.
+
+### Lists
+
+A **list** stores several items **in order** (called an array in some languages). Create it with square brackets and commas.
+
+```python
+>>> hostnames=["R1","R2","R3","S1","S2"]
+>>> type(hostnames)
+<class 'list'>
+>>> len(hostnames)       # number of items
+5
+>>> hostnames[0]         # first item is index 0
+'R1'
+>>> hostnames[-1]        # last item
+'S2'
+>>> hostnames[0]="RTR1"  # replace an item
+>>> del hostnames[3]     # remove an item
+>>> hostnames
+['RTR1', 'R2', 'R3', 'S2']
+```
+
+### Dictionaries
+
+A **dictionary** stores **key/value pairs** in braces, with a colon between each key and value. Items are looked up by **key**, not by position.
+
+```python
+>>> ipAddress={"R1":"10.1.1.1","R2":"10.2.2.1","R3":"10.3.3.1"}
+>>> type(ipAddress)
+<class 'dict'>
+>>> ipAddress['R1']                 # look up by key (single or double quotes)
+'10.1.1.1'
+>>> "R1" in ipAddress               # check a key exists
+True
+>>> ipAddress["S1"]="10.1.1.10"     # add a new pair
+>>> ipAddress["R3"]=["10.3.3.1","10.3.3.2","10.3.3.3"]   # a value can be a list or dict
+>>> ipAddress
+{'R1': '10.1.1.1', 'R2': '10.2.2.1', 'R3': ['10.3.3.1', '10.3.3.2', '10.3.3.3'], 'S1': '10.1.1.10'}
+```
+
+Since Python 3.7, dictionaries keep keys in the order they were added. Replacing an existing key's value keeps its place.
+
+### Input
+
+`input()` pauses the program until the user presses Enter, and **always returns a string**. The argument is an optional prompt.
+
+```python
+>>> firstName = input("What is your first name? ")
+What is your first name? Bob
+>>> print("Hello " + firstName + "!")
+Hello Bob!
+```
+
+Lab script (`personal-info.py`): ask for four details and print them in one sentence.
+
+```python
+first = input("What is your first name? ")
+last = input("What is your last name? ")
+location = input("What is your location? ")
+age = input("What is your age? ")
+print("Hi " + first + " " + last + "! Your location is " + location + " and you are " + age + " years old.")
+```
+
+```
+What is your first name? Bob
+What is your last name? Smith
+What is your location? London
+What is your age? 36
+Hi Bob Smith! Your location is London and you are 36 years old.
+```
+
+### if, elif, else
+
+Python marks blocks with **indentation**: four spaces per level, and `else`/`elif` go back to the same level as their `if`.
+
+```python
+nativeVLAN = 1
+dataVLAN = 100
+if nativeVLAN == dataVLAN:
+    print("The native VLAN and the data VLAN are the same.")
+else:
+    print("The native VLAN and the data VLAN are different.")
+```
+
+`elif` adds more conditions. They are checked top to bottom, and only the **first** true branch runs; the rest, including `else`, are skipped.
+
+```python
+aclNum = int(input("What is the IPv4 ACL number? "))   # int() so the comparisons work
+if aclNum >= 1 and aclNum <= 99:
+    print("This is a standard IPv4 ACL.")
+elif aclNum >= 100 and aclNum <= 199:
+    print("This is an extended IPv4 ACL.")
+else:
+    print("This is not a standard or extended IPv4 ACL.")
+```
+
+| Input | Output |
+|---|---|
+| `10` | This is a standard IPv4 ACL. |
+| `110` | This is an extended IPv4 ACL. |
+| `200` | This is not a standard or extended IPv4 ACL. |
+
+### for loops
+
+A `for` loop runs once per item in a list (or other sequence). The loop variable name (`item`, often `i`) is your choice. In the interpreter, press Enter on an empty line to end the block.
+
+```python
+devices=["R1","R2","R3","S1","S2"]
+
+for item in devices:          # prints R1, R2, R3, S1, S2
+    print(item)
+
+for item in devices:          # an if inside the loop filters: R1, R2, R3
+    if "R" in item:
+        print(item)
+
+switches=[]
+for item in devices:          # build a new list with append()
+    if "S" in item:
+        switches.append(item)
+# switches is ['S1', 'S2']
+```
+
+`"R" in item` checks whether the text `R` appears in the string.
+
+### while loops
+
+A `while` loop repeats **as long as its condition is true**. If the condition never becomes false, it runs forever.
+
+Count from 1 up to a number the user enters (`while-loop.py`):
+
+```python
+x=input("Enter a number to count to: ")
+x=int(x)
+y=1
+while y<=x:
+    print(y)
+    y=y+1
+```
+
+The same thing with `while True` and `break`, which leaves the loop immediately:
+
+```python
+x=input("Enter a number to count to: ")
+x=int(x)
+y=1
+while True:
+    print(y)
+    y=y+1
+    if y>x:
+        break
+```
+
+An outer loop that keeps asking until the user types `q` or `quit`:
+
+```python
+while True:
+    x=input("Enter a number to count to: ")
+    if x == 'q' or x == 'quit':
+        break
+    x=int(x)
+    y=1
+    while True:
+        print(y)
+        y=y+1
+        if y>x:
+            break
+```
+
+The quit check comes **before** `int(x)`, otherwise `int("quit")` would crash.
+
+### File access
+
+```python
+open(name, mode)
+```
+
+`name` is the file name, with a path if it isn't in the script's directory.
+
+| Mode | What it does |
+|---|---|
+| `r` | Read (the default when the mode is left out). |
+| `w` | Write: replaces the file's whole content. |
+| `a` | Append: adds to the end of the file. |
+
+Read a file line by line, then `close()` it to free it:
+
+```python
+file=open("devices.txt","r")
+for item in file:
+    print(item)
+file.close()
+```
+
+This prints a **blank line after every entry**: each line read from the file keeps its newline (`\n`), and `print()` adds another. `strip()` removes the whitespace at both ends:
+
+```python
+file=open("devices.txt","r")
+for item in file:
+    item=item.strip()
+    print(item)
+file.close()
+```
+
+Copy the file into a list, so the program can work on the data without touching the file:
+
+```python
+devices=[]
+file=open("devices.txt","r")
+for item in file:
+    item=item.strip()
+    devices.append(item)
+file.close()
+print(devices)
+# ['Cisco 819 Router', 'Cisco 881 Router', 'Cisco 888 Router', ...]
+```
+
+Challenge script (`file-access-input.py`): let the user append devices until they type `exit`.
+
+```python
+file=open("devices.txt","a")
+while True:
+    newItem=input("Enter device name: ")
+    if newItem == "exit":
+        print("All done!")
+        break
+    file.write(newItem + "\n")   # write() doesn't add a newline itself
+file.close()
+```
+
+```
+Enter device name: Cisco 1941 Router
+Enter device name: Cisco 2950 Catalyst Switch
+Enter device name: exit
+All done!
+```
 
 # Module 2: The DevNet Developer Environment
 
