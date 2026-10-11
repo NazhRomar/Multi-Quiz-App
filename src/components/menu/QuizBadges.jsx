@@ -38,12 +38,20 @@ export const UnofficialIcon = () => (
   </svg>
 );
 
-// Mask: see SOURCED_TITLE.
+// Ring of eight lobes around eight dots: see SOURCED_TITLE. Each lobe is the
+// part of an r=2.16 disc, centred on the outer edge, that falls inside the
+// r=7.2 ring; the dots sit halfway in, on the same eight spokes.
+const SOURCED_DOTS = [
+  [8, 4.4], [10.55, 5.45], [11.6, 8], [10.55, 10.55],
+  [8, 11.6], [5.45, 10.55], [4.4, 8], [5.45, 5.45],
+];
+
 export const SourcedIcon = () => (
-  <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M2 5.2a1.4 1.4 0 0 1 1.4-1.4h9.2A1.4 1.4 0 0 1 14 5.2v2c0 2.1-1.5 3.8-3.4 3.8-1 0-1.9-.6-2.6-1.4-.7.8-1.6 1.4-2.6 1.4C3.5 11 2 9.3 2 7.2Z" />
-    <circle cx="5.3" cy="6.7" r="1.15" />
-    <circle cx="10.7" cy="6.7" r="1.15" />
+  <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor" aria-hidden="true">
+    <path d="M5.86 1.12A7.2 7.2 0 0 1 10.14 1.12A2.16 2.16 0 1 1 5.86 1.12ZM11.35 1.63A7.2 7.2 0 0 1 14.37 4.65A2.16 2.16 0 1 1 11.35 1.63ZM14.88 5.86A7.2 7.2 0 0 1 14.88 10.14A2.16 2.16 0 1 1 14.88 5.86ZM14.37 11.35A7.2 7.2 0 0 1 11.35 14.37A2.16 2.16 0 1 1 14.37 11.35ZM10.14 14.88A7.2 7.2 0 0 1 5.86 14.88A2.16 2.16 0 1 1 10.14 14.88ZM4.65 14.37A7.2 7.2 0 0 1 1.63 11.35A2.16 2.16 0 1 1 4.65 14.37ZM1.12 10.14A7.2 7.2 0 0 1 1.12 5.86A2.16 2.16 0 1 1 1.12 10.14ZM1.63 4.65A7.2 7.2 0 0 1 4.65 1.63A2.16 2.16 0 1 1 1.63 4.65Z" />
+    {SOURCED_DOTS.map(([cx, cy]) => (
+      <circle key={`${cx},${cy}`} cx={cx} cy={cy} r="0.72" />
+    ))}
   </svg>
 );
 
