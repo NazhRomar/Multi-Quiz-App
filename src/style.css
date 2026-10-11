@@ -1845,15 +1845,24 @@ body {
   gap: 0.5rem;
 }
 
+/* Icons and the sample count pill share one fixed-width column, so every
+   item's text starts at the same edge. */
+.badge-legend-item .quiz-badge,
+.badge-legend-count {
+  flex-shrink: 0;
+  width: 1.75rem;
+  box-sizing: border-box;
+}
+
 .badge-legend-item .quiz-badge {
   margin-left: 0;
   margin-top: 0.1rem;
-  flex-shrink: 0;
+  justify-content: center;
 }
 
 .badge-legend-count {
-  flex-shrink: 0;
   line-height: 1.2;
+  text-align: center;
 }
 
 .badge-legend-text {
