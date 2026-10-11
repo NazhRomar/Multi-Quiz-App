@@ -1,5 +1,4 @@
 import { useApp } from '../../state/AppContext.jsx';
-import { useIsMobile } from '../../utils/useIsMobile.js';
 import { totalPointsOf } from '../../utils/quizTotals.js';
 import Dropdown from '../settings/Dropdown.jsx';
 import DropdownTabs from '../settings/DropdownTabs.jsx';
@@ -11,7 +10,6 @@ import HeaderTitle from '../common/HeaderTitle.jsx';
 export default function QuizHeader({ score, goHome }) {
   const { state, dispatch } = useApp();
   const { activeQuiz, currentIndex } = state;
-  const isMobile = useIsMobile();
   const total = activeQuiz.questions.length;
   const totalPoints = totalPointsOf(activeQuiz.questions);
   const pct = ((currentIndex + 1) / total) * 100;
@@ -30,8 +28,6 @@ export default function QuizHeader({ score, goHome }) {
           </div>
         </div>
         <span className="score-badge" title="Points scored so far, out of every point in this quiz">
-          {/* Phones: no room for the full word next to the progress bar. */}
-          <span className="header-stat-tag">{isMobile ? 'Pts' : 'Score'}</span>
           {score} / {totalPoints}
         </span>
         <button className="btn-restart" onClick={() => dispatch({ type: 'RESTART' })}>

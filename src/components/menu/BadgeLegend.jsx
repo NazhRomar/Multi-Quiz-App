@@ -45,6 +45,16 @@ const ITEMS = [
 
 const LegendItems = () => (
   <ul className="badge-legend-list">
+    {/* Not a badge, but the number on every entry needs explaining too; the
+        sample pill borrows .quiz-chip-count so it matches the menu in every
+        theme. */}
+    <li className="badge-legend-item">
+      <span className="quiz-chip-count badge-legend-count" aria-hidden="true">20</span>
+      <span className="badge-legend-text">
+        <strong>Question count</strong>
+        <span className="badge-legend-blurb">The number beside each quiz is how many questions it has.</span>
+      </span>
+    </li>
     {ITEMS.map(({ key, Icon, label, blurb, title }) => (
       <li key={key} className="badge-legend-item">
         <span className={`quiz-badge quiz-badge--${key}`} title={title}>
