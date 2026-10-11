@@ -276,10 +276,12 @@
       "pairs": [
         { "term": "Request a resource", "match": "GET" },
         { "term": "Overwrite a resource.", "match": "PUT" },
-        { "term": "Modify a resource", "match": "PATCH" }
+        { "term": "Modify a resource", "match": "PATCH" },
+        { "term": "Create a resource", "match": "POST" },
+        { "term": "Delete a resource", "match": "DELETE" }
       ],
-      "points": 3,
-      "explanation": "GET requests a resource. PUT overwrites (replaces) the whole resource, while PATCH modifies part of it. POST creates a resource and DELETE removes it."
+      "points": 5,
+      "explanation": "GET requests a resource and POST creates one. PUT overwrites (replaces) the whole resource, while PATCH modifies part of it. DELETE removes it."
     },
     {
       "id": 23,
