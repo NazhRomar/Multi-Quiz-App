@@ -1,0 +1,76 @@
+{
+  "quizTitle": "Long Quiz 1 (6)",
+  "addedOn": "2026-10-11",
+  "badges": { "unverified": true },
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "A system administrator is investigating a computer that is performing significantly slower than normal. To get a quick overview of what is currently consuming system resources, the administrator issues the <strong>ps</strong> command. What is the primary type of information that the <strong>ps</strong> command will display to help the administrator in this situation?",
+      "options": ["Current RAM usage.", "Current HDD usage.", "Current NIC status.", "Active processes using CPU time."],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "<code>ps</code> is a process snapshot: PID, terminal, cumulative CPU <code>TIME</code> and command. It doesn't report RAM totals, disk usage or network interface status (that's <code>free</code>, <code>df</code> and <code>ifconfig</code>/<code>ip</code>)."
+    },
+    {
+      "id": 2,
+      "type": "tf",
+      "text": "A student needs to change the filename myfile.sh to myfile_renamed.sh inside their current working directory. In Linux, the <code>mv</code> command is used both for moving files between directories and for renaming files within a directory.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Linux has no separate rename command for this; <code>mv myfile.sh myfile_renamed.sh</code> renames in place, and <code>mv myfile.sh ../Desktop/</code> moves it."
+    },
+    {
+      "id": 3,
+      "type": "tf",
+      "text": "An application executes a mathematical operation inside a try block that triggers a ZeroDivisionError, executing the corresponding except block followed by a finally block. The code inside the finally block executes upon completion regardless of whether an exception occurred or was handled.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<code>finally</code> always runs after the <code>try</code>/<code>except</code>, whether an exception was raised, handled or not. It's typically used for cleanup like closing files."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "A script receives raw CSV text <code>\"apple,banana,cherry\"</code>. The program needs to split this text into individual list items and then join them into a single string formatted as <code>\"apple &amp; banana &amp; cherry\"</code>. Which method combination correctly accomplishes this transformation?",
+      "options": [
+        "fruits = csv_data.join(\",\") followed by \" &amp; \".split(fruits)",
+        "fruits = csv_data.strip(\",\") followed by \" &amp; \".capitalize(fruits)",
+        "fruits = csv_data.split(\",\") followed by \" &amp; \".join(fruits)",
+        "fruits = csv_data.replace(\",\") followed by \" &amp; \".append(fruits)"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>.split(\",\")</code> turns the string into <code>['apple', 'banana', 'cherry']</code>, and <code>\" &amp; \".join(fruits)</code> glues the list back together with the separator, giving <code>'apple &amp; banana &amp; cherry'</code> (verified by running it). The other options reverse the methods or use ones that don't do this (<code>strip</code> trims ends, <code>replace</code> needs two arguments, strings have no <code>append</code>)."
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "A cash register software asks the cashier for a product's base price using <code>base_price = float(input(\"Enter base price: \"))</code>. Why is the <code>float()</code> function necessary here?",
+      "options": [
+        "Python variables cannot store numbers unless wrapped in float().",
+        "The input() function automatically returns an integer, which cannot be multiplied by decimals.",
+        "The input() function returns data as a string literal, which must be converted to a float for tax calculation math.",
+        "The float() function formats the text output displayed on the console screen."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "<code>input()</code> always returns a <code>str</code>, so <code>float()</code> converts it to a number before doing math on it. Python variables can hold any numeric type without wrapping, and integers multiply by decimals just fine."
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "A system administrator issues the <strong>apt-get upgrade</strong> command on a Linux operating system. What is the purpose of this command?",
+      "options": [
+        "Every application installed will update itself to the latest version.",
+        "Operating system updates are downloaded and will be installed.",
+        "A specific application named upgrade will be installed.",
+        "The remote repository of applications and dependencies will be updated to the latest version."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<code>apt-get upgrade</code> downloads and installs newer versions of the installed packages, including OS packages. Refreshing the repository package lists is <code>apt-get update</code>, apps don't run their own updaters, and \"upgrade\" is a subcommand, not a package name."
+    }
+  ]
+}
