@@ -5,7 +5,9 @@ import ScoreRing from './ScoreRing.jsx';
 import HeaderTitle from '../common/HeaderTitle.jsx';
 import ModuleBreakdown from './ModuleBreakdown.jsx';
 import QuestionMap from './QuestionMap.jsx';
-import LeaderboardTeaser from './LeaderboardTeaser.jsx';
+import LeaderboardPanel from './LeaderboardPanel.jsx';
+import { AUTH_AVAILABLE } from '../../utils/auth.js';
+import { formatDuration, formatDateTime } from '../../utils/formatAttempt.js';
 
 const round2 = (n) => Math.round(n * 100) / 100;
 
@@ -26,19 +28,6 @@ const MSQ_SCORING_LABELS = {
   rightMinusWrong: 'Right minus wrong',
   allOrNothing: 'All or nothing',
 };
-
-function formatDuration(ms) {
-  const totalSecs = Math.round(ms / 1000);
-  const h = Math.floor(totalSecs / 3600);
-  const m = Math.floor((totalSecs % 3600) / 60);
-  const s = totalSecs % 60;
-  if (h > 0) return `${h}h ${String(m).padStart(2, '0')}m`;
-  if (m > 0) return `${m}m ${String(s).padStart(2, '0')}s`;
-  return `${s}s`;
-}
-
-const formatDate = (ms) =>
-  new Date(ms).toLocaleString(undefined, { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
 
 const Icon = ({ d }) => (
   <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -149,7 +138,7 @@ export default function ResultScreen({ goHome }) {
               {completedAt && (
                 <li className="result-meta-chip">
                   <Icon d={CALENDAR} />
-                  {formatDate(completedAt)}
+                  {formatDateTime(completedAt)}
                 </li>
               )}
               {durationMs >= 1000 && (
@@ -195,7 +184,7 @@ export default function ResultScreen({ goHome }) {
 
         <QuestionMap onOpen={(i) => openReview(false, i)} />
         {isMulti && <ModuleBreakdown />}
-        {!isMulti && <LeaderboardTeaser />}
+        {!isMulti && activeQuizId && AUTH_AVAILABLE && <LeaderboardPanel />}
 
         <div className="result-actions">
           {mistakes > 0 ? (

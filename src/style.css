@@ -1824,6 +1824,133 @@ body {
   color: var(--accent);
 }
 
+/* Home header's account button (AccountButton.jsx): "Sign in", or your
+   Google photo once signed in. Bordered like Mark all as seen beside it. */
+.btn-account {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0 0.7rem;
+  border-radius: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  gap: 0.4rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.btn-account:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--radio-bg);
+  color: var(--accent);
+}
+
+.btn-account:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* Signed in: the photo fills the button edge to edge; the border is just
+   its outline, turning accent on hover like the buttons beside it. */
+.btn-account--avatar {
+  height: 36px;
+  width: 36px;
+  padding: 0;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.btn-account--avatar:hover:not(:disabled) {
+  background: transparent;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.account-wrap {
+  position: relative;
+}
+
+.account-menu-who {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.account-menu-who > span:last-child {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.account-menu-who strong {
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-menu-who small {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-menu-error {
+  padding: 0 1rem 0.6rem;
+  font-size: 0.75rem;
+  color: #d94f4f;
+}
+
+.account-menu-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.7rem 1rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Not .btn-exit: phones hide (and icon-shrink) that one inside the header. */
+.btn-signout {
+  height: 34px;
+  padding: 0 0.9rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-signout:hover {
+  border-color: #e05555;
+  color: #e05555;
+}
+
+/* Phones: just the person icon. */
+@media (max-width: 600px) {
+  .btn-account-label {
+    display: none;
+  }
+
+  .btn-account {
+    padding: 0 0.55rem;
+  }
+}
+
+/* Failed sign-in message: a toast without the timer, and allowed to wrap. */
+.auth-notice .update-toast-text {
+  white-space: normal;
+  font-weight: 600;
+}
+
 .mark-seen-corner {
   width: 10px;
   height: 10px;
@@ -3457,6 +3584,7 @@ body.code-wrap .q-context-body pre {
   border: 1px solid var(--border);
   border-radius: 99px;
   padding: 0.22rem 0.6rem;
+  white-space: nowrap;
 }
 
 .result-meta-chip svg {
@@ -3612,24 +3740,31 @@ body.code-wrap .q-context-body pre {
   opacity: 0.7;
 }
 
-/* Leaderboard placeholder: quiet on purpose — no action, just a heads-up. */
-.leaderboard-teaser {
+/* --- Leaderboard (LeaderboardPanel.jsx) --- */
+.leaderboard {
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.1rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--radio-bg);
+}
+
+/* Signed out: one quiet row with the Sign in button. */
+.leaderboard--signed-out {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 1.5rem;
-  padding: 0.7rem 0.9rem;
-  border: 1px dashed var(--border);
-  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
   color: var(--text-muted);
+  background: transparent;
+  border-style: dashed;
 }
 
-.leaderboard-teaser > svg {
+.leaderboard--signed-out > svg {
   flex: none;
-  opacity: 0.8;
 }
 
-.leaderboard-teaser-text {
+.leaderboard-signin-text {
   flex: 1;
   min-width: 0;
   display: flex;
@@ -3638,23 +3773,302 @@ body.code-wrap .q-context-body pre {
   line-height: 1.35;
 }
 
-.leaderboard-teaser-text strong {
-  font-size: 0.85rem;
+.leaderboard-signin-text strong {
+  font-size: 0.88rem;
   color: var(--text);
-  opacity: 0.85;
 }
 
-.leaderboard-teaser-pill {
+.btn-google {
   flex: none;
-  font-size: 0.65rem;
+  height: 34px;
+  padding: 0 0.95rem;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.15rem 0.5rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-google:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.btn-google:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.leaderboard-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.leaderboard-head .result-section-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.leaderboard-myrank {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  padding: 0.2rem 0.6rem;
   border-radius: 99px;
-  background: var(--radio-bg);
+  white-space: nowrap;
+}
+
+.leaderboard-post {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+
+.leaderboard-post--error {
+  color: #d94f4f;
+}
+
+.leaderboard-retry {
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.leaderboard-tabs {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.2rem;
+  margin-bottom: 0.5rem;
+  border-radius: 10px;
+  background: var(--surface);
   border: 1px solid var(--border);
 }
+
+.leaderboard-tab {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.38rem 0.4rem;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.leaderboard-tab:hover {
+  color: var(--text);
+}
+
+.leaderboard-tab--active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.leaderboard-tab--active:hover {
+  color: #fff;
+}
+
+.leaderboard-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d94f4f;
+  animation: live-count-pulse 2s ease-in-out infinite;
+}
+
+.leaderboard-tab--active .leaderboard-live-dot {
+  background: #fff;
+}
+
+.leaderboard-list {
+  list-style: none;
+}
+
+.leaderboard-row {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr) auto auto auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.4rem;
+  border-radius: 9px;
+  font-size: 0.85rem;
+}
+
+.leaderboard-row + .leaderboard-row {
+  border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+}
+
+/* Live rows have no rank column. */
+.leaderboard-row:not(:has(.leaderboard-rank)) {
+  grid-template-columns: auto minmax(0, 1fr) auto auto auto;
+}
+
+.leaderboard-row--me {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border-top-color: transparent !important;
+}
+
+.leaderboard-row--me + .leaderboard-row {
+  border-top-color: transparent;
+}
+
+/* Your own row, ranked below the top 10: a dotted break above it. */
+.leaderboard-row--gap {
+  margin-top: 0.5rem;
+  border-top: 2px dotted var(--border) !important;
+}
+
+.leaderboard-rank {
+  min-width: 1.6em;
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.leaderboard-rank--1,
+.leaderboard-rank--2,
+.leaderboard-rank--3 {
+  color: #fff;
+  border-radius: 99px;
+  padding: 0.05rem 0;
+}
+
+.leaderboard-rank--1 {
+  background: #d9a521;
+}
+
+.leaderboard-rank--2 {
+  background: #98a4b3;
+}
+
+.leaderboard-rank--3 {
+  background: #b87a4b;
+}
+
+.leaderboard-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.leaderboard-name small {
+  margin-left: 0.4rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 99px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.leaderboard-pct {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.leaderboard-time,
+.leaderboard-when {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  text-align: right;
+}
+
+.leaderboard-when {
+  min-width: 4.5em;
+}
+
+.leaderboard-empty {
+  padding: 1.1rem 0.4rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.leaderboard-foot {
+  margin-top: 0.55rem;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .leaderboard {
+    padding: 0.85rem 0.7rem 0.7rem;
+  }
+
+  .leaderboard--signed-out {
+    flex-wrap: wrap;
+  }
+
+  .leaderboard-row {
+    gap: 0.45rem;
+    font-size: 0.8rem;
+  }
+
+  /* Phones: no room for the time taken; the % and when stay. */
+  .leaderboard-time {
+    display: none;
+  }
+
+  .leaderboard-row {
+    grid-template-columns: auto auto minmax(0, 1fr) auto auto;
+  }
+
+  .leaderboard-row:not(:has(.leaderboard-rank)) {
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+  }
+}
+
+/* --- Avatar (Avatar.jsx): Google photo, or the name's initial --- */
+.avatar {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--accent) 22%, var(--surface));
+  color: var(--accent);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 
 .result-actions {
   display: flex;

@@ -2,8 +2,9 @@
 
 A study app for my own coursework: the quizzes and reviewers for each subject, in one
 place, as an installable offline PWA. 31 quizzes / 1,130 questions across 5 subjects today,
-all bundled at build time — there is no backend, no account and no network call once the
-app has loaded.
+all bundled at build time, so studying needs no network once the app has loaded. The one
+optional online part is a Supabase project behind the live "N reviewing now" count and the
+UST-only Google sign-in for per-quiz leaderboards (see "Accounts and leaderboards" below).
 
 Built with React 19 + Vite. State lives in one reducer; everything that should outlive a
 visit goes to `localStorage`.
@@ -119,6 +120,24 @@ rows and hands over the answers.
 **Tapping the "Last updated" footer** opens a hidden fixture quiz covering every question
 type. It used to be the only way to exercise `drag-drop`; "grep Basics" now uses it for
 one question, but the fixture is still the quicker way to poke at all six types at once.
+
+## Accounts and leaderboards
+
+Signing in is optional and limited to `@ust.edu.ph` Google accounts. Signed in, every
+finished single quiz is posted, and its results screen shows **Live** (every attempt,
+newest first) and each person's best **Today / This week / All time** (Manila time,
+default Multiple Select scoring).
+
+- `supabase/leaderboard.sql` is the whole backend: tables, row-level security, the
+  UST-only sign-up hook, and the `submit_attempt` / `leaderboard` / `recent_attempts`
+  functions. `supabase/SETUP.md` is the one-time Google Cloud + Supabase dashboard
+  checklist.
+- `src/utils/auth.js` loads `supabase-js` on demand (its own chunk), only for people who
+  sign in. `src/utils/authRedirect.js` must stay `main.jsx`'s first import: it reads a
+  failed sign-in's `#error=…` before the hash router mistakes it for a route.
+- Scores are computed in the browser, so the server can only reject the impossible
+  (score above total, under half a second a question, rapid reposts). It's a friendly
+  board, not a proctored one.
 
 ## Deployment
 

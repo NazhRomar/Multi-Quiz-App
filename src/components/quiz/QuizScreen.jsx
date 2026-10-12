@@ -20,7 +20,8 @@ export default function QuizScreen({ goHome }) {
   // The result also carries when and how long, and — when Multiple Select
   // scoring is set to something other than the default — the score the
   // default would have given, which the result screen shows underneath
-  // when the two differ.
+  // when the two differ. `board` is what the leaderboard gets: always the
+  // default scoring, so everyone on it is scored the same way.
   const submitQuiz = () => {
     const result = scoreQuiz(activeQuiz.questions, userAnswers, quizOptions);
     const standard =
@@ -35,6 +36,7 @@ export default function QuizScreen({ goHome }) {
         durationMs: state.elapsedMs + takeElapsed(),
         msqScoring: quizOptions.msqScoring,
         standardScore: standard && Math.abs(standard.score - result.score) > 0.001 ? standard.score : null,
+        board: { score: (standard ?? result).score, correct: (standard ?? result).correctCount },
       },
     });
   };

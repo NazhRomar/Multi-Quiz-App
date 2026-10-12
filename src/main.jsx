@@ -1,3 +1,6 @@
+// First: reads a Google sign-in redirect's ?error=/#error= before the hash
+// router (imported via App) can mistake it for a route.
+import './utils/authRedirect.js';
 import './style.css';
 import { createRoot } from 'react-dom/client';
 import App from './App.jsx';

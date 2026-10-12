@@ -9,6 +9,7 @@ import BadgeLegend from '../components/menu/BadgeLegend.jsx';
 import ResumeCard from '../components/menu/ResumeCard.jsx';
 import ChangelogModal from '../components/menu/ChangelogModal.jsx';
 import LiveCount from '../components/common/LiveCount.jsx';
+import AccountButton from '../components/common/AccountButton.jsx';
 import { useOverload } from '../components/menu/overload/useOverload.js';
 import OverloadCount from '../components/menu/overload/OverloadCount.jsx';
 import { formatBuildDate } from '../utils/formatBuildDate.js';
@@ -158,6 +159,7 @@ export default function BrowseLayout() {
               Mark all as seen
             </button>
           )}
+          <AccountButton />
           <Dropdown ariaLabel="Settings">
             <div className="dropdown-section-title">App settings</div>
             <AppSettingsFields showSearchOrder />

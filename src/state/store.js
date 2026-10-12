@@ -414,6 +414,12 @@ export function reducer(state, action) {
       return { ...state, screen: 'result', result, attemptHistory };
     }
 
+    // The result screen posted this attempt to the leaderboard; saved with
+    // the result so a reload doesn't post it twice.
+    case 'MARK_RESULT_POSTED':
+      if (!state.result || state.result.completedAt !== action.payload) return state;
+      return { ...state, result: { ...state.result, posted: true } };
+
     case 'SET_APP_SETTING': {
       const appSettings = { ...state.appSettings, [action.payload.key]: action.payload.value };
       return { ...state, appSettings };
