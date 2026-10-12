@@ -7,18 +7,12 @@ import react from '@vitejs/plugin-react'
 const buildDate = new Date().toISOString()
 
 // The home menu's changelog (menu/ChangelogModal.jsx), read straight from git
-// history at build time so it can't drift from what actually shipped.
-//
-// Quiz content is deliberately left out: a commit whose every changed file is
-// a quiz JSON is an answer bank going in or being corrected, not a change to
-// the app, and there are enough of them to bury everything else. The test is
-// structural rather than a guess at the wording of the message — a commit that
-// adds a quiz AND touches the app is an app change and stays.
+// history at build time so it can't drift from what actually shipped. Every
+// commit is listed, quiz additions and corrections included.
 //
 // Anything that stops this working (git missing, a shallow clone carrying no
 // history, building from a tarball) yields an empty list, and the button hides
 // itself rather than opening an empty panel.
-const QUIZ_DATA = /^src\/data\/.*\.json$/
 const REC = '\x1e' // between commits
 const FIELD = '\x1f' // between fields
 
@@ -51,7 +45,7 @@ function unshallow() {
 function readChangelog() {
   unshallow()
   try {
-    const raw = execSync('git log --date=short --format=%x1e%H%x1f%ad%x1f%s%x1f%b%x1f --name-only', {
+    const raw = execSync('git log --date=short --format=%x1e%H%x1f%ad%x1f%s%x1f%b', {
       encoding: 'utf8',
       maxBuffer: 32 * 1024 * 1024,
       stdio: ['ignore', 'pipe', 'ignore'],
@@ -60,19 +54,9 @@ function readChangelog() {
       .split(REC)
       .filter((record) => record.trim())
       .map((record) => {
-        const [hash, date, subject, body, files = ''] = record.split(FIELD)
-        return {
-          hash: hash.trim(),
-          date,
-          subject,
-          body: body.trim(),
-          files: files.split('\n').map((f) => f.trim()).filter(Boolean),
-        }
+        const [hash, date, subject, body = ''] = record.split(FIELD)
+        return { hash: hash.trim().slice(0, 7), date, subject, body: body.trim() }
       })
-      // A merge lists no files of its own, so it can't be mistaken for
-      // quiz-only and stays in.
-      .filter((c) => !(c.files.length && c.files.every((f) => QUIZ_DATA.test(f))))
-      .map(({ hash, date, subject, body }) => ({ hash: hash.slice(0, 7), date, subject, body }))
   } catch (e) {
     return []
   }
@@ -140,7 +124,7 @@ function versionAsset() {
 }
 
 // Publishes the changelog as its own file rather than inlining it: the
-// entries are ~54 kB, almost all of it commit bodies, and the panel is opened
+// entries are ~116 kB, mostly commit bodies, and the panel is opened
 // rarely — no reason to carry that in the bundle every load. It's emitted into
 // the build output, which means serviceWorker() below lists it among the
 // precached URLs and the panel keeps working offline. This plugin must stay

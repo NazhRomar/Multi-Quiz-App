@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
 // Every change to the app, newest first, read out of git history at build
-// time (see readChangelog in vite.config.js — quiz content is filtered out
-// there, so this list is app changes only). It's fetched rather than bundled
+// time (see readChangelog in vite.config.js), quiz additions and corrections
+// included. It's fetched rather than bundled
 // because it's ~54 kB that most sessions never look at; the service worker
 // precaches the file, so this still works offline.
 const REPO_URL = __REPO_URL__;
@@ -107,7 +107,7 @@ export default function ChangelogModal({ onClose }) {
             ✕
           </button>
         </div>
-        <p className="changelog-note">Changes to the app itself. Quizzes being added or corrected aren&apos;t listed.</p>
+        <p className="changelog-note">Changes to the app and its quizzes, newest first.</p>
         <div className="changelog-scroll">
           {failed && <p className="changelog-state">Couldn&apos;t load the changelog.</p>}
           {!failed && !entries && <p className="changelog-state">Loading…</p>}
