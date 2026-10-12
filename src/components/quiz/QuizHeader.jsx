@@ -5,7 +5,7 @@ import DropdownTabs from '../settings/DropdownTabs.jsx';
 import QuizOptionsFields from '../settings/QuizOptionsFields.jsx';
 import AppSettingsFields from '../settings/AppSettingsFields.jsx';
 import MultiOptionsFields from '../settings/MultiOptionsFields.jsx';
-import HeaderTitle from '../common/HeaderTitle.jsx';
+import HeaderTitle, { Breadcrumbs } from '../common/HeaderTitle.jsx';
 
 export default function QuizHeader({ score, goHome }) {
   const { state, dispatch } = useApp();
@@ -45,6 +45,7 @@ export default function QuizHeader({ score, goHome }) {
           }
         >
           <div className="dropdown-mobile-actions">
+            <Breadcrumbs />
             <button className="btn-restart" onClick={() => dispatch({ type: 'RESTART' })}>
               Restart
             </button>

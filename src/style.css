@@ -665,6 +665,16 @@ body.theme-canvas .dropdown-tab {
 @media (max-width: 600px) {
   .dropdown-mobile-actions {
     display: flex;
+    flex-wrap: wrap;
+  }
+
+  /* The header hides the breadcrumbs on mobile; here they get a full row
+     and wrap instead of truncating. */
+  .dropdown-mobile-actions .breadcrumbs {
+    display: block;
+    flex-basis: 100%;
+    white-space: normal;
+    line-height: 1.5;
   }
 
   .dropdown-mobile-actions .btn-restart,

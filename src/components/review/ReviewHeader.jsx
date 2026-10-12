@@ -4,7 +4,7 @@ import DropdownTabs from '../settings/DropdownTabs.jsx';
 import ReviewOptionsFields from '../settings/ReviewOptionsFields.jsx';
 import AppSettingsFields from '../settings/AppSettingsFields.jsx';
 import MultiOptionsFields from '../settings/MultiOptionsFields.jsx';
-import HeaderTitle from '../common/HeaderTitle.jsx';
+import HeaderTitle, { Breadcrumbs } from '../common/HeaderTitle.jsx';
 
 const SEARCH_ICON = (
   <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
@@ -55,6 +55,7 @@ export default function ReviewHeader({ progressLabel, progressPct, goHome, onRes
           }
         >
           <div className="dropdown-mobile-actions">
+            <Breadcrumbs />
             <button className="btn-restart" onClick={onRestart}>
               {restartLabel}
             </button>

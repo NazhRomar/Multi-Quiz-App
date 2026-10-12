@@ -8,11 +8,9 @@ import { multiSubjectLabel } from '../../data/catalog.js';
 // plain "Review" pill, same as a single quiz's review.
 export default function HeaderTitle({ mode }) {
   const { state } = useApp();
-  const { activeTerm, activeCourse, activeQuiz } = state;
   const modeLabel = mode === 'review' ? 'Review' : 'Quiz';
 
-  if (activeQuiz.multi) {
-    const { label, tooltip } = multiSubjectLabel(activeQuiz.multi);
+  if (state.activeQuiz.multi) {
     return (
       <div className="header-left">
         {mode === 'review' ? (
@@ -20,9 +18,7 @@ export default function HeaderTitle({ mode }) {
         ) : (
           <span className="mode-pill mode-pill--multi">Multi</span>
         )}
-        <span className="breadcrumbs" title={tooltip}>
-          {label}
-        </span>
+        <Breadcrumbs />
       </div>
     );
   }
@@ -30,9 +26,29 @@ export default function HeaderTitle({ mode }) {
   return (
     <div className="header-left">
       <span className={`mode-pill mode-pill--${mode}`}>{modeLabel}</span>
-      <span className="breadcrumbs">
-        {activeTerm} <span>/</span> {activeCourse} <span>/</span> {activeQuiz.quizTitle}
-      </span>
+      <Breadcrumbs />
     </div>
+  );
+}
+
+// Also shown at the top of the quiz/review options dropdown on mobile, where
+// the header has no room for them.
+export function Breadcrumbs() {
+  const { state } = useApp();
+  const { activeTerm, activeCourse, activeQuiz } = state;
+
+  if (activeQuiz.multi) {
+    const { label, tooltip } = multiSubjectLabel(activeQuiz.multi);
+    return (
+      <span className="breadcrumbs" title={tooltip}>
+        {label}
+      </span>
+    );
+  }
+
+  return (
+    <span className="breadcrumbs">
+      {activeTerm} <span>/</span> {activeCourse} <span>/</span> {activeQuiz.quizTitle}
+    </span>
   );
 }
