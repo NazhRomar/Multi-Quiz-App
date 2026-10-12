@@ -15,6 +15,8 @@ export function loadState(key, defaultState) {
 // answering cheap no matter how big the quiz is.
 export const ATTEMPT_QUIZ_KEY = 'quizApp_attemptQuiz';
 export const ATTEMPT_PROGRESS_KEY = 'quizApp_attemptProgress';
+// Past attempts kept per quiz for the result screen's personal best.
+const ATTEMPT_HISTORY_LIMIT = 20;
 
 // The attempt blob is the only thing here big enough to hit the storage
 // quota, and a browser in private mode can refuse writes outright. Either
@@ -127,7 +129,10 @@ export function createInitialState() {
     activeMode: 'quiz', // 'quiz' | 'review' — which mode the current activeQuiz session is in
     currentIndex: 0,
     userAnswers: {},
-    result: null, // scoreQuiz() output, set on SUBMIT_QUIZ
+    result: null, // scoreQuiz() output plus timing (see QuizScreen), set on SUBMIT_QUIZ
+    // Time spent on the quiz screen this attempt, visible tab only (see
+    // useAttemptClock). Saved with the progress, so a reload keeps it.
+    elapsedMs: 0,
 
     appSettings: loadState('quizApp_appSettings', DEFAULT_APP_SETTINGS),
     quizOptions: loadState('quizApp_quizOptions', DEFAULT_QUIZ_OPTIONS),
@@ -144,6 +149,9 @@ export function createInitialState() {
     // Recently added quizzes whose "new" corner was cleared, keyed by
     // catalog quiz id (persisted; see utils/newQuizzes.js).
     seenNewQuizzes: loadState('quizApp_seenNewQuizzes', {}),
+    // Submitted attempts per catalog quiz id, oldest first: { at, pct,
+    // durationMs } (persisted; single quizzes only, see SUBMIT_QUIZ).
+    attemptHistory: loadState('quizApp_attemptHistory', {}),
   };
 
   // Restore an attempt left over from the last visit, if there is one.
@@ -177,6 +185,7 @@ export function createInitialState() {
     currentIndex: Math.min(Math.max(progress.currentIndex | 0, 0), quiz.activeQuiz.questions.length - 1),
     userAnswers: progress.userAnswers ?? {},
     result,
+    elapsedMs: Math.max(Number(progress.elapsedMs) || 0, 0),
   };
 }
 
@@ -239,6 +248,7 @@ export function reducer(state, action) {
         currentIndex: 0,
         userAnswers: {},
         result: null,
+        elapsedMs: 0,
       };
     }
 
@@ -281,11 +291,18 @@ export function reducer(state, action) {
 
     // Mirrors switchToReview()/switchToQuiz(): reuses the CURRENT (possibly
     // shuffled) activeQuiz, not originalQuizData — deliberately different
-    // from RESTART.
+    // from RESTART. payload.startIndex: open at that question (the result
+    // screen's question map).
     case 'SWITCH_TO_REVIEW':
       return reducer(state, {
         type: 'START_REVIEW',
-        payload: { term: state.activeTerm, course: state.activeCourse, quizData: state.activeQuiz, quizId: state.activeQuizId },
+        payload: {
+          term: state.activeTerm,
+          course: state.activeCourse,
+          quizData: state.activeQuiz,
+          quizId: state.activeQuizId,
+          startIndex: action.payload?.startIndex ?? 0,
+        },
       });
     case 'SWITCH_TO_QUIZ':
       return reducer(state, {
@@ -368,8 +385,26 @@ export function reducer(state, action) {
       return { ...state, userAnswers: { ...state.userAnswers, [qId]: { ...existing, submitted: true } } };
     }
 
-    case 'SUBMIT_QUIZ':
-      return { ...state, screen: 'result', result: action.payload };
+    // Only while the quiz screen is up: the clock's final flush, on its way
+    // out, lands after SUBMIT_QUIZ has already fixed the attempt's duration.
+    case 'ADD_ELAPSED':
+      if (state.screen !== 'quiz') return state;
+      return { ...state, elapsedMs: state.elapsedMs + action.payload };
+
+    // Single quizzes also log the attempt for the result screen's personal
+    // best. Multi sessions don't: each is an arbitrary mix of quizzes.
+    case 'SUBMIT_QUIZ': {
+      const result = action.payload;
+      if (!state.activeQuizId) return { ...state, screen: 'result', result };
+      const entry = {
+        at: result.completedAt,
+        pct: Math.round((result.score / result.totalPossible) * 100),
+        durationMs: result.durationMs,
+      };
+      const past = state.attemptHistory[state.activeQuizId] ?? [];
+      const attemptHistory = { ...state.attemptHistory, [state.activeQuizId]: [...past, entry].slice(-ATTEMPT_HISTORY_LIMIT) };
+      return { ...state, screen: 'result', result, attemptHistory };
+    }
 
     case 'SET_APP_SETTING': {
       const appSettings = { ...state.appSettings, [action.payload.key]: action.payload.value };

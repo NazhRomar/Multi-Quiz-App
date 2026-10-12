@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useApp } from '../../state/AppContext.jsx';
 import { liveScore, scoreQuiz, fitbGiven } from '../../state/grading.js';
+import { DEFAULT_QUIZ_OPTIONS } from '../../state/store.js';
 import { useNavRow } from './useNavRow.jsx';
+import { useAttemptClock } from './useAttemptClock.js';
 import { useChoiceKeys, useEnterShortcut, usePrevShortcut } from './useEnterShortcut.js';
 import QuizHeader from './QuizHeader.jsx';
 import QuestionCard from './QuestionCard.jsx';
@@ -13,6 +15,29 @@ export default function QuizScreen({ goHome }) {
   const { activeQuiz, currentIndex, userAnswers, appSettings, quizOptions } = state;
   const [isCardExiting, setIsCardExiting] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+  const takeElapsed = useAttemptClock(dispatch, activeQuiz);
+
+  // The result also carries when and how long, and — when Multiple Select
+  // scoring is set to something other than the default — the score the
+  // default would have given, which the result screen shows underneath
+  // when the two differ.
+  const submitQuiz = () => {
+    const result = scoreQuiz(activeQuiz.questions, userAnswers, quizOptions);
+    const standard =
+      quizOptions.msqScoring !== DEFAULT_QUIZ_OPTIONS.msqScoring
+        ? scoreQuiz(activeQuiz.questions, userAnswers, { ...quizOptions, msqScoring: DEFAULT_QUIZ_OPTIONS.msqScoring })
+        : null;
+    dispatch({
+      type: 'SUBMIT_QUIZ',
+      payload: {
+        ...result,
+        completedAt: Date.now(),
+        durationMs: state.elapsedMs + takeElapsed(),
+        msqScoring: quizOptions.msqScoring,
+        standardScore: standard && Math.abs(standard.score - result.score) > 0.001 ? standard.score : null,
+      },
+    });
+  };
 
   const question = activeQuiz.questions[currentIndex];
   const savedState = userAnswers[question.id] || { value: null, submitted: false };
@@ -164,7 +189,7 @@ export default function QuizScreen({ goHome }) {
           onCancel={() => setShowConfirm(false)}
           onConfirm={() => {
             setShowConfirm(false);
-            dispatch({ type: 'SUBMIT_QUIZ', payload: scoreQuiz(activeQuiz.questions, userAnswers, quizOptions) });
+            submitQuiz();
           }}
         />
       )}

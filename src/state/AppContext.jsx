@@ -60,6 +60,10 @@ export function AppProvider({ children }) {
     localStorage.setItem('quizApp_seenNewQuizzes', JSON.stringify(state.seenNewQuizzes));
   }, [state.seenNewQuizzes]);
 
+  useEffect(() => {
+    saveState('quizApp_attemptHistory', state.attemptHistory);
+  }, [state.attemptHistory]);
+
   // The in-progress attempt, so a reload (or the OS dropping the installed
   // app from memory mid quiz) doesn't cost you the attempt. The heavy half
   // — the questions — only gets rewritten when a new attempt starts, which
@@ -90,8 +94,9 @@ export function AppProvider({ children }) {
       currentIndex: state.currentIndex,
       userAnswers: state.userAnswers,
       result: state.result,
+      elapsedMs: state.elapsedMs,
     });
-  }, [state.activeQuiz, state.screen, state.currentIndex, state.userAnswers, state.result]);
+  }, [state.activeQuiz, state.screen, state.currentIndex, state.userAnswers, state.result, state.elapsedMs]);
 
   return <AppContext.Provider value={{ state, dispatch }}>{children}</AppContext.Provider>;
 }
