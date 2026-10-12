@@ -34,6 +34,12 @@ export const fetchLeaderboard = (quizId, period) => rpc('leaderboard', { p_quiz_
 
 export const fetchRecentAttempts = (quizId) => rpc('recent_attempts', { p_quiz_id: quizId, p_limit: 20 });
 
+// Every quiz at once, for Home's live activity.
+export const fetchRecentActivity = () => rpc('recent_activity', { p_limit: 30 });
+
+// How often a live list re-fetches while it's on screen (and the tab visible).
+export const LIVE_REFRESH_MS = 15000;
+
 export async function fetchShowOnBoard(userId) {
   const client = await getSupabase();
   const { data, error } = await client.from('profiles').select('show_on_board').eq('id', userId).maybeSingle();

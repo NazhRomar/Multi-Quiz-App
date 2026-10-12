@@ -126,11 +126,13 @@ one question, but the fixture is still the quicker way to poke at all six types 
 Signing in is optional and limited to `@ust.edu.ph` Google accounts. Signed in, every
 finished single quiz is posted, and its results screen shows **Live** (every attempt,
 newest first) and each person's best **Today / This week / All time** (Manila time,
-Multiple Select scored "Right only").
+Multiple Select scored "Right only"). Tapping Home's "N reviewing now" opens the same live
+feed across every quiz.
 
 - `supabase/leaderboard.sql` is the whole backend: tables, row-level security, the
-  UST-only sign-up hook, and the `submit_attempt` / `leaderboard` / `recent_attempts`
-  functions. `supabase/SETUP.md` is the one-time Google Cloud + Supabase dashboard
+  UST-only sign-up hook, and the `submit_attempt` / `leaderboard` / `recent_attempts` /
+  `recent_activity` functions. Re-run it in the SQL Editor after changing it: pushing the
+  app doesn't touch the database. `supabase/SETUP.md` is the one-time Google Cloud + Supabase dashboard
   checklist.
 - `src/utils/auth.js` loads `supabase-js` on demand (its own chunk), only for people who
   sign in. `src/utils/authRedirect.js` must stay `main.jsx`'s first import: it reads a

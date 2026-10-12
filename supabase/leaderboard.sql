@@ -14,6 +14,7 @@
 --   * leaderboard()      best attempt per person, today / this week / all time
 --                        (Asia/Manila, weeks start Monday)
 --   * recent_attempts()  the Live tab: every attempt on a quiz, newest first
+--   * recent_activity()  Home's live activity: every attempt on every quiz
 -- Every table and function also refuses non-UST callers on its own, so the
 -- data stays UST-only even if the hook were switched off.
 
@@ -295,3 +296,38 @@ $$;
 
 revoke execute on function public.recent_attempts(text, int) from anon, public;
 grant execute on function public.recent_attempts(text, int) to authenticated;
+
+-- ---------------------------------------------------------------------------
+-- Live activity (tap "N reviewing now" on Home): every attempt on every quiz,
+-- newest first, with which quiz it was.
+-- ---------------------------------------------------------------------------
+
+create index if not exists attempts_time on public.attempts (completed_at desc);
+
+create or replace function public.recent_activity(p_limit int default 30)
+returns table (
+  is_me boolean,
+  display_name text,
+  avatar_url text,
+  quiz_id text,
+  quiz_title text,
+  pct numeric,
+  duration_ms int,
+  completed_at timestamptz
+)
+language sql
+stable
+security definer
+set search_path = ''
+as $$
+  select a.user_id = auth.uid(), p.display_name, p.avatar_url, a.quiz_id, a.quiz_title, a.pct, a.duration_ms, a.completed_at
+  from public.attempts a
+  join public.profiles p on p.id = a.user_id
+  where (select public.is_ust())
+    and (p.show_on_board or a.user_id = auth.uid())
+  order by a.completed_at desc
+  limit least(greatest(coalesce(p_limit, 30), 1), 50);
+$$;
+
+revoke execute on function public.recent_activity(int) from anon, public;
+grant execute on function public.recent_activity(int) to authenticated;

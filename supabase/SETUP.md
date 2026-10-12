@@ -104,6 +104,8 @@ organization's admin", that's UST's block from step 0.
   and weeks start on Monday.
 - **Live**: every attempt on that quiz, newest first. It refreshes every 15
   seconds while it's open.
+- **Live activity**: tapping "N reviewing now" on Home shows the latest
+  attempts on every quiz, refreshing the same way.
 - **Hiding**: the **Show me on leaderboards** switch in the photo menu hides
   you from everyone else's boards and from Live. You still see your own
   rank.

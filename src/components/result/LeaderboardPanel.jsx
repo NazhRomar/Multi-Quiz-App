@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useApp } from '../../state/AppContext.jsx';
 import { useAuth, signIn } from '../../utils/auth.js';
-import { postAttempt, fetchLeaderboard, fetchRecentAttempts, MIN_MS_PER_QUESTION } from '../../utils/leaderboard.js';
+import { postAttempt, fetchLeaderboard, fetchRecentAttempts, MIN_MS_PER_QUESTION, LIVE_REFRESH_MS } from '../../utils/leaderboard.js';
 import { formatDuration, formatBoardTime, formatBoardDate, formatAgo } from '../../utils/formatAttempt.js';
 import Avatar from '../common/Avatar.jsx';
 
@@ -11,7 +11,6 @@ const TABS = [
   { value: 'week', label: 'This week' },
   { value: 'all', label: 'All time' },
 ];
-const LIVE_REFRESH_MS = 15000;
 
 // Attempts being posted right now, by completedAt — so a remount (or React's
 // dev double effects) can't send the same attempt twice.
