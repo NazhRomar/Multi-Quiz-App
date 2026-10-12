@@ -37,10 +37,10 @@
         "Every application installed on the system will update itself to the latest version.",
         "The remote repository of applications and dependencies will be updated to the latest version."
       ],
-      "correctAnswer": 0,
+      "correctAnswer": 2,
       "points": 1,
-      "warning": "The quiz lists the right answer twice, word for word. Either copy is correct on the real quiz, but only the first one is accepted here.",
-      "explanation": "<code>apt-get upgrade</code> downloads and installs newer versions of the installed packages, including OS packages. Refreshing the repository package lists is <code>apt-get update</code>, and apps don't run their own updaters."
+      "warning": "This is the keyed answer, though strictly speaking the apps don't update themselves: <code>apt</code> upgrades every installed package (operating system packages included) to the latest version in the repositories.",
+      "explanation": "<code>apt-get upgrade</code> upgrades every installed application/package to its latest available version, which is what this option describes. \"Operating system updates are downloaded and will be installed\" is too narrow, since it upgrades all installed packages, not just the OS. Refreshing the repository package lists is <code>apt-get update</code>, and \"upgrade\" is a subcommand, not a package name."
     },
     {
       "id": 4,

@@ -68,9 +68,10 @@
         "A specific application named upgrade will be installed.",
         "The remote repository of applications and dependencies will be updated to the latest version."
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 0,
       "points": 1,
-      "explanation": "<code>apt-get upgrade</code> downloads and installs newer versions of the installed packages, including OS packages. Refreshing the repository package lists is <code>apt-get update</code>, apps don't run their own updaters, and \"upgrade\" is a subcommand, not a package name."
+      "warning": "This is the keyed answer, though strictly speaking the apps don't update themselves: <code>apt</code> upgrades every installed package (operating system packages included) to the latest version in the repositories.",
+      "explanation": "<code>apt-get upgrade</code> upgrades every installed application/package to its latest available version, which is what this option describes. \"Operating system updates are downloaded and will be installed\" is too narrow, since it upgrades all installed packages, not just the OS. Refreshing the repository package lists is <code>apt-get update</code>, and \"upgrade\" is a subcommand, not a package name."
     }
   ]
 }
