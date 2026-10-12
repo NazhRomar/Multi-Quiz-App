@@ -152,7 +152,7 @@ export default function ResultScreen({ goHome }) {
                   {formatDate(completedAt)}
                 </li>
               )}
-              {durationMs > 0 && (
+              {durationMs >= 1000 && (
                 <li className="result-meta-chip" title="Time on the quiz screen, with the tab open">
                   <Icon d={CLOCK} />
                   {formatDuration(durationMs)}

@@ -342,6 +342,13 @@ main.question-card {
   color: #6da037;
 }
 
+/* Review's way back to the results screen: a Restart-shaped button. */
+.btn-restart.btn-results:hover {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 @media (max-width: 600px) {
   .btn-restart,
   .btn-exit {
@@ -3031,6 +3038,16 @@ body.code-wrap .q-context-body pre {
   font-size: 0.92rem;
   color: var(--text);
   line-height: 1.6;
+}
+
+/* The global reset zeroes list padding, which leaves the numbers/bullets
+   of an explanation's list hanging over the block's left border. */
+:is(.q-explanation-text, .q-context-body, .q-text) :is(ol, ul) {
+  padding-left: 1.4rem;
+}
+
+:is(.q-explanation-text, .q-context-body, .q-text) li + li {
+  margin-top: 0.15rem;
 }
 
 .feedback-banner {
@@ -5748,19 +5765,7 @@ body.theme-dark .mode-pill--multi {
 
 /* --- Multi results: score by module (ModuleBreakdown.jsx) --- */
 .module-breakdown {
-  margin: 1.75rem auto 0;
-  max-width: 560px;
-  text-align: left;
-}
-
-.module-breakdown-title {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.75rem;
 }
 
 .module-breakdown-list {

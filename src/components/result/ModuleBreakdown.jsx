@@ -14,7 +14,7 @@ export default function ModuleBreakdown() {
 
   return (
     <section className="module-breakdown">
-      <h4 className="module-breakdown-title">Score by module</h4>
+      <h4 className="result-section-title">Score by module</h4>
       <ul className="module-breakdown-list">
         {rows.map((row) => {
           const pct = Math.round((row.score / row.total) * 100);

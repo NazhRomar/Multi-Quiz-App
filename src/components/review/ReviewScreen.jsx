@@ -155,6 +155,16 @@ export default function ReviewScreen({ goHome }) {
   // Left arrow: the previous card.
   usePrevShortcut(!isListView && total > 0 && !isFirst && !isCardExiting ? () => animatedNav('PREV_Q') : null);
 
+  // Reviewing a submitted attempt (opened from the results screen): the
+  // result is kept, and the header's Results button and the last card's
+  // button go back to it.
+  const showResult = state.result
+    ? () => {
+        dispatch({ type: 'SHOW_RESULT' });
+        window.scrollTo(0, 0);
+      }
+    : null;
+
   const { topRow, bottomRow, portals } = useNavRow({
     navLocation: appSettings.navLocation,
     isFirst: isListView || total === 0 ? true : isFirst,
@@ -164,7 +174,8 @@ export default function ReviewScreen({ goHome }) {
     isListView,
     onPrev: () => animatedNav('PREV_Q'),
     onNext: () => animatedNav('NEXT_Q'),
-    onDone: goHome,
+    onDone: showResult ?? goHome,
+    doneLabel: showResult ? 'Back to Results' : undefined,
     onRestart: restart,
     restartLabel: startsQuiz ? 'Start' : 'Restart',
     onExit: goHome,
@@ -183,6 +194,7 @@ export default function ReviewScreen({ goHome }) {
         progressLabel={progressLabel}
         progressPct={progressPct}
         goHome={goHome}
+        onShowResult={showResult}
         onRestart={restart}
         restartLabel={startsQuiz ? 'Start' : 'Restart'}
         searchOpen={searchOpen}

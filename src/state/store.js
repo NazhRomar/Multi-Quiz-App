@@ -256,6 +256,8 @@ export function reducer(state, action) {
     // attempt — drop any previous attempt's answers so they can't leak into
     // this review (e.g. the Wrong answers only filter; ids repeat across quizzes).
     // startIndex: open at that question (home menu question search results).
+    // Not fresh (switched to from the results screen, or a Restart within
+    // that review), the attempt's result is kept too, for SHOW_RESULT.
     case 'START_REVIEW': {
       const { term, course, quizData, quizId, fresh, startIndex = 0 } = action.payload;
       return {
@@ -268,10 +270,16 @@ export function reducer(state, action) {
         activeQuizId: quizId ?? null, // null for a Multi session
         activeMode: 'review',
         currentIndex: startIndex,
-        result: null,
-        ...(fresh ? { userAnswers: {} } : {}),
+        ...(fresh ? { userAnswers: {}, result: null } : {}),
       };
     }
+
+    // Review → back to the results screen it was opened from. It's the quiz
+    // attempt's screen, so the mode goes back to quiz: the URL follows
+    // (/quiz/...), and its Restart Quiz restarts the quiz, not the review.
+    case 'SHOW_RESULT':
+      if (!state.result) return state;
+      return { ...state, screen: 'result', activeMode: 'quiz' };
 
     case 'RESTART': {
       if (state.activeMode === 'quiz') {

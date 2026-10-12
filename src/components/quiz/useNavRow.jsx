@@ -37,6 +37,7 @@ const NAV_POSITION_MAP = {
 // between Previous and Next on mobile, expanding the row to reveal them
 // (otherwise only reachable via the header's hamburger menu there).
 // restartLabel: the Restart button's text (a fresh review shows "Start").
+// doneLabel: review's last-card button (back to the results, after an attempt).
 export function useNavRow({
   navLocation,
   isFirst,
@@ -48,6 +49,7 @@ export function useNavRow({
   onNext,
   onFinishQuiz,
   onDone,
+  doneLabel = 'Done ✓',
   onRestart,
   restartLabel = 'Restart',
   onExit,
@@ -120,7 +122,7 @@ export function useNavRow({
   if (isListView) {
     nextBtn = (
       <button className="btn-next" style={{ marginLeft: 'auto' }} onClick={onDone}>
-        Done ✓
+        {doneLabel}
       </button>
     );
   } else {
@@ -157,7 +159,7 @@ export function useNavRow({
         </button>
       ) : (
         <button key="nav-next" className="btn-next" onClick={onDone}>
-          Done ✓
+          {doneLabel}
         </button>
       );
     } else {
