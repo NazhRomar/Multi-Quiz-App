@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { findNote, loadNote, notesForSubject } from '../notes/index.js';
 import Dropdown from '../components/settings/Dropdown.jsx';
@@ -20,17 +20,29 @@ export default function NotesRoute() {
   const [tocOpen, setTocOpen] = useState(false);
   const pageRef = useRef(null);
   const topRef = useRef(null);
+  // Each tab's scroll position, so switching back to a note returns to
+  // where it was left. Only while the notes page stays open — opening notes
+  // from Home starts at the top.
+  const scrollBySlug = useRef({});
+  const restoreY = useRef(0);
 
   useEffect(() => {
     if (!note) return;
     let cancelled = false;
     setSource(null);
     loadNote(note).then((text) => !cancelled && setSource(text));
+    restoreY.current = scrollBySlug.current[note.slug] ?? 0;
     window.scrollTo(0, 0);
     return () => {
       cancelled = true;
+      scrollBySlug.current[note.slug] = window.scrollY;
     };
   }, [note]);
+
+  // Once the note has rendered, so the page is tall enough to scroll to it.
+  useLayoutEffect(() => {
+    if (source != null) window.scrollTo({ top: restoreY.current, behavior: 'instant' });
+  }, [source]);
 
   // The header and switcher stick together; their combined height (which
   // varies with breakpoint and theme) offsets the sidebar and the headings'

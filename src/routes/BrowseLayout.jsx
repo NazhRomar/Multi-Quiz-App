@@ -65,6 +65,18 @@ const MODE_OPTIONS = [
   },
 ];
 
+// Where Home was scrolled when it was last left (for a quiz, review,
+// notes…), so coming back lands in the same spot. Module-level, so a fresh
+// load starts at the top.
+let savedScroll = null;
+
+// Document-relative top of the first term: the anchor that keeps the list
+// in place even if the Resume card above it came or went meanwhile.
+const listTop = (main) => {
+  const el = main?.querySelector('.term-section');
+  return el ? el.getBoundingClientRect().top + window.scrollY : null;
+};
+
 // Home's chrome: header, search box, mode toggles, the Resume card, the
 // badge legend, footer and the Multi Quiz selection bar. HomeScreen renders
 // in the <Outlet/>, receiving { search, isSearching } via outlet context.
@@ -83,6 +95,24 @@ export default function BrowseLayout() {
   const typedLength = search.trim().length;
   const query = typedLength >= MIN_SEARCH_LENGTH ? search.trim() : '';
   const isSearching = !!query;
+
+  const searchRef = useRef(search);
+  searchRef.current = search;
+  const mainRef = useRef(null);
+  useLayoutEffect(() => {
+    const main = mainRef.current;
+    // Only for the same search — a position in search results means
+    // nothing on the full list (Exit drops ?q=).
+    if (savedScroll && savedScroll.search === searchRef.current) {
+      const { y, anchor } = savedScroll;
+      const now = listTop(main);
+      // From the very top, stay there, so a newly appeared Resume card shows.
+      window.scrollTo({ top: y > 0 && anchor != null && now != null ? y + now - anchor : y, behavior: 'instant' });
+    }
+    return () => {
+      savedScroll = { y: window.scrollY, anchor: listTop(main), search: searchRef.current };
+    };
+  }, []);
 
   const onSearchChange = (value) => setSearchParams(value ? { q: value } : {}, { replace: true });
 
@@ -192,7 +222,7 @@ export default function BrowseLayout() {
       <div className={`menu-mode-hint ${hint ? 'menu-mode-hint--visible' : ''}`} aria-hidden={!hint}>
         <div className="menu-mode-hint-inner">{lastHint.current}</div>
       </div>
-      <main className="menu-container">
+      <main className="menu-container" ref={mainRef}>
         {/* Hidden while searching — a search is about finding something
             else, and the card would sit on top of the results. */}
         {!isSearching && <ResumeCard />}
