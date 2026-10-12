@@ -341,6 +341,7 @@
         3
       ],
       "points": 1,
+      "warning": "Tanda ko sa quiz 3 points lang pero sabi ni claude tama lahat so idk haahsahah - Nazh",
       "explanation": "All four hold up: <code>ps -ef</code>'s columns include UID, PID and PPID; <code>more</code> advances a full screen on Spacebar and one line on Enter; <code>shutdown -c</code> cancels a pending delayed shutdown; and bare <code>ps</code> with no options defaults to only the processes attached to the current terminal session (add <code>-e</code>/<code>-ef</code> to see every process on the system)."
     },
     {
