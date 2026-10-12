@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useApp } from '../../state/AppContext.jsx';
 import { liveScore, scoreQuiz, fitbGiven } from '../../state/grading.js';
-import { DEFAULT_QUIZ_OPTIONS } from '../../state/store.js';
+import { BOARD_MSQ_SCORING } from '../../utils/leaderboard.js';
 import { useNavRow } from './useNavRow.jsx';
 import { useAttemptClock } from './useAttemptClock.js';
 import { useChoiceKeys, useEnterShortcut, usePrevShortcut } from './useEnterShortcut.js';
@@ -17,17 +17,16 @@ export default function QuizScreen({ goHome }) {
   const [showConfirm, setShowConfirm] = useState(false);
   const takeElapsed = useAttemptClock(dispatch, activeQuiz);
 
-  // The result also carries when and how long, and — when Multiple Select
-  // scoring is set to something other than the default — the score the
-  // default would have given, which the result screen shows underneath
-  // when the two differ. `board` is what the leaderboard gets: always the
-  // default scoring, so everyone on it is scored the same way.
+  // The result also carries when and how long, and `board`: what the
+  // leaderboard gets, always scored with BOARD_MSQ_SCORING so everyone on it
+  // is scored the same way (the result screen shows it underneath when your
+  // own Multiple Select scoring gives a different score).
   const submitQuiz = () => {
     const result = scoreQuiz(activeQuiz.questions, userAnswers, quizOptions);
-    const standard =
-      quizOptions.msqScoring !== DEFAULT_QUIZ_OPTIONS.msqScoring
-        ? scoreQuiz(activeQuiz.questions, userAnswers, { ...quizOptions, msqScoring: DEFAULT_QUIZ_OPTIONS.msqScoring })
-        : null;
+    const boardResult =
+      quizOptions.msqScoring !== BOARD_MSQ_SCORING
+        ? scoreQuiz(activeQuiz.questions, userAnswers, { ...quizOptions, msqScoring: BOARD_MSQ_SCORING })
+        : result;
     dispatch({
       type: 'SUBMIT_QUIZ',
       payload: {
@@ -35,8 +34,7 @@ export default function QuizScreen({ goHome }) {
         completedAt: Date.now(),
         durationMs: state.elapsedMs + takeElapsed(),
         msqScoring: quizOptions.msqScoring,
-        standardScore: standard && Math.abs(standard.score - result.score) > 0.001 ? standard.score : null,
-        board: { score: (standard ?? result).score, correct: (standard ?? result).correctCount },
+        board: { score: boardResult.score, correct: boardResult.correctCount },
       },
     });
   };

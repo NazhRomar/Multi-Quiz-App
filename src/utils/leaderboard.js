@@ -3,6 +3,11 @@ import { getSupabase } from './auth.js';
 // Calls into the leaderboard functions in supabase/leaderboard.sql. Each one
 // throws on failure, with the server's message where there is one.
 
+// Everyone on a board is scored the same way, whatever their own Quiz
+// options say: Multiple Select as "Right only" (a share per correct pick,
+// wrong picks cost nothing — see pointsEarned in state/grading.js).
+export const BOARD_MSQ_SCORING = 'right';
+
 // Mirrors submit_attempt's floor, so a too-quick attempt isn't even sent.
 export const MIN_MS_PER_QUESTION = 500;
 

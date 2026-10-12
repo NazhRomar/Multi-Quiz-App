@@ -25,8 +25,8 @@ const TrophyIcon = () => (
 );
 
 // The result screen's leaderboard for this quiz (single quizzes only).
-// Signed in, the attempt is posted automatically — scored with the default
-// Multiple Select scoring, whatever the quiz options say — and the tabs show
+// Signed in, the attempt is posted automatically — Multiple Select scored "Right
+// only" (BOARD_MSQ_SCORING), whatever the quiz options say — and the tabs show
 // Live (every attempt, newest first), then each person's best Today / This
 // week / All time, in Manila time.
 export default function LeaderboardPanel() {
@@ -195,7 +195,7 @@ export default function LeaderboardPanel() {
       <p className="leaderboard-foot">
         {tab === 'live'
           ? 'Every attempt, newest first · refreshes every 15 seconds'
-          : 'Best attempt per person · Manila time · default Multiple Select scoring'}
+          : 'Best attempt per person · Manila time · Multiple Select scored Right only'}
       </p>
     </section>
   );

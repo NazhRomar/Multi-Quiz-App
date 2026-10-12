@@ -96,9 +96,9 @@ organization's admin", that's UST's block from step 0.
 
 - **Posting**: when you're signed in, every finished single quiz is posted
   automatically. Multi quizzes are never posted.
-- **Scoring**: the board always uses the default Multiple Select scoring
-  ("right minus wrong"), whatever your quiz options say. The big number on
-  your result still follows your own settings.
+- **Scoring**: the board always scores Multiple Select as "Right only" (a share
+  per correct pick, wrong picks cost nothing), whatever your quiz options
+  say. The big number on your result still follows your own settings.
 - **Ranking**: Today, This week and All time show each person's best
   attempt, by % and then the faster time. Days and weeks run on Manila time,
   and weeks start on Monday.

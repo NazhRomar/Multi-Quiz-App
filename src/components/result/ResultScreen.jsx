@@ -1,6 +1,6 @@
 import { useApp } from '../../state/AppContext.jsx';
 import { isAnswerCorrect } from '../../state/grading.js';
-import { DEFAULT_QUIZ_OPTIONS } from '../../state/store.js';
+import { BOARD_MSQ_SCORING } from '../../utils/leaderboard.js';
 import ScoreRing from './ScoreRing.jsx';
 import HeaderTitle from '../common/HeaderTitle.jsx';
 import ModuleBreakdown from './ModuleBreakdown.jsx';
@@ -82,11 +82,15 @@ function Confetti() {
 export default function ResultScreen({ goHome }) {
   const { state, dispatch } = useApp();
   const { activeQuiz, activeQuizId, activeCourse, result, appSettings } = state;
-  const { score, totalPossible, correctCount, wrongCount, unansweredCount, flaggedCount, completedAt, durationMs, standardScore } = result;
+  const { score, totalPossible, correctCount, wrongCount, unansweredCount, flaggedCount, completedAt, durationMs } = result;
   const percentage = Math.round((score / totalPossible) * 100);
   const tone = toneOf(percentage);
   const scored = correctCount + wrongCount + unansweredCount;
   const isMulti = !!activeQuiz.multi;
+  // The leaderboard's score for this attempt, when your own Multiple Select
+  // scoring gave a different one (single quizzes only — Multi isn't ranked).
+  const showBoardScore =
+    !isMulti && activeQuizId && AUTH_AVAILABLE && result.board && Math.abs(result.board.score - score) > 0.001;
 
   // What Review's "Wrong answers only" filter would leave (wrong, partly
   // right and unanswered), so the button's count matches what it opens.
@@ -126,12 +130,12 @@ export default function ResultScreen({ goHome }) {
             <p className="result-points">
               <strong>{round2(score)}</strong> / {totalPossible} points
             </p>
-            {standardScore != null && (
+            {showBoardScore && (
               <p
                 className="result-alt-score"
-                title={`Multiple Select is scored “${MSQ_SCORING_LABELS[result.msqScoring] ?? result.msqScoring}” (Quiz options); the default is “${MSQ_SCORING_LABELS[DEFAULT_QUIZ_OPTIONS.msqScoring]}”.`}
+                title={`Your Multiple Select scoring is “${MSQ_SCORING_LABELS[result.msqScoring] ?? result.msqScoring}” (Quiz options); leaderboards score everyone “${MSQ_SCORING_LABELS[BOARD_MSQ_SCORING]}”.`}
               >
-                With default Multiple Select scoring: <strong>{Math.round((standardScore / totalPossible) * 100)}%</strong>
+                Leaderboard score (“{MSQ_SCORING_LABELS[BOARD_MSQ_SCORING]}”): <strong>{Math.round((result.board.score / totalPossible) * 100)}%</strong>
               </p>
             )}
             <ul className="result-meta">

@@ -125,7 +125,7 @@ create table if not exists public.attempts (
   user_id uuid not null references auth.users (id) on delete cascade,
   quiz_id text not null,
   quiz_title text not null,
-  score numeric not null,           -- default Multiple Select scoring
+  score numeric not null,           -- Multiple Select scored "Right only"
   total numeric not null,
   pct numeric not null,             -- 0–100, computed here, not trusted from the app
   correct int not null,

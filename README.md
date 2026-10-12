@@ -126,7 +126,7 @@ one question, but the fixture is still the quicker way to poke at all six types 
 Signing in is optional and limited to `@ust.edu.ph` Google accounts. Signed in, every
 finished single quiz is posted, and its results screen shows **Live** (every attempt,
 newest first) and each person's best **Today / This week / All time** (Manila time,
-default Multiple Select scoring).
+Multiple Select scored "Right only").
 
 - `supabase/leaderboard.sql` is the whole backend: tables, row-level security, the
   UST-only sign-up hook, and the `submit_attempt` / `leaderboard` / `recent_attempts`
