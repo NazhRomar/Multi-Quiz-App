@@ -90,8 +90,10 @@ export default function BrowseLayout() {
 
   // Just navigates — MultiSessionRoute is what actually starts the session
   // from state.multiSelection once it mounts (same split as a single quiz:
-  // click navigates, the destination route dispatches).
-  const startMulti = () => navigate(homeMode.review ? '/multi/review' : '/multi/quiz');
+  // click navigates, the destination route dispatches). `start` tells it
+  // this is a fresh Start, so an unfinished Multi attempt over a different
+  // selection is replaced rather than resumed.
+  const startMulti = () => navigate(homeMode.review ? '/multi/review' : '/multi/quiz', { state: { start: true } });
 
   const selectedQuestions = catalog
     .flatMap((term) => term.courses)

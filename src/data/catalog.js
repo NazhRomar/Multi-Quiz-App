@@ -402,7 +402,8 @@ export function searchQuestions(query, limit = 50) {
 // question carries a `source` so the UI can say where it came from.
 // `multi.subjects` lists every distinct term/course involved, and
 // `multi.quizzes` every source quiz (the results screen's per-module
-// breakdown order).
+// breakdown order), with its catalog id so a later Start can tell whether
+// the selection still matches this session (MultiSessionRoute).
 export function buildMultiQuiz(selectedIds) {
   const questions = [];
   const subjects = [];
@@ -412,7 +413,7 @@ export function buildMultiQuiz(selectedIds) {
       for (const quiz of course.quizzes) {
         if (!selectedIds.has(quiz.id)) continue;
         if (!subjects.some((s) => s.term === term.key && s.course === course.key)) subjects.push({ term: term.key, course: course.key });
-        quizzes.push({ term: term.key, course: course.key, title: quiz.title });
+        quizzes.push({ id: quiz.id, term: term.key, course: course.key, title: quiz.title });
         for (const q of quiz.data.questions) {
           questions.push({
             ...JSON.parse(JSON.stringify(q)),
