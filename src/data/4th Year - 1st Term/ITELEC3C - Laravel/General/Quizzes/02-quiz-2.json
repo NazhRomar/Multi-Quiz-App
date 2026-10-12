@@ -207,7 +207,7 @@
       "options": ["True", "False"],
       "correctAnswer": 1,
       "points": 1,
-      "warning": "The quiz keys this <strong>True</strong>. It's keyed False here because Laravel doesn't check CSRF tokens on GET requests, only on POST, PUT, PATCH and DELETE.",
+      "warning": "Was originally <strong>True</strong>, but the professor has since changed the actual quiz to <strong>False</strong>.",
       "explanation": "Laravel does put the CSRF token in a hidden <code>_token</code> field (via <code>@csrf</code>), but its CSRF middleware skips read-only requests (GET, HEAD, OPTIONS) and verifies the token only on state-changing ones like POST, PUT, PATCH and DELETE. The \"GET\" makes the statement false as written. If the quiz meant \"POST\", it would be true."
     }
   ]
