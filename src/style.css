@@ -665,16 +665,6 @@ body.theme-canvas .dropdown-tab {
 @media (max-width: 600px) {
   .dropdown-mobile-actions {
     display: flex;
-    flex-wrap: wrap;
-  }
-
-  /* The header hides the breadcrumbs on mobile; here they get a full row
-     and wrap instead of truncating. */
-  .dropdown-mobile-actions .breadcrumbs {
-    display: block;
-    flex-basis: 100%;
-    white-space: normal;
-    line-height: 1.5;
   }
 
   .dropdown-mobile-actions .btn-restart,
@@ -3204,6 +3194,7 @@ body.code-wrap .q-context-body pre {
 
   .nav-expand-panel {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
     overflow: hidden;
     max-height: 0;
@@ -3224,13 +3215,22 @@ body.code-wrap .q-context-body pre {
     content: none !important;
   }
 
+  /* The header hides the breadcrumbs on mobile; here they get a full row
+     above Restart/Exit and wrap instead of truncating. */
+  .nav-expand-panel .breadcrumbs {
+    display: block;
+    flex-basis: 100%;
+    white-space: normal;
+    line-height: 1.5;
+  }
+
   /* Top row: panel unfolds in-flow, below the buttons. */
   #quiz-nav-top .nav-expand-panel {
     flex-basis: 100%;
   }
 
   #quiz-nav-top.nav-row--expanded .nav-expand-panel {
-    max-height: 60px;
+    max-height: 160px;
     opacity: 1;
     margin-top: 0.6rem;
     padding-top: 0.6rem;
@@ -3254,7 +3254,7 @@ body.code-wrap .q-context-body pre {
   }
 
   #quiz-nav-bottom.nav-row--expanded .nav-expand-panel {
-    max-height: 60px;
+    max-height: 160px;
     opacity: 1;
     padding: 0.6rem 0.9rem;
     pointer-events: auto;

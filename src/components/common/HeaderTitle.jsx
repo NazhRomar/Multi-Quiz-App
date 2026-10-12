@@ -31,7 +31,7 @@ export default function HeaderTitle({ mode }) {
   );
 }
 
-// Also shown at the top of the quiz/review options dropdown on mobile, where
+// Also shown in the mobile nav row's Restart/Exit panel (useNavRow), where
 // the header has no room for them.
 export function Breadcrumbs() {
   const { state } = useApp();

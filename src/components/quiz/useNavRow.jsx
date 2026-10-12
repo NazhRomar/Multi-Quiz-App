@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { navSideLeft, navSideRight, navNearLeft, navNearRight } from './navPortalTargets.js';
 import { useIsMobile } from '../../utils/useIsMobile.js';
 import { EnterKeyIcon, LeftKeyIcon } from '../common/KeyIcons.jsx';
+import { Breadcrumbs } from '../common/HeaderTitle.jsx';
 
 // Chevron for the mobile nav's expand toggle. Points down at rest; CSS
 // flips it per row (#quiz-nav-top/#quiz-nav-bottom) and open state so it
@@ -210,6 +211,7 @@ export function useNavRow({
   );
   const expandPanel = hasExpand && (
     <div className="nav-expand-panel">
+      <Breadcrumbs />
       {onRestart && (
         <button className="btn-restart" onClick={wrapClose(onRestart)}>
           {restartLabel}
