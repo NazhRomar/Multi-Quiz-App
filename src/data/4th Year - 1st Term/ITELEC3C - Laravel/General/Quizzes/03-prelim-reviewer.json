@@ -850,10 +850,10 @@
         "View rendering",
         "Response Creation"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 2,
       "points": 1,
-      "warning": "Outside Source says <strong>View rendering</strong>. It's keyed Middleware Execution here because the route's middleware runs once the route is matched and before the controller, while the view is only rendered when the controller returns it.",
-      "explanation": "The router first matches the route, then sends the request through that route's middleware (auth, throttling and so on), and only then calls the controller action. The controller usually returns <code>view(...)</code>, so view rendering and response creation come <em>after</em> the action.",
+      "warning": "Outside Source says <strong>View rendering</strong>, and it's keyed that way here. In real Laravel it's <strong>Middleware Execution</strong>: the route's middleware runs once the route is matched and before the controller, while the view is only rendered when the controller returns it.",
+      "explanation": "Keyed View rendering to match Outside Source. In real Laravel, the router first matches the route, then sends the request through that route's middleware (auth, throttling and so on), and only then calls the controller action. The controller usually returns <code>view(...)</code>, so view rendering and response creation come <em>after</em> the action.",
       "id": 59
     },
     {
