@@ -205,10 +205,10 @@
       "type": "tf",
       "text": "Laravel uses CSRF tokens in the form of hidden fields for GET <code>_token</code> requests to prevent unauthorized access and to secure each user submission.",
       "options": ["True", "False"],
-      "correctAnswer": 0,
+      "correctAnswer": 1,
       "points": 1,
-      "warning": "The quiz keys this <strong>True</strong>, but Laravel doesn't actually check CSRF tokens on GET requests, only on POST, PUT, PATCH and DELETE.",
-      "explanation": "The quiz says True, so it's keyed True here. In real Laravel the CSRF token does go in a hidden <code>_token</code> field (via <code>@csrf</code>), but the CSRF middleware skips read-only requests (GET, HEAD, OPTIONS) and verifies the token only on state-changing ones like POST, PUT, PATCH and DELETE. The statement would be accurate if it said \"POST\" instead of \"GET\"."
+      "warning": "The quiz keys this <strong>True</strong>. It's keyed False here because Laravel doesn't check CSRF tokens on GET requests, only on POST, PUT, PATCH and DELETE.",
+      "explanation": "Laravel does put the CSRF token in a hidden <code>_token</code> field (via <code>@csrf</code>), but its CSRF middleware skips read-only requests (GET, HEAD, OPTIONS) and verifies the token only on state-changing ones like POST, PUT, PATCH and DELETE. The \"GET\" makes the statement false as written. If the quiz meant \"POST\", it would be true."
     }
   ]
 }
