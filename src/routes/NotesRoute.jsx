@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { findNote, loadNote, notesForSubject } from '../notes/index.js';
 import Dropdown from '../components/settings/Dropdown.jsx';
@@ -18,6 +18,8 @@ export default function NotesRoute() {
   const [source, setSource] = useState(null);
   const [activeId, setActiveId] = useState(null);
   const [tocOpen, setTocOpen] = useState(false);
+  const pageRef = useRef(null);
+  const topRef = useRef(null);
 
   useEffect(() => {
     if (!note) return;
@@ -28,6 +30,17 @@ export default function NotesRoute() {
     return () => {
       cancelled = true;
     };
+  }, [note]);
+
+  // The header and switcher stick together; their combined height (which
+  // varies with breakpoint and theme) offsets the sidebar and the headings'
+  // scroll margin via --notes-top-h.
+  useEffect(() => {
+    const top = topRef.current;
+    if (!top) return;
+    const observer = new ResizeObserver(() => pageRef.current?.style.setProperty('--notes-top-h', `${top.offsetHeight}px`));
+    observer.observe(top);
+    return () => observer.disconnect();
   }, [note]);
 
   const { blocks, headings } = useMemo(() => {
@@ -44,9 +57,10 @@ export default function NotesRoute() {
     if (!headings.length) return;
     const els = headings.map((h) => document.getElementById(h.id)).filter(Boolean);
     const onScroll = () => {
+      const threshold = (topRef.current?.offsetHeight ?? 62) + 48;
       let current = els[0]?.id;
       for (const el of els) {
-        if (el.getBoundingClientRect().top <= 110) current = el.id;
+        if (el.getBoundingClientRect().top <= threshold) current = el.id;
         else break;
       }
       setActiveId(current);
@@ -59,8 +73,8 @@ export default function NotesRoute() {
   if (!note) return <Navigate to="/" replace />;
 
   // Sibling notes of the same subject (e.g. several courses under one
-  // subject) get a switcher above the notes, repeated at the top of the
-  // Contents sheet so it's reachable without scrolling back up.
+  // subject) get a switcher that sticks under the header, so it's
+  // reachable without scrolling back up.
   const siblings = notesForSubject(note.subjectId);
   const switcher = siblings.length > 1 && (
     <SegmentedToggle
@@ -92,38 +106,34 @@ export default function NotesRoute() {
   );
 
   return (
-    <div className="notes-page">
-      <header className="quiz-header notes-header">
-        <div className="header-left">
-          <img className="header-logo" src={`${import.meta.env.BASE_URL}favicon.svg`} alt="Multi Quiz App" />
-          <h1 className="notes-title">{note.title}</h1>
-        </div>
-        <div className="header-right">
-          {headings.length > 0 && (
-            <button type="button" className={`notes-toc-toggle ${tocOpen ? 'notes-toc-toggle--open' : ''}`} onClick={() => setTocOpen((o) => !o)} aria-expanded={tocOpen}>
-              Contents
-              <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M4 6l4 4 4-4" />
-              </svg>
-            </button>
-          )}
-          <button type="button" className="notes-exit" onClick={() => navigate('/')}>
-            Exit
-          </button>
-          <Dropdown ariaLabel="Settings">
-            <div className="dropdown-section-title">App settings</div>
-            <AppSettingsFields />
-          </Dropdown>
-        </div>
-        {tocOpen && (
-          <div className="notes-toc-sheet">
-            {switcher && <div className="notes-toc-switcher">{switcher}</div>}
-            {toc}
+    <div className="notes-page" ref={pageRef}>
+      <div className="notes-top" ref={topRef}>
+        <header className="quiz-header notes-header">
+          <div className="header-left">
+            <img className="header-logo" src={`${import.meta.env.BASE_URL}favicon.svg`} alt="Multi Quiz App" />
+            <h1 className="notes-title">{note.title}</h1>
           </div>
-        )}
-      </header>
-
-      {switcher && <div className="notes-switcher">{switcher}</div>}
+          <div className="header-right">
+            {headings.length > 0 && (
+              <button type="button" className={`notes-toc-toggle ${tocOpen ? 'notes-toc-toggle--open' : ''}`} onClick={() => setTocOpen((o) => !o)} aria-expanded={tocOpen}>
+                Contents
+                <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M4 6l4 4 4-4" />
+                </svg>
+              </button>
+            )}
+            <button type="button" className="notes-exit" onClick={() => navigate('/')}>
+              Exit
+            </button>
+            <Dropdown ariaLabel="Settings">
+              <div className="dropdown-section-title">App settings</div>
+              <AppSettingsFields />
+            </Dropdown>
+          </div>
+        </header>
+        {switcher && <div className="notes-switcher">{switcher}</div>}
+        {tocOpen && <div className="notes-toc-sheet">{toc}</div>}
+      </div>
 
       <div className={`notes-layout ${switcher ? 'notes-layout--switched' : ''}`}>
         {headings.length > 0 && <aside className="notes-sidebar">{toc}</aside>}
