@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useApp } from '../../state/AppContext.jsx';
 import { useAuth, signIn } from '../../utils/auth.js';
-import { postAttempt, fetchLeaderboard, fetchRecentAttempts, MIN_MS_PER_QUESTION, LIVE_REFRESH_MS } from '../../utils/leaderboard.js';
+import { postAttempt, fetchLeaderboard, fetchRecentAttempts, MIN_MS_PER_QUESTION, LIVE_REFRESH_MS, LEADERBOARD_ENABLED } from '../../utils/leaderboard.js';
 import { formatDuration, formatBoardTime, formatBoardDate, formatAgo } from '../../utils/formatAttempt.js';
 import Avatar from '../common/Avatar.jsx';
 
@@ -27,8 +27,24 @@ const TrophyIcon = () => (
 // Signed in, the attempt is posted automatically — Multiple Select scored "Right
 // only" (BOARD_MSQ_SCORING), whatever the quiz options say — and the tabs show
 // Live (every attempt, newest first), then each person's best Today / This
-// week / All time, in Manila time.
+// week / All time, in Manila time. While LEADERBOARD_ENABLED is off, just a
+// note saying so.
 export default function LeaderboardPanel() {
+  if (!LEADERBOARD_ENABLED) {
+    return (
+      <section className="leaderboard leaderboard--signed-out">
+        <TrophyIcon />
+        <span className="leaderboard-signin-text">
+          <strong>Leaderboards are off for now</strong>
+          <span>Scores aren't being posted, and results are hidden.</span>
+        </span>
+      </section>
+    );
+  }
+  return <Board />;
+}
+
+function Board() {
   const { state, dispatch } = useApp();
   const { result, activeQuiz, activeQuizId } = state;
   const auth = useAuth();

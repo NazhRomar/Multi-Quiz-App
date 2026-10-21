@@ -1,6 +1,6 @@
 import { useApp } from '../../state/AppContext.jsx';
 import { isAnswerCorrect } from '../../state/grading.js';
-import { BOARD_MSQ_SCORING } from '../../utils/leaderboard.js';
+import { BOARD_MSQ_SCORING, LEADERBOARD_ENABLED } from '../../utils/leaderboard.js';
 import ScoreRing from './ScoreRing.jsx';
 import HeaderTitle from '../common/HeaderTitle.jsx';
 import ModuleBreakdown from './ModuleBreakdown.jsx';
@@ -90,7 +90,7 @@ export default function ResultScreen({ goHome }) {
   // The leaderboard's score for this attempt, when your own Multiple Select
   // scoring gave a different one (single quizzes only — Multi isn't ranked).
   const showBoardScore =
-    !isMulti && activeQuizId && AUTH_AVAILABLE && result.board && Math.abs(result.board.score - score) > 0.001;
+    LEADERBOARD_ENABLED && !isMulti && activeQuizId && AUTH_AVAILABLE && result.board && Math.abs(result.board.score - score) > 0.001;
 
   // What Review's "Wrong answers only" filter would leave (wrong, partly
   // right and unanswered), so the button's count matches what it opens.

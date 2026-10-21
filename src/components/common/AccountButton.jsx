@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { AUTH_AVAILABLE, useAuth, signIn, signOut } from '../../utils/auth.js';
-import { fetchShowOnBoard, setShowOnBoard } from '../../utils/leaderboard.js';
+import { fetchShowOnBoard, setShowOnBoard, LEADERBOARD_ENABLED } from '../../utils/leaderboard.js';
 import Avatar from './Avatar.jsx';
 import ToggleRow from '../settings/ToggleRow.jsx';
 
@@ -12,7 +12,9 @@ const PersonIcon = () => (
 );
 
 // Home header: "Sign in" (UST Google accounts) when signed out; signed in,
-// your photo, opening a menu with the leaderboard switch and Sign out.
+// your photo, opening a menu with the leaderboard switch and Sign out. With
+// the leaderboards off there's no Sign in (it's only for them), and the menu
+// is just Sign out.
 export default function AccountButton() {
   const auth = useAuth();
   const [phase, setPhase] = useState('closed'); // 'closed' | 'opening' | 'open'
@@ -37,7 +39,7 @@ export default function AccountButton() {
   }, [phase]);
 
   useEffect(() => {
-    if (phase !== 'opening' || !user) return;
+    if (phase !== 'opening' || !user || !LEADERBOARD_ENABLED) return;
     setError(null);
     fetchShowOnBoard(user.id)
       .then(setShow)
@@ -47,6 +49,7 @@ export default function AccountButton() {
   if (!AUTH_AVAILABLE) return null;
 
   if (auth.status !== 'signedIn') {
+    if (!LEADERBOARD_ENABLED) return null;
     return (
       <button type="button" className="btn-account" onClick={signIn} disabled={auth.status === 'loading'} title="Sign in with your UST Google account">
         <PersonIcon />
@@ -83,13 +86,15 @@ export default function AccountButton() {
               <small>{user.email}</small>
             </span>
           </div>
-          <ToggleRow
-            title="Show me on leaderboards"
-            hint="Off: hidden from everyone else's boards and Live"
-            checked={showOnBoard ?? true}
-            onChange={toggleShow}
-            inert={showOnBoard === null}
-          />
+          {LEADERBOARD_ENABLED && (
+            <ToggleRow
+              title="Show me on leaderboards"
+              hint="Off: hidden from everyone else's boards and Live"
+              checked={showOnBoard ?? true}
+              onChange={toggleShow}
+              inert={showOnBoard === null}
+            />
+          )}
           {error && <p className="account-menu-error">{error}</p>}
           <div className="account-menu-actions">
             <button

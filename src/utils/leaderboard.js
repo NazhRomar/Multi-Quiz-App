@@ -3,6 +3,10 @@ import { getSupabase } from './auth.js';
 // Calls into the leaderboard functions in supabase/leaderboard.sql. Each one
 // throws on failure, with the server's message where there is one.
 
+// Off for now: no attempts are posted, and no one's results are shown (the
+// result screen's board, Home's live activity, the "Show me" switch).
+export const LEADERBOARD_ENABLED = false;
+
 // Everyone on a board is scored the same way, whatever their own Quiz
 // options say: Multiple Select as "Right only" (a share per correct pick,
 // wrong picks cost nothing — see pointsEarned in state/grading.js).
