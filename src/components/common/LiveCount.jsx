@@ -3,7 +3,6 @@ import { createPortal } from 'react-dom';
 import { useApp } from '../../state/AppContext.jsx';
 import { usePresenceConnection, useLiveCount } from '../../utils/presence.js';
 import { AUTH_AVAILABLE } from '../../utils/auth.js';
-import { LEADERBOARD_ENABLED } from '../../utils/leaderboard.js';
 import LiveActivityModal from './LiveActivityModal.jsx';
 
 // Mounted once for the whole app, so you're counted on every screen, not
@@ -16,7 +15,7 @@ export function LivePresence() {
 
 // The home header's "● N reviewing now". Nothing at all until connected.
 // Tapping it opens the live activity across every quiz (when sign-in is
-// set up at all, and the leaderboards are on — it's the same UST-only data).
+// set up at all — it's the same UST-only data as the leaderboards).
 export default function LiveCount() {
   const { state } = useApp();
   const count = useLiveCount();
@@ -32,7 +31,7 @@ export default function LiveCount() {
     </>
   );
 
-  if (!AUTH_AVAILABLE || !LEADERBOARD_ENABLED) {
+  if (!AUTH_AVAILABLE) {
     return (
       <span className="live-count" title={people}>
         {content}

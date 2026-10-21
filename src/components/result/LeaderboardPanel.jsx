@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useApp } from '../../state/AppContext.jsx';
 import { useAuth, signIn } from '../../utils/auth.js';
-import { postAttempt, fetchLeaderboard, fetchRecentAttempts, MIN_MS_PER_QUESTION, LIVE_REFRESH_MS, LEADERBOARD_ENABLED } from '../../utils/leaderboard.js';
+import { postAttempt, fetchLeaderboard, fetchRecentAttempts, MIN_MS_PER_QUESTION, LIVE_REFRESH_MS, LEADERBOARD_ENABLED, LEADERBOARD_OFF_MESSAGE } from '../../utils/leaderboard.js';
 import { formatDuration, formatBoardTime, formatBoardDate, formatAgo } from '../../utils/formatAttempt.js';
 import Avatar from '../common/Avatar.jsx';
 
@@ -36,7 +36,7 @@ export default function LeaderboardPanel() {
         <TrophyIcon />
         <span className="leaderboard-signin-text">
           <strong>Leaderboards are off for now</strong>
-          <span>Scores aren't being posted, and results are hidden.</span>
+          <span>{LEADERBOARD_OFF_MESSAGE}</span>
         </span>
       </section>
     );

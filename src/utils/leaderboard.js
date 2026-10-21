@@ -4,8 +4,10 @@ import { getSupabase } from './auth.js';
 // throws on failure, with the server's message where there is one.
 
 // Off for now: no attempts are posted, and no one's results are shown (the
-// result screen's board, Home's live activity, the "Show me" switch).
+// result screen's board and Home's live activity show LEADERBOARD_OFF_MESSAGE
+// instead; Sign in and the "Show me" switch are hidden).
 export const LEADERBOARD_ENABLED = false;
+export const LEADERBOARD_OFF_MESSAGE = "Due to current issues and di ko naman alam kanino na nabigay 'tong site, tatanggalin ko na leaderboard heh";
 
 // Everyone on a board is scored the same way, whatever their own Quiz
 // options say: Multiple Select as "Right only" (a share per correct pick,

@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useAuth, signIn } from '../../utils/auth.js';
-import { fetchRecentActivity, LIVE_REFRESH_MS } from '../../utils/leaderboard.js';
+import { fetchRecentActivity, LIVE_REFRESH_MS, LEADERBOARD_ENABLED, LEADERBOARD_OFF_MESSAGE } from '../../utils/leaderboard.js';
 import { formatAgo, formatBoardDate, formatBoardTime, formatDuration } from '../../utils/formatAttempt.js';
 import { findQuizById } from '../../data/catalog.js';
 import Avatar from './Avatar.jsx';
 
 // Opened from Home's "N reviewing now": the latest attempts on every quiz,
 // newest first, refreshing while it's open. UST accounts only, like the
-// leaderboards (supabase/leaderboard.sql → recent_activity).
+// leaderboards (supabase/leaderboard.sql → recent_activity). With the
+// leaderboards off, just LEADERBOARD_OFF_MESSAGE.
 export default function LiveActivityModal({ count, onClose }) {
   const auth = useAuth();
   const signedIn = auth.status === 'signedIn';
@@ -15,7 +16,7 @@ export default function LiveActivityModal({ count, onClose }) {
   const [, setTick] = useState(0); // re-renders the "2m ago"s between fetches
 
   useEffect(() => {
-    if (!signedIn) return undefined;
+    if (!signedIn || !LEADERBOARD_ENABLED) return undefined;
     let cancelled = false;
     const load = () =>
       fetchRecentActivity()
@@ -62,10 +63,14 @@ export default function LiveActivityModal({ count, onClose }) {
         </div>
         <p className="changelog-note">
           {count != null && `${count} reviewing now · `}
-          The latest attempts on every quiz, newest first · refreshes every 15 seconds
+          {LEADERBOARD_ENABLED
+            ? 'The latest attempts on every quiz, newest first · refreshes every 15 seconds'
+            : 'Leaderboards are off for now'}
         </p>
         <div className="changelog-scroll">
-          {!signedIn ? (
+          {!LEADERBOARD_ENABLED ? (
+            <p className="changelog-state">{LEADERBOARD_OFF_MESSAGE}</p>
+          ) : !signedIn ? (
             <div className="activity-signin">
               <p>Sign in with your UST Google account to see what everyone's taking right now.</p>
               <button type="button" className="btn-google" onClick={signIn} disabled={auth.status === 'loading'}>
