@@ -1,0 +1,586 @@
+{
+  "quizTitle": "Laravel - Fill in the Blank (Comprehensive)",
+  "addedOn": "2026-10-22",
+  "badges": {
+    "unofficial": true
+  },
+  "questions": [
+    {
+      "id": 1,
+      "type": "fitb",
+      "text": "Laravel is an open-source PHP framework created by Taylor ___ in 2011.",
+      "correctAnswer": "Otwell",
+      "points": 1,
+      "explanation": "Laravel was created by <strong>Taylor Otwell</strong> and first released in 2011."
+    },
+    {
+      "id": 2,
+      "type": "fitb",
+      "text": "Laravel follows the ___ architectural pattern. (Type the three-letter abbreviation.)",
+      "correctAnswer": "MVC",
+      "points": 1,
+      "explanation": "Laravel is built on <strong>MVC</strong>: Model, View, Controller."
+    },
+    {
+      "id": 3,
+      "type": "fitb",
+      "text": "In MVC, the ___ connects the Model and the View and holds the business logic. The slides call it the \"heart of the application\".",
+      "correctAnswer": "Controller",
+      "points": 1,
+      "explanation": "The <strong>Controller</strong> takes the request, talks to the Model, and picks the View to return."
+    },
+    {
+      "id": 4,
+      "type": "fitb",
+      "text": "___ is the PHP dependency manager used to install Laravel, update it, and bring in packages.",
+      "correctAnswer": "Composer",
+      "points": 1,
+      "explanation": "<strong>Composer</strong> installs PHP packages into the <code>vendor</code> folder."
+    },
+    {
+      "id": 5,
+      "type": "fitb",
+      "text": "Complete the two ways to create a new Laravel project.",
+      "code": "# with Composer\ncomposer ___ laravel/laravel projectName\n\n# with the Laravel Installer\nlaravel ___ projectName",
+      "correctAnswer": [
+        "create-project",
+        "new"
+      ],
+      "points": 2,
+      "explanation": "<code>composer create-project laravel/laravel projectName</code> uses Composer directly. <code>laravel new projectName</code> uses the Laravel Installer, after <code>composer global require laravel/installer</code>."
+    },
+    {
+      "id": 6,
+      "type": "fitb",
+      "text": "Every request enters the app through <code>index.php</code>, which lives in the ___ directory.",
+      "correctAnswer": "public",
+      "points": 1,
+      "explanation": "The <code>public</code> directory holds <code>index.php</code> (the entry point) and public assets like images."
+    },
+    {
+      "id": 7,
+      "type": "fitb",
+      "text": "Composer installs all of the project's dependencies into the ___ directory.",
+      "correctAnswer": "vendor",
+      "points": 1,
+      "explanation": "The <code>vendor</code> directory holds the packages Composer installed. You never edit it by hand."
+    },
+    {
+      "id": 8,
+      "type": "fitb",
+      "text": "Logs, compiled Blade templates and file-based sessions are kept in the ___ directory.",
+      "correctAnswer": "storage",
+      "points": 1,
+      "explanation": "The <code>storage</code> directory holds files the framework generates: logs, compiled views, sessions and caches."
+    },
+    {
+      "id": 9,
+      "type": "fitb",
+      "text": "Laravel's command-line tool is run as <code>php ___</code>. It generates controllers, models and migrations, and runs migrations.",
+      "correctAnswer": "artisan",
+      "points": 1,
+      "explanation": "<code>php artisan</code> runs Artisan, Laravel's CLI. <code>php artisan list</code> shows every command."
+    },
+    {
+      "id": 10,
+      "type": "fitb",
+      "text": "Point the project at the XAMPP MySQL server. XAMPP's MySQL runs on its default port and has a root user with no password.",
+      "code": "DB_CONNECTION=___\nDB_HOST=127.0.0.1\nDB_PORT=___\nDB_DATABASE=arcedo_booking\nDB_USERNAME=___\nDB_PASSWORD=",
+      "correctAnswer": [
+        "mysql",
+        "3306",
+        "root"
+      ],
+      "points": 3,
+      "explanation": "A new project starts on <code>sqlite</code>. For XAMPP, set <code>DB_CONNECTION=mysql</code>, the default MySQL port <code>3306</code>, user <code>root</code> and an empty password."
+    },
+    {
+      "id": 11,
+      "type": "fitb",
+      "text": "On Windows, <code>composer run dev</code> crashes because <code>laravel/pail</code> needs PHP's ___ extension, which Windows builds of PHP don't have.",
+      "correctAnswer": "pcntl",
+      "points": 1,
+      "explanation": "Pail needs <code>pcntl</code>. When it crashes, <code>--kill-others</code> also stops the server, queue and vite. Remove pail from the <code>dev</code> script and run <code>composer remove --dev laravel/pail</code>."
+    },
+    {
+      "id": 12,
+      "type": "fitb",
+      "text": "Swap Tailwind for Bootstrap in the CSS file, then load the CSS and JS in the page's head.",
+      "code": "/* resources/css/app.css */\n@import '___';\n\n<!-- in the Blade view's <head> -->\n@___(['resources/css/app.css', 'resources/js/app.js'])",
+      "correctAnswer": [
+        "bootstrap",
+        "vite"
+      ],
+      "points": 2,
+      "explanation": "<code>@import 'bootstrap';</code> pulls in Bootstrap's CSS. The Blade <code>@vite([...])</code> directive loads the built CSS and JS into the page."
+    },
+    {
+      "id": 13,
+      "type": "fitb",
+      "text": "If the <code>tailwindcss</code> import in <code>vite.config.js</code> is commented out but the ___() call is left inside <code>plugins</code>, Vite stops with \"tailwindcss is not defined\".",
+      "correctAnswer": "tailwindcss",
+      "points": 1,
+      "explanation": "Remove both the import line and the <code>tailwindcss()</code> call in <code>plugins</code>. Removing only one of them breaks Vite."
+    },
+    {
+      "id": 14,
+      "type": "fitb",
+      "text": "Show the booking form at <code>/booking</code>, then send the submitted form to <code>BookingController</code>'s <code>submit</code> method.",
+      "code": "Route::get('/booking', function () {\n    return ___('booking');\n});\n\nRoute___post('/booking', [BookingController::___, 'submit']);",
+      "correctAnswer": [
+        "view",
+        "::",
+        "class"
+      ],
+      "points": 3,
+      "explanation": "<code>view('booking')</code> returns the Blade view. Static calls use two colons, so <code>Route::post</code>. With one colon, <code>Route:</code> is read as a label and <code>post()</code> as an unknown function. <code>BookingController::class</code> gives the controller's full class name."
+    },
+    {
+      "id": 15,
+      "type": "fitb",
+      "text": "A route that only returns a view can be shortened to one line.",
+      "code": "Route::___('/booking', 'booking');",
+      "correctAnswer": "view",
+      "points": 1,
+      "explanation": "<code>Route::view('/booking', 'booking')</code> does the same as a <code>Route::get</code> closure that returns <code>view('booking')</code>."
+    },
+    {
+      "id": 16,
+      "type": "fitb",
+      "text": "Of the HTTP verbs, PUT overwrites a whole resource, while ___ modifies part of it.",
+      "correctAnswer": "PATCH",
+      "points": 1,
+      "explanation": "PUT replaces a resource, PATCH changes part of it, POST creates or submits data, GET reads it and DELETE removes it."
+    },
+    {
+      "id": 17,
+      "type": "fitb",
+      "text": "Only accept numbers for the <code>id</code> parameter, so <code>/tour/abc</code> gives a 404.",
+      "code": "Route::get('/tour/{id}', function ($id) {\n    return 'Tour ' . $id;\n})->___('id', '[0-9]+');",
+      "correctAnswer": "where",
+      "points": 1,
+      "explanation": "<code>-&gt;where('id', '[0-9]+')</code> constrains the parameter with a regular expression. A URL that doesn't match gives a 404."
+    },
+    {
+      "id": 18,
+      "type": "fitb",
+      "text": "Make the <code>name</code> parameter optional, defaulting to <code>Guest</code> like the slides.",
+      "code": "Route::get('/guide/{name___}', function ($name = '___') {\n    return 'Guide ' . $name;\n});",
+      "correctAnswer": [
+        "?",
+        "Guest"
+      ],
+      "points": 2,
+      "explanation": "A <code>?</code> after the parameter name makes it optional, and the closure argument then needs a default value."
+    },
+    {
+      "id": 19,
+      "type": "fitb",
+      "text": "Catch every URL that no other route matched, and answer with a 404 status.",
+      "code": "Route::___(function () {\n    return response()->view('errors.404', [], ___);\n});",
+      "correctAnswer": [
+        "fallback",
+        "404"
+      ],
+      "points": 2,
+      "explanation": "<code>Route::fallback</code> goes at the end of the routes file. The third argument of <code>response()-&gt;view()</code> is the HTTP status code."
+    },
+    {
+      "id": 20,
+      "type": "fitb",
+      "text": "Name the POST route, then use the name in the form's action.",
+      "code": "Route::post('/booking', [BookingController::class, 'submit'])->___('booking.submit');\n\n<form action=\"{{ ___('booking.submit') }}\" method=\"POST\">",
+      "correctAnswer": [
+        "name",
+        "route"
+      ],
+      "points": 2,
+      "explanation": "<code>-&gt;name('booking.submit')</code> names the route, and <code>route('booking.submit')</code> builds its URL. If the URL changes later, the form still works."
+    },
+    {
+      "id": 21,
+      "type": "fitb",
+      "text": "List the app's own routes, hiding the ones that come from packages.",
+      "code": "php artisan route:___ --except-vendor",
+      "correctAnswer": "list",
+      "points": 1,
+      "explanation": "<code>php artisan route:list</code> shows each route's method, URL and action. <code>--except-vendor</code> hides package routes."
+    },
+    {
+      "id": 22,
+      "type": "fitb",
+      "text": "Blade view files are stored in <code>resources/views</code> and must end in ___.",
+      "correctAnswer": ".blade.php",
+      "points": 1,
+      "explanation": "The <code>.blade.php</code> extension tells Laravel the file is a Blade template."
+    },
+    {
+      "id": 23,
+      "type": "fitb",
+      "text": "Show the flashed success message once, at the top of the form.",
+      "code": "@if (___('success'))\n    <div class=\"alert alert-success\">{{ session('success') }}</div>\n@___",
+      "correctAnswer": [
+        "session",
+        "endif"
+      ],
+      "points": 2,
+      "explanation": "<code>session('success')</code> reads the message the controller flashed with <code>-&gt;with('success', ...)</code>. Every <code>@if</code> needs an <code>@endif</code>."
+    },
+    {
+      "id": 24,
+      "type": "fitb",
+      "text": "Complete the form tag and the token every POST form needs.",
+      "code": "<form action=\"/booking\" method=\"___\">\n    @___\n    ...\n</form>",
+      "correctAnswer": [
+        "POST",
+        "csrf"
+      ],
+      "points": 2,
+      "explanation": "The form submits with <code>method=\"POST\"</code>, and <code>@csrf</code> adds the hidden token that Laravel checks on every POST."
+    },
+    {
+      "id": 25,
+      "type": "fitb",
+      "text": "Without <code>@csrf</code>, submitting the form fails with HTTP error ___ (Page Expired).",
+      "correctAnswer": "419",
+      "points": 1,
+      "explanation": "Laravel rejects a POST without a valid CSRF token with <strong>419 Page Expired</strong>."
+    },
+    {
+      "id": 26,
+      "type": "fitb",
+      "text": "HTML forms can only send GET and POST. Spoof a PUT request for an update form.",
+      "code": "<form action=\"/booking/1\" method=\"POST\">\n    @csrf\n    @___('PUT')\n    ...\n</form>",
+      "correctAnswer": "method",
+      "points": 1,
+      "explanation": "<code>@method('PUT')</code> adds a hidden <code>_method</code> field, and Laravel routes the request as PUT."
+    },
+    {
+      "id": 27,
+      "type": "fitb",
+      "text": "Loop over the tours array in a view.",
+      "code": "@___ ($tours as $name => $tour)\n    <h5>{{ $name }}</h5>\n    <div>Price: {{ $tour['price'] }}</div>\n@___",
+      "correctAnswer": [
+        "foreach",
+        "endforeach"
+      ],
+      "points": 2,
+      "explanation": "Blade's loop is <code>@foreach</code> ... <code>@endforeach</code>."
+    },
+    {
+      "id": 28,
+      "type": "fitb",
+      "text": "After a failed validation, put the last name the user typed back into the box.",
+      "code": "<input type=\"text\" name=\"Lastname\" value=\"{{ ___('Lastname') }}\">",
+      "correctAnswer": "old",
+      "points": 1,
+      "explanation": "<code>old('Lastname')</code> returns the value from the previous request, or nothing on a fresh load."
+    },
+    {
+      "id": 29,
+      "type": "fitb",
+      "text": "Writing <code>value=\"old{{'Lastname'}}\"</code> instead of the correct version makes the box show the text ___.",
+      "correctAnswer": "oldLastname",
+      "points": 1,
+      "explanation": "Blade only runs what's inside <code>{{ }}</code>. Here that is the string <code>'Lastname'</code>, and <code>old</code> outside the braces is plain text, so the box shows <code>oldLastname</code>. The fix is <code>value=\"{{ old('Lastname') }}\"</code>."
+    },
+    {
+      "id": 30,
+      "type": "fitb",
+      "text": "A <code>&lt;textarea&gt;</code> has no ___ attribute, so its old text goes between the opening and closing tags.",
+      "correctAnswer": "value",
+      "points": 1,
+      "explanation": "Write <code>&lt;textarea name=\"Special_Accom\"&gt;{{ old('Special_Accom') }}&lt;/textarea&gt;</code>. Without the closing tag, the rest of the page's HTML shows up inside the box."
+    },
+    {
+      "id": 31,
+      "type": "fitb",
+      "text": "Keep the chosen tour selected after a failed submission.",
+      "code": "<input type=\"radio\" name=\"Tour_Type\" value=\"Mayon Volcano Trek\"\n       @___(old('Tour_Type') == 'Mayon Volcano Trek')>",
+      "correctAnswer": "checked",
+      "points": 1,
+      "explanation": "<code>@checked(condition)</code> prints <code>checked</code> when the condition is true. For a <code>&lt;select&gt;</code>, the same idea is <code>@selected</code>."
+    },
+    {
+      "id": 32,
+      "type": "fitb",
+      "text": "Mark the email box red and show its error under it.",
+      "code": "<input class=\"form-control @error('Email') is-___ @enderror\" name=\"Email\">\n@error('Email')\n    <div class=\"invalid-feedback\">{{ ___ }}</div>\n@enderror",
+      "correctAnswer": [
+        "invalid",
+        "$message"
+      ],
+      "points": 2,
+      "explanation": "Bootstrap's <code>is-invalid</code> class turns the box red and shows the <code>invalid-feedback</code> after it. Inside <code>@error</code>, the message is in <code>$message</code>."
+    },
+    {
+      "id": 33,
+      "type": "fitb",
+      "text": "Bootstrap's grid splits every row into ___ columns.",
+      "correctAnswer": "12",
+      "points": 1,
+      "explanation": "The <code>col-*</code> widths in one row should add up to 12. Anything over 12 wraps to the next line."
+    },
+    {
+      "id": 34,
+      "type": "fitb",
+      "text": "Fit Lastname, Firstname and Middle Initial on one line, like the exam form.",
+      "code": "<div class=\"row g-3\">\n    <div class=\"col-5\"> ...Lastname... </div>\n    <div class=\"col-5\"> ...Firstname... </div>\n    <div class=\"col-___\"> ...Middle_Initial... </div>\n</div>",
+      "correctAnswer": "2",
+      "points": 1,
+      "explanation": "5 + 5 + 2 = 12, so the three columns fill the row exactly."
+    },
+    {
+      "id": 35,
+      "type": "fitb",
+      "text": "<code>invalid-feedback</code> only shows right after an input with <code>is-invalid</code>. Under the tour radio group, add the ___ class so the error message still shows.",
+      "correctAnswer": "d-block",
+      "points": 1,
+      "explanation": "<code>d-block</code> forces <code>display: block</code>, so the message shows even though no single input is marked invalid."
+    },
+    {
+      "id": 36,
+      "type": "fitb",
+      "text": "To center a button horizontally, put the ___ class on its wrapper div.",
+      "correctAnswer": "text-center",
+      "points": 1,
+      "explanation": "A button is an inline-block element, so <code>text-center</code> on its parent centers it. <code>align-items-center</code> needs <code>d-flex</code> and works vertically."
+    },
+    {
+      "id": 37,
+      "type": "fitb",
+      "text": "The grey hint text inside an empty input, like \"Last Name\", comes from its ___ attribute.",
+      "correctAnswer": "placeholder",
+      "points": 1,
+      "explanation": "A <code>placeholder</code> sits inside the box and disappears when you type. A <code>&lt;label&gt;</code> sits outside it."
+    },
+    {
+      "id": 38,
+      "type": "fitb",
+      "text": "Complete the controller's imports and class declaration.",
+      "code": "namespace App\\Http\\Controllers;\n\nuse App\\Models\\nazhromar_tour_details;\nuse Illuminate\\Http\\___;\n\nclass BookingController extends ___\n{\n    public function submit(Request $request)\n    {\n        // ...\n    }\n}",
+      "correctAnswer": [
+        "Request",
+        "Controller"
+      ],
+      "points": 2,
+      "explanation": "The method receives an <code>Illuminate\\Http\\Request</code>, and every controller extends the base <code>Controller</code> class."
+    },
+    {
+      "id": 39,
+      "type": "fitb",
+      "text": "In a resource controller, the method that saves a newly created record is named ___.",
+      "correctAnswer": "store",
+      "points": 1,
+      "explanation": "The resource methods are <code>index</code>, <code>create</code>, <code>store</code>, <code>show</code>, <code>edit</code>, <code>update</code> and <code>destroy</code>. <code>store</code> saves the new record."
+    },
+    {
+      "id": 40,
+      "type": "fitb",
+      "text": "Pick the chosen tour's details out of the <code>$tours</code> array.",
+      "code": "$tours = [\n    'Whale Shark Watching' => ['duration' => 1, 'destination' => 'Oslob, Cebu', 'price' => 9000],\n    'Mayon Volcano Trek' => ['duration' => 2, 'destination' => 'Albay', 'price' => 12500],\n    'Coron Island Expedition' => ['duration' => 2, 'destination' => 'Coron, Palawan', 'price' => 15000],\n];\n\n$tour = $tours[$inputs['___']];",
+      "correctAnswer": "Tour_Type",
+      "points": 1,
+      "explanation": "The radio's value is the tour name, and it is the key of <code>$tours</code>. So <code>$tours[$inputs['Tour_Type']]</code> gives that tour's duration, destination and price."
+    },
+    {
+      "id": 41,
+      "type": "fitb",
+      "text": "Compute the extra people over 5 (never negative), the charge of 100 each, and the total bill.",
+      "code": "$addedPax = ___(0, $inputs['No_of_Participant'] - 5);\n$addedPaxCharge = $addedPax * ___;\n$totalBill = $tour['price'] ___ $addedPaxCharge;",
+      "correctAnswer": [
+        "max",
+        "100",
+        "+"
+      ],
+      "points": 3,
+      "explanation": "<code>max(0, n - 5)</code> keeps <code>Added_pax</code> at 0 for groups of 5 or fewer. The charge is 100 per extra person, and the bill is the price <strong>plus</strong> the charge."
+    },
+    {
+      "id": 42,
+      "type": "fitb",
+      "text": "9 people book Mayon Volcano Trek (12,500). The Total_bill is ___. (Digits only, no comma.)",
+      "correctAnswer": "12900",
+      "points": 1,
+      "explanation": "Added_pax = 9 - 5 = 4, the charge = 4 x 100 = 400, and the bill = 12,500 + 400 = <strong>12,900</strong>."
+    },
+    {
+      "id": 43,
+      "type": "fitb",
+      "text": "3 people book Whale Shark Watching. Their Added_pax is ___.",
+      "correctAnswer": "0",
+      "points": 1,
+      "explanation": "3 - 5 = -2, but a group can't have negative extra people, so it's floored at <strong>0</strong>. The bill stays at the tour price."
+    },
+    {
+      "id": 44,
+      "type": "fitb",
+      "text": "Save the booking, then go back to the form with a success message.",
+      "code": "nazhromar_tour_details::___([\n    'Lastname' => $inputs['Lastname'],\n    // ...\n    'Price' => $tour['price'],\n    'Total_bill' => $totalBill,\n]);\n\nreturn redirect()->___()->with('success', 'Booking Successfully Made!');",
+      "correctAnswer": [
+        "create",
+        "back"
+      ],
+      "points": 2,
+      "explanation": "<code>Model::create([...])</code> inserts a row using the columns in <code>$fillable</code>. <code>redirect()-&gt;back()-&gt;with(...)</code> returns to the form and flashes the message."
+    },
+    {
+      "id": 45,
+      "type": "fitb",
+      "text": "Writing <code>$tour[price]</code> without quotes makes PHP 8 stop with: Undefined ___ \"price\".",
+      "correctAnswer": "constant",
+      "points": 1,
+      "explanation": "Without quotes, PHP reads <code>price</code> as a constant name. Array keys need quotes: <code>$tour['price']</code>. <code>php -l</code> doesn't catch this, because the syntax is valid."
+    },
+    {
+      "id": 46,
+      "type": "fitb",
+      "text": "If <code>create()</code> leaves out a column that isn't nullable and has no default, MySQL errors with: Field 'Duration' doesn't have a default ___.",
+      "correctAnswer": "value",
+      "points": 1,
+      "explanation": "Every required column has to be filled. Duration, Destination, Price and the three totals come from the controller's calculations, so they must be in the <code>create()</code> array too."
+    },
+    {
+      "id": 47,
+      "type": "fitb",
+      "text": "Validate the booking form. The middle initial is exactly one character, the phone number is 11 digits, the tour is one of the three, special accommodations are optional, and the participant count is a whole number.",
+      "code": "$inputs = $request->___([\n    'Lastname' => 'required|max:50',\n    'Middle_Initial' => 'required|___:1',\n    'Email' => 'required|___',\n    'Contact_No' => 'required|___:11',\n    'Tour_Type' => 'required|___:Whale Shark Watching,Mayon Volcano Trek,Coron Island Expedition',\n    'Special_Accom' => '___',\n    'No_of_Participant' => 'required|___|min:1',\n]);",
+      "correctAnswer": [
+        "validate",
+        "size",
+        "email",
+        "digits",
+        "in",
+        "nullable",
+        "integer"
+      ],
+      "points": 7,
+      "explanation": "<code>size:1</code> means exactly one character for a string. <code>digits:11</code> means exactly 11 digits. <code>in:</code> accepts only the listed values. <code>nullable</code> lets a field be empty. <code>integer</code> requires a whole number."
+    },
+    {
+      "id": 48,
+      "type": "fitb",
+      "text": "Laravel doesn't trim the values in an <code>in:</code> list, so <code>in:Whale Shark Watching, Mayon Volcano Trek</code> only accepts Mayon with a leading ___.",
+      "correctAnswer": "space",
+      "points": 1,
+      "explanation": "Leave no spaces after the commas. Otherwise the allowed value is <code>\" Mayon Volcano Trek\"</code>, and the form's <code>\"Mayon Volcano Trek\"</code> never matches."
+    },
+    {
+      "id": 49,
+      "type": "fitb",
+      "text": "Laravel splits string rules on the <code>|</code> character, so a regex that contains <code>|</code> must be written as an ___ of rules.",
+      "correctAnswer": "array",
+      "points": 1,
+      "explanation": "For example <code>['required', 'regex:/^(09|\\+639)\\d{9}$/']</code>. As one string, Laravel would cut the regex in half at its <code>|</code>."
+    },
+    {
+      "id": 50,
+      "type": "fitb",
+      "text": "The ___ rule stops checking an attribute's remaining rules after its first failure.",
+      "correctAnswer": "bail",
+      "points": 1,
+      "explanation": "<code>'email' =&gt; 'bail|required|email'</code> stops at the first rule that fails."
+    },
+    {
+      "id": 51,
+      "type": "fitb",
+      "text": "The <code>confirmed</code> rule on <code>password</code> checks that it matches a field named <code>password___</code>.",
+      "correctAnswer": "_confirmation",
+      "points": 1,
+      "explanation": "<code>confirmed</code> looks for <code>{field}_confirmation</code>, so the second password input must be named <code>password_confirmation</code>."
+    },
+    {
+      "id": 52,
+      "type": "fitb",
+      "text": "When validation fails, Laravel redirects back and shares the ___ variable with every view. (Include the $.)",
+      "correctAnswer": "$errors",
+      "points": 1,
+      "explanation": "<code>$errors</code> is available in every view. <code>$errors-&gt;any()</code> checks for errors and <code>$errors-&gt;all()</code> lists them."
+    },
+    {
+      "id": 53,
+      "type": "fitb",
+      "text": "Add the flag that also creates a migration for the new model.",
+      "code": "php artisan make:model nazhromar_tour_details ___",
+      "correctAnswer": "-m",
+      "points": 1,
+      "explanation": "<code>php artisan make:model Name -m</code> creates the model and its migration together."
+    },
+    {
+      "id": 54,
+      "type": "fitb",
+      "text": "Define some of the exam's columns: a VARCHAR last name, a one-letter middle initial, optional special accommodations, a double price, and created/updated timestamps.",
+      "code": "Schema::create('nazhromar_tour_details', function (Blueprint $table) {\n    $table->id();\n    $table->___('Lastname');\n    $table->char('Middle_Initial', ___);\n    $table->bigInteger('Contact_No');\n    $table->string('Special_Accom')->___();\n    $table->___('Price');\n    $table->integer('No_of_Participant');\n    $table->___();\n});",
+      "correctAnswer": [
+        "string",
+        "1",
+        "nullable",
+        "double",
+        "timestamps"
+      ],
+      "points": 5,
+      "explanation": "<code>string()</code> is VARCHAR (there is no <code>varchar()</code> method). The second argument of <code>char()</code> is the length, which is 255 without it. <code>-&gt;nullable()</code> allows empty values, <code>double()</code> stores decimals, and <code>timestamps()</code> adds <code>created_at</code> and <code>updated_at</code>."
+    },
+    {
+      "id": 55,
+      "type": "fitb",
+      "text": "Complete the method that reverses the migration.",
+      "code": "public function ___(): void\n{\n    Schema::___('nazhromar_tour_details');\n}",
+      "correctAnswer": [
+        "down",
+        "dropIfExists"
+      ],
+      "points": 2,
+      "explanation": "<code>up()</code> applies the change and <code>down()</code> undoes it. Here that means dropping the table. The table name must match the one in <code>Schema::create</code>."
+    },
+    {
+      "id": 56,
+      "type": "fitb",
+      "text": "Match each command to its comment.",
+      "code": "php artisan migrate:___    # undo the last batch\nphp artisan migrate:___       # undo every migration\nphp artisan migrate:___     # undo everything, then migrate again",
+      "correctAnswer": [
+        "rollback",
+        "reset",
+        "refresh"
+      ],
+      "points": 3,
+      "explanation": "<code>migrate:rollback</code> undoes the last batch, <code>migrate:reset</code> undoes every migration, and <code>migrate:refresh</code> undoes every migration and then runs them all again."
+    },
+    {
+      "id": 57,
+      "type": "fitb",
+      "text": "By convention a model name is singular PascalCase, like <code>TourDetail</code>, and its table name is plural ___ case, like <code>tour_details</code>.",
+      "correctAnswer": "snake",
+      "points": 1,
+      "explanation": "Laravel guesses the table name by turning the model name into plural snake_case. When the table name doesn't follow the rule, set <code>protected $table</code>."
+    },
+    {
+      "id": 58,
+      "type": "fitb",
+      "text": "Point the model at the exam's table and list the columns <code>create()</code> may fill.",
+      "code": "class nazhromar_tour_details extends Model\n{\n    protected $___ = 'nazhromar_tour_details';\n\n    protected $___ = [\n        'Lastname',\n        'Firstname',\n        // ...the other columns\n    ];\n}",
+      "correctAnswer": [
+        "table",
+        "fillable"
+      ],
+      "points": 2,
+      "explanation": "<code>$table</code> names the table, and <code>$fillable</code> lists the mass-assignable columns. The class name must also match the file name, or Laravel can't find the class."
+    },
+    {
+      "id": 59,
+      "type": "fitb",
+      "text": "Calling <code>create()</code> on a model with no <code>$fillable</code> throws a ___ assignment exception.",
+      "correctAnswer": "mass",
+      "points": 1,
+      "explanation": "Laravel blocks <strong>mass assignment</strong> unless the columns are listed in <code>$fillable</code>. This stops users from setting fields you never meant them to."
+    },
+    {
+      "id": 60,
+      "type": "fitb",
+      "text": "Storing <code>09171234567</code> in a <code>bigInteger</code> column saves <code>9171234567</code>. Integer columns drop a phone number's leading ___. (Type the digit.)",
+      "correctAnswer": "0",
+      "points": 1,
+      "explanation": "Numbers have no leading zeros, so the exam's BigInt <code>Contact_No</code> loses the 0. A <code>string</code> column would keep it."
+    }
+  ]
+}
