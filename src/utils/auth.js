@@ -12,26 +12,49 @@ import { authCallbackPending, authRedirectError } from './authRedirect.js';
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
-export const AUTH_AVAILABLE = !!(SUPABASE_URL && SUPABASE_KEY);
+const SUPABASE_CONFIGURED = !!(SUPABASE_URL && SUPABASE_KEY);
+
+// Off for now: no account button, Sign in or account menu anywhere
+// (everything that shows them checks AUTH_AVAILABLE), and a session left
+// over from before is dropped on load, so everyone ends up signed out. The
+// live count doesn't use accounts and keeps working.
+export const ACCOUNTS_ENABLED = false;
+export const AUTH_AVAILABLE = ACCOUNTS_ENABLED && SUPABASE_CONFIGURED;
 export const UST_DOMAIN = 'ust.edu.ph';
 export const isUstEmail = (email) => (email || '').toLowerCase().endsWith(`@${UST_DOMAIN}`);
 
 // supabase-js's own localStorage key for the session.
+const sessionKey = () => `sb-${new URL(SUPABASE_URL).hostname.split('.')[0]}-auth-token`;
+
 function hasStoredSession() {
   try {
-    const ref = new URL(SUPABASE_URL).hostname.split('.')[0];
-    return !!localStorage.getItem(`sb-${ref}-auth-token`);
+    return !!localStorage.getItem(sessionKey());
   } catch (e) {
     return false;
   }
 }
+
+// Signs this browser out without loading supabase-js: the session and the
+// sign-in's leftover code verifier (sessionKey() plus suffixes).
+function clearStoredSession() {
+  try {
+    const key = sessionKey();
+    Object.keys(localStorage)
+      .filter((k) => k.startsWith(key))
+      .forEach((k) => localStorage.removeItem(k));
+  } catch (e) {
+    /* nothing stored, or storage blocked */
+  }
+}
+
+if (SUPABASE_CONFIGURED && !ACCOUNTS_ENABLED) clearStoredSession();
 
 // status: 'loading' (restoring a session / finishing a sign-in) | 'signedOut'
 // | 'signedIn'. notice: a one-off message for AuthNotice (failed sign-in).
 let auth = {
   status: AUTH_AVAILABLE && (authCallbackPending || hasStoredSession()) ? 'loading' : 'signedOut',
   user: null,
-  notice: authRedirectError ? `Couldn't sign in: ${authRedirectError}` : null,
+  notice: AUTH_AVAILABLE && authRedirectError ? `Couldn't sign in: ${authRedirectError}` : null,
 };
 const listeners = new Set();
 const setAuth = (patch) => {

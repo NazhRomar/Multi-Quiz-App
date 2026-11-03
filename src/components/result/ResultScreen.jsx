@@ -188,7 +188,9 @@ export default function ResultScreen({ goHome }) {
 
         <QuestionMap onOpen={(i) => openReview(false, i)} />
         {isMulti && <ModuleBreakdown />}
-        {!isMulti && activeQuizId && AUTH_AVAILABLE && <LeaderboardPanel />}
+        {/* With the leaderboards off it's only their "off for now" note,
+            which doesn't need accounts. */}
+        {!isMulti && activeQuizId && (AUTH_AVAILABLE || !LEADERBOARD_ENABLED) && <LeaderboardPanel />}
 
         <div className="result-actions">
           {mistakes > 0 ? (
