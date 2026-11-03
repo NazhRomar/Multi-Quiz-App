@@ -7673,6 +7673,12 @@ body.theme-canvas .q-source-inline {
   transition: border-color 0.15s ease;
 }
 
+/* It draws its own chevron (the svg beside it), so the arrow image the dark
+   themes put on every select would only tile across it. */
+body .pdf-picker select {
+  background-image: none !important;
+}
+
 .pdf-picker select:hover,
 .pdf-picker select:focus {
   outline: none;
