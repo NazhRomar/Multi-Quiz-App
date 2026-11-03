@@ -16,6 +16,16 @@ import { MarkdownBlocks, collectHeadings, parseMarkdown } from '../utils/markdow
 // The switcher's one tab for all of a subject's PDFs (no note has this slug).
 const PDFS_TAB = '#pdfs';
 
+const FOLDED_KEY = 'quizApp_pdfFolded';
+
+const readFolded = () => {
+  try {
+    return localStorage.getItem(FOLDED_KEY) === 'true';
+  } catch (e) {
+    return false;
+  }
+};
+
 export default function NotesRoute() {
   const { noteSlug } = useParams();
   const navigate = useNavigate();
@@ -37,6 +47,19 @@ export default function NotesRoute() {
   if (note?.pdf) lastPdfSlug.current = note.slug;
   // Where PdfDocument portals its toolbar: the sticky switcher row.
   const [pdfToolsSlot, setPdfToolsSlot] = useState(null);
+  // A PDF's left column (switcher and Contents) folded away, so the pages
+  // get the whole width. Remembered per device.
+  const [folded, setFolded] = useState(readFolded);
+  const toggleFolded = () => {
+    setFolded((on) => {
+      try {
+        localStorage.setItem(FOLDED_KEY, String(!on));
+      } catch (e) {
+        /* just this visit, then */
+      }
+      return !on;
+    });
+  };
 
   useEffect(() => {
     if (!note) return;
@@ -68,11 +91,16 @@ export default function NotesRoute() {
 
   // The header and switcher stick together; their combined height (which
   // varies with breakpoint and theme) offsets the sidebar and the headings'
-  // scroll margin via --notes-top-h.
+  // scroll margin via --notes-top-h. The header's own height (--notes-header-h)
+  // sizes a PDF's Contents, which hangs below the switcher instead.
   useEffect(() => {
     const top = topRef.current;
     if (!top) return;
-    const observer = new ResizeObserver(() => pageRef.current?.style.setProperty('--notes-top-h', `${top.offsetHeight}px`));
+    const observer = new ResizeObserver(() => {
+      const style = pageRef.current?.style;
+      style?.setProperty('--notes-top-h', `${top.offsetHeight}px`);
+      style?.setProperty('--notes-header-h', `${top.querySelector('.notes-header')?.offsetHeight ?? 62}px`);
+    });
     observer.observe(top);
     return () => observer.disconnect();
   }, [note]);
@@ -195,20 +223,49 @@ export default function NotesRoute() {
             </Dropdown>
           </div>
         </header>
-        {/* For a PDF the row also carries the picker and the viewer's
-            toolbar (portalled in by PdfDocument), so they stick too. */}
-        {hasSwitcherRow && (
-          <div className={`notes-switcher ${note.pdf ? 'notes-switcher--pdf' : ''}`}>
-            {switcher}
-            {note.pdf && pdfPicker}
-            {note.pdf && <div className="notes-pdf-tools" ref={setPdfToolsSlot} />}
-          </div>
-        )}
+        {/* For a PDF the row follows the layout's two columns: the switcher
+            with the Contents hanging right under it, and the picker with the
+            viewer's toolbar (portalled in by PdfDocument) over the pages, so
+            all of it sticks. */}
+        {hasSwitcherRow &&
+          (note.pdf ? (
+            <div className={`notes-switcher notes-switcher--pdf ${folded ? 'notes-switcher--folded' : ''}`}>
+              <div className="notes-switcher-side">
+                {switcher}
+                {headings.length > 0 && <div className="notes-sidebar notes-sidebar--pdf">{toc}</div>}
+              </div>
+              <div className="notes-switcher-main">
+                {pdfPicker}
+                <div className="notes-pdf-bar">
+                  <button
+                    type="button"
+                    className={`pdf-tool pdf-fold ${folded ? 'pdf-tool--on' : ''}`}
+                    onClick={toggleFolded}
+                    aria-pressed={folded}
+                    title={folded ? 'Show the Contents column' : 'Hide the Contents column, to give the pages the full width'}
+                  >
+                    <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <rect x="2" y="2.75" width="12" height="10.5" rx="1.5" />
+                      <path d="M6 2.75v10.5" />
+                      <path d={folded ? 'M8.75 6.5L10.25 8l-1.5 1.5' : 'M10.25 6.5L8.75 8l1.5 1.5'} />
+                    </svg>
+                    <span className="pdf-tool-label">{folded ? 'Contents' : 'Focus'}</span>
+                  </button>
+                  <div className="notes-pdf-tools" ref={setPdfToolsSlot} />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="notes-switcher">{switcher}</div>
+          ))}
         {tocOpen && <div className="notes-toc-sheet">{toc}</div>}
       </div>
 
-      <div className={`notes-layout ${hasSwitcherRow ? 'notes-layout--switched' : ''}`}>
-        {headings.length > 0 && <aside className="notes-sidebar">{toc}</aside>}
+      <div
+        className={`notes-layout ${hasSwitcherRow ? 'notes-layout--switched' : ''} ${note.pdf ? 'notes-layout--pdf' : ''} ${note.pdf && folded ? 'notes-layout--folded' : ''}`}
+      >
+        {/* A PDF's Contents sits in the sticky row instead, under the switcher. */}
+        {headings.length > 0 && !note.pdf && <aside className="notes-sidebar">{toc}</aside>}
         {source != null && typeof source !== 'string' ? (
           <PdfDocument key={note.slug} doc={source} href={`${import.meta.env.BASE_URL}notes/${note.pdf}`} toolbarSlot={pdfToolsSlot} />
         ) : (

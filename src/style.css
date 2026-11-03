@@ -7649,26 +7649,143 @@ body.theme-canvas .q-source-inline {
   max-width: 900px;
 }
 
-/* The switcher row for a PDF: Notes/PDFs toggle with the picker beside it
-   taking the spare width, and the toolbar on a line of its own below. */
+/* The switcher row for a PDF, in the same two columns as .notes-layout
+   below it: the picker with the toolbar under it over the pages, and on the
+   left the Notes/PDFs switcher with the Contents right under it. That left
+   column hangs out of the row (absolute), so it sticks along with it without
+   making the row any taller, and the Contents scrolls on its own within the
+   screen. Folded ("Focus"), the left column goes and the pages take the
+   whole width. */
 .notes-switcher--pdf {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.6rem 0.75rem;
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  column-gap: 2.5rem;
+  align-items: start;
 }
 
-.notes-switcher--pdf .pdf-picker {
-  flex: 1 1 200px;
+.notes-switcher-side {
+  position: absolute;
+  z-index: 1;
+  top: 1.25rem;
+  left: max(var(--notes-gutter), calc((100% - var(--notes-max)) / 2 + var(--notes-gutter)));
+  width: 250px;
+  max-height: calc(100vh - var(--notes-header-h, 62px) - 2.5rem);
+  display: flex;
+  flex-direction: column;
+  /* The switcher keeps its own width; the Contents takes the column's. */
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.notes-sidebar--pdf {
+  position: static;
+  align-self: stretch;
+  flex: 1;
+  min-height: 0;
+  max-height: none;
+}
+
+.notes-switcher-main {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
   min-width: 0;
+  max-width: 900px;
+}
+
+/* The pages keep to the right column, the left one being the Contents'. */
+.notes-layout--pdf > * {
+  grid-column: 2;
+}
+
+.notes-pdf-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .notes-pdf-tools {
-  flex-basis: 100%;
+  flex: 1;
+  min-width: 0;
 }
 
-.notes-pdf-tools:empty {
+.notes-switcher--folded {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.notes-switcher--folded .notes-switcher-side {
   display: none;
+}
+
+.notes-switcher--folded .notes-switcher-main,
+.notes-layout--folded .pdf-doc {
+  max-width: none;
+}
+
+.notes-switcher--folded .notes-switcher-main,
+.notes-layout--folded > * {
+  grid-column: 1;
+}
+
+.notes-layout--folded {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* No sidebar to fold below its breakpoint: the switcher and picker share a
+   line, with the toolbar on its own line beneath, and folding is undone. */
+@media (max-width: 1023px) {
+  .notes-switcher--pdf {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem 0.75rem;
+  }
+
+  /* Back in the flow, holding just the switcher: the Contents is the
+     header's sheet at these widths. */
+  .notes-switcher-side {
+    position: static;
+    width: auto;
+    max-height: none;
+  }
+
+  .notes-switcher-side:empty {
+    display: none;
+  }
+
+  .notes-switcher--folded .notes-switcher-side:not(:empty) {
+    display: flex;
+  }
+
+  .notes-sidebar--pdf {
+    display: none;
+  }
+
+  .notes-layout--pdf > * {
+    grid-column: 1;
+  }
+
+  .notes-switcher-main {
+    display: contents;
+  }
+
+  .notes-switcher--pdf .pdf-picker {
+    flex: 1 1 200px;
+    min-width: 0;
+  }
+
+  .notes-pdf-bar {
+    flex-basis: 100%;
+  }
+
+  .notes-pdf-bar .pdf-fold {
+    display: none;
+  }
+
+  .notes-layout--folded .pdf-doc {
+    max-width: 900px;
+  }
 }
 
 /* Which of the subject's PDFs is open (NotesRoute): a native select, so a
