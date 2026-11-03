@@ -35,6 +35,8 @@ export default function NotesRoute() {
   // The PDF last open, so the PDFs tab goes back to it rather than the first.
   const lastPdfSlug = useRef(null);
   if (note?.pdf) lastPdfSlug.current = note.slug;
+  // Where PdfDocument portals its toolbar: the sticky switcher row.
+  const [pdfToolsSlot, setPdfToolsSlot] = useState(null);
 
   useEffect(() => {
     if (!note) return;
@@ -145,6 +147,7 @@ export default function NotesRoute() {
     ) : (
       note.label && <h2 className="pdf-picker pdf-picker--single">{note.label}</h2>
     );
+  const hasSwitcherRow = !!switcher || !!note.pdf;
 
   const jumpTo = (h) => {
     setTocOpen(false);
@@ -192,14 +195,22 @@ export default function NotesRoute() {
             </Dropdown>
           </div>
         </header>
-        {switcher && <div className="notes-switcher">{switcher}</div>}
+        {/* For a PDF the row also carries the picker and the viewer's
+            toolbar (portalled in by PdfDocument), so they stick too. */}
+        {hasSwitcherRow && (
+          <div className={`notes-switcher ${note.pdf ? 'notes-switcher--pdf' : ''}`}>
+            {switcher}
+            {note.pdf && pdfPicker}
+            {note.pdf && <div className="notes-pdf-tools" ref={setPdfToolsSlot} />}
+          </div>
+        )}
         {tocOpen && <div className="notes-toc-sheet">{toc}</div>}
       </div>
 
-      <div className={`notes-layout ${switcher ? 'notes-layout--switched' : ''}`}>
+      <div className={`notes-layout ${hasSwitcherRow ? 'notes-layout--switched' : ''}`}>
         {headings.length > 0 && <aside className="notes-sidebar">{toc}</aside>}
         {source != null && typeof source !== 'string' ? (
-          <PdfDocument key={note.slug} doc={source} href={`${import.meta.env.BASE_URL}notes/${note.pdf}`} picker={pdfPicker} />
+          <PdfDocument key={note.slug} doc={source} href={`${import.meta.env.BASE_URL}notes/${note.pdf}`} toolbarSlot={pdfToolsSlot} />
         ) : (
           <article className="notes-body">
             {failed ? (

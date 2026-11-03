@@ -7108,6 +7108,9 @@ body.theme-canvas .q-source-inline {
   position: sticky;
   top: 0;
   z-index: 100;
+  /* A solid backing for the header, which is only 97% opaque: over white
+     PDF pages that last 3% shows them ghosting through. */
+  background: var(--bg);
 }
 
 .notes-top:has(.dropdown-menu) {
@@ -7636,15 +7639,36 @@ body.theme-canvas .q-source-inline {
 }
 
 /* --- PDF notes (components/notes/PdfDocument.jsx) ---
-   Sits in the notes layout's content column, in place of .notes-body. The
-   toolbar sticks under the header; pages are white sheets with a gap
-   between them, scrolling sideways inside .pdf-scroll once zoomed past the
-   column's width. */
+   Sits in the notes layout's content column, in place of .notes-body. Pages
+   are white sheets with a gap between them, scrolling sideways inside
+   .pdf-scroll once zoomed past the column's width. The PDF picker and the
+   toolbar ride in the sticky switcher row instead (.notes-switcher--pdf). */
 .pdf-doc {
-  --pdf-toolbar-h: 50px;
   min-width: 0;
   width: 100%;
   max-width: 900px;
+}
+
+/* The switcher row for a PDF: Notes/PDFs toggle with the picker beside it
+   taking the spare width, and the toolbar on a line of its own below. */
+.notes-switcher--pdf {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 0.75rem;
+}
+
+.notes-switcher--pdf .pdf-picker {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+
+.notes-pdf-tools {
+  flex-basis: 100%;
+}
+
+.notes-pdf-tools:empty {
+  display: none;
 }
 
 /* Which of the subject's PDFs is open (NotesRoute): a native select, so a
@@ -7653,13 +7677,13 @@ body.theme-canvas .q-source-inline {
 .pdf-picker {
   position: relative;
   display: block;
-  margin-bottom: 0.35rem;
   color: var(--text);
 }
 
 .pdf-picker select {
   width: 100%;
-  padding: 0.6rem 2.4rem 0.6rem 0.9rem;
+  height: 40px;
+  padding: 0 2.4rem 0 0.9rem;
   -webkit-appearance: none;
   appearance: none;
   background: var(--surface);
@@ -7667,7 +7691,7 @@ body.theme-canvas .q-source-inline {
   border-radius: 10px;
   color: var(--text);
   font-family: 'Nunito', sans-serif;
-  font-size: 1.02rem;
+  font-size: 0.95rem;
   font-weight: 800;
   text-overflow: ellipsis;
   transition: border-color 0.15s ease;
@@ -7695,25 +7719,20 @@ body .pdf-picker select {
 }
 
 .pdf-picker--single {
-  padding: 0.6rem 0 0.2rem;
-  font-size: 1.1rem;
+  font-size: 1.02rem;
   font-weight: 800;
   line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .pdf-toolbar {
-  position: sticky;
-  top: var(--notes-top-h, 62px);
-  z-index: 5;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.4rem 0.75rem;
-  min-height: var(--pdf-toolbar-h);
-  margin-bottom: 0.5rem;
-  padding: 0.4rem 0;
-  background: var(--bg);
 }
 
 .pdf-toolbar-group {
@@ -7820,7 +7839,7 @@ body .pdf-picker select {
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 4px 14px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  scroll-margin-top: calc(var(--notes-top-h, 62px) + var(--pdf-toolbar-h) + 0.75rem);
+  scroll-margin-top: calc(var(--notes-top-h, 62px) + 0.75rem);
 }
 
 /* "Dark pages": white sheets turn near-black and dark text light, with
@@ -7906,6 +7925,24 @@ body .pdf-picker select {
 }
 
 @media (max-width: 600px) {
+  /* The toggle shares its line with the picker rather than spanning it. */
+  .notes-switcher--pdf .segmented {
+    width: auto;
+  }
+
+  .notes-switcher--pdf {
+    gap: 0.5rem;
+  }
+
+  .pdf-picker select {
+    font-size: 0.88rem;
+    padding: 0 2rem 0 0.7rem;
+  }
+
+  .pdf-picker svg {
+    right: 0.7rem;
+  }
+
   .pdf-toolbar {
     gap: 0.4rem;
   }

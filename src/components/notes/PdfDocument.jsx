@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 // A PDF note's pages (NotesRoute), loaded by notes/pdf.js. Every page is laid
 // out up front at its own aspect ratio, so the Contents can jump anywhere
@@ -56,8 +57,9 @@ function PdfPage({ entry, number, cssWidth, doc }) {
   );
 }
 
-// picker: the subject's PDF picker (or this PDF's name), from NotesRoute.
-export default function PdfDocument({ doc, href, picker }) {
+// toolbarSlot: where the toolbar goes, NotesRoute's sticky switcher row
+// (beside the PDF picker), so it stays in reach without its own sticky bar.
+export default function PdfDocument({ doc, href, toolbarSlot }) {
   const { pages } = doc;
   const [zoom, setZoom] = useState(1);
   const [invert, setInvert] = useState(readInvert);
@@ -148,88 +150,91 @@ export default function PdfDocument({ doc, href, picker }) {
   const zoomIndex = ZOOMS.indexOf(zoom);
   const cssWidth = Math.floor(fitWidth * zoom);
 
+  const toolbar = (
+    <div className="pdf-toolbar">
+      <div className="pdf-toolbar-group">
+        <button type="button" className="pdf-tool" onClick={() => goToPage(current - 1)} disabled={current <= 1} aria-label="Previous page">
+          {icon(<path d="M10 3.5L5.5 8l4.5 4.5" />)}
+        </button>
+        <form
+          className="pdf-page-field"
+          onSubmit={(e) => {
+            e.preventDefault();
+            goToPage(Number(pageInput));
+          }}
+        >
+          <input
+            type="text"
+            inputMode="numeric"
+            value={pageInput}
+            onChange={(e) => setPageInput(e.target.value.replace(/\D/g, ''))}
+            onBlur={() => setPageInput(String(current))}
+            onFocus={(e) => e.target.select()}
+            aria-label="Page number"
+          />
+          <span className="pdf-page-total">/ {pages.length}</span>
+        </form>
+        <button
+          type="button"
+          className="pdf-tool"
+          onClick={() => goToPage(current + 1)}
+          disabled={current >= pages.length}
+          aria-label="Next page"
+        >
+          {icon(<path d="M6 3.5L10.5 8 6 12.5" />)}
+        </button>
+      </div>
+      <div className="pdf-toolbar-group">
+        <button type="button" className="pdf-tool" onClick={() => changeZoom(ZOOMS[zoomIndex - 1])} disabled={zoomIndex <= 0} aria-label="Zoom out">
+          {icon(<path d="M3.5 8h9" />)}
+        </button>
+        <button type="button" className="pdf-tool pdf-zoom-level" onClick={() => changeZoom(1)} title="Fit to width">
+          {Math.round(zoom * 100)}%
+        </button>
+        <button
+          type="button"
+          className="pdf-tool"
+          onClick={() => changeZoom(ZOOMS[zoomIndex + 1])}
+          disabled={zoomIndex >= ZOOMS.length - 1}
+          aria-label="Zoom in"
+        >
+          {icon(<path d="M3.5 8h9M8 3.5v9" />)}
+        </button>
+      </div>
+      <div className="pdf-toolbar-group">
+        <button
+          type="button"
+          className={`pdf-tool ${invert ? 'pdf-tool--on' : ''}`}
+          onClick={toggleInvert}
+          aria-pressed={invert}
+          title="Dark pages: invert the pages' colors"
+        >
+          {icon(
+            <>
+              <circle cx="8" cy="8" r="5.75" />
+              <path d="M8 2.25v11.5a5.75 5.75 0 0 0 0-11.5z" fill="currentColor" />
+            </>
+          )}
+          <span className="pdf-tool-label">Dark pages</span>
+        </button>
+        {/* The browser's own viewer: printing, downloading, its own search. */}
+        <a className="pdf-tool" href={href} target="_blank" rel="noopener noreferrer" title="Open the PDF file in a new tab">
+          {icon(
+            <>
+              <path d="M9.5 2.5h4v4" />
+              <path d="M13.5 2.5L7.5 8.5" />
+              <path d="M12 9.5v3.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5H7" />
+            </>
+          )}
+          <span className="pdf-tool-label">Open file</span>
+        </a>
+      </div>
+    </div>
+  );
+
   return (
     <div className={`pdf-doc ${invert ? 'pdf-doc--inverted' : ''}`} ref={rootRef}>
-      {picker}
-      <div className="pdf-toolbar">
-        <div className="pdf-toolbar-group">
-          <button type="button" className="pdf-tool" onClick={() => goToPage(current - 1)} disabled={current <= 1} aria-label="Previous page">
-            {icon(<path d="M10 3.5L5.5 8l4.5 4.5" />)}
-          </button>
-          <form
-            className="pdf-page-field"
-            onSubmit={(e) => {
-              e.preventDefault();
-              goToPage(Number(pageInput));
-            }}
-          >
-            <input
-              type="text"
-              inputMode="numeric"
-              value={pageInput}
-              onChange={(e) => setPageInput(e.target.value.replace(/\D/g, ''))}
-              onBlur={() => setPageInput(String(current))}
-              onFocus={(e) => e.target.select()}
-              aria-label="Page number"
-            />
-            <span className="pdf-page-total">/ {pages.length}</span>
-          </form>
-          <button
-            type="button"
-            className="pdf-tool"
-            onClick={() => goToPage(current + 1)}
-            disabled={current >= pages.length}
-            aria-label="Next page"
-          >
-            {icon(<path d="M6 3.5L10.5 8 6 12.5" />)}
-          </button>
-        </div>
-        <div className="pdf-toolbar-group">
-          <button type="button" className="pdf-tool" onClick={() => changeZoom(ZOOMS[zoomIndex - 1])} disabled={zoomIndex <= 0} aria-label="Zoom out">
-            {icon(<path d="M3.5 8h9" />)}
-          </button>
-          <button type="button" className="pdf-tool pdf-zoom-level" onClick={() => changeZoom(1)} title="Fit to width">
-            {Math.round(zoom * 100)}%
-          </button>
-          <button
-            type="button"
-            className="pdf-tool"
-            onClick={() => changeZoom(ZOOMS[zoomIndex + 1])}
-            disabled={zoomIndex >= ZOOMS.length - 1}
-            aria-label="Zoom in"
-          >
-            {icon(<path d="M3.5 8h9M8 3.5v9" />)}
-          </button>
-        </div>
-        <div className="pdf-toolbar-group">
-          <button
-            type="button"
-            className={`pdf-tool ${invert ? 'pdf-tool--on' : ''}`}
-            onClick={toggleInvert}
-            aria-pressed={invert}
-            title="Dark pages: invert the pages' colors"
-          >
-            {icon(
-              <>
-                <circle cx="8" cy="8" r="5.75" />
-                <path d="M8 2.25v11.5a5.75 5.75 0 0 0 0-11.5z" fill="currentColor" />
-              </>
-            )}
-            <span className="pdf-tool-label">Dark pages</span>
-          </button>
-          {/* The browser's own viewer: printing, downloading, its own search. */}
-          <a className="pdf-tool" href={href} target="_blank" rel="noopener noreferrer" title="Open the PDF file in a new tab">
-            {icon(
-              <>
-                <path d="M9.5 2.5h4v4" />
-                <path d="M13.5 2.5L7.5 8.5" />
-                <path d="M12 9.5v3.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5H7" />
-              </>
-            )}
-            <span className="pdf-tool-label">Open file</span>
-          </a>
-        </div>
-      </div>
+      {toolbarSlot && createPortal(toolbar, toolbarSlot)}
       <div className="pdf-scroll">
         <div className="pdf-pages" ref={pagesRef} style={{ width: cssWidth || undefined }}>
           {pages.map((entry, i) => (
