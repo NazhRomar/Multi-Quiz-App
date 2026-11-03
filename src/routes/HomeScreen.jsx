@@ -37,13 +37,15 @@ export default function HomeScreen() {
   // Quiz/Review toggles say.
   const openQuestionResult = (r) => navigate(`${quizUrlFor(r.term, r.course, r.quiz, 'review')}?question=${r.qIndex + 1}`);
 
+  // Only the newest term with any quizzes starts open (a just-added, still
+  // empty term doesn't take that spot until it has something in it).
+  const openTermKey = catalog.find((t) => t.courses.length > 0)?.key;
   const quizSections = terms.map((term) => (
     <TermSection
       key={term.key}
       term={term}
       forceExpanded={isSearching}
-      // Only the newest term (the catalog's first) starts open.
-      defaultCollapsed={term.key !== catalog[0].key}
+      defaultCollapsed={term.key !== openTermKey}
       onOpen={(course, quiz) => openQuiz(term, course, quiz)}
       selection={selection}
     />

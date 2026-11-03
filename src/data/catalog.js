@@ -50,7 +50,7 @@ function getSeries(section, key) {
 }
 
 // path is relative to this file (src/data/), e.g.
-// "./4th Year - 1st Term/System Integration and Architecture/Canvas/Unit 1/01-module1.json"
+// "./4th Year - 1st Term - Prelims/System Integration and Architecture/Canvas/Unit 1/01-module1.json"
 // or ".../Canvas/Unit 1/_meta.json" (series-level metadata).
 for (const path in modules) {
   const parts = path.split('/');
