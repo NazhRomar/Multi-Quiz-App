@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import { consumeUpdatedFlag } from '../../utils/appUpdate.js';
 import ChangelogModal from '../menu/ChangelogModal.jsx';
+import { WILL_AUTO_OPEN } from '../../utils/whatsNew.js';
 
 const DURATION_MS = 7000;
 const HAS_CHANGELOG = __CHANGELOG_COUNT__ > 0;
 
 // "App updated", shown briefly after a load that brought in a new build
 // (see utils/appUpdate.js). Read once per page load, at module level, so a
-// remount can't consume it twice or show it again.
-const justUpdated = consumeUpdatedFlag();
+// remount can't consume it twice or show it again. Skipped when Home is about
+// to open What's New, which already says what this update brought.
+const justUpdated = consumeUpdatedFlag() && !WILL_AUTO_OPEN;
 
 export default function UpdateToast() {
   const [visible, setVisible] = useState(justUpdated);

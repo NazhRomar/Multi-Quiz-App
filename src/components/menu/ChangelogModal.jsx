@@ -9,8 +9,9 @@ const REPO_URL = __REPO_URL__;
 
 // "2026-09-17" is already the commit's own local date from git, so it's
 // formatted as plain parts rather than through a Date (which would read it as
-// UTC midnight and shift the day backwards for anyone behind it).
-function formatDay(ymd) {
+// UTC midnight and shift the day backwards for anyone behind it). Also used
+// by WhatsNewModal for its "YYYY-MM-DD" dates.
+export function formatDay(ymd) {
   const [y, m, d] = ymd.split('-').map(Number);
   return new Date(y, m - 1, d).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
 }

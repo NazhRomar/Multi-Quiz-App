@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Outlet, useNavigate, useSearchParams } from 'react-router-dom';
 import { useApp } from '../state/AppContext.jsx';
 import { catalog, MIN_SEARCH_LENGTH } from '../data/catalog.js';
@@ -7,7 +7,7 @@ import AppSettingsFields from '../components/settings/AppSettingsFields.jsx';
 import SegmentedToggle from '../components/common/SegmentedToggle.jsx';
 import BadgeLegend from '../components/menu/BadgeLegend.jsx';
 import ResumeCard from '../components/menu/ResumeCard.jsx';
-import ChangelogModal from '../components/menu/ChangelogModal.jsx';
+import WhatsNewModal from '../components/menu/WhatsNewModal.jsx';
 import LiveCount from '../components/common/LiveCount.jsx';
 import AccountButton from '../components/common/AccountButton.jsx';
 import { useOverload } from '../components/menu/overload/useOverload.js';
@@ -15,6 +15,7 @@ import OverloadCount from '../components/menu/overload/OverloadCount.jsx';
 import { formatBuildDate } from '../utils/formatBuildDate.js';
 import { estimateSeconds, formatDuration } from '../utils/estimateTime.js';
 import { useNewQuizzes } from '../utils/newQuizzes.js';
+import { useWhatsNew, WILL_AUTO_OPEN } from '../utils/whatsNew.js';
 
 const icon = (children) => (
   <svg className="segmented-icon" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -43,11 +44,10 @@ const CLOCK_ICON = (
   </svg>
 );
 
-const HISTORY_ICON = (
+const SPARKLE_ICON = (
   <svg className="changelog-link-icon" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M2.5 8a5.5 5.5 0 1 0 1.7-4" />
-    <path d="M2.2 2.5v3.2h3.2" />
-    <path d="M8 5.2V8l2 1.4" />
+    <path d="M7 1.75l1.3 3.45L11.75 6.5 8.3 7.8 7 11.25 5.7 7.8 2.25 6.5 5.7 5.2z" />
+    <path d="M12.5 10.25l.55 1.45 1.45.55-1.45.55-.55 1.45-.55-1.45-1.45-.55 1.45-.55z" />
   </svg>
 );
 
@@ -64,6 +64,10 @@ const MODE_OPTIONS = [
     ),
   },
 ];
+
+// The What's New popup opens by itself at most once per page load, the first
+// time Home shows with something unseen in it (utils/whatsNew.js).
+let whatsNewAutoOpened = false;
 
 // Where Home was scrolled when it was last left (for a quiz, review,
 // notes…), so coming back lands in the same spot. Module-level, so a fresh
@@ -85,8 +89,16 @@ export default function BrowseLayout() {
   const { homeMode } = state;
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
-  const [showChangelog, setShowChangelog] = useState(false);
+  const [showWhatsNew, setShowWhatsNew] = useState(false);
   const { unseenCount, markAllSeen } = useNewQuizzes();
+  const { unseenCount: unseenNewsCount } = useWhatsNew();
+
+  useEffect(() => {
+    if (whatsNewAutoOpened || !WILL_AUTO_OPEN || unseenNewsCount === 0) return;
+    whatsNewAutoOpened = true;
+    setShowWhatsNew(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // The box keeps whatever is typed, but search only fires from
   // MIN_SEARCH_LENGTH characters: it filters the term/course/quiz list by
@@ -234,23 +246,19 @@ export default function BrowseLayout() {
       </main>
       <footer className="home-footer">
         {/* The showcase shortcut is scoped to the date text rather than the
-            whole footer, so the changelog button beside it doesn't also
+            whole footer, so the What's new button beside it doesn't also
             launch a quiz. */}
         <span onClick={openShowcase}>Last updated: {formatBuildDate(__BUILD_DATE__)}</span>
-        {/* Hidden entirely when the build couldn't read git history. */}
-        {__CHANGELOG_COUNT__ > 0 && (
-          <>
-            <span className="home-footer-sep" aria-hidden="true">
-              ·
-            </span>
-            <button type="button" className="changelog-link" onClick={() => setShowChangelog(true)}>
-              {HISTORY_ICON}
-              What&apos;s changed
-            </button>
-          </>
-        )}
+        <span className="home-footer-sep" aria-hidden="true">
+          ·
+        </span>
+        {/* Reopens the popup; the full changelog is inside it. */}
+        <button type="button" className="changelog-link" onClick={() => setShowWhatsNew(true)}>
+          {SPARKLE_ICON}
+          What&apos;s new
+        </button>
       </footer>
-      {showChangelog && <ChangelogModal onClose={() => setShowChangelog(false)} />}
+      {showWhatsNew && <WhatsNewModal onClose={() => setShowWhatsNew(false)} />}
       <div
         className={`multi-select-bar ${homeMode.multi ? 'multi-select-bar--visible' : ''}`}
         role="region"

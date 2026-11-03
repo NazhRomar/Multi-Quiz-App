@@ -6930,6 +6930,142 @@ body.theme-canvas .q-source-inline {
   color: var(--text-muted);
 }
 
+/* --- What's New (components/menu/WhatsNewModal.jsx) ---
+   Shares the changelog's card, scroll area and sticky section labels. */
+.whats-new-section + .whats-new-section {
+  margin-top: 1.1rem;
+}
+
+.whats-new-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 0.25rem;
+}
+
+.whats-new-feature-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+}
+
+.whats-new-feature-title {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.whats-new-date {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.modal-card .whats-new-feature-body {
+  margin: 0.2rem 0 0;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.whats-new-feature-link {
+  margin-top: 0.45rem;
+  padding: 0.3rem 0.7rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.whats-new-feature-link:hover {
+  background: var(--radio-bg);
+}
+
+/* Same color as the quiz list's "new" corner: unseen since last closed. */
+.whats-new-dot {
+  flex-shrink: 0;
+  align-self: center;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--new-dot);
+}
+
+.whats-new-day + .whats-new-day {
+  margin-top: 0.75rem;
+}
+
+.whats-new-day-label {
+  padding: 0.25rem 0;
+  font-weight: 700;
+}
+
+.whats-new-course + .whats-new-course {
+  margin-top: 0.5rem;
+}
+
+.whats-new-course-name {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 0.45rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.whats-new-term {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.whats-new-quizzes {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.3rem;
+}
+
+.whats-new-quiz {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.65rem;
+  background: var(--radio-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.8rem;
+  text-align: left;
+  color: var(--text);
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.whats-new-quiz:hover {
+  background: var(--radio-hover);
+  color: var(--accent);
+}
+
+.whats-new-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0.75rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+}
+
 /* =========================================================
    --- STUDY NOTES (NotesRoute + utils/markdown.jsx) ---
    Two columns on wide screens (sticky contents sidebar + notes); one

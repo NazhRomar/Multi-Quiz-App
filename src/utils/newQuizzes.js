@@ -11,11 +11,15 @@ export const NEW_FOR_DAYS = 30;
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
-function isRecentlyAdded(quiz) {
-  if (!quiz.addedOn) return false;
-  const added = Date.parse(quiz.addedOn);
+// A "YYYY-MM-DD" date (or null) within the last NEW_FOR_DAYS days. Also
+// what the What's New popup (utils/whatsNew.js) uses for its own window.
+export function isRecentDate(ymd) {
+  if (!ymd) return false;
+  const added = Date.parse(ymd);
   return !Number.isNaN(added) && Date.now() - added < NEW_FOR_DAYS * DAY_MS;
 }
+
+const isRecentlyAdded = (quiz) => isRecentDate(quiz.addedOn);
 
 // Ids of every quiz still inside the "new" window, in menu order.
 const recentQuizIds = catalog

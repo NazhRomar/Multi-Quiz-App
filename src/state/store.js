@@ -149,6 +149,9 @@ export function createInitialState() {
     // Recently added quizzes whose "new" corner was cleared, keyed by
     // catalog quiz id (persisted; see utils/newQuizzes.js).
     seenNewQuizzes: loadState('quizApp_seenNewQuizzes', {}),
+    // What the What's New popup has already announced, keyed "feature:<id>"
+    // or catalog quiz id (persisted; see utils/whatsNew.js).
+    seenWhatsNew: loadState('quizApp_seenWhatsNew', {}),
     // Submitted attempts per catalog quiz id, oldest first: { at, pct,
     // durationMs } (persisted; single quizzes only, see SUBMIT_QUIZ).
     attemptHistory: loadState('quizApp_attemptHistory', {}),
@@ -462,6 +465,8 @@ export function reducer(state, action) {
       for (const id of action.payload) seenNewQuizzes[id] = true;
       return { ...state, seenNewQuizzes };
     }
+    case 'SET_WHATS_NEW_SEEN':
+      return { ...state, seenWhatsNew: action.payload };
 
     default:
       return state;

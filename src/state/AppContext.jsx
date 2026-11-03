@@ -61,6 +61,10 @@ export function AppProvider({ children }) {
   }, [state.seenNewQuizzes]);
 
   useEffect(() => {
+    saveState('quizApp_seenWhatsNew', state.seenWhatsNew);
+  }, [state.seenWhatsNew]);
+
+  useEffect(() => {
     saveState('quizApp_attemptHistory', state.attemptHistory);
   }, [state.attemptHistory]);
 
