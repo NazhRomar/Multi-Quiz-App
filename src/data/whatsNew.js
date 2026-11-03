@@ -11,6 +11,13 @@
 //   { label: 'Open Laravel notes', to: '/notes/laravel' }.
 export const FEATURES = [
   {
+    id: 'pdf-notes',
+    date: '2026-11-03',
+    title: 'Original slides in Notes',
+    body: "Notes can now show a module's original PDF, with page jumps, zoom and a dark-pages mode. First up: Technopreneurship Modules 5 and 6, next to the study notes.",
+    link: { label: 'Open Module 5 PDF', to: '/notes/technopreneurship-module-5' },
+  },
+  {
     id: 'whats-new',
     date: '2026-11-03',
     title: "What's new, in one place",

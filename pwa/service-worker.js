@@ -9,6 +9,9 @@
 // the first occurrence of each.)
 const CACHE = `multi-quiz-${__CACHE_VERSION__}`;
 const FONT_CACHE = 'multi-quiz-fonts'; // survives deploys; fonts rarely change
+// PDF notes, cached as each is first opened. Survives deploys too, so a deck
+// isn't downloaded again every time the app updates.
+const PDF_CACHE = 'multi-quiz-pdfs';
 const PRECACHE_URLS = __PRECACHE_URLS__;
 const APP_SHELL = new URL('./', self.location).href;
 
@@ -26,7 +29,9 @@ self.addEventListener('activate', (event) => {
     caches
       .keys()
       .then((keys) =>
-        Promise.all(keys.filter((key) => key !== CACHE && key !== FONT_CACHE).map((key) => caches.delete(key)))
+        Promise.all(
+          keys.filter((key) => key !== CACHE && key !== FONT_CACHE && key !== PDF_CACHE).map((key) => caches.delete(key))
+        )
       )
       .then(() => self.clients.claim())
   );
@@ -63,6 +68,28 @@ self.addEventListener('fetch', (event) => {
               return response;
             })
             .catch(() => cached);
+          return cached || refresh;
+        })
+      )
+    );
+    return;
+  }
+
+  // PDF notes: the cached copy at once, refreshed in the background, since
+  // a deck can be replaced under the same name. Only an actual PDF is kept —
+  // a missing file can come back as the app's index.html with a 200.
+  if (url.origin === self.location.origin && url.pathname.endsWith('.pdf')) {
+    event.respondWith(
+      caches.open(PDF_CACHE).then((cache) =>
+        cache.match(request).then((cached) => {
+          const refresh = fetch(request)
+            .then((response) => {
+              if (response.ok && (response.headers.get('content-type') || '').includes('pdf')) {
+                cache.put(request, response.clone());
+              }
+              return response;
+            })
+            .catch(() => cached || Response.error());
           return cached || refresh;
         })
       )

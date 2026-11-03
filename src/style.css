@@ -7635,6 +7635,305 @@ body.theme-canvas .q-source-inline {
   }
 }
 
+/* --- PDF notes (components/notes/PdfDocument.jsx) ---
+   Sits in the notes layout's content column, in place of .notes-body. The
+   toolbar sticks under the header; pages are white sheets with a gap
+   between them, scrolling sideways inside .pdf-scroll once zoomed past the
+   column's width. */
+.pdf-doc {
+  --pdf-toolbar-h: 50px;
+  min-width: 0;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Which of the subject's PDFs is open (NotesRoute): a native select, so a
+   long list still scrolls and picks well on a phone. With just one PDF it's
+   that PDF's name, as a plain heading. */
+.pdf-picker {
+  position: relative;
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--text);
+}
+
+.pdf-picker select {
+  width: 100%;
+  padding: 0.6rem 2.4rem 0.6rem 0.9rem;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.02rem;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  transition: border-color 0.15s ease;
+}
+
+.pdf-picker select:hover,
+.pdf-picker select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.pdf-picker svg {
+  position: absolute;
+  top: 50%;
+  right: 0.9rem;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.pdf-picker--single {
+  padding: 0.6rem 0 0.2rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.pdf-toolbar {
+  position: sticky;
+  top: var(--notes-top-h, 62px);
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem 0.75rem;
+  min-height: var(--pdf-toolbar-h);
+  margin-bottom: 0.5rem;
+  padding: 0.4rem 0;
+  background: var(--bg);
+}
+
+.pdf-toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.pdf-tool {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 0.55rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+.pdf-tool:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.pdf-tool:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.pdf-tool svg {
+  flex-shrink: 0;
+  cursor: inherit;
+}
+
+.pdf-tool--on {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--radio-bg);
+}
+
+.pdf-zoom-level {
+  min-width: 58px;
+}
+
+.pdf-page-field {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.pdf-page-field input {
+  width: 3.4em;
+  height: 34px;
+  padding: 0 0.3rem;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font: inherit;
+  font-weight: 700;
+}
+
+.pdf-page-field input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.pdf-page-total {
+  white-space: nowrap;
+}
+
+.pdf-scroll {
+  overflow-x: auto;
+  /* Room for the pages' shadow, which overflow would otherwise clip. */
+  padding: 0.25rem 0.25rem 0.5rem;
+  margin: -0.25rem -0.25rem 0;
+}
+
+.pdf-pages {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin: 0 auto;
+}
+
+.pdf-page {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 4px 14px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  scroll-margin-top: calc(var(--notes-top-h, 62px) + var(--pdf-toolbar-h) + 0.75rem);
+}
+
+/* "Dark pages": white sheets turn near-black and dark text light, with
+   hue-rotate putting colors back roughly where they were. */
+.pdf-doc--inverted .pdf-page {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.pdf-page-canvas,
+.pdf-page-text {
+  position: absolute;
+  inset: 0;
+}
+
+.pdf-page-canvas canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* pdf.js's selectable text layer: invisible text laid over the drawn page,
+   so it can be selected, copied and found with the browser's Find. The
+   rules it needs, from pdfjs-dist/web/pdf_viewer.css. */
+.textLayer {
+  color-scheme: only light;
+  position: absolute;
+  text-align: initial;
+  inset: 0;
+  overflow: clip;
+  opacity: 1;
+  line-height: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  forced-color-adjust: none;
+  transform-origin: 0 0;
+  caret-color: CanvasText;
+  z-index: 0;
+  --min-font-size: 1;
+  --text-scale-factor: calc(var(--total-scale-factor) * var(--min-font-size));
+  --min-font-size-inv: calc(1 / var(--min-font-size));
+}
+
+.textLayer :is(span, br) {
+  color: transparent;
+  position: absolute;
+  white-space: pre;
+  cursor: text;
+  transform-origin: 0% 0%;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.textLayer > :not(.markedContent),
+.textLayer .markedContent span:not(.markedContent) {
+  z-index: 1;
+  --font-height: 0;
+  font-size: calc(var(--text-scale-factor) * var(--font-height));
+  --scale-x: 1;
+  --rotate: 0deg;
+  transform: rotate(var(--rotate)) scaleX(var(--scale-x)) scale(var(--min-font-size-inv));
+}
+
+.textLayer .markedContent {
+  display: contents;
+}
+
+.textLayer span[role='img'] {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+.textLayer ::selection {
+  background: rgba(0, 0, 255, 0.25);
+  background: color-mix(in srgb, AccentColor, transparent 50%);
+  color: transparent;
+}
+
+.textLayer br::selection {
+  background: transparent;
+}
+
+@media (max-width: 600px) {
+  .pdf-toolbar {
+    gap: 0.4rem;
+  }
+
+  .pdf-toolbar-group {
+    gap: 0.2rem;
+  }
+
+  .pdf-tool {
+    min-width: 30px;
+    padding: 0 0.35rem;
+  }
+
+  .pdf-zoom-level {
+    min-width: 46px;
+  }
+
+  .pdf-page-field {
+    gap: 0.25rem;
+  }
+
+  .pdf-page-field input {
+    width: 2.8em;
+  }
+
+  .pdf-tool-label {
+    display: none;
+  }
+
+  .pdf-pages {
+    gap: 0.75rem;
+  }
+}
+
 /* --- App updated toast (components/common/UpdateToast.jsx) --- */
 .update-toast {
   position: fixed;

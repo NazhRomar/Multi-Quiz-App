@@ -84,6 +84,10 @@ const repoUrl = readRepoUrl()
 // pwa/service-worker.js, baking in this build's file list — hashed JS/CSS
 // from the bundle plus everything copied from public/ — and a per-build
 // cache version. Build-only: the dev server runs without a service worker.
+// PDF notes (public/notes/*.pdf) are left out: precaching would download
+// every one for every visitor. The worker caches each on first view instead.
+// So is pdf.js (notes/pdf.js's chunk and its worker, ~1.7 MB), cached the
+// first time a PDF is opened.
 function serviceWorker() {
   const publicFiles = (dir, prefix = '') =>
     readdirSync(dir).flatMap((name) => {
@@ -97,8 +101,10 @@ function serviceWorker() {
     generateBundle(_, bundle) {
       const urls = [
         './', // the app shell (index.html)
-        ...Object.keys(bundle).filter((file) => !file.endsWith('.html') && file !== 'version.json'),
-        ...publicFiles('public'),
+        ...Object.keys(bundle).filter(
+          (file) => !file.endsWith('.html') && file !== 'version.json' && !/^assets\/pdf[.-]/.test(file)
+        ),
+        ...publicFiles('public').filter((file) => !file.endsWith('.pdf')),
       ]
       const source = readFileSync('pwa/service-worker.js', 'utf8')
         .replace('__PRECACHE_URLS__', JSON.stringify(urls))
