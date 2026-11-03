@@ -18,8 +18,6 @@ export const NOTES = [
   { slug: 'laravel', title: 'Laravel', tab: 'PDF', subjectId: 'laravel', file: './laravel.md' },
   { slug: 'laravel-reviewer', title: 'Laravel', tab: 'Reviewer', subjectId: 'laravel', file: './laravel-reviewer.md' },
   { slug: 'technopreneurship', title: 'Technopreneurship', tab: 'Notes', subjectId: 'technopreneurship', file: './technopreneurship.md' },
-  // Temporary: a copy of the Modules 5 and 6 summaries for the quiz.
-  { slug: 'technopreneurship-quiz-prep', title: 'Technopreneurship', tab: 'Quiz Prep', subjectId: 'technopreneurship', file: './technopreneurship-quiz-prep.md' },
   { slug: 'technopreneurship-module-5', title: 'Technopreneurship', label: 'Module 5: Financial Planning', subjectId: 'technopreneurship', pdf: 'techno-05-financial-planning.pdf' },
   { slug: 'technopreneurship-module-6', title: 'Technopreneurship', label: 'Module 6: Production Planning and Control', subjectId: 'technopreneurship', pdf: 'techno-06-production-planning.pdf' },
   { slug: 'devnet', title: 'DevNet Associate', tab: 'DevNet', subjectId: 'sia', file: './devnet.md' },
