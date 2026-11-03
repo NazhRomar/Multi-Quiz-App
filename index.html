@@ -7,7 +7,15 @@
     <meta name="description" content="Practice quizzes and reviewers by term and subject — works offline." />
     <!-- PWA: installable app (manifest + service worker registered in src/main.jsx) -->
     <link rel="manifest" href="/manifest.webmanifest" />
-    <meta name="theme-color" content="#5b9bd5" />
+    <!-- Status bar color: the default theme's header, replaced with the
+         chosen theme's (utils/themes.js saves it) before anything paints. -->
+    <meta name="theme-color" content="#f0f7fd" />
+    <script>
+      try {
+        var barColor = localStorage.getItem('quizApp_statusBarColor');
+        if (barColor) document.querySelector('meta[name="theme-color"]').setAttribute('content', barColor);
+      } catch (e) {}
+    </script>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/icons/icon-192.png" type="image/png" sizes="192x192" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
