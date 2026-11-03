@@ -1161,18 +1161,40 @@ The parts of Module 5 most worth committing to memory, pulled from the sections 
 
 ### Formulas
 
-| Formula | Example from the module |
-|---|---|
-| **Gross Burn Rate** = total cash spent per month | 250,000 + 80,000 + 45,000 + 15,000 + 10,000 = **400,000** |
-| **Net Burn Rate** = Gross Burn Rate − Monthly Revenue | 400,000 − 150,000 = **250,000 / month** |
-| **Cash Runway** = Cash Balance ÷ Net Burn Rate | 5,000,000 ÷ 250,000 = **20 months** |
-| **Contribution Margin** = Selling Price − Variable Cost | 2,500 − 500 = **2,000 / user / month** |
-| **Break-Even Point (Units)** = Total Fixed Monthly Costs ÷ Contribution Margin per Unit | 300,000 ÷ 2,000 = **150 subscribers** |
-| **Break-Even Sales Revenue** = Subscribers × Price per Unit | 150 × 2,500 = **375,000 / month** |
-| **Total Pro Forma Investment** = Fixed Capital Assets + Pre-Operating Expenses + Working Capital Margin | 1,280,000 + 200,000 + 1,020,000 = **2,500,000** |
+#### Gross Burn Rate
+- **Formula:** Gross Burn Rate = total cash spent per month
+- **What it tells you:** the pure cash outflow required to keep the tech running, before any revenue comes in.
+- **Example:** 250,000 + 80,000 + 45,000 + 15,000 + 10,000 = **400,000**
 
-- Runway uses the **net** burn rate: net burn reveals true account depletion.
-- In the break-even formula, **fixed costs are the numerator** and the **contribution margin is the denominator**.
+#### Net Burn Rate
+- **Formula:** Net Burn Rate = Gross Burn Rate − Monthly Revenue
+- **What it tells you:** the actual net amount of cash the business loses each month. It reveals true account depletion, which is why investors look at it.
+- **Example:** 400,000 − 150,000 = **250,000 / month**
+
+#### Cash Runway
+- **Formula:** Cash Runway = Cash Balance ÷ Net Burn Rate
+- **What it tells you:** how many months the startup can survive, the time left to hit profitability or raise the next funding round. Use the **net** burn rate, not the gross.
+- **Example:** 5,000,000 ÷ 250,000 = **20 months**
+
+#### Contribution Margin
+- **Formula:** Contribution Margin = Selling Price − Variable Cost
+- **What it tells you:** the money left over from each unit or subscription after its direct delivery costs, which goes toward chipping away at fixed overhead.
+- **Example:** 2,500 − 500 = **2,000 / user / month**
+
+#### Break-Even Point (Units)
+- **Formula:** Break-Even Point (Units) = Total Fixed Monthly Costs ÷ Contribution Margin per Unit
+- **What it tells you:** the exact unit volume needed to reach zero net loss and cover all fixed overhead: the minimum number of active users. Fixed costs are the numerator, contribution margin the denominator.
+- **Example:** 300,000 ÷ 2,000 = **150 subscribers**
+
+#### Break-Even Sales Revenue
+- **Formula:** Break-Even Sales Revenue = Subscribers × Price per Unit
+- **What it tells you:** the same break-even point expressed as money, the monthly sales revenue required to break even.
+- **Example:** 150 × 2,500 = **375,000 / month**
+
+#### Total Pro Forma Investment
+- **Formula:** Total Pro Forma Investment = Fixed Capital Assets + Pre-Operating Expenses + Working Capital Margin
+- **What it tells you:** the exact funding ask for investors: the CapEx, plus one-time startup costs, plus a reserve so the company doesn't go bankrupt in Month 1.
+- **Example:** 1,280,000 + 200,000 + 1,020,000 = **2,500,000**
 
 ### Key Terms
 
@@ -1215,12 +1237,6 @@ The parts of Module 5 most worth committing to memory, pulled from the sections 
 | Total CapEx | 1,280,000 |
 | Break-even | 150 subscribers, 375,000 revenue per month |
 | 50 users / 300 users | −200,000 loss / +300,000 profit |
-
-### Self-Check
-- [ ] I can compute gross burn, net burn and runway from a list of expenses.
-- [ ] I can compute contribution margin and the break-even point in units and in revenue.
-- [ ] I can name the three components of a financial plan and the three pro forma statements.
-- [ ] I can explain why net burn, not gross burn, decides runway.
 
 # Module 6: Production Planning and Control
 
@@ -1425,6 +1441,8 @@ The parts of Module 6 most worth committing to memory, pulled from the sections 
 ### Formula
 > **C2C Cycle = DIO + DSO − DPO** (also called the Cash Conversion Cycle, CCC)
 
+**What it tells you:** the number of days it takes to turn cash spent on raw materials or manufacturing labor back into cash from customer sales, that is, how long capital stays trapped before it returns as revenue. The shorter, the better for a startup's runway. Inventory and receivables add days; paying suppliers later takes days off.
+
 | Part | Stands for | Effect | Days that... |
 |---|---|---|---|
 | **DIO** | Days Inventory Outstanding | + added | parts and goods sit in the warehouse or factory before being sold |
@@ -1480,10 +1498,3 @@ The parts of Module 6 most worth committing to memory, pulled from the sections 
   2. **Dynamic ECOs:** Instant Push, Floor Sync, Zero Halts.
   3. **Post-Purchase Telemetry:** Data Transmit, Issue Detect, PPC Update.
 - **Local (Philippines):** DOST-AMCen, DTI FabLab for 3D-printed jig enclosures, manufacturers in Laguna or Cavite, NTC certification, pre-certified RF modules like ESP32.
-
-### Self-Check
-- [ ] I can write the C2C formula and say which part is subtracted.
-- [ ] I can list the three planning areas and the three control areas.
-- [ ] I can name the three pillars and the three stages of modular scaling.
-- [ ] I can explain why a startup launches with a Tier 3 manufacturer.
-- [ ] I can name the three QC tactics and their three steps each.
