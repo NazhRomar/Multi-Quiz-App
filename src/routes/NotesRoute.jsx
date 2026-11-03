@@ -4,7 +4,7 @@ import { findNote, loadNote, notesForSubject } from '../notes/index.js';
 import Dropdown from '../components/settings/Dropdown.jsx';
 import SegmentedToggle from '../components/common/SegmentedToggle.jsx';
 import AppSettingsFields from '../components/settings/AppSettingsFields.jsx';
-import PdfDocument from '../components/notes/PdfDocument.jsx';
+import PdfDocument, { PdfSkeleton } from '../components/notes/PdfDocument.jsx';
 import { MarkdownBlocks, collectHeadings, parseMarkdown } from '../utils/markdown.jsx';
 
 // Renders a study-notes Markdown file or PDF (src/notes/) with a
@@ -17,6 +17,9 @@ import { MarkdownBlocks, collectHeadings, parseMarkdown } from '../utils/markdow
 const PDFS_TAB = '#pdfs';
 
 const FOLDED_KEY = 'quizApp_pdfFolded';
+
+// Line lengths for the placeholder Contents, varied so it reads as a list.
+const TOC_SKELETON_WIDTHS = ['85%', '70%', '92%', '60%', '78%', '88%', '65%', '74%'];
 
 const readFolded = () => {
   try {
@@ -233,6 +236,14 @@ export default function NotesRoute() {
               <div className="notes-switcher-side">
                 {switcher}
                 {headings.length > 0 && <div className="notes-sidebar notes-sidebar--pdf">{toc}</div>}
+                {/* Placeholder Contents while the PDF (and so its outline) loads. */}
+                {source == null && !failed && (
+                  <div className="notes-sidebar notes-sidebar--pdf notes-toc-skeleton" aria-hidden="true">
+                    {TOC_SKELETON_WIDTHS.map((width, i) => (
+                      <span key={i} className="skeleton-block" style={{ width }} />
+                    ))}
+                  </div>
+                )}
               </div>
               <div className="notes-switcher-main">
                 {pdfPicker}
@@ -268,6 +279,8 @@ export default function NotesRoute() {
         {headings.length > 0 && !note.pdf && <aside className="notes-sidebar">{toc}</aside>}
         {source != null && typeof source !== 'string' ? (
           <PdfDocument key={note.slug} doc={source} href={`${import.meta.env.BASE_URL}notes/${note.pdf}`} toolbarSlot={pdfToolsSlot} />
+        ) : note.pdf && source == null && !failed ? (
+          <PdfSkeleton />
         ) : (
           <article className="notes-body">
             {failed ? (

@@ -22,6 +22,24 @@ const readInvert = () => {
   }
 };
 
+// Stands in for a PDF while it loads (NotesRoute): page-shaped sheets in
+// the pages' place, so nothing jumps when the real ones arrive. 16:9 since
+// most of these are slide decks; inverted too when "Dark pages" is on, so
+// it doesn't flash white first.
+export function PdfSkeleton() {
+  return (
+    <div className={`pdf-doc ${readInvert() ? 'pdf-doc--inverted' : ''}`} aria-busy="true" aria-label="Loading the PDF">
+      <div className="pdf-scroll">
+        <div className="pdf-pages">
+          {[0, 1, 2].map((i) => (
+            <div key={i} className="pdf-page pdf-page--skeleton" />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const icon = (children) => (
   <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     {children}

@@ -7977,6 +7977,64 @@ body .pdf-picker select {
   height: 100%;
 }
 
+/* --- Loading placeholders: shaped like what they stand in for, so the
+   layout doesn't jump when the PDF arrives. A glint sweeps across each
+   (stilled by "Disable animations", like every other animation). --- */
+@keyframes skeleton-shimmer {
+  from {
+    background-position: -100% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-block {
+  display: block;
+  height: 0.85rem;
+  border-radius: 6px;
+  background: var(--radio-bg) linear-gradient(90deg, transparent, var(--surface), transparent) no-repeat;
+  background-size: 40% 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+/* The pages: 16:9 sheets while the PDF loads, and each real page until
+   it's drawn (its canvas holder is empty until then). */
+.pdf-page--skeleton {
+  aspect-ratio: 16 / 9;
+}
+
+.pdf-page--skeleton,
+.pdf-page-canvas:empty {
+  background-image: linear-gradient(90deg, transparent, rgba(20, 40, 70, 0.06), transparent);
+  background-repeat: no-repeat;
+  background-size: 40% 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+/* The toolbar's row, before the viewer fills it: a bar of the same height,
+   so the row (and everything under it) doesn't grow when it does. */
+.notes-pdf-tools:empty {
+  height: 34px;
+  border-radius: 8px;
+  background: var(--radio-bg) linear-gradient(90deg, transparent, var(--surface), transparent) no-repeat;
+  background-size: 40% 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+/* The Contents, before the PDF's outline is known. Wide screens only: below
+   the sidebar breakpoint the Contents is the header's sheet instead. */
+@media (min-width: 1024px) {
+  .notes-toc-skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+    padding: 0.6rem 0.6rem 0 0.75rem;
+    border-left: 2px solid var(--border);
+    overflow: hidden;
+  }
+}
+
 /* pdf.js's selectable text layer: invisible text laid over the drawn page,
    so it can be selected, copied and found with the browser's Find. The
    rules it needs, from pdfjs-dist/web/pdf_viewer.css. */
