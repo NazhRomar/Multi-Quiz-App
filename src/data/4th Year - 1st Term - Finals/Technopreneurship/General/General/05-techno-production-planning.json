@@ -1,0 +1,1730 @@
+{
+  "quizTitle": "Technopreneurship - Module 5: Production Planning and Control",
+  "addedOn": "2026-11-03",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "Production Planning and Control (PPC) is defined as the strategic engine that translates a high-tech prototype or code architecture into what?",
+      "options": [
+        "A frozen design ready for million-unit replication",
+        "A funded business plan approved by investors",
+        "A patented and fully protected intellectual property",
+        "A scalable, commercially viable market product"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "PPC is the strategic engine that translates a high-tech prototype or code architecture into a scalable, commercially viable market product."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "What is the primary focus of Traditional Industrial PPC?",
+      "options": [
+        "Coordinating limited critical startup resources",
+        "Validating demand through pilot group signals",
+        "Deploying evolving tech before cash runs out",
+        "Maximizing high-volume factory efficiency"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Traditional Industrial PPC focuses on maximizing high-volume factory efficiency, reducing overall cost per unit, and optimizing steady-state operational workflows."
+    },
+    {
+      "id": 3,
+      "type": "msq",
+      "text": "Which of the following are listed as the primary focus of Traditional Industrial PPC?",
+      "options": [
+        "Preserving the cash runway",
+        "Maximizing high-volume factory efficiency",
+        "Optimizing steady-state operational workflows",
+        "Reducing time to deployment",
+        "Pivoting quickly on customer feedback",
+        "Reducing overall cost per unit"
+      ],
+      "correctAnswer": [
+        1,
+        2,
+        5
+      ],
+      "points": 1,
+      "explanation": "Traditional Industrial PPC targets high-volume efficiency, lower cost per unit, and steady-state workflows. Runway, deployment time and pivoting belong to technopreneurial PPC."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "Technopreneurial PPC is described as being driven by what?",
+      "options": [
+        "Machine uptime and 90%+ utilization",
+        "Bulk purchasing and volume discounts",
+        "Economies of scale and frozen designs",
+        "Survival, agility and extreme uncertainty"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Technopreneurial PPC is driven by survival, agility and extreme uncertainty."
+    },
+    {
+      "id": 5,
+      "type": "msq",
+      "text": "Which limited critical startup resources does Technopreneurial PPC coordinate?",
+      "options": [
+        "Capital and financial runway",
+        "Heavy upfront steel tooling",
+        "Human talent and core expertise",
+        "Long-term vendor contracts",
+        "Factory floor storage space",
+        "Time to deployment"
+      ],
+      "correctAnswer": [
+        0,
+        2,
+        5
+      ],
+      "points": 1,
+      "explanation": "Technopreneurial PPC coordinates three limited critical startup resources: capital and financial runway, human talent and core expertise, and time to deployment."
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "What is the ultimate goal of Technopreneurial PPC?",
+      "options": [
+        "Secure steep volume discounts by buying raw materials in bulk",
+        "Make the exact same item millions of times as cheaply as possible",
+        "Deploy evolving tech without running out of cash before achieving Product-Market Fit",
+        "Keep machines and labor running at 90%+ capacity at all times"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The ultimate goal is to deploy evolving tech without running out of cash before achieving Product-Market Fit."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "Before spending capital, which questions does Production Planning answer?",
+      "options": [
+        "What are we building, how will we build it, and when do we scale?",
+        "How do we adapt to immediate disruptions while preserving our runway?",
+        "Who owns the intellectual property built during the project?",
+        "How do we make this product 2% cheaper than last year?"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "In Production Planning (the vision and strategy), the technopreneur acts as an architect to answer: what are we building, how will we build it, and when do we scale?"
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "Once the green light is given, which question does Production Control answer?",
+      "options": [
+        "Which tier of contract manufacturer should we launch with?",
+        "How many subscribers do we need to break even each month?",
+        "How do we adapt to immediate disruptions while preserving our financial runway?",
+        "What are we building, how will we build it, and when do we scale?"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Production Control (the execution and adaptation) acts as the real-time radar to answer: how do we adapt to immediate disruptions while preserving our financial runway?"
+    },
+    {
+      "id": 9,
+      "type": "matching",
+      "text": "Match each part of PPC to the role the technopreneur or the process plays in it.",
+      "allChoices": [
+        "Acts as an architect before spending capital",
+        "Acts as an auditor after the product ships",
+        "Acts as the real-time radar once the green light is given"
+      ],
+      "pairs": [
+        {
+          "term": "Production Planning (The Vision and Strategy)",
+          "match": "Acts as an architect before spending capital"
+        },
+        {
+          "term": "Production Control (The Execution and Adaptation)",
+          "match": "Acts as the real-time radar once the green light is given"
+        }
+      ],
+      "points": 1,
+      "explanation": "In planning, the technopreneur acts as an architect before spending capital. In control, the process acts as the real-time radar once the green light is given."
+    },
+    {
+      "id": 10,
+      "type": "matching",
+      "text": "Match each Production Planning and Production Control area to its focus label.",
+      "allChoices": [
+        "Lean Stock",
+        "Market Signals",
+        "Process Agility",
+        "Resource Optimization",
+        "Risk Remediation",
+        "Scalability"
+      ],
+      "pairs": [
+        {
+          "term": "Agile Demand Forecasting",
+          "match": "Market Signals"
+        },
+        {
+          "term": "Design for Manufacturing",
+          "match": "Scalability"
+        },
+        {
+          "term": "Routing & Sourcing",
+          "match": "Resource Optimization"
+        },
+        {
+          "term": "Shop Floor & Micro-batch",
+          "match": "Process Agility"
+        },
+        {
+          "term": "Dynamic Inventory Tracking",
+          "match": "Lean Stock"
+        },
+        {
+          "term": "Bottleneck & Burn-Rate",
+          "match": "Risk Remediation"
+        }
+      ],
+      "points": 1,
+      "explanation": "Planning: Agile Demand Forecasting (Market Signals), Design for Manufacturing (Scalability), Routing & Sourcing (Resource Optimization). Control: Shop Floor & Micro-batch (Process Agility), Dynamic Inventory Tracking (Lean Stock), Bottleneck & Burn-Rate (Risk Remediation)."
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "Why does Agile Demand Forecasting not rely on historical sales data?",
+      "options": [
+        "Investors prohibit using past data in pitch decks",
+        "Historical data only applies to software products",
+        "A tech startup does not have historical sales data",
+        "Historical data is too expensive to buy from vendors"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Instead of relying on historical sales data, which a tech startup does not have, planning relies on pre-orders, crowdfunding metrics, or pilot group signals."
+    },
+    {
+      "id": 12,
+      "type": "msq",
+      "text": "Which signals does Agile Demand Forecasting rely on?",
+      "options": [
+        "Pre-orders",
+        "Five-year industry sales trends",
+        "Pilot group signals",
+        "Machine utilization reports",
+        "Historical sales data",
+        "Crowdfunding metrics"
+      ],
+      "correctAnswer": [
+        0,
+        2,
+        5
+      ],
+      "points": 1,
+      "explanation": "Agile Demand Forecasting relies on market signals: pre-orders, crowdfunding metrics, or pilot group signals, since a startup has no historical sales data."
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "In Production Planning, what does DFM stand for?",
+      "options": [
+        "Dynamic Flow Management",
+        "Demand Forecasting Model",
+        "Digital Fabrication Method",
+        "Design for Manufacturing"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "DFM stands for Design for Manufacturing, the Scalability area of Production Planning."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "What does Design for Manufacturing (DFM) map out?",
+      "options": [
+        "Which components are made in-house and which are contracted to overseas vendors",
+        "How many days capital is trapped in raw materials before returning as revenue",
+        "How software loops or electronic components scale from single bench prototypes to thousands of units",
+        "How minor engineering adjustments are pushed out mid-production without stopping"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "DFM maps how software loops or electronic components scale up from single bench prototypes to thousands of units seamlessly. The other options describe Routing & Sourcing, Shop Floor & Micro-batch, and the C2C cycle."
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "A startup decides to build its firmware in-house but contract the enclosure to a specialized regional vendor to keep initial asset costs low. Which Production Planning area is this?",
+      "options": [
+        "Design for Manufacturing",
+        "Agile Demand Forecasting",
+        "Routing & Sourcing",
+        "Dynamic Inventory Tracking"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Routing & Sourcing (Resource Optimization) is deciding what components to make in-house versus contract out to overseas or specialized regional vendors, to keep initial asset costs low."
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "text": "What does the Shop Floor & Micro-batch area of Production Control do?",
+      "options": [
+        "Maps how prototypes scale up to thousands of units seamlessly",
+        "Pushes out minor engineering or software adjustments mid-production without stopping the entire line",
+        "Solves problems in real time when microchips get delayed at customs",
+        "Keeps buffer stock minimal because tech parts can become obsolete overnight"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Shop Floor & Micro-batch (Process Agility) is pushing out minor engineering or software adjustments mid-production without stopping the entire line."
+    },
+    {
+      "id": 17,
+      "type": "mc",
+      "text": "Why does Dynamic Inventory Tracking keep buffer stock minimal (Just-In-Time)?",
+      "options": [
+        "Tech parts can become obsolete overnight or market demands can pivot drastically",
+        "Suppliers refuse to sell large quantities to startups",
+        "Investors require all inventory to be sold within one month",
+        "Warehouses in the Philippines charge high storage fees"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Dynamic Inventory Tracking (Lean Stock) keeps buffer stock minimal because tech parts can become obsolete overnight or market demands can pivot drastically."
+    },
+    {
+      "id": 18,
+      "type": "mc",
+      "text": "Custom microchips get delayed at customs and the startup's server cloud capacity maxes out. Which Production Control area handles this?",
+      "options": [
+        "Bottleneck & Burn-Rate",
+        "Shop Floor & Micro-batch",
+        "Agile Demand Forecasting",
+        "Dynamic Inventory Tracking"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Bottleneck & Burn-Rate (Risk Remediation) is real-time problem solving when custom microchips get delayed at customs or a server cloud capacity maxes out."
+    },
+    {
+      "id": 19,
+      "type": "mc",
+      "text": "According to The Paradigm Shift, what is the primary goal of Technopreneurship PPC?",
+      "options": [
+        "Minimize storage space and handling overhead",
+        "Maximize learning rate and speed-to-market",
+        "Maximize machine uptime and utilization",
+        "Minimize unit cost via extreme replication"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Technopreneurship PPC aims to maximize learning rate and speed-to-market. Traditional manufacturing aims to minimize unit cost via extreme replication."
+    },
+    {
+      "id": 20,
+      "type": "mc",
+      "text": "What tooling setup does Technopreneurship PPC use?",
+      "options": [
+        "Soft/flexible tooling, such as 3D printing and CNC machining",
+        "Fully automated assembly lines from day one",
+        "Heavy upfront tooling, such as steel molds",
+        "Rigid tooling locked in by long-term vendor contracts"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Technopreneurship PPC uses soft/flexible tooling (e.g., 3D printing, CNC machining). Traditional manufacturing uses heavy upfront tooling (e.g., steel molds)."
+    },
+    {
+      "id": 21,
+      "type": "mc",
+      "text": "In The Paradigm Shift, what are the material risks in Traditional Manufacturing PPC?",
+      "options": [
+        "Cloud server capacity maxing out",
+        "Customs delays on custom microchips",
+        "Storage space and handling overhead",
+        "Component obsolescence and sudden product pivots"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Traditional manufacturing's material risks are storage space and handling overhead. Technopreneurship's are component obsolescence and sudden product pivots."
+    },
+    {
+      "id": 22,
+      "type": "mc",
+      "text": "In The Paradigm Shift, what are the material risks in Technopreneurship PPC?",
+      "options": [
+        "Idle machines and low equipment effectiveness",
+        "Storage space and handling overhead",
+        "Component obsolescence and sudden product pivots",
+        "Rigid, long-term vendor contracts"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Technopreneurship PPC's material risks are component obsolescence and sudden product pivots."
+    },
+    {
+      "id": 23,
+      "type": "matching",
+      "text": "Classify each element from The Paradigm Shift as belonging to Traditional Manufacturing PPC or Technopreneurship PPC.",
+      "allChoices": [
+        "Technopreneurship PPC",
+        "Traditional Manufacturing PPC"
+      ],
+      "pairs": [
+        {
+          "term": "Minimize unit cost via extreme replication",
+          "match": "Traditional Manufacturing PPC"
+        },
+        {
+          "term": "Maximize learning rate and speed-to-market",
+          "match": "Technopreneurship PPC"
+        },
+        {
+          "term": "Heavy upfront tooling (e.g., steel molds)",
+          "match": "Traditional Manufacturing PPC"
+        },
+        {
+          "term": "Soft/flexible tooling (e.g., 3D printing, CNC machining)",
+          "match": "Technopreneurship PPC"
+        },
+        {
+          "term": "Rigid, long-term vendor contracts",
+          "match": "Traditional Manufacturing PPC"
+        },
+        {
+          "term": "Hybrid, fluid contract manufacturing ecosystem",
+          "match": "Technopreneurship PPC"
+        }
+      ],
+      "points": 1,
+      "explanation": "Traditional: minimize unit cost via replication, heavy upfront tooling, storage/handling risks, rigid long-term vendor contracts. Technopreneurship: maximize learning rate and speed-to-market, soft/flexible tooling, obsolescence/pivot risks, a hybrid, fluid contract manufacturing ecosystem."
+    },
+    {
+      "id": 24,
+      "type": "mc",
+      "text": "In a traditional manufacturing setup, what is the primary goal?",
+      "options": [
+        "Product-Market Fit",
+        "Cash Runway Alignment",
+        "Agile Validation",
+        "Economies of Scale"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "In traditional manufacturing, demand is predictable and design is frozen, so the primary goal is Economies of Scale: making the exact same item millions of times as cheaply, quickly, and flawlessly as possible."
+    },
+    {
+      "id": 25,
+      "type": "mc",
+      "text": "How are market demand and product design described in a traditional manufacturing setup?",
+      "options": [
+        "Demand is uncertain but the design is entirely frozen",
+        "Demand is predictable but the design is constantly evolving",
+        "Demand is predictable and the design is entirely frozen",
+        "Demand is uncertain and the design is constantly evolving"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "In a traditional setup, market demand is predictable and the product design is entirely frozen."
+    },
+    {
+      "id": 26,
+      "type": "fitb",
+      "text": "In traditional manufacturing PPC, Overall Equipment Effectiveness, abbreviated ___, is paramount.",
+      "correctAnswer": "OEE",
+      "points": 1,
+      "explanation": "The traditional metric of success is Unit Cost & OEE (Overall Equipment Effectiveness). If a machine sits idle, money is being lost."
+    },
+    {
+      "id": 27,
+      "type": "mc",
+      "text": "\"If a machine sits idle, money is being lost.\" Which traditional PPC metric of success does this describe?",
+      "options": [
+        "Time-to-Market & Cash Runway Preservation",
+        "Unit Cost & OEE",
+        "LTV to CAC Ratio",
+        "Cash-to-Cash Cycle"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Under Unit Cost & OEE, Overall Equipment Effectiveness is paramount: if a machine sits idle, money is being lost."
+    },
+    {
+      "id": 28,
+      "type": "mc",
+      "text": "What does the traditional core strategy of \"Diluting Fixed Costs\" involve?",
+      "options": [
+        "Offloading production to a global contract partner after traction",
+        "Scheduling massive production runs to dilute fixed costs like expensive steel molds or automated assembly lines",
+        "Scheduling micro-batches so a failed design doesn't waste capital on inventory",
+        "Syncing component orders with investor funding tranches"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Traditional PPC's core strategy (High Upfront Investment) is Diluting Fixed Costs: scheduling massive production runs to dilute fixed costs like expensive steel molds or automated assembly lines."
+    },
+    {
+      "id": 29,
+      "type": "mc",
+      "text": "Whose philosophy is this? \"We know exactly what the customer wants. Our job is to build it with zero waste and maximum speed.\"",
+      "options": [
+        "Technopreneurship PPC",
+        "Agile Demand Forecasting",
+        "Technopreneurial QC",
+        "Traditional Manufacturing PPC"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "This is the Traditional Manufacturing PPC philosophy (Zero Waste & Speed), which assumes demand is known and the design is frozen."
+    },
+    {
+      "id": 30,
+      "type": "mc",
+      "text": "Whose philosophy is this? \"We think we know what the customer wants, but we need to test it immediately. Our factory must be flexible enough to change tomorrow.\"",
+      "options": [
+        "Traditional Manufacturing PPC",
+        "Traditional QC Model",
+        "Technopreneurship PPC",
+        "Economies of Scale"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "This is the Technopreneurship PPC philosophy (Rapid Testing), since a startup faces extreme uncertainty about what the market wants."
+    },
+    {
+      "id": 31,
+      "type": "mc",
+      "text": "In a tech startup, what is the primary goal of PPC?",
+      "options": [
+        "Economies of Scale: making the same item millions of times as cheaply as possible",
+        "High Utilization: keeping machines and labor at 90%+ capacity",
+        "Agile Validation: getting small batches to customers fast to learn what works before running out of money",
+        "Zero Waste: building a frozen design with maximum speed"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Because a startup faces extreme uncertainty and an evolving design, the primary goal is Agile Validation: getting small batches to customers fast to learn what works before running out of money."
+    },
+    {
+      "id": 32,
+      "type": "mc",
+      "text": "What is the metric of success in Technopreneurship PPC?",
+      "options": [
+        "Time-to-Market & Cash Runway Preservation",
+        "Machine uptime and steady-state throughput",
+        "Volume discounts secured on raw materials",
+        "Unit Cost & Overall Equipment Effectiveness"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Success is measured by Time-to-Market & Cash Runway Preservation: how fast you can build, measure, and pivot based on customer data."
+    },
+    {
+      "id": 33,
+      "type": "mc",
+      "text": "Why does Technopreneurship PPC schedule micro-batches?",
+      "options": [
+        "So that machines can run at 90%+ capacity at all times",
+        "So that steel mold costs are spread over more units",
+        "So that if a design fails, capital isn't wasted on inventory",
+        "So that suppliers grant a 10% unit discount"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The core strategy is Micro-Batches with low upfront investment, so if a design fails, capital isn't wasted on inventory."
+    },
+    {
+      "id": 34,
+      "type": "msq",
+      "text": "Which of the following are given as ways Technopreneurship PPC produces micro-batches?",
+      "options": [
+        "3D printing",
+        "Bulk raw material orders",
+        "Automated assembly lines",
+        "Flexible cloud software architectures",
+        "CNC machining",
+        "Expensive steel molds"
+      ],
+      "correctAnswer": [
+        0,
+        3,
+        4
+      ],
+      "points": 1,
+      "explanation": "Micro-batches use 3D printing, CNC machining, or flexible cloud software architectures. Steel molds, automated lines and bulk orders belong to traditional PPC."
+    },
+    {
+      "id": 35,
+      "type": "mc",
+      "text": "In the Strategic Comparison, what is the primary driver question of Traditional Manufacturing PPC?",
+      "options": [
+        "How do we make this 2% cheaper?",
+        "How long until we run out of cash?",
+        "Which design should we pivot to next?",
+        "How do we get this to users next week?"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Traditional PPC's primary driver is Cost Reduction: how do we make this 2% cheaper? Technopreneurship's is Speed & Flexibility: how do we get this to users next week?"
+    },
+    {
+      "id": 36,
+      "type": "mc",
+      "text": "In the Strategic Comparison, what is the primary driver question of Technopreneurship PPC?",
+      "options": [
+        "How do we get this to users next week?",
+        "How do we make this 2% cheaper?",
+        "How do we secure steeper volume discounts?",
+        "How do we keep every machine running?"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Technopreneurship PPC's primary driver is Speed & Flexibility: how do we get this to users next week?"
+    },
+    {
+      "id": 37,
+      "type": "mc",
+      "text": "What is the \"nightmare scenario\" for Technopreneurship PPC?",
+      "options": [
+        "A Machine Breakdown: stopping a high-speed assembly line that costs thousands per minute",
+        "A Customs Delay: custom microchips held at the port for weeks",
+        "A Supplier Price Hike: losing a 10% volume discount",
+        "The Wrong Product: spending 6 months perfectly mass-producing an item nobody wants to buy"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Technopreneurship's nightmare is The Wrong Product (6 months mass-producing an item nobody wants). Traditional manufacturing's nightmare is A Machine Breakdown."
+    },
+    {
+      "id": 38,
+      "type": "matching",
+      "text": "Match each strategic dimension to how Traditional Manufacturing PPC views it.",
+      "allChoices": [
+        "A Machine Breakdown",
+        "Asset/Buffer",
+        "Cost Reduction",
+        "Excess/Fluid Capacity",
+        "High Utilization",
+        "Liability/Risk",
+        "Speed & Flexibility",
+        "The Wrong Product"
+      ],
+      "pairs": [
+        {
+          "term": "Primary Driver",
+          "match": "Cost Reduction"
+        },
+        {
+          "term": "The Nightmare Scenario",
+          "match": "A Machine Breakdown"
+        },
+        {
+          "term": "Inventory View",
+          "match": "Asset/Buffer"
+        },
+        {
+          "term": "Capacity Focus",
+          "match": "High Utilization"
+        }
+      ],
+      "points": 1,
+      "explanation": "Traditional PPC: Cost Reduction (make it 2% cheaper), A Machine Breakdown (a stopped line costs thousands per minute), inventory as an Asset/Buffer bought in bulk, and High Utilization (90%+ capacity). Technopreneurship's matching views are Speed & Flexibility, The Wrong Product, Liability/Risk and Excess/Fluid Capacity."
+    },
+    {
+      "id": 39,
+      "type": "tf",
+      "text": "In Technopreneurship PPC, inventory is viewed as an asset/buffer, so raw materials are bought in bulk to secure steep volume discounts.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "That is the traditional view. Technopreneurship PPC views inventory as a Liability/Risk: materials are kept tight (Just-In-Time) because tech components become obsolete fast."
+    },
+    {
+      "id": 40,
+      "type": "mc",
+      "text": "Under Traditional Manufacturing PPC's High Utilization capacity focus, at what level must machines and labor run at all times?",
+      "options": [
+        "90%+ capacity",
+        "50% capacity",
+        "70% capacity",
+        "100% capacity only during peak season"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "High Utilization means machines and labor must be running at 90%+ capacity at all times."
+    },
+    {
+      "id": 41,
+      "type": "mc",
+      "text": "What does the Excess/Fluid Capacity focus of Technopreneurship PPC mean?",
+      "options": [
+        "Running machines and labor at 90%+ capacity at all times",
+        "Buying extra raw materials to protect against shortages",
+        "Keeping setups modular so production can instantly scale up, down, or pivot",
+        "Building a second factory before demand is proven"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Excess/Fluid Capacity means keeping setups modular so production can instantly scale up, down, or pivot."
+    },
+    {
+      "id": 42,
+      "type": "matching",
+      "text": "Match each Core Pillar of Technopreneurial PPC to its description.",
+      "allChoices": [
+        "Aligns production schedules strictly with funding disbursements",
+        "Plans production in distinct stages matching fundraising milestones",
+        "Treats the bill of materials as alive and flags how engineering changes alter costs and timelines"
+      ],
+      "pairs": [
+        {
+          "term": "Pillar 01: Dynamic BOM Management",
+          "match": "Treats the bill of materials as alive and flags how engineering changes alter costs and timelines"
+        },
+        {
+          "term": "Pillar 02: Modular Stage Scaling",
+          "match": "Plans production in distinct stages matching fundraising milestones"
+        },
+        {
+          "term": "Pillar 03: Cash Runway Alignment",
+          "match": "Aligns production schedules strictly with funding disbursements"
+        }
+      ],
+      "points": 1,
+      "explanation": "Pillar 01 manages a living BOM, Pillar 02 scales production in stages matching fundraising milestones, and Pillar 03 aligns schedules with funding disbursements to preserve runway."
+    },
+    {
+      "id": 43,
+      "type": "fitb",
+      "text": "In Dynamic BOM Management, BOM stands for Bill of ___.",
+      "correctAnswer": "Materials",
+      "points": 1,
+      "explanation": "BOM stands for Bill of Materials. Pillar 01 is Bill of Materials (BOM) Lifecycle Management."
+    },
+    {
+      "id": 44,
+      "type": "mc",
+      "text": "Why is a product's bill of materials described as \"alive\" in technopreneurship?",
+      "options": [
+        "A change in an electronic sensor's availability can break the entire enclosure design",
+        "It is updated automatically by the government every quarter",
+        "It must be rewritten whenever a new investor joins",
+        "Suppliers can legally change prices without notice"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "In technopreneurship, the BOM is alive: a change in an electronic sensor's availability can break the entire enclosure design."
+    },
+    {
+      "id": 45,
+      "type": "mc",
+      "text": "What does Technopreneurial PPC use digital, integrated environments for under Dynamic BOM Management?",
+      "options": [
+        "To negotiate minimum order quantities with suppliers",
+        "To file patents for every new component used",
+        "To instantly flag how engineering changes alter component costs and production timelines",
+        "To replace contract manufacturers with in-house automated lines"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Technopreneurial PPC leverages digital, integrated environments to instantly flag how engineering changes alter component costs and production timelines."
+    },
+    {
+      "id": 46,
+      "type": "matching",
+      "text": "Match each stage of Modular Stage Scaling to what happens in it.",
+      "allChoices": [
+        "Offloading to a global contract partner once consumer traction justifies the investment",
+        "Short batches using temporary tooling to test marketplace feedback",
+        "Single-unit hand-assemblies for lab testing"
+      ],
+      "pairs": [
+        {
+          "term": "Stage 1: Alpha/Beta Stage",
+          "match": "Single-unit hand-assemblies for lab testing"
+        },
+        {
+          "term": "Stage 2: Pilot Run Stage",
+          "match": "Short batches using temporary tooling to test marketplace feedback"
+        },
+        {
+          "term": "Stage 3: Mass Customization Stage",
+          "match": "Offloading to a global contract partner once consumer traction justifies the investment"
+        }
+      ],
+      "points": 1,
+      "explanation": "Stage 1 (Alpha/Beta) is single-unit hand-assemblies for lab testing. Stage 2 (Pilot Run) is short batches of 10 to 100 units on temporary tooling. Stage 3 (Mass Customization) offloads to a global contract partner once traction justifies it."
+    },
+    {
+      "id": 47,
+      "type": "mc",
+      "text": "How many units are in a Pilot Run Stage batch?",
+      "options": [
+        "Millions of units",
+        "1,000 to 5,000 units",
+        "10 to 100 units",
+        "1 unit"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The Pilot Run Stage uses short batches of 10 to 100 units, with temporary tooling, to test marketplace feedback."
+    },
+    {
+      "id": 48,
+      "type": "mc",
+      "text": "Modular Stage Scaling plans production in distinct stages that match what?",
+      "options": [
+        "Fundraising milestones",
+        "Machine maintenance cycles",
+        "Supplier contract renewals",
+        "Government fiscal quarters"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Startups cannot afford automated assembly lines on day one, so production is planned in distinct stages matching fundraising milestones."
+    },
+    {
+      "id": 49,
+      "type": "tf",
+      "text": "The Alpha/Beta Stage uses temporary tooling to produce short batches that test marketplace feedback.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The Alpha/Beta Stage is single-unit hand-assemblies for lab testing. Short batches (10 to 100 units) using temporary tooling describe the Pilot Run Stage."
+    },
+    {
+      "id": 50,
+      "type": "fitb",
+      "text": "Complete the quote from Pillar 03: \"In technopreneurship, ___ is the ultimate constraint.\"",
+      "correctAnswer": "cash",
+      "points": 1,
+      "explanation": "Cash Runway Alignment: \"In technopreneurship, cash is the ultimate constraint.\""
+    },
+    {
+      "id": 51,
+      "type": "mc",
+      "text": "Traditional PPC optimization targets machine uptime. What must hardware startups subordinate machine efficiency to?",
+      "options": [
+        "Liquidity",
+        "Utilization",
+        "Volume discounts",
+        "Patent protection"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Hardware startups must subordinate machine efficiency to liquidity, aligning production schedules strictly with funding disbursements."
+    },
+    {
+      "id": 52,
+      "type": "mc",
+      "text": "What is the Capital Freeze Risk?",
+      "options": [
+        "A machine breakdown stops the high-speed assembly line for 3 months",
+        "Investors freeze funding until the product reaches Product-Market Fit",
+        "A key chip goes out of stock and freezes the production planning cycle",
+        "The master schedule delivers parts 3 months prior to assembly, prematurely locking up critical working capital"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The Capital Freeze Risk: if the master schedule delivers parts 3 months prior to assembly, it prematurely locks up critical working capital."
+    },
+    {
+      "id": 53,
+      "type": "mc",
+      "text": "What is the impact of the Capital Freeze Risk?",
+      "options": [
+        "It cancels the startup's NTC certification",
+        "It deprives marketing and R&D teams of vital funds required to keep the startup operational",
+        "It forces the factory to run below 90% capacity",
+        "It voids the startup's patent filings"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Locking up working capital early deprives marketing and R&D teams of vital funds required to keep the startup operational."
+    },
+    {
+      "id": 54,
+      "type": "mc",
+      "text": "What is the Technopreneurial PPC solution to the Capital Freeze Risk?",
+      "options": [
+        "Synchronize material drops and component orders precisely with investor funding tranches and capital cycles",
+        "Buy all components in bulk early to lock in a 10% discount",
+        "Delay assembly until every part has been in storage for 3 months",
+        "Switch to a Tier 1 manufacturer immediately"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Material drops and component orders are synchronized precisely with investor funding tranches and capital cycles, maximizing runway without compromising assembly timelines."
+    },
+    {
+      "id": 55,
+      "type": "matching",
+      "text": "Match each part of The Startup Sourcing Mix (Make vs. Buy vs. Hack) to its framework.",
+      "allChoices": [
+        "BYOP Framework (\"Bring Your Own Parts\")",
+        "CM Selection (\"Tier 1 vs. Tier 3 CMs\")",
+        "The MVP Ecosystem (\"Rapid Fabrication Services\")"
+      ],
+      "pairs": [
+        {
+          "term": "Contract Manufacturing",
+          "match": "CM Selection (\"Tier 1 vs. Tier 3 CMs\")"
+        },
+        {
+          "term": "Hybrid Framework",
+          "match": "BYOP Framework (\"Bring Your Own Parts\")"
+        },
+        {
+          "term": "Rapid Prototyping",
+          "match": "The MVP Ecosystem (\"Rapid Fabrication Services\")"
+        }
+      ],
+      "points": 1,
+      "explanation": "Contract Manufacturing is CM Selection, the Hybrid Framework is BYOP (Bring Your Own Parts), and Rapid Prototyping is The MVP Ecosystem (rapid fabrication services)."
+    },
+    {
+      "id": 56,
+      "type": "fitb",
+      "text": "In the startup sourcing mix, the hybrid framework is called BYOP, which stands for Bring Your Own ___.",
+      "correctAnswer": "Parts",
+      "points": 1,
+      "explanation": "BYOP stands for \"Bring Your Own Parts\", the hybrid sourcing framework."
+    },
+    {
+      "id": 57,
+      "type": "mc",
+      "text": "What does the BYOP (Bring Your Own Parts) framework involve?",
+      "options": [
+        "Using rapid fabrication services for short-run productions",
+        "Evaluating Tier 1 and Tier 3 contract manufacturers by capital constraints",
+        "Letting customers supply their own replacement parts after purchase",
+        "Procuring long-lead-time or critical custom silicon components independently and shipping them directly to assembly partners"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "BYOP manages procurement risks for long-lead-time or critical custom silicon components independently, shipping them directly to assembly partners."
+    },
+    {
+      "id": 58,
+      "type": "mc",
+      "text": "On what basis does CM Selection evaluate and negotiate with contract manufacturing partners?",
+      "options": [
+        "Production scale and capital constraints",
+        "Brand popularity and social media following",
+        "Distance from the founders' homes",
+        "Number of patents the CM holds"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "CM Selection evaluates and negotiates with appropriate contract manufacturing partners based on production scale and capital constraints."
+    },
+    {
+      "id": 59,
+      "type": "msq",
+      "text": "Which of the following are given as examples of rapid-turnaround fabrication services in The MVP Ecosystem?",
+      "options": [
+        "ESP32",
+        "Protolabs",
+        "Raspberry Pi",
+        "Propel",
+        "PCBWay",
+        "OpenBOM"
+      ],
+      "correctAnswer": [
+        1,
+        4
+      ],
+      "points": 1,
+      "explanation": "PCBWay (electronics) and Protolabs (injection molding) are the rapid fabrication services. OpenBOM and Propel are cloud PLM tools, ESP32 is a pre-certified RF module, and Raspberry Pi is open-source hardware for testing jigs."
+    },
+    {
+      "id": 60,
+      "type": "matching",
+      "text": "Match each rapid fabrication service to what it is used for.",
+      "allChoices": [
+        "Cloud PLM",
+        "Electronics",
+        "Injection molding",
+        "RF certification"
+      ],
+      "pairs": [
+        {
+          "term": "PCBWay",
+          "match": "Electronics"
+        },
+        {
+          "term": "Protolabs",
+          "match": "Injection molding"
+        }
+      ],
+      "points": 1,
+      "explanation": "PCBWay is the example for electronics and Protolabs for injection molding."
+    },
+    {
+      "id": 61,
+      "type": "mc",
+      "text": "According to The Technopreneur's Dilemma, starting directly with a Tier 1 manufacturer is:",
+      "options": [
+        "Recommended for pilot runs of 10 to 100 units",
+        "The safest way to iron out design defects cheaply",
+        "Almost always a mistake, and usually impossible due to capital constraints",
+        "Required before applying for NTC certification"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Starting directly with a Tier 1 manufacturer is almost always a mistake, and usually impossible due to capital constraints."
+    },
+    {
+      "id": 62,
+      "type": "mc",
+      "text": "What is the risk of relying entirely on a Tier 3 shop long-term?",
+      "options": [
+        "Tier 3 shops require heavy steel tooling from day one",
+        "Tier 3 shops refuse to collaborate on engineering changes",
+        "It makes the startup ineligible for government grants",
+        "It can limit your ability to scale when your product experiences explosive market adoption"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Relying entirely on a Tier 3 shop long-term can limit your ability to scale when your product experiences explosive market adoption."
+    },
+    {
+      "id": 63,
+      "type": "mc",
+      "text": "Why should a startup launch its initial MVP and pilot runs at a Tier 3 manufacturer?",
+      "options": [
+        "Tier 3 manufacturers offer the lowest possible unit cost at high volume",
+        "Tier 3 manufacturers handle global mass customization",
+        "Proximity, lower financial risk, and engineering collaboration let you iron out design defects without burning through cash",
+        "Tier 3 manufacturers are the only ones allowed to use 3D printing"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Launch at Tier 3 (\"Low Risk & Engineering Collaboration\"): proximity, lower financial risk, and engineering collaboration let you iron out design defects without burning through cash."
+    },
+    {
+      "id": 64,
+      "type": "msq",
+      "text": "Which conditions should be in place before scaling from Tier 3 to a Tier 2/1 partner?",
+      "options": [
+        "Stable engineering designs",
+        "A signed NDA with one pilot customer",
+        "Predictable high-volume demand",
+        "Verified product-market fit",
+        "A first batch of crowdfunding pre-orders",
+        "A single working bench prototype"
+      ],
+      "correctAnswer": [
+        0,
+        2,
+        3
+      ],
+      "points": 1,
+      "explanation": "Scale to Tier 2/1 (\"Verified Fit & Cost Reduction\") once you have verified product-market fit, stable engineering designs, and predictable high-volume demand, then use your manufacturing data to slash unit costs."
+    },
+    {
+      "id": 65,
+      "type": "mc",
+      "text": "When transitioning to a larger tier partner, what does the startup leverage to slash unit production costs?",
+      "options": [
+        "Its patent portfolio",
+        "Its government grant approval",
+        "Its manufacturing data",
+        "Its social media following"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Once fit, designs and demand are verified, the startup leverages its manufacturing data to transition to a larger tier partner and slash unit production costs."
+    },
+    {
+      "id": 66,
+      "type": "matching",
+      "text": "Match each Supply Chain Financial Engineering lever to its tagline.",
+      "allChoices": [
+        "Cycle Optimization",
+        "Modular BOM Design",
+        "Negotiation Strategies"
+      ],
+      "pairs": [
+        {
+          "term": "Cash-to-Cash (C2C) Cycle",
+          "match": "Cycle Optimization"
+        },
+        {
+          "term": "Minimum Order Quantity (MOQ)",
+          "match": "Negotiation Strategies"
+        },
+        {
+          "term": "Component Obsolescence",
+          "match": "Modular BOM Design"
+        }
+      ],
+      "points": 1,
+      "explanation": "C2C Cycle is Cycle Optimization, MOQ Strategy is Negotiation Strategies, and Component Obsolescence is handled by Modular BOM Design."
+    },
+    {
+      "id": 67,
+      "type": "fitb",
+      "text": "In supply chain financial engineering, MOQ stands for Minimum Order ___.",
+      "correctAnswer": "Quantity",
+      "points": 1,
+      "explanation": "MOQ stands for Minimum Order Quantity."
+    },
+    {
+      "id": 68,
+      "type": "mc",
+      "text": "What does an MOQ strategy balance?",
+      "options": [
+        "Founders' equity against government grant funding",
+        "Patent filing costs against trademark registration costs",
+        "Machine uptime against labor costs on the factory floor",
+        "The penalty of higher per-unit costs against the existential risk of tying up survival capital in mass inventory"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "MOQ negotiation balances the penalty of higher per-unit costs against the existential risk of tying up survival capital in mass inventory."
+    },
+    {
+      "id": 69,
+      "type": "mc",
+      "text": "How does Modular BOM Design protect against component obsolescence?",
+      "options": [
+        "It uses modular, alternative parts so that if a specific chip goes out of stock, the planning cycle does not freeze",
+        "It removes all electronic components from the design",
+        "It locks suppliers into rigid long-term contracts",
+        "It stockpiles years of every chip so shortages never happen"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A modular BOM with alternative parts means that if a specific chip goes out of stock, the entire production planning cycle does not freeze."
+    },
+    {
+      "id": 70,
+      "type": "mc",
+      "text": "In technopreneurship, PPC decisions directly dictate what?",
+      "options": [
+        "Brand identity",
+        "Patent eligibility",
+        "Office location",
+        "Cash runway"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Supply Chain Financial Engineering & Capital Preservation: PPC decisions directly dictate cash runway, so material drops are synced with VC or crowdfunding cash flows."
+    },
+    {
+      "id": 71,
+      "type": "mc",
+      "text": "The Cash-to-Cash (C2C) Cycle is also known as the:",
+      "options": [
+        "Capital Commitment Cycle (CCC)",
+        "Cash Collection Calendar (CCC)",
+        "Customer Cash Count (CCC)",
+        "Cash Conversion Cycle (CCC)"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The Cash-to-Cash (C2C) Cycle is also known as the Cash Conversion Cycle (CCC)."
+    },
+    {
+      "id": 72,
+      "type": "mc",
+      "text": "What does the Cash-to-Cash (C2C) Cycle measure?",
+      "options": [
+        "The number of units needed to cover all fixed overhead",
+        "The ratio of customer lifetime value to acquisition cost",
+        "The number of months a startup can survive at its current burn rate",
+        "The number of days it takes to convert cash outflows on materials or labor back into cash inflows from sales"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "C2C measures the exact number of days it takes a startup to convert cash outflows (raw materials or manufacturing labor) back into cash inflows (revenue from customer sales)."
+    },
+    {
+      "id": 73,
+      "type": "mc",
+      "text": "What is the formula for the C2C Cycle?",
+      "options": [
+        "DSO + DPO − DIO",
+        "DIO − DSO − DPO",
+        "DIO + DSO − DPO",
+        "DIO + DPO − DSO"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "C2C Cycle = DIO + DSO − DPO. Inventory days and receivable days are added; payable days are subtracted."
+    },
+    {
+      "id": 74,
+      "type": "matching",
+      "text": "Match each C2C component to its definition.",
+      "allChoices": [
+        "Average days it takes to collect cash from customers after a sale",
+        "Average days raw parts, work-in-progress, and finished goods sit before being sold",
+        "Average days the startup takes to pay suppliers and contract manufacturers after an invoice"
+      ],
+      "pairs": [
+        {
+          "term": "DIO (Days Inventory Outstanding)",
+          "match": "Average days raw parts, work-in-progress, and finished goods sit before being sold"
+        },
+        {
+          "term": "DSO (Days Sales Outstanding)",
+          "match": "Average days it takes to collect cash from customers after a sale"
+        },
+        {
+          "term": "DPO (Days Payable Outstanding)",
+          "match": "Average days the startup takes to pay suppliers and contract manufacturers after an invoice"
+        }
+      ],
+      "points": 1,
+      "explanation": "DIO covers inventory sitting before sale, DSO covers collecting from customers, and DPO covers paying suppliers. DIO and DSO are added to the cycle; DPO is subtracted."
+    },
+    {
+      "id": 75,
+      "type": "mc",
+      "text": "Which C2C component is subtracted from the cycle?",
+      "options": [
+        "Days Inventory Outstanding (DIO)",
+        "Days Sales Outstanding (DSO)",
+        "None; all three are added",
+        "Days Payable Outstanding (DPO)"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "DPO is subtracted. Taking longer to pay suppliers shortens the time your own cash is tied up."
+    },
+    {
+      "id": 76,
+      "type": "mc",
+      "text": "A startup's parts sit in inventory for 40 days (DIO), customers pay 15 days after a sale (DSO), and the startup pays suppliers 30 days after invoicing (DPO). What is its C2C Cycle?",
+      "options": [
+        "55 days",
+        "85 days",
+        "-5 days",
+        "25 days"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "C2C = DIO + DSO − DPO = 40 + 15 − 30 = 25 days."
+    },
+    {
+      "id": 77,
+      "type": "mc",
+      "text": "A startup uses Just-In-Time parts that sit for 10 days (DIO), sells on a web store with immediate payment (DSO = 0), and has negotiated 30-day supplier terms (DPO). What is its C2C Cycle?",
+      "options": [
+        "0 days, since web store sales are immediate",
+        "20 days, a short but positive C2C",
+        "40 days, a long C2C where cash is trapped",
+        "-20 days, a negative C2C where cash is freed up immediately"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "C2C = 10 + 0 − 30 = −20 days. A negative C2C is the technopreneurship goal: cash is freed up immediately."
+    },
+    {
+      "id": 78,
+      "type": "mc",
+      "text": "A startup moves from selling on its web store (immediate cash) to a retail store with 30-day payment terms. Which C2C component increases?",
+      "options": [
+        "MOQ",
+        "DSO",
+        "DPO",
+        "DIO"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "DSO is the average number of days it takes to collect cash from customers after a sale. The source contrasts immediate cash on a web store with 30-day terms from a retail store."
+    },
+    {
+      "id": 79,
+      "type": "tf",
+      "text": "Negotiating deferred payments with suppliers lengthens the startup's C2C Cycle.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Deferred payments increase DPO, which is subtracted in C2C = DIO + DSO − DPO, so the cycle gets shorter. Technopreneurship PPC negotiates deferred payments or structural staging for exactly this reason."
+    },
+    {
+      "id": 80,
+      "type": "matching",
+      "text": "Classify each sourcing practice as Traditional PPC (Cost Focus) or Technopreneurship PPC (Cash Focus).",
+      "allChoices": [
+        "Technopreneurship PPC (Cash Focus)",
+        "Traditional PPC (Cost Focus)"
+      ],
+      "pairs": [
+        {
+          "term": "Buys massive bulk orders to get a 10% unit discount",
+          "match": "Traditional PPC (Cost Focus)"
+        },
+        {
+          "term": "Buys smaller micro-batches to avoid locking up cash",
+          "match": "Technopreneurship PPC (Cash Focus)"
+        },
+        {
+          "term": "Thousands of units sit in storage for months",
+          "match": "Traditional PPC (Cost Focus)"
+        },
+        {
+          "term": "Just-In-Time parts arrive right before assembly",
+          "match": "Technopreneurship PPC (Cash Focus)"
+        },
+        {
+          "term": "Standard corporate supplier terms",
+          "match": "Traditional PPC (Cost Focus)"
+        },
+        {
+          "term": "Negotiates deferred payments or structural staging",
+          "match": "Technopreneurship PPC (Cash Focus)"
+        }
+      ],
+      "points": 1,
+      "explanation": "Traditional (cost focus): bulk orders for a 10% discount, high DIO, standard terms, long C2C. Technopreneurship (cash focus): micro-batches, low DIO with JIT parts, deferred payments, short or negative C2C."
+    },
+    {
+      "id": 81,
+      "type": "mc",
+      "text": "Under Traditional PPC's cost-focused sourcing, how long is cash typically trapped in the C2C cycle?",
+      "options": [
+        "Exactly 30 days",
+        "10 to 20 days",
+        "0 days or less",
+        "90 to 120+ days"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Traditional PPC has a long C2C: cash is trapped for 90 to 120+ days. Technopreneurship aims for a short or negative C2C."
+    },
+    {
+      "id": 82,
+      "type": "mc",
+      "text": "How is the Traditional QC Model described?",
+      "options": [
+        "Extended into real-world usage through IoT telemetry",
+        "Static and end-of-line, using statistical sampling at the end of a long assembly line",
+        "Agile and continuous, with a software and hardware feedback loop",
+        "In-line and automated at every critical assembly step"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The Traditional QC Model is static and end-of-line: it relies on frozen designs, strict mass-production tolerances, and statistical sampling at the end of a long assembly line."
+    },
+    {
+      "id": 83,
+      "type": "mc",
+      "text": "Why is end-of-line QC called \"The Hardware Danger\" for startups?",
+      "options": [
+        "End-of-line testing slows machines below 90% capacity",
+        "Statistical sampling requires a Tier 1 manufacturer",
+        "A single software bug, uncalibrated sensor, or minor defect can ruin an entire batch, risking mass recalls or scrapped inventory",
+        "End-of-line testing is illegal for devices that use Bluetooth"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Waiting until the end of production creates a massive point of failure: one bug, uncalibrated sensor, or minor defect can ruin a batch and risk bankrupting the company through mass recalls or scrapped inventory."
+    },
+    {
+      "id": 84,
+      "type": "mc",
+      "text": "How is Technopreneurial QC described?",
+      "options": [
+        "Static and end-of-line, relying on frozen product designs",
+        "Performed only by government facilities like DOST-AMCen",
+        "Limited to checking mechanical dimensions and cosmetic defects",
+        "Agile, continuous, and digitally integrated, with a software and hardware feedback loop catching flaws early"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Technopreneurial QC is an agile, continuous, digitally integrated quality management system with an active software and hardware feedback loop that catches flaws early, adapts to shifting designs, and preserves runway."
+    },
+    {
+      "id": 85,
+      "type": "mc",
+      "text": "What does HIL stand for in HIL Assembly Testing?",
+      "options": [
+        "Hybrid Inspection Layer",
+        "Hardware-in-the-Loop",
+        "High-Integrity Line",
+        "Hardware Integration Log"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "HIL stands for Hardware-in-the-Loop assembly testing."
+    },
+    {
+      "id": 86,
+      "type": "mc",
+      "text": "Why does visual inspection fail for modern hardware devices?",
+      "options": [
+        "Inspectors are not allowed to open sealed enclosures",
+        "Microscopes cannot see modern circuit boards clearly",
+        "Modern boards change color when they are defective",
+        "They are hybrid products with embedded firmware, so a board can look flawless yet the microcontroller may still fail to boot"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The Hybrid Challenge: devices combine physical components with embedded software or firmware. A circuit board might look visually flawless under a microscope, but the microcontroller could still fail to boot."
+    },
+    {
+      "id": 87,
+      "type": "mc",
+      "text": "What are the custom, automated test fixtures used in HIL testing often called?",
+      "options": [
+        "Test beds or jigs",
+        "Kiosks or terminals",
+        "Dongles or adapters",
+        "Molds or dies"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Technopreneurs design custom, automated test fixtures, often called \"test beds\" or \"jigs\", placed directly on the assembly line."
+    },
+    {
+      "id": 88,
+      "type": "matching",
+      "text": "Put the HIL Instant Diagnostics steps in order.",
+      "allChoices": [
+        "Clamped: the assembled board is secured into the jig",
+        "Flashed & Tested: the jig flashes firmware and runs circuit diagnostics",
+        "On-Spot Rejection: failed parts are rejected"
+      ],
+      "pairs": [
+        {
+          "term": "Step 1",
+          "match": "Clamped: the assembled board is secured into the jig"
+        },
+        {
+          "term": "Step 2",
+          "match": "Flashed & Tested: the jig flashes firmware and runs circuit diagnostics"
+        },
+        {
+          "term": "Step 3",
+          "match": "On-Spot Rejection: failed parts are rejected"
+        }
+      ],
+      "points": 1,
+      "explanation": "1. Clamped, 2. Flashed & Tested, 3. On-Spot Rejection, before permanent housing installation."
+    },
+    {
+      "id": 89,
+      "type": "mc",
+      "text": "In HIL testing, when are failed parts rejected?",
+      "options": [
+        "After the product ships to customers",
+        "Only during the yearly quality audit",
+        "At the end of the full production run",
+        "Before permanent housing installation"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "On-Spot Rejection: failed parts are rejected before permanent housing installation."
+    },
+    {
+      "id": 90,
+      "type": "mc",
+      "text": "In traditional QC, what happens when a mid-production engineering change order (ECO) arrives?",
+      "options": [
+        "The change is pushed to customers by IoT telemetry",
+        "The entire factory line halts to rewrite compliance rules",
+        "The change is ignored until the next product version",
+        "Test jigs update automatically with no halt"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Traditional QC halts the entire factory line to rewrite compliance rules. Technopreneurial QC uses cloud PLM so quality gates update without stopping production."
+    },
+    {
+      "id": 91,
+      "type": "mc",
+      "text": "Which example of an evolving design is given for mid-production ECOs?",
+      "options": [
+        "Changing the company logo",
+        "Raising the subscription price",
+        "Moving to a new office",
+        "Swapping Bluetooth chips"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Product designs change constantly based on early customer feedback, for example swapping Bluetooth chips."
+    },
+    {
+      "id": 92,
+      "type": "mc",
+      "text": "In Dynamic ECOs, what does PLM stand for?",
+      "options": [
+        "Prototype Launch Milestone",
+        "Product Lifecycle Management",
+        "Production Line Monitoring",
+        "Parts Logistics Manager"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Technopreneurial QC uses cloud-based Product Lifecycle Management (PLM) platforms."
+    },
+    {
+      "id": 93,
+      "type": "msq",
+      "text": "Which of the following are given as examples of cloud-based PLM platforms?",
+      "options": [
+        "OpenBOM",
+        "PCBWay",
+        "ESP32",
+        "Propel",
+        "Arduino",
+        "Protolabs"
+      ],
+      "correctAnswer": [
+        0,
+        3
+      ],
+      "points": 1,
+      "explanation": "OpenBOM and Propel are the cloud PLM examples. PCBWay and Protolabs are rapid fabrication services; Arduino and ESP32 appear in the local QC strategies."
+    },
+    {
+      "id": 94,
+      "type": "matching",
+      "text": "Put the Digital Thread (real-time sync) steps in order.",
+      "allChoices": [
+        "Floor Sync: factory screens and test jigs update automatically",
+        "Instant Push: office changes push updated tolerances, schematics, and test specs",
+        "Zero Halts: quality gates update dynamically without stopping production"
+      ],
+      "pairs": [
+        {
+          "term": "Step 1",
+          "match": "Instant Push: office changes push updated tolerances, schematics, and test specs"
+        },
+        {
+          "term": "Step 2",
+          "match": "Floor Sync: factory screens and test jigs update automatically"
+        },
+        {
+          "term": "Step 3",
+          "match": "Zero Halts: quality gates update dynamically without stopping production"
+        }
+      ],
+      "points": 1,
+      "explanation": "1. Instant Push, 2. Floor Sync, 3. Zero Halts."
+    },
+    {
+      "id": 95,
+      "type": "tf",
+      "text": "Technopreneurial QC stops once the product leaves the factory dock.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Beyond the Dock: technopreneurial QC doesn't stop when the product leaves the factory dock. It extends into real-world customer usage through post-purchase telemetry."
+    },
+    {
+      "id": 96,
+      "type": "matching",
+      "text": "Put the Closed-Loop QC (post-purchase telemetry) steps in order.",
+      "allChoices": [
+        "Data Transmit: the device sends telemetry to the engineering cloud when turned on",
+        "Issue Detect: battery-drain or sensor calibration errors are caught in real-world use",
+        "PPC Update: the data modifies assembly/calibration for the next batch"
+      ],
+      "pairs": [
+        {
+          "term": "Step 1",
+          "match": "Data Transmit: the device sends telemetry to the engineering cloud when turned on"
+        },
+        {
+          "term": "Step 2",
+          "match": "Issue Detect: battery-drain or sensor calibration errors are caught in real-world use"
+        },
+        {
+          "term": "Step 3",
+          "match": "PPC Update: the data modifies assembly/calibration for the next batch"
+        }
+      ],
+      "points": 1,
+      "explanation": "1. Data Transmit, 2. Issue Detect, 3. PPC Update."
+    },
+    {
+      "id": 97,
+      "type": "msq",
+      "text": "Which issues are given as examples that post-purchase telemetry catches in real-world use?",
+      "options": [
+        "Late supplier invoices",
+        "Cosmetic scratches on the enclosure",
+        "Battery-drain errors",
+        "Trademark infringement",
+        "Sensor calibration errors"
+      ],
+      "correctAnswer": [
+        2,
+        4
+      ],
+      "points": 1,
+      "explanation": "In Closed-Loop QC, battery-drain or sensor calibration errors are caught in real-world use, and the data immediately modifies assembly/calibration for the next batch."
+    },
+    {
+      "id": 98,
+      "type": "matching",
+      "text": "Classify each QC trait as Traditional Manufacturing QC or Technopreneurial PPC QC.",
+      "allChoices": [
+        "Technopreneurial PPC QC",
+        "Traditional Manufacturing QC"
+      ],
+      "pairs": [
+        {
+          "term": "Fully frozen design; tolerances rarely change",
+          "match": "Traditional Manufacturing QC"
+        },
+        {
+          "term": "Fluid and iterative design that evolves via ECOs",
+          "match": "Technopreneurial PPC QC"
+        },
+        {
+          "term": "Post-assembly or end-of-line sampling",
+          "match": "Traditional Manufacturing QC"
+        },
+        {
+          "term": "In-line and automated at every critical assembly step",
+          "match": "Technopreneurial PPC QC"
+        },
+        {
+          "term": "Focus on mechanical dimensions and cosmetic defects",
+          "match": "Traditional Manufacturing QC"
+        },
+        {
+          "term": "Focus on functional validation (firmware integration, signal integrity)",
+          "match": "Technopreneurial PPC QC"
+        },
+        {
+          "term": "Defects discarded or manually reworked at a high cost",
+          "match": "Traditional Manufacturing QC"
+        },
+        {
+          "term": "Rapid root-cause analysis with immediate software/line adjustment",
+          "match": "Technopreneurial PPC QC"
+        }
+      ],
+      "points": 1,
+      "explanation": "Traditional QC: frozen design, end-of-line sampling, mechanical/cosmetic focus, costly discard or rework. Technopreneurial QC: iterative design via ECOs, in-line automated testing, functional validation, rapid root-cause analysis."
+    },
+    {
+      "id": 99,
+      "type": "mc",
+      "text": "Which government facility is named as one a Filipino technopreneur might use when executing QC?",
+      "options": [
+        "DOST-AMCen",
+        "PDRCI",
+        "IPOPHL",
+        "NTC"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Filipino technopreneurs may work with local Tier 3 contract manufacturers or government facilities like DOST-AMCen."
+    },
+    {
+      "id": 100,
+      "type": "mc",
+      "text": "To build custom testing jigs cheaply, startups pair open-source hardware with 3D-printed enclosures made where?",
+      "options": [
+        "The UST-TTCIC Santa Rosa campus",
+        "A local DTI FabLab",
+        "A Tier 1 overseas factory",
+        "The NTC testing center"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Startups pair open-source hardware (like Arduinos or Raspberry Pis) with local 3D-printed enclosures made at a local DTI FabLab."
+    },
+    {
+      "id": 101,
+      "type": "msq",
+      "text": "Which open-source hardware is given as an example for building testing jigs?",
+      "options": [
+        "ESP32",
+        "PCBWay",
+        "OpenBOM",
+        "Arduino",
+        "Raspberry Pi"
+      ],
+      "correctAnswer": [
+        3,
+        4
+      ],
+      "points": 1,
+      "explanation": "Startups frequently use open-source hardware like Arduinos or Raspberry Pis for testing jigs. ESP32 is the pre-certified RF module example."
+    },
+    {
+      "id": 102,
+      "type": "mc",
+      "text": "Where are the local manufacturers that startups hand their custom jigs to?",
+      "options": [
+        "Cebu or Davao",
+        "Laguna or Cavite",
+        "Bulacan or Pampanga",
+        "Baguio or Ilocos"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Startups hand the custom jig directly to their local manufacturer in Laguna or Cavite to fully automate testing on the production line."
+    },
+    {
+      "id": 103,
+      "type": "msq",
+      "text": "In the Philippines, a device must be certified by the NTC if it uses which of the following?",
+      "options": [
+        "Cellular networks",
+        "Bluetooth",
+        "An LCD screen",
+        "A rechargeable battery",
+        "Wi-Fi",
+        "A 3D-printed enclosure"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        4
+      ],
+      "points": 1,
+      "explanation": "Any device using Wi-Fi, Bluetooth, or cellular networks must be certified by the National Telecommunications Commission (NTC)."
+    },
+    {
+      "id": 104,
+      "type": "mc",
+      "text": "What does NTC stand for?",
+      "options": [
+        "National Technology Council",
+        "National Trade Commission",
+        "National Telecommunications Commission",
+        "National Testing Center"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "NTC is the National Telecommunications Commission, which certifies devices that use Wi-Fi, Bluetooth, or cellular networks."
+    },
+    {
+      "id": 105,
+      "type": "mc",
+      "text": "How does Technopreneurial QC avoid failing NTC regulatory checks later?",
+      "options": [
+        "By using pre-certified RF modules like the ESP32 during the DFM phase",
+        "By skipping certification for pilot runs under 100 units",
+        "By filing a utility model with IPOPHL first",
+        "By testing only at the end of the production line"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Technopreneurial QC factors certification into the timeline by using pre-certified RF modules (like ESP32) during the Design-For-Manufacturing phase."
+    }
+  ]
+}

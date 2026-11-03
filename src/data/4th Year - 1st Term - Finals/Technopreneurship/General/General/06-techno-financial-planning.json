@@ -1,0 +1,1663 @@
+{
+  "quizTitle": "Technopreneurship - Module 6: Financial Planning",
+  "addedOn": "2026-11-03",
+  "questions": [
+    {
+      "id": 1,
+      "type": "tf",
+      "text": "Building a financial plan is described as possibly the most intimidating part of writing a business plan, but also one of the most vital.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The module opens with exactly that: building a financial plan can be the most intimidating part of writing your business plan, and it's also one of the most vital."
+    },
+    {
+      "id": 2,
+      "type": "msq",
+      "text": "A complete financial plan prepares businesses to do which of the following?",
+      "options": [
+        "Skip market validation",
+        "Achieve long-term success",
+        "Guarantee Product-Market Fit",
+        "Receive funding",
+        "Avoid paying business taxes",
+        "Pitch to investors"
+      ],
+      "correctAnswer": [
+        1,
+        3,
+        5
+      ],
+      "points": 1,
+      "explanation": "A complete financial plan prepares businesses to pitch to investors, receive funding, and achieve long-term success."
+    },
+    {
+      "id": 3,
+      "type": "matching",
+      "text": "Match each purpose of a complete financial plan to what it lets the business show.",
+      "allChoices": [
+        "Clear, credible financial projections and strategic direction",
+        "Financial readiness and risk management to secure capital",
+        "Structured monetary control and sustainable growth expectations"
+      ],
+      "pairs": [
+        {
+          "term": "Pitch to Investors",
+          "match": "Clear, credible financial projections and strategic direction"
+        },
+        {
+          "term": "Receive Funding",
+          "match": "Financial readiness and risk management to secure capital"
+        },
+        {
+          "term": "Achieve Long-Term Success",
+          "match": "Structured monetary control and sustainable growth expectations"
+        }
+      ],
+      "points": 1,
+      "explanation": "Pitching needs credible projections and direction, receiving funding needs proof of financial readiness and risk management, and long-term success needs structured monetary control and sustainable growth expectations."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "What is a Financial Plan?",
+      "options": [
+        "A legal document that registers the business with the government",
+        "A list of every product feature planned for the next release",
+        "A record of all past tax payments made by the business",
+        "An overview of your current business financials and projections for growth"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "A Financial Plan is an overview of your current business financials and projections for growth."
+    },
+    {
+      "id": 5,
+      "type": "matching",
+      "text": "Match each key component of a financial plan to its description.",
+      "allChoices": [
+        "A list of the founders' personal assets",
+        "A snapshot of the present financial health of your business",
+        "Your future financial expectations and targets"
+      ],
+      "pairs": [
+        {
+          "term": "Current Monetary Situation",
+          "match": "A snapshot of the present financial health of your business"
+        },
+        {
+          "term": "Future Growth Projections",
+          "match": "Your future financial expectations and targets"
+        }
+      ],
+      "points": 1,
+      "explanation": "The two key components are the Current Monetary Situation (a snapshot of present financial health) and Future Growth Projections (future financial expectations and targets)."
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "A financial plan in technopreneurship merges what?",
+      "options": [
+        "Factory operations with steel tooling schedules",
+        "Engineering and technology innovation with rigorous startup finance",
+        "Marketing campaigns with social media analytics",
+        "Traditional accounting with government tax regulations"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "A technopreneurship financial plan merges engineering and technology innovation with rigorous startup finance."
+    },
+    {
+      "id": 7,
+      "type": "msq",
+      "text": "Which are the key strategic focus areas of a technopreneurship financial plan?",
+      "options": [
+        "Heavy upfront R&D",
+        "Bulk physical inventory",
+        "VC timelines",
+        "Guaranteed bank loans",
+        "Pricing models",
+        "Scalable tech"
+      ],
+      "correctAnswer": [
+        0,
+        2,
+        4,
+        5
+      ],
+      "points": 1,
+      "explanation": "The four focus areas are Heavy Upfront R&D (substantial R&D funding), Scalable Tech (highly scalable infrastructure design), Pricing Models (e.g., SaaS subscriptions), and VC Timelines (specific venture capital milestones)."
+    },
+    {
+      "id": 8,
+      "type": "matching",
+      "text": "Match each technopreneurship financial plan focus area to its detail.",
+      "allChoices": [
+        "Highly scalable infrastructure design",
+        "Specific venture capital milestones",
+        "Substantial research and development funding",
+        "Unique models like SaaS subscriptions"
+      ],
+      "pairs": [
+        {
+          "term": "Heavy Upfront R&D",
+          "match": "Substantial research and development funding"
+        },
+        {
+          "term": "Scalable Tech",
+          "match": "Highly scalable infrastructure design"
+        },
+        {
+          "term": "Pricing Models",
+          "match": "Unique models like SaaS subscriptions"
+        },
+        {
+          "term": "VC Timelines",
+          "match": "Specific venture capital milestones"
+        }
+      ],
+      "points": 1,
+      "explanation": "Heavy Upfront R&D needs substantial R&D funding, Scalable Tech needs highly scalable infrastructure design, Pricing Models include SaaS subscriptions, and VC Timelines follow specific venture capital milestones."
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "What is the ultimate goal of a technopreneurship financial plan?",
+      "options": [
+        "Outline the pathway to commercializing a technological solution while rigorously managing capital",
+        "Eliminate all R&D spending before the first sale",
+        "Maximize the number of patents filed before launch",
+        "Secure a bank loan large enough to avoid investors"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The ultimate goal is to outline the pathway to commercializing a technological solution while rigorously managing capital."
+    },
+    {
+      "id": 10,
+      "type": "matching",
+      "text": "Match each key technopreneurship metric to its definition.",
+      "allChoices": [
+        "Annual/Monthly Recurring Revenue tracking baseline subscription income",
+        "Customer Acquisition Cost versus total Lifetime Value generated per user",
+        "How many months a startup can survive",
+        "Monthly speed at which seed capital is spent before generating positive cash flow"
+      ],
+      "pairs": [
+        {
+          "term": "Burn Rate",
+          "match": "Monthly speed at which seed capital is spent before generating positive cash flow"
+        },
+        {
+          "term": "Runway",
+          "match": "How many months a startup can survive"
+        },
+        {
+          "term": "CAC & LTV",
+          "match": "Customer Acquisition Cost versus total Lifetime Value generated per user"
+        },
+        {
+          "term": "ARR / MRR",
+          "match": "Annual/Monthly Recurring Revenue tracking baseline subscription income"
+        }
+      ],
+      "points": 1,
+      "explanation": "Burn Rate is the monthly spending speed, Runway is months of survival, CAC & LTV compares acquisition cost with lifetime value, and ARR/MRR tracks recurring subscription income."
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "What is the formula for Runway?",
+      "options": [
+        "Cash Balance − Monthly Burn Rate",
+        "Monthly Burn Rate ÷ Cash Balance",
+        "Cash Balance ÷ Monthly Burn Rate",
+        "Cash Balance × Monthly Burn Rate"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Runway (the months a startup can survive) = Cash Balance ÷ Monthly Burn Rate."
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "What is Burn Rate?",
+      "options": [
+        "The monthly speed at which seed capital is spent before generating positive cash flow",
+        "The number of months a startup can survive",
+        "The number of days capital is trapped in raw materials",
+        "The revenue left over from each subscription after variable costs"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Burn Rate is the monthly speed at which seed capital is spent before generating positive cash flow."
+    },
+    {
+      "id": 13,
+      "type": "tf",
+      "text": "A technopreneur tracks dynamic metrics like burn rate and runway only after building traditional financial statements.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The source says that before building traditional statements, a technopreneur tracks dynamic software and hardware metrics to evaluate financial viability."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "According to the principle of financial discipline, rigorously measuring burn rate, runway, CAC & LTV, and ARR/MRR ensures what?",
+      "options": [
+        "Automatic approval of government grants",
+        "Protection from patent infringement claims",
+        "Capital efficiency and product-market viability before scaling",
+        "Guaranteed profitability in the first month"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Financial discipline: rigorously measuring these indicators ensures capital efficiency and product-market viability before scaling."
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "In the B2B SaaS burn rate example (5,000,000 seed funding raised), what is the largest monthly outflow?",
+      "options": [
+        "Cloud & Hosting (45,000)",
+        "Software Subscriptions (15,000)",
+        "Engineering & Product Salaries (250,000)",
+        "Sales & Marketing (80,000)"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Engineering & Product Salaries for 3 developers, at 250,000, is the largest outflow (62.5% of the 400,000 gross burn)."
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "text": "In the burn rate example, the startup's monthly costs lean heavily toward what?",
+      "options": [
+        "Physical inventory over engineering talent",
+        "Marketing over product development",
+        "Office rent over cloud hosting",
+        "Engineering talent and digital infrastructure over physical inventory"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Costs lean heavily toward engineering talent and digital infrastructure over physical inventory."
+    },
+    {
+      "id": 17,
+      "type": "matching",
+      "text": "Match each monthly expense in the B2B SaaS burn rate example to its amount.",
+      "allChoices": [
+        "10,000",
+        "15,000",
+        "250,000",
+        "45,000",
+        "80,000"
+      ],
+      "pairs": [
+        {
+          "term": "Engineering & Product Salaries",
+          "match": "250,000"
+        },
+        {
+          "term": "Sales & Marketing",
+          "match": "80,000"
+        },
+        {
+          "term": "Cloud & Hosting",
+          "match": "45,000"
+        },
+        {
+          "term": "Software Subscriptions",
+          "match": "15,000"
+        },
+        {
+          "term": "Workspace & Admin",
+          "match": "10,000"
+        }
+      ],
+      "points": 1,
+      "explanation": "Salaries 250,000 + Sales & Marketing 80,000 + Cloud & Hosting 45,000 + Software Subscriptions 15,000 + Workspace & Admin 10,000 = 400,000 gross burn per month."
+    },
+    {
+      "id": 18,
+      "type": "matching",
+      "text": "Match each expense in the burn rate example to what it covers.",
+      "allChoices": [
+        "3 developers",
+        "AWS servers and DB tools",
+        "Co-working and internet",
+        "GitHub, Slack, CRM tools",
+        "User acquisition and ads"
+      ],
+      "pairs": [
+        {
+          "term": "Engineering & Product Salaries",
+          "match": "3 developers"
+        },
+        {
+          "term": "Sales & Marketing",
+          "match": "User acquisition and ads"
+        },
+        {
+          "term": "Cloud & Hosting",
+          "match": "AWS servers and DB tools"
+        },
+        {
+          "term": "Software Subscriptions",
+          "match": "GitHub, Slack, CRM tools"
+        },
+        {
+          "term": "Workspace & Admin",
+          "match": "Co-working and internet"
+        }
+      ],
+      "points": 1,
+      "explanation": "Salaries cover 3 developers, Sales & Marketing covers user acquisition and ads, Cloud & Hosting covers AWS servers and DB tools, Software Subscriptions cover GitHub, Slack and CRM tools, and Workspace & Admin covers co-working and internet."
+    },
+    {
+      "id": 19,
+      "type": "mc",
+      "text": "What is the Gross Burn Rate (total cash spent per month) in the B2B SaaS example?",
+      "options": [
+        "250,000",
+        "400,000",
+        "150,000",
+        "375,000"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Gross Burn Rate = 250,000 + 80,000 + 45,000 + 15,000 + 10,000 = 400,000 per month."
+    },
+    {
+      "id": 20,
+      "type": "mc",
+      "text": "In the burn rate example, Engineering & Product Salaries (250,000) make up what share of the 400,000 gross burn?",
+      "options": [
+        "62.5%",
+        "40%",
+        "75%",
+        "50%"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "250,000 ÷ 400,000 = 62.5%, the largest outflow."
+    },
+    {
+      "id": 21,
+      "type": "mc",
+      "text": "In the net burn example, where does the 150,000 monthly revenue come from?",
+      "options": [
+        "Selling unused lab equipment",
+        "A second seed funding round",
+        "A government innovation grant",
+        "Subscription fees from early adopters after the MVP launched"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Step 2: the MVP launched, bringing in subscription fees from early adopters (+150,000 per month)."
+    },
+    {
+      "id": 22,
+      "type": "mc",
+      "text": "What is the formula for Net Burn Rate?",
+      "options": [
+        "Gross Burn Rate + Monthly Revenue",
+        "Monthly Revenue − Variable Costs",
+        "Cash Balance ÷ Gross Burn Rate",
+        "Gross Burn Rate − Monthly Revenue"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Net Burn Rate = Gross Burn Rate − Monthly Revenue."
+    },
+    {
+      "id": 23,
+      "type": "mc",
+      "text": "With a gross burn of 400,000 and monthly revenue of 150,000, what is the Net Burn Rate?",
+      "options": [
+        "550,000 per month",
+        "150,000 per month",
+        "250,000 per month",
+        "400,000 per month"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Net Burn Rate = 400,000 − 150,000 = 250,000 per month."
+    },
+    {
+      "id": 24,
+      "type": "mc",
+      "text": "With 5,000,000 cash in the bank and a net burn rate of 250,000 per month, what is the cash runway?",
+      "options": [
+        "20 months",
+        "16 months",
+        "25 months",
+        "12.5 months"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Cash Runway = Cash Balance ÷ Net Burn Rate = 5,000,000 ÷ 250,000 = 20 months."
+    },
+    {
+      "id": 25,
+      "type": "fitb",
+      "text": "Cash Runway = Cash Balance ÷ Net Burn Rate. With 5,000,000 cash and a net burn of 250,000 per month, the startup survives ___ months.",
+      "correctAnswer": "20",
+      "points": 1,
+      "explanation": "5,000,000 ÷ 250,000 = 20 months."
+    },
+    {
+      "id": 26,
+      "type": "mc",
+      "text": "From the investor perspective, which metric reveals true account depletion?",
+      "options": [
+        "Gross Burn Rate",
+        "Net Burn Rate",
+        "Monthly Revenue",
+        "Initial CapEx"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Investor perspective: Net Burn Rate reveals true account depletion. With a 5M cash reserve, this startup can operate for 20 months."
+    },
+    {
+      "id": 27,
+      "type": "mc",
+      "text": "Practice: if the same startup had no revenue yet, its runway would be based on the full 400,000 gross burn. How long would 5,000,000 last?",
+      "options": [
+        "12.5 months",
+        "8 months",
+        "20 months",
+        "25 months"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "With no revenue, net burn equals gross burn: 5,000,000 ÷ 400,000 = 12.5 months. This is why the revenue in Step 2 matters."
+    },
+    {
+      "id": 28,
+      "type": "mc",
+      "text": "Practice: monthly revenue grows to 200,000 while gross burn stays at 400,000 and cash stays at 5,000,000. What is the new runway?",
+      "options": [
+        "12.5 months",
+        "25 months",
+        "50 months",
+        "20 months"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Net burn = 400,000 − 200,000 = 200,000. Runway = 5,000,000 ÷ 200,000 = 25 months."
+    },
+    {
+      "id": 29,
+      "type": "matching",
+      "text": "Match each metric in the Financial Summary Table to its amount.",
+      "allChoices": [
+        "150,000",
+        "20 months",
+        "250,000 / month",
+        "400,000",
+        "5,000,000"
+      ],
+      "pairs": [
+        {
+          "term": "Starting Cash Reserves",
+          "match": "5,000,000"
+        },
+        {
+          "term": "Gross Monthly Expenses",
+          "match": "400,000"
+        },
+        {
+          "term": "Monthly Cash Inflow",
+          "match": "150,000"
+        },
+        {
+          "term": "Net Burn Rate",
+          "match": "250,000 / month"
+        },
+        {
+          "term": "Estimated Cash Runway",
+          "match": "20 months"
+        }
+      ],
+      "points": 1,
+      "explanation": "Starting cash 5,000,000, gross expenses 400,000, inflow 150,000, net burn 250,000 per month, and runway 20 months."
+    },
+    {
+      "id": 30,
+      "type": "matching",
+      "text": "Match each metric in the Financial Summary Table to its description.",
+      "allChoices": [
+        "Active recurring revenue from subscribers",
+        "Pure cash outflow required to keep the tech running",
+        "The actual net amount of cash the business loses monthly",
+        "Time left to hit profitability or raise the next funding round",
+        "Total capital raised from investors/bootstrapping"
+      ],
+      "pairs": [
+        {
+          "term": "Starting Cash Reserves",
+          "match": "Total capital raised from investors/bootstrapping"
+        },
+        {
+          "term": "Gross Monthly Expenses",
+          "match": "Pure cash outflow required to keep the tech running"
+        },
+        {
+          "term": "Monthly Cash Inflow",
+          "match": "Active recurring revenue from subscribers"
+        },
+        {
+          "term": "Net Burn Rate",
+          "match": "The actual net amount of cash the business loses monthly"
+        },
+        {
+          "term": "Estimated Cash Runway",
+          "match": "Time left to hit profitability or raise the next funding round"
+        }
+      ],
+      "points": 1,
+      "explanation": "These are the descriptions from the Financial Summary Table."
+    },
+    {
+      "id": 31,
+      "type": "mc",
+      "text": "What does CapEx stand for?",
+      "options": [
+        "Capacity Expansion",
+        "Cash Expense",
+        "Capital Exchange",
+        "Capital Expenditure"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "CapEx stands for Capital Expenditure."
+    },
+    {
+      "id": 32,
+      "type": "mc",
+      "text": "What does the Capital Expenditure (CapEx) & Pro Forma Investments section outline?",
+      "options": [
+        "The monthly subscription price charged to each customer",
+        "The three-year forecast of revenue and COGS",
+        "The founders' personal savings and assets",
+        "The immediate technology infrastructure, hardware, and IP required to launch"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "This section outlines the immediate technology infrastructure, hardware, and IP required to launch."
+    },
+    {
+      "id": 33,
+      "type": "matching",
+      "text": "Match each CapEx cost area to what it includes.",
+      "allChoices": [
+        "Cloud hosting, data pipelines, proprietary software integrations, and physical hardware setup",
+        "Initial coding, building an MVP, and software product design",
+        "Patent filings, copyrights, and legal compliance fees"
+      ],
+      "pairs": [
+        {
+          "term": "R&D and Prototyping",
+          "match": "Initial coding, building an MVP, and software product design"
+        },
+        {
+          "term": "Tech Stack & Infrastructure",
+          "match": "Cloud hosting, data pipelines, proprietary software integrations, and physical hardware setup"
+        },
+        {
+          "term": "Intellectual Property (IP)",
+          "match": "Patent filings, copyrights, and legal compliance fees"
+        }
+      ],
+      "points": 1,
+      "explanation": "R&D and Prototyping covers coding, the MVP and product design. Tech Stack & Infrastructure covers cloud hosting (AWS, Azure, GCP), data pipelines, integrations and hardware setup. IP covers patents, copyrights and legal compliance fees."
+    },
+    {
+      "id": 34,
+      "type": "mc",
+      "text": "Cloud hosting on AWS, Azure, or GCP falls under which CapEx cost area?",
+      "options": [
+        "Intellectual Property (IP)",
+        "Tech Stack & Infrastructure",
+        "Pre-Operating Expenses",
+        "R&D and Prototyping"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Tech Stack & Infrastructure includes cloud hosting (AWS, Azure, GCP), data pipelines, proprietary software integrations, and physical hardware setup."
+    },
+    {
+      "id": 35,
+      "type": "mc",
+      "text": "The sample CapEx schedule is for which kind of startup?",
+      "options": [
+        "A food delivery platform",
+        "A Sari-Sari store payments app",
+        "A B2B SaaS inventory management startup",
+        "A Deep-Tech Robotics & IoT Startup preparing its infrastructure before market rollout"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The sample CapEx schedule is for a Deep-Tech Robotics & IoT Startup preparing its infrastructure before market rollout."
+    },
+    {
+      "id": 36,
+      "type": "matching",
+      "text": "Match each CapEx asset category to its useful life.",
+      "allChoices": [
+        "10 years",
+        "3 years",
+        "5 years"
+      ],
+      "pairs": [
+        {
+          "term": "Intellectual Property (IP)",
+          "match": "10 years"
+        },
+        {
+          "term": "Technical Infrastructure",
+          "match": "5 years"
+        },
+        {
+          "term": "R&D & Lab Equipment",
+          "match": "5 years"
+        },
+        {
+          "term": "Hardware/Dev Kits",
+          "match": "3 years"
+        },
+        {
+          "term": "Office Furniture & Fixtures",
+          "match": "5 years"
+        }
+      ],
+      "points": 1,
+      "explanation": "IP has a 10-year useful life, Hardware/Dev Kits 3 years, and Technical Infrastructure, R&D & Lab Equipment, and Office Furniture & Fixtures 5 years each."
+    },
+    {
+      "id": 37,
+      "type": "matching",
+      "text": "Match each CapEx asset category to its initial CapEx cost.",
+      "allChoices": [
+        "150,000",
+        "280,000",
+        "320,000",
+        "450,000",
+        "80,000"
+      ],
+      "pairs": [
+        {
+          "term": "Intellectual Property (IP)",
+          "match": "150,000"
+        },
+        {
+          "term": "Technical Infrastructure",
+          "match": "280,000"
+        },
+        {
+          "term": "R&D & Lab Equipment",
+          "match": "450,000"
+        },
+        {
+          "term": "Hardware/Dev Kits",
+          "match": "320,000"
+        },
+        {
+          "term": "Office Furniture & Fixtures",
+          "match": "80,000"
+        }
+      ],
+      "points": 1,
+      "explanation": "IP 150,000 + Technical Infrastructure 280,000 + R&D & Lab Equipment 450,000 + Hardware/Dev Kits 320,000 + Office Furniture & Fixtures 80,000 = 1,280,000."
+    },
+    {
+      "id": 38,
+      "type": "matching",
+      "text": "Match each CapEx asset category to its specific items.",
+      "allChoices": [
+        "3D printers, CNC prototypes, and advanced electrical testing gear",
+        "Basic workstation desks, ergonomic seating, and safety setups",
+        "High-performance GPU laptops for machine learning and software engineering",
+        "Patent filings, software copyright registration, and legal IP protection",
+        "Specialized localized server rack setup and edge-computing nodes"
+      ],
+      "pairs": [
+        {
+          "term": "Intellectual Property (IP)",
+          "match": "Patent filings, software copyright registration, and legal IP protection"
+        },
+        {
+          "term": "Technical Infrastructure",
+          "match": "Specialized localized server rack setup and edge-computing nodes"
+        },
+        {
+          "term": "R&D & Lab Equipment",
+          "match": "3D printers, CNC prototypes, and advanced electrical testing gear"
+        },
+        {
+          "term": "Hardware/Dev Kits",
+          "match": "High-performance GPU laptops for machine learning and software engineering"
+        },
+        {
+          "term": "Office Furniture & Fixtures",
+          "match": "Basic workstation desks, ergonomic seating, and safety setups"
+        }
+      ],
+      "points": 1,
+      "explanation": "These are the specific items listed in the CapEx schedule."
+    },
+    {
+      "id": 39,
+      "type": "mc",
+      "text": "What is the Total CapEx Requirement in the sample schedule?",
+      "options": [
+        "1,200,000",
+        "2,500,000",
+        "1,280,000",
+        "1,020,000"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "150,000 + 280,000 + 450,000 + 320,000 + 80,000 = 1,280,000."
+    },
+    {
+      "id": 40,
+      "type": "mc",
+      "text": "Which CapEx asset category has the largest initial cost?",
+      "options": [
+        "Hardware/Dev Kits (320,000)",
+        "Intellectual Property (150,000)",
+        "R&D & Lab Equipment (450,000)",
+        "Technical Infrastructure (280,000)"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "R&D & Lab Equipment (3D printers, CNC prototypes, electrical testing gear) costs 450,000, the largest item."
+    },
+    {
+      "id": 41,
+      "type": "mc",
+      "text": "Which CapEx asset category has the longest useful life?",
+      "options": [
+        "Hardware/Dev Kits (3 years)",
+        "R&D & Lab Equipment (5 years)",
+        "Intellectual Property (10 years)",
+        "Office Furniture & Fixtures (5 years)"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Intellectual Property has a 10-year useful life, the longest in the schedule."
+    },
+    {
+      "id": 42,
+      "type": "mc",
+      "text": "High-performance GPU laptops for machine learning fall under which asset category, and with what useful life?",
+      "options": [
+        "R&D & Lab Equipment, 5 years",
+        "Office Furniture & Fixtures, 5 years",
+        "Hardware/Dev Kits, 3 years",
+        "Technical Infrastructure, 5 years"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "GPU laptops for machine learning and software engineering are Hardware/Dev Kits with a 3-year useful life and a 320,000 cost."
+    },
+    {
+      "id": 43,
+      "type": "mc",
+      "text": "What is the purpose of the Pro Forma Investment Requirements?",
+      "options": [
+        "To list every patent the startup plans to file",
+        "To calculate how many subscribers are needed to break even",
+        "To determine the exact funding ask for investors, so the company doesn't go bankrupt in Month 1",
+        "To record the founders' past personal expenses"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "To determine the exact funding ask for VCs or angel investors, founders combine the CapEx with pre-operating expenses and working capital margins so the company doesn't go bankrupt in Month 1."
+    },
+    {
+      "id": 44,
+      "type": "msq",
+      "text": "Which three parts make up the Pro Forma Investment Requirements?",
+      "options": [
+        "Pre-Operating Expenses",
+        "Working Capital Margin",
+        "Fixed Capital Assets (CapEx total)",
+        "Gross Burn Rate",
+        "Break-Even Sales Revenue",
+        "Founders' Equity"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        2
+      ],
+      "points": 1,
+      "explanation": "Pro Forma Investment Requirements = 1. Fixed Capital Assets (1,280,000) + 2. Pre-Operating Expenses (200,000) + 3. Working Capital Margin (1,020,000) = 2,500,000."
+    },
+    {
+      "id": 45,
+      "type": "mc",
+      "text": "How are Pre-Operating Expenses described?",
+      "options": [
+        "One-time startup costs",
+        "Long-term fixed capital assets",
+        "Recurring monthly subscription income",
+        "An operating runway reserve"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Pre-Operating Expenses are one-time startup costs."
+    },
+    {
+      "id": 46,
+      "type": "msq",
+      "text": "Which items are listed under Pre-Operating Expenses?",
+      "options": [
+        "Software MVP Audit & Security Penetration Testing",
+        "3 months of cloud server hosting",
+        "3 months of engineering payroll buffer",
+        "Business Registration, Local Permits, & Licensing",
+        "High-performance GPU laptops",
+        "Initial Branding & Core Website Deployment"
+      ],
+      "correctAnswer": [
+        0,
+        3,
+        5
+      ],
+      "points": 1,
+      "explanation": "Pre-operating expenses are the MVP audit and penetration testing, business registration/permits/licensing, and initial branding and website. Payroll and hosting buffers are the Working Capital Margin; GPU laptops are CapEx."
+    },
+    {
+      "id": 47,
+      "type": "mc",
+      "text": "What is the subtotal of Pre-Operating Expenses?",
+      "options": [
+        "200,000",
+        "120,000",
+        "1,280,000",
+        "1,020,000"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The three one-time startup costs add up to a 200,000 subtotal."
+    },
+    {
+      "id": 48,
+      "type": "mc",
+      "text": "What is the Working Capital Margin also called?",
+      "options": [
+        "Fixed Capital Asset",
+        "Pre-Operating Expense",
+        "Contribution Margin",
+        "Operating Runway Reserve"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The Working Capital Margin is the operating runway reserve."
+    },
+    {
+      "id": 49,
+      "type": "msq",
+      "text": "Which items make up the Working Capital Margin?",
+      "options": [
+        "3 months' worth of engineering payroll buffer",
+        "Initial branding and website deployment",
+        "3 months' worth of cloud server hosting (AWS/GCP)",
+        "Business registration and permits",
+        "Patent filings"
+      ],
+      "correctAnswer": [
+        0,
+        2
+      ],
+      "points": 1,
+      "explanation": "The Working Capital Margin is 3 months of engineering payroll buffer (900,000) plus 3 months of cloud server hosting (120,000) = 1,020,000."
+    },
+    {
+      "id": 50,
+      "type": "matching",
+      "text": "Match each Working Capital Margin item to its amount.",
+      "allChoices": [
+        "1,020,000",
+        "120,000",
+        "200,000",
+        "900,000"
+      ],
+      "pairs": [
+        {
+          "term": "3 months' worth of engineering payroll buffer",
+          "match": "900,000"
+        },
+        {
+          "term": "3 months' worth of cloud server hosting (AWS/GCP)",
+          "match": "120,000"
+        },
+        {
+          "term": "Subtotal Working Capital Reserve",
+          "match": "1,020,000"
+        }
+      ],
+      "points": 1,
+      "explanation": "900,000 + 120,000 = 1,020,000."
+    },
+    {
+      "id": 51,
+      "type": "mc",
+      "text": "What is the Total Pro Forma Investment Requirement?",
+      "options": [
+        "2,300,000",
+        "5,000,000",
+        "1,280,000",
+        "2,500,000"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "1,280,000 (Fixed Capital Assets) + 200,000 (Pre-Operating) + 1,020,000 (Working Capital) = 2,500,000."
+    },
+    {
+      "id": 52,
+      "type": "fitb",
+      "text": "Total Pro Forma Investment = 1,280,000 (CapEx) + 200,000 (Pre-Operating) + ___ (Working Capital Margin) = 2,500,000. Write the number with commas.",
+      "correctAnswer": "1,020,000",
+      "points": 1,
+      "explanation": "2,500,000 − 1,280,000 − 200,000 = 1,020,000, the Working Capital Reserve (900,000 payroll + 120,000 hosting)."
+    },
+    {
+      "id": 53,
+      "type": "mc",
+      "text": "What does the Pro Forma Capital Sourcing Structure show?",
+      "options": [
+        "How many months the startup can survive at its net burn",
+        "Where equity dilution or debt liabilities stand, by matching the total investment to its funding structure",
+        "How CapEx assets depreciate over their useful life",
+        "Which suppliers the startup will pay first"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The total investment figure is matched to its intended funding structure to show where equity dilution or debt liabilities stand."
+    },
+    {
+      "id": 54,
+      "type": "matching",
+      "text": "Match each funding source to its contribution.",
+      "allChoices": [
+        "1,800,000",
+        "200,000",
+        "500,000"
+      ],
+      "pairs": [
+        {
+          "term": "Founders' Equity (Bootstrapping)",
+          "match": "500,000"
+        },
+        {
+          "term": "Angel / VC Investor (Seed Round Funding)",
+          "match": "1,800,000"
+        },
+        {
+          "term": "Government Grant (Innovation / R&D Grant)",
+          "match": "200,000"
+        }
+      ],
+      "points": 1,
+      "explanation": "500,000 + 1,800,000 + 200,000 = 2,500,000 total funding allocated."
+    },
+    {
+      "id": 55,
+      "type": "matching",
+      "text": "Match each funding source to its share.",
+      "allChoices": [
+        "20% stake",
+        "72% stake",
+        "8% non-dilutive",
+        "8% stake"
+      ],
+      "pairs": [
+        {
+          "term": "Founders' Equity",
+          "match": "20% stake"
+        },
+        {
+          "term": "Angel / VC Investor",
+          "match": "72% stake"
+        },
+        {
+          "term": "Government Grant",
+          "match": "8% non-dilutive"
+        }
+      ],
+      "points": 1,
+      "explanation": "Founders hold a 20% stake, the angel/VC investor a 72% stake, and the government grant is 8% and non-dilutive."
+    },
+    {
+      "id": 56,
+      "type": "mc",
+      "text": "Which funding source in the capital sourcing structure is non-dilutive?",
+      "options": [
+        "Angel / VC Investor (Seed Round Funding)",
+        "Founders' Equity (Bootstrapping)",
+        "All three are non-dilutive",
+        "Government Grant (Innovation / R&D Grant)"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The 200,000 government innovation/R&D grant is 8% non-dilutive: it gives up no ownership stake."
+    },
+    {
+      "id": 57,
+      "type": "tf",
+      "text": "In the sample capital sourcing structure, the government grant gives the government an 8% ownership stake in the startup.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The grant is listed as 8% non-dilutive, meaning it funds 8% of the total without taking equity. The stakes are founders 20% and angel/VC 72%."
+    },
+    {
+      "id": 58,
+      "type": "mc",
+      "text": "Founders' Equity in the capital sourcing structure comes from what?",
+      "options": [
+        "An innovation grant",
+        "Seed round funding",
+        "A bank loan",
+        "Bootstrapping"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Founders' Equity is the bootstrapping contribution: 500,000 for a 20% stake."
+    },
+    {
+      "id": 59,
+      "type": "mc",
+      "text": "Pro Forma Financial Statements cover projections for how many years?",
+      "options": [
+        "3 to 5 years",
+        "1 to 2 years",
+        "Only the next 12 months",
+        "10 to 15 years"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Pro Forma Financial Statements are 3-to-5 year projections."
+    },
+    {
+      "id": 60,
+      "type": "mc",
+      "text": "How are Pro Forma Financial Statements generated?",
+      "options": [
+        "Through \"top-down\" estimates of the total market size",
+        "Through \"bottom-up\" forecasting built on precise unit economics and realistic growth conversion rates",
+        "By copying a competitor's published financial statements",
+        "By averaging the founders' personal income history"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "They are forward-looking documents generated through \"bottom-up\" forecasting, building on precise unit economics and realistic growth conversion rates."
+    },
+    {
+      "id": 61,
+      "type": "matching",
+      "text": "Match each pro forma statement to what it does.",
+      "allChoices": [
+        "Forecasts revenue, COGS, and operational expenses to determine future profitability",
+        "Previews cash inflows and outflows to find timing gaps",
+        "Tracks assets, technology liabilities, and equity at a given point in time"
+      ],
+      "pairs": [
+        {
+          "term": "Pro Forma Income Statement",
+          "match": "Forecasts revenue, COGS, and operational expenses to determine future profitability"
+        },
+        {
+          "term": "Pro Forma Cash Flow Statement",
+          "match": "Previews cash inflows and outflows to find timing gaps"
+        },
+        {
+          "term": "Pro Forma Balance Sheet",
+          "match": "Tracks assets, technology liabilities, and equity at a given point in time"
+        }
+      ],
+      "points": 1,
+      "explanation": "The income statement forecasts profitability, the cash flow statement previews inflows and outflows, and the balance sheet tracks financial position at a point in time."
+    },
+    {
+      "id": 62,
+      "type": "mc",
+      "text": "For a technology startup, what does COGS (Cost of Goods Sold) include according to the module?",
+      "options": [
+        "Patent filings and trademark fees",
+        "Founders' equity and investor stakes",
+        "Office furniture and fixtures",
+        "Hosting costs and customer support operations"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "On the Pro Forma Income Statement, COGS for technology includes hosting costs and customer support operations."
+    },
+    {
+      "id": 63,
+      "type": "mc",
+      "text": "Which pro forma statement is critical for identifying timing gaps between heavy customer onboarding periods and actual invoice settlements?",
+      "options": [
+        "CapEx Schedule",
+        "Pro Forma Income Statement",
+        "Pro Forma Cash Flow Statement",
+        "Pro Forma Balance Sheet"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The Pro Forma Cash Flow Statement previews cash inflows and outflows, which is critical for spotting timing gaps between onboarding and invoice settlements."
+    },
+    {
+      "id": 64,
+      "type": "mc",
+      "text": "Which pro forma statement tracks the startup's financial position at a given point in time?",
+      "options": [
+        "Pro Forma Income Statement",
+        "Pro Forma Balance Sheet",
+        "Pro Forma Cash Flow Statement",
+        "Break-Even Projections Summary"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The Pro Forma Balance Sheet tracks assets, technology liabilities, and equity structure at a given point in time."
+    },
+    {
+      "id": 65,
+      "type": "tf",
+      "text": "Technopreneurs often run at a net loss during early user-acquisition stages.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "This is why break-even analysis matters: it establishes exactly when unit profit margins will offset fixed technical overhead."
+    },
+    {
+      "id": 66,
+      "type": "mc",
+      "text": "What does a break-even analysis establish?",
+      "options": [
+        "Exactly when unit profit margins will perfectly offset fixed technical overhead costs",
+        "Which contract manufacturer tier to launch with",
+        "How long the startup's IP stays protected",
+        "Exactly how many patents the startup can afford to file"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Break-even analysis uses a mathematical approach to establish exactly when your unit profit margins will perfectly offset your fixed technical overhead costs."
+    },
+    {
+      "id": 67,
+      "type": "matching",
+      "text": "Match each break-even concept to its definition.",
+      "allChoices": [
+        "Base operating expenses like server infrastructure, core development salaries, and recurring overhead",
+        "Net revenue per active user or unit after deducting direct variable costs of delivery",
+        "The user volume or time horizon where cumulative unit margins offset fixed technical overhead"
+      ],
+      "pairs": [
+        {
+          "term": "Fixed Overhead Costs",
+          "match": "Base operating expenses like server infrastructure, core development salaries, and recurring overhead"
+        },
+        {
+          "term": "Unit Profit Margins",
+          "match": "Net revenue per active user or unit after deducting direct variable costs of delivery"
+        },
+        {
+          "term": "The Payoff Threshold",
+          "match": "The user volume or time horizon where cumulative unit margins offset fixed technical overhead"
+        }
+      ],
+      "points": 1,
+      "explanation": "Fixed overhead is the base operating expense, unit profit margin is what each user leaves after variable costs, and the payoff threshold is where those margins cover the fixed overhead."
+    },
+    {
+      "id": 68,
+      "type": "mc",
+      "text": "What is the Break-Even Point formula in units?",
+      "options": [
+        "Contribution Margin per Unit ÷ Total Fixed Monthly Costs",
+        "Total Fixed Monthly Costs ÷ Contribution Margin per Unit",
+        "Selling Price per Unit − Variable Cost per Unit",
+        "Total Fixed Monthly Costs × Selling Price per Unit"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Break-Even Point (Units) = Total Fixed Monthly Costs ÷ Contribution Margin per Unit. The last option is the contribution margin formula."
+    },
+    {
+      "id": 69,
+      "type": "matching",
+      "text": "In the break-even formula, match each part to its role.",
+      "allChoices": [
+        "Denominator",
+        "Multiplier",
+        "Numerator",
+        "Target result"
+      ],
+      "pairs": [
+        {
+          "term": "Total Fixed Costs",
+          "match": "Numerator"
+        },
+        {
+          "term": "Contribution Margin",
+          "match": "Denominator"
+        },
+        {
+          "term": "Break-Even Point",
+          "match": "Target result"
+        }
+      ],
+      "points": 1,
+      "explanation": "Total Fixed Costs is the numerator, Contribution Margin is the denominator, and the Break-Even Point is the target result."
+    },
+    {
+      "id": 70,
+      "type": "msq",
+      "text": "Which are listed as key components of Total Fixed Costs?",
+      "options": [
+        "Database scaling per subscriber",
+        "Core development salaries",
+        "Recurring administrative overhead",
+        "Support usage per active user",
+        "Payment processing fees per transaction",
+        "Cloud and server infrastructure"
+      ],
+      "correctAnswer": [
+        1,
+        2,
+        5
+      ],
+      "points": 1,
+      "explanation": "Fixed costs (cloud and server infrastructure, core development salaries, recurring admin overhead) stay constant regardless of user scale. Per-transaction and per-user costs are variable."
+    },
+    {
+      "id": 71,
+      "type": "msq",
+      "text": "Which are listed as variable costs per unit subtracted when computing the contribution margin?",
+      "options": [
+        "Support",
+        "Payment processing",
+        "Office space",
+        "Recurring administrative overhead",
+        "Core development salaries",
+        "Hosting"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        5
+      ],
+      "points": 1,
+      "explanation": "Contribution Margin = Selling Price per Unit minus Variable Costs per Unit (hosting, payment processing, support). Salaries, office space and admin overhead are fixed."
+    },
+    {
+      "id": 72,
+      "type": "mc",
+      "text": "What is the formula for Contribution Margin per unit?",
+      "options": [
+        "Selling Price − Fixed Cost",
+        "Fixed Cost ÷ Selling Price",
+        "Selling Price − Variable Cost",
+        "Variable Cost − Selling Price"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Contribution Margin per unit = Selling Price − Variable Cost."
+    },
+    {
+      "id": 73,
+      "type": "mc",
+      "text": "What does the Break-Even Point represent?",
+      "options": [
+        "The point where the startup has spent all its seed capital",
+        "The exact unit volume needed to reach zero net loss and fully cover operational overhead",
+        "The month the startup receives its first investor tranche",
+        "The maximum number of users the servers can handle"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The Break-Even Point is the exact unit volume required to reach zero net loss and fully cover all operational overhead."
+    },
+    {
+      "id": 74,
+      "type": "msq",
+      "text": "Which are listed as strategic objectives of the Break-Even Point?",
+      "options": [
+        "Defines the minimum active user threshold",
+        "Guarantees investor returns",
+        "Establishes baseline viability",
+        "Eliminates variable costs",
+        "Offsets fixed tech overhead",
+        "Sets the patent filing date"
+      ],
+      "correctAnswer": [
+        0,
+        2,
+        4
+      ],
+      "points": 1,
+      "explanation": "The strategic objectives are establishing baseline viability, defining the minimum active user threshold, and offsetting fixed tech overhead."
+    },
+    {
+      "id": 75,
+      "type": "mc",
+      "text": "The break-even scenario is for what kind of startup?",
+      "options": [
+        "A food delivery platform charging per order",
+        "A sari-sari store micro-loan app",
+        "A Deep-Tech Robotics & IoT hardware startup",
+        "A cloud-based Inventory Management Software startup charging a monthly subscription"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The scenario is a B2B SaaS cloud-based Inventory Management Software startup charging a monthly subscription fee."
+    },
+    {
+      "id": 76,
+      "type": "mc",
+      "text": "How are Fixed Overhead costs described in the scenario?",
+      "options": [
+        "Expenses that do not change whether the startup has 1 user or 1,000 users",
+        "Costs that are paid only when a sale is made",
+        "One-time startup costs paid before launch",
+        "Expenses that grow with every new subscriber"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Fixed Overhead (\"costs to keep the lights on\") are expenses that do not change whether the startup has 1 user or 1,000 users."
+    },
+    {
+      "id": 77,
+      "type": "matching",
+      "text": "Match each fixed overhead item in the scenario to its monthly amount.",
+      "allChoices": [
+        "15,000",
+        "220,000",
+        "25,000",
+        "40,000"
+      ],
+      "pairs": [
+        {
+          "term": "Engineering & Admin",
+          "match": "220,000"
+        },
+        {
+          "term": "Fixed Marketing",
+          "match": "40,000"
+        },
+        {
+          "term": "Software Licenses",
+          "match": "25,000"
+        },
+        {
+          "term": "Office Space",
+          "match": "15,000"
+        }
+      ],
+      "points": 1,
+      "explanation": "220,000 + 40,000 + 25,000 + 15,000 = 300,000 total fixed monthly costs."
+    },
+    {
+      "id": 78,
+      "type": "mc",
+      "text": "What are the Total Fixed Monthly Costs in the scenario?",
+      "options": [
+        "220,000",
+        "375,000",
+        "400,000",
+        "300,000"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Engineering & Admin 220,000 + Fixed Marketing 40,000 + Software Licenses 25,000 + Office Space 15,000 = 300,000."
+    },
+    {
+      "id": 79,
+      "type": "matching",
+      "text": "Match each unit economics figure in the scenario to its value.",
+      "allChoices": [
+        "2,000 / month",
+        "2,500 / month",
+        "300,000 / month",
+        "500 / month"
+      ],
+      "pairs": [
+        {
+          "term": "Selling Price per Subscription (P)",
+          "match": "2,500 / month"
+        },
+        {
+          "term": "Variable Cost per User (V)",
+          "match": "500 / month"
+        },
+        {
+          "term": "Contribution Margin per User",
+          "match": "2,000 / month"
+        }
+      ],
+      "points": 1,
+      "explanation": "P = 2,500, V = 500, so the contribution margin is 2,500 − 500 = 2,000 per user per month."
+    },
+    {
+      "id": 80,
+      "type": "msq",
+      "text": "Which factors make up the 500 variable cost per user in the scenario?",
+      "options": [
+        "Active support usage",
+        "Transaction fees",
+        "Office space",
+        "Software licenses",
+        "Fixed marketing",
+        "Database scaling"
+      ],
+      "correctAnswer": [
+        0,
+        1,
+        5
+      ],
+      "points": 1,
+      "explanation": "The variable cost per user includes database scaling, transaction fees, and active support usage. Office space, software licenses and fixed marketing are fixed overhead."
+    },
+    {
+      "id": 81,
+      "type": "mc",
+      "text": "What does the contribution margin per user represent in the scenario?",
+      "options": [
+        "The cost of acquiring each new subscriber",
+        "Money left over from each subscription that goes toward chipping away at fixed overhead",
+        "The total monthly spending on cloud servers",
+        "The full price each subscriber pays every month"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Contribution margin is the money left over from each subscription that goes directly toward chipping away at fixed overhead."
+    },
+    {
+      "id": 82,
+      "type": "fitb",
+      "text": "Break-Even Point (Units) = 300,000 ÷ 2,000 = ___ active subscribers per month.",
+      "correctAnswer": "150",
+      "points": 1,
+      "explanation": "300,000 (fixed overhead) ÷ 2,000 (contribution margin per user) = 150 active subscribers needed per month to break even."
+    },
+    {
+      "id": 83,
+      "type": "mc",
+      "text": "What is the formula for Break-Even Sales Revenue?",
+      "options": [
+        "Subscribers × Variable Cost per Unit",
+        "Fixed Costs ÷ Price per Unit",
+        "Subscribers × Price per Unit",
+        "Subscribers ÷ Contribution Margin"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Break-Even Sales Revenue (the financial volume method) = Subscribers × Price per Unit."
+    },
+    {
+      "id": 84,
+      "type": "mc",
+      "text": "What is the monthly Break-Even Sales Revenue in the scenario?",
+      "options": [
+        "300,000 per month",
+        "450,000 per month",
+        "750,000 per month",
+        "375,000 per month"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "150 subscribers × 2,500 = 375,000 per month."
+    },
+    {
+      "id": 85,
+      "type": "matching",
+      "text": "Match each break-even method to what it expresses.",
+      "allChoices": [
+        "Active subscribers needed per month (150)",
+        "Monthly revenue needed (375,000)",
+        "Months of runway left (20)"
+      ],
+      "pairs": [
+        {
+          "term": "Unit Break-Even Method",
+          "match": "Active subscribers needed per month (150)"
+        },
+        {
+          "term": "Financial Volume Method",
+          "match": "Monthly revenue needed (375,000)"
+        }
+      ],
+      "points": 1,
+      "explanation": "The unit method gives 150 active subscribers; the financial volume method gives 375,000 in monthly sales revenue."
+    },
+    {
+      "id": 86,
+      "type": "matching",
+      "text": "In the Break-Even Projections Summary, match each user level to its net monthly profit/loss.",
+      "allChoices": [
+        "-200,000 (loss)",
+        "+150,000 (profitable)",
+        "+300,000 (profitable)",
+        "0 (break-even)"
+      ],
+      "pairs": [
+        {
+          "term": "50 users",
+          "match": "-200,000 (loss)"
+        },
+        {
+          "term": "150 users",
+          "match": "0 (break-even)"
+        },
+        {
+          "term": "300 users",
+          "match": "+300,000 (profitable)"
+        }
+      ],
+      "points": 1,
+      "explanation": "50 users: 125,000 − 25,000 − 300,000 = −200,000. 150 users: 375,000 − 75,000 − 300,000 = 0. 300 users: 750,000 − 150,000 − 300,000 = +300,000."
+    },
+    {
+      "id": 87,
+      "type": "mc",
+      "text": "At 300 users, what are the Total Monthly Revenue and Variable Cloud Costs in the projections summary?",
+      "options": [
+        "375,000 revenue and 75,000 variable costs",
+        "750,000 revenue and 300,000 variable costs",
+        "750,000 revenue and 150,000 variable costs",
+        "600,000 revenue and 150,000 variable costs"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "300 × 2,500 = 750,000 revenue and 300 × 500 = 150,000 variable cloud costs."
+    },
+    {
+      "id": 88,
+      "type": "mc",
+      "text": "Why does profit scale rapidly once the startup crosses the 150-user threshold?",
+      "options": [
+        "The selling price automatically rises after break-even",
+        "The government grant increases with every new user",
+        "High software leverage: fixed overhead stays the same while each extra user adds margin",
+        "Variable costs drop to zero after 150 users"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The summary says profit scales rapidly past 150 users due to high software leverage. Fixed software overhead stays at 300,000 while each added user contributes 2,000."
+    },
+    {
+      "id": 89,
+      "type": "tf",
+      "text": "In the projections summary, the Fixed Software Overhead stays at 300,000 whether the startup has 50, 150, or 300 users.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Fixed overhead does not change with user count: it is 300,000 at every level in the table."
+    },
+    {
+      "id": 90,
+      "type": "mc",
+      "text": "At 50 users, what is the startup's net monthly result?",
+      "options": [
+        "Break-even",
+        "A 125,000 loss",
+        "A 100,000 profit",
+        "A 200,000 loss"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "125,000 revenue − 25,000 variable costs − 300,000 fixed overhead = −200,000."
+    },
+    {
+      "id": 91,
+      "type": "mc",
+      "text": "Practice: if the price rose to 3,000 per month with the same 500 variable cost and 300,000 fixed overhead, how many subscribers would be needed to break even?",
+      "options": [
+        "200",
+        "120",
+        "150",
+        "100"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Contribution margin = 3,000 − 500 = 2,500. Break-even = 300,000 ÷ 2,500 = 120 subscribers."
+    },
+    {
+      "id": 92,
+      "type": "mc",
+      "text": "Practice: if fixed overhead grew to 400,000 while the contribution margin stayed at 2,000 per user, how many subscribers would be needed to break even?",
+      "options": [
+        "150",
+        "160",
+        "250",
+        "200"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Break-even = 400,000 ÷ 2,000 = 200 subscribers."
+    }
+  ]
+}
