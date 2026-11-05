@@ -11,13 +11,22 @@
 // switcher, listed in this order. pdf.js loads only when one is opened
 // (notes/pdf.js), and the file itself is fetched on first view and cached
 // for offline use from then on, never precached for everyone.
+//
+// A note can also be an interactive page: `component` names a loader in
+// `components` below, a module whose default export is the page and whose
+// `headings` export feeds the viewer's Contents. It loads only when opened.
 const loaders = import.meta.glob('./*.md', { query: '?raw', import: 'default' });
+
+const components = {
+  'technopreneurship-learn': () => import('./learn/technopreneurship/index.jsx'),
+};
 
 export const NOTES = [
   { slug: 'project-management', title: 'Project Management', subjectId: 'project-management', file: './project-management.md' },
   { slug: 'laravel', title: 'Laravel', tab: 'PDF', subjectId: 'laravel', file: './laravel.md' },
   { slug: 'laravel-reviewer', title: 'Laravel', tab: 'Reviewer', subjectId: 'laravel', file: './laravel-reviewer.md' },
   { slug: 'technopreneurship', title: 'Technopreneurship', tab: 'Notes', subjectId: 'technopreneurship', file: './technopreneurship.md' },
+  { slug: 'technopreneurship-learn', title: 'Technopreneurship', tab: 'Learn', subjectId: 'technopreneurship', component: 'technopreneurship-learn' },
   { slug: 'technopreneurship-module-5', title: 'Technopreneurship', label: 'Module 5: Financial Planning', subjectId: 'technopreneurship', pdf: 'techno-05-financial-planning.pdf' },
   { slug: 'technopreneurship-module-6', title: 'Technopreneurship', label: 'Module 6: Production Planning and Control', subjectId: 'technopreneurship', pdf: 'techno-06-production-planning.pdf' },
   { slug: 'devnet', title: 'DevNet Associate', tab: 'DevNet', subjectId: 'sia', file: './devnet.md' },
@@ -29,6 +38,10 @@ export const findNote = (slug) => NOTES.find((n) => n.slug === slug) || null;
 
 export const notesForSubject = (subjectId) => NOTES.filter((n) => n.subjectId === subjectId);
 
-// The Markdown text, or for a PDF note the loaded document (see loadPdf).
-export const loadNote = (note) =>
-  note.pdf ? import('./pdf.js').then((m) => m.loadPdf(`${import.meta.env.BASE_URL}notes/${note.pdf}`)) : loaders[note.file]();
+// The Markdown text, for a PDF note the loaded document (see loadPdf), or
+// for an interactive one { Component, headings }.
+export const loadNote = (note) => {
+  if (note.component) return components[note.component]().then((m) => ({ Component: m.default, headings: m.headings }));
+  if (note.pdf) return import('./pdf.js').then((m) => m.loadPdf(`${import.meta.env.BASE_URL}notes/${note.pdf}`));
+  return loaders[note.file]();
+};

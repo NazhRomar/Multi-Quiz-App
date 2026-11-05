@@ -277,16 +277,21 @@ export default function NotesRoute() {
       >
         {/* A PDF's Contents sits in the sticky row instead, under the switcher. */}
         {headings.length > 0 && !note.pdf && <aside className="notes-sidebar">{toc}</aside>}
-        {source != null && typeof source !== 'string' ? (
+        {/* For the one render after switching tabs, source can still be the
+            previous tab's (cleared by the load effect), so each branch checks
+            the source's own kind, not just the note's. */}
+        {note.component && source?.Component ? (
+          <source.Component />
+        ) : note.pdf && source != null && typeof source !== 'string' && !source.Component ? (
           <PdfDocument key={note.slug} doc={source} href={`${import.meta.env.BASE_URL}notes/${note.pdf}`} toolbarSlot={pdfToolsSlot} />
         ) : note.pdf && source == null && !failed ? (
           <PdfSkeleton />
         ) : (
           <article className="notes-body">
             {failed ? (
-              <p className="notes-loading">Couldn&apos;t load {note.pdf ? 'this PDF' : 'these notes'}. Check your connection and try again.</p>
+              <p className="notes-loading">Couldn&apos;t load {note.pdf ? 'this PDF' : note.component ? 'this page' : 'these notes'}. Check your connection and try again.</p>
             ) : source == null ? (
-              <p className="notes-loading">Loading notes…</p>
+              <p className="notes-loading">{note.component ? 'Loading…' : 'Loading notes…'}</p>
             ) : (
               <MarkdownBlocks blocks={blocks} />
             )}
