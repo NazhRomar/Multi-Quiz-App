@@ -1,0 +1,471 @@
+{
+  "quizTitle": "Final Quiz",
+  "addedOn": "2026-11-06",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "A startup switches from building standard industrial drones in advance (Make-to-Stock) to assembling them only after a customer places an order (Configure/Make-to-Order). How does this change their operations?",
+      "options": [
+        "It requires them to store massive stockpiles of fully assembled drones in warehouses, just in case.",
+        "It makes their daily factory schedule completely static, predictable, and easy to plan for",
+        "It cuts down on unsold finished stock but requires highly flexible assembly lines to handle custom orders fast.",
+        "It legally prevents customers from requesting personalized drone modifications or attachments."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Building only after an order arrives means almost no unsold finished goods sit in a warehouse, but the line has to be <strong>flexible</strong> enough to switch quickly between custom configurations."
+    },
+    {
+      "id": 2,
+      "type": "mc",
+      "text": "A fintech startup has a flat monthly gross operating expense of ₱300,000. If the company launches in Month 1 and its monthly gross profit contribution grows by exactly ₱50,000 each month, in which operational month will the company achieve cash flow break-even?",
+      "options": ["Month 6", "Month 7", "Month 2", "Month 12"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Gross profit in Month <em>n</em> is ₱50,000 × <em>n</em>. It first covers the ₱300,000 expense when ₱50,000 × <em>n</em> = ₱300,000, so <em>n</em> = <strong>6</strong>."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "Which of the following operational changes would directly cause a technology startup's cash runway to shorten, assuming all other financial factors remain unchanged?",
+      "options": [
+        "Receiving a government grant that refunds the company for past project expenses.",
+        "Collecting cash payments from corporate clients faster than the standard 30 days.",
+        "Giving immediate pay raises to the core software development team.",
+        "Shifting from a fixed monthly cloud contract to a variable tier based on website traffic."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Runway = Cash Balance ÷ Monthly Burn Rate. Pay raises push the monthly burn up, so the same cash lasts fewer months. The grant and faster collections add cash, and a variable cloud tier usually lowers fixed spend."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "A deep-tech hardware startup often hits the notorious \"valley of death\" during production ramp-up. Which of the following best characterizes this specific PPC and financial challenge?",
+      "options": [
+        "Being unable to find and hire mobile app developers for a companion app.",
+        "Customers canceling their digital software subscriptions after a few months.",
+        "Massive capital expenditure for tooling and bulk component procurement before sales revenue stabilizes.",
+        "Running out of seed funding because social media marketing campaigns failed."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The hardware \"valley of death\" is the cash gap between paying for tooling and bulk components up front and the point where sales revenue becomes steady."
+    },
+    {
+      "id": 5,
+      "type": "mc",
+      "text": "In financial planning, how is a Capital Expenditure (CapEx) fundamentally different from an Operational Expenditure (OpEx)?",
+      "options": [
+        "CapEx represents small day-to-day subscription fees, while OpEx represents large, one-time emergency costs.",
+        "CapEx means buying long-term assets that lose value over time (depreciation), while OpEx means paying for everyday running costs.",
+        "CapEx items are always paid for in cash right away, while OpEx items are always bought using long-term bank loans.",
+        "CapEx items are fully deducted from a company's profits in the exact month they are bought to get immediate tax cuts."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<strong>CapEx</strong> buys long-term assets (machines, tooling, servers) that are depreciated over their useful life. <strong>OpEx</strong> is the everyday cost of running the business (salaries, rent, subscriptions)."
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "From a financial planning perspective, why does securing early Intellectual Property (IP) protection, like patents or trademarks, help protect a tech startup's financial runway?",
+      "options": [
+        "It completely exempts the startup from paying any local or national corporate income taxes for the first ten years.",
+        "It allows the engineering team to launch the final software without doing any product testing.",
+        "It immediately removes all annual cloud computing and hosting fees, lowering gross operational expenses.",
+        "It creates legal assets that raise the company's value, making it easier to attract investor cash and loans."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Patents and trademarks are intangible <strong>assets</strong>: they raise the company's valuation and give investors and lenders something defensible to back, which brings in cash and lengthens the runway. IP gives no tax holiday, so the first option is a distractor."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "What is the fundamental operational distinction between production planning and production control?",
+      "options": [
+        "Planning establishes the deterministic baseline parameters prior to execution, whereas control governs real-time dispatching and corrective closed-loop feedback mechanisms during active operations.",
+        "Planning focuses only on worker safety, while control focuses on profits.",
+        "Planning is exclusively a strategic long-term facility footprint layout task, while control is a post-hoc financial auditing protocol executed entirely after final assembly.",
+        "Planning focuses strictly on minimizing occupational safety hazards, whereas control operates as an exogenous compliance mechanism managed directly by downstream consumer focus groups."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "<strong>Planning</strong> sets the plan before work starts (what, how much, when, with what). <strong>Control</strong> runs during production: dispatching work, monitoring it and correcting deviations as they happen."
+    },
+    {
+      "id": 8,
+      "type": "mc",
+      "text": "When a tech startup creates a financial plan, why is calculating the Burn Rate absolutely critical?",
+      "options": [
+        "It tells the company how many physical raw materials are destroyed or ruined during the assembly process.",
+        "It determines the maximum price a competitor can charge for a similar product.",
+        "It measures how much cash the company is losing each month to keep operating before becoming profitable, indicating exactly when it will run out of money.",
+        "It calculates the total amount of money spent on physical warehouse electricity."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Burn Rate is the monthly speed at which cash is spent before the company turns cash-flow positive. Dividing the cash balance by it gives the runway, i.e. when the money runs out."
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "A hardware startup in Cebu is building a smart tracking device. After launching their Alpha version, user feedback shows the product casing is too bulky. Because they chose a technopreneurial PPC approach with 3D-printed modular tooling instead of traditional steel molds, how does this affect their financial planning?",
+      "options": [
+        "It automatically qualifies them for a free tax-exempt manufacturing status from the government.",
+        "It forces them to stop hardware production entirely and switch to a purely software-based business model.",
+        "It saves them hundreds of thousands of Pesos, allowing them to digitally adjust the design file and print new casings immediately without paying for a brand-new factory mold.",
+        "It bankrupts the company because 3D printing is more expensive than industrial steel molds for mass production."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "With 3D-printed tooling, a design change is just an edited file and a reprint. A steel injection mold would have to be re-cut or replaced at great cost."
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "A mobile app development startup based in Makati has exactly ₱3,000,000 in cash remaining in its bank account. The startup's monthly cash metrics are flat and predictable:<ul><li>Monthly Cash Inflow (Revenue): The app generates a steady ₱150,000 per month from premium subscription renewals.</li><li>Monthly Cash Outflow (Expenses): The total operational costs (salaries, server hosting, and office internet) come out to ₱350,000 per month.</li></ul>Assuming these monthly inflows and outflows remain completely unchanged, what is the startup's exact cash runway in months?",
+      "options": ["10 months", "20 months", "15 months", "12 months"],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Net burn = ₱350,000 − ₱150,000 = ₱200,000 per month. Runway = ₱3,000,000 ÷ ₱200,000 = <strong>15 months</strong>."
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "In technopreneurial finance, what does reaching the Break-Even Point mean?",
+      "options": [
+        "When a factory decides to stop manufacturing hardware and switches permanently to software development.",
+        "The exact day a startup runs completely out of cash and is forced to shut down.",
+        "The point where a company's total revenues exactly equal its total expenses, meaning they are no longer operating at a loss.",
+        "The moment a startup secures its very first round of venture capital funding."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Break-even is where total revenue equals total cost: zero profit, zero loss. Past it, each sale adds profit."
+    },
+    {
+      "id": 12,
+      "type": "mc",
+      "text": "A smart factory relies heavily on IoT sensors and specialized control software. After three years, the original software vendor stops releasing updates, making the system incompatible with new operating systems and cloud networks. This is an example of:",
+      "options": [
+        "Software/Technological obsolescence",
+        "Planned mechanical wear and tear.",
+        "Vendor business bankruptcy.",
+        "Manual data entry degradation."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Nothing physically wore out and the vendor didn't fail; the software simply stopped being supported and fell behind newer systems. That is <strong>technological obsolescence</strong>."
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "A tech venture has fixed overhead costs (salaries and office rent) of ₱1,200,000 per year. If the contribution margin from each software subscription sold is ₱400, how many subscriptions must the company sell in a year to break even?",
+      "options": ["1,200 subscriptions", "3,000 subscriptions", "2,400 subscriptions", "4,800 subscriptions"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Break-even units = Fixed Costs ÷ Contribution Margin per unit = ₱1,200,000 ÷ ₱400 = <strong>3,000</strong>."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "When a startup transitions to the Beta production stage after securing mid-level funding, what do they focus on?",
+      "options": [
+        "Buying out their largest competitor's supply chain to create a monopoly early on.",
+        "Purchasing high-speed automated robots for a massive global factory launch.",
+        "Building small batches of refined products to test with a select group of early users for feedback.",
+        "Moving production entirely to social media influencers to handle marketing before the product is physically built."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Beta is still a testing stage: small batches of a more refined product go to a limited group of early users so feedback can shape the design before mass production."
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "How does agile manufacturing differ from traditional mass production in the context of a hardware technopreneurship venture?",
+      "options": [
+        "It uses flexible lines and small batches to adapt quickly to market changes.",
+        "It completely eliminates the need for any inventory tracking or supplier communication protocols.",
+        "It relies strictly on fixed, high-volume assembly lines with zero product customization.",
+        "It focuses exclusively on software deployment rather than physical hardware assembly."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Agile manufacturing trades the fixed, high-volume line of mass production for flexible lines and small batches that can change quickly with demand."
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "text": "What role does the Internet of Things (IoT) play in technopreneurial PPC?",
+      "options": [
+        "Connected factory floors and cloud integration increase the potential attack surface for cyber threats.",
+        "Technopreneurial systems are completely air-gapped from the internet.",
+        "Traditional PPC systems do not use electricity.",
+        "Technopreneurial systems rely exclusively on open-source public networks with no encryption."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "IoT connects machines and sensors to networks and the cloud. That brings real-time data, but every connected device is also a new entry point, so the cyber-attack surface grows. The other options are false."
+    },
+    {
+      "id": 17,
+      "type": "mc",
+      "text": "How does the technopreneurial PPC philosophy justify its high initial cost to investors?",
+      "options": [
+        "By promising that the factory will never need maintenance or repairs again.",
+        "By proving that it completely eliminates the need to purchase any raw materials.",
+        "By planning to increase product prices by 500% once the technology is active.",
+        "By demonstrating a clear Return on Investment (ROI) through massive waste reduction, lower inventory costs, and zero downtime."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The upfront spend on smart PPC is sold to investors as an <strong>ROI</strong> story: less waste, leaner inventory and less downtime pay the investment back."
+    },
+    {
+      "id": 18,
+      "type": "mc",
+      "text": "Which concept characterizes the technopreneurial approach to inventory management?",
+      "options": [
+        "Relying entirely on local suppliers and physical ledgers",
+        "Fixed Economic Order Quantity recalculated once a year",
+        "Keeping high safety stock to buffer against manual supply chain delays",
+        "Dynamic, automated adjustments based on real-time demand tracking"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Technopreneurial inventory is data-driven: stock levels adjust automatically from real-time demand. The other three describe the traditional approach."
+    },
+    {
+      "id": 19,
+      "type": "mc",
+      "text": "An electronics startup based in Quezon City has designed a smart agricultural sensor to monitor soil moisture for rice farmers in Nueva Ecija. They need a custom testing jig before shipping them out. The startup has secured a small seed grant from the DOST, but their budget is very tight. They are deciding whether to order an expensive, fully automated testing rig from an industrial supplier in Germany or build a custom testing jig locally using off-the-shelf microcontrollers (like Arduinos), locally 3D-printed parts, and a fabricated acrylic frame from a shop in Quiapo. Possible reason why they should choose the latter?",
+      "options": [
+        "To drastically save on upfront capital while allowing their local engineers to easily tweak, fix, and reprogram the jig on the fly as the sensor design evolves.",
+        "To guarantee that the testing jig will automatically grant them an official product certification from the DTI without an audit.",
+        "To ensure the testing jig can operate entirely without electricity, relying on manual mechanical levers.",
+        "Because imported testing machinery is legally banned by the Bureau of Customs for newly registered tech startups."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A home-built jig from Arduinos and 3D-printed parts is cheap and the team can modify it as the sensor changes. Module 6 suggests exactly this setup (an Arduino or Raspberry Pi with a 3D-printed enclosure) for testing jigs."
+    },
+    {
+      "id": 20,
+      "type": "mc",
+      "text": "What does it mean when an early-stage startup decides to \"Hack\" a component in their initial production run?",
+      "options": [
+        "Hiring a cybersecurity team to breach a competitor's manufacturing database.",
+        "Writing customized open-source code to completely replace all hardware machinery.",
+        "Legally outsourcing 100% of their final assembly line to a high-end factory.",
+        "Modifying an existing, cheap off-the-shelf product to serve a new purpose instead of building it from scratch."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "In the Make vs. Buy vs. <strong>Hack</strong> sourcing mix, \"hack\" means repurposing an existing cheap product or part instead of designing and making one from scratch."
+    },
+    {
+      "id": 21,
+      "type": "mc",
+      "text": "How does the financial planning of a technopreneurial startup differ from a traditional manufacturing business regarding product development costs?",
+      "options": [
+        "Traditional factories burn through cash on marketing apps, while startups must spend their initial funding to secure high-cost retail storefronts.",
+        "Startups bypass spending any money on engineering, choosing to build their initial product batches without testing.",
+        "Traditional factories rely entirely on unlimited government funding to cover their initial machinery setup costs.",
+        "Startups face massive, front-loaded Research & Development (R&D) and prototyping costs before they ever make a single Peso in retail sales."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "A tech startup spends heavily on R&D and prototypes long before it has revenue, which is why burn rate and runway matter so much to it."
+    },
+    {
+      "id": 22,
+      "type": "mc",
+      "text": "Why is a strict Just-In-Time (JIT) inventory strategy risky for an early-stage hardware startup?",
+      "options": [
+        "It causes sensitive electronic components to physically spoil and rot within days.",
+        "It legally stops the company from setting competitive retail prices for the gadget.",
+        "It requires the startup to lease massive, expensive warehouse spaces for storage.",
+        "A single part delay or shipping issue will instantly halt the entire assembly line."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "JIT keeps almost no buffer stock, so one late part stops production. A small startup has little supplier leverage to prevent such delays. JIT also needs <em>less</em> warehouse space, not more."
+    },
+    {
+      "id": 23,
+      "type": "mc",
+      "text": "What does a comprehensive financial plan for a new tech venture typically include?",
+      "options": [
+        "A valuation certificate from an investment bank, audited historical tax returns, and a signed seed-round term sheet.",
+        "Pro-forma financial statements, capital expenditure budgets, break-even analyses, and cash runway projections.",
+        "Personal net worth statements of the founders, a corporate organizational chart, and a cap table summary.",
+        "Detailed user acquisition metrics, marketing channel spend, and product development roadmaps."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Module 5's financial plan is built from pro forma statements, CapEx budgets, break-even analysis and runway projections. A new venture has no audited history to show yet."
+    },
+    {
+      "id": 24,
+      "type": "mc",
+      "text": "A sports footwear manufacturer currently uses traditional PPC optimized for massive batches of identical black running shoes. A sudden viral trend creates massive market demand for hyper-customized, multicolored shoes ordered on demand. Under their traditional system, changing a production line configuration takes 4 days of manual recalibration. Why must this company shift to a technopreneurial PPC model?",
+      "options": [
+        "To analyze customer trend data on social media and accurately predict next year's shoe designs.",
+        "To create an automated online store that limits how many custom shoes a customer can buy at one time.",
+        "To track the shipping routes of their delivery trucks using GPS to ensure the black running shoes arrive faster.",
+        "To link digital ordering systems directly to automated factory machines so they can switch between custom shoe designs without stopping the line."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The problem is the 4-day changeover. Technopreneurial PPC links orders straight to automated machines, so the line can switch designs per order without stopping."
+    },
+    {
+      "id": 25,
+      "type": "mc",
+      "text": "Which financial statement provides a snapshot of a technopreneurial startup's assets, liabilities, and owners' equity at a specific point in time?",
+      "options": ["Cash flow statement", "Balance sheet", "Budget variance report", "Income statement"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The <strong>balance sheet</strong> shows assets, liabilities and equity at a single point in time (Assets = Liabilities + Equity). The cash flow statement and income statement cover a <em>period</em>: cash in and out, and revenue minus expenses."
+    },
+    {
+      "id": 26,
+      "type": "mc",
+      "text": "In tech startup finance, what is an angel investor?",
+      "options": [
+        "An individual who provides capital for a business start-up in return for an equity stake or convertible debt.",
+        "A corporate strategic partner that provides non-dilutive grant funding and free access to proprietary cloud infrastructure.",
+        "A syndication lead who coordinates institutional debt financing and revolving credit lines for pre-revenue tech companies.",
+        "A bank that provides zero-interest government loans."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "An angel investor is a wealthy <strong>individual</strong> who puts their own money into an early startup in exchange for equity or convertible debt."
+    },
+    {
+      "id": 27,
+      "type": "mc",
+      "text": "Why should an early-stage startup with limited seed funding usually avoid approaching a Tier 1 Contract Manufacturer (CM)?",
+      "options": [
+        "Tier 1 manufacturers are legally prohibited from working with newly registered companies.",
+        "Tier 1 manufacturers have incredibly high minimum order quantities and setup fees that will easily drain a startup's early budget.",
+        "Tier 1 manufacturers only build products designed by their own internal engineering teams.",
+        "Tier 1 manufacturers do not possess the technology to build modern products."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Module 6: going straight to a Tier 1 CM is almost always a mistake because of capital constraints. Their high MOQs and setup fees would eat a seed budget, so startups begin with smaller Tier 3 or Tier 2 partners."
+    },
+    {
+      "id": 28,
+      "type": "mc",
+      "text": "What is the guiding philosophy of traditional PPC regarding uncertainty on the factory floor?",
+      "options": [
+        "Protect the assembly line from shocks by maintaining extensive safety stock reserves and extended lead-time buffers.",
+        "Continuously alter machine designs on a daily basis using decentralized AI networks.",
+        "Eliminate all physical inventory and rely entirely on instant cloud deliveries.",
+        "Allow customers to remotely control shop-floor machinery through online apps."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Traditional PPC handles uncertainty by <strong>buffering</strong>: extra safety stock and padded lead times keep the line running when something goes wrong."
+    },
+    {
+      "id": 29,
+      "type": "mc",
+      "text": "In terms of market responsiveness, how does the paradigm shift from traditional to technopreneurial PPC alter a factory's core production philosophy?",
+      "options": [
+        "It shifts from a customer-centric delivery design back to a product-standardized design.",
+        "It shifts from a highly flexible, craft-based model to a hyper-rigid mass-production model.",
+        "It shifts from a forecast-driven system to a real-time demand-driven system.",
+        "It shifts from utilizing external supply chains to producing all raw materials internally."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Traditional PPC plans from historical forecasts. Technopreneurial PPC reacts to real-time demand signals. The first two options describe the shift in reverse."
+    },
+    {
+      "id": 30,
+      "type": "mc",
+      "text": "A tech founder in Davao City launches a niche e-commerce platform and starts the year with exactly ₱5,000,000 in cash reserves. The startup's monthly financial metrics are projected as follows:<ul><li>Gross Operating Expenses: Fixed overhead (salaries, platform subscriptions, and digital marketing) totals ₱400,000 per month.</li><li>Gross Revenue: The platform brings in ₱200,000 per month in total transactional revenue.</li><li>Gross Margin: The platform operates at a constant 75% gross margin (after payment gateway fees and delivery logistics costs are deducted).</li></ul>The Monthly Gross Profit is P150,000, after multiplying P200,000 (Revenue) by 75%. What is the Monthly Net Burn Rate?",
+      "options": ["P400,000", "P200,000", "P150,000", "P250,000"],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Net Burn = Operating Expenses − Gross Profit = ₱400,000 − ₱150,000 = <strong>₱250,000</strong> per month. ₱150,000 is the gross profit that the question already gives you, not the burn."
+    },
+    {
+      "id": 31,
+      "type": "mc",
+      "text": "If a SaaS startup decides to aggressively lower its monthly software subscription price to beat competitors while its fixed overhead costs remain the same, what is the direct impact on its break-even point?",
+      "options": [
+        "There will be absolutely no changes to the break-even point because fixed costs dictate the metric entirely.",
+        "The break-even point will immediately drop to zero because a lower price automatically guarantees profitability.",
+        "The break-even point will increase, meaning the company must sell a higher volume of subscriptions to cover costs.",
+        "The break-even point will decrease, meaning the company needs to sell fewer subscriptions to cover costs."
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Break-even units = Fixed Costs ÷ (Price − Variable Cost). A lower price shrinks the contribution margin per subscription, so more subscriptions are needed to cover the same fixed costs."
+    },
+    {
+      "id": 32,
+      "type": "mc",
+      "text": "What is the primary basis for decision-making in Traditional Production Planning and Control (PPC)?",
+      "options": [
+        "Historical data and manual forecasting",
+        "Real-time IoT sensor telemetry",
+        "Automated machine-to-machine communication",
+        "Predictive AI algorithms"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Traditional PPC decides from historical data and manual forecasts. The other three are tools of technopreneurial (smart) PPC."
+    },
+    {
+      "id": 33,
+      "type": "mc",
+      "text": "In technopreneurial PPC funding, how does switching to a SaaS (Software as a Service) cloud model help a company's cash flow?",
+      "options": [
+        "It allows the factory to run entirely without an internet connection, saving on utilities.",
+        "It converts a massive upfront software cost into predictable monthly operational expenses.",
+        "It removes the legal requirement to pay software licensing fees.",
+        "It forces the software developer to pay for the factory's electricity bill."
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "SaaS turns a large one-time purchase (CapEx) into a predictable monthly subscription (OpEx). That keeps cash in the bank and stretches the runway."
+    },
+    {
+      "id": 34,
+      "type": "mc",
+      "text": "Which of the following is usually categorized as a fixed cost for an early-stage tech startup?",
+      "options": [
+        "Monthly office lease, fixed annual software licensing, and salary commitments.",
+        "Ad click spend on Google or Meta.",
+        "Cloud server fees that scale directly with user traffic.",
+        "Commission paid per customer referral."
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Fixed costs stay the same however much you sell: rent, fixed licenses, salaries. Ad clicks, traffic-based server fees and per-referral commissions all rise with activity, so they are variable."
+    },
+    {
+      "id": 35,
+      "type": "mc",
+      "text": "For a technopreneur, why is calculating the Cost of Goods Sold (COGS) at the very beginning of the production design process vital for fundraising?",
+      "options": [
+        "It dictates the maximum amount of money external venture capitalists are required to donate to the startup's monthly marketing budget.",
+        "It calculates the final retail price that the department of trade will legally force the startup to charge its customers.",
+        "It guarantees that local competitors will be legally blocked from selling a similar product in the same target market.",
+        "It proves to venture capitalists and angel investors that the product can actually be manufactured at a low enough cost to ensure a healthy, scalable profit margin later on."
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Investors want proof of good unit economics. An early COGS estimate shows the product can be made cheaply enough to leave a healthy margin at scale."
+    }
+  ]
+}
