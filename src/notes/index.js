@@ -22,7 +22,9 @@ const components = {
 };
 
 export const NOTES = [
-  { slug: 'project-management', title: 'Project Management', subjectId: 'project-management', file: './project-management.md' },
+  { slug: 'project-management', title: 'Project Management', tab: 'Notes', subjectId: 'project-management', file: './project-management.md' },
+  { slug: 'project-management-module-6', title: 'Project Management', label: 'Module 6: Requirements Traceability Matrix', subjectId: 'project-management', pdf: 'pm-06-requirements-traceability-matrix.pdf' },
+  { slug: 'project-management-module-7', title: 'Project Management', label: 'Module 7: Project Quality Management', subjectId: 'project-management', pdf: 'pm-07-quality-management.pdf' },
   { slug: 'laravel', title: 'Laravel', tab: 'PDF', subjectId: 'laravel', file: './laravel.md' },
   { slug: 'laravel-reviewer', title: 'Laravel', tab: 'Reviewer', subjectId: 'laravel', file: './laravel-reviewer.md' },
   { slug: 'technopreneurship', title: 'Technopreneurship', tab: 'Notes', subjectId: 'technopreneurship', file: './technopreneurship.md' },

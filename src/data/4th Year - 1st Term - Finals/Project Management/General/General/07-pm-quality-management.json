@@ -1,0 +1,681 @@
+{
+  "quizTitle": "Project Management - Module 7: Project Quality Management",
+  "addedOn": "2026-11-12",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "The Scope Baseline (RTM, Scope Statement, WBS, WBS Dictionary) answers \"What features are we building?\" Which question does Project Quality Management answer?",
+      "options": [
+        "Who will build each feature?",
+        "When will each feature be delivered?",
+        "How well must those features work?",
+        "How much will each feature cost?"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Scope says <em>what</em> must be built; Quality Management says <em>how well</em> it must work, through quality standards and metrics, and defect prevention and detection."
+    },
+    {
+      "id": 2,
+      "type": "tf",
+      "text": "If a team delivers 100% of the functional requirements listed in its RTM, the project is guaranteed to be a quality success.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. A system that implements every feature but has high latency under load, unhandled security vulnerabilities, or random crashes is still a quality failure."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "Which is the definition of <strong>Project Quality Management</strong>?",
+      "options": [
+        "The processes that incorporate the organization's quality policy for planning, managing, and controlling project and product quality requirements, to meet stakeholders' objectives",
+        "The process of testing a finished product just before it is released",
+        "The process of choosing the cheapest acceptable vendor for each deliverable",
+        "The process of adding premium features so the product stands out in the market"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Project Quality Management covers planning, managing <em>and</em> controlling quality requirements according to the organization's quality policy, not only end-of-project testing."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "How is <strong>quality</strong> defined in project management?",
+      "options": [
+        "The number of features a product offers",
+        "How modern the product's user interface looks",
+        "How expensive the product's components are",
+        "The degree to which a set of inherent characteristics fulfills requirements"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Quality is the degree to which a set of inherent characteristics fulfills requirements. Feature count, cost and looks are not the measure."
+    },
+    {
+      "id": 5,
+      "type": "msq",
+      "text": "In IT projects, quality is measured by which two things? (Select all that apply.)",
+      "options": [
+        "Conformance to specifications",
+        "Fitness for use",
+        "Number of lines of code written",
+        "Visual polish of the interface",
+        "Size of the development team"
+      ],
+      "correctAnswer": [0, 1],
+      "points": 1,
+      "explanation": "In IT, quality is measured by <strong>conformance to specifications</strong> and <strong>fitness for use</strong>."
+    },
+    {
+      "id": 6,
+      "type": "mc",
+      "text": "A team deliberately plans to build a simple command-line text editor with no graphical interface, and it runs reliably. How should this be described?",
+      "options": [
+        "Low quality, and never acceptable",
+        "Low grade, and acceptable because it was planned",
+        "High grade and low quality",
+        "A quality failure, because it lacks features"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "<strong>Grade</strong> is a category for deliverables with the same functional use but different technical characteristics. A planned low-grade product (a simple CLI editor) can be acceptable. Quality is about whether it fulfills its requirements, which this one does."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "An enterprise IDE with many advanced features constantly corrupts users' files. How should this be described?",
+      "options": [
+        "Low grade, which is acceptable if planned",
+        "High quality, because it has many features",
+        "Fit for use, but not conformant",
+        "Low quality, which is never acceptable"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Corrupting files means it fails its requirements: that's <strong>low quality</strong>, which is never acceptable, no matter how many features (how high a grade) it has."
+    },
+    {
+      "id": 8,
+      "type": "tf",
+      "text": "Low quality can be acceptable as long as it was planned for, just like low grade.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. Low <em>grade</em> can be acceptable if planned; low <em>quality</em> is never acceptable."
+    },
+    {
+      "id": 9,
+      "type": "mc",
+      "text": "What is <strong>Quality Planning</strong>?",
+      "options": [
+        "Fixing defects reported by users after release",
+        "Running load tests on the finished system",
+        "Identifying quality requirements, operational standards and acceptance criteria, and documenting how compliance will be demonstrated",
+        "Ranking defects from most to least frequent"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Quality Planning identifies the quality requirements, standards and acceptance criteria for the project and its deliverables, and documents how compliance will be demonstrated."
+    },
+    {
+      "id": 10,
+      "type": "mc",
+      "text": "Which description fits <strong>Quality Assurance (QA)</strong>?",
+      "options": [
+        "Process-oriented and preventative: giving confidence that quality requirements will be met",
+        "Product-oriented and detective: evaluating finished deliverables to find defects",
+        "Finance-oriented: tracking the cost of each defect",
+        "Customer-oriented: collecting user reviews after launch"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "QA is <strong>process-oriented and preventative</strong> (e.g., coding standards, architectural reviews, CI build checks). Product-oriented, detective work is QC."
+    },
+    {
+      "id": 11,
+      "type": "mc",
+      "text": "Which description fits <strong>Quality Control (QC)</strong>?",
+      "options": [
+        "Process-oriented and preventative: stopping bugs before they enter the code base",
+        "Product-oriented and detective: evaluating completed deliverables against standards to find defects before acceptance",
+        "Planning-oriented: writing the quality policy",
+        "Schedule-oriented: making sure testing finishes on time"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "QC is <strong>product-oriented and detective</strong>: unit testing, penetration testing, performance benchmarking and UAT on built deliverables."
+    },
+    {
+      "id": 12,
+      "type": "matching",
+      "text": "Classify each activity as Quality Assurance (QA) or Quality Control (QC).",
+      "allChoices": [
+        "Quality Assurance (QA)",
+        "Quality Control (QC)"
+      ],
+      "pairs": [
+        { "term": "Enforcing coding standards", "match": "Quality Assurance (QA)" },
+        { "term": "Architectural reviews", "match": "Quality Assurance (QA)" },
+        { "term": "Continuous integration (CI) build checks", "match": "Quality Assurance (QA)" },
+        { "term": "Unit testing", "match": "Quality Control (QC)" },
+        { "term": "Security penetration testing", "match": "Quality Control (QC)" },
+        { "term": "Performance benchmarking", "match": "Quality Control (QC)" },
+        { "term": "User Acceptance Testing (UAT)", "match": "Quality Control (QC)" }
+      ],
+      "points": 7,
+      "explanation": "QA shapes the <em>process</em> so bugs don't get in (standards, reviews, CI checks). QC inspects the <em>product</em> to catch bugs that did (unit tests, pen tests, benchmarks, UAT)."
+    },
+    {
+      "id": 13,
+      "type": "mc",
+      "text": "Which statement correctly contrasts QA and QC?",
+      "options": [
+        "QA prevents bugs from entering the code base; QC detects bugs in built software before deployment",
+        "QA detects bugs after release; QC prevents bugs during design",
+        "QA and QC are two names for the same testing phase",
+        "QA is done by the client; QC is done by the developers"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "QA focuses on the <strong>process</strong> (preventing bugs before they enter the code base); QC focuses on the <strong>product</strong> (detecting bugs in built software before deployment)."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "What is the <strong>Cost of Quality (CoQ)</strong>?",
+      "options": [
+        "Only the cost of the testing team's salaries",
+        "The cost of fixing defects after the product is released, and nothing else",
+        "The price premium charged for a high-grade product",
+        "The total cost of preventing non-conformance, appraising the product for conformance, and failing to meet requirements"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "CoQ is the total of prevention and appraisal (cost of conformance) plus internal and external failures (cost of non-conformance)."
+    },
+    {
+      "id": 15,
+      "type": "matching",
+      "text": "Classify each cost into its Cost of Quality category.",
+      "allChoices": [
+        "Prevention Cost",
+        "Appraisal Cost",
+        "Internal Failure Cost",
+        "External Failure Cost"
+      ],
+      "pairs": [
+        { "term": "Developer training", "match": "Prevention Cost" },
+        { "term": "Static analysis tools", "match": "Prevention Cost" },
+        { "term": "Security audits and code inspections", "match": "Appraisal Cost" },
+        { "term": "Load-testing hardware", "match": "Appraisal Cost" },
+        { "term": "Fixing a bug found in staging, before release", "match": "Internal Failure Cost" },
+        { "term": "Re-testing after refactoring, before release", "match": "Internal Failure Cost" },
+        { "term": "SLA penalties after a production outage", "match": "External Failure Cost" },
+        { "term": "Litigation and brand erosion after a data breach", "match": "External Failure Cost" }
+      ],
+      "points": 8,
+      "explanation": "<strong>Prevention</strong>: stopping defects (training, process docs, static analysis). <strong>Appraisal</strong>: checking conformance (testing, audits, inspections, load-test hardware). <strong>Internal failure</strong>: defects caught before release (fixes, refactoring, re-testing). <strong>External failure</strong>: defects caught after release (downtime, SLA penalties, support, litigation, brand erosion)."
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "text": "The <strong>Cost of Conformance</strong> (money spent during the project to avoid failures) is made up of which two categories?",
+      "options": [
+        "Prevention costs and external failure costs",
+        "Internal failure costs and external failure costs",
+        "Prevention costs and appraisal costs",
+        "Appraisal costs and internal failure costs"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Cost of Conformance = <strong>Prevention + Appraisal</strong>. Cost of Non-Conformance = Internal + External failure costs."
+    },
+    {
+      "id": 17,
+      "type": "mc",
+      "text": "The <strong>Cost of Non-Conformance</strong> (money spent during and after the project because of failures) is made up of which two categories?",
+      "options": [
+        "Prevention costs and appraisal costs",
+        "Internal failure costs and external failure costs",
+        "Appraisal costs and external failure costs",
+        "Prevention costs and internal failure costs"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Cost of Non-Conformance = <strong>Internal failure</strong> (caught before release) + <strong>External failure</strong> (caught after release)."
+    },
+    {
+      "id": 18,
+      "type": "mc",
+      "text": "A defect is caught in the staging environment, and the team spends three days refactoring and re-testing before the release goes out. Which Cost of Quality category do these costs fall under?",
+      "options": [
+        "Prevention cost",
+        "Appraisal cost",
+        "External failure cost",
+        "Internal failure cost"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The defect was caught <strong>before release</strong>, so the rework and re-testing are <strong>internal failure costs</strong>."
+    },
+    {
+      "id": 19,
+      "type": "mc",
+      "text": "A week after launch, a production outage triggers service-level agreement (SLA) penalties and a flood of customer support tickets. Which Cost of Quality category are these?",
+      "options": [
+        "External failure cost",
+        "Appraisal cost",
+        "Internal failure cost",
+        "Prevention cost"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The failure reached users <strong>after release</strong>, so downtime, SLA penalties and support costs are <strong>external failure costs</strong>, the most damaging category."
+    },
+    {
+      "id": 20,
+      "type": "tf",
+      "text": "Spending money upfront on test automation, code reviews, and architecture validation is generally more expensive than paying for emergency patches and customer compensation after a public outage.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. Cost of conformance (test automation, reviews, validation) is <strong>significantly cheaper</strong> than cost of non-conformance (emergency patches, compensation, lost business after an outage)."
+    },
+    {
+      "id": 21,
+      "type": "mc",
+      "text": "What is <strong>technical debt</strong>?",
+      "options": [
+        "Money a software company borrows to pay its developers",
+        "The licensing fees owed for third-party libraries",
+        "The implied cost of future rework from choosing a quick, lower-quality solution now instead of a well-architected one",
+        "The backlog of features the client has not yet paid for"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Technical debt is the implied cost of future rework created by picking an expedient, lower-quality technical solution now rather than a well-architected one that takes more time or effort."
+    },
+    {
+      "id": 22,
+      "type": "mc",
+      "text": "In software quality, what is a <strong>defect</strong> (bug)?",
+      "options": [
+        "Any feature the client didn't ask for",
+        "A flaw in a module, component, or documentation that makes the deliverable deviate from its intended requirement or specification",
+        "A delay in the project schedule",
+        "A change request that was rejected"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "A defect is a flaw in a software module, system component, or documentation that causes the deliverable to deviate from its intended requirement or functional specification. Note that documentation can have defects too."
+    },
+    {
+      "id": 23,
+      "type": "mc",
+      "text": "What is <strong>Kaizen</strong>?",
+      "options": [
+        "A one-time quality audit before release",
+        "A penalty clause in a service-level agreement",
+        "A chart that ranks defects from most to least frequent",
+        "Continuous improvement: an ongoing effort to iteratively improve product quality, service levels, or delivery processes"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Kaizen means <strong>continuous improvement</strong>: an ongoing, iterative organizational effort to improve quality, service levels or software delivery processes."
+    },
+    {
+      "id": 24,
+      "type": "fitb",
+      "text": "Six Sigma aims to reduce process variability and eliminate defects to no more than ___ Defects Per Million Opportunities (DPMO). (Enter the number.)",
+      "correctAnswer": "3.4",
+      "points": 1,
+      "explanation": "Six Sigma targets no more than <strong>3.4 DPMO</strong>."
+    },
+    {
+      "id": 25,
+      "type": "drag-drop",
+      "text": "Put the 5 phases of DMAIC, the Six Sigma improvement framework, in order.",
+      "allChoices": [
+        "Define",
+        "Measure",
+        "Analyze",
+        "Improve",
+        "Control"
+      ],
+      "pairs": [
+        { "term": "Phase 1", "match": "Define" },
+        { "term": "Phase 2", "match": "Measure" },
+        { "term": "Phase 3", "match": "Analyze" },
+        { "term": "Phase 4", "match": "Improve" },
+        { "term": "Phase 5", "match": "Control" }
+      ],
+      "points": 5,
+      "explanation": "DMAIC = <strong>D</strong>efine, <strong>M</strong>easure, <strong>A</strong>nalyze, <strong>I</strong>mprove, <strong>C</strong>ontrol."
+    },
+    {
+      "id": 26,
+      "type": "matching",
+      "text": "Match each of the 7 basic quality tools to what it does.",
+      "allChoices": [
+        "Sorts possible causes of a problem into branches to trace a defect to its root cause",
+        "Bars of defect frequency sorted highest to lowest, with a cumulative percentage line",
+        "Bar chart showing the frequency distribution of continuous data across bins",
+        "Structured form for tallying defect data in real time",
+        "Plots two continuous variables on X-Y axes to check for correlation",
+        "Maps process steps and decision points, or plots data in time order to show trends",
+        "Plots process data over time against statistical upper and lower limits"
+      ],
+      "pairs": [
+        { "term": "Cause-and-Effect (Fishbone / Ishikawa) Diagram", "match": "Sorts possible causes of a problem into branches to trace a defect to its root cause" },
+        { "term": "Pareto Chart", "match": "Bars of defect frequency sorted highest to lowest, with a cumulative percentage line" },
+        { "term": "Histogram", "match": "Bar chart showing the frequency distribution of continuous data across bins" },
+        { "term": "Check Sheet (Tally Sheet)", "match": "Structured form for tallying defect data in real time" },
+        { "term": "Scatter Diagram", "match": "Plots two continuous variables on X-Y axes to check for correlation" },
+        { "term": "Flowchart & Run Chart", "match": "Maps process steps and decision points, or plots data in time order to show trends" },
+        { "term": "Control Chart", "match": "Plots process data over time against statistical upper and lower limits" }
+      ],
+      "points": 7,
+      "explanation": "These are the 7 basic quality tools: Fishbone (root cause), Pareto (80/20 ranking), Histogram (distribution), Check Sheet (data collection), Scatter (correlation), Flowchart & Run Chart (process flow; trends over time), Control Chart (process stability against UCL and LCL)."
+    },
+    {
+      "id": 27,
+      "type": "mc",
+      "text": "What does the Pareto Principle (the 80/20 rule) say about project problems?",
+      "options": [
+        "Roughly 80% of problems come from 20% of root causes",
+        "80% of the budget is spent in the last 20% of the schedule",
+        "80% of defects are found by 20% of testers",
+        "Only 20% of requirements need to be tested"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The Pareto Principle says roughly <strong>80% of problems result from 20% of root causes</strong>, so fixing the vital few causes removes most of the trouble."
+    },
+    {
+      "id": 28,
+      "type": "mc",
+      "text": "A QA lead wants to know whether modules with higher cyclomatic complexity also tend to have higher defect density. Which quality tool fits best?",
+      "options": [
+        "Check sheet",
+        "Scatter diagram",
+        "Pareto chart",
+        "Flowchart"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Checking whether two continuous variables are correlated is the job of a <strong>scatter diagram</strong> (complexity on one axis, defect density on the other)."
+    },
+    {
+      "id": 29,
+      "type": "mc",
+      "text": "A team wants to see how response times are spread across 10,000 API requests (how many fall between 0 and 100 ms, 100 and 200 ms, and so on). Which quality tool fits best?",
+      "options": [
+        "Scatter diagram",
+        "Run chart",
+        "Histogram",
+        "Fishbone diagram"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "A <strong>histogram</strong> shows the frequency distribution of continuous data (like latency) across bins."
+    },
+    {
+      "id": 30,
+      "type": "mc",
+      "text": "During a code inspection, testers record each defect they find on a structured form, making a tally mark under its defect type. Which quality tool is this?",
+      "options": [
+        "Check sheet",
+        "Control chart",
+        "Histogram",
+        "Scatter diagram"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A <strong>check sheet</strong> (tally sheet) is a structured form for collecting and recording defect data in real time during inspections or testing sweeps."
+    },
+    {
+      "id": 31,
+      "type": "mc",
+      "text": "A team needs to trace an API latency problem back to its primary cause by sorting possible causes into branches such as People, Infrastructure, Code, Environment, and Dependencies. Which quality tool fits best?",
+      "options": [
+        "Pareto chart",
+        "Run chart",
+        "Check sheet",
+        "Cause-and-effect (fishbone) diagram"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Sorting possible causes into category branches to find the root cause is what a <strong>cause-and-effect (fishbone / Ishikawa) diagram</strong> does."
+    },
+    {
+      "id": 32,
+      "type": "mc",
+      "text": "Which tool plots data points in chronological order to show performance trends, patterns, or shifts over time, without any control limits?",
+      "options": [
+        "Histogram",
+        "Run chart",
+        "Pareto chart",
+        "Scatter diagram"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "A <strong>run chart</strong> is a line chart of data points in time order. A control chart adds the statistical limits (UCL, LCL)."
+    },
+    {
+      "id": 33,
+      "type": "mc",
+      "text": "In software quality, what is a <strong>flowchart</strong> mainly used to find?",
+      "options": [
+        "The most frequent defect type",
+        "The correlation between two variables",
+        "Logical bottlenecks or missing error-handling branches in a process",
+        "The average response time of a server"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "A flowchart shows a process's sequential steps, decision points and branches, which helps spot logical bottlenecks or missing error-handling branches."
+    },
+    {
+      "id": 34,
+      "type": "mc",
+      "text": "On a control chart with process mean μ and standard deviation σ, where are the Upper Control Limit (UCL) and Lower Control Limit (LCL) set?",
+      "options": [
+        "UCL = μ + 3σ, LCL = μ − 3σ",
+        "UCL = μ + 2σ, LCL = μ − 2σ",
+        "UCL = μ + 1σ, LCL = μ − 1σ",
+        "UCL = μ + 6σ, LCL = μ − 6σ"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The control limits sit at <strong>μ ± 3σ</strong>: UCL = μ + 3σ, LCL = μ − 3σ, with the process mean μ as the center line."
+    },
+    {
+      "id": 35,
+      "type": "mc",
+      "text": "A control chart tracks daily build times. Its process mean is 12 minutes, the UCL is 18 minutes, and the LCL is 6 minutes. The last seven days were 13, 14, 13.5, 15, 14, 16, and 13 minutes. What should the team conclude?",
+      "options": [
+        "The process is in control, because every point is inside the control limits",
+        "The process is out of control, because one point is above the UCL",
+        "The process is out of control and needs root-cause investigation, because 7 consecutive points are above the mean",
+        "Nothing can be concluded without 30 data points"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "By the <strong>Seven Run Rule</strong>, 7 consecutive points on the same side of the mean mean the process is statistically out of control and needs a root-cause investigation, even though all 7 are within the UCL (18) and LCL (6). None of the points is above 18."
+    },
+    {
+      "id": 36,
+      "type": "tf",
+      "text": "As long as every data point on a control chart stays between the Upper and Lower Control Limits, the process is statistically in control.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. The <strong>Seven Run Rule</strong> says 7 consecutive points above (or below) the mean mean the process is out of control, even if all of them are inside the limits."
+    },
+    {
+      "id": 37,
+      "type": "mc",
+      "text": "Which of these is the <strong>higher-quality</strong> product, in the project-management sense of quality?",
+      "options": [
+        "A feature-packed web app with real-time collaboration that often crashes and logs users out",
+        "Any product with more features than its competitors",
+        "A beautifully designed app that sometimes corrupts payment data",
+        "A basic, text-only terminal utility that runs without crashing or losing data"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Quality doesn't mean luxury features or shiny design. It means software that works reliably, meets its specifications, and doesn't break when real users use it, so the reliable terminal utility is the high-quality one."
+    },
+    {
+      "id": 38,
+      "type": "mc",
+      "text": "A mobile banking API must \"process mobile transaction requests in under 2.0 seconds during peak loads.\" Which of these is a <strong>QA measure</strong> rather than a QC action?",
+      "options": [
+        "Running load tests that simulate 15,000 concurrent API calls in staging",
+        "Setting peer code review policies and automated performance pipelines in CI/CD before code is merged",
+        "Measuring execution times of transactions in the staging environment",
+        "Plotting measured response times on a histogram"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Code review policies and CI/CD performance pipelines shape the <strong>process</strong> before code is merged (QA, preventative). Load testing, measuring times and plotting results inspect the built <strong>product</strong> (QC, detective)."
+    },
+    {
+      "id": 39,
+      "type": "mc",
+      "text": "A team load-tests a banking API and plots the response times on a histogram. It shows two separate clusters: standard authentication requests take about 300 ms, while requests that call an external credit-scoring service take about 6.5 seconds. What is the best next step?",
+      "options": [
+        "Use a fishbone diagram to trace the cause of the 6.5-second requests",
+        "Average the two clusters and report the mean as the system's response time",
+        "Ignore the slow cluster, since most requests are fast",
+        "Switch to a scatter diagram of response time vs. time of day"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The histogram shows a <strong>bimodal distribution</strong>: one group of requests is far slower. The next step is root-cause analysis with a <strong>fishbone diagram</strong>, which in this case traced the spike to an unindexed foreign key in the database."
+    },
+    {
+      "id": 40,
+      "type": "tf",
+      "text": "A fishbone (Ishikawa) diagram shows how often each defect type occurs, sorted from most to least frequent.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. That describes a <strong>Pareto chart</strong>. A fishbone diagram sorts the <em>possible causes</em> of one problem into branches (e.g., People, Infrastructure, Code / Architecture, Environment, Dependencies) to trace it back to its root cause."
+    },
+    {
+      "id": 41,
+      "type": "mc",
+      "text": "With a deadline at risk, a sponsor proposes skipping regression tests and deploying with known bugs. What is the main risk of this option?",
+      "options": [
+        "A short-term schedule delay",
+        "Too much documentation",
+        "Higher prevention costs during the project",
+        "Extreme external failure risk, such as outages and SLA penalties"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Cutting quality buys a short-term schedule gain at the price of <strong>extreme external failure risk</strong> (outages, SLA penalties). The damage and recovery cost after launch usually outweigh the time saved."
+    },
+    {
+      "id": 42,
+      "type": "msq",
+      "text": "When a deadline threatens testing time, which three factors must the PM weigh against each other? (Select all that apply.)",
+      "options": [
+        "Schedule Variance",
+        "Technical Debt",
+        "Cost of Quality",
+        "Team headcount",
+        "Office location"
+      ],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "The PM balances <strong>Schedule Variance, Technical Debt, and the Cost of Quality</strong>."
+    },
+    {
+      "id": 43,
+      "type": "tf",
+      "text": "Skipping integration testing to release on time adds technical debt that can't be fully quantified, and if an external failure happens after launch, its cost will likely outweigh the time saved.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True. Skipping integration testing introduces <strong>unquantified technical debt</strong>, and the financial damage and recovery cost of an external failure outweigh the schedule savings from rushing to production."
+    },
+    {
+      "id": 44,
+      "type": "mc",
+      "text": "Read the case above. Which option is the best project management decision?",
+      "context": "<p><strong>FinTech Express</strong> is migrating its payment gateway from an on-premise monolith to cloud microservices. Go-live is <strong>7 days</strong> away, and a <strong>$500,000</strong> national marketing launch is locked to that date. The final QC audit finds <strong>50 open defects</strong>:</p><table><tr><th>Severity</th><th>Count</th><th>Example</th></tr><tr><td>1: Critical</td><td>3 (6%)</td><td>Intermittent payment failure under concurrent load</td></tr><tr><td>2: High</td><td>7 (14%)</td><td>PDF statement generation timeout</td></tr><tr><td>3: Cosmetic</td><td>40 (80%)</td><td>UI misalignment, typos on footer links</td></tr></table><p>The sponsor wants to deploy on schedule. The Lead Architect refuses to sign off with 50 unaddressed defects.</p>",
+      "options": [
+        "Delay the launch by 14 days and fix all 50 defects",
+        "Override the QA gate and launch everything on schedule as-is",
+        "Hotfix the Severity 1 and 2 defects now, and defer the Severity 3 defects to a later patch through a formal Change Request",
+        "Cancel the migration and keep the monolith"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The <strong>targeted quality gate with change control</strong> is best: it secures the core payment paths, keeps the $500,000 launch date, and controls risk. A full delay loses the marketing investment; launching as-is risks real transaction failures, severe external failure costs, and regulatory scrutiny."
+    },
+    {
+      "id": 45,
+      "type": "mc",
+      "text": "Read the case above. Under the recommended targeted quality gate, how many defects must be hotfixed before launch?",
+      "context": "<p>A payment gateway is 7 days from go-live, with a $500,000 marketing launch locked to that date. The final QC audit logs 50 open defects:</p><table><tr><th>Severity</th><th>Count</th><th>Example</th></tr><tr><td>1: Critical</td><td>3</td><td>Intermittent payment failure under concurrent load</td></tr><tr><td>2: High</td><td>7</td><td>PDF statement generation timeout</td></tr><tr><td>3: Cosmetic</td><td>40</td><td>UI misalignment, typos on footer links</td></tr></table><p>The recommended plan fixes every defect that carries operational risk before launch, and defers the rest.</p>",
+      "options": [
+        "3",
+        "10",
+        "40",
+        "50"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "The defects with operational risk are Severity 1 and 2: 3 + 7 = <strong>10</strong>. The 40 Severity 3 (cosmetic) defects are deferred to a Sprint 1.1 patch through a formal Change Request."
+    },
+    {
+      "id": 46,
+      "type": "mc",
+      "text": "Read the case above. Which of the 7 basic quality tools would best justify the decision in front of the sponsor and the Lead Architect?",
+      "context": "<p>Seven days before go-live, a QC audit logs 50 open defects: 3 critical (payment failures under load), 7 high (statement generation timeouts) and 40 cosmetic (UI misalignment, footer typos). The PM proposes fixing the 10 critical and high defects before launch and deferring the 40 cosmetic ones to a patch. The sponsor and the Lead Architect need to agree.</p>",
+      "options": [
+        "Pareto chart",
+        "Scatter diagram",
+        "Control chart",
+        "Histogram"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "The decision rests on <strong>Pareto Analysis</strong>: the vital 20% of defects (Severity 1 and 2) carry the operational risk, while the 80% (Severity 3) are cosmetic. A Pareto chart shows this split at a glance."
+    },
+    {
+      "id": 47,
+      "type": "mc",
+      "text": "A team launches on schedule after fixing all critical and high-severity defects, but defers 40 cosmetic defects. How should those 40 deferred defects be handled?",
+      "options": [
+        "Quietly fix them in production whenever developers have spare time",
+        "Add them to the Project Charter as exclusions",
+        "Remove them from the defect log, since they're only cosmetic",
+        "Document them as technical debt and schedule them for the next sprint's patch through a formal Change Request"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Deferred defects are formally documented as <strong>technical debt</strong> and scheduled (e.g., a Sprint 1.1 patch) through the <strong>Change Request</strong> process. That debt must be explicitly tracked and prioritized in the very next sprint."
+    },
+    {
+      "id": 48,
+      "type": "msq",
+      "text": "A project is 7 days from go-live with 50 open defects, and a $500,000 marketing launch is locked to that date. Why is delaying the launch 14 days to fix every defect <strong>not</strong> the recommended choice? (Select all that apply.)",
+      "options": [
+        "The $500,000 marketing investment would be lost immediately",
+        "It would cause severe stakeholder conflict",
+        "The company would lose market momentum",
+        "It would leave critical payment defects unfixed at launch",
+        "It would add technical debt to the architecture"
+      ],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "A full delay guarantees zero known defects and protects the architecture, but costs the $500,000 marketing investment, causes severe stakeholder conflict, and loses market momentum. It doesn't leave defects unfixed or add technical debt; those are risks of launching as-is."
+    }
+  ]
+}

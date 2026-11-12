@@ -74,6 +74,22 @@ Each badge's hover tooltip (the `title` attribute, from the `*_TITLE` constants 
 
   Keep it short and practical (what they'll see vs. what's actually right); the full reasoning still goes in `"explanation"`.
 
+### Every question must stand on its own
+
+This applies to quizzes you **write** (the `unofficial` kind, built from slides or notes). A question is read on its own, often shuffled into a Multi quiz with other subjects, by someone who may not have the slides open. Everything needed to answer it has to be on screen: in `"text"`, or in `"context"`.
+
+- **Never point at something the question doesn't show.** Phrases like "in the scenario", "in the case", "in the example", "from the slide", "according to the module", "in the table above" or a bare slide title ("According to The Paradigm Shift, …") are a red flag. Either bring the needed facts into the question, or drop the reference if the question works without it.
+  - ❌ `What are the Total Fixed Monthly Costs in the scenario?`
+  - ✅ `A startup pays ₱80,000 rent, ₱250,000 salaries and ₱20,000 software subscriptions each month. What are its total fixed monthly costs?`
+  - ❌ `What was the status of REQ-PAY-04?`
+  - ✅ Put the RTM rows in `"context"` as a table, then ask which requirement is a quality blind spot.
+- **A case or worked example becomes a self-contained setup.** Give the figures, names and situation the answer depends on, in `"context"` when it's more than a sentence or two (a short `<p>` or an HTML `<table>` with `<th>` headers; context tables are styled and scroll sideways on phones). Several questions on the same case each repeat the setup they need, since shuffling separates them.
+- **Don't test recall of incidental example details.** A number, ID, company name or status that only illustrated a point on a slide (a sample requirement's test ID, which row was "In Dev") is not worth a question. Ask about the concept it illustrated, and use the example's data as the setup instead.
+- **Course logistics are fine when the question names them.** "Which week is Quality Management scheduled for in the course roadmap?" stands on its own; "Which week is this module?" doesn't.
+- **Self-check:** before saving, read each question as if it were the only thing on the page. If you'd need to have seen the slides to know what "it", "the case" or "the team" refers to, rewrite it.
+
+Transcribed quizzes (a real quiz, exam or reviewer) keep their original wording; this rule is about questions you author.
+
 ### `quizTitle` and item labels
 
 A quiz's Section/Series (see "Where to save it" below) is decided entirely by which folder it's in — there's no `"section"`/`"series"` field on the quiz itself. `quizTitle` still matters for display: within a Series card, if *every* quiz sitting in that folder shares the exact same `"<Prefix> - "` prefix, the prefix is stripped and only the remainder is shown as that quiz's chip label (e.g. every `"Python Essentials 2 - Module N"` title in the `Python Essentials 2` series folder shows just "Module N" as its chip label); otherwise each quiz's full title is used as-is.

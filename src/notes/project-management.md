@@ -487,3 +487,304 @@ Problem: every item uses an action verb (Talk, Design, Write, Perform). Tasks: i
 - [ ] No work package is under 8 hours or over 80 hours
 - [ ] Every lowest-level item has all 6 dictionary fields filled with real content
 - [ ] Visual diagram, numbered outline, and dictionary table are all included
+
+---
+
+# Module 6: Bridging Scope to Verification (RTM)
+
+**Scope Management lecture:** constructing the **Requirements Traceability Matrix (RTM)**. Builds on the RTM basics in Module 3 and the WBS from Module 5.
+
+## Learning Objectives
+- **Core Purpose:** connect business goals to deliverables, design, and QA testing
+- **Traceability Direction:** tell apart **backward** goal links from **forward** deliverable verification
+- **Matrix Population:** map baseline WBS work packages directly into RTM fields
+- **Risk Detection:** flag **gold plating**, **orphaned scope**, and **unverified requirements**
+
+## Level 1: The Simple Analogy (Order vs. Deliverable)
+Think of ordering a laptop:
+
+- **User Specification:** you order 32GB RAM, a 1TB SSD, and a backlit keyboard
+- **Delivery Verification:** you check the packing slip directly against the order invoice
+- **Master Checklist:** the RTM makes sure every requested feature is built and verified
+
+## Level 2: PMBOK Traceability Lineage
+Every requirement sits in a chain that runs from the business goal to a test:
+
+| Stage | Item | What it is |
+|---|---|---|
+| **Origin** | Business Goal | Project Charter / Strategic Need |
+| **Anchor** | Requirement | REQ ID Specification |
+| **Scope** | WBS Package | Work Package Code |
+| **Design** | System Design | Module / API Spec |
+| **QA** | Test Case ID | Verification Script |
+
+- **Backward traceability (to goals):** from the requirement back to the business goal. Answers "why does this exist?"
+- **Forward traceability (to verification):** from the requirement forward to the WBS package, design, and test case. Answers "was it built and verified?"
+
+## Level 3: The PM's Defense Mechanism
+
+| Protects against | How | The client complaint it prevents |
+|---|---|---|
+| **Scope Creep** | Blocks unauthorized features added without strategic approval | "Why spend $50k on unasked features?" |
+| **Omissions** | Guarantees 100% scope coverage across all deliverables | "Where is the feature I asked for 6 months ago?" |
+
+## Anatomy of a Standard RTM
+
+| Field Name | Description | Source / Reference Document |
+|---|---|---|
+| **Req ID** | Unique alphanumeric identifier (e.g., REQ-001) | Requirements Documentation |
+| **Requirement Statement** | Clear description of a system capability or constraint | Business Analyst / Stakeholders |
+| **Business Objective** | Strategic rationale justifying why the requirement exists | Project Charter / Business Case |
+| **WBS Code** | Work Package ID responsible for creating the deliverable | Completed WBS Baseline |
+| **Design Module** | Architecture subsystem, API, database, or UI element | System Design Document |
+| **Test Case ID** | QA validation script confirming the requirement is fulfilled | Quality Assurance Plan |
+
+## 6 Steps to Construct an RTM
+1. **Extract Requirements:** list functional and non-functional requirements with unique IDs
+2. **Link Business Need:** establish the backward link to Project Charter objectives
+3. **Map WBS Codes:** cross-reference the exact Work Package ID for execution
+4. **Define Technical Specs:** identify system modules, APIs, or database tables
+5. **Assign Test Cases:** specify QA scripts and measurable acceptance criteria
+6. **Track & Baseline:** maintain execution status through formal sign-off
+
+## Case: FinTech Mobile Wallet RTM
+
+| Req ID | Requirement Description | Business Objective | WBS Code | Architecture Spec | Test ID | Status |
+|---|---|---|---|---|---|---|
+| REQ-AUTH-01 | Biometric login (Fingerprint / FaceID) | Reduce support calls by 25% | WBS 1.2.1.3 | AuthService.kt / LocalAuth API | TC-SEC-101 | In Dev |
+| REQ-PAY-04 | 2FA OTP for transactions over $500 | Comply with PCI-DSS standards | WBS 1.4.2.2 | PaymentGateway.py / Twilio API | TC-PAY-304 | Passed QA |
+| REQ-PERF-01 | Balance queries respond in under 1.0s | Ensure peak load satisfaction | WBS 1.5.1.1 | Redis Layer / PostgreSQL Replica | TC-PERF-012 | Not Started |
+
+## 3 Critical Scope Flaws (Quality Check)
+
+| Flaw | What's missing | Impact |
+|---|---|---|
+| **1. Orphaned Requirement** | A requirement with **no WBS Code** | The promised feature is forgotten in the budget and schedule |
+| **2. Gold Plating** | A WBS package with **no Requirement** | Wasteful spending on unrequested work |
+| **3. Quality Blindspot** | A requirement with **no Test Case ID** | The deliverable is built without a verification method |
+
+## Functional vs. Non-Functional Requirements
+RTM **Column 2** (the requirement) is where you categorize each one. The distinction: **WHAT** a system does vs. **HOW WELL** it performs. A system can be feature-complete but still crash on launch day.
+
+| | Functional (FR) | Non-Functional (NFR) |
+|---|---|---|
+| **Means** | WHAT IT DOES | HOW WELL IT PERFORMS |
+| **Primary focus** | System features, user actions, business logic | Operational thresholds, security, constraints |
+| **Car analogy** | Pressing the pedal accelerates forward | 0 to 100 km/h in 4.5s at 18 km/L efficiency |
+| **FinTech example** | Issue a 6-digit SMS OTP for $500 transfers (REQ-PAY-04) | OTP arrives within 5s at 99.9% reliability (REQ-PERF-02) |
+
+## The 4 Pillars of Non-Functional Requirements
+Standards: **ISO/IEC 25010 & PMBOK**.
+
+1. **Performance & Scale:** response times, throughput limits, and concurrent user thresholds under load
+2. **Security & Compliance:** data encryption protocols, PCI-DSS compliance, GDPR, and HIPAA mandates
+3. **Reliability & Uptime:** system availability targets (99.99%), disaster recovery, and failover limits
+4. **Usability & Access:** mobile responsiveness, cross-browser compatibility, and WCAG 2.1 AA standards
+
+## Downstream Impact: WBS & QA Test Mapping
+FRs and NFRs map to different kinds of work and different kinds of tests:
+
+| | FR example (REQ-AUTH-01) | NFR example (REQ-PERF-01) |
+|---|---|---|
+| **Requirement** | "Allow users to log in with Biometrics" | "Query responds in 1.0s under 10,000 requests" |
+| **WBS mapping** | Frontend UI Feature Work Package | DB Read Replicas & Redis Caching Layer |
+| **QA testing** | Standard Pass/Fail functional prompt verification | Automated JMeter script load testing |
+
+> **Key line:** "Functional features build the product; Non-Functional requirements keep it alive."
+
+## Classroom Exercise: Enrollment Portal (3-minute group discussion)
+- **Req #1:** "Students can select and register for available course subjects."
+- **Req #2:** "System supports 5,000 concurrent logins with 2.0s load time."
+- **Req #3:** "Transcript records are encrypted under Data Privacy regulations."
+
+**Key question:** which are FRs and which are NFRs? What happens on Day 1 of enrollment if your group completely forgets Requirement #2?
+
+*(Study aid, not on the slide: #1 is an FR; #2 (performance) and #3 (security and compliance) are NFRs. Forgetting #2 means the portal works in testing but buckles under the enrollment-day rush.)*
+
+## Student Challenge: The "Dark Mode" Question
+*"A developer adds an unrequested 'Dark Mode' feature taking only 2 hours of code. Should you add it directly, update the RTM after the fact, or route it through formal change control?"*
+
+| Option | What it does |
+|---|---|
+| A: Direct Addition | Bypasses change management; risks unverified scope creep |
+| B: Post-Hoc RTM Edit | Retroactively justifies unapproved work |
+| **C: Change Control** ✅ | Evaluates business value, budget, and test impacts formally |
+
+The slide's answer is **Option C**. Small or cheap doesn't make it in scope: an unrequested feature with no requirement behind it is gold plating.
+
+## Hands-On Activity: Build Your Group RTM
+**Instructions:**
+1. Open your project's Requirements Doc and completed WBS Dictionary
+2. Select **3 Functional + 1 Non-Functional** requirement
+3. Populate the matrix fields using the standard template
+4. Verify complete backward and forward linkages
+
+**Mandatory checks:**
+- [ ] Clear Business Goal link
+- [ ] Exact WBS Work Package code
+- [ ] Test Case ID & acceptance criteria
+
+Discuss the challenge question with your project group before submitting your draft RTM.
+
+## What to Memorize (Module 6)
+- **Lineage, in order:** Business Goal (Origin) → Requirement (Anchor) → WBS Package (Scope) → System Design (Design) → Test Case ID (QA)
+- **Backward** = back to the business goal (justifies it). **Forward** = on to WBS, design and test (verifies it).
+- **The RTM prevents** scope creep (unasked features) and omissions (forgotten features).
+- **6 RTM fields and their sources:** Req ID (Requirements Documentation), Requirement Statement (BA / Stakeholders), Business Objective (Charter / Business Case), WBS Code (WBS Baseline), Design Module (System Design Document), Test Case ID (QA Plan)
+- **6 steps:** Extract Requirements → Link Business Need → Map WBS Codes → Define Technical Specs → Assign Test Cases → Track & Baseline
+- **3 flaws:** no WBS code = **Orphaned Requirement**; WBS with no requirement = **Gold Plating**; no test case = **Quality Blindspot**
+- **FR = WHAT** it does; **NFR = HOW WELL** it performs
+- **4 NFR pillars:** Performance & Scale, Security & Compliance, Reliability & Uptime, Usability & Access (ISO/IEC 25010)
+- **NFRs get tested differently:** FR → pass/fail functional test; NFR (performance) → automated load test (JMeter)
+- **Unrequested features**, however small, go through **formal change control**.
+
+---
+
+# Module 7: Project Quality Management in IT & Software Development
+
+**Scheduled for:** Weeks 10 to 11 (after the Scope Baseline in Week 8).
+
+## Bridge: From Scope Baseline to Quality
+With the Scope Baseline finalized (RTM, Scope Statement, WBS, WBS Dictionary), the team knows **what** must be built and how the work breaks down into deliverables.
+
+| Scope Baseline (Week 8) | Project Quality Management (Weeks 10 to 11) |
+|---|---|
+| Requirements Traceability Matrix | Quality Standards & Metrics |
+| Scope Statement & WBS Dictionary | Defect Prevention & Detection |
+| *"What features are we building?"* | *"How well must those features work?"* |
+
+Delivering 100% of the functional requirements in an RTM **does not guarantee success**. A system with every feature but high latency under load, unhandled security vulnerabilities, or unpredictable crashes is a **quality failure**. Project Quality Management defines the quality policies, objectives, metrics, and verification mechanisms that make sure the system satisfies stakeholder needs.
+
+## Key Terms
+- **Project Quality Management:** the processes that incorporate the organization's quality policy for planning, managing, and controlling project and product quality requirements, to meet stakeholders' objectives.
+- **Quality:** the degree to which a set of inherent characteristics fulfills requirements. In IT, measured by **conformance to specifications** and **fitness for use**.
+- **Grade:** a category or rank given to deliverables with the same functional use but different technical characteristics.
+  - **Low grade can be acceptable if planned** (e.g., a simple command-line text editor).
+  - **Low quality is never acceptable** (e.g., an enterprise IDE that constantly corrupts files).
+- **Quality Planning:** identifying quality requirements, operational standards, and acceptance criteria for the project and its deliverables, and documenting how compliance will be demonstrated.
+- **Quality Assurance (QA):** **process-oriented, preventative** activities that give confidence the quality requirements will be fulfilled. Examples: enforcing coding standards, architectural reviews, continuous integration (CI) build checks.
+- **Quality Control (QC):** **product-oriented, detective** activities that evaluate completed deliverables against operational standards to find defects before acceptance. Examples: unit testing, security penetration testing, performance benchmarking, User Acceptance Testing (UAT).
+- **Technical Debt:** the implied cost of future rework created by choosing an expedient, lower-quality solution now instead of a well-architected one that takes more time or effort.
+- **Defect / Bug:** a flaw in a software module, system component, or documentation that makes the deliverable deviate from its intended requirement or functional specification.
+- **Continuous Improvement (Kaizen):** an ongoing organizational effort to iteratively improve product quality, service levels, or software delivery processes.
+- **Six Sigma:** a data-driven methodology aimed at reducing process variability and eliminating defects, to **no more than 3.4 Defects Per Million Opportunities (DPMO)**.
+- **DMAIC:** the 5-phase Six Sigma improvement framework: **Define, Measure, Analyze, Improve, Control.**
+
+## QA vs. QC
+
+| | Quality Assurance (QA) | Quality Control (QC) |
+|---|---|---|
+| **Focus** | The **process** | The **product** |
+| **Nature** | Preventative | Detective |
+| **Goal** | Prevent bugs before they enter the code base | Detect bugs in built software before deployment |
+| **Examples** | Coding standards, architectural reviews, CI build checks | Unit tests, penetration tests, performance benchmarks, UAT |
+
+## Cost of Quality (CoQ)
+**Cost of Quality:** the total cost of preventing non-conformance to requirements, appraising the product for conformance, and failing to meet requirements.
+
+| Category | Type | Definition | Examples |
+|---|---|---|---|
+| **Cost of Conformance** (spent during the project to avoid failure) | **Prevention Costs** | Invested to stop defects happening | Equipment, process documentation, developer training, static analysis tools |
+| | **Appraisal Costs** | Invested to check for conformance | Test execution, security audits, code inspections, penetration testing, load-testing hardware |
+| **Cost of Non-Conformance** (spent during and after the project because of failure) | **Internal Failure Costs** | Defects caught **before** release | Bug fixes, rework, refactoring, re-testing overhead |
+| | **External Failure Costs** | Defects caught **after** release to users | System downtime, SLA breach penalties, customer support costs, litigation, brand erosion |
+
+> **Key line:** spending upfront on test automation, code reviews, and architecture validation (Conformance) is **significantly cheaper** than paying for emergency patches, customer compensation, and lost business after a public outage (Non-Conformance).
+
+## The 7 Basic Quality Tools
+
+| # | Tool | What it does | IT example |
+|---|---|---|---|
+| 1 | **Cause-and-Effect Diagram** (Fishbone / Ishikawa) | Visual root-cause analysis; sorts possible sources of a problem into branches (e.g., People, Process, Technology, Environment) to trace a defect to its primary cause | Tracing an API latency spike to an unindexed foreign key |
+| 2 | **Pareto Chart** | Bar graph of defect frequencies, **highest to lowest**, with a **cumulative percentage line**. Shows the **Pareto Principle (80/20 Rule)**: about 80% of problems come from 20% of root causes | Separating the few critical defects from many cosmetic ones |
+| 3 | **Histogram** | Vertical bar chart of the **frequency distribution** of continuous data across bins | Latency distribution across 10,000 API requests |
+| 4 | **Check Sheet** (Tally Sheet) | Structured form to collect and record real-time defect data | Logging defects during code inspections or testing sweeps |
+| 5 | **Scatter Diagram** | Plots **two continuous variables** on X-Y axes to see if they're **correlated** | Cyclomatic Code Complexity vs. Defect Density |
+| 6 | **Flowchart & Run Chart** | **Flowchart:** process steps, decision points and branches, to find bottlenecks or missing error-handling. **Run Chart:** data points in **chronological order** to see trends, patterns or shifts over time | Spotting a missing error branch; watching a metric drift |
+| 7 | **Control Chart & Seven Run Rule** | Process data over time against statistical limits (see below) | Detecting an out-of-control build or response-time process |
+
+### Control Chart and the Seven Run Rule
+- **Process Mean (μ):** the center line
+- **Upper Control Limit (UCL):** μ + 3σ
+- **Lower Control Limit (LCL):** μ − 3σ
+- **Seven Run Rule:** if **7 consecutive data points** fall on the same side of the mean (all above or all below), the process is **statistically out of control** and needs root-cause investigation, **even if all 7 points are within the UCL and LCL**.
+
+## Level 1: Simple Explanation
+Quality does **not** mean luxury features or shiny design. It means software that works reliably, meets its specifications, and doesn't break when real users use it.
+
+- A basic, text-only terminal utility that runs without crashing or losing data = **high quality**
+- A feature-packed web app with real-time collaboration that often crashes, logs users out, or corrupts payment data = **low quality**
+
+## Level 3: Real-World Application (Mobile Banking API Engine)
+- **RTM Requirement:** "The system shall process mobile transaction requests in under 2.0 seconds during peak loads."
+- **QA measure (process):** peer code review policies and automated performance pipelines in CI/CD **before** functional code is merged
+- **QC action (product):** load-testing tools simulate **15,000 concurrent API calls** in a staging environment and measure execution times
+- **Quality tool applied:** response times plotted on a **Histogram** show a **bimodal distribution**: standard authentication requests take **300 ms**, but requests touching external credit scoring services take **6.5 seconds**. A **Fishbone Diagram** traces the spike to an **unindexed foreign key** in the database.
+
+**Fishbone: API Latency Spike > 6.5s**
+
+| Branch | Possible cause |
+|---|---|
+| People / Skills | Lack of load testing training |
+| Infrastructure | Database connection pool bottleneck |
+| Code / Architecture | **Unindexed foreign keys in payment DB** (the root cause found) |
+| Environment | Outdated SDK dependencies |
+| Dependencies | Third-party API rate limits |
+
+## Level 4: Critical Thinking and Trade-Offs
+When deadlines are threatened, stakeholders often push to cut testing or bypass quality gates. The PM weighs **Schedule Variance, Technical Debt, and the Cost of Quality**.
+
+| | Option A: Cut Quality | Option B: Maintain Quality |
+|---|---|---|
+| **Actions** | Skip regression tests; deploy with known bugs | Enforce quality gates; delay release or cut scope |
+| **Upside** | Short-term schedule gain | High conformance confidence |
+| **Downside / result** | Extreme external failure risk (outages, SLA penalties) | Controlled technical debt (sustainable architecture) |
+
+Skipping integration testing to release on time adds **unquantified technical debt**. If an external failure happens after launch, the damage and recovery cost **outweigh the schedule savings**.
+
+## Case: FinTech Express Payment Gateway Migration
+**Situation:** migrating a core payment gateway from an on-premise monolith to cloud-native microservices. RTM, WBS, and schedule baseline are final.
+
+- **Go-live:** 7 calendar days away
+- **Business impact:** a **$500,000** national marketing launch is locked to the go-live date
+- **Quality gate audit:** the final QC audit finds **50 open defects**
+
+**Defect log (Pareto distribution):**
+
+| Severity | Count | Share | Example |
+|---|---|---|---|
+| 1: Critical | 3 | 6% | Intermittent payment failure under concurrent load |
+| 2: High | 7 | 14% | PDF statement generation timeout |
+| 3: Cosmetic | 40 | 80% | UI element misalignment, typos on footer links |
+
+**The conflict:** the **sponsor** insists on deploying on schedule to protect the $500,000 marketing spend. The **Lead Software Architect** refuses to sign off: *"Launching with 50 unaddressed defects violates engineering principles and introduces unacceptable technical debt."*
+
+| Option | Actions | Advantages | Disadvantages & Risks |
+|---|---|---|---|
+| **A: Full Schedule Delay** | Postpone launch 14 days to fix all 50 defects | Zero known defects at launch; protects long-term architecture | Immediate loss of the $500,000 marketing investment; severe stakeholder conflict; lost market momentum |
+| **B: Full Scope Launch As-Is** | Override the QA gate and deploy everything on schedule | Meets the target date; keeps marketing aligned | High risk of transaction failures for real customers; severe external failure costs; possible regulatory scrutiny |
+| **C: Targeted Quality Gate & Change Control** ✅ | Hotfix the **10 Severity 1 and 2** defects now; defer the **40 Severity 3** defects to a **Sprint 1.1 patch** via a formal **Change Request** | Core payment paths are safe; launch date kept; risk controlled scientifically | Needs an emergency re-testing sweep; the technical debt must be explicitly tracked and prioritized in the very next sprint |
+
+> **Recommended decision: Option C.** Using **Pareto Analysis**, the PM isolates the vital 20% of defects that carry operational risk (Severity 1 and 2) from the 80% that are cosmetic (Severity 3). Core transaction paths are secured before deployment, and cosmetic issues are documented as **Technical Debt** and scheduled through the **Change Request** process.
+
+## Student Challenge (Socratic Discussion)
+1. **Tool Selection:** which of the 7 basic tools would you present at the executive alignment meeting between the Lead Architect and the Sponsor to justify Option C?
+2. **Change Control Integration:** how would you structure the Change Request for the 40 deferred cosmetic defects without compromising the approved Scope Baseline?
+3. **Process Prevention:** what QA mechanism should be added to future sprint pipelines so cosmetic defect backlogs don't pile up unmonitored right before deployment quality gates?
+
+*(Study aid, not from the handout: for #1 the case itself points to the **Pareto Chart**, since the decision rests on the 80/20 split of defects by severity.)*
+
+## What to Memorize (Module 7)
+- **Scope answers "what are we building?"; Quality answers "how well must it work?"** 100% of functional requirements ≠ success.
+- **Quality** = conformance to specifications + fitness for use. **Low grade** can be fine if planned; **low quality** never is.
+- **QA = process, preventative** (coding standards, reviews, CI checks). **QC = product, detective** (unit tests, pen tests, benchmarks, UAT).
+- **Cost of Quality:**
+  - Conformance = **Prevention** (training, static analysis) + **Appraisal** (testing, audits, inspections)
+  - Non-Conformance = **Internal failure** (before release: rework, re-testing) + **External failure** (after release: downtime, SLA penalties, litigation, brand erosion)
+  - Conformance is much cheaper than non-conformance.
+- **Technical debt:** the future rework cost of a quick, lower-quality solution now.
+- **Six Sigma:** ≤ **3.4 DPMO**. **DMAIC:** Define, Measure, Analyze, Improve, Control. **Kaizen:** continuous improvement.
+- **7 tools:** Fishbone (root cause), Pareto (80/20, sorted bars + cumulative line), Histogram (frequency distribution), Check Sheet (tally defects), Scatter (correlation of 2 variables), Flowchart & Run Chart (process steps; trend over time), Control Chart (UCL = μ + 3σ, LCL = μ − 3σ)
+- **Seven Run Rule:** 7 points in a row on one side of the mean = out of control, even inside the limits.
+- **Trade-off:** cutting quality buys short-term schedule at the risk of external failure costs that outweigh it.
+- **FinTech Express:** 50 defects (3 critical, 7 high, 40 cosmetic). Answer: **Option C**, fix the 10 Sev 1 and 2, defer the 40 Sev 3 via Change Request, justified by **Pareto Analysis**.
