@@ -1,0 +1,554 @@
+{
+  "quizTitle": "Project Management - Module 8: Project Risk Management",
+  "addedOn": "2026-11-14",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mc",
+      "text": "In the course syllabus, which weeks cover Project Risk Management?",
+      "options": [
+        "Weeks 10 to 11",
+        "Weeks 15 to 16",
+        "Weeks 13 to 14",
+        "Weeks 6 to 7"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "Risk Management is Weeks 13 to 14. Quality Management came before it (Weeks 10 to 11), and Schedule Management (CPM, WBS, network diagrams) comes next (Weeks 15 to 16)."
+    },
+    {
+      "id": 2,
+      "type": "msq",
+      "text": "Which PM artifacts does the Project Risk Management module have students construct, under CILO 4? (Select all that apply.)",
+      "options": [
+        "Risk Register",
+        "Probability/Impact (P/I) Matrix",
+        "Top Ten Tracking Table",
+        "Gantt Chart",
+        "Network Diagram"
+      ],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "CILO 4 for this module: construct the Risk Register, the P/I Matrix, and the Top Ten Tracking Table. Gantt charts and network diagrams belong to Schedule Management."
+    },
+    {
+      "id": 3,
+      "type": "mc",
+      "text": "What is a <strong>project risk</strong>?",
+      "options": [
+        "An uncertain event that could impact project scope, cost, or schedule, positively or negatively",
+        "An active problem happening right now that threatens scope, cost, or delivery time",
+        "Any defect found during testing",
+        "A requirement that has not been approved yet"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A risk is an <strong>uncertain</strong> event (probability under 100%) that could affect scope, cost or schedule, <strong>positively or negatively</strong>. An active problem happening now is an issue."
+    },
+    {
+      "id": 4,
+      "type": "mc",
+      "text": "What is a <strong>project issue</strong>?",
+      "options": [
+        "An uncertain event that might happen later in the project",
+        "A positive opportunity the team could exploit",
+        "A risk with a score of 15 or more",
+        "An active problem happening right now that threatens scope, cost, or delivery time"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "An issue is an active problem happening <strong>right now</strong> (probability = 100%). A high-scoring risk is still a risk, since it hasn't happened yet."
+    },
+    {
+      "id": 5,
+      "type": "matching",
+      "text": "Match each property to a project risk or a project issue.",
+      "allChoices": [
+        "Project Risk",
+        "Project Issue"
+      ],
+      "pairs": [
+        { "term": "Probability < 100%", "match": "Project Risk" },
+        { "term": "Probability = 100%", "match": "Project Issue" },
+        { "term": "Proactive mitigation, contingency planning, risk buffers", "match": "Project Risk" },
+        { "term": "Reactive incident management, workarounds, escalation", "match": "Project Issue" },
+        { "term": "A third-party API's latency might spike during Black Friday", "match": "Project Risk" },
+        { "term": "A third-party API crashed at 2:00 AM and transactions are failing", "match": "Project Issue" }
+      ],
+      "points": 6,
+      "explanation": "A risk is future uncertainty (under 100% probability), handled proactively. An issue is present reality (100%), handled reactively."
+    },
+    {
+      "id": 6,
+      "type": "tf",
+      "text": "A project risk can have a positive impact on the project, not only a negative one.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True. A risk is an uncertain event that impacts scope, cost or schedule <strong>positively or negatively</strong>."
+    },
+    {
+      "id": 7,
+      "type": "mc",
+      "text": "A risk management saying goes: \"Beginners manage issues; senior PMs manage risks.\" A PM spends every sprint fire-fighting outages and urgent problems. What does this suggest about the project?",
+      "options": [
+        "The team is managing risks well",
+        "The risk management plan failed several sprints ago",
+        "The project has no risks left",
+        "Fire-fighting is the main job of a senior PM"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "\"Beginners manage issues; senior PMs manage risks.\" Constant fire-fighting means the risk management plan failed 3 sprints ago: the risks weren't caught before they became issues."
+    },
+    {
+      "id": 8,
+      "type": "drag-drop",
+      "text": "Put the steps of the PMBOK risk management lifecycle in order.",
+      "allChoices": [
+        "Plan Risk Management",
+        "Identify Risks",
+        "Perform Qualitative Analysis",
+        "Plan Risk Responses",
+        "Monitor & Control Risks"
+      ],
+      "pairs": [
+        { "term": "Step 1", "match": "Plan Risk Management" },
+        { "term": "Step 2", "match": "Identify Risks" },
+        { "term": "Step 3", "match": "Perform Qualitative Analysis" },
+        { "term": "Step 4", "match": "Plan Risk Responses" },
+        { "term": "Step 5", "match": "Monitor & Control Risks" }
+      ],
+      "points": 5,
+      "explanation": "Plan → Identify → Qualitative Analysis (P × I) → Plan Responses → Monitor & Control. It's iterative: monitoring continues across iterations."
+    },
+    {
+      "id": 9,
+      "type": "matching",
+      "text": "Match each risk management lifecycle step to what happens in it.",
+      "allChoices": [
+        "Define tools, team roles, and the risk budget",
+        "Brainstorming, SWOT analysis, Delphi technique",
+        "Assign Probability and Impact ratings; calculate Score = P × I",
+        "Select a strategy: Avoid, Mitigate, Transfer, or Accept",
+        "Track the Top 10 items list and audit residual risks across iterations"
+      ],
+      "pairs": [
+        { "term": "Plan Risk Management", "match": "Define tools, team roles, and the risk budget" },
+        { "term": "Identify Risks", "match": "Brainstorming, SWOT analysis, Delphi technique" },
+        { "term": "Perform Qualitative Analysis", "match": "Assign Probability and Impact ratings; calculate Score = P × I" },
+        { "term": "Plan Risk Responses", "match": "Select a strategy: Avoid, Mitigate, Transfer, or Accept" },
+        { "term": "Monitor & Control Risks", "match": "Track the Top 10 items list and audit residual risks across iterations" }
+      ],
+      "points": 5,
+      "explanation": "Each step has its own job: plan the approach and budget, identify risks (brainstorming, SWOT, Delphi), rate and score them, choose responses, then keep tracking them."
+    },
+    {
+      "id": 10,
+      "type": "msq",
+      "text": "Which techniques are used in the <strong>Identify Risks</strong> step? (Select all that apply.)",
+      "options": [
+        "Brainstorming",
+        "SWOT analysis",
+        "Delphi technique",
+        "Critical Path Method",
+        "Earned Value Analysis"
+      ],
+      "correctAnswer": [0, 1, 2],
+      "points": 1,
+      "explanation": "Risks are identified through <strong>brainstorming, SWOT analysis, and the Delphi technique</strong>. CPM is a scheduling method and EVA a cost and schedule control method."
+    },
+    {
+      "id": 11,
+      "type": "tf",
+      "text": "Risk management is a one-time activity done during project planning.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. It's an iterative, <strong>continuous</strong> process: Monitor & Control keeps tracking the Top 10 list and auditing residual risks across iterations."
+    },
+    {
+      "id": 12,
+      "type": "msq",
+      "text": "Which of these are columns in the standard IT Risk Register template? (Select all that apply.)",
+      "options": [
+        "Root Cause / Trigger",
+        "Risk Owner",
+        "Response Strategy",
+        "Category",
+        "Test Case ID"
+      ],
+      "correctAnswer": [0, 1, 2, 3],
+      "points": 1,
+      "explanation": "The register's columns are Risk ID, Category, Risk Event & Description, Root Cause / Trigger, Risk Owner, and Response Strategy. Test Case ID belongs in an RTM."
+    },
+    {
+      "id": 13,
+      "type": "matching",
+      "text": "Classify each risk by the category it would have in a risk register.",
+      "allChoices": [
+        "Technical",
+        "Organizational",
+        "External"
+      ],
+      "pairs": [
+        { "term": "Database failover sync latency exceeds the 500 ms SLA under peak read/write load", "match": "Technical" },
+        { "term": "The lead DevOps engineer resigns mid-deployment after being poached", "match": "Organizational" },
+        { "term": "The payment vendor deprecates its API v2 endpoint early", "match": "External" }
+      ],
+      "points": 3,
+      "explanation": "System behavior is a <strong>technical</strong> risk; losing staff is <strong>organizational</strong>; a vendor's product lifecycle change comes from outside the project, so it's <strong>external</strong>."
+    },
+    {
+      "id": 14,
+      "type": "mc",
+      "text": "A risk register lists the risk \"Lead DevOps engineer resigns mid-deployment\", with the trigger \"competitive tech market; talent poaching\". Which response is a mitigation?",
+      "options": [
+        "Sue the company that hired the engineer",
+        "Do nothing and hope the engineer stays",
+        "Cancel the deployment",
+        "Cross-train other engineers and document the CI/CD pipelines"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Cross-training and documenting CI/CD reduce the <strong>impact</strong> if the engineer leaves, which is mitigation. That's the response the standard register template uses for this risk."
+    },
+    {
+      "id": 15,
+      "type": "mc",
+      "text": "In qualitative risk analysis, how is a risk's exposure score calculated?",
+      "options": [
+        "Probability × Impact",
+        "Probability + Impact",
+        "Impact ÷ Probability",
+        "Probability × Cost"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Exposure Score = <strong>Probability × Impact (P × I)</strong>, each rated 1 to 5, so scores run from 1 to 25."
+    },
+    {
+      "id": 16,
+      "type": "mc",
+      "text": "A risk is rated Probability 3 and Impact 5 on a 1 to 5 scale. What is its exposure score, and which zone is it in?",
+      "options": [
+        "8, Yellow Zone",
+        "15, Yellow Zone",
+        "15, Red Zone",
+        "35, Red Zone"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "3 × 5 = <strong>15</strong>, which falls in the <strong>Red Zone (15 to 25)</strong>: critical, needs immediate mitigation and executive visibility."
+    },
+    {
+      "id": 17,
+      "type": "mc",
+      "text": "A risk is rated Probability 2 and Impact 3 on a 1 to 5 scale. What is its exposure score, and what should be done with it?",
+      "options": [
+        "5, Green Zone: close it, since it's too small to matter",
+        "6, Green Zone: keep it on a passive watch list and re-evaluate periodically",
+        "6, Yellow Zone: set up planned contingency triggers",
+        "6, Red Zone: stop work until it's mitigated"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "2 × 3 = <strong>6</strong>, in the <strong>Green Zone (1 to 6)</strong>: low, kept on a passive watch list and re-evaluated periodically. It isn't closed."
+    },
+    {
+      "id": 18,
+      "type": "matching",
+      "text": "Match each risk matrix zone to its score range.",
+      "allChoices": [
+        "15 to 25",
+        "8 to 12",
+        "1 to 6"
+      ],
+      "pairs": [
+        { "term": "Red Zone (Critical)", "match": "15 to 25" },
+        { "term": "Yellow Zone (Medium)", "match": "8 to 12" },
+        { "term": "Green Zone (Low)", "match": "1 to 6" }
+      ],
+      "points": 3,
+      "explanation": "Red = 15 to 25, Yellow = 8 to 12, Green = 1 to 6. (No P × I product on a 5 × 5 grid can be 7, 13 or 14, so every cell lands in a zone.)"
+    },
+    {
+      "id": 19,
+      "type": "matching",
+      "text": "Match each risk matrix zone to the action it requires.",
+      "allChoices": [
+        "Immediate mitigation and executive visibility; stop work if unmitigated",
+        "Active monitoring and planned contingency triggers",
+        "Passive watch list; re-evaluate periodically"
+      ],
+      "pairs": [
+        { "term": "Red Zone", "match": "Immediate mitigation and executive visibility; stop work if unmitigated" },
+        { "term": "Yellow Zone", "match": "Active monitoring and planned contingency triggers" },
+        { "term": "Green Zone", "match": "Passive watch list; re-evaluate periodically" }
+      ],
+      "points": 3,
+      "explanation": "The higher the zone, the more active the response: Red needs immediate mitigation and executive visibility, Yellow active monitoring and contingency triggers, Green a passive watch list."
+    },
+    {
+      "id": 20,
+      "type": "tf",
+      "text": "On the risk matrix, a Red Zone risk that remains unmitigated can be a reason to stop work.",
+      "options": ["True", "False"],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "True. Red Zone (15 to 25) risks need immediate mitigation and executive visibility; the guidance is to stop work if they stay unmitigated."
+    },
+    {
+      "id": 21,
+      "type": "matching",
+      "text": "Match each threat response strategy to what it does.",
+      "allChoices": [
+        "Eliminate the threat by changing scope or technical implementation",
+        "Reduce probability or impact before the failure occurs",
+        "Shift the financial or operational burden to a third party via contract",
+        "Acknowledge the risk without changing project plans"
+      ],
+      "pairs": [
+        { "term": "Avoid", "match": "Eliminate the threat by changing scope or technical implementation" },
+        { "term": "Mitigate", "match": "Reduce probability or impact before the failure occurs" },
+        { "term": "Transfer", "match": "Shift the financial or operational burden to a third party via contract" },
+        { "term": "Accept", "match": "Acknowledge the risk without changing project plans" }
+      ],
+      "points": 4,
+      "explanation": "Avoid = change path. Mitigate = reduce impact. Transfer = shift burden. Accept = reserve or watch."
+    },
+    {
+      "id": 22,
+      "type": "matching",
+      "text": "Match each IT action to the threat response strategy it represents.",
+      "allChoices": [
+        "Avoid",
+        "Mitigate",
+        "Transfer",
+        "Accept"
+      ],
+      "pairs": [
+        { "term": "Descope a risky microservice before release", "match": "Avoid" },
+        { "term": "Add a Redis cache layer and automated tests", "match": "Mitigate" },
+        { "term": "Buy cloud provider uptime insurance and SLAs", "match": "Transfer" },
+        { "term": "Reserve a $50k financial contingency fund", "match": "Accept" }
+      ],
+      "points": 4,
+      "explanation": "Descoping removes the threat (Avoid). A cache and tests lower probability and impact (Mitigate). Insurance and SLAs move the burden to the provider (Transfer). A contingency fund acknowledges the risk without changing the plan (Accept)."
+    },
+    {
+      "id": 23,
+      "type": "mc",
+      "text": "A team sets aside a $50,000 contingency fund for a risk but makes no changes to the project plan. Which response strategy is this?",
+      "options": [
+        "Avoid",
+        "Mitigate",
+        "Transfer",
+        "Accept"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "Reserving money while leaving the plan unchanged is <strong>Accept</strong> (reserve / watch). Nothing is done to lower the risk itself."
+    },
+    {
+      "id": 24,
+      "type": "mc",
+      "text": "A team drops a risky microservice from the release so the threat it posed no longer exists. Which response strategy is this?",
+      "options": [
+        "Avoid",
+        "Mitigate",
+        "Transfer",
+        "Accept"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Changing scope to eliminate the threat is <strong>Avoid</strong> (change path)."
+    },
+    {
+      "id": 25,
+      "type": "tf",
+      "text": "Transferring a risk to a cloud provider through an SLA makes the risk disappear entirely.",
+      "options": ["True", "False"],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "False. Transfer shifts the <strong>financial or operational burden</strong> to a third party; the event can still happen. That's why transfer can leave high residual risk, e.g. an un-patched codebase that still crashes."
+    },
+    {
+      "id": 26,
+      "type": "mc",
+      "text": "Top Ten Risk Item Tracking is associated with which author's method?",
+      "options": [
+        "Schwalbe",
+        "Ishikawa",
+        "Pareto",
+        "Deming"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "It's the <strong>Schwalbe</strong> method, from Schwalbe's <em>Information Technology Project Management</em> (Chapter 11), the module's primary textbook."
+    },
+    {
+      "id": 27,
+      "type": "msq",
+      "text": "Which columns does a Top Ten Risk Item Tracking table include? (Select all that apply.)",
+      "options": [
+        "Current Rank",
+        "Previous Rank",
+        "Months in Top 10",
+        "Status / Action Taken",
+        "Exposure score in dollars"
+      ],
+      "correctAnswer": [0, 1, 2, 3],
+      "points": 1,
+      "explanation": "Columns: Risk Item Description, Current Rank, Previous Rank, Months in Top 10, and Status / Action Taken. Comparing current to previous rank shows whether a risk is rising or falling."
+    },
+    {
+      "id": 28,
+      "type": "mc",
+      "text": "Read the Top Ten tracking table above. Which risk has become more serious since the last review?",
+      "context": "<table><tr><th>Risk Item</th><th>Current Rank</th><th>Previous Rank</th><th>Months in Top 10</th><th>Status / Action Taken</th></tr><tr><td>Fraud API Latency Failures</td><td>1</td><td>3</td><td>2</td><td>Stress testing failed at 3k TPS; technical refactoring underway</td></tr><tr><td>Lead Cloud Architect Resignation</td><td>2</td><td>1</td><td>3</td><td>New hire onboarded; shadow period complete</td></tr><tr><td>DB Sync Failover Delay</td><td>3</td><td>NEW</td><td>1</td><td>Discovered during multi-region failover dry run</td></tr></table>",
+      "options": [
+        "Fraud API Latency Failures",
+        "Lead Cloud Architect Resignation",
+        "None of them; all ranks are falling",
+        "All three equally"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "Fraud API latency rose from rank 3 to <strong>rank 1</strong> after stress testing failed. The architect resignation fell from 1 to 2 (rank declining after the new hire), and DB sync is a new entry."
+    },
+    {
+      "id": 29,
+      "type": "mc",
+      "text": "Read the Top Ten tracking table above. What does \"NEW\" in the Previous Rank column mean for the DB Sync Failover Delay risk?",
+      "context": "<table><tr><th>Risk Item</th><th>Current Rank</th><th>Previous Rank</th><th>Months in Top 10</th><th>Status / Action Taken</th></tr><tr><td>Fraud API Latency Failures</td><td>1</td><td>3</td><td>2</td><td>Stress testing failed at 3k TPS; refactoring underway</td></tr><tr><td>Lead Cloud Architect Resignation</td><td>2</td><td>1</td><td>3</td><td>New hire onboarded; shadow period complete</td></tr><tr><td>DB Sync Failover Delay</td><td>3</td><td>NEW</td><td>1</td><td>Discovered during multi-region failover dry run</td></tr></table>",
+      "options": [
+        "It was resolved this month",
+        "It has turned into an issue",
+        "It was ranked number 1 last month",
+        "It entered the Top 10 for the first time this period, after being discovered in a failover dry run"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "\"NEW\" means it had no previous rank: it was just discovered (during the multi-region failover dry run) and has been in the Top 10 for 1 month."
+    },
+    {
+      "id": 30,
+      "type": "mc",
+      "text": "A payment platform's fraud-check API times out above 3,000 transactions per second. The team rates the risk Probability 4 (High) and Impact 5 (Critical). What is its score and zone?",
+      "options": [
+        "9, Yellow Zone",
+        "16, Red Zone",
+        "20, Red Zone",
+        "20, Yellow Zone"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "4 × 5 = <strong>20</strong>, in the <strong>Red Zone</strong> (15 to 25): critical, needing immediate mitigation and executive visibility."
+    },
+    {
+      "id": 31,
+      "type": "mc",
+      "text": "Read the case above. Which option leaves the <strong>lowest residual risk</strong> while keeping the system online?",
+      "context": "<p><strong>Project PayFlow</strong> must be ready for 10,000 TPS in 6 weeks for Black Friday, and the launch window cannot move. The FraudGuard API times out (over 2500 ms) above 3,000 TPS. Risk score: 20 (Red Zone).</p><table><tr><th>Option</th><th>Schedule</th><th>Cost</th><th>Scope & Quality</th><th>Residual Risk</th></tr><tr><td>A: Bypass fraud checks</td><td>Fast (1 to 2 days)</td><td>Low initial cost</td><td>Violates security compliance</td><td>High security & fraud exposure</td></tr><tr><td>B: Async queue + Redis</td><td>Requires 2 sprints</td><td>Medium dev effort</td><td>Defer non-critical UI features</td><td>Low; system stays online</td></tr><tr><td>C: Enforce contract SLA</td><td>Zero dev time</td><td>Legal & admin effort</td><td>Codebase un-patched</td><td>High operational crash risk</td></tr><tr><td>D: Hold $100k cash reserve</td><td>Zero schedule change</td><td>$100k reserve lockup</td><td>No technical change</td><td>Severe reputational damage</td></tr></table>",
+      "options": [
+        "A: Bypass fraud checks",
+        "B: Async queue + Redis",
+        "C: Enforce contract SLA",
+        "D: Hold $100k cash reserve"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Only <strong>B</strong> has low residual exposure (the system stays online). Its cost is 2 sprints and deferring non-critical UI features, which still fits the 6-week window."
+    },
+    {
+      "id": 32,
+      "type": "matching",
+      "text": "A payment platform's fraud-check API times out under heavy load, weeks before a launch that can't move. Match each proposed response to its strategy category.",
+      "allChoices": [
+        "Avoidance",
+        "Mitigation",
+        "Transfer",
+        "Acceptance"
+      ],
+      "pairs": [
+        { "term": "Bypass the fraud checks entirely", "match": "Avoidance" },
+        { "term": "Add an async queue and a Redis cache", "match": "Mitigation" },
+        { "term": "Enforce the vendor's contract SLA", "match": "Transfer" },
+        { "term": "Hold a $100k cash reserve", "match": "Acceptance" }
+      ],
+      "points": 4,
+      "explanation": "Bypassing removes the dependency (avoid). Queue and cache reduce the impact (mitigate). The SLA pushes the burden onto the vendor (transfer). A cash reserve absorbs the loss without changing anything (accept)."
+    },
+    {
+      "id": 33,
+      "type": "mc",
+      "text": "To meet a launch date, someone proposes bypassing a payment platform's fraud checks, which are timing out under load. It could be done in 1 to 2 days at low cost. What is the main problem with it?",
+      "options": [
+        "It takes too long to implement",
+        "It violates security compliance and leaves high security and fraud exposure",
+        "It requires deferring UI features",
+        "It locks up a large cash reserve"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Bypassing fraud checks is fast and cheap, but it <strong>violates security compliance</strong> and leaves <strong>high security and fraud exposure</strong>, so the residual risk is high."
+    },
+    {
+      "id": 34,
+      "type": "mc",
+      "text": "A team responds to a vendor API that crashes under load by enforcing the vendor's contract SLA instead of changing any code. What residual risk remains?",
+      "options": [
+        "None, since the vendor is now responsible",
+        "High operational crash risk, since the codebase stays un-patched",
+        "Severe schedule delay from 2 extra sprints",
+        "Violation of security compliance"
+      ],
+      "correctAnswer": 1,
+      "points": 1,
+      "explanation": "Transfer via SLA takes zero dev time but leaves the <strong>codebase un-patched</strong>, so there's still a <strong>high operational crash risk</strong>. The SLA only shifts who pays."
+    },
+    {
+      "id": 35,
+      "type": "mc",
+      "text": "A PM chooses to fix a critical API latency risk with an async queue and Redis cache, which takes 2 engineering sprints. What trade-off must be negotiated with the VP of Marketing?",
+      "options": [
+        "Moving the launch date back",
+        "Removing fraud checks from the platform",
+        "Locking up a $100k cash reserve",
+        "Deferring (cutting) secondary, non-critical UI features"
+      ],
+      "correctAnswer": 3,
+      "points": 1,
+      "explanation": "The 2 sprints force cutting secondary UI features (\"defer non-critical UI features\"), so scope is negotiated rather than the hard launch window."
+    },
+    {
+      "id": 36,
+      "type": "mc",
+      "text": "A local Redis cache fallback is added to a financial platform to fix API latency. The response itself introduces a new risk. What is this kind of risk called?",
+      "options": [
+        "A secondary risk",
+        "A residual risk",
+        "An issue",
+        "An accepted risk"
+      ],
+      "correctAnswer": 0,
+      "points": 1,
+      "explanation": "A risk created by a risk response is a <strong>secondary risk</strong>. (A residual risk is what remains of the original risk after the response.)"
+    },
+    {
+      "id": 37,
+      "type": "mc",
+      "text": "What is the primary textbook chapter for Project Risk Management in this course?",
+      "options": [
+        "Dabrowski, Managing IT Projects, Chapter 3",
+        "PMBOK Guide (7th ed.), Chapter 1",
+        "Schwalbe, Information Technology Project Management (9th ed.), Chapter 11",
+        "Schwalbe, Information Technology Project Management (9th ed.), Chapter 8"
+      ],
+      "correctAnswer": 2,
+      "points": 1,
+      "explanation": "The primary textbook is Schwalbe (2019), <em>Information Technology Project Management</em>, 9th ed., <strong>Chapter 11: Project Risk Management</strong>. PMBOK 7th ed. is the professional standard and Dabrowski (2023) the industry reference."
+    }
+  ]
+}
