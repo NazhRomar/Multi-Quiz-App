@@ -5,6 +5,8 @@ import { useApp } from '../state/AppContext.jsx';
 import { useQuizOpener } from './useQuizOpener.js';
 import TermSection from '../components/menu/TermSection.jsx';
 import QuestionSearchResults from '../components/menu/QuestionSearchResults.jsx';
+import TopcitCard from '../components/menu/TopcitCard.jsx';
+import { TOPCIT_TERM_ID } from '../topcit/summary.js';
 import { checkForUpdate } from '../utils/appUpdate.js';
 
 // Every term/subject/quiz, inline, one screen — same shape the app always
@@ -28,7 +30,11 @@ export default function HomeScreen() {
   const terms = isSearching ? filterCatalog(search) : catalog;
   const questionMatches = useMemo(() => searchQuestions(search), [search]);
 
-  if (isSearching && terms.length === 0 && questionMatches.total === 0) {
+  // The TOPCIT card heads the Finals list; a search for it by name shows it
+  // on its own, since the Finals term may not match the search otherwise.
+  const topcitSearched = isSearching && /topcit/i.test(search);
+
+  if (isSearching && terms.length === 0 && questionMatches.total === 0 && !topcitSearched) {
     return <div className="menu-search-empty">No quizzes, questions or answers match &quot;{search}&quot;.</div>;
   }
 
@@ -40,7 +46,7 @@ export default function HomeScreen() {
   // Only the newest term with any quizzes starts open (a just-added, still
   // empty term doesn't take that spot until it has something in it).
   const openTermKey = catalog.find((t) => t.courses.length > 0)?.key;
-  const quizSections = terms.map((term) => (
+  const termSections = terms.map((term) => (
     <TermSection
       key={term.key}
       term={term}
@@ -48,8 +54,15 @@ export default function HomeScreen() {
       defaultCollapsed={term.key !== openTermKey}
       onOpen={(course, quiz) => openQuiz(term, course, quiz)}
       selection={selection}
+      featured={!isSearching && term.id === TOPCIT_TERM_ID ? <TopcitCard /> : null}
     />
   ));
+  const quizSections = (
+    <>
+      {topcitSearched && <TopcitCard />}
+      {termSections}
+    </>
+  );
   const questionSection = isSearching && questionMatches.total > 0 && (
     <QuestionSearchResults query={search} results={questionMatches.results} total={questionMatches.total} onOpen={openQuestionResult} />
   );

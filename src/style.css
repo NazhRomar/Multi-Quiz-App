@@ -1459,6 +1459,107 @@ body.theme-dark .review-status--partial {
   margin-bottom: 0;
 }
 
+/* Home's entry to the TOPCIT practice page (components/menu/TopcitCard.jsx),
+   at the top of the Finals list. Theme variables only, so every theme
+   recolors it. */
+.topcit-entry {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  width: 100%;
+  margin-bottom: 0.9rem;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-left-width: 5px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.topcit-entry:hover {
+  background: var(--radio-hover);
+  transform: translateY(-1px);
+}
+
+.topcit-entry:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.topcit-entry-mark {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+}
+
+.topcit-entry-mark svg {
+  cursor: inherit;
+}
+
+.topcit-entry-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.topcit-entry-text strong {
+  font-size: 1.02rem;
+}
+
+.topcit-entry-text span {
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--text-muted);
+}
+
+.topcit-entry-status {
+  flex-shrink: 0;
+  padding: 0.2rem 0.65rem;
+  border: 1px solid var(--accent);
+  border-radius: 99px;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.topcit-entry-go {
+  flex-shrink: 0;
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+/* Phones: the status drops under the text (in line with it) instead of
+   squeezing the description into a narrow column. */
+@media (max-width: 600px) {
+  .topcit-entry {
+    flex-wrap: wrap;
+  }
+
+  .topcit-entry-text {
+    flex-basis: calc(100% - 3.6rem);
+  }
+
+  .topcit-entry-status {
+    order: 3;
+    margin-left: calc(40px + 0.9rem);
+  }
+
+  .topcit-entry-go {
+    display: none;
+  }
+}
+
 /* The subject's title (name + count) on the left, its buttons (Notes,
    Multi mode's Select all) grouped on the right. The title wraps within
    its own column, so a long name never runs into the buttons. */

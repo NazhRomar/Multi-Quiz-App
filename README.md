@@ -94,6 +94,14 @@ thing that has to run before any route renders: pointing the address bar at what
 attempt `createInitialState()` already restored from `localStorage`, so a reload
 mid-attempt lands back on the matching URL instead of resetting to `/`.
 
+**TOPCIT practice (`/topcit`).** A standalone practice quiz that is *not* part of the quiz
+catalog: its 174 questions (objective, code tracing and self-graded descriptive) live in
+`src/topcit/bank.js`, with their own setup / quiz / results screens, mock exam, timer and
+resume. It is skinned with the app's theme variables (`topcit.css`), loads as its own lazy
+chunk, and keeps everything under the `quizApp_topcit` localStorage key. Home reaches it
+through the card at the top of the Finals list (`components/menu/TopcitCard.jsx`, which reads
+`topcit/summary.js` rather than the bank, so the bank stays out of the main bundle).
+
 ## Things worth knowing
 
 **Two axes on the home menu.** Single/Multi picks whether tapping a quiz opens it or

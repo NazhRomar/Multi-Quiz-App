@@ -11,6 +11,13 @@
 //   { label: 'Open Laravel notes', to: '/notes/laravel' }.
 export const FEATURES = [
   {
+    id: 'topcit-practice',
+    date: '2026-11-24',
+    title: 'TOPCIT practice quiz',
+    body: 'A practice quiz for the TOPCIT test, now at the top of the Finals list. Pick the domains and topics, then practise with instant feedback, sit a timed exam, or take a full mock exam. It keeps your progress and lets you resume where you left off.',
+    link: { label: 'Open TOPCIT', to: '/topcit' },
+  },
+  {
     id: 'pdf-notes',
     date: '2026-11-03',
     title: 'Original slides in Notes',

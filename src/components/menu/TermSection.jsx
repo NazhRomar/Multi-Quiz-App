@@ -3,7 +3,9 @@ import CourseCard from './CourseCard.jsx';
 
 // defaultCollapsed: whether the term starts folded before it's ever been
 // toggled (every term but the newest); a saved toggle overrides it.
-export default function TermSection({ term, onOpen, selection, forceExpanded = false, defaultCollapsed = false }) {
+// featured: something that sits at the top of the term, above its subjects
+// (Home's TOPCIT card).
+export default function TermSection({ term, onOpen, selection, forceExpanded = false, defaultCollapsed = false, featured = null }) {
   const { state, dispatch } = useApp();
   const savedCollapsed = state.collapsedTerms[term.key];
   const isFolded = savedCollapsed ?? defaultCollapsed;
@@ -20,6 +22,7 @@ export default function TermSection({ term, onOpen, selection, forceExpanded = f
         </span>
       </h2>
       <div className="term-content">
+        {featured}
         {term.courses.map((course) => (
           <CourseCard
             key={course.key}

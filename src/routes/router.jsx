@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { createHashRouter, Navigate } from 'react-router-dom';
 import RootLayout from './RootLayout.jsx';
 import BrowseLayout from './BrowseLayout.jsx';
@@ -6,6 +7,9 @@ import QuizSessionRoute from './QuizSessionRoute.jsx';
 import MultiSessionRoute from './MultiSessionRoute.jsx';
 import DevShowcaseRoute from './DevShowcaseRoute.jsx';
 import NotesRoute from './NotesRoute.jsx';
+
+// The TOPCIT practice page and its 174-question bank load only when opened.
+const TopcitRoute = lazy(() => import('../topcit/TopcitRoute.jsx'));
 
 // Hash-based (createHashRouter, not createBrowserRouter): GitHub Pages (the
 // primary deploy target, see .github/workflows/deploy.yml) has no server
@@ -28,6 +32,14 @@ export const router = createHashRouter([
       { path: '/multi/quiz', element: <MultiSessionRoute mode="quiz" /> },
       { path: '/multi/review', element: <MultiSessionRoute mode="review" /> },
       { path: '/notes/:noteSlug', element: <NotesRoute /> },
+      {
+        path: '/topcit',
+        element: (
+          <Suspense fallback={null}>
+            <TopcitRoute />
+          </Suspense>
+        ),
+      },
       { path: '/dev/showcase', element: <DevShowcaseRoute /> },
       { path: '*', element: <Navigate to="/" replace /> },
     ],
