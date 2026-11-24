@@ -31,15 +31,19 @@ export default function TopcitRoute() {
   const patchSession = useCallback((fn) => setStore((s) => (s.session ? { ...s, session: fn(s.session) } : s)), []);
 
   // A new quiz replaces whatever was in progress.
-  const begin = (ids, mode, limit) => {
-    setStore((s) => ({ ...s, session: newSession(ids, mode, limit, s.cfg) }));
+  const begin = (ids, mode, limit, label) => {
+    setStore((s) => ({ ...s, session: newSession(ids, mode, limit, s.cfg, label) }));
     show('quiz');
   };
 
   const start = () => {
-    const ids = plannedIds(store.cfg, store.stats);
-    if (!ids.length) return;
-    begin(ids, store.cfg.count === 'mock' ? 'exam' : store.cfg.mode, timeLimit(store.cfg, ids.length));
+    const go = () => {
+      const ids = plannedIds(store.cfg, store.stats);
+      if (ids.length) begin(ids, store.cfg.count === 'mock' ? 'exam' : store.cfg.mode, timeLimit(store.cfg, ids.length));
+    };
+    if (session && !session.done) {
+      ask('Start a new quiz?', `Your unfinished quiz (question ${session.cur + 1} of ${session.ids.length}) will be replaced.`, 'Start new', go);
+    } else go();
   };
 
   const finish = useCallback((timeUp = false) => setStore((s) => finishSession(s, timeUp)), []);
@@ -67,13 +71,16 @@ export default function TopcitRoute() {
     if (ended) show('results');
   }, [ended, show]);
 
-  const ask = (message, okLabel, onOk) => setConfirm({ message, okLabel, onOk });
+  const ask = (title, message, okLabel, onOk) => setConfirm({ title, message, okLabel, onOk });
 
+  // A retry is labelled by its mode, even after a mock exam.
+  const retryLabel = () => (session.mode === 'exam' ? 'Exam' : 'Practice');
   const retryMissed = (ids) => {
     if (!ids.length) return;
-    begin(store.cfg.shuffleQuestions ? shuffle(ids) : ids, session.mode, session.limit ? ids.length * 120 : 0);
+    begin(store.cfg.shuffleQuestions ? shuffle(ids) : ids, session.mode, session.limit ? ids.length * 120 : 0, retryLabel());
   };
-  const retrySame = () => begin(store.cfg.shuffleQuestions ? shuffle(session.ids) : session.ids.slice(), session.mode, session.limit);
+  const retrySame = () =>
+    begin(store.cfg.shuffleQuestions ? shuffle(session.ids) : session.ids.slice(), session.mode, session.limit, session.label);
 
   return (
     <div className="topcit">
@@ -99,7 +106,7 @@ export default function TopcitRoute() {
             patchSession={patchSession}
             onFinish={() => askToFinish(session, ask, finish)}
             onQuit={() =>
-              ask('Leave this quiz? Your answers are kept, and you can resume it from the start screen.', 'Leave', () => show('setup'))
+              ask('Leave this quiz?', 'Your answers are kept, and you can resume it from the start screen.', 'Leave', () => show('setup'))
             }
           />
         )}
@@ -112,7 +119,7 @@ export default function TopcitRoute() {
           onStart={start}
           onResume={() => show('quiz')}
           onReset={() =>
-            ask('Reset all saved progress and attempt history? This cannot be undone.', 'Reset', () =>
+            ask('Reset progress?', 'This clears your saved progress and attempt history. It cannot be undone.', 'Reset', () =>
               setStore((s) => ({ ...s, stats: {}, hist: [] }))
             )
           }
@@ -132,6 +139,7 @@ export default function TopcitRoute() {
 
       {confirm && (
         <ConfirmDialog
+          title={confirm.title}
           message={confirm.message}
           okLabel={confirm.okLabel}
           onOk={() => {
@@ -149,6 +157,6 @@ export default function TopcitRoute() {
 function askToFinish(session, ask, finish) {
   const unanswered = session.ids.filter((id) => !isAnswered(session, id)).length;
   const flagged = session.ids.filter((id) => session.flag[id]).length;
-  const notes = [unanswered && `${unanswered} unanswered.`, flagged && `${flagged} flagged.`].filter(Boolean).join(' ');
-  ask(`Finish and see results?${notes ? ` ${notes}` : ''}`, 'Finish', () => finish(false));
+  const notes = [unanswered && `${unanswered} unanswered`, flagged && `${flagged} flagged`].filter(Boolean).join(', ');
+  ask('Finish quiz?', notes ? `You have ${notes}. See your results anyway?` : 'See your results?', 'Finish', () => finish(false));
 }

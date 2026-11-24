@@ -29,7 +29,7 @@ export function QuizBar({ session: S, patchSession, onFinish, onQuit }) {
       <span className={`topcit-clock ${S.limit && left <= 120 ? 'topcit-clock--warn' : ''}`} title={S.limit ? 'Time left' : 'Elapsed'}>
         {mmss(S.limit ? left : S.el)}
       </span>
-      <button type="button" className="topcit-tool" aria-pressed={!!S.flag[id]} onClick={() => patchSession(toggleFlag)}>
+      <button type="button" className="topcit-tool topcit-tool--flag" aria-pressed={!!S.flag[id]} onClick={() => patchSession(toggleFlag)}>
         {S.flag[id] ? 'Flagged' : 'Flag'}
       </button>
       <button type="button" className="topcit-tool" onClick={onFinish}>
@@ -99,7 +99,7 @@ export default function TopcitQuiz({ session: S, patchSession, onFinish, dialogO
 
   return (
     <div className="topcit-wrap topcit-quiz">
-      <article className="topcit-q" key={id}>
+      <article className="topcit-q">
         <div className="topcit-qn" aria-hidden="true">
           {S.cur + 1}
         </div>
@@ -127,21 +127,24 @@ export default function TopcitQuiz({ session: S, patchSession, onFinish, dialogO
                   const lockedNow = practice && locked;
                   const status = lockedNow ? (oi === q.a ? 'reveal-correct' : S.ans[id] === oi ? 'reveal-wrong' : '') : '';
                   return (
-                    <label key={oi} className={`option-label ${status} ${lockedNow ? 'locked' : ''}`}>
-                      <input type="radio" name={`topcit-q${id}`} checked={S.ans[id] === oi} disabled={lockedNow} onChange={(e) => {
+                    <label key={oi} className={`option-label topcit-option ${status} ${lockedNow ? 'locked' : ''}`}>
+                      <input
+                        type="radio"
+                        name={`topcit-q${id}`}
+                        checked={S.ans[id] === oi}
+                        disabled={lockedNow}
+                        onChange={(e) => {
                           pick(oi);
                           // So the arrow keys move between questions, not between radios.
                           e.target.blur();
                         }}
                       />
-                      <span>
-                        <b className="topcit-letter">{LETTERS[slot]}.</b> {q.o[oi]}
-                      </span>
-                      {!lockedNow && (
-                        <kbd className="option-key" aria-hidden="true">
-                          {slot + 1}
-                        </kbd>
-                      )}
+                      {/* The letter doubles as the keycap: A–D answer, and the
+                          feedback and review name answers by it. */}
+                      <kbd className="topcit-letter" aria-hidden="true">
+                        {LETTERS[slot]}
+                      </kbd>
+                      <span>{q.o[oi]}</span>
                     </label>
                   );
                 })}
@@ -203,7 +206,9 @@ export default function TopcitQuiz({ session: S, patchSession, onFinish, dialogO
             <button type="button" className="btn-prev" onClick={() => go(S.cur - 1)} disabled={!S.cur}>
               Previous
             </button>
-            <button type="button" className="btn-next" onClick={() => (last ? onFinish() : go(S.cur + 1))}>
+            {/* Keyed on the label, so the app's flip plays when Next turns
+                into Finish quiz and not on every question. */}
+            <button key={last ? 'finish' : 'next'} type="button" className="btn-next" onClick={() => (last ? onFinish() : go(S.cur + 1))}>
               {last ? 'Finish quiz' : 'Next'}
             </button>
           </div>
@@ -217,7 +222,8 @@ export default function TopcitQuiz({ session: S, patchSession, onFinish, dialogO
           {S.ids.map((qid, i) => {
             const isDesc = QUESTIONS[qid].k === 'desc';
             const marked = practice && ((S.lock[qid] && !isDesc) || (isDesc && S.self[qid] !== undefined));
-            const state = marked ? (gradeOf(S, qid) === 1 ? 'ok' : 'bad') : isAnswered(S, qid) ? 'ans' : '';
+            const grade = gradeOf(S, qid);
+            const state = marked ? (grade === 1 ? 'ok' : grade > 0 ? 'part' : 'bad') : isAnswered(S, qid) ? 'ans' : '';
             return (
               <button
                 key={qid}
@@ -247,6 +253,12 @@ export default function TopcitQuiz({ session: S, patchSession, onFinish, dialogO
                 <i className="topcit-dot topcit-dot--bad" />
                 Wrong
               </span>
+              {S.ids.some((qid) => QUESTIONS[qid].k === 'desc') && (
+                <span>
+                  <i className="topcit-dot topcit-dot--part" />
+                  Partly
+                </span>
+              )}
             </>
           )}
           <span>

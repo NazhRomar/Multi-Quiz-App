@@ -160,7 +160,7 @@ export function timeLimit(cfg, n) {
 // ans: chosen option (index into the question's own options); lock: answer
 // shown (practice); self: 1 / 0.5 / 0 self-mark on a descriptive one;
 // txt: what was typed; perm: the order the options are shown in.
-export function newSession(ids, mode, limit, cfg) {
+export function newSession(ids, mode, limit, cfg, label) {
   const perm = {};
   for (const id of ids) {
     const q = QUESTIONS[id];
@@ -183,7 +183,7 @@ export function newSession(ids, mode, limit, cfg) {
     el: 0,
     done: false,
     at: Date.now(),
-    label: cfg.count === 'mock' ? 'Mock exam' : mode === 'exam' ? 'Exam' : 'Practice',
+    label: label || (cfg.count === 'mock' ? 'Mock exam' : mode === 'exam' ? 'Exam' : 'Practice'),
   };
 }
 

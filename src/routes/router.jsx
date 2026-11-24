@@ -35,7 +35,7 @@ export const router = createHashRouter([
       {
         path: '/topcit',
         element: (
-          <Suspense fallback={null}>
+          <Suspense fallback={<p className="notes-loading topcit-loading">Loading TOPCIT…</p>}>
             <TopcitRoute />
           </Suspense>
         ),

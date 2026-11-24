@@ -1500,6 +1500,19 @@ body.theme-dark .review-status--partial {
   color: #fff;
 }
 
+/* Dark themes' accents are too light under a white icon: their deeper
+   Next-button color, as the TOPCIT page's own filled controls use. */
+body.theme-dark .topcit-entry-mark {
+  background: var(--btn-next-bg, var(--accent));
+  border: 1px solid var(--accent);
+}
+
+/* Shown while the TOPCIT page's chunk loads (routes/router.jsx). */
+.topcit-loading {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
 .topcit-entry-mark svg {
   cursor: inherit;
 }

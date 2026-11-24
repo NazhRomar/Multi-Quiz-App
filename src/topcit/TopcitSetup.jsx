@@ -1,4 +1,5 @@
 import Seg from './Seg.jsx';
+import NumberField from './NumberField.jsx';
 import {
   DOMAINS,
   MOCK_TOTAL,
@@ -42,7 +43,9 @@ export default function TopcitSetup({ store, patchCfg, onStart, onResume, onRese
   };
   const setMode = (mode) => patchCfg(mode === 'practice' && mock ? { mode, count: 20 } : { mode });
 
-  const countNote = mock
+  const countNote = !mock && poolSize === 0
+    ? 'No questions match. Choose at least one topic and question type, or another question pool.'
+    : mock
     ? `Mock exam follows the 2026 blueprint: 15 objective questions per domain plus 7 descriptive (2, 2, 1, 2), exam mode, 2 minutes per question. Performance tasks are not simulated. Topic and type choices are ignored.`
     : (typeof cfg.count === 'number' || cfg.count === 'custom') && size < (cfg.count === 'custom' ? cfg.custom : cfg.count)
       ? `Only ${size} questions match your filters, so the quiz will use all of them.`
@@ -71,10 +74,10 @@ export default function TopcitSetup({ store, patchCfg, onStart, onResume, onRese
         <section className="topcit-panel" aria-labelledby="topcit-topics">
           <div className="topcit-panel-head">
             <h3 id="topcit-topics">Domains and topics</h3>
-            <button type="button" className="topcit-link" onClick={() => setTopics(allKeys)}>
+            <button type="button" className="topcit-link" onClick={() => setTopics(allKeys)} disabled={mock}>
               Select all
             </button>
-            <button type="button" className="topcit-link" onClick={() => setTopics([])}>
+            <button type="button" className="topcit-link" onClick={() => setTopics([])} disabled={mock}>
               Clear
             </button>
           </div>
@@ -120,15 +123,7 @@ export default function TopcitSetup({ store, patchCfg, onStart, onResume, onRese
               ]}
             />
             {cfg.count === 'custom' && (
-              <input
-                className="topcit-num"
-                type="number"
-                min="1"
-                max={QUESTIONS.length}
-                value={cfg.custom}
-                onChange={(e) => patchCfg({ custom: Math.max(1, Math.floor(Number(e.target.value)) || 1) })}
-                aria-label="Custom number of questions"
-              />
+              <NumberField label="Custom number of questions" unit="questions" min={1} max={QUESTIONS.length} value={cfg.custom} onChange={(custom) => patchCfg({ custom })} />
             )}
             {countNote && <p className="topcit-note">{countNote}</p>}
           </div>
@@ -193,18 +188,7 @@ export default function TopcitSetup({ store, patchCfg, onStart, onResume, onRese
               ]}
             />
             {cfg.timer === 'custom' && !mock && (
-              <span className="topcit-minutes">
-                <input
-                  className="topcit-num"
-                  type="number"
-                  min="1"
-                  max="300"
-                  value={cfg.minutes}
-                  onChange={(e) => patchCfg({ minutes: Math.max(1, Math.floor(Number(e.target.value)) || 1) })}
-                  aria-label="Minutes"
-                />{' '}
-                min
-              </span>
+              <NumberField label="Time limit in minutes" unit="minutes" min={1} max={300} value={cfg.minutes} onChange={(minutes) => patchCfg({ minutes })} />
             )}
             <p className="topcit-note">
               {limit

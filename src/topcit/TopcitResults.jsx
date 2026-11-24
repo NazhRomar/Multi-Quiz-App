@@ -39,17 +39,19 @@ export default function TopcitResults({ session: S, onRetryMissed, onRetrySame, 
   return (
     <div className="topcit-wrap">
       <div className="topcit-results">
-        <section className="topcit-panel topcit-score">
-          <p className="topcit-muted">
-            {S.label}, {n} questions, {mmss(S.el)}
-            {S.timeUp ? ', time ran out' : ''}
-          </p>
-          <div className={`result-tone--${toneOf(percent)}`}>
+        <section className={`topcit-panel topcit-score result-tone--${toneOf(percent)}`}>
+          <div className="topcit-score-top">
             <ScoreRing percentage={Math.round(percent)} />
+            <div>
+              <h2 className="topcit-score-line">
+                {fmt(score)} of {n} correct
+              </h2>
+              <p className="topcit-muted">
+                {S.label} · {n} questions · {mmss(S.el)}
+              </p>
+              {S.timeUp && <p className="topcit-timeup">Time ran out</p>}
+            </div>
           </div>
-          <h2 className="topcit-score-line">
-            {fmt(score)} of {n} correct
-          </h2>
           <div className="topcit-go">
             <button type="button" className="btn-next" onClick={() => onRetryMissed(missedIds)} disabled={!missedIds.length}>
               {missedIds.length ? `Retry missed (${missedIds.length})` : 'Retry missed'}
